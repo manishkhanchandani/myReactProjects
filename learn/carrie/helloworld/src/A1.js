@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
-import A1 from './A1.js';
 
-class App extends Component {
+class A1 extends Component {
   render() {
     return (
       <div>
-	  	hello world
-		
-		<A1 />
+	  	This is A1 component
       </div>
     );
   }
 }
 
-export default App;
+export default A1;
