@@ -10,4 +10,4 @@ class A2 extends Component {
     }
 }
 
-export dafault A2;
+export default A2;
