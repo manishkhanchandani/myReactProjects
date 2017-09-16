@@ -1,10 +1,17 @@
 import React, {Component} from 'react';
 
+import './A2.css';
+
 class A2 extends Component {
     render (){
         return (
-        <div>
-            This A2 Component
+        <div className="container">
+
+          <div className="starter-template">
+            <h1>Bootstrap starter template</h1>
+            <p className="lead">Use this document as a way to quickly start any new project.<br /> All you get is this text and a mostly barebones HTML document.</p>
+          </div>
+
         </div>    
         );
     }
