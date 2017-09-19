@@ -47,3 +47,46 @@ Task 2
 5. Create A2.css
 
 6. import './A2.css'; //this part has to be called in A2.js
+
+
+
+Task 3
+
+Props 
+
+Pass the values to components
+
+1. Create a component called as A11.js
+2. And put following html code inside that:
+<span className="label label-default">{this.props.name} - {this.props.age} / {this.props.gender}</span>
+
+3. Import this component in App.js
+4. Call this component multiple with different values as follows:
+		<A11 name="Kate" age="22" gender="Female" />
+		<A11 name="Carrie" age="23" gender="Female" />
+		<A11 name="DJ" age="24" gender="Male" />
+		<A11 name="Tony" age="25" gender="Male" />
+		
+		And run the app.
+
+Looping, for looping,
+varible from props,
+
+City, state, country
+
+var myStyle = {
+         fontSize: 100,
+         color: '#FF0000'
+      }
+
+<h1 style={myStyle}>Header</h1>
+
+
+
+
+
+
+
+
+
+
