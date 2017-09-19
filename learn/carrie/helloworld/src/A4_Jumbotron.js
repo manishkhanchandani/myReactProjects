@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class A4Jumbotron from './A4Jumbotron.js' {
+class A4_Jumbotron extends Component {
   render() {
     return (
       <div className="jumbotron">
