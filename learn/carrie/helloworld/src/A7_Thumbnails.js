@@ -13,4 +13,4 @@ class A7_Thumbnails extends Component {
   }
 }
 
-export default A7Thumbnails;
+export default A7_Thumbnails;

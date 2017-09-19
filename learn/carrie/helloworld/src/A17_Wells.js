@@ -15,4 +15,4 @@ class A17_Wells extends Component {
   }
 }
 
-export default A17Wells;
+export default A17_Wells;

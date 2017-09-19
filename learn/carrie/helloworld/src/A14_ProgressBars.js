@@ -12,4 +12,4 @@ class A14_ProgressBars extends Component {
   }
 }
 
-export default A14ProgressBars;
+export default A14_ProgressBars;

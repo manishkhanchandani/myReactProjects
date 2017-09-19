@@ -20,4 +20,4 @@ class A9_Badges extends Component {
   }
 }
 
-export default A9Badges;
+export default A9_Badges;

@@ -49,4 +49,4 @@ class A5_Buttons extends Component {
   }
 }
 
-export default A5Buttons;
+export default A5_Buttons;

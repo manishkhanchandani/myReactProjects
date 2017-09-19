@@ -11,4 +11,4 @@ class A4_Jumbotron extends Component {
   }
 }
 
-export default A4Jumbotron;
+export default A4_Jumbotron;

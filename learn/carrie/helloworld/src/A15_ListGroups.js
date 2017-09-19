@@ -50,4 +50,4 @@ class A15_ListGroups extends Component {
   }
 }
 
-export default A15ListGroups;
+export default A15_ListGroups;

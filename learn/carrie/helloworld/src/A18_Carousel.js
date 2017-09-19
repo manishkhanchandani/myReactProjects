@@ -38,4 +38,4 @@ class A18_Carousel extends Component {
   }
 }
 
-export default A18Carousel;
+export default A18_Carousel;

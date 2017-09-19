@@ -22,4 +22,4 @@ class A10_DropdownMenus extends Component {
   }
 }
 
-export default A10DropdownMenus;
+export default A10_DropdownMenus;

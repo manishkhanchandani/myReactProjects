@@ -22,4 +22,4 @@ class A11_Navs extends Component {
   }
 }
 
-export default A11Navs;
+export default A11_Navs;

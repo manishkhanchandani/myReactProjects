@@ -24,4 +24,4 @@ class A13_Alerts extends Component {
   }
 }
 
-export default A13Alerts;
+export default A13_Alerts;

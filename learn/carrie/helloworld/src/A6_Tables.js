@@ -148,4 +148,4 @@ class A6_Tables extends Component {
   }
 }
 
-export default A6Tables;
+export default A6_Tables;

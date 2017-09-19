@@ -78,4 +78,4 @@ class A12_Navbars extends Component {
   }
 }
 
-export default A12Navbars;
+export default A12_Navbars;

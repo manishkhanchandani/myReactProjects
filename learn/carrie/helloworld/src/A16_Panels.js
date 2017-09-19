@@ -68,4 +68,4 @@ class A16_Panels extends Component {
   }
 }
 
-export default A16Panels;
+export default A16_Panels;

@@ -68,4 +68,4 @@ class A8_Labels extends Component {
   }
 }
 
-export default A8Labels;
+export default A8_Labels;
