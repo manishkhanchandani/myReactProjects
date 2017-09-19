@@ -4,10 +4,10 @@ class A11 extends Component {
   render() {
     return (
 		<div>
-			<span class="name" >
+			<span className="label label-default">{this.props.name} - {this.props.age} / {this.props.gender} - {this.props.city} - {this.props.state} - {this.props.country}</span>
 		</div>
     );
   }
 }
 
-export default A1;
+export default A11;
