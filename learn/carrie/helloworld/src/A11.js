@@ -4,7 +4,12 @@ class A11 extends Component {
   render() {
     return (
 		<div>
-			<span className="label label-default">{this.props.name} - {this.props.age} - {this.props.gender} - {this.props.city} - {this.props.state} - {this.props.country}</span>
+		<h1>{this.props.name}</h1>
+		<p><b>Age: {this.props.age}</b></p>
+		<p><b>Gender: {this.props.gender}</b></p>
+		<p><b>City: {this.props.city}</b></p>
+		<p><b>State: {this.props.state}</b></p>
+		<p><b>Country: {this.props.country}</b></p>
 		</div>
     );
   }
