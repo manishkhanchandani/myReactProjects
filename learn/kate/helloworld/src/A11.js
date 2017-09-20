@@ -4,10 +4,11 @@ import React, { Component } from 'react';
 class A11 extends Component {
   render() {
     return (
-			
-			<span className="label label-default">{this.props.name} - {this.props.age} / {this.props.gender} / {this.props.city} / {this.props.country} </span>
-      
-
+			<div>
+			<h1>{this.props.name}</h1>
+			<p><b>age:</b> {this.props.age}</p>
+		
+      </div>
     );
   }
 }
