@@ -5,16 +5,23 @@ import A11 from './A11.js';
 
 class App extends Component {
   render() {
-    return (
-      <div >
-        {/*<A1 /> <A3 />*/}
-        
-        <div >
-		<A11 name="Kate" age="22" gender="Female" city="San Jose" state="" country="USA" />
-		<A11 name="Carrie" age="23" gender="Female" city="Cupertino" state="" country="USA" />
-		<A11 name="DJ" age="24" gender="Male" city="San Francisco" state="" country="USA"/>
-		<A11 name="Tony" age="25" gender="Male" city="Sunnyvale" state="" country="USA"/>
-      </div>
+        var myData =[
+          {name: 'Dj', age: 30, gender: 'M', city: 'San Francisco', state: 'CA', country: 'US'},
+          {name: 'Carrie', age: 23, gender: 'F', city: 'Sunnyvale', state: 'CA', country: 'US'},
+          {name: 'Kate', age: 23, gender: 'F', city: 'Sunnyvale', state: 'CA', country: 'US'},
+          {name: 'Tony', age: 23, gender: 'M', city: 'Sunnyvale', state: 'CA', country: 'US'},
+          {name: 'Manny', age: 23, gender: 'M', city: 'Sunnyvale', state: 'CA', country: 'US'}
+        ];
+      
+        console.log(myData);
+      
+        return (
+            <div>
+            <A11 {...myData[0]} />
+            <A11 {...myData[1]} />
+            <A11 {...myData[2]} />
+            <A11 {...myData[3]} />
+            <A11 {...myData[4]} />
         
       </div>
     );
