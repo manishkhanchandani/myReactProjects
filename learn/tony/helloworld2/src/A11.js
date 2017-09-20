@@ -3,9 +3,15 @@ import React, { Component } from 'react';
 class A11 extends Component {
   render() {
     return (
-      <span className="label label-default" >{this.props.name} / {this.props.age} / {this.props.gender} / {this.props.city} / {this.props.state} / {this.props.country}</span>
+      <div>
+        <h1>{this.props.name}</h1>
+        <p><b>Age: </b> {this.props.age}</p>
+        <p><b>Gender: </b> {this.props.gender}</p>
+        <p><b>City: </b> {this.props.city}</p>
+        <p><b>State: </b> {this.props.state}</p>
+        <p><b>Country: </b> {this.props.country}</p>
+      </div>
     );
-    
   }
 }
 

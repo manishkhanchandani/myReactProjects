@@ -3,12 +3,21 @@ import A11 from './A11.js';
 
 class App extends Component {
   render() {
+      var myData = [
+        {name: 'kate', age: 23},
+        {name: 'carrie', age: 24},
+        {name: 'manny', age: 43},
+        {name: 'tony', age: 28},
+        {name: 'dj', age: 26}
+      ];
+
     return (
       <div>
-        <A11 name="Kate" age="22" gender="Female" city="San Jose" state="CA" country="USA"/>
-        <A11 name="Carrie" age="23" gender="Female" city="Berkeley" state="CA" country="USA" />
-        <A11 name="DJ" age="24" gender="Male" city="Freemont" state="CA" country="USA" />
-        <A11 name="Tony" age="25" gender="Male" city="Emeryville" state="CA" country="USA" />
+        <A11 {...myData[0]}  />
+        <A11 {...myData[1]}  />
+        <A11 {...myData[2]}  />
+        <A11 {...myData[3]}  />
+        <A11 {...myData[4]}  />
       </div>
     );
   }
