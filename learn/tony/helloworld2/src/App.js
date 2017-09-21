@@ -11,13 +11,14 @@ class App extends Component {
         {name: 'dj', age: 26}
       ];
 
+      myData.map(() => {})
     return (
       <div>
-        <A11 {...myData[0]}  />
-        <A11 {...myData[1]}  />
-        <A11 {...myData[2]}  />
-        <A11 {...myData[3]}  />
-        <A11 {...myData[4]}  />
+        {
+          myData.map((value, index) => {
+            return <A11 key={index} {..value} />
+          })
+        }
       </div>
     );
   }
