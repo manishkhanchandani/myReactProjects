@@ -1,32 +1,28 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
-import {sample} from '../actions/MyAction.js';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+
+import Navigation from './Navigation.js';
+import Home from './Home.js';
+import About from './About.js';
 
 class App extends Component {
   render() {
-	  console.log(this.props);
     return (
+      <Router>
       <div>
-	  	Hello World
-		<button onClick={() => {this.props.callSample()}}>Click Me</button><br /><br />
-		Data is {this.props.sample.data}
+        <Navigation />
+        <div className="header">this is my header <hr /></div>
+        
+        <Route exact={true} path="/" component={Home} />
+        <Route exact={true} path="/about" component={About} />
+        
+        
+        <div className="footer"><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><hr />this is my footer</div>
       </div>
+      </Router>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-	return {
-		sample: state.MyReducer
-	}
-};
 
-const mapDispatchToProps = (dispatch) => {
-	return {
-		callSample: () => {
-			dispatch(sample());	
-		}
-	}
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
