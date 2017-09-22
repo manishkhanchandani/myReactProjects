@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Navigation from './project1/Navigation.js';
-import Challenge from './project1/Challenge.js';
+import Container from './project1/Container.js';
 import './A2.css';
 
 class App extends Component {
@@ -8,7 +8,7 @@ class App extends Component {
 	return (
       <div>
 	  	<Navigation />
-	  	<Challenge />
+	  	<Container />
 
       </div>
     );

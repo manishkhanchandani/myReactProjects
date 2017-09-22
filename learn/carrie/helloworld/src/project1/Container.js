@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
+import SearchForm from './SearchForm.js';
 
-class Container extends Component {
+class Challenge extends Component {
 	render() {
 		return (	
-<div className="Container">
-	<div className="row">
-		<div className="col-md-6"><h3>Col 1</h3></div>
-		<div className="col-md-6"><h3>Col 2</h3></div>
-	</div>
-</div>
+		<div class="container">
+			<SearchForm />
+		</div>
 		);	
 	}
 }
 
-export default Container;
+export default Challenge;
