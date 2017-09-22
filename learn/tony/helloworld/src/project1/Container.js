@@ -5,7 +5,7 @@ class Container extends Component {
 		return (	
                         <div className="container">
                                 <div className="row">
-                                        <div classname="col=md-3"><h3>Search Food</h3>
+                                        <div className="col-md-3"><h3>Search Food</h3>
                                                 <form>
                                                         <div className="form-group">
                                                                 <label>Keyword</label>
