@@ -15,7 +15,7 @@ class Search extends Component {
 			<input type="text" className="form-control" id="location" placeholder="Enter "/>
 		  </div>
 		 
-		  <button type="submit" className="btn btn-default form-control">Submit</button>
+		  <button type="submit" className="btn btn-default btn-primary form-control">Submit</button>
 </form>
     );
   }
