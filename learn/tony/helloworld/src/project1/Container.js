@@ -9,7 +9,7 @@ class Container extends Component {
             <div className="container">
                 <div className="row">
                     <div className="col-md-3"><Search/></div>
-                    <div className="col-md-9"><h3>Col 2</h3></div>
+                    <div className="col-md-9"><h3>Results</h3></div>
                 </div>          
             </div>
         );	
