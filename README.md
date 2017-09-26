@@ -84,6 +84,31 @@ var myStyle = {
 
 
 
+ROUTING IN REACT
+
+1. npm install react-router-dom --save
+
+2. We will define different routes in any component
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+
+3. Wrap main div in app.js file with Router tag
+
+<Router> <div> </div></Router>
+
+4. Aim of Routing
+	/about	About page
+	/		Home page
+	/contact	Contact page
+	
+	Create all three components i.e. Home, About, Contact,
+	
+5. Import above 3 components in App.js
+import Home from './project2/Home.js';
+import About from './project2/About.js';
+import Contact from './project2/Contact.js';
+
+6. layout, it may have some header and some footer, i want to put some content inside this layout.
+
 
 
 
