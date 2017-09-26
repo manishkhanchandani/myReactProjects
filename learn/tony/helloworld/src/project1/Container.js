@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Search from './Search.js';
-
+import SearchResults from './SearchResults.js';
 
 
 class Container extends Component {
@@ -9,7 +9,7 @@ class Container extends Component {
             <div className="container">
                 <div className="row">
                     <div className="col-md-3"><Search/></div>
-                    <div className="col-md-9"><h3>Results</h3></div>
+                    <div className="col-md-9"><SearchResults/></div>
                 </div>          
             </div>
         );	

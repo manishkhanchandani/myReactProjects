@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
-import Navigation from './project1/Navigation.js';
-import Container from './project1/Container.js';
-import './A2.css';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+
+import Home from "./project2/Home.js";
+import About from "./project2/About.js";
+import Contact from "./project2/Contact.js";
 
 class App extends Component {
   render() {
     return (
-      <div>
-           <Navigation />
-           <Container />
-      </div>
+     <Router>
+        <div>
+            <h1>Header</h1>
+            <p><a href="/">Home></a> | <a href="/">About></a> | <a href="/">Contact></a></p>
+            <hr />
+            <hr />
+            <h1>Footer</h1>
+        </div>
+      </Router>
     );
   }
 }
