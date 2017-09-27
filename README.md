@@ -138,3 +138,13 @@ Master Detail
 
 100 project - this routing part
 
+
+Best Way
+	Git Pull
+	Git Commit
+	Git Push
+	
+Alternate Way
+	Git Commit
+	Git Pull
+	Git Push
