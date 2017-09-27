@@ -99,6 +99,8 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 	/about	About page
 	/		Home page
 	/contact	Contact page
+	/page1		Home Component
+	/page2 		Home Component
 	
 	Create all three components i.e. Home, About, Contact,
 	
@@ -110,8 +112,29 @@ import Contact from './project2/Contact.js';
 6. layout, it may have some header and some footer, i want to put some content inside this layout.
 
 
+npm start will run the browser and we can see our application in browser
+
+
+npm install is to install new utilities, new libraries
+
+
+7. import {BrowserRouter as Router, Route, Link} from 'react-router-dom'; 
+<Route exact={true} path="/" component={Home} />
+<Route exact={true} path="/about" component={About} />
+<Route exact={true} path="/contact" component={Contact} />
+<p><Link to="/">Home</Link> | <Link to="/about">About</Link> | <Link to="/contact">Contact</Link></p>
 
 
 
+List page
+	all the listings
+	
+	detail page
+	
+Master Detail
 
+	Master 
+		listings of cars, of real estate property
+
+100 project - this routing part
 
