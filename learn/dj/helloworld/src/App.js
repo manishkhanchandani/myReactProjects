@@ -6,6 +6,7 @@ import About from './project2/About.js';
 import Contact from './project2/Contact.js';
 import Listing from './project2/Listing.js';
 import Detail from './project2/Detail.js';
+import Detail from './project2/Results.js';
 
 class App extends Component {
   render() {
@@ -21,7 +22,9 @@ class App extends Component {
 				<Route exact={true} path="/contact" component={Contact} />
 				<Route exact={true} path="/listing" component={Listing} />
 				<Route exact={true} path="/detail/:id/:title/" component={Detail} />
-		
+				<Route exact={true} path="/results/:lat/:lng/:city/:state/:country/:county/:location/:keyword" component={Results} />
+	
+				
 			<hr />
 			<h1>Footer</h1>
 		  </div>

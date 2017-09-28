@@ -4,6 +4,8 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import Home from './project2/Home.js'
 import About from './project2/About.js'
 import Contact from './project2/Contact.js'
+import Listing from './project2/Listing.js';
+import Detail from './project2/Detail.js';
 
 
 
@@ -21,6 +23,8 @@ class App extends Component {
 			<Route exact={true} path="/" component={Home} />
 			<Route exact={true} path="/about" component={About} />
 			<Route exact={true} path="/contact" component={Contact} />
+			<Route exact={true} path="/listing" component={Listing} />
+            <Route exact={true} path="/detail/:id/:title" component={Detail} />
 						
 			<hr />
 			<h1>Footer</h1>
