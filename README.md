@@ -246,3 +246,41 @@ import {Redirect} from 'react-router-dom';
 
 
 		
+React Bootstrap
+npm install --save react-bootstrap
+
+React Router Bootsrap
+npm install -S react-router-bootstrap
+
+Navigation with react Router
+import {Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
+
+<Nav bsStyle="tabs" activeKey="1">
+  <LinkContainer to="/">
+  <NavItem eventKey="1">NavItem 1 content</NavItem>
+  </LinkContainer>
+  <LinkContainer to="/about">
+  <NavItem eventKey="2" title="Item">About</NavItem>
+  </LinkContainer>
+  <LinkContainer to="/contact">
+  <NavItem eventKey="3" >Contact</NavItem>
+  </LinkContainer>
+  <NavDropdown eventKey="4" title="Dropdown" id="nav-dropdown">
+    <LinkContainer to="/">
+    <MenuItem eventKey="4.1">Action</MenuItem>
+    </LinkContainer>
+    <LinkContainer to="/about">
+    <MenuItem eventKey="4.2">Another action</MenuItem>
+    </LinkContainer>
+    <LinkContainer to="/contact">
+    <MenuItem eventKey="4.3">Something else here</MenuItem>
+    </LinkContainer>
+    <MenuItem divider />
+    <MenuItem eventKey="4.4">Separated link</MenuItem>
+  </NavDropdown>
+</Nav>
+
+or use
+import NavBar from './nav/NavBar.js';
+<NavBar />
