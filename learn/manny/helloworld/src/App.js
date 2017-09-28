@@ -18,7 +18,6 @@ class App extends Component {
 			<p><Link to="/">Home</Link> | <Link to="/about">About</Link> | <Link to="/contact">Contact</Link></p>
 			<hr />
 			
-			
 			<Route exact={true} path="/" component={Home} />
 			<Route exact={true} path="/about" component={About} />
 			<Route exact={true} path="/contact" component={Contact} />
@@ -26,7 +25,6 @@ class App extends Component {
 			<Route exact={true} path="/detail/:id/:title" component={Detail} />
 			<Route exact={true} path="/results/:lat/:lng/:city/:state/:country/:county/:location/:keyword" component={Results} />
 			<Route exact={true} path="/results/:lat/:lng/:city/:state/:country/:county/:location" component={Results} />
-			
 			
 			
 			
