@@ -3,8 +3,8 @@ import {createLogger} from 'redux-logger';
 import thunk from 'redux-thunk';
 import promise from 'redux-promise-middleware';
 
-import MyReducer from './reducers/MyReducer.js';
+import UserReducer from './reducers/UserReducer.js';
 
-const store = createStore(combineReducers({MyReducer}), {}, applyMiddleware(createLogger(), thunk, promise()));
+const store = createStore(combineReducers({UserReducer}), {}, applyMiddleware(createLogger(), thunk, promise()));
 
 export default store;

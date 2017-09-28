@@ -151,3 +151,89 @@ Alternate Way
 	
 	
 	https://github.com/brillout/awesome-react-components
+	
+	
+Search Results
+
+Keyword: 	indian food
+Location:	San jose, ca, us
+lat, lng, city, state, country, location, county
+
+	/results/lat/lng/city/state/country/county/location/keyword
+	
+	/results/17.32/32/san+jose/ca/us/santa+clara/san+jose,+ca,+us/indian+food
+
+food_donation
+	along
+	
+Components
+Routing
+	
+Phase 1
+Firebase api, and react
+
+1. Tutor Finder
+2. Handyman Finder
+3. Rental Homes
+4. Buy/Sell Homes
+5. Halloween Rentals
+6. Remedy Finder
+7. Freelance
+8. Ecommerce, buy products
+9. Car messaging service
+10. Doctor Service
+11. Lawyer Service
+
+
+carrie
+	1. Pet Adoption/Fostering
+	2. Ecommerce
+
+kate
+	1. Rental Home
+	2. Doctor Service
+	
+dj	
+	1. Freelance
+	2. Handyman Finder
+
+tony
+	1. Car Messaging Service
+	2. Halloween Rentals
+	
+manmy
+	1. Tutor Finder
+	2. Remedy Finder
+	
+tamil
+	1. Buy/Sell Homes
+	2. Lawyer Service
+
+
+food_donation
+
+	Planning
+	
+		who have extra food, they will ad on the website, 
+		
+		post the ad,
+			all the people near me can see that ad
+			
+		san jose, ca,
+			
+				kate mountain view 15 miles
+				carrie sunnyvale	5 miles
+				
+		1. login page
+		2. create post
+		3. all my post
+		4. edit any post
+		5. delete any post
+		6. search and result page
+		7. message
+		8. my account
+				
+git config credential.username 'Billy Everytee'
+
+	
+		
