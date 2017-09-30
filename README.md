@@ -284,3 +284,40 @@ import { LinkContainer } from 'react-router-bootstrap';
 or use
 import NavBar from './nav/NavBar.js';
 <NavBar />
+
+
+
+
+
+
+
+
+Left Side			Right side
+
+Seach Form			Results
+
+
+
+Steps to do for autocomplete
+
+Step 1: Install Autocomplete Module
+
+npm install react-google-autocomplete --save
+
+Step 2: We have to include google js file in our index.html
+
+<script src="https://maps.googleapis.com/maps/api/js?key=&libraries=places"
+        async defer></script>
+		
+Step 3: Go to component file and import following library
+
+import Autocomplete from 'react-google-autocomplete';
+
+<Autocomplete className="form-control" onPlaceSelected={(place) => {
+								console.log(place);  
+							}} types={['geocode']} />
+
+
+
+
+

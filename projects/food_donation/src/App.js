@@ -59,7 +59,7 @@ class App extends Component {
         <Route exact={true} path="/myaccount" component={MyAccount} />
         <Route exact={true} path="/chat" component={Chat} />
 		
-		<h1>footer</h1>
+		
       </div>
 	  </Router>
     );
