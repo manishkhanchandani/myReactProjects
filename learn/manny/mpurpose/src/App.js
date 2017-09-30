@@ -110,231 +110,112 @@ class App extends Component {
 			</div>
 		</div>
 
-        <div className="homepage-slider">
-        	<div id="sequence">
-				<ul className="sequence-canvas">
-					<li className="bg4">
-						<h2 className="title">Responsive</h2>
-						<h3 className="subtitle">It looks great on desktops, laptops, tablets and smartphones</h3>
-						<img className="slide-img" src="img/homepage-slider/slide1.png" alt="Slide 1" />
-					</li>
-					<li className="bg3">
-						<h2 className="title">Color Schemes</h2>
-						<h3 className="subtitle">Comes with 5 color schemes and its easy to make your own!</h3>
-						<img className="slide-img" src="img/homepage-slider/slide2.png" alt="Slide 2" />
-					</li>
-					<li className="bg1">
-						<h2 className="title">Feature Rich</h2>
-						<h3 className="subtitle">Huge amount of components and over 30 sample pages!</h3>
-						<img className="slide-img" src="img/homepage-slider/slide3.png" alt="Slide 3" />
-					</li>
-				</ul>
-				<div className="sequence-pagination-wrapper">
-					<ul className="sequence-pagination">
-						<li>1</li>
-						<li>2</li>
-						<li>3</li>
-					</ul>
-				</div>
-			</div>
-        </div>
-
-        <div className="section">
-	    	<div className="container">
-				<div className="row">
-					<div className="col-md-4 col-sm-6">
-						<div className="in-press press-wired">
-							<a href="#">Morbi eleifend congue elit nec sagittis. Praesent aliquam lobortis tellus, nec consequat vitae</a>
-						</div>
-					</div>
-					<div className="col-md-4 col-sm-6">
-						<div className="in-press press-mashable">
-							<a href="#">Morbi eleifend congue elit nec sagittis. Praesent aliquam lobortis tellus, nec consequat vitae</a>
-						</div>
-					</div>
-					<div className="col-md-4 col-sm-6">
-						<div className="in-press press-techcrunch">
-							<a href="#">Morbi eleifend congue elit nec sagittis. Praesent aliquam lobortis tellus, nec consequat vitae</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-        <div className="section">
-	        <div className="container">
-	        	<div className="row">
-	        		<div className="col-md-4 col-sm-6">
-	        			<div className="service-wrapper">
-		        			<img src="img/service-icon/diamond.png" alt="Service 1" />
-		        			<h3>Aliquam in adipiscing</h3>
-		        			<p>Praesent rhoncus mauris ac sollicitudin vehicula. Nam fringilla turpis turpis, at posuere turpis aliquet sit amet condimentum</p>
-		        			<a href="#" className="btn">Read more</a>
-		        		</div>
-	        		</div>
-	        		<div className="col-md-4 col-sm-6">
-	        			<div className="service-wrapper">
-		        			<img src="img/service-icon/ruler.png" alt="Service 2" />
-		        			<h3>Curabitur mollis</h3>
-		        			<p>Suspendisse eget libero mi. Fusce ligula orci, vulputate nec elit ultrices, ornare faucibus orci. Aenean lectus sapien, vehicula</p>
-		        			<a href="#" className="btn">Read more</a>
-		        		</div>
-	        		</div>
-	        		<div className="col-md-4 col-sm-6">
-	        			<div className="service-wrapper">
-		        			<img src="img/service-icon/box.png" alt="Service 3" />
-		        			<h3>Vivamus mattis</h3>
-		        			<p>Phasellus posuere et nisl ac commodo. Nulla facilisi. Sed tincidunt bibendum cursus. Aenean vulputate aliquam risus rutrum scelerisque</p>
-		        			<a href="#" className="btn">Read more</a>
-		        		</div>
-	        		</div>
-	        	</div>
-	        </div>
-	    </div>
-
-	    <div className="section section-white">
+        <div className="section section-breadcrumbs">
 			<div className="container">
 				<div className="row">
 					<div className="col-md-12">
-						<div className="calltoaction-wrapper">
-							<h3>Its a free multipurpose Bootstrap 3 template!</h3> <a href="http://www.dragdropsite.com" className="btn btn-orange">Download here!</a>
+						<h1>PORTFOLIO - 2 COLUMNS (OPTION 1)</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+        <div className="section">
+	    	<div className="container">
+				<div className="row">
+					<div className="col-sm-6">
+						<div className="portfolio-item">
+							<div className="portfolio-image">
+								<a href="page-portfolio-item.html"><img src="img/portfolio1.jpg" alt="Project Name"></a>
+							</div>
+							<div className="portfolio-info-fade">
+								<ul>
+									<li className="portfolio-project-name">Project Name</li>
+									<li>Website design & Development</li>
+									<li>Client: Some Client LTD</li>
+									<li className="read-more"><a href="page-portfolio-item.html" className="btn">Read more</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div className="col-sm-6">
+						<div className="portfolio-item">
+							<div className="portfolio-image">
+								<a href="page-portfolio-item.html"><img src="img/portfolio2.jpg" alt="Project Name"></a>
+							</div>
+							<div className="portfolio-info-fade">
+								<ul>
+									<li className="portfolio-project-name">Project Name</li>
+									<li>Website design & Development</li>
+									<li>Client: Some Client LTD</li>
+									<li className="read-more"><a href="page-portfolio-item.html" className="btn">Read more</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div className="col-sm-6">
+						<div className="portfolio-item">
+							<div className="portfolio-image">
+								<a href="page-portfolio-item.html"><img src="img/portfolio3.jpg" alt="Project Name"></a>
+							</div>
+							<div className="portfolio-info-fade">
+								<ul>
+									<li className="portfolio-project-name">Project Name</li>
+									<li>Website design & Development</li>
+									<li>Client: Some Client LTD</li>
+									<li className="read-more"><a href="page-portfolio-item.html" className="btn">Read more</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div className="col-sm-6">
+						<div className="portfolio-item">
+							<div className="portfolio-image">
+								<a href="page-portfolio-item.html"><img src="img/portfolio4.jpg" alt="Project Name"></a>
+							</div>
+							<div className="portfolio-info-fade">
+								<ul>
+									<li className="portfolio-project-name">Project Name</li>
+									<li>Website design & Development</li>
+									<li>Client: Some Client LTD</li>
+									<li className="read-more"><a href="page-portfolio-item.html" className="btn">Read more</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div className="col-sm-6">
+						<div className="portfolio-item">
+							<div className="portfolio-image">
+								<a href="page-portfolio-item.html"><img src="img/portfolio5.jpg" alt="Project Name"></a>
+							</div>
+							<div className="portfolio-info-fade">
+								<ul>
+									<li className="portfolio-project-name">Project Name</li>
+									<li>Website design & Development</li>
+									<li>Client: Some Client LTD</li>
+									<li className="read-more"><a href="page-portfolio-item.html" className="btn">Read more</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div className="col-sm-6">
+						<div className="portfolio-item">
+							<div className="portfolio-image">
+								<a href="page-portfolio-item.html"><img src="img/portfolio6.jpg" alt="Project Name"></a>
+							</div>
+							<div className="portfolio-info-fade">
+								<ul>
+									<li className="portfolio-project-name">Project Name</li>
+									<li>Website design & Development</li>
+									<li>Client: Some Client LTD</li>
+									<li className="read-more"><a href="page-portfolio-item.html" className="btn">Read more</a></li>
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-
-	    <div className="section">
-			<div className="container">
-				<h2>Testimonials</h2>
-				<div className="row">
-					<div className="testimonial col-md-4 col-sm-6">
-						<div className="author-photo">
-							<img src="img/user1.jpg" alt="Author 1" />
-						</div>
-						<div className="testimonial-bubble">
-							<blockquote>
-								<p className="quote">
-		                            "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut."
-                        		</p>
-                        		<cite className="author-info">
-                        			- Name Surname,<br />Managing Director at <a href="#">Some Company</a>
-                        		</cite>
-                        	</blockquote>
-                        	<div className="sprite arrow-speech-bubble"></div>
-                        </div>
-                    </div>
-                    <div className="testimonial col-md-4 col-sm-6">
-						<div className="author-photo">
-							<img src="img/user5.jpg" alt="Author 2" />
-						</div>
-						<div className="testimonial-bubble">
-							<blockquote>
-								<p className="quote">
-		                            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo."
-                        		</p>
-                        		<cite className="author-info">
-                        			- Name Surname,<br />Managing Director at <a href="#">Some Company</a>
-                        		</cite>
-                        	</blockquote>
-                        	<div className="sprite arrow-speech-bubble"></div>
-                        </div>
-                    </div>
-					<div className="testimonial col-md-4 col-sm-6">
-						<div className="author-photo">
-							<img src="img/user2.jpg" alt="Author 3" />
-						</div>
-						<div className="testimonial-bubble">
-							<blockquote>
-								<p className="quote">
-		                            "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-                        		</p>
-                        		<cite className="author-info">
-                        			- Name Surname,<br />Managing Director at <a href="#">Some Company</a>
-                        		</cite>
-                        	</blockquote>
-                        	<div className="sprite arrow-speech-bubble"></div>
-                        </div>
-                    </div>
-				</div>
-			</div>
-	    </div>
-
-	    <div className="section">
-	    	<div className="container">
-	    		<h2>Pricing</h2>
-	        	<div className="row">
-	        		<div className="pricing-wrapper col-md-12">
-						<div className="pricing-plan">
-							<div className="ribbon-wrapper">
-								<div className="price-ribbon ribbon-red">Popular</div>
-							</div>
-							<h2 className="pricing-plan-title">Starter</h2>
-							<p className="pricing-plan-price">FREE</p>
-							<ul className="pricing-plan-features">
-								<li><strong>1</strong> user</li>
-								<li><strong>Unlimited</strong> projects</li>
-								<li><strong>2GB</strong> storage</li>
-							</ul>
-							<a href="index.html" className="btn">Order Now</a>
-						</div>
-					    <div className="pricing-plan">
-							<h2 className="pricing-plan-title">Advanced</h2>
-							<p className="pricing-plan-price">$49<span>/mo</span></p>
-								<ul className="pricing-plan-features">
-									<li><strong>10</strong> users</li>
-									<li><strong>Unlimited</strong> projects</li>
-									<li><strong>20GB</strong> storage</li>
-								</ul>
-							<a href="index.html" className="btn">Order Now</a>
-					    </div>
-					    <div className="pricing-plan pricing-plan-promote">
-								<h2 className="pricing-plan-title">Premium</h2>
-								<p className="pricing-plan-price">$99<span>/mo</span></p>
-								<ul className="pricing-plan-features">
-									<li><strong>Unlimited</strong> users</li>
-									<li><strong>Unlimited</strong> projects</li>
-									<li><strong>100GB</strong> storage</li>
-								</ul>
-							<a href="index.html" className="btn">Order Now</a>
-					    </div>
-					    <div className="pricing-plan">
-							<div className="ribbon-wrapper">
-								<div className="price-ribbon ribbon-green">New</div>
-							</div>
-							<h2 className="pricing-plan-title">Mega</h2>
-							<p className="pricing-plan-price">$199<span>/mo</span></p>
-								<ul className="pricing-plan-features">
-									<li><strong>Unlimited</strong> users</li>
-									<li><strong>Unlimited</strong> projects</li>
-									<li><strong>100GB</strong> storage</li>
-								</ul>
-							<a href="index.html" className="btn">Order Now</a>
-					    </div>
-	        		</div>
-	        	</div>
-	    	</div>
-	    </div>
-
-	    <div className="section">
-	    	<div className="container">
-	    		<h2>Our Clients</h2>
-				<div className="clients-logo-wrapper text-center row">
-					<div className="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/canon.png" alt="Client Name" /></a></div>
-					<div className="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/cisco.png" alt="Client Name" /></a></div>
-					<div className="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/dell.png" alt="Client Name" /></a></div>
-					<div className="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/ea.png" alt="Client Name" /></a></div>
-					<div className="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/ebay.png" alt="Client Name" /></a></div>
-					<div className="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/facebook.png" alt="Client Name" /></a></div>
-					<div className="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/google.png" alt="Client Name" /></a></div>
-					<div className="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/hp.png" alt="Client Name" /></a></div>
-					<div className="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/microsoft.png" alt="Client Name" /></a></div>
-					<div className="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/mysql.png" alt="Client Name" /></a></div>
-					<div className="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/sony.png" alt="Client Name" /></a></div>
-					<div className="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/yahoo.png" alt="Client Name" /></a></div>
-				</div>
-			</div>
-	    </div>
 
 	    <div className="footer">
 	    	<div className="container">
