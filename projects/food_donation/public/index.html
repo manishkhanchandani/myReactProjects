@@ -41,5 +41,20 @@
 	<script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnERUhALUFNxWZsjaLpT4_nqIYW2i2jDU&libraries=places"></script>
+	<script>
+      $(document).on("keypress", 'form', function (e) {
+          var code = e.keyCode || e.which;
+          if (code == 13) {
+              var str = e.target.className;
+              var n = str.indexOf("addressBox");
+              if (n === -1) {
+                return true;
+              } else {
+                return false;
+              }
+              return true;
+          }
+      });
+      </script>
   </body>
 </html>

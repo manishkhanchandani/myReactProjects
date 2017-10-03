@@ -320,4 +320,24 @@ import Autocomplete from 'react-google-autocomplete';
 
 
 
+//ARROW FUNCTION es6 version of javascript
+
+function xyz() {
+	console.log('hello world');
+}
+
+() => {
+	console.log('hello world');
+}
+
+function xyz2(x1, x2) {
+	console.log('x1 is ', x1, ' and x2 is ', x2);
+}
+
+(x1, x2) => {
+	console.log('x1 is ', x1, ' and x2 is ', x2);
+}
+
+
+
 
