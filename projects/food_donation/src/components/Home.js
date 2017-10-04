@@ -14,7 +14,7 @@ class Home extends Component {
 							<input type="text" className="form-control" placeholder="Enter any Keyword" />
 						  </div>
 						  
-						  <Autocomplete className="form-control" onPlaceSelected={(place) => {
+						  <Autocomplete className="form-control addressBox" onPlaceSelected={(place) => {
 								console.log(place);
 								var componentForm = {
 									locality: 'long_name',
