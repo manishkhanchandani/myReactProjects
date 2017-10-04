@@ -17,8 +17,33 @@ class Home extends Component {
 						  
 						    <div className="form-group">
 							<label>Location</label>
-						    <Autocomplete className="form-control" onPlaceSelected={(place) => {
+						    <Autocomplete className="form-control addressBox" onPlaceSelected={(place) => {
 								console.log(place);  
+								var componentForm = {
+									locality: 'long_name',
+									administrative_area_level_1: 'short_name',
+									administrative_area_level_2: 'long_name',
+									country: 'short_name',
+								  };
+								
+								var obj ={};
+								
+								obj.formatted_address = place.formatted_address;
+								obj.lat = place.geometry.location.lat();
+								obj.lng= place.geometry.location.lng();
+								
+								 for (var i = 0; i < place.address_components.length; i++) {
+								  var addressType = place.address_components[i].types[0];
+								  if (componentForm[addressType]) {
+									var val = place.address_components[i][componentForm[addressType]];
+									obj[addressType] = val;
+								  }
+								}
+								
+								console.log(obj);
+								
+								
+								
 							}} types={['geocode']} />
 							</div>
 						  

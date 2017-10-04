@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import Autocomplete from 'react-google-autocomplete';
 
+import Results from './Results.js';
+
 class Home extends Component {
 	render() {
 		return (
@@ -14,7 +16,13 @@ class Home extends Component {
 							<input type="text" className="form-control" placeholder="Enter any Keyword" />
 						  </div>
 						  
-						  <Autocomplete className="form-control" onPlaceSelected={(place) => {
+						  <Autocomplete className="form-control addressBox" onPlaceSelected={(place) => {
+							  
+							  	if (!place.formatted_address) {
+									alert('please choose the address');
+									return null;
+								}
+								
 								console.log(place);
 								var componentForm = {
 									locality: 'long_name',
@@ -39,12 +47,24 @@ class Home extends Component {
 								
 								console.log(obj);
 							}} types={['geocode']} />
-						  
+						  <br />
 						  <button type="submit" className="btn btn-primary form-control">Search</button>
 						</form>
 					</div>
 					<div className="col-md-9">
 						<h3>Results</h3>
+						
+						<Results />
+						<Results />
+						<Results />
+						<Results />
+						<Results />
+						<Results />
+						<Results />
+						<Results />
+						
+						
+						
 					</div>
 				</div>
 			</div>
