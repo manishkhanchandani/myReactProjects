@@ -20,8 +20,8 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
-    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtpmuuN7EoN62rBbTIcqWAsM3u3jpHSNY&libraries=places"></script>
+    <link rel='stylesheet' href="/css/bootstrap.min.css" type="text/css">
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvXqWIcqyTVRgjXsVjDbdORcNaXHVjtOw&libraries=places"></script>
   </head>
   <body>
     <noscript>
@@ -38,24 +38,5 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-	
-	  <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-
-    <script>
-      $(document).on("keypress", 'form', function (e) {
-          var code = e.keyCode || e.which;
-          if (code == 13) {
-              var str = e.target.className;
-              var n = str.indexOf("addressBox");
-              if (n === -1) {
-                return true;
-              } else {
-                return false;
-              }
-              return true;
-          }
-      });
-      </script>
   </body>
 </html>
