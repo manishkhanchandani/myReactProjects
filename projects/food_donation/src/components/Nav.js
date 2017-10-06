@@ -23,7 +23,9 @@ class Nav extends Component {
 	
 	signOut(e) {
 		e.preventDefault();
-		
+		firebaseApp.auth().signOut().then(function() {
+												   
+		});
 		
 	}
 	
