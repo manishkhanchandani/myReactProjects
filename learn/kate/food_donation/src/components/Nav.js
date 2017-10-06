@@ -1,8 +1,51 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-
+import * as firebase from 'firebase';
+import {firebaseApp, firebaseDatabase} from   '../MyFirebase.js';
 
 class Nav extends Component {
+	
+		googleLogin(e) {
+
+		e.preventDefault();
+		
+		var provider = new firebase.auth.GoogleAuthProvider();
+	    firebaseApp.auth().signInWithPopup(provider).then(function(result) {
+		
+		var obj = {};
+		
+		obj.email = result.user.email;
+		
+		obj.displayName = result.user.displayName;
+		
+		obj.photoURL = result.user.photoURL;
+		
+		obj.uid = result.user.uid;
+		
+		obj.profile_uid = result.user.providerData[0].uid;
+		
+		obj.providerId = result.user.providerData[0].providerId;
+		
+		console.log('obj: ', obj);
+		
+		});
+		
+		
+		
+		}
+
+		
+		signOut(e) {
+		
+		e.preventDefault();
+		firebaseApp.auth().signOut().then(function(){
+												   
+												   console.log('signout');
+												   });
+	
+			
+		}
+	
 	render() {
 		return (
 <div>
@@ -25,11 +68,11 @@ class Nav extends Component {
 					<li className="dropdown">
 					  <a href="" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>
 					  <ul className="dropdown-menu">
-								<li><a href="">Google Login</a></li>
+								<li><a href="" onClick={this.googleLogin.bind(this)}>Google Login</a></li>
 								<li><a href="">Facebook Login</a></li>
 								<li><a href="">Twitter Login</a></li>
 								<li><a href="">GitHub Login</a></li>
-								<li><a href="">SignOut</a></li>
+								<li><a href="" onClick={this.signOut.bind(this)}>SignOut</a></li>
 					  </ul>
 					</li>
 				  </ul>
