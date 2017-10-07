@@ -6,9 +6,9 @@ import Results from './Results.js';
 class Home extends Component {
 	render() {
 		return (
-<div className="container">
-				<div className="row">
-					<div className="col-md-3">
+				<div className="container">
+					<div className="row">
+					<div className="col-md-3">  
 						<h3>Search</h3>
 						<form>
 						    <div className="form-group">
