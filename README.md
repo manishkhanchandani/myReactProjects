@@ -340,4 +340,44 @@ function xyz2(x1, x2) {
 
 
 
+Redux
+
+
+Install it or you have to write a code without understand - 
+
+There are few steps which you have to understand
+
+Steps 
+
+Step 1: Npm Intall
+
+npm install redux react-redux redux-logger redux-thunk redux-promise-middleware --save
+
+Some Concepts
+
+Variables - which I will use on all the components
+
+Variables are save in a "state" - and this state is present in store part of the dredux
+
+Store is saving the state (variables of our website)
+
+props to use this state in any of the component
+
+let's say i create a variable and i will save that variable as state and when i want to use that variable, i can use that as props.
+
+
+dispatch (send)
+
+	- it will dispatch or send the action to a function (reducers) -> save something or save variable in state and that state will go to store.
+
+
+Step 2: store.js
+
+
+
+
+
+
+
+
 
