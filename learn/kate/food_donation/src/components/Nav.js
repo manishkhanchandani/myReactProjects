@@ -10,7 +10,7 @@ class Nav extends Component {
 		e.preventDefault();
 		
 		var provider = new firebase.auth.GoogleAuthProvider();
-	    firebaseApp.auth().signInWithPopup(provider).then(function(result) {
+	    firebaseApp.auth().signInWithPopup(provider).then(function(result) {  
 		
 		var obj = {};
 		
