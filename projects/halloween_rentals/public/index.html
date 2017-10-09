@@ -21,7 +21,7 @@
     -->
     <title>Halloween Rentals</title>
     <link href="/css/bootstrap.css" rel="stylesheet" type="text/css">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcad2H7dslWZT_Yz_rHTHtAZT--OUFuXM&libraries=places"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtpmuuN7EoN62rBbTIcqWAsM3u3jpHSNY&libraries=places"></script>
   </head>
   <body>
     <noscript>
@@ -41,6 +41,21 @@
 	
 	  <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-    
+
+    <script>
+      $(document).on("keypress", 'form', function (e) {
+          var code = e.keyCode || e.which;
+          if (code == 13) {
+              var str = e.target.className;
+              var n = str.indexOf("addressBox");
+              if (n === -1) {
+                return true;
+              } else {
+                return false;
+              }
+              return true;
+          }
+      });
+      </script>
   </body>
 </html>
