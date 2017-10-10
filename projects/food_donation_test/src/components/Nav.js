@@ -36,13 +36,19 @@ class Nav extends Component {
 	
 	render() {
         console.log('nav props: ', this.props);
+        var createbox = [];
         var strLoggedIn = [];
+        var rightBox = [];
         if (this.props.myReducer.displayName) {
             strLoggedIn.push(<li key="1" className="myNavPos">{this.props.myReducer.displayName}</li>);
             strLoggedIn.push(<li key="2"><a href="" onClick={this.signOut.bind(this)}>SignOut</a></li>);
+            createbox.push(<li key="1"><Link to="/create">Create</Link></li>);
+            createbox.push(<li key="2"><Link to="/">My Account</Link></li>);
+            rightBox.push(<li key="1"><Link to="/">Messages</Link></li>);
         } else {
             strLoggedIn.push(<li key="3"><a href="" onClick={this.googleLogin.bind(this)}>Google Login</a></li>);
         }
+        
 		return (
 			<nav className="navbar navbar-inverse navbar-static-top">
 		  <div className="container">
@@ -58,7 +64,7 @@ class Nav extends Component {
 			<div id="navbar" className="navbar-collapse collapse">
 			  <ul className="nav navbar-nav">
 				<li className="active"><Link to="/">Home</Link></li>
-				<li><Link to="/create">Create</Link></li>
+				{createbox}
 				<li className="dropdown">
 				  <a href="" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User <span className="caret"></span></a>
 				  <ul className="dropdown-menu">
@@ -67,9 +73,7 @@ class Nav extends Component {
 				</li>
 			  </ul>
 			  <ul className="nav navbar-nav navbar-right">
-				<li><a href="../navbar/">Default</a></li>
-				<li className="active"><a href="./">Static top <span className="sr-only">(current)</span></a></li>
-				<li><a href="../navbar-fixed-top/">Fixed top</a></li>
+				{rightBox}
 			  </ul>
 			</div>
 		  </div>

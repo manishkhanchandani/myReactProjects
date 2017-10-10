@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
 import Autocomplete from 'react-google-autocomplete';
-
+import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom'; 
 
 class Create extends Component {
 	render() {
+        if (!this.props.myReducer.displayName) {
+            return <Redirect to="/" push={true} />;
+        }
 		return (
 			<div className="container">
 				<div className="row">
@@ -72,4 +76,17 @@ class Create extends Component {
 	}
 }
 
-export default Create;
+const mapStateToProps = (state) => {
+  return {
+    myReducer: state.MyReducer
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    
+  }
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Create);
