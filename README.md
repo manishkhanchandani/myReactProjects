@@ -375,6 +375,56 @@ Step 2: store.js
 
 
 
+dispatch -> Action -> Reducers -> Store (update) -> update all our components
+
+
+
+index.js, we will use method 1 to dispatch
+
+store.dispatch(loggedIn());
+
+In components, dispatch is called in a different way,
+
+
+
+
+
+Food Donation Create post
+
+
+	
+store.dispatch(blah());
+FoodAction.js
+	blah
+	
+FoodReducer.js
+	dfdkfjdkfjd
+	
+variables are stored in store.js
+
+and all components will get updated with the new variables.
+
+
+ajax has some new learning things, which i explain you later.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
