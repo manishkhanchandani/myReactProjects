@@ -1,0 +1,1 @@
+{"version":3,"sources":["style.css"],"names":[],"mappings":"AAAA,SACC,eAAiB,CAGlB,WACC,eAAiB","file":"static/css/main.808cecaf.css","sourcesContent":[".myImage {\n\tmax-width: 100px;\n}\n\n.mySpacing {\n\tmargin-top: 15px;\n}\n\n\n// WEBPACK FOOTER //\n// ./src/style.css"],"sourceRoot":""}

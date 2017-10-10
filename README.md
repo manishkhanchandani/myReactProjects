@@ -408,7 +408,13 @@ and all components will get updated with the new variables.
 ajax has some new learning things, which i explain you later.
 
 
+sudo npm install -g firebase-tools
 
+firebase login
+
+firebase init
+
+firebase deploy
 
 
 
