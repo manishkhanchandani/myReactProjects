@@ -1,7 +1,13 @@
 
+
 const MyReducer = (state = {
 
-user: null
+			email: null,
+			displayName:null,
+			photoURL: null,
+			uid: null,
+			profile_uid: null,
+			providerId:  null
 
 }, action) => {  
 	
@@ -12,9 +18,12 @@ user: null
 			state = {
 			
 			...state,
-			
-			user: action.payload
-			  
+			email: action.email,
+			displayName:action.displayName,
+			photoURL: action.photoURL,
+			uid: action.uid,
+			profile_uid: action.profile_uid,
+			providerId:  action.providerId
 			}
 			
 			break;
@@ -24,8 +33,14 @@ user: null
 			state = {
 			
 			...state,
+			email: null,
+			displayName:null,
+			photoURL: null,
+			uid: null,
+			profile_uid: null,
+			providerId:  null
 			
-			user: null
+		
 			
 			}
 			
@@ -37,7 +52,7 @@ user: null
 				
 				}
 				
-
+			return state;
 
 };
 
