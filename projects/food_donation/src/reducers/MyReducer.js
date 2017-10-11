@@ -1,4 +1,3 @@
-
 const MyReducer = (state = {
 	email: null,
 	displayName: null,
@@ -33,6 +32,8 @@ const MyReducer = (state = {
 		default:
 			break;
 	}
+	
+	return state;
 };
 
 export default MyReducer;
