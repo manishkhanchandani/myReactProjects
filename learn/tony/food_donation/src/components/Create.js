@@ -62,7 +62,7 @@ class Create extends Component {
 							  </div>
 							
 						  <br />
-						  <button type="submit" className="btn btn-primary form-control">Search</button>
+						  <button type="submit" className="btn btn-primary form-control">Create New Post</button>
 						</form>
 					</div>
 				</div>
