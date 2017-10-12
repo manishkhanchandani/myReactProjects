@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import * as firebase from 'firebase';
 import {firebaseApp, firebaseDatabase} from   '../MyFirebase.js';
+ import {connect} from 'react-redux';
 
 class Nav extends Component {
 	
@@ -26,7 +27,7 @@ class Nav extends Component {
 		
 		obj.providerId = result.user.providerData[0].providerId;
 		
-		console.log('obj: ', obj);
+		
 		
 		});
 		
@@ -47,6 +48,7 @@ class Nav extends Component {
 		}
 	
 	render() {
+		console.log(this.props.myReducer);
 		return (
 <div>
 <nav className="navbar navbar-inverse navbar-static-top">
@@ -69,9 +71,7 @@ class Nav extends Component {
 					  <a href="" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>
 					  <ul className="dropdown-menu">
 								<li><a href="" onClick={this.googleLogin.bind(this)}>Google Login</a></li>
-								<li><a href="">Facebook Login</a></li>
-								<li><a href="">Twitter Login</a></li>
-								<li><a href="">GitHub Login</a></li>
+								
 								<li><a href="" onClick={this.signOut.bind(this)}>SignOut</a></li>
 					  </ul>
 					</li>
@@ -90,4 +90,13 @@ class Nav extends Component {
 	}
 }
 
-export default Nav;
+const mapStateToProps = (state) => {
+	return {
+		myReducer: state.MyReducer
+		
+		}
+	
+	};
+
+
+export default connect(mapStateToProps)(Nav);

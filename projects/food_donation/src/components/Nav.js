@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom'; 
 
+import {connect} from 'react-redux';
+
 import * as firebase from 'firebase';
 import {firebaseApp, firebaseDatabase} from '../MyFirebase.js';
 
@@ -17,7 +19,6 @@ class Nav extends Component {
 			obj.uid = result.user.uid;
 			obj.profile_uid = result.user.providerData[0].uid;
 			obj.providerId = result.user.providerData[0].providerId;
-			console.log('obj: ', obj);
 		});
 	}
 	
@@ -30,6 +31,26 @@ class Nav extends Component {
 	}
 	
 	render() {
+		console.log('myReducer: ', this.props.myReducer);
+		
+		var showUser = [];
+		var navItem1 = [];
+		var rightSide = [];
+		
+		if (this.props.myReducer.uid) {
+			showUser.push(<li key="3" className="myName">{this.props.myReducer.displayName}</li>);
+			showUser.push(<li key="1"><a href="" onClick={this.signOut.bind(this)}>SignOut</a></li>);
+			
+			navItem1.push(<li key="1"><Link to="/create">Create</Link></li>);
+			navItem1.push(<li key="2"><Link to="/">My Account</Link></li>);
+			
+			
+			rightSide.push(<li key="1"><Link to="/">Messages</Link></li>);
+		} else {
+			showUser.push(<li key="2"><a href="" onClick={this.googleLogin.bind(this)}>Google Login</a></li>);
+		}
+
+		
 		return (
 			<nav className="navbar navbar-inverse navbar-static-top">
 		  <div className="container">
@@ -45,22 +66,16 @@ class Nav extends Component {
 			<div id="navbar" className="navbar-collapse collapse">
 			  <ul className="nav navbar-nav">
 				<li className="active"><Link to="/">Home</Link></li>
-				<li><Link to="/create">Create</Link></li>
+				{navItem1}
 				<li className="dropdown">
 				  <a href="" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User <span className="caret"></span></a>
 				  <ul className="dropdown-menu">
-					<li><a href="" onClick={this.googleLogin.bind(this)}>Google Login</a></li>
-					<li><a href="">Facebook Login</a></li>
-					<li><a href="">Twitter Login</a></li>
-					<li><a href="">GitHub Login</a></li>
-					<li><a href="" onClick={this.signOut.bind(this)}>SignOut</a></li>
+					{showUser}
 				  </ul>
 				</li>
 			  </ul>
 			  <ul className="nav navbar-nav navbar-right">
-				<li><a href="../navbar/">Default</a></li>
-				<li className="active"><a href="./">Static top <span className="sr-only">(current)</span></a></li>
-				<li><a href="../navbar-fixed-top/">Fixed top</a></li>
+				{rightSide}
 			  </ul>
 			</div>
 		  </div>
@@ -69,4 +84,10 @@ class Nav extends Component {
 	}
 }
 
-export default Nav;
+const mapStateToProps = (state) => {
+	return {
+		myReducer: state.MyReducer
+	}
+};
+
+export default connect(mapStateToProps)(Nav);
