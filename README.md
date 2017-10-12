@@ -412,14 +412,39 @@ sudo npm install -g firebase-tools
 
 firebase login
 
+
+
 firebase init
 
 firebase deploy
 
 
+Reducers
+Actions
+
+Components
+
+	connect - React + Redux
 
 
 
+Wednesday
+
+Tomorrw thu
+	fri
+	
+Next Week
+	payment - refund it week
+	
+23rd - monday
+24th - tuesday - 2 class - 9 pm
+
+
+2 parts food donation
+
+	donate the food
+	
+	receive the food
 
 
 
