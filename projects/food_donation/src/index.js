@@ -10,7 +10,7 @@ import store from './store.js';
 
 
 import * as firebase from 'firebase';
-import {firebaseApp, firebaseDatabase} from './MyFirebase.js';
+import {firebaseApp, firebaseDatabase, FirebaseConstant} from './MyFirebase.js';
 
 import {loggedIn, loggedOut} from './actions/MyAction.js';
 
@@ -24,7 +24,7 @@ firebaseApp.auth().onAuthStateChanged((user) => {
 		obj.uid = user.uid;
 		obj.profile_uid = user.providerData[0].uid;
 		obj.providerId = user.providerData[0].providerId;
-		store.dispatch(loggedIn(obj));
+		store.dispatch(loggedIn(obj));									  
 	} else {
 		store.dispatch(loggedOut());
 	}
