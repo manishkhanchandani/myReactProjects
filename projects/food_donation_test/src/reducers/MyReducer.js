@@ -4,7 +4,8 @@ const MyReducer = (state = {
 	photoURL: null,
 	uid: null,
 	profile_uid: null,
-	providerId: null
+	providerId: null,
+    createPostMessage: null
 }, action) => {
 	switch (action.type) {
 		case 'LOGGEDIN':
@@ -28,7 +29,7 @@ const MyReducer = (state = {
 				profile_uid: null,
 				providerId: null
 			}
-			break;
+        break;
 		default:
 			break;
 	}

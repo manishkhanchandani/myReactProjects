@@ -2,8 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom'; 
 import {connect} from 'react-redux';
 
-import * as firebase from 'firebase';
-import {firebaseApp, firebaseDatabase} from '../MyFirebase.js';
+import {firebaseApp} from '../MyFirebase.js';
 
 import {googleLogin} from '../actions/MyAction.js';
 
@@ -35,7 +34,6 @@ class Nav extends Component {
 	}
 	
 	render() {
-        console.log('nav props: ', this.props);
         var createbox = [];
         var strLoggedIn = [];
         var rightBox = [];

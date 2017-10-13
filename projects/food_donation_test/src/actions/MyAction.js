@@ -1,6 +1,6 @@
 
 import * as firebase from 'firebase';
-import {firebaseApp, firebaseDatabase} from '../MyFirebase.js';
+import {firebaseApp, firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 
 export const loggedIn = (params) => {
 	return {
@@ -33,8 +33,18 @@ export const googleLogin = () => {
                 obj.uid = result.user.uid;
                 obj.profile_uid = result.user.providerData[0].uid;
                 obj.providerId = result.user.providerData[0].providerId;
-                console.log('obj in glogin: ', obj);
-                resolve(obj);
+                obj.loggedIn = firebase.database.ServerValue.TIMESTAMP;
+                var url = FirebaseConstant.basePath + '/users/' + obj.uid;
+			
+                firebaseDatabase.ref(url).once('value').then((snapshot) => {
+                    if (!snapshot.exists()) {
+                        obj.createdDate = firebase.database.ServerValue.TIMESTAMP;	 
+                    }
+                    
+                    firebaseDatabase.ref(url).update(obj);
+                    resolve(obj);
+                });
+                
             }).catch(function(error) {
                 reject(error);
             });

@@ -11,7 +11,7 @@ var config = {
 };
 
 export const FirebaseConstant = {
-	basePath: '/food_donation'	
+	basePath: '/food_donation_test'	
 };
 
 export const firebaseApp = firebase.initializeApp(config);
