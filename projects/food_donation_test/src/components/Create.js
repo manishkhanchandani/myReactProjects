@@ -43,7 +43,8 @@ class Create extends Component {
             location: this.state.location,
             description: this.state.description,
             tags: this.state.tags,
-            imageUrl: this.state.imageUrl
+            imageUrl: this.state.imageUrl,
+            user_id: this.props.myReducer.uid
         };
         this.props.callCreatePost(myObj);
     }
