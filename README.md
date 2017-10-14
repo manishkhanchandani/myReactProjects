@@ -455,7 +455,17 @@ Next Week
 
 
 
+Promise [
 
+	ajax - call,
+		1 sec or 2 sec
+		to return the data from server
+		
+		resolve(data);
+		
+		reject(data);
+
+]
 
 
 
