@@ -64,3 +64,79 @@ Components
 Url image
 
 Upload - feature (backend api)
+
+
+
+
+
+
+
+/data/posts
+	1: details	santa clara, ca, us
+	2: details	pleasanton, ca, us
+	3: details san jose
+	4: details	san francisco
+	5: details
+	
+	
+	
+/data/county
+	
+	US
+		/CA
+			/Santa Clara Count
+				1: timestamp
+				3: timestamp
+			
+			/Alameda
+				2: timestamp
+				
+				
+			/San francisco
+				4: timestamp
+				
+
+/data/state
+	
+	US
+		/CA
+			1: timestamp
+			3: timestamp
+			2: timestamp
+			4: timestamp
+
+
+/data/city
+	
+	US
+		/CA
+			/Santa Clara Count
+				/Santa Clara
+					1: timestamp
+				/San Jose
+					3: timestamp
+			
+			/Alameda
+				2: timestamp
+				
+				
+			/San francisco
+				4: timestamp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

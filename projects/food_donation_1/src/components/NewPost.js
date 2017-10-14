@@ -24,6 +24,10 @@ class NewPost extends Component {
 					<textarea className="form-control" id="description" placeholder="Enter Description" rows="5"></textarea>
 				  </div>
 				  <div className="form-group">
+					<label>Tags: (Comma separated keywords for search)</label>
+					<input type="text" className="form-control" id="email" placeholder="Enter Tags" />
+				  </div>
+				  <div className="form-group">
 					<label>Image URL:</label>
 					<input type="text" className="form-control" id="imageUrl" placeholder="Enter Image URL" />
 				  </div>

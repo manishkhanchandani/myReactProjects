@@ -28,7 +28,7 @@ class Home extends Component {
 						<h3>Search Results</h3>
 						<div className="media">
 						  <div className="media-left">
-							<a href="#">
+							<a href="">
 							  <img className="media-object myAccountImg" src="https://www.ndtv.com/cooks/images/mutton-biryani-new.jpg" alt="..." />
 							</a>
 						  </div>
@@ -41,7 +41,7 @@ class Home extends Component {
 						
 						<div className="media">
 						  <div className="media-left">
-							<a href="#">
+							<a href="">
 							  <img className="media-object myAccountImg" src="https://budgetbytes.com/wp-content/uploads/2009/12/Garlic-Noodles-front.jpg" alt="..." />
 							</a>
 						  </div>
@@ -54,7 +54,7 @@ class Home extends Component {
 						
 						<div className="media">
 						  <div className="media-left">
-							<a href="#">
+							<a href="">
 							  <img className="media-object myAccountImg" src="http://jonvilma.com/images/ice-cream-1.jpg" alt="..." />
 							</a>
 						  </div>

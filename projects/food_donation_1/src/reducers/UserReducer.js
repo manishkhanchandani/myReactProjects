@@ -1,6 +1,6 @@
 import UserConstant from '../constants/UserConstant.js';
 
-const initialState = {data: null};
+const initialState = {data: {}};
 
 const UserReducer = (state = initialState, action) => {
 	switch (action.type) {
@@ -13,7 +13,7 @@ const UserReducer = (state = initialState, action) => {
 		case UserConstant.SIGNED_OUT:
 			state = {
 				...state,
-				data: null
+				data: {}
 			};
 			break;
 		default:

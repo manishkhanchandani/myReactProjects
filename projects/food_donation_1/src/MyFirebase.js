@@ -9,6 +9,10 @@ const config = {
     messagingSenderId: "674827815611"
 };
 
+export const FirebaseConstant = {
+	basePath: '/food_donation_1'
+}
+
 export const firebaseApp = firebase.initializeApp(config);
 
 export const firebaseDatabase = firebase.database();

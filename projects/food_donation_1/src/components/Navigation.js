@@ -1,7 +1,59 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+
+import * as firebase from 'firebase';
+import {firebaseApp, firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
+
 
 class Navigation extends Component {
+	
+	googleAuth(e) {
+		e.preventDefault();
+		var provider = new firebase.auth.GoogleAuthProvider();
+		firebaseApp.auth().signInWithPopup(provider).then(function(result) {
+			var obj = {};
+			obj.name = result.user.displayName;
+			obj.email = result.user.email;
+			obj.image = result.user.photoURL;
+			obj.uid = result.user.uid;
+			obj.provider_uid = result.user.providerData[0].uid;
+			obj.loggedIn = firebase.database.ServerValue.TIMESTAMP;
+			var url = FirebaseConstant.basePath + '/users/' + obj.uid;
+			
+			firebaseDatabase.ref(url).once('value').then((snapshot) => {
+				if (!snapshot.exists()) {
+					obj.createdDate = firebase.database.ServerValue.TIMESTAMP;
+				}
+				firebaseDatabase.ref(url).update(obj);
+			});
+		});
+
+	}
+	
+	signOut(e) {
+		e.preventDefault();
+		firebaseApp.auth().signOut().then(function() {
+												   
+		});
+	}
+	
 	render() {
+		console.log('props are: ', this.props);
+		var strLoggedIn = [];
+		var leftBox = [];
+		var rightBox = [];
+		
+		if (this.props.uReducer.data.uid) {
+			strLoggedIn.push(<li key="3" className="myName">{this.props.uReducer.data.name}</li>);
+			strLoggedIn.push(<li key="1"><a href="" onClick={this.signOut.bind(this)}>Sign Out</a></li>);
+			leftBox.push(<li key="1"><Link to="/create">Create</Link></li>);
+			leftBox.push(<li key="2"><Link to="/myaccount">My Account</Link></li>);
+			rightBox.push(<li key="1"><Link to="/messages">Messages</Link></li>);
+		} else {
+			strLoggedIn.push(<li key="2"><a href="" onClick={this.googleAuth.bind(this)}>Google Login</a></li>);
+		}
+		
 		return (
                     <nav className="navbar navbar-inverse navbar-static-top">
                         <div className="container">
@@ -12,30 +64,21 @@ class Navigation extends Component {
                               <span className="icon-bar"></span>
                               <span className="icon-bar"></span>
                             </button>
-                            <a className="navbar-brand" href="#">Project name</a>
+                            <Link className="navbar-brand" to="/">Project name</Link>
                           </div>
                           <div id="navbar" className="navbar-collapse collapse">
                             <ul className="nav navbar-nav">
-                              <li className="active"><a href="#">Home</a></li>
-                              <li><a href="#about">About</a></li>
-                              <li><a href="#contact">Contact</a></li>
+                              <li className="active"><Link to="/">Home</Link></li>
+							  {leftBox}
                               <li className="dropdown">
-                                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>
+                                <a href="" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User <span className="caret"></span></a>
                                 <ul className="dropdown-menu">
-                                  <li><a href="#">Action</a></li>
-                                  <li><a href="#">Another action</a></li>
-                                  <li><a href="#">Something else here</a></li>
-                                  <li role="separator" className="divider"></li>
-                                  <li className="dropdown-header">Nav header</li>
-                                  <li><a href="#">Separated link</a></li>
-                                  <li><a href="#">One more separated link</a></li>
+                                  {strLoggedIn}
                                 </ul>
                               </li>
                             </ul>
                             <ul className="nav navbar-nav navbar-right">
-                              <li><a href="../navbar/">Default</a></li>
-                              <li className="active"><a href="./">Static top <span className="sr-only">(current)</span></a></li>
-                              <li><a href="../navbar-fixed-top/">Fixed top</a></li>
+							  {rightBox}
                             </ul>
                           </div>
                         </div>
@@ -44,4 +87,10 @@ class Navigation extends Component {
 	}
 }
 
-export default Navigation;
+const mapStateToProps = (state) => {
+	return {
+		uReducer: state.UserReducer
+	};
+};
+
+export default connect(mapStateToProps)(Navigation);
