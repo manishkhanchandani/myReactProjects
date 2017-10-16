@@ -56,3 +56,16 @@ export const createPost = (params) => {
        })
 	};	
 };
+
+export const browsePost = () => {
+    return {
+        type: '',
+        payload: new Promise((resolve, reject) => {
+            var url = FirebaseConstant.basePath + '/data/posts';
+            var ref = firebaseDatabase.ref(url);
+            ref.on('value', function(snapshot) {
+              console.log('snapshot is ', snapshot.val());
+            });
+        })
+    }
+}

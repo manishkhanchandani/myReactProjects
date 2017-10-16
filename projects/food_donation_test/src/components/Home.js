@@ -1,10 +1,17 @@
 import React, {Component} from 'react';
 import Autocomplete from 'react-google-autocomplete';
+import {connect} from 'react-redux';
 
 import Results from './Results.js';
+import {browsePost} from '../actions/FoodDonation.js';
+
 
 class Home extends Component {
+    componentDidMount() {
+        this.props.callBrowse();   
+    }
 	render() {
+        console.log('ppp: ', this.props);
 		return (
 			<div className="container">
 				<div className="row">
@@ -72,4 +79,20 @@ class Home extends Component {
 	}
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+  return {
+    myReducer: state.MyReducer,
+    foodDonationReducer: state.FoodDonationReducer
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    callBrowse: () => {
+      dispatch(browsePost());
+    }
+  }
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

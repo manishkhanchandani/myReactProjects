@@ -37,7 +37,8 @@ class Create extends Component {
         this.updateState(field, e.target.value);
     }
 
-    submitCreatePost() {
+    submitCreatePost(e) {
+        e.preventDefault();
         var myObj = {
             title: this.state.title,
             location: this.state.location,
@@ -59,6 +60,7 @@ class Create extends Component {
 				<div className="row">
 					<div className="col-md-12">
 						<h1>Create New Post</h1>
+                        <form onSubmit={this.submitCreatePost.bind(this)}>
 						  <div className="form-group">
 							<label>Title</label>
 							<input type="text" className="form-control" placeholder="Enter Title" onChange={this.updateCreatePost.bind(this, 'title')} value={this.state.title} />
@@ -111,7 +113,8 @@ class Create extends Component {
 							  </div>
 							
 						  <br />
-						  <button type="submit" className="btn btn-primary form-control" onClick={this.submitCreatePost.bind(this)}>Create New Post</button>
+						  <button type="submit" className="btn btn-primary form-control" >Create New Post</button>
+                        </form>
 					</div>
 				</div>
 			</div>
