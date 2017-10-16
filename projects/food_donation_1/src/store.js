@@ -4,7 +4,8 @@ import thunk from 'redux-thunk';
 import promise from 'redux-promise-middleware';
 
 import UserReducer from './reducers/UserReducer.js';
+import FoodReducer from './reducers/FoodReducer.js';
 
-const store = createStore(combineReducers({UserReducer}), {}, applyMiddleware(createLogger(), thunk, promise()));
+const store = createStore(combineReducers({UserReducer, FoodReducer}), {}, applyMiddleware(createLogger(), thunk, promise()));
 
 export default store;

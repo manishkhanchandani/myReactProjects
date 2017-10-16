@@ -1,7 +1,9 @@
 
 const UserConstant = {
 	SIGNED_IN: 'SIGNED_IN',
-	SIGNED_OUT: 'SIGNED_OUT'
+	SIGNED_OUT: 'SIGNED_OUT',
+	GOOGLE_lOGIN: 'GOOGLE_lOGIN',
+	FIREBASE_SIGNED_OUT: 'FIREBASE_SIGNED_OUT'
 };
 
 export default UserConstant;

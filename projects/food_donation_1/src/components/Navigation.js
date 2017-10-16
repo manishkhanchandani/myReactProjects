@@ -1,41 +1,19 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-
-import * as firebase from 'firebase';
-import {firebaseApp, firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
+import {googleLogin, firebaseSignOut} from '../actions/UserAction.js';
 
 
 class Navigation extends Component {
 	
 	googleAuth(e) {
 		e.preventDefault();
-		var provider = new firebase.auth.GoogleAuthProvider();
-		firebaseApp.auth().signInWithPopup(provider).then(function(result) {
-			var obj = {};
-			obj.name = result.user.displayName;
-			obj.email = result.user.email;
-			obj.image = result.user.photoURL;
-			obj.uid = result.user.uid;
-			obj.provider_uid = result.user.providerData[0].uid;
-			obj.loggedIn = firebase.database.ServerValue.TIMESTAMP;
-			var url = FirebaseConstant.basePath + '/users/' + obj.uid;
-			
-			firebaseDatabase.ref(url).once('value').then((snapshot) => {
-				if (!snapshot.exists()) {
-					obj.createdDate = firebase.database.ServerValue.TIMESTAMP;
-				}
-				firebaseDatabase.ref(url).update(obj);
-			});
-		});
-
+		this.props.func1();
 	}
 	
 	signOut(e) {
 		e.preventDefault();
-		firebaseApp.auth().signOut().then(function() {
-												   
-		});
+		this.props.func2();
 	}
 	
 	render() {
@@ -93,4 +71,15 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps)(Navigation);
+const mapDispatchToProps = (dispatch) => {
+	return {
+		func1: () => {
+			dispatch(googleLogin());
+		},
+		func2: () => {
+			dispatch(firebaseSignOut());
+		}
+	};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);

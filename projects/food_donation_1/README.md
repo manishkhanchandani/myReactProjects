@@ -125,6 +125,12 @@ Upload - feature (backend api)
 
 
 
+Action
+Reducer
+	variables
+	
+
+
 
 
 
