@@ -13,8 +13,7 @@ import {firebaseApp, firebaseDatabase} from './MyFireBase.js';
 import {loggedIn, loggedOut} from './actions/MyAction.js';
 
 firebaseApp.auth().onAuthStateChanged((user) => {
-	if (user) {
-		console.log('user is logged in ');	
+	if (user) {	
 		var obj = {};
 		obj.email = user.email;
 		obj.displayName = user.displayName;

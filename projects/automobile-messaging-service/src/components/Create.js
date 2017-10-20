@@ -1,13 +1,16 @@
 import React, {Component} from 'react';
 import Autocomplete from 'react-google-autocomplete';
+// import Auth from './Auth.js';
 
 class Create extends Component {
 	render() {
 		return (
 			<div className="container">
+			{/* 	<Auth /> */}
 				<div className="row">
 					<div className="col-md-12">
 						<h1>Create New Post</h1>
+						
 						<form>
 						  <div className="form-group">
 							<label>Title</label>
@@ -62,7 +65,7 @@ class Create extends Component {
 							  </div>
 							
 						  <br />
-						  <button type="submit" className="btn btn-primary form-control">Search</button>
+						  <button type="submit" className="btn btn-primary form-control">Create New Post</button>
 						</form>
 					</div>
 				</div>

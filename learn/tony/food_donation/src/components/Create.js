@@ -10,6 +10,7 @@ class Create extends Component {
 				<div className="row">
 					<div className="col-md-12">
 						<h1>Create New Post</h1>
+						
 						<form>
 						  <div className="form-group">
 							<label>Title</label>
