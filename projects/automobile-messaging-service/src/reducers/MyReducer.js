@@ -32,6 +32,13 @@ const MyReducer = (state = {
                 providerId: null
             }
         break;
+
+        case 'GOOGLELOGIN_FULFILLED':
+        state = {
+            ...state
+        }
+        break;
+        
     default:    
         break;
     }
