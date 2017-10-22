@@ -1,41 +1,18 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import {firebaseApp, firebaseDatabase, FirebaseConstant} from '../MyFireBase.js';
-import * as firebase from 'firebase';
-
 import {connect} from 'react-redux';
+
 
 class Nav extends Component {
 
     googleLogin(e) {
         e.preventDefault();
-        var provider = new firebase.auth.GoogleAuthProvider();
-        firebaseApp.auth().signInWithPopup(provider).then(function(result) {
-			var obj = {};
-			obj.email = result.user.email;
-			obj.displayName = result.user.displayName;
-			obj.photoURL = result.user.photoURL;
-			obj.uid = result.user.uid;
-			obj.profile_uid = result.user.providerData[0].uid;
-            obj.providerId = result.user.providerData[0].providerId;
-            obj.loggedIn = firebase.database.ServerValue.TIMESTAMP;
-            var url = FirebaseConstant.basePath + '/users/' + obj.uid;
-            firebaseDatabase.ref(url).once('value').then((snapshot) => {
-				if (!snapshot.exists()) {
-					obj.createdDate = firebase.database.ServerValue.TIMESTAMP;	 
-				}
-				
-				firebaseDatabase.ref(url).update(obj);		  
-			});
-		});
+        this.props.func1();
 	}
 	
 	signOut(e) {
         e.preventDefault();
-        firebaseApp.auth().signOut().then(function() {
-            
-        });
-		
+        this.props.func2();
 	}
                                 
 	render() {
@@ -102,5 +79,13 @@ const mapStateToProps = (state) => {
     }
 };
 
+const mapDispatchToProps = (dispatch) => {
+	return {
+		func1: () => {
+			//console.log('i am in func1');	
+		},
+		func2: () => {}
+	};
+};
 
-export default connect(mapStateToProps)(Nav);
+export default connect(mapStateToProps,mapDispatchToProps)(Nav);
