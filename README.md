@@ -1,5 +1,16 @@
 # myReactProjects
 
+,
+    "firebase": "^4.5.0",
+    "react-google-autocomplete": "^1.0.13",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-promise-middleware": "^4.4.1",
+    "redux-thunk": "^2.2.0"
+    
+    
 
 npm start
 	to do all your development work
