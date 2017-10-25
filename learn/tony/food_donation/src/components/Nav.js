@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
+import * as firebase from 'firebase';
+import {firebaseApp, firebaseDatabase, FirebaseConstant} from '../MyFireBase.js';
+
+import {actionGoogleLogin, actionSignOut} from '../actions/MyAction.js'
 
 class Nav extends Component {
 
@@ -12,7 +16,10 @@ class Nav extends Component {
 	
 	signOut(e) {
         e.preventDefault();
-        this.props.func2();
+        // this.props.func2();
+        firebaseApp.auth().signOut().then(function() {
+            
+});        
 	}
                                 
 	render() {
@@ -82,9 +89,11 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		func1: () => {
-			//console.log('i am in func1');	
+			dispatch(actionGoogleLogin());
 		},
-		func2: () => {}
+		func2: () => {
+            dispatch(actionSignOut());
+        }
 	};
 };
 

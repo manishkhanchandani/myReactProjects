@@ -55,7 +55,5 @@ export const actionGoogleLogin = () => {
 
 
 export const actionSignOut = () => {
-	firebaseApp.auth().signOut().then(function() {
-												   
-	});
+	
 };
