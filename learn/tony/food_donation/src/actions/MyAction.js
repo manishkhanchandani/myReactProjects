@@ -55,5 +55,12 @@ export const actionGoogleLogin = () => {
 
 
 export const actionSignOut = () => {
-	
+	return {
+		type: 'MAIN_SIGNOUT',
+		payload: new Promise((resolve, reject) => {
+			firebaseApp.auth().signOut().then(function() {
+				resolve({});						   
+			});
+		})
+	};	
 };

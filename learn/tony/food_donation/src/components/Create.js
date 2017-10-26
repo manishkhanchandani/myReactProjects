@@ -3,7 +3,29 @@ import Autocomplete from 'react-google-autocomplete';
 // import Auth from './Auth.js';
 
 class Create extends Component {
+
+	// This is used by react to save the state
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			title: "",
+			description: "",
+			tags: "",
+			imageUrl: "",
+			location: {}
+		};
+	}
+
+	submitToFireBase(e) {
+		e.preventDefault();
+		console.log("hello world");
+		//write to firebase
+	}
+
 	render() {
+		// Check the state value
+		console.log('state value: ', this.state);
 		return (
 			<div className="container">
 			{/* 	<Auth /> */}
@@ -11,14 +33,15 @@ class Create extends Component {
 					<div className="col-md-12">
 						<h1>Create New Post</h1>
 						
-						<form>
+						<form onSubmit={this.submitToFireBase.bind(this)}>
 						  <div className="form-group">
 							<label>Title</label>
-							<input type="text" className="form-control" placeholder="Enter Title" />
+							<input type="text" value= {this.state.title} className="form-control" placeholder="Enter Title" 
+									onChange={(e) => {this.setState({title: e.target.value}); 
+							}} />
 						  </div>
 						  <label>Location</label>
 						  <Autocomplete className="form-control addressBox" onPlaceSelected={(place) => {
-							  
 							  	if (!place.formatted_address) {
 									alert('please choose the address');
 									return null;
@@ -44,28 +67,34 @@ class Create extends Component {
 									obj[addressType] = val;
 								  }
 								}
-								
-								
-								console.log(obj);
+								this.setState({location: obj});
+								// console.log(obj);
 							}} types={['geocode']} />
 							
 							<div className="form-group mySpacing">
 								<label>Description</label>
-								<textarea rows="5" className="form-control"></textarea>
-							  </div>
+								<textarea rows="5" className="form-control" value={this.state.description}
+									onChange={(e) => {this.setState({description: e.target.value});	
+								}}></textarea>
+						  </div>
 							  
 							<div className="form-group mySpacing">
 								<label>Tags (Comma separated tags for searching)</label>
-								<input type="text" className="form-control" placeholder="Enter Tags" />
-							  </div>
+								<input type="text" className="form-control" placeholder="Enter Tags" value={this.state.tags} onChange={(e) => {
+									this.setState({tags: e.target.value});
+								}} />
+						  </div>
 							  
 							 <div className="form-group mySpacing">
 								<label>Image URL</label>
-								<input type="text" className="form-control" placeholder="Enter Image URL" />
-							  </div>
+								<input type="text" className="form-control" placeholder="Enter Image URL" value={this.state.imageUrl} onChange={(e) => {
+									this.setState({imageUrl: e.target.value});	
+								}} />
+							</div>
 							
 						  <br />
-						  <button type="submit" className="btn btn-primary form-control">Create New Post</button>
+						  
+							<button type="submit" className="btn btn-primary form-control">Create New Post</button>
 						</form>
 					</div>
 				</div>
