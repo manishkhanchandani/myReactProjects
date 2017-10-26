@@ -882,3 +882,54 @@ This pattern can be useful when you want to fetch all children of a list in a si
 
 
 
+Text Field
+
+	value=""
+	
+	onChange
+
+
+
+Local Variable, local state variable
+store the data on the page
+
+first contractor
+state variable
+
+
+
+How to save in Firebase
+
+	/data
+	
+		/posts
+		
+		Structure our data
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
