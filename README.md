@@ -483,3 +483,54 @@ Promise [
 
 
 
+Text Field
+
+	value=""
+	
+	onChange
+
+
+
+Local Variable, local state variable
+store the data on the page
+
+first contractor
+state variable
+
+
+
+How to save in Firebase
+
+	/data
+	
+		/posts
+		
+		Structure our data
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

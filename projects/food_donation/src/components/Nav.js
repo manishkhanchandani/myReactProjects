@@ -20,9 +20,6 @@ class Nav extends Component {
 	signOut(e) {
 		e.preventDefault();
 		this.props.func2();
-		firebaseApp.auth().signOut().then(function() {
-												   
-		});
 	}
 	
 	render() {
@@ -90,7 +87,9 @@ const mapDispatchToProps = (dispatch) => {
 		func1: () => {
 			dispatch(actionGoogleLogin());
 		},
-		func2: () => {}
+		func2: () => {
+			dispatch(actionSignOut());
+		}
 	};
 };
 

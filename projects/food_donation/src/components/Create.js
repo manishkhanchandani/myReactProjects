@@ -2,16 +2,37 @@ import React, {Component} from 'react';
 import Autocomplete from 'react-google-autocomplete';
 
 class Create extends Component {
+	
+	constructor(props) {
+		super(props);	
+		
+		this.state = {
+			title: '',
+			description: '',
+			tags: '',
+			imageUrl: '',
+			location: {}
+		};
+	}
+	
+	submitToFirebase(e) {
+		e.preventDefault();
+		//write to firebase
+	}
+	
 	render() {
+		console.log('state value: ', this.state);
 		return (
 			<div className="container">
 				<div className="row">
 					<div className="col-md-12">
 						<h1>Create New Post</h1>
-						<form>
+						<form onSubmit={this.submitToFirebase.bind(this)}>
 						  <div className="form-group">
 							<label>Title</label>
-							<input type="text" className="form-control" placeholder="Enter Title" />
+							<input type="text" value={this.state.title} className="form-control" placeholder="Enter Title" onChange={(e) => {
+								this.setState({title: e.target.value});	
+							}} />
 						  </div>
 						  <label>Location</label>
 						  <Autocomplete className="form-control addressBox" onPlaceSelected={(place) => {
@@ -42,23 +63,29 @@ class Create extends Component {
 								  }
 								}
 								
+								this.setState({location: obj});
 								
-								console.log(obj);
 							}} types={['geocode']} />
 							
 							<div className="form-group mySpacing">
 								<label>Description</label>
-								<textarea rows="5" className="form-control"></textarea>
+								<textarea rows="5" className="form-control" value={this.state.description} onChange={(e) => {
+									this.setState({description: e.target.value});	
+								}}></textarea>
 							  </div>
 							  
 							<div className="form-group mySpacing">
 								<label>Tags (Comma separated tags for searching)</label>
-								<input type="text" className="form-control" placeholder="Enter Tags" />
+								<input type="text" className="form-control" placeholder="Enter Tags" value={this.state.tags} onChange={(e) => {
+									this.setState({tags: e.target.value});	
+								}} />
 							  </div>
 							  
 							 <div className="form-group mySpacing">
 								<label>Image URL</label>
-								<input type="text" className="form-control" placeholder="Enter Image URL" />
+								<input type="text" className="form-control" placeholder="Enter Image URL" value={this.state.imageUrl} onChange={(e) => {
+									this.setState({imageUrl: e.target.value});	
+								}} />
 							  </div>
 							
 						  <br />

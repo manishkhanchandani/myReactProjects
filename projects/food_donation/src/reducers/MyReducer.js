@@ -34,6 +34,11 @@ const MyReducer = (state = {
 				...state
 			}
 			break;
+		case 'MAIN_SIGNOUT_FULFILLED':
+			state = {
+				...state
+			}
+			break;
 		default:
 			break;
 	}
