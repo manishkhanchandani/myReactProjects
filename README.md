@@ -987,6 +987,52 @@ How to save in Firebase
 			
 
 
+tags: indian, indian food, food
+
+
+	/indian
+		/post
+			1. 26thoct2017
+			2. 26thoct2017
+		/country
+			/us
+				1. 26thoct2017
+				5: 26thoct2017
+		/state
+			/us
+				/ca
+					1. 26thoct2017
+					5: 26thoct2017
+				/wa
+					8:  26thoct2017
+		
+	
+	/indian food
+		/country
+			/us
+				1. 26thoct2017
+				5: 26thoct2017
+		/state
+			/us
+				/ca
+					1. 26thoct2017
+					5: 26thoct2017
+				/wa
+					8:  26thoct2017
+	
+	
+	/food
+		/country
+			/us
+				1. 26thoct2017
+				5: 26thoct2017
+		/state
+			/us
+				/ca
+					1. 26thoct2017
+					5: 26thoct2017
+				/wa
+					8:  26thoct2017
 
 
 
