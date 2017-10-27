@@ -1,12 +1,12 @@
 import * as firebase from 'firebase';
 
 var config = {
-    apiKey: "AIzaSyD3BsiZanPMQDjNw2MRCh6pandi9bwLgO8",
-    authDomain: "myreact-c1c5b.firebaseapp.com",
-    databaseURL: "https://myreact-c1c5b.firebaseio.com",
-    projectId: "myreact-c1c5b",
-    storageBucket: "myreact-c1c5b.appspot.com",
-    messagingSenderId: "229642844954"
+    apiKey: "AIzaSyBhpHK-ve2s0ynnr8og8Zx0S69ttEFpDKk",
+	authDomain: "project100-fe20e.firebaseapp.com",
+	databaseURL: "https://project100-fe20e.firebaseio.com",
+	projectId: "project100-fe20e",
+	storageBucket: "project100-fe20e.appspot.com",
+	messagingSenderId: "674827815611"
   };
 
 export const FirebaseConstant = {

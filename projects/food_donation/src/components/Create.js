@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import Autocomplete from 'react-google-autocomplete';
 
+import {connect} from 'react-redux';
+import * as firebase from 'firebase';
+import {firebaseApp, firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
+
 class Create extends Component {
 	
 	constructor(props) {
@@ -17,7 +21,31 @@ class Create extends Component {
 	
 	submitToFirebase(e) {
 		e.preventDefault();
-		//write to firebase
+		var current = firebase.database.ServerValue.TIMESTAMP;
+		var obj = {};
+		obj.title = this.state.title;
+		obj.description = this.state.description;
+		obj.tags = this.state.tags;
+		obj.imageUrl = this.state.imageUrl;
+		obj.location = this.state.location;
+		
+		obj.user_id = this.props.myReducer.uid;
+		obj.created_dt = current;
+		
+		var url = FirebaseConstant.basePath + '/data/posts';
+		var uniqueID = firebaseDatabase.ref(url).push(obj).key;
+		firebaseDatabase.ref(url).child(uniqueID).child('id').set(uniqueID);
+		
+		var country = obj.location.country;
+		var state = obj.location.administrative_area_level_1;
+		var county = obj.location.administrative_area_level_2;
+		var city = obj.location.locality;
+		
+		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/country').child(country).child(uniqueID).set(current);
+		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/state').child(country).child(state).child(uniqueID).set(current);
+		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/county').child(country).child(state).child(county).child(uniqueID).set(current);
+		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/city').child(country).child(state).child(county).child(city).child(uniqueID).set(current);
+		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/users').child(obj.user_id).child(uniqueID).set(current);
 	}
 	
 	render() {
@@ -98,4 +126,10 @@ class Create extends Component {
 	}
 }
 
-export default Create;
+const mapStateToProps = (state) => {
+	return {
+		myReducer: state.MyReducer	
+	};	
+};
+
+export default connect(mapStateToProps)(Create);

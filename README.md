@@ -909,8 +909,82 @@ How to save in Firebase
 
 
 
-
-
+/data
+	/posts
+		1: data
+		2: data
+		3: data
+		4: data
+		5: Pleasonton, data
+		6. San jose, data
+		7. Modesto, data
+		8: Seattle, data
+	
+	
+	/county
+		/us
+			/ca
+			
+				/Alameda County
+					1. 26thoct2017
+					5. 26thoct2017
+					
+				/Santa Clara County
+					3: 26thoct2017
+					6: 26thoct2017
+					
+				/San Francisco County
+					4: 26thoct2017
+					
+				/Stanislaus County
+					7: 26thoct2017
+			/wa
+				/King County
+					8:  26thoct2017
+					
+					
+					
+	/city
+		/us
+			/ca
+				/Alameda County
+					/Dublin
+						1. 26thoct2017
+					/Pleasonton
+						5: 26thoct2017
+						
+				/Santa Clara County
+					/San jose
+						6: 26thoct2017
+			
+				/Stanislaus County
+					/Modesto
+						7: 26thoct2017
+			/wa
+				/King County
+					/Seattle
+						8:  26thoct2017
+					
+						
+					
+	/state
+		/us
+			/ca
+				1. 26thoct2017
+				5: 26thoct2017
+				6: 26thoct2017
+				7: 26thoct2017
+			/wa
+				8:  26thoct2017
+				
+	/country
+		/us
+				1. 26thoct2017
+				5: 26thoct2017
+				6: 26thoct2017
+				7: 26thoct2017
+				8:  26thoct2017
+			
 
 
 
