@@ -1036,7 +1036,45 @@ tags: indian, indian food, food
 
 
 
-
+data
+	posts
+		k: v
+	county
+	country
+	city
+	state
+	users
+	
+	tags
+		indian
+			county
+			country
+			city
+			state
+			
+			all_post
+			
+			
+		food
+			county
+			country
+			city
+			state
+			all_post
+		
+		test1
+			county
+			country
+			city
+			state
+			all_post
+		
+		test2
+			county
+			country
+			city
+			state
+			all_post
 
 
 

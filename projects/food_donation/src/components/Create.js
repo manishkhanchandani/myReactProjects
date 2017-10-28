@@ -32,6 +32,7 @@ class Create extends Component {
 		obj.user_id = this.props.myReducer.uid;
 		obj.created_dt = current;
 		
+
 		var url = FirebaseConstant.basePath + '/data/posts';
 		var uniqueID = firebaseDatabase.ref(url).push(obj).key;
 		firebaseDatabase.ref(url).child(uniqueID).child('id').set(uniqueID);
@@ -46,6 +47,25 @@ class Create extends Component {
 		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/county').child(country).child(state).child(county).child(uniqueID).set(current);
 		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/city').child(country).child(state).child(county).child(city).child(uniqueID).set(current);
 		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/users').child(obj.user_id).child(uniqueID).set(current);
+		
+		
+		var tags = this.state.tags.split(',');
+		
+		if (tags.length > 0) {
+			for (var i = 0; i < tags.length; i++) {
+				var tag = tags[i].trim();
+				
+				var tagURL = FirebaseConstant.basePath + '/data/tags/' + tag;
+				firebaseDatabase.ref(tagURL + '/country').child(country).child(uniqueID).set(current);
+				firebaseDatabase.ref(tagURL + '/state').child(country).child(state).child(uniqueID).set(current);
+				firebaseDatabase.ref(tagURL + '/county').child(country).child(state).child(county).child(uniqueID).set(current);
+				firebaseDatabase.ref(tagURL + '/city').child(country).child(state).child(county).child(city).child(uniqueID).set(current);
+				firebaseDatabase.ref(tagURL + '/all_tag_posts').child(uniqueID).set(current);
+			}
+		}
+		
+		//redirect user to confirm page
+		this.props.history.push("/confirm");
 	}
 	
 	render() {
