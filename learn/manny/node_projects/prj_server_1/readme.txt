@@ -139,5 +139,42 @@ Change the scripts part in package.json to:
 and add following lines of code in it:
 
 node_modules
+
+
+Now do following
+1. Create a new account in heroku
+
+2. Commit your code in git
+
+3. Install heroku cli and Create App
+
+Search for following in google: heroku cli
+And then go to following link
+https://devcenter.heroku.com/articles/heroku-cli
+
+and follow steps to install cli on your local machine.
+
+After you are done with installation, run following command to check if heroku is installed
+
+heroku -v
+
+
+B. Create App
+
+Type in command line:
+
+heroku login
+
+Now type following to create an app:
+
+heroku create
+
+Here we will see two links as:
+Creating app... done, quiet-retreat-41673
+https://quiet-retreat-41673.herokuapp.com/ | https://git.heroku.com/quiet-retreat-41673.git
+
+
+
+
   
 
