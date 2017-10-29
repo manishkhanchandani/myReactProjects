@@ -136,5 +136,8 @@ Change the scripts part in package.json to:
 },
 
 4. Create .gitignore file:
+and add following lines of code in it:
+
+node_modules
   
 
