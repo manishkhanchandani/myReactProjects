@@ -173,8 +173,11 @@ Here we will see two links as:
 Creating app... done, quiet-retreat-41673
 https://quiet-retreat-41673.herokuapp.com/ | https://git.heroku.com/quiet-retreat-41673.git
 
+Now type following:
+git remote add heroku https://git.heroku.com/quiet-retreat-41673.git
+
+if you see following error, then it is ok, no worries:
+remote heroku already exists.
 
 
-
-  
 
