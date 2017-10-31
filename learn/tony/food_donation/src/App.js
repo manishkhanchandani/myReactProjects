@@ -8,6 +8,7 @@ import Edit from './components/Edit.js';
 import Delete from './components/Delete.js';
 import MyAccount from './components/MyAccount.js';
 import Chat from './components/Chat.js';
+import Confirm from './components/Confirm.js';
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
 			
         <Route exact={true} path="/" component={Home} />
         <Route exact={true} path="/create" component={Create} />
+        <Route exact={true} path="/confirm" component={Confirm} />
         <Route exact={true} path="/edit/:id" component={Edit} />
         <Route exact={true} path="/delete/:id" component={Delete} />
         <Route exact={true} path="/myaccount" component={MyAccount} />

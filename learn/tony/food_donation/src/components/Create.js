@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import Autocomplete from 'react-google-autocomplete';
+import {connect} from 'react-redux';
+import * as firebase from 'firebase';
+import {firebaseApp, firebaseDatabase, FirebaseConstant} from '../MyFireBase.js';
 // import Auth from './Auth.js';
 
 class Create extends Component {
@@ -19,8 +22,60 @@ class Create extends Component {
 
 	submitToFireBase(e) {
 		e.preventDefault();
-		console.log("hello world");
 		//write to firebase
+
+		var current = firebase.database.ServerValue.TIMESTAMP;
+		var obj = {};
+		obj.title = this.state.title;
+		obj.description = this.state.description;
+		obj.tags = this.state.tags;
+		obj.imageUrl = this.state.imageUrl;
+		obj.location = this.state.location;
+
+		obj.user_id = this.props.myReducer.uid;
+		obj.created_dt = firebase.database.ServerValue.TIMESTAMP;
+
+		var url = FirebaseConstant.basePath + '/data/posts';
+		var uniqueID = firebaseDatabase.ref(url).push(obj).key;
+		firebaseDatabase.ref(url).child(uniqueID).child('id').set(uniqueID);
+
+
+		var country = obj.location.country;
+		var state = obj.location.administrative_area_level_1;
+		var county = obj.location.administrative_area_level_2;
+		var city = obj.location.locality;
+		
+		
+		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/country').child(country).child(uniqueID).set(current);
+		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/state').child(country).child(state).child(uniqueID).set(current);
+		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/county').child(country).child(state).child(county).child(uniqueID).set(current);
+		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/city').child(country).child(state).child(county).child(city).child(uniqueID).set(current);
+		
+		// This one will keep track of each users posts
+		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/users').child(obj.user_id).child(uniqueID).set(current);
+
+		//Stub
+		//firebaseDatabase.ref(FirebaseConstant.basePath + '/data/users')
+
+		var tags = this.state.tags.split(',');
+		
+		if (tags.length > 0) {
+			for (var i = 0; i < tags.length; i++) {
+				var tag = tags[i].trim();
+
+				var tagURL = FirebaseConstant.basePath + '/data/tags/' + tag;
+				firebaseDatabase.ref(tagURL + '/country').child(country).child(uniqueID).set(current);
+				firebaseDatabase.ref(tagURL + '/state').child(country).child(state).child(uniqueID).set(current);
+				firebaseDatabase.ref(tagURL + '/county').child(country).child(state).child(county).child(uniqueID).set(current);
+				firebaseDatabase.ref(tagURL + '/city').child(country).child(state).child(county).child(city).child(uniqueID).set(current);
+				firebaseDatabase.ref(tagURL + '/all_tag_posts').child(uniqueID).set(current);
+			}
+		}
+		// Redirect user to confrim page
+		this.props.history.push("/confirm");
+
+		// This also would work
+		// <Redirect to="/" push={true} />
 	}
 
 	render() {
@@ -103,4 +158,11 @@ class Create extends Component {
 	}
 }
 
-export default Create;
+const mapStateToProps = (state) => {
+	return {
+		myReducer: state.MyReducer	
+	};	
+};
+
+export default connect(mapStateToProps)(Create);
+
