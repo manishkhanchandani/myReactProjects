@@ -1078,6 +1078,32 @@ data
 
 
 
+Purpose of Redux?
+	Single page application:
+		we go from one component to another, 1000 
+		
+		save all variables in store.js (Redux) - saving the state in store, so that we can use it anywhere in our code
+		
+		let say if i want to use variable only in one component and i don't want to pass to another component? - no redux
+		
+
+Redux
+	Action
+	Reducer
+	
+	Component and call both action and reducer
+	Add reducer in store.js
+	
+Browse
+	Action
+		Promise and get data from api or firebase
+		return type: 'Browse'
+				payload: data from firebase
+
+	Reducer
+		case Browse_Fulfilled
+			manipulate the state, data will be saved in state and this state will saved in the store, all my views will get updated
+		
 
 
 

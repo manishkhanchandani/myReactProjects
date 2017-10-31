@@ -1,10 +1,21 @@
 import React, {Component} from 'react';
 import Autocomplete from 'react-google-autocomplete';
 
+import {connect} from 'react-redux';
+import {browseFoodDonation} from '../actions/FoodDonationAction.js';
+
 import Results from './Results.js';
 
+
 class Home extends Component {
+	
+	componentDidMount() {
+		this.props.func1();
+	}
+	
+
 	render() {
+		
 		return (
 			<div className="container">
 				<div className="row">
@@ -72,4 +83,18 @@ class Home extends Component {
 	}
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+	return {
+		foodReducer: state.FoodDonationReducer
+	}	
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		func1: () => {
+			dispatch(browseFoodDonation());	
+		}
+	};	
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
