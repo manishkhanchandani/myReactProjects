@@ -1,7 +1,6 @@
 import * as firebase from 'firebase';
 import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 
-import {dynamicSort, dynamicSortMultiple} from '../utilities/functions.js';
 
 export const createPost = (params) => {
 	return {
@@ -61,16 +60,9 @@ export const createPost = (params) => {
 	};	
 };
 
-export const browsePost = () => {
+export const browsePost = (result) => {
     return {
-        type: '',
-        payload: new Promise((resolve, reject) => {
-            var url = FirebaseConstant.basePath + '/data/posts';
-            var ref = firebaseDatabase.ref(url).orderByChild('created_dt').limitToLast(500);
-            ref.on('value', function(snapshot) {
-                var result = snapshot.val();
-              console.log('snapshot is ', snapshot.val());
-            });
-        })
+        type: 'BROWSE',
+        payload: result
     }
 }

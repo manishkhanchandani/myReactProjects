@@ -2,13 +2,14 @@ import React, {Component} from 'react';
 import Autocomplete from 'react-google-autocomplete';
 import {connect} from 'react-redux';
 
-import Results from './Results.js';
+import ResultsContainer from './ResultsContainer.js';
 import {browsePost} from '../actions/FoodDonation.js';
 
+import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 
 class Home extends Component {
     componentDidMount() {
-        this.props.callBrowse();   
+        this.props.func1();   
     }
 	render() {
         console.log('ppp: ', this.props);
@@ -60,17 +61,7 @@ class Home extends Component {
 					</div>
 					<div className="col-md-9">
 						<h3>Results</h3>
-						
-						<Results />
-						<Results />
-						<Results />
-						<Results />
-						<Results />
-						<Results />
-						<Results />
-						<Results />
-						
-						
+						<ResultsContainer data={this.props.foodDonationReducer.data} />
 						
 					</div>
 				</div>
@@ -88,8 +79,14 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    callBrowse: () => {
-      dispatch(browsePost());
+    func1: () => {
+		var url = FirebaseConstant.basePath + '/data/posts';
+		var ref = firebaseDatabase.ref(url).orderByChild('created_dt').limitToLast(500);
+		ref.on('value', function(snapshot) {
+			var result = snapshot.val();
+		  	dispatch(browsePost(result));
+		});
+      
     }
   }
 };

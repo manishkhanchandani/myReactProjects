@@ -1,6 +1,7 @@
 const FoodDonationReducer = (state = {
     createPostMessage: null,
-    postId: null
+    postId: null,
+	data: null
 }, action) => {
 	switch (action.type) {
         case 'CREATE_POST_FULFILLED':
@@ -10,6 +11,12 @@ const FoodDonationReducer = (state = {
                 postId: action.payload.postId
             }
             break;
+		case 'BROWSE':
+			state = {
+				...state,
+				data: action.payload
+			}
+			break;
 		default:
 			break;
 	}
