@@ -1108,7 +1108,27 @@ Browse
 
 
 
+Home.js
 
+	Page Loads
+		Func1
+			calls the firebase
+			on value, i.e. whenever we have new value in database, we will get this function called.
+			
+			
+			-> call action
+				reducer with type and payload
+				data will be updated with new values
+				
+				
+				
+Data with multiple rows,
+1. ResultContainer
+	ResultList
+2. Convert the data into arrays from objects
+	1a. Search, add the distance for each, ie.. how many miles each post is away from you
+
+3. pass this foodReducer in ResultContainer so that we can loop through the result
 
 
 

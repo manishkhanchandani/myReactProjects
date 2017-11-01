@@ -2,11 +2,6 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom'; 
 import {connect} from 'react-redux';
 
-
-import * as firebase from 'firebase';
-import {firebaseApp, firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
-
-
 import {actionGoogleLogin, actionSignOut} from '../actions/MyAction.js';
 
 

@@ -3,7 +3,7 @@ import Autocomplete from 'react-google-autocomplete';
 
 import {connect} from 'react-redux';
 import * as firebase from 'firebase';
-import {firebaseApp, firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
+import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 
 class Create extends Component {
 	

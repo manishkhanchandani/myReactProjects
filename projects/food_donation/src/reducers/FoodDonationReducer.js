@@ -2,9 +2,10 @@ const FoodDonationReducer = (state = {
 	data: null							 
 }, action) => {
 	switch (action.type) {
-		case 'BROWSE_FULFILLED':
+		case 'BROWSE':
 			state = {
-				...state
+				...state,
+				data: action.payload
 			};
 			break;
 		default:

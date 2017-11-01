@@ -4,7 +4,8 @@ import Autocomplete from 'react-google-autocomplete';
 import {connect} from 'react-redux';
 import {browseFoodDonation} from '../actions/FoodDonationAction.js';
 
-import Results from './Results.js';
+import ResultContainer from './ResultContainer.js';
+import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 
 
 class Home extends Component {
@@ -65,14 +66,7 @@ class Home extends Component {
 					<div className="col-md-9">
 						<h3>Results</h3>
 						
-						<Results />
-						<Results />
-						<Results />
-						<Results />
-						<Results />
-						<Results />
-						<Results />
-						<Results />
+						<ResultContainer data={this.props.foodReducer.data} />
 						
 						
 						
@@ -83,6 +77,7 @@ class Home extends Component {
 	}
 }
 
+
 const mapStateToProps = (state) => {
 	return {
 		foodReducer: state.FoodDonationReducer
@@ -92,7 +87,14 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		func1: () => {
-			dispatch(browseFoodDonation());	
+			//api or firebase or any url which backend developer has provide to you		
+			var url = FirebaseConstant.basePath + '/data/posts';
+			//create a reference of above url
+			var ref = firebaseDatabase.ref(url);
+			ref.on('value', function(snapshot) {
+				dispatch(browseFoodDonation(snapshot.val()));	
+			});
+			
 		}
 	};	
 };

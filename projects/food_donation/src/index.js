@@ -9,8 +9,7 @@ import {Provider} from 'react-redux';
 import store from './store.js';
 
 
-import * as firebase from 'firebase';
-import {firebaseApp, firebaseDatabase, FirebaseConstant} from './MyFirebase.js';
+import {firebaseApp} from './MyFirebase.js';
 
 import {loggedIn, loggedOut} from './actions/MyAction.js';
 
