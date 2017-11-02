@@ -24,10 +24,11 @@ class Home extends Component {
 						<h3>Search</h3>
 						<form>
 						  <div className="form-group">
-							<label>Keyword</label>
+							<label>Keyword:</label>
 							<input type="text" className="form-control" placeholder="Enter any Keyword" />
 						  </div>
 						  
+						  <label>Location:</label>
 						  <Autocomplete className="form-control addressBox" onPlaceSelected={(place) => {
 							  
 							  	if (!place.formatted_address) {
@@ -35,7 +36,6 @@ class Home extends Component {
 									return null;
 								}
 								
-								console.log(place);
 								var componentForm = {
 									locality: 'long_name',
 									administrative_area_level_1: 'short_name',
@@ -60,6 +60,15 @@ class Home extends Component {
 								console.log(obj);
 							}} types={['geocode']} />
 						  <br />
+						  <div className="form-group">
+							<label>Show Results Within:</label>
+							<select className="form-control">
+								<option>County</option>
+								<option>City</option>
+								<option>State</option>
+								<option>Country</option>
+							</select>
+						  </div>
 						  <button type="submit" className="btn btn-primary form-control">Search</button>
 						</form>
 					</div>

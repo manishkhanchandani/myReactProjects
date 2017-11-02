@@ -1136,6 +1136,29 @@ npm install --save reactabular-column-extensions treetabular reactabular-dnd rea
 
 
 
+First Task is convert Object to Array
+
+
+All data is present inside this.props.data
+
+	for(i=0; i<10;i++)
+	
+	In react what we use
+	
+	
+	var arr = array()
+	arr[0] = 'one';
+	arr[1] = 'two';
+	
+	arr.map((value, index) => {
+		return <div>{value}</div>
+	})
+	
+	
+	{name: 'manny', age: 43}
+	
+arr.push({name: 'manny', age: 43});
+
 
 
 
