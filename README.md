@@ -1130,7 +1130,9 @@ Data with multiple rows,
 
 3. pass this foodReducer in ResultContainer so that we can loop through the result
 
+https://reactabular.js.org/#/
 
+npm install --save reactabular-column-extensions treetabular reactabular-dnd react-visibility-toggles reactabular-virtualized reactabular-sticky selectabular reactabular-table react-edit searchtabular sortabular reactabular-resizable
 
 
 
