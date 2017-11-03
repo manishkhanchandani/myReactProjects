@@ -24,8 +24,10 @@ class App extends Component {
         <Route exact={true} path="/edit/:id" component={Edit} />
         <Route exact={true} path="/delete/:id" component={Delete} />
         <Route exact={true} path="/myaccount" component={MyAccount} />
-        <Route exact={true} path="/chat" component={Chat} />
-		
+        <Route exact={true} path="/chat" component={Chat} />		
+		<Route exact={true} path="/search/:type/:keyword/:lat/:lng/:boundary/:addr" component={Home} />
+		<Route exact={true} path="/search/:type/:keyword" component={Home} />
+		<Route exact={true} path="/search/:type/:lat/:lng/:boundary/:addr" component={Home} />
 		
       </div>
 	  </Router>

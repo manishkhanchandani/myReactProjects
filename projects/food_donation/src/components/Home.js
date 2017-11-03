@@ -10,22 +10,52 @@ import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 
 class Home extends Component {
 	
+	constructor(props) {
+		super(props);
+		
+		this.state = {
+			keyword: '',
+			location: {},
+			boundary: 'county'
+		};
+	}
+	
 	componentDidMount() {
 		this.props.func1();
 	}
+			
 	
+	searchRecords(e) {
+		e.preventDefault();//this will stop the form submission
+		console.log('form is submitted and state is ', this.state);
+		var url = '';
+		
+		if (this.state.keyword && this.state.location.lat && this.state.location.lng) {
+			//user has put keyword and location both
+			url = '/search/all/' + encodeURIComponent(this.state.keyword) + '/' + this.state.location.lat + '/' + this.state.location.lng + '/' + this.state.boundary + '/' + encodeURIComponent(this.state.location.formatted_address);
+		} else if (this.state.keyword) {
+			//user has put only keyword
+			url = '/search/keyword/' + encodeURIComponent(this.state.keyword);
+		} else if (this.state.location.lat && this.state.location.lng) {
+			//user has put only location
+			url = '/search/location/' + this.state.location.lat + '/' + this.state.location.lng + '/' + this.state.boundary + '/' + encodeURIComponent(this.state.location.formatted_address);
+		}
+		
+		console.log('url is ', url);
+		this.props.history.push(url);
+	}
 
 	render() {
-		
+		console.log('props are ', this.props);
 		return (
 			<div className="container">
 				<div className="row">
 					<div className="col-md-3">
 						<h3>Search</h3>
-						<form>
+						<form onSubmit={this.searchRecords.bind(this)}>
 						  <div className="form-group">
 							<label>Keyword:</label>
-							<input type="text" className="form-control" placeholder="Enter any Keyword" />
+							<input type="text" className="form-control" placeholder="Enter any Keyword" value={this.state.keyword} onChange={(e) => { this.setState({keyword: e.target.value}); }} />
 						  </div>
 						  
 						  <label>Location:</label>
@@ -58,15 +88,16 @@ class Home extends Component {
 								
 								
 								console.log(obj);
+								this.setState({location: obj});
 							}} types={['geocode']} />
 						  <br />
 						  <div className="form-group">
 							<label>Show Results Within:</label>
-							<select className="form-control">
-								<option>County</option>
-								<option>City</option>
-								<option>State</option>
-								<option>Country</option>
+							<select className="form-control" value={this.state.boundary} onChange={(e) => {this.setState({boundary: e.target.value});}}>
+								<option value="county">County</option>
+								<option value="city">City</option>
+								<option value="state">State</option>
+								<option value="country">Country</option>
 							</select>
 						  </div>
 						  <button type="submit" className="btn btn-primary form-control">Search</button>
