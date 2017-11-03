@@ -18,6 +18,7 @@ class App extends Component {
 	
 			
         <Route exact={true} path="/" component={Home} />
+        <Route exact={true} path="/home" component={Home} />
         <Route exact={true} path="/create" component={Create} />
         <Route exact={true} path="/edit/:id" component={Edit} />
         <Route exact={true} path="/delete/:id" component={Delete} />

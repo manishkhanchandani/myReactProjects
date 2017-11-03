@@ -6,7 +6,7 @@ import {browseFoodDonation} from '../actions/FoodDonationAction.js';
 
 import ResultContainer from './ResultContainer.js';
 import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
-
+import {Redirect} from 'react-router-dom';
 
 class Home extends Component {
 	
@@ -21,7 +21,11 @@ class Home extends Component {
 	}
 	
 	componentDidMount() {
+		console.log('did mount');
 		this.props.func1();
+	}
+	componentDidUpdate() {
+		console.log('did update');
 	}
 			
 	
@@ -43,6 +47,7 @@ class Home extends Component {
 		
 		console.log('url is ', url);
 		this.props.history.push(url);
+		//window.location.href = url;
 	}
 
 	render() {

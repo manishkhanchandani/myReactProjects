@@ -54,6 +54,8 @@ class Home extends Component {
 			url = '/search/keyword/'+encodeURIComponent(this.state.keyword);
 		}
 		console.log('url is ', url);
+		console.log('this: ', this);
+		return;
 		this.props.history.push(url);
     }
 
@@ -71,11 +73,11 @@ class Home extends Component {
 						<form onSubmit={this.submitCreatePost.bind(this)}>
 						  <div className="form-group">
 							<label>Keyword</label>
-							<input type="text" className="form-control" placeholder="Enter any Keyword"  value={this.state.keyword} onChange={this.updatePost.bind(this, 'keyword')} />
+							<input type="text" className="form-control" placeholder="Enter any Keyword" value={this.state.keyword} onChange={this.updatePost.bind(this, 'keyword')} />
 						  </div>
 						  
 						  <Autocomplete className="form-control addressBox" onPlaceSelected={(place) => {
-							  
+							  console.log('places is ', place);
 							  	if (!place.formatted_address) {
 									alert('please choose the address');
 									return null;

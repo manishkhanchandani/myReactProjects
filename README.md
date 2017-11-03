@@ -1161,4 +1161,9 @@ arr.push({name: 'manny', age: 43});
 
 
 
+Pagination - 1
+npm install react-data-components --save
+https://github.com/carlosrocha/react-data-components
+http://carlosrocha.xyz/react-data-components/
+https://react.rocks/example/react-data-components
 
