@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 
 import ResultsContainer from './ResultsContainer.js';
 import {browsePost} from '../actions/FoodDonation.js';
+import {distance} from '../utilities/functions.js';
 
 import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 
@@ -54,8 +55,6 @@ class Home extends Component {
 			url = '/search/keyword/'+encodeURIComponent(this.state.keyword);
 		}
 		console.log('url is ', url);
-		console.log('this: ', this);
-		return;
 		this.props.history.push(url);
     }
 
@@ -146,7 +145,14 @@ const mapDispatchToProps = (dispatch) => {
 		var ref = firebaseDatabase.ref(url).orderByChild('created_dt').limitToLast(500);
 		ref.on('value', function(snapshot) {
 			var result = snapshot.val();
-		  	dispatch(browsePost(result));
+			var arr = [];
+			for (var key in result) {
+				var formattedData = result[key];
+				var dist = distance(37.773972, -122.431297, formattedData.location.lat, formattedData.location.lng);
+				formattedData.distance = dist.toFixed(2);
+				arr.push(formattedData);
+			}
+		  	dispatch(browsePost(arr));
 		});
       
     }

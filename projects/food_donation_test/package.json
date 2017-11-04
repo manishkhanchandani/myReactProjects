@@ -12,6 +12,7 @@
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.14",
+    "react-sort-component": "^1.3.0",
     "react-visibility-toggles": "^1.2.0",
     "reactabular-column-extensions": "^8.9.3",
     "reactabular-dnd": "^8.12.0",
