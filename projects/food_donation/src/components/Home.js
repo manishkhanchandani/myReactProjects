@@ -12,16 +12,34 @@ import SearchForm from './SearchForm.js';
 class Home extends Component {
 	
 	componentDidMount() {
+		var obj = this.props.match.params;
+		console.log('obj is ', obj);
+		var url = FirebaseConstant.basePath + '/data';
+		if (obj.keyword && obj.lat && obj.lng) {
+			//do something
+		} else if (obj.lat && obj.lng) {
+			//do something
+			if (obj.boundary === 'county') {
+				url = url + '/' + obj.boundary + '/' + obj.country + '/' + obj.state + '/' + obj.county;
+			} else if (obj.boundary === 'city') {
+				url = url + '/' + obj.boundary + '/' + obj.country + '/' + obj.state + '/' + obj.county + '/' + obj.city;
+			} else if (obj.boundary === 'state') {
+				url = url + '/' + obj.boundary + '/' + obj.country + '/' + obj.state;
+			} else if (obj.boundary === 'country') {
+				url = url + '/' + obj.boundary + '/' + obj.country;
+			}
+		} else if (obj.keyword) {
+			//do something
+		}
 		this.props.func1();
 	}
 
 	render() {
-		console.log('props are ', this.props);
 		return (
 			<div className="container">
 				<div className="row">
 					<div className="col-md-3">
-						<SearchForm />
+						<SearchForm {...this.props} />
 					</div>
 					<div className="col-md-9">
 						<h3>Results</h3>
