@@ -7,8 +7,7 @@ import registerServiceWorker from './registerServiceWorker';
 import {Provider} from 'react-redux';
 import store from './store.js';
 
-import * as firebase from 'firebase';
-import {firebaseApp, firebaseDatabase} from './MyFireBase.js';
+import {firebaseApp} from './MyFireBase.js';
 
 import {loggedIn, loggedOut} from './actions/MyAction.js';
 

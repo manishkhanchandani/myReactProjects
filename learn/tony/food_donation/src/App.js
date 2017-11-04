@@ -24,6 +24,11 @@ class App extends Component {
         <Route exact={true} path="/delete/:id" component={Delete} />
         <Route exact={true} path="/myaccount" component={MyAccount} />
         <Route exact={true} path="/chat" component={Chat} />
+
+         {/* These routes are used to refresh home page based on search data  */}
+         <Route exact={true} path="/search/:type/:keyword/:lat/:lng/:boundary/:addr/:country/:state/:county/:city" component={Home} />
+        <Route exact={true} path="/search/:type/:keyword" component={Home} />
+        <Route exact={true} path="/search/:type/:lat/:lng/:boundary/:addr/:country/:state/:county/:city" component={Home} />
 			</div>
 	  </Router>
     );
