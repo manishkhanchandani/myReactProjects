@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Autocomplete from 'react-google-autocomplete';
 
 class SearchForm extends Component {
 	
@@ -43,6 +44,7 @@ class SearchForm extends Component {
 	}
 
 	render() {
+		console.log('props on search form is ', this.props);
 		return (
 			<div>
 				<h3>Search</h3>

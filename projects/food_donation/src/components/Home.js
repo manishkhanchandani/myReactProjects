@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Autocomplete from 'react-google-autocomplete';
 
 import {connect} from 'react-redux';
 import {browseFoodDonation} from '../actions/FoodDonationAction.js';
