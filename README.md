@@ -10,7 +10,17 @@
     "redux-promise-middleware": "^4.4.1",
     "redux-thunk": "^2.2.0"
     
-    
+   npm install react-router-dom --save 
+   npm install firebase --save 
+   npm install redux --save 
+   npm install react-redux --save 
+   npm install redux-logger --save 
+   npm install redux-promise-middleware --save 
+   npm install redux-thunk --save 
+   npm install react-google-autocomplete --save 
+   
+   npm install react-router-dom firebase redux react-redux redux-logger redux-promise-middleware redux-thunk --save 
+   npm install react-google-autocomplete --save 
 
 npm start
 	to do all your development work
