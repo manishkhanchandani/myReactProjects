@@ -10,7 +10,7 @@ var config = {
   };
 
 export const FirebaseConstant = {
-	basePath: '/baby_bar_quiz'
+	basePath: '/some_folder_name'
 };
 
 export const firebaseApp = firebase.initializeApp(config);
