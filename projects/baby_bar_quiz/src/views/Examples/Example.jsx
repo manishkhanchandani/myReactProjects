@@ -51,7 +51,7 @@ class Example1 extends Component {
 		//filtering
 		if (this.state.term) {
 			arr = arr.filter((item) => {
-				return (item.name.toLowerCase().indexOf(this.state.term.toLowerCase()) >= 0 || item.last_name.toLowerCase().indexOf(this.state.term.toLowerCase()) >= 0 || item.gender.toLowerCase().indexOf(this.state.term.toLowerCase()) >= 0 || item.age == this.state.term.toLowerCase());
+				return (item.name.toLowerCase().indexOf(this.state.term.toLowerCase()) >= 0 || item.last_name.toLowerCase().indexOf(this.state.term.toLowerCase()) >= 0 || item.gender.toLowerCase().indexOf(this.state.term.toLowerCase()) >= 0 || item.age === parseInt(this.state.term.toLowerCase(), 10));
 			});	
 		}
 		

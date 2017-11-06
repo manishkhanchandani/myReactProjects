@@ -7,6 +7,8 @@ import Maps from 'views/Maps/Maps';
 import Notifications from 'views/Notifications/Notifications';
 import Upgrade from 'views/Upgrade/Upgrade';
 import Example from 'views/Examples/Example';
+import QuizNew from 'views/Quiz/New';
+import QuizImport from 'views/Quiz/Import';
 
 const appRoutes = [
     { path: "/dashboard", name: "Dashboard", icon: "pe-7s-graph", component: Dashboard },
@@ -17,6 +19,8 @@ const appRoutes = [
     { path: "/maps", name: "Maps", icon: "pe-7s-map-marker", component: Maps },
     { path: "/notifications", name: "Notifications", icon: "pe-7s-bell", component: Notifications },
     { path: "/examples", name: "Examples", icon: "pe-7s-science", component: Example, noSideDisplay:true },
+    { path: "/quiz/new", name: "Quiz New", icon: "pe-7s-science", component: QuizNew },
+    { path: "/quiz/import", name: "Quiz Import", icon: "pe-7s-science", component: QuizImport, noSideDisplay:true },
     { upgrade: true, path: "/upgrade", name: "Upgrade to PRO", icon: "pe-7s-rocket", component: Upgrade },
     { redirect: true, path:"/", to:"/dashboard", name: "Dashboard" }
 ];

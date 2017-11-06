@@ -1177,3 +1177,6 @@ https://github.com/carlosrocha/react-data-components
 http://carlosrocha.xyz/react-data-components/
 https://react.rocks/example/react-data-components
 
+
+template study
+https://lbd-react.creative-tim.com/#/components#navbar-row
