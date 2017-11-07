@@ -11,6 +11,27 @@ import SearchForm from './SearchForm.js';
 
 class Home extends Component {
 	
+	constructor(props) {
+		super(props);
+		
+		this.state = {
+			subObjects: {}	
+		};
+	}
+	
+	processLoop(key)
+	{
+		var subURL = FirebaseConstant.basePath + '/data/posts/'+key;
+		var subRef = firebaseDatabase.ref(subURL);
+		var tmp = this.state.subObjects;
+		subRef.once('value', (subSnapshot) => {
+			tmp[key] = subSnapshot.val();	
+			this.setState({subObjects: tmp});
+			
+			this.props.func2(this.state.subObjects);
+		});
+	}
+
 	componentDidMount() {
 		var obj = this.props.match.params;
 		console.log('obj is ', obj);
@@ -30,11 +51,27 @@ class Home extends Component {
 			}
 		} else if (obj.keyword) {
 			//do something
+		} else {
+			//home page will go here	
+			this.props.func1();
+			return;
 		}
-		this.props.func1();
+		
+		console.log('url is ', url);
+		
+		var ref = firebaseDatabase.ref(url);
+		ref.on('value', (snapshot) => {
+			var records = snapshot.val();
+			if (!records) return null;
+			
+			for (var key in records) {
+				this.processLoop(key);
+			}
+		});
 	}
 
 	render() {
+		console.log('state is ', this.state);
 		return (
 			<div className="container">
 				<div className="row">
@@ -71,6 +108,10 @@ const mapDispatchToProps = (dispatch) => {
 				dispatch(browseFoodDonation(snapshot.val()));	
 			});
 			
+		},
+		
+		func2: (details) => {
+			dispatch(browseFoodDonation(details));	
 		}
 	};	
 };

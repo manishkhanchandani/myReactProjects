@@ -1180,3 +1180,29 @@ https://react.rocks/example/react-data-components
 
 template study
 https://lbd-react.creative-tim.com/#/components#navbar-row
+
+
+
+
+
+
+state
+	obj1
+	
+	
+	
+	obj2[key1] = {}
+		obj1 = ob2
+		
+	obj2[key2] = {}
+		obj1 = ob2
+		
+	obj2[key1] = {}
+		obj1 = ob2
+
+
+
+
+
+
+
