@@ -1201,8 +1201,24 @@ state
 		obj1 = ob2
 
 
+this.state = {
+	obj1 = {}
+}
 
 
+var tmp = this.state.obj1;
+obj2[key1] = {aaa}
+	tmp[key1] = {aaa}
+	
+	this.setState(obj1: tmp);
+	
+var tmp = this.state.obj1;
+tmp[key2] = {bbb}
+	this.setState(obj1: tmp);
+	
+	var tmp = this.state.obj1;
 
-
+obj2[key31] = {}
+tmp[key3] = {ccc}
+this.setState(obj1: tmp);
 
