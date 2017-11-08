@@ -1,4 +1,6 @@
-const FoodDonationReducer = (state = {data:null}, action) => {
+const FoodDonationReducer = (state = {
+	data: null							 
+}, action) => {
 	switch (action.type) {
 		case 'BROWSE':
 			state = {

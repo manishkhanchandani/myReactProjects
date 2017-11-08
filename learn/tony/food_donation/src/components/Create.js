@@ -1,29 +1,26 @@
 import React, {Component} from 'react';
 import Autocomplete from 'react-google-autocomplete';
+
 import {connect} from 'react-redux';
 import * as firebase from 'firebase';
-import {firebaseDatabase, FirebaseConstant} from '../MyFireBase.js';
-// import Auth from './Auth.js';
+import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 
 class Create extends Component {
-
-	// This is used by react to save the state
+	
 	constructor(props) {
-		super(props);
-
+		super(props);	
+		
 		this.state = {
-			title: "",
-			description: "",
-			tags: "",
-			imageUrl: "",
+			title: '',
+			description: '',
+			tags: '',
+			imageUrl: '',
 			location: {}
 		};
 	}
-
-	submitToFireBase(e) {
+	
+	submitToFirebase(e) {
 		e.preventDefault();
-		//write to firebase
-
 		var current = firebase.database.ServerValue.TIMESTAMP;
 		var obj = {};
 		obj.title = this.state.title;
@@ -31,38 +28,33 @@ class Create extends Component {
 		obj.tags = this.state.tags;
 		obj.imageUrl = this.state.imageUrl;
 		obj.location = this.state.location;
-
+		
 		obj.user_id = this.props.myReducer.uid;
-		obj.created_dt = firebase.database.ServerValue.TIMESTAMP;
+		obj.created_dt = current;
+		
 
 		var url = FirebaseConstant.basePath + '/data/posts';
 		var uniqueID = firebaseDatabase.ref(url).push(obj).key;
 		firebaseDatabase.ref(url).child(uniqueID).child('id').set(uniqueID);
-
-
+		
 		var country = obj.location.country;
 		var state = obj.location.administrative_area_level_1;
 		var county = obj.location.administrative_area_level_2;
 		var city = obj.location.locality;
 		
-		
 		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/country').child(country).child(uniqueID).set(current);
 		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/state').child(country).child(state).child(uniqueID).set(current);
 		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/county').child(country).child(state).child(county).child(uniqueID).set(current);
 		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/city').child(country).child(state).child(county).child(city).child(uniqueID).set(current);
-		
-		// This one will keep track of each users posts
 		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/users').child(obj.user_id).child(uniqueID).set(current);
-
-		//Stub
-		//firebaseDatabase.ref(FirebaseConstant.basePath + '/data/users')
-
+		
+		
 		var tags = this.state.tags.split(',');
 		
 		if (tags.length > 0) {
 			for (var i = 0; i < tags.length; i++) {
 				var tag = tags[i].trim();
-
+				
 				var tagURL = FirebaseConstant.basePath + '/data/tags/' + tag;
 				firebaseDatabase.ref(tagURL + '/country').child(country).child(uniqueID).set(current);
 				firebaseDatabase.ref(tagURL + '/state').child(country).child(state).child(uniqueID).set(current);
@@ -71,32 +63,28 @@ class Create extends Component {
 				firebaseDatabase.ref(tagURL + '/all_tag_posts').child(uniqueID).set(current);
 			}
 		}
-		// Redirect user to confrim page
+		
+		//redirect user to confirm page
 		this.props.history.push("/confirm");
-
-		// This also would work
-		// <Redirect to="/" push={true} />
 	}
-
+	
 	render() {
-		// Check the state value
 		console.log('state value: ', this.state);
 		return (
 			<div className="container">
-			{/* 	<Auth /> */}
 				<div className="row">
 					<div className="col-md-12">
 						<h1>Create New Post</h1>
-						
-						<form onSubmit={this.submitToFireBase.bind(this)}>
+						<form onSubmit={this.submitToFirebase.bind(this)}>
 						  <div className="form-group">
 							<label>Title</label>
-							<input type="text" value= {this.state.title} className="form-control" placeholder="Enter Title" 
-									onChange={(e) => {this.setState({title: e.target.value}); 
+							<input type="text" value={this.state.title} className="form-control" placeholder="Enter Title" onChange={(e) => {
+								this.setState({title: e.target.value});	
 							}} />
 						  </div>
 						  <label>Location</label>
 						  <Autocomplete className="form-control addressBox" onPlaceSelected={(place) => {
+							  
 							  	if (!place.formatted_address) {
 									alert('please choose the address');
 									return null;
@@ -122,34 +110,34 @@ class Create extends Component {
 									obj[addressType] = val;
 								  }
 								}
+								
 								this.setState({location: obj});
-								// console.log(obj);
+								
 							}} types={['geocode']} />
 							
 							<div className="form-group mySpacing">
 								<label>Description</label>
-								<textarea rows="5" className="form-control" value={this.state.description}
-									onChange={(e) => {this.setState({description: e.target.value});	
+								<textarea rows="5" className="form-control" value={this.state.description} onChange={(e) => {
+									this.setState({description: e.target.value});	
 								}}></textarea>
-						  </div>
+							  </div>
 							  
 							<div className="form-group mySpacing">
 								<label>Tags (Comma separated tags for searching)</label>
 								<input type="text" className="form-control" placeholder="Enter Tags" value={this.state.tags} onChange={(e) => {
-									this.setState({tags: e.target.value});
+									this.setState({tags: e.target.value});	
 								}} />
-						  </div>
+							  </div>
 							  
 							 <div className="form-group mySpacing">
 								<label>Image URL</label>
 								<input type="text" className="form-control" placeholder="Enter Image URL" value={this.state.imageUrl} onChange={(e) => {
 									this.setState({imageUrl: e.target.value});	
 								}} />
-							</div>
+							  </div>
 							
 						  <br />
-						  
-							<button type="submit" className="btn btn-primary form-control">Create New Post</button>
+						  <button type="submit" className="btn btn-primary form-control">Create New Post</button>
 						</form>
 					</div>
 				</div>
@@ -165,4 +153,3 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps)(Create);
-

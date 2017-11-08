@@ -1,6 +1,6 @@
 
 import * as firebase from 'firebase';
-import {firebaseApp, firebaseDatabase, FirebaseConstant} from '../MyFireBase.js';
+import {firebaseApp, firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 
 
 export const loggedIn = (params) => {

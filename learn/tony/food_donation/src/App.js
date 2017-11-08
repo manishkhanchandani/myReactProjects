@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom'; 
-import Nav from './components/Nav.js';
 
+import Nav from './components/Nav.js';
 import Home from './components/Home.js';
 import Create from './components/Create.js';
 import Edit from './components/Edit.js';
@@ -14,8 +14,9 @@ class App extends Component {
   render() {
     return (
 	  <Router>
-			<div>
-				<Nav />
+      <div>
+	  	<Nav />
+	
 			
         <Route exact={true} path="/" component={Home} />
         <Route exact={true} path="/create" component={Create} />
@@ -23,13 +24,12 @@ class App extends Component {
         <Route exact={true} path="/edit/:id" component={Edit} />
         <Route exact={true} path="/delete/:id" component={Delete} />
         <Route exact={true} path="/myaccount" component={MyAccount} />
-        <Route exact={true} path="/chat" component={Chat} />
-
-         {/* These routes are used to refresh home page based on search data  */}
-         <Route exact={true} path="/search/:type/:keyword/:lat/:lng/:boundary/:addr/:country/:state/:county/:city" component={Home} />
-        <Route exact={true} path="/search/:type/:keyword" component={Home} />
-        <Route exact={true} path="/search/:type/:lat/:lng/:boundary/:addr/:country/:state/:county/:city" component={Home} />
-			</div>
+        <Route exact={true} path="/chat" component={Chat} />		
+		<Route exact={true} path="/search/:type/:keyword/:lat/:lng/:boundary/:addr/:country/:state/:county/:city" component={Home} />
+		<Route exact={true} path="/search/:type/:keyword" component={Home} />
+		<Route exact={true} path="/search/:type/:lat/:lng/:boundary/:addr/:country/:state/:county/:city" component={Home} />
+		
+      </div>
 	  </Router>
     );
   }

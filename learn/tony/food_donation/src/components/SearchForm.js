@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import Autocomplete from 'react-google-autocomplete';
+import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
+import {connect} from 'react-redux';
+import {browseFoodDonation} from '../actions/FoodDonationAction.js';
 
 class SearchForm extends Component {
 	
@@ -18,33 +21,77 @@ class SearchForm extends Component {
                 locality: ""
                     
             },
-            boundary: 'county'
+            boundary: 'county',
+			subObjects: {}
 		};
+	}
+	
+	componentDidMount() {
+		this.getRecordsFromFB();
+	}
+	
+	
+	processLoop(key)
+	{
+		var subURL = FirebaseConstant.basePath + '/data/posts/'+key;
+		var subRef = firebaseDatabase.ref(subURL);
+		var tmp = this.state.subObjects;
+		subRef.once('value', (subSnapshot) => {
+			tmp[key] = subSnapshot.val();	
+			this.setState({subObjects: tmp});
+			
+			this.props.func2(this.state.subObjects);
+		});
+	}
+	
+	getRecordsFromFB()
+	{
+		console.log('form is submitted and state is ', this.state);
+		this.setState({subObjects: {}});
+		
+		var url = FirebaseConstant.basePath + '/data';
+		if (this.state.keyword && this.state.location.lat && this.state.location.lng) {
+			//do something
+		} else if (this.state.location.lat && this.state.location.lng) {
+			//do something
+			if (this.state.boundary === 'county') {
+				url = url + '/' + this.state.boundary + '/' + this.state.location.country + '/' + this.state.location.administrative_area_level_1 + '/' + this.state.location.administrative_area_level_2;
+			} else if (this.state.boundary === 'city') {
+				url = url + '/' + this.state.boundary + '/' + this.state.location.country + '/' + this.state.location.administrative_area_level_1 + '/' + this.state.location.administrative_area_level_2 + '/' + this.state.location.locality;
+			} else if (this.state.boundary === 'state') {
+				url = url + '/' + this.state.boundary + '/' + this.state.location.country + '/' + this.state.location.administrative_area_level_1;
+			} else if (this.state.boundary === 'country') {
+				url = url + '/' + this.state.boundary + '/' + this.state.location.country;
+			}
+		} else if (this.state.keyword) {
+			//do something
+		} else {
+			//home page will go here
+			this.props.func1();
+			return;
+		}
+		
+		console.log('url is ', url);
+		var ref = firebaseDatabase.ref(url);
+		ref.on('value', (snapshot) => {
+			var records = snapshot.val();
+			if (!records) {
+				this.props.func2(this.state.subObjects);
+				return null;
+			}
+			
+			for (var key in records) {
+				this.processLoop(key);
+			}
+		});
 	}
 	
 	searchRecords(e) {
 		e.preventDefault();//this will stop the form submission
-		console.log('form is submitted and state is ', this.state);
-		var url = '';
-		
-		if (this.state.keyword && this.state.location.lat && this.state.location.lng) {
-			//user has put keyword and location both
-			url = '/search/all/' + encodeURIComponent(this.state.keyword) + '/' + this.state.location.lat + '/' + this.state.location.lng + '/' + this.state.boundary + '/' + encodeURIComponent(this.state.location.formatted_address) + '/' + encodeURIComponent(this.state.location.country) + '/' + encodeURIComponent(this.state.location.administrative_area_level_1) + '/' + encodeURIComponent(this.state.location.administrative_area_level_2) + '/' + encodeURIComponent(this.state.location.locality);
-		} else if (this.state.keyword) {
-			//user has put only keyword
-			url = '/search/keyword/' + encodeURIComponent(this.state.keyword);
-		} else if (this.state.location.lat && this.state.location.lng) {
-			//user has put only location
-			url = '/search/location/' + this.state.location.lat + '/' + this.state.location.lng + '/' + this.state.boundary + '/' + encodeURIComponent(this.state.location.formatted_address) + '/' + encodeURIComponent(this.state.location.country) + '/' + encodeURIComponent(this.state.location.administrative_area_level_1) + '/' + encodeURIComponent(this.state.location.administrative_area_level_2) + '/' + encodeURIComponent(this.state.location.locality);
-		}
-		
-		console.log('url is ', url);
-		this.props.history.push(url);
-		//window.location.href = url;
+		this.getRecordsFromFB();
 	}
 
 	render() {
-		console.log('props on search form is ', this.props);
 		return (
 			<div>
 				<h3>Search</h3>
@@ -103,4 +150,29 @@ class SearchForm extends Component {
 	}
 }
 
-export default SearchForm;
+const mapStateToProps = (state) => {
+	return {
+		foodReducer: state.FoodDonationReducer
+	}	
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		func1: () => {
+			//api or firebase or any url which backend developer has provide to you		
+			var url = FirebaseConstant.basePath + '/data/posts';
+			//create a reference of above url
+			var ref = firebaseDatabase.ref(url);
+			ref.on('value', function(snapshot) {
+				dispatch(browseFoodDonation(snapshot.val()));	
+			});
+			
+		},
+		
+		func2: (details) => {
+			dispatch(browseFoodDonation(details));	
+		}
+	};	
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchForm);
