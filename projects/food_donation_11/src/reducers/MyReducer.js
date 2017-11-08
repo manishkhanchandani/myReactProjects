@@ -4,10 +4,7 @@ const MyReducer = (state = {
 	photoURL: null,
 	uid: null,
 	profile_uid: null,
-	providerId: null,
-    createPostMessage: null,
-	query1Data: null,
-	query2Data: null
+	providerId: null
 }, action) => {
 	switch (action.type) {
 		case 'LOGGEDIN':
@@ -31,19 +28,17 @@ const MyReducer = (state = {
 				profile_uid: null,
 				providerId: null
 			}
-        break;
-		case 'QUERY1_FULFILLED':
+			break;
+		case 'GOOGLELOGIN_FULFILLED':
 			state = {
-				...state,
-				query1Data: action.payload
+				...state
 			}
-        break;
-		case 'QUERY2_FULFILLED':
+			break;
+		case 'MAIN_SIGNOUT_FULFILLED':
 			state = {
-				...state,
-				query2Data: action.payload
+				...state
 			}
-        break;
+			break;
 		default:
 			break;
 	}

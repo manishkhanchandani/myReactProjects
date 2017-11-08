@@ -8,7 +8,7 @@ import Edit from './components/Edit.js';
 import Delete from './components/Delete.js';
 import MyAccount from './components/MyAccount.js';
 import Chat from './components/Chat.js';
-import Project1 from './components/Project1.js';
+import Confirm from './components/Confirm.js';
 
 class App extends Component {
   render() {
@@ -19,17 +19,15 @@ class App extends Component {
 	
 			
         <Route exact={true} path="/" component={Home} />
-        <Route exact={true} path="/home" component={Home} />
         <Route exact={true} path="/create" component={Create} />
+        <Route exact={true} path="/confirm" component={Confirm} />
         <Route exact={true} path="/edit/:id" component={Edit} />
         <Route exact={true} path="/delete/:id" component={Delete} />
         <Route exact={true} path="/myaccount" component={MyAccount} />
-        <Route exact={true} path="/chat" component={Chat} />
-		<Route exact={true} path="/search/:type/:keyword/:lat/:lng/:addr" component={Home} />
-		<Route exact={true} path="/search/:type/:lat/:lng/:addr" component={Home} />
+        <Route exact={true} path="/chat" component={Chat} />		
+		<Route exact={true} path="/search/:type/:keyword/:lat/:lng/:boundary/:addr/:country/:state/:county/:city" component={Home} />
 		<Route exact={true} path="/search/:type/:keyword" component={Home} />
-        <Route exact={true} path="/project1" component={Project1} />
-		
+		<Route exact={true} path="/search/:type/:lat/:lng/:boundary/:addr/:country/:state/:county/:city" component={Home} />
 		
       </div>
 	  </Router>

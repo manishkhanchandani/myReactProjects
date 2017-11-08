@@ -38,7 +38,7 @@ class SearchForm extends Component {
 			url = '/search/location/' + this.state.location.lat + '/' + this.state.location.lng + '/' + this.state.boundary + '/' + encodeURIComponent(this.state.location.formatted_address) + '/' + encodeURIComponent(this.state.location.country) + '/' + encodeURIComponent(this.state.location.administrative_area_level_1) + '/' + encodeURIComponent(this.state.location.administrative_area_level_2) + '/' + encodeURIComponent(this.state.location.locality);
 		}
 		
-		console.log('url in searchForm is ', url);
+		console.log('url is ', url);
 		this.props.history.push(url);
 		//window.location.href = url;
 	}
