@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Autocomplete from 'react-google-autocomplete';
 import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 import {connect} from 'react-redux';
-import {browseFoodDonation} from '../actions/FoodDonationAction.js';
+import {browseFoodDonation, updateKeyword, updateLocation, updateBoundary} from '../actions/FoodDonationAction.js';
 
 class SearchForm extends Component {
 	
@@ -10,18 +10,6 @@ class SearchForm extends Component {
 		super(props);
 		
 		this.state = {
-            keyword: '',
-            location: {
-                formatted_address: "",
-                administrative_area_level_1: "",
-                administrative_area_level_2: "",
-                country: "",
-                lat: null,
-                lng: null,
-                locality: ""
-                    
-            },
-            boundary: 'county',
 			subObjects: {}
 		};
 	}
@@ -50,20 +38,20 @@ class SearchForm extends Component {
 		this.setState({subObjects: {}});
 		
 		var url = FirebaseConstant.basePath + '/data';
-		if (this.state.keyword && this.state.location.lat && this.state.location.lng) {
+		if (this.props.foodReducer.keyword && this.props.foodReducere.location.lat && this.props.foodReducer.location.lng) {
 			//do something
-		} else if (this.state.location.lat && this.state.location.lng) {
+		} else if (this.props.foodReducer.location.lat && this.props.foodReducer.location.lng) {
 			//do something
-			if (this.state.boundary === 'county') {
-				url = url + '/' + this.state.boundary + '/' + this.state.location.country + '/' + this.state.location.administrative_area_level_1 + '/' + this.state.location.administrative_area_level_2;
-			} else if (this.state.boundary === 'city') {
-				url = url + '/' + this.state.boundary + '/' + this.state.location.country + '/' + this.state.location.administrative_area_level_1 + '/' + this.state.location.administrative_area_level_2 + '/' + this.state.location.locality;
-			} else if (this.state.boundary === 'state') {
-				url = url + '/' + this.state.boundary + '/' + this.state.location.country + '/' + this.state.location.administrative_area_level_1;
-			} else if (this.state.boundary === 'country') {
-				url = url + '/' + this.state.boundary + '/' + this.state.location.country;
+			if (this.props.foodReducer.boundary === 'county') {
+				url = url + '/' + this.props.foodReducer.boundary + '/' + this.props.foodReducer.location.country + '/' + this.props.foodReducer.location.administrative_area_level_1 + '/' + this.props.foodReducer.location.administrative_area_level_2;
+			} else if (this.props.foodReducer.boundary === 'city') {
+				url = url + '/' + this.props.foodReducer.boundary + '/' + this.props.foodReducer.location.country + '/' + this.props.foodReducer.location.administrative_area_level_1 + '/' + this.props.foodReducer.location.administrative_area_level_2 + '/' + this.props.foodReducer.location.locality;
+			} else if (this.props.foodReducer.boundary === 'state') {
+				url = url + '/' + this.props.foodReducer.boundary + '/' + this.props.foodReducer.location.country + '/' + this.props.foodReducer.location.administrative_area_level_1;
+			} else if (this.props.foodReducer.boundary === 'country') {
+				url = url + '/' + this.props.foodReducer.boundary + '/' + this.props.foodReducer.location.country;
 			}
-		} else if (this.state.keyword) {
+		} else if (this.props.foodReducer.keyword) {
 			//do something
 		} else {
 			//home page will go here
@@ -98,7 +86,7 @@ class SearchForm extends Component {
 				<form onSubmit={this.searchRecords.bind(this)}>
 				  <div className="form-group">
 					<label>Keyword:</label>
-					<input type="text" className="form-control" placeholder="Enter any Keyword" value={this.state.keyword} onChange={(e) => { this.setState({keyword: e.target.value}); }} />
+					<input type="text" className="form-control" placeholder="Enter any Keyword" value={this.props.foodReducer.keyword} onChange={(e) => { this.props.func3(e.target.value); }} />
 				  </div>
 				  
 				  <label>Location:</label>
@@ -131,12 +119,12 @@ class SearchForm extends Component {
 						
 						
 						console.log(obj);
-						this.setState({location: obj});
+						this.props.func4(obj);
 					}} types={['geocode']} />
 				  <br />
 				  <div className="form-group">
 					<label>Show Results Within:</label>
-					<select className="form-control" value={this.state.boundary} onChange={(e) => {this.setState({boundary: e.target.value});}}>
+					<select className="form-control" value={this.props.foodReducer.boundary} onChange={(e) => { this.props.func5(e.target.value); }}>
 						<option value="county">County</option>
 						<option value="city">City</option>
 						<option value="state">State</option>
@@ -171,7 +159,19 @@ const mapDispatchToProps = (dispatch) => {
 		
 		func2: (details) => {
 			dispatch(browseFoodDonation(details));	
-		}
+		},
+		
+		func3: (keyword) => {
+			dispatch(updateKeyword(keyword));	
+		}, //keywords
+		func4: (location) => {
+			dispatch(updateLocation(location));	
+		}, //location
+		func5: (boundary) => {
+			dispatch(updateBoundary(boundary));	
+		} //boundary
+		
+		
 	};	
 };
 

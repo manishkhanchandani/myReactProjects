@@ -1222,3 +1222,16 @@ obj2[key31] = {}
 tmp[key3] = {ccc}
 this.setState(obj1: tmp);
 
+
+
+TASK 1
+To reference all the records based on the search field
+1. if we go to home page, don't show distance
+2. if we search some location, then show distance
+
+
+1. Pagination
+2. Sorting
+3. Filter
+
+
