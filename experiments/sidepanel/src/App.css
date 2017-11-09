@@ -1,0 +1,17 @@
+.rootClass {
+	font-size: 11px;
+	border: 5px solid black;
+}
+
+.sideClass {
+	font-size: 12px;
+	border: 5px solid green;
+}
+.contentClass {
+	font-size: 14px;
+	border: 5px solid red;
+}
+.overlayClass {
+	font-size: 12px;
+	border: 5px solid blue;
+}
