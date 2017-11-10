@@ -20,7 +20,9 @@
    npm install react-google-autocomplete --save 
    
    npm install react-router-dom firebase redux react-redux redux-logger redux-promise-middleware redux-thunk --save 
-   npm install react-google-autocomplete --save 
+   npm install react-google-autocomplete --save
+   
+    npm install --save react-bootstrap 
 
 npm start
 	to do all your development work
@@ -1234,4 +1236,10 @@ To reference all the records based on the search field
 2. Sorting
 3. Filter
 
+
+PAGINATION
+1. Install react bootstrap by following command:
+ npm install --save react-bootstrap
+ 
+2. 
 

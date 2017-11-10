@@ -19,6 +19,8 @@ class ResultContainer extends Component {
 			}
 			myArray.push(this.props.data[key]);
 		}
+		
+		console.log('myarray is ', myArray);
 		return (
 			<div>				
 				{
