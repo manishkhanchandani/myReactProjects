@@ -38,8 +38,18 @@ class SearchForm extends Component {
 		this.setState({subObjects: {}});
 		
 		var url = FirebaseConstant.basePath + '/data';
-		if (this.props.foodReducer.keyword && this.props.foodReducere.location.lat && this.props.foodReducer.location.lng) {
+		if (this.props.foodReducer.keyword && this.props.foodReducer.location.lat && this.props.foodReducer.location.lng) {
 			//do something
+			if (this.props.foodReducer.boundary === 'county') {
+				url = url + '/tags/' + this.props.foodReducer.keyword + '/' + this.props.foodReducer.boundary + '/' + this.props.foodReducer.location.country + '/' + this.props.foodReducer.location.administrative_area_level_1 + '/' + this.props.foodReducer.location.administrative_area_level_2;
+			} else if (this.props.foodReducer.boundary === 'city') {
+				url = url + '/tags/' + this.props.foodReducer.keyword + '/' + this.props.foodReducer.boundary + '/' + this.props.foodReducer.location.country + '/' + this.props.foodReducer.location.administrative_area_level_1 + '/' + this.props.foodReducer.location.administrative_area_level_2 + '/' + this.props.foodReducer.location.locality;
+			} else if (this.props.foodReducer.boundary === 'state') {
+				url = url + '/tags/' + this.props.foodReducer.keyword + '/' + this.props.foodReducer.boundary + '/' + this.props.foodReducer.location.country + '/' + this.props.foodReducer.location.administrative_area_level_1;
+			} else if (this.props.foodReducer.boundary === 'country') {
+				url = url + '/tags/' + this.props.foodReducer.keyword + '/' + this.props.foodReducer.boundary + '/' + this.props.foodReducer.location.country;
+			}
+			
 		} else if (this.props.foodReducer.location.lat && this.props.foodReducer.location.lng) {
 			//do something
 			if (this.props.foodReducer.boundary === 'county') {
@@ -53,6 +63,7 @@ class SearchForm extends Component {
 			}
 		} else if (this.props.foodReducer.keyword) {
 			//do something
+			url = url + '/tags/' + this.props.foodReducer.keyword + '/all_tag_posts';
 		} else {
 			//home page will go here
 			this.props.func1();

@@ -7,6 +7,7 @@ class Results extends Component {
 			distance = 	(<span> (<strong>{this.props.record.distance} mi.</strong>)</span>);
 		}
 		return (
+			<div className="col-md-6">
 			<div className="media">
 			  <div className="media-left">
 				<a href="">
@@ -22,6 +23,7 @@ class Results extends Component {
 				
 				</p>
 			  </div>
+			</div>
 			</div>
 		);
 	}

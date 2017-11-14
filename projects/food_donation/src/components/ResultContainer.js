@@ -70,8 +70,15 @@ class ResultContainer extends Component {
 			myArray.sort(this.dynamicSort(this.state.sortingField));	
 		}
 		
+		var distanceOption = [];
+		distanceOption.push(<option key="3" value="">Select Sorting Order</option>);
+		if (this.props.foodReducer.location.lat && this.props.foodReducer.location.lng) {
+				distanceOption.push(<option key="1" value="distance">Distance Ascending</option>);
+				distanceOption.push(<option key="2" value="-distance">Distance Descending</option>);
+		}
 		
-		const maxRows = 3;
+		
+		const maxRows = 20;
 		const pageNum = this.state.pageNumber - 1;
 		const startRow = pageNum * maxRows;
 		const totalRows = myArray.length;
@@ -99,14 +106,23 @@ class ResultContainer extends Component {
 						<input type="text" placeholder="Filter" className="form-control" onChange={(e) => {this.setState({filterTerm: e.target.value, pageNumber: 1});}} />
 					</div>
 					<div className="col-md-6">
-						<input type="text" placeholder="Sorting" className="form-control" onChange={(e) => {this.setState({sortingField: e.target.value, pageNumber: 1});}} />
+						<select className="form-control" onChange={(e) => {this.setState({sortingField: e.target.value, pageNumber: 1});}}>
+							{distanceOption}
+							<option value="title">Title Ascending</option>
+							<option value="-title">Title Descending</option>
+							<option value="created_dt">Created Date Ascending</option>
+							<option value="-created_dt">Created Date Descending</option>
+						</select>
 					</div>
 				</div>
+				<br />
+				<div className="row">
 				{
 					myArrayConverted.map((value, index) => {
 						return	<Results record={value} key={index}  /> 			 
 					})	
 				}
+				</div>
 				
 				<hr />
 				<Paginator {...paginationProps} />
