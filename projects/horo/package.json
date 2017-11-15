@@ -1,0 +1,33 @@
+{
+  "name": "horo",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
+    "react-scripts": "1.0.17",
+    "firebase": "^4.5.0",
+    "query-string": "^5.0.1",
+    "react-bootstrap": "^0.31.1",
+    "react-google-autocomplete": "^1.0.13",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-promise-middleware": "^4.4.1",
+    "redux-thunk": "^2.2.0",
+    "axios": "^0.17.0",
+    "chartist": "^0.10.1",
+    "google-maps-react": "^1.1.0",
+    "node-sass-chokidar": "0.0.3",
+    "npm-run-all": "^4.1.1",
+    "react-chartist": "^0.13.0",
+    "react-notification-system": "^0.2.15"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
