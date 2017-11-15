@@ -2,7 +2,12 @@ import React, {Component} from 'react';
 
 class Results extends Component {
 	render() {
+		var distance = '';
+		if (this.props.record.distance) {
+			distance = 	(<span> (<strong>{this.props.record.distance} mi.</strong>)</span>);
+		}
 		return (
+			<div className="col-md-6">
 			<div className="media">
 			  <div className="media-left">
 				<a href="">
@@ -12,8 +17,13 @@ class Results extends Component {
 			  <div className="media-body">
 				<h4 className="media-heading">{this.props.record.title}</h4>
 				<p>{this.props.record.description}</p>
-				<p>{this.props.record.location.formatted_address} (<strong>{this.props.record.distance} mi.</strong>)</p>
+				<p>{this.props.record.location.formatted_address} 
+																   
+				{distance}
+				
+				</p>
 			  </div>
+			</div>
 			</div>
 		);
 	}
