@@ -6,19 +6,19 @@ import Card from 'components/Card/Card.jsx';
 import Paginator from 'views/Paginator/Paginator.jsx';
 
 class Example1 extends Component {
-	
+
 	constructor(props) {
 		super(props);
-		
+
 		this.state = {
 			term: null,
 			sortingField: null,
 			pageNumber: 1
 		};
-		
+
 		this.onActivePageChange = this.onActivePageChange.bind(this);
 	}
-	
+
 	onActivePageChange(page) {
 		this.setState({pageNumber: page});
 	}
@@ -34,7 +34,7 @@ class Example1 extends Component {
 			return result * sortOrder;
 		}
 	}
-	
+
 	//People.sort(dynamicSortMultiple("Name", "-Surname"));
 	dynamicSortMultiple() {
 		/*
@@ -66,16 +66,19 @@ class Example1 extends Component {
 					{name: 'kavita', last_name: 'valecha', gender: 'female', age: 45},
 					{name: 'alka', last_name: 'golani', gender: 'female', age: 50}
 				   ];
-		
+
 		console.log(arr);
 		console.log('state is ', this.state);
 		//filtering
 		if (this.state.term) {
 			arr = arr.filter((item) => {
-				return (item.name.toLowerCase().indexOf(this.state.term.toLowerCase()) >= 0 || item.last_name.toLowerCase().indexOf(this.state.term.toLowerCase()) >= 0 || item.gender.toLowerCase().indexOf(this.state.term.toLowerCase()) >= 0 || item.age === parseInt(this.state.term.toLowerCase(), 10));
-			});	
+				return (item.name.toLowerCase().indexOf(this.state.term.toLowerCase()) >= 0
+				|| item.last_name.toLowerCase().indexOf(this.state.term.toLowerCase()) >= 0
+				|| item.gender.toLowerCase().indexOf(this.state.term.toLowerCase()) >= 0
+				|| item.age === parseInt(this.state.term.toLowerCase(), 10));
+			});
 		}
-		
+
 		//sorting
 		if (this.state.sortingField) {
 			arr.sort(this.dynamicSort(this.state.sortingField));
@@ -100,13 +103,13 @@ class Example1 extends Component {
 		  next: true,
 		  prev: true
 		}
-		
+
         return (
             <div className="content">
 				<div>
 				Filter: <input type="text" onChange={(e) => {this.setState({term: e.target.value, pageNumber: 1});}} />
 				Sorting Field: <input type="text" onChange={(e) => {this.setState({sortingField: e.target.value, pageNumber: 1});}} />
-				
+
 				</div>
 				<Paginator {...paginationProps} />
                 <Grid fluid>
@@ -166,8 +169,8 @@ class Example1 extends Component {
                                 }
                             />
                         </Col>
-						
-						
+
+
 
                     </Row>
                 </Grid>
