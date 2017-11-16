@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import Autocomplete from 'react-google-autocomplete';
 import {connect} from 'react-redux';
 
+import * as firebase from 'firebase';
+import {firebaseApp, firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
+
 import {createNewPost} from '../actions/FoodAction.js';
 
 class NewPost extends Component {
@@ -51,7 +54,12 @@ class NewPost extends Component {
 		obj.name = this.state.name;
 		obj.email = this.state.email;
 		obj.phone = this.state.phone;
-		this.props.func1(obj);
+		
+		var url = FirebaseConstant.basePath + '/data/posts';
+		firebaseDatabase.ref(url).push(obj);
+			
+			
+		this.props.history.push("/confirm");
 	}
 	
 	
@@ -137,12 +145,4 @@ const mapStateToProps = (state) => {
 	};
 };
 
-const mapDispatchToProps = (dispatch) => {
-	return {
-		func1: (obj) => {
-			dispatch(createNewPost(obj));	
-		}
-	};
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(NewPost);
+export default connect(mapStateToProps)(NewPost);

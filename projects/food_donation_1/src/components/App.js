@@ -7,6 +7,7 @@ import NewPost from './NewPost.js';
 import EditPost from './EditPost.js';
 import MyAccount from './MyAccount.js';
 import Messages from './Messages.js';
+import Confirm from './Confirm.js';
 
 class App extends Component {
   render() {
@@ -14,16 +15,15 @@ class App extends Component {
       <Router>
       <div>
         <Navigation />
-        <div className="header">this is my header <hr /></div>
         
         <Route exact={true} path="/" component={Home} />
+        <Route exact={true} path="/confirm" component={Confirm} />
         <Route exact={true} path="/create" component={NewPost} />
         <Route exact={true} path="/edit/:id" component={EditPost} />
         <Route exact={true} path="/myaccount" component={MyAccount} />
         <Route exact={true} path="/messages" component={Messages} />
         
         
-        <div className="footer"><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><hr />this is my footer</div>
       </div>
       </Router>
     );

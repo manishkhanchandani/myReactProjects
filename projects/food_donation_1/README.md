@@ -136,6 +136,184 @@ Reducer
 
 
 
+Posts
+	Rec1
+	Rec2
+	Rec3
+	
+	...
+	
+	
+Keyword
+	
+	Tags: Food, Indian, Chinese
+	
+	
+	
+	data/	
+	
+		tags/
+		
+			keywords/
+				food
+					-Kz2eRN9F38pMS68ZPcl: true
+				
+				indian
+					-Kz2eRN9F38pMS68ZPcl: true
+				
+				chinese
+					-Kz2eRN9F38pMS68ZPc2: true
+					
+			location/
+				food
+					county
+						US
+							CA
+								Santa Clara County
+									-Kz2eRN9F38pMS68ZPcl: true
+									-Kz2eRN9F38pMS68ZPcl: true
+									-Kz2eRN9F38pMS68ZPcl: true
+									-Kz2eRN9F38pMS68ZPcl: true
+									-Kz2eRN9F38pMS68ZPcl: true
+						Alameda County
+							-Kz2eRN9F38pMS68ZPcl: true
+							-Kz2eRN9F38pMS68ZPcl: true
+							-Kz2eRN9F38pMS68ZPcl: true
+							-Kz2eRN9F38pMS68ZPcl: true
+							-Kz2eRN9F38pMS68ZPcl: true	
+					WA
+						King County
+							
+							-Kz2eRN9F38pMS68ZPcl: true
+			
+			
+		
+		state
+			UC
+				CA
+					
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true
+				WA
+						-Kz2eRN9F38pMS68ZPcl: true
+		
+		
+		country
+			US
+				
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true
+		city
+			US
+				CA
+					Santa Clara County
+						San Jose
+							-Kz2eRN9F38pMS68ZPcl: true
+							-Kz2eRN9F38pMS68ZPcl: true
+							-Kz2eRN9F38pMS68ZPcl: true
+							-Kz2eRN9F38pMS68ZPcl: true
+							-Kz2eRN9F38pMS68ZPcl: true
+							
+							
+							
+				indian
+				
+				
+				chinese
+				
+			
+		county
+			US
+				CA
+					Santa Clara County
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true
+					Alameda County
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true	
+				WA
+					King County
+						
+						-Kz2eRN9F38pMS68ZPcl: true
+			
+			
+		
+		state
+			UC
+				CA
+					
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true
+				WA
+						-Kz2eRN9F38pMS68ZPcl: true
+		
+		
+		country
+			US
+				
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true
+						-Kz2eRN9F38pMS68ZPcl: true
+		city
+			US
+				CA
+					Santa Clara County
+						San Jose
+							-Kz2eRN9F38pMS68ZPcl: true
+							-Kz2eRN9F38pMS68ZPcl: true
+							-Kz2eRN9F38pMS68ZPcl: true
+							-Kz2eRN9F38pMS68ZPcl: true
+							-Kz2eRN9F38pMS68ZPcl: true
+
+
+
+Component
+	Data loop
+	
+		Row 1
+		Row 2
+		Row 3
+	
+	
+Redux
+	Data
+	
+	
+Json
+
+	Static
+		Redux
+		
+	Mysql
+		Redux
+		
+	Firebase
+		Redux
 
 
 
@@ -143,6 +321,4 @@ Reducer
 
 
 
-
-
-
+https://github.com/react-bootstrap/react-bootstrap/tree/master/docs/examples
