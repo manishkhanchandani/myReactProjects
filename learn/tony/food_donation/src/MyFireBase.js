@@ -1,6 +1,6 @@
 import * as firebase from 'firebase';
 
-// Initialize Firebase
+// Initialize Firebase ...
 var config = {
     apiKey: "AIzaSyD3BsiZanPMQDjNw2MRCh6pandi9bwLgO8",
     authDomain: "myreact-c1c5b.firebaseapp.com",
