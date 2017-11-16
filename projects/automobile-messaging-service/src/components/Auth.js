@@ -5,7 +5,7 @@ import {Redirect} from 'react-router-dom';
 class Auth extends Component {
 	render() {
 		if (!this.props.myReducer.uid) {
-			return <Redirect to="/" push={true} />
+			//return <Redirect to="/" push={true} />
 		}
 		return (
 			<div>
