@@ -1243,3 +1243,7 @@ PAGINATION
  
 2. 
 
+
+
+
+When i refresh, i want settings to be saved in localstorage
