@@ -1247,3 +1247,89 @@ PAGINATION
 
 
 When i refresh, i want settings to be saved in localstorage
+
+
+
+
+
+
+CHAT PROTOTYPE
+
+1. /chat
+
+	/messages
+		UserId (1)
+			ToUserId (2)
+				Message1
+						message_date
+						from_display_name
+						to_display_name
+						message
+						from_image
+						to_image
+						read: true
+						
+				Message2
+						message_date
+						from_display_name
+						to_display_name
+						message
+						from_image
+						to_image
+						read: true
+				Message3
+						message_date
+						from_display_name
+						to_display_name
+						message
+						from_image
+						to_image
+						read: true
+		
+		UserId (2)
+			ToUserId (1)
+				Message1
+				Message2
+				Message3
+				
+		(4)
+			(5)
+				m1
+				m2
+				m3
+				
+		(5)
+			(4)
+				m1
+				m2
+				m3
+				
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
