@@ -41,6 +41,10 @@ npm run build
  npm install
   this will bring back the node_modules
   
+Important links
+https://github.com/enaqx/awesome-react
+
+
   
   
 Task 1
