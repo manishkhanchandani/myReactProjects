@@ -1,5 +1,10 @@
 import React, {Component} from 'react';
 
+import {connect} from 'react-redux';
+import * as firebase from 'firebase';
+import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
+
+import {chatToUserId, toUserIdDetails} from '../actions/MyAction.js';
 
 
 class Chat extends Component {
@@ -8,6 +13,17 @@ class Chat extends Component {
 		e.preventDefault();
 		
 		console.log('message sent');
+	}
+	
+	getToUserIdDetails(toUserId)
+	{
+		this.props.callChangeUserId(toUserId);
+		this.props.callToUserIdDetails(toUserId);
+	}
+	
+	componentDidMount() {
+		var toUserId = (this.props.match.params.toUserId) ? this.props.match.params.toUserId : null;	
+		this.getToUserIdDetails(toUserId);
 	}
 
 	render() {
@@ -45,7 +61,7 @@ class Chat extends Component {
 						</div>
 					</div>
 					<div className="col-md-9">
-						<h3>Chatting With User A</h3>
+						<h3>Chatting With {this.props.myReducer.toUserIdDetails.displayName}</h3>
 						
 						<form onSubmit={this.sendMessage.bind(this)} >
 						  <div className="form-group">
@@ -61,4 +77,24 @@ class Chat extends Component {
 	}
 }
 
-export default Chat;
+const mapStateToProps = (state) => {
+	return {
+		myReducer: state.MyReducer	
+	};	
+};
+
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		callChangeUserId: (uid) => {
+			dispatch(chatToUserId(uid));	
+		},
+		callToUserIdDetails: (uid) => {
+			dispatch(toUserIdDetails(uid));	
+		}
+		
+		
+	};	
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Chat);
