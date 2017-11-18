@@ -1262,16 +1262,18 @@ CHAT PROTOTYPE
 1. /chat
 
 	/messages
-		UserId (1)
-			ToUserId (2)
+		UserId (1)Manish
+			ToUserId (2)Ambi
 				Message1
 						message_date
-						from_display_name
-						to_display_name
-						message
+						from_display_name Manish
+						to_display_name	Ambi
+						message			Hello
 						from_image
 						to_image
 						read: true
+						recevied: false
+						sent: true
 						
 				Message2
 						message_date
@@ -1293,7 +1295,19 @@ CHAT PROTOTYPE
 		UserId (2)
 			ToUserId (1)
 				Message1
+					from_display_name Manish
+					to_display_name	Ambi
+					message			Hello
+					recevied: true
+					sent: false
+					
+					
 				Message2
+					from_display_name Ambi
+					to_display_name	manish
+					message		hi
+					recevied: false
+					sent: true
 				Message3
 				
 		(4)

@@ -9,16 +9,78 @@ import {chatToUserId, toUserIdDetails} from '../actions/MyAction.js';
 
 class Chat extends Component {
 	
+	constructor(props) {
+		super(props);
+		
+		this.state = {
+			message: '',
+			records: null
+		};
+	}
+	
+	
+	displayChatMessage(fromUid, toUid) {	
+		var url = FirebaseConstant.basePath + '/chat/messages';
+		var ref = firebaseDatabase.ref(url).child(fromUid).child(toUid);
+		ref.on('value', (snapshot) => {
+			var result = snapshot.val();
+			
+			var myArray = [];
+			for (var key in result) {				
+				myArray.push(result[key]);
+			}
+			
+			//sorting
+			
+			//filtering
+			
+			//pagination
+
+			this.setState({records: myArray});
+		});	
+	}
+	
 	sendMessage(e) {
 		e.preventDefault();
+
+		var obj = {
+			message: this.state.message,
+			message_date: firebase.database.ServerValue.TIMESTAMP,
+			from_display_name: this.props.myReducer.displayName,
+			to_display_name: this.props.myReducer.toUserIdDetails.displayName,
+			from_image: this.props.myReducer.photoURL,
+			to_image: this.props.myReducer.toUserIdDetails.photoURL,
+			read: true,
+			receiver: false,
+			sender: true
+		};
+		var url = FirebaseConstant.basePath + '/chat/messages';
+		firebaseDatabase.ref(url).child(this.props.myReducer.uid).child(this.props.myReducer.toUserId).push(obj);
 		
-		console.log('message sent');
+		var obj2 = {
+			message: this.state.message,
+			message_date: firebase.database.ServerValue.TIMESTAMP,
+			from_display_name: this.props.myReducer.displayName,
+			to_display_name: this.props.myReducer.toUserIdDetails.displayName,
+			from_image: this.props.myReducer.photoURL,
+			to_image: this.props.myReducer.toUserIdDetails.photoURL,
+			read: false,
+			receiver: true,
+			sender: false
+		};
+		firebaseDatabase.ref(url).child(this.props.myReducer.toUserId).child(this.props.myReducer.uid).push(obj2);
+		
+		this.setState({message: ''});
 	}
 	
 	getToUserIdDetails(toUserId)
 	{
 		this.props.callChangeUserId(toUserId);
 		this.props.callToUserIdDetails(toUserId);
+		
+		var userObjStr = localStorage.getItem('userObj');
+		var userObj = JSON.parse(userObjStr);
+		this.displayChatMessage(userObj.uid, toUserId);
 	}
 	
 	componentDidMount() {
@@ -27,6 +89,7 @@ class Chat extends Component {
 	}
 
 	render() {
+		console.log('state is ', this.state);
 		return (
 			<div className="container">
 				<div className="row">
@@ -61,15 +124,26 @@ class Chat extends Component {
 						</div>
 					</div>
 					<div className="col-md-9">
-						<h3>Chatting With {this.props.myReducer.toUserIdDetails.displayName}</h3>
-						
-						<form onSubmit={this.sendMessage.bind(this)} >
-						  <div className="form-group">
-							<input type="text" className="form-control" placeholder="Enter Message" />
-						  </div>
+						{
+							this.props.myReducer.toUserIdDetails
+							?
+							<div><h3>Chatting With {this.props.myReducer.toUserIdDetails.displayName}</h3>
 							
-						  <button type="submit" className="btn btn-primary form-control">Send Message</button>
-						</form>
+							<form onSubmit={this.sendMessage.bind(this)} >
+							  <div className="form-group">
+								<input type="text" className="form-control" placeholder="Enter Message" value={this.state.message} onChange={(e) => {this.setState({message: e.target.value})}} />
+							  </div>
+								
+							  <button type="submit" className="btn btn-primary form-control">Send Message</button>
+							</form>
+							
+							
+							
+							
+							</div>
+							:
+							<div>Please choose user before sending message</div>
+						}
 					</div>
 				</div>
 			</div>

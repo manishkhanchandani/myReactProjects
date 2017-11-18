@@ -6,7 +6,7 @@ const MyReducer = (state = {
 	profile_uid: null,
 	providerId: null,
 	toUserId: null,
-	toUserIdDetails: {}
+	toUserIdDetails: null
 }, action) => {
 	switch (action.type) {
 		case 'LOGGEDIN':
