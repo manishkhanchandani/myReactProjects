@@ -2,10 +2,7 @@ import React, {Component} from 'react';
 import Autocomplete from 'react-google-autocomplete';
 import {connect} from 'react-redux';
 
-import * as firebase from 'firebase';
-import {firebaseApp, firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
-
-import {createNewPost} from '../actions/FoodAction.js';
+import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 
 class NewPost extends Component {
 	constructor(props) {
@@ -47,6 +44,7 @@ class NewPost extends Component {
 		
 		var obj = {};
 		obj.title = this.state.title;
+		obj.title_lower = this.state.title.toLowerCase();
 		obj.location = this.state.location;
 		obj.description = this.state.description;
 		obj.tags = this.state.tags;
@@ -56,15 +54,55 @@ class NewPost extends Component {
 		obj.phone = this.state.phone;
 		
 		var url = FirebaseConstant.basePath + '/data/posts';
-		firebaseDatabase.ref(url).push(obj);
+		var unique_id = firebaseDatabase.ref(url).push(obj).key;
+		
+		var cityUrl = FirebaseConstant.basePath + '/data/city/' + obj.location.country + '/' + obj.location.administrative_area_level_1 + '/' + obj.location.administrative_area_level_2 + '/' + obj.location.locality + '/' + unique_id;
+		firebaseDatabase.ref(cityUrl).set(true);
+		
+		var countyUrl = FirebaseConstant.basePath + '/data/county/' + obj.location.country + '/' + obj.location.administrative_area_level_1 + '/' + obj.location.administrative_area_level_2 + '/' + unique_id;
+		firebaseDatabase.ref(countyUrl).set(true);
+		
+		var stateUrl = FirebaseConstant.basePath + '/data/state/' + obj.location.country + '/' + obj.location.administrative_area_level_1 + '/' + unique_id;
+		firebaseDatabase.ref(stateUrl).set(true);
+		
+		var countryUrl = FirebaseConstant.basePath + '/data/country/' + obj.location.country + '/' + unique_id;
+		firebaseDatabase.ref(countryUrl).set(true);
 			
-			
+		if (obj.tags) {
+			var arr = obj.tags.split(',');
+			for (let i = 0; i < arr.length; i++) {
+				var tag = arr[i].trim().toLowerCase();
+				var tagUrl = FirebaseConstant.basePath + '/data/tags/' + tag + '/all_tag_post/' + unique_id;
+				firebaseDatabase.ref(tagUrl).set(true);
+				
+				tagUrl = FirebaseConstant.basePath + '/data/tags/' + tag + '/city/' + obj.location.country + '/' + obj.location.administrative_area_level_1 + '/' + obj.location.administrative_area_level_2 + '/' + obj.location.locality + '/' + unique_id;
+				firebaseDatabase.ref(tagUrl).set(true);
+				
+				tagUrl = FirebaseConstant.basePath + '/data/tags/' + tag + '/county/' + obj.location.country + '/' + obj.location.administrative_area_level_1 + '/' + obj.location.administrative_area_level_2 + '/' + unique_id;
+				firebaseDatabase.ref(tagUrl).set(true);
+				
+				tagUrl = FirebaseConstant.basePath + '/data/tags/' + tag + '/state/' + obj.location.country + '/' + obj.location.administrative_area_level_1 + '/' + unique_id;
+				firebaseDatabase.ref(tagUrl).set(true);
+				
+				tagUrl = FirebaseConstant.basePath + '/data/tags/' + tag + '/country/' + obj.location.country + '/' + unique_id;
+				firebaseDatabase.ref(tagUrl).set(true);
+			}
+		}
+		
+		this.setState({
+			title: '',
+			description: '',
+			tags: '',
+			imageUrl: '',
+			name: '',
+			email: '',
+			phone: ''
+		});
 		this.props.history.push("/confirm");
 	}
 	
 	
 	render() {
-		console.log('this state is ', this.state);
 		return (
 			<div className="container">
 				<h3>Create New Food Donation Post</h3>

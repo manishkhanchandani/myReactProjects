@@ -1324,7 +1324,29 @@ CHAT PROTOTYPE
 				
 		
 
+data/city/{country}/{state}/{county}/{city}/{id}/true
+data/county/{country}/{state}/{county}/{id}/true
+data/state/{country}/{state}/{id}/true
+data/country/{country}/{id}/true
 
+1.
+data
+	tags
+		food
+			all_tag_post
+				id1: true
+				id2: true
+			
+			city/{country}/{state}/{county}/{city}/{id}/true
+			county/{country}/{state}/{county}/{id}/true
+			state/{country}/{state}/{id}/true
+			country/{country}/{id}/true
+
+		
+		indian
+			id1: true
+			id3: true
+	
 
 
 
