@@ -25,14 +25,14 @@ class Chat extends Component {
 			return false;	
 		}
 		var url = FirebaseConstant.basePath + '/chat/messages';
-		var ref = firebaseDatabase.ref(url).child(fromUid).child(toUid);
-		ref.on('value', (snapshot) => {
+		var ref = firebaseDatabase.ref(url).child(fromUid).child(toUid).limitToLast(500);
+		var myArray = [];
+		ref.on('child_added', (snapshot) => {
 			var result = snapshot.val();
-			
-			var myArray = [];
-			for (var key in result) {				
+			myArray.push(result);
+			/*for (var key in result) {				
 				myArray.push(result[key]);
-			}
+			}*/
 			
 			//sorting
 			
