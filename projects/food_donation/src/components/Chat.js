@@ -5,7 +5,7 @@ import * as firebase from 'firebase';
 import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 
 import {chatToUserId, toUserIdDetails} from '../actions/MyAction.js';
-
+import Messages from './Messages.js';
 
 class Chat extends Component {
 	
@@ -20,6 +20,10 @@ class Chat extends Component {
 	
 	
 	displayChatMessage(fromUid, toUid) {	
+
+		if (!toUid) {
+			return false;	
+		}
 		var url = FirebaseConstant.basePath + '/chat/messages';
 		var ref = firebaseDatabase.ref(url).child(fromUid).child(toUid);
 		ref.on('value', (snapshot) => {
@@ -137,7 +141,7 @@ class Chat extends Component {
 							  <button type="submit" className="btn btn-primary form-control">Send Message</button>
 							</form>
 							
-							
+							<Messages records={this.state.records} />
 							
 							
 							</div>
