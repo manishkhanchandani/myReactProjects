@@ -1,7 +1,36 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import Autocomplete from 'react-google-autocomplete';
+import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
+
+import {viewData} from '../actions/FoodAction.js';
 
 class Home extends Component {
+	
+	getDataFromFB() {
+		var url = FirebaseConstant.basePath + '/data/posts';
+		var ref = firebaseDatabase.ref(url).limitToLast(500);
+		ref.on('value', (snapshot) => {
+			console.log('snapshot is ', snapshot.val());
+			//getting results from the firebase
+			var records = snapshot.val();
+			//converting object to array
+			var myArray = [];
+			for (let key in records) {
+				var record = records[key];
+				record.id = key;
+				myArray.push(record);
+			}
+			
+			console.log('myArray: ', myArray);
+			this.props.callViewData(myArray);
+		});
+	}
+	
+	componentDidMount() {
+		this.getDataFromFB();	
+	}
+
 	render() {
 		return (
 			<div className="container">
@@ -26,44 +55,31 @@ class Home extends Component {
 					</div>
 					<div className="col-md-9">
 						<h3>Search Results</h3>
-						<div className="media">
-						  <div className="media-left">
-							<a href="">
-							  <img className="media-object myAccountImg" src="https://www.ndtv.com/cooks/images/mutton-biryani-new.jpg" alt="..." />
-							</a>
-						  </div>
-						  <div className="media-body">
-							<h4 className="media-heading">Middle aligned media</h4>
-							<div>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</div>
-							<div><a href="">Send Message</a> | <a href="">Send Email</a> | <a href="">Call</a></div>
-						  </div>
+							<div className="row">
+						{
+							this.props.food_reducer.data && 
+								this.props.food_reducer.data.map((value, key) => {
+									return <div className="col-md-6" key={key}>
+											<div className="media">
+											  <div className="media-left">
+												<a href="">
+												  <img className="media-object myAccountImg" src={value.imageUrl} alt="..." />
+												</a>
+											  </div>
+											  <div className="media-body">
+												<h4 className="media-heading">{value.title}</h4>
+												<div>{value.description}</div>
+												<div><a href="">Send Message</a> | <a href="">Send Email</a> | <a href="">Call</a></div>
+											  </div>
+											</div>
+									
+										</div>
+								})	
+						}
 						</div>
 						
-						<div className="media">
-						  <div className="media-left">
-							<a href="">
-							  <img className="media-object myAccountImg" src="https://budgetbytes.com/wp-content/uploads/2009/12/Garlic-Noodles-front.jpg" alt="..." />
-							</a>
-						  </div>
-						  <div className="media-body">
-							<h4 className="media-heading">Middle aligned media</h4>
-							<div>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</div>
-							<div><a href="">Send Message</a> | <a href="">Send Email</a> | <a href="">Call</a></div>
-						  </div>
-						</div>
 						
-						<div className="media">
-						  <div className="media-left">
-							<a href="">
-							  <img className="media-object myAccountImg" src="http://jonvilma.com/images/ice-cream-1.jpg" alt="..." />
-							</a>
-						  </div>
-						  <div className="media-body">
-							<h4 className="media-heading">Middle aligned media</h4>
-							<div>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</div>
-							<div><a href="">Send Message</a> | <a href="">Send Email</a> | <a href="">Call</a></div>
-						  </div>
-						</div>
+						
 					</div>
 				</div>
 			</div>
@@ -71,4 +87,18 @@ class Home extends Component {
 	}
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+	return {
+		food_reducer: state.FoodReducer
+	}	
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		callViewData: (obj) => {
+			dispatch(viewData(obj));
+		}
+	};	
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

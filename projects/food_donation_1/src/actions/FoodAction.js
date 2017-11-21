@@ -13,3 +13,11 @@ export const createNewPost = (obj) => {
 		})
 	};
 };
+
+
+export const viewData = (obj) => {
+	return {
+		type: 'VIEW_POST',
+		payload: obj
+	};
+};

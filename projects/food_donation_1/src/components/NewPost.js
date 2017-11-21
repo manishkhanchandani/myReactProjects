@@ -55,6 +55,7 @@ class NewPost extends Component {
 		
 		var url = FirebaseConstant.basePath + '/data/posts';
 		var unique_id = firebaseDatabase.ref(url).push(obj).key;
+		//firebaseDatabase.ref(url).child(unique_id).child('id').set(unique_id);
 		
 		var cityUrl = FirebaseConstant.basePath + '/data/city/' + obj.location.country + '/' + obj.location.administrative_area_level_1 + '/' + obj.location.administrative_area_level_2 + '/' + obj.location.locality + '/' + unique_id;
 		firebaseDatabase.ref(cityUrl).set(true);
