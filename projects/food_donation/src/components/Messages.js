@@ -15,8 +15,8 @@ class Messages extends Component {
 						var name = '';
 						var darkerClass = 'container_chat';
 						var timeLocation = 'time-right';
-						img = value.from_image;
-						name = value.from_display_name;
+						img = value.image;
+						name = value.display_name;
 						if (value.receiver) {
 							darkerClass = 'container_chat darker';
 							timeLocation = 'time-left';
@@ -24,6 +24,7 @@ class Messages extends Component {
 						var strTime = timeAgo(value.message_date);
 						return (<div key={key} className={darkerClass}>
 						  <img src={img} alt={name} title={name} />
+						  <div className="pull-right name">{name}</div>
 						  <p>{value.message}</p>
 						  <span className={timeLocation}>{strTime}</span>
 						</div>)					

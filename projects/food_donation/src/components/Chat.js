@@ -6,6 +6,8 @@ import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 
 import {chatToUserId, toUserIdDetails} from '../actions/MyAction.js';
 import Messages from './Messages.js';
+import ChatUsers from './ChatUsers.js';
+import {dynamicSort} from '../utilities/functions.js';
 
 class Chat extends Component {
 	
@@ -14,13 +16,37 @@ class Chat extends Component {
 		
 		this.state = {
 			message: '',
-			records: null
+			records: null,
+			chat_users: null
 		};
 	}
 	
+	getChatUsers(uid) {
+		var url = FirebaseConstant.basePath + '/chat/chatUsers';
+		var ref = firebaseDatabase.ref(url).child(uid);//uid is person who is logged in
+		
+		ref.on('value', (snapshot) => {
+			var chatUsers = [];
+			var result = snapshot.val();
+			if (!result) {
+				return;	
+			}
+			
+			for (let key in result) {
+				chatUsers.push(result[key]);
+			}
+			// sorting, filtering
+			chatUsers.sort(dynamicSort('-updated_dt'));
+			
+			this.setState({chat_users: chatUsers});
+		});
+	}
 	
 	displayChatMessage(fromUid, toUid) {	
 
+		if (!fromUid) {
+			return false;	
+		}
 		if (!toUid) {
 			return false;	
 		}
@@ -35,6 +61,7 @@ class Chat extends Component {
 			}*/
 			
 			//sorting
+			myArray.sort(dynamicSort('-message_date'));
 			
 			//filtering
 			
@@ -42,6 +69,9 @@ class Chat extends Component {
 
 			this.setState({records: myArray});
 		});	
+		
+		//getChatusers
+		this.getChatUsers(fromUid);
 	}
 	
 	sendMessage(e) {
@@ -50,30 +80,41 @@ class Chat extends Component {
 		var obj = {
 			message: this.state.message,
 			message_date: firebase.database.ServerValue.TIMESTAMP,
-			from_display_name: this.props.myReducer.displayName,
-			to_display_name: this.props.myReducer.toUserIdDetails.displayName,
-			from_image: this.props.myReducer.photoURL,
-			to_image: this.props.myReducer.toUserIdDetails.photoURL,
+			display_name: this.props.myReducer.displayName,
+			image: this.props.myReducer.photoURL,
 			read: true,
 			receiver: false,
 			sender: true
 		};
 		var url = FirebaseConstant.basePath + '/chat/messages';
 		firebaseDatabase.ref(url).child(this.props.myReducer.uid).child(this.props.myReducer.toUserId).push(obj);
+
+		var url2 = FirebaseConstant.basePath + '/chat/chatUsers';
+		var fobj = {
+			display_name: this.props.myReducer.toUserIdDetails.displayName,
+			image: this.props.myReducer.toUserIdDetails.photoURL,
+			updated_dt: firebase.database.ServerValue.TIMESTAMP,
+			id: this.props.myReducer.toUserId
+		};
+		firebaseDatabase.ref(url2).child(this.props.myReducer.uid).child(this.props.myReducer.toUserId).set(fobj);
 		
 		var obj2 = {
 			message: this.state.message,
 			message_date: firebase.database.ServerValue.TIMESTAMP,
-			from_display_name: this.props.myReducer.displayName,
-			to_display_name: this.props.myReducer.toUserIdDetails.displayName,
-			from_image: this.props.myReducer.photoURL,
-			to_image: this.props.myReducer.toUserIdDetails.photoURL,
+			display_name: this.props.myReducer.displayName,
+			image: this.props.myReducer.photoURL,
 			read: false,
 			receiver: true,
 			sender: false
 		};
 		firebaseDatabase.ref(url).child(this.props.myReducer.toUserId).child(this.props.myReducer.uid).push(obj2);
-		
+		var tobj = {
+			display_name: this.props.myReducer.displayName,
+			image: this.props.myReducer.photoURL,
+			updated_dt: firebase.database.ServerValue.TIMESTAMP,
+			id: this.props.myReducer.uid
+		};
+		firebaseDatabase.ref(url2).child(this.props.myReducer.toUserId).child(this.props.myReducer.uid).set(tobj);
 		this.setState({message: ''});
 	}
 	
@@ -93,39 +134,11 @@ class Chat extends Component {
 	}
 
 	render() {
-		console.log('state is ', this.state);
 		return (
 			<div className="container">
 				<div className="row">
 					<div className="col-md-3">
-						<h3>All Users List</h3>
-						
-						<div className="row">
-							<div className="col-md-4 chatUserPadding">
-								<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Amitabhbachchan28529.jpg/225px-Amitabhbachchan28529.jpg" alt="..." className="img-responsive img-thumbnail" />
-							</div>
-							<div className="col-md-8 chatUserPadding">
-								<b>Amitabh</b>
-							</div>
-						</div>
-						
-						<div className="row">
-							<div className="col-md-4 chatUserPadding">
-								<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Amitabhbachchan28529.jpg/225px-Amitabhbachchan28529.jpg" alt="..." className="img-responsive img-thumbnail" />
-							</div>
-							<div className="col-md-8 chatUserPadding">
-								<b>Amitabh</b>
-							</div>
-						</div>
-						
-						<div className="row">
-							<div className="col-md-4 chatUserPadding">
-								<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Amitabhbachchan28529.jpg/225px-Amitabhbachchan28529.jpg" alt="..." className="img-responsive img-thumbnail" />
-							</div>
-							<div className="col-md-8 chatUserPadding">
-								<b>Amitabh</b>
-							</div>
-						</div>
+						<ChatUsers chat_users={this.state.chat_users} />
 					</div>
 					<div className="col-md-9">
 						{

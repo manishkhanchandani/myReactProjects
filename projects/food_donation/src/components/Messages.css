@@ -47,3 +47,8 @@
     float: left;
     color: #999;
 }
+
+.messages .name {
+	font-size: 12px;
+	font-weight:bold;
+}
