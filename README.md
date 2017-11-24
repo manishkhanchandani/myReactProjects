@@ -270,7 +270,7 @@ this.props.history.push("/contact"); // to redirect from javascript
 or in render function, use
 import {Redirect} from 'react-router-dom';
 <Redirect to="/" push={true} />
-
+off()
 
 		
 React Bootstrap

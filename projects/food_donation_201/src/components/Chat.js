@@ -5,11 +5,12 @@ import * as firebase from 'firebase';
 import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 
 import {chatToUserId, toUserIdDetails} from '../actions/MyAction.js';
+import {displayChatMessage} from '../actions/FoodDonationAction.js';
 import Messages from './Messages.js';
 import ChatUsers from './ChatUsers.js';
 import {dynamicSort} from '../utilities/functions.js';
 
-class Chat2 extends Component {
+class Chat extends Component {
 	
 	constructor(props) {
 		super(props);
@@ -42,11 +43,15 @@ class Chat2 extends Component {
 		});
 	}
 	
-	displayChatMessage(fromUid, toUid) {	
+	/*displayChatMessage(fromUid, toUid) {	
 
 		if (!fromUid) {
 			return false;	
 		}
+
+		//getChatusers
+		this.getChatUsers(fromUid);
+
 		if (!toUid) {
 			return false;	
 		}
@@ -56,9 +61,6 @@ class Chat2 extends Component {
 		ref.on('child_added', (snapshot) => {
 			var result = snapshot.val();
 			myArray.push(result);
-			/*for (var key in result) {				
-				myArray.push(result[key]);
-			}*/
 			
 			//sorting
 			myArray.sort(dynamicSort('-message_date'));
@@ -70,9 +72,7 @@ class Chat2 extends Component {
 			this.setState({records: myArray});
 		});	
 		
-		//getChatusers
-		this.getChatUsers(fromUid);
-	}
+	}*/
 	
 	sendMessage(e) {
 		e.preventDefault();
@@ -125,11 +125,15 @@ class Chat2 extends Component {
 		
 		var userObjStr = localStorage.getItem('userObj');
 		var userObj = JSON.parse(userObjStr);
-		this.displayChatMessage(userObj.uid, toUserId);
+		//getChatusers
+		this.getChatUsers(userObj.uid);	
+		this.props.callToDisplayChatMessage(toUserId);
+		//this.displayChatMessage(userObj.uid, toUserId);
 	}
 	
 	componentDidMount() {
-		var toUserId = (this.props.match.params.toUserId) ? this.props.match.params.toUserId : null;	
+		var toUserId = (this.props.match.params.toUserId) ? this.props.match.params.toUserId : null;
+
 		this.getToUserIdDetails(toUserId);
 	}
 
@@ -138,7 +142,7 @@ class Chat2 extends Component {
 			<div className="container">
 				<div className="row">
 					<div className="col-md-3">
-						<ChatUsers chat_users={this.state.chat_users} />
+						<ChatUsers chat_users={this.state.chat_users} {...this.props} />
 					</div>
 					<div className="col-md-9">
 						{
@@ -154,7 +158,7 @@ class Chat2 extends Component {
 							  <button type="submit" className="btn btn-primary form-control">Send Message</button>
 							</form>
 							
-							<Messages records={this.state.records} />
+							<Messages records={this.props.foodReducer.chat_messages} />
 							
 							
 							</div>
@@ -170,7 +174,8 @@ class Chat2 extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		myReducer: state.MyReducer	
+		myReducer: state.MyReducer,	
+		foodReducer: state.FoodDonationReducer	
 	};	
 };
 
@@ -182,10 +187,13 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		callToUserIdDetails: (uid) => {
 			dispatch(toUserIdDetails(uid));	
+		},
+		callToDisplayChatMessage: (toUid) => {
+			displayChatMessage(toUid, dispatch);	
 		}
 		
 		
 	};	
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Chat2);
+export default connect(mapStateToProps, mapDispatchToProps)(Chat);
