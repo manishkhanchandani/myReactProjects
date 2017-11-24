@@ -32,7 +32,7 @@ class Nav extends Component {
 			navItem1.push(<li key="2"><Link to="/">My Account</Link></li>);
 			
 			
-			rightSide.push(<li key="1"><Link to="/Chat">Messages</Link></li>);
+			rightSide.push(<li key="1"><Link to="/chat">Messages</Link></li>);
 		} else {
 			showUser.push(<li key="2"><a href="" onClick={this.googleLogin.bind(this)}>Google Login</a></li>);
 		}

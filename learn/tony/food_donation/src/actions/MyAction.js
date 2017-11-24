@@ -4,6 +4,7 @@ import {firebaseApp, firebaseDatabase, FirebaseConstant} from '../MyFirebase.js'
 
 
 export const loggedIn = (params) => {
+	localStorage.setItem('userObj', JSON.stringify(params));
 	return {
 		type: 'LOGGEDIN',
 		email: params.email,
@@ -16,6 +17,7 @@ export const loggedIn = (params) => {
 };
 
 export const loggedOut = () => {
+	localStorage.removeItem('userObj');
 	return {
 		type: 'LOGGEDOUT'	
 	};	
@@ -63,4 +65,30 @@ export const actionSignOut = () => {
 			});
 		})
 	};	
+};
+
+
+export const chatToUserId = (toUserId) => {
+	return {
+		type: 'CHAT_TO_USER_ID',
+		payload: toUserId
+	};
+};
+
+
+export const toUserIdDetails = (toUserId) => {
+	return {
+		type: 'CHAT_TO_USER_ID_DETAILS',
+		payload: new Promise((resolve, reject) => {
+			var url = FirebaseConstant.basePath + '/users/' + toUserId;
+				
+			firebaseDatabase.ref(url).once('value').then((snapshot) => {
+				if (!snapshot.exists()) {
+					//do something, TODO LIST, may be give some error	 
+				}
+
+				resolve(snapshot.val());
+			});
+		})
+	};
 };

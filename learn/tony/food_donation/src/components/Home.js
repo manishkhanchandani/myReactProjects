@@ -6,18 +6,18 @@ import ResultContainer from './ResultContainer.js';
 import SearchForm from './SearchForm.js';
 
 class Home extends Component {
-	
+
 	constructor(props) {
 		super(props);
-		
+
 		this.state = {
-			subObjects: {}	
+			subObjects: {}
 		};
 	}
 
 	render() {
 		console.log('state is ', this.state);
-		
+
 
 		return (
 			<div className="container">
@@ -27,9 +27,9 @@ class Home extends Component {
 					</div>
 					<div className="col-md-9">
 						<h3>Results</h3>
-						
+
 						<ResultContainer data={this.props.foodReducer.data} />
-						
+
 					</div>
 				</div>
 			</div>
@@ -41,7 +41,7 @@ class Home extends Component {
 const mapStateToProps = (state) => {
 	return {
 		foodReducer: state.FoodDonationReducer
-	}	
+	}
 };
 
 export default connect(mapStateToProps)(Home);
