@@ -16,7 +16,8 @@ class Chat extends Component {
 		
 		this.state = {
 			message: '',
-			chat_users: null
+			chat_users: null,
+			records: null
 		};
 	}
 	
@@ -45,8 +46,51 @@ class Chat extends Component {
 		});
 	}
 	
-	sendMessage() {
+	sendMessage(e) {
+		e.preventDefault();
+
+		var userObjStr = localStorage.getItem('userObj');
+		var userObj = JSON.parse(userObjStr);
+
+		var obj = {
+			message: this.state.message,
+			message_date: firebase.database.ServerValue.TIMESTAMP,
+			display_name: userObj.displayName,
+			image: userObj.photoURL,
+			read: true,
+			receiver: false,
+			sender: true
+		};
+		var url = FirebaseConstant.basePath + '/chat/messages';
+		firebaseDatabase.ref(url).child(userObj.uid).child(this.props.chatReducer.toUserId).push(obj);
+
+		var url2 = FirebaseConstant.basePath + '/chat/chatUsers';
+		var fobj = {
+			display_name: this.props.chatReducer.toUserDetails.displayName,
+			image: this.props.chatReducer.toUserDetails.photoURL,
+			updated_dt: firebase.database.ServerValue.TIMESTAMP,
+			id: this.props.chatReducer.toUserId
+		};
+		firebaseDatabase.ref(url2).child(userObj.uid).child(this.props.chatReducer.toUserId).set(fobj);
 		
+		var obj2 = {
+			message: this.state.message,
+			message_date: firebase.database.ServerValue.TIMESTAMP,
+			display_name: userObj.displayName,
+			image: userObj.photoURL,
+			read: false,
+			receiver: true,
+			sender: false
+		};
+		firebaseDatabase.ref(url).child(this.props.chatReducer.toUserId).child(userObj.uid).push(obj2);
+		var tobj = {
+			display_name: userObj.displayName,
+			image: userObj.photoURL,
+			updated_dt: firebase.database.ServerValue.TIMESTAMP,
+			id: userObj.uid
+		};
+		firebaseDatabase.ref(url2).child(this.props.chatReducer.toUserId).child(userObj.uid).set(tobj);
+		this.setState({message: ''});
 	}
 	
 	getUserDetails(toUserId) {
@@ -62,6 +106,49 @@ class Chat extends Component {
 
 		var toUserId = (this.props.match.params.toUserId) ? this.props.match.params.toUserId : null;
 		this.getUserDetails(toUserId);
+		
+		this.displayChatMessage(toUserId);
+	}
+	
+	displayChatMessage(toUid, oldUid=null) {	
+
+		if (!toUid) {
+			return false;	
+		}
+		
+		var userObjStr = localStorage.getItem('userObj');
+		var userObj = JSON.parse(userObjStr);
+		var fromUid = userObj.uid;
+		if (!fromUid) {
+			return false;	
+		}
+
+		var url = FirebaseConstant.basePath + '/chat/messages';
+		var ref = firebaseDatabase.ref(url).child(fromUid).child(toUid).limitToLast(500);
+		
+		if (oldUid) {
+			//make ref off
+			var refOld = firebaseDatabase.ref(url).child(fromUid).child(oldUid);
+			refOld.off();
+		}
+		
+		var myArray = [];
+		ref.on('child_added', (snapshot) => {
+			var result = snapshot.val();
+			myArray.push(result);
+			/*for (var key in result) {				
+				myArray.push(result[key]);
+			}*/
+			
+			//sorting
+			myArray.sort(dynamicSort('-message_date'));
+			
+			//filtering
+			
+			//pagination
+
+			this.setState({records: myArray});
+		});
 	}
 	
 	render() {
@@ -69,7 +156,7 @@ class Chat extends Component {
 			<div className="container">
 				<div className="row">
 					<div className="col-md-3">
-						<ChatUsers chat_users={this.state.chat_users} {...this.props} />
+						<ChatUsers chat_users={this.state.chat_users} {...this.props} displayChatMessage={this.displayChatMessage.bind(this)} />
 					</div>
 					<div className="col-md-9">
 							<div><h3>Chatting With {this.props.chatReducer.toUserDetails ? this.props.chatReducer.toUserDetails.displayName : ''}</h3>
@@ -82,7 +169,7 @@ class Chat extends Component {
 							  <button type="submit" className="btn btn-primary form-control">Send Message</button>
 							</form>
 							
-							<Messages />
+							<Messages records={this.state.records} />
 							
 							
 							</div>

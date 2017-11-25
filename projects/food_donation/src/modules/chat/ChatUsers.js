@@ -4,14 +4,18 @@ class ChatUsers extends Component {
 	
 	changeUser(toUid, e) {
 		e.preventDefault();
+
+		var oldUid = this.props.chatReducer.toUserId;
+		this.props.displayChatMessage(toUid, oldUid);
+
 		var url = '/chat/' + toUid;
 		this.props.history.push(url);
 		this.props.callChangeUserId(toUid);
 		this.props.callChangeUserDetails(toUid);
-		//few more lines
 	}
 
 	render() {
+		console.log('pppp: ', this.props);
 		return (
 			<div>
 				<h3>All Users List</h3>

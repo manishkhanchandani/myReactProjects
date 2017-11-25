@@ -10,6 +10,7 @@ import MyAccount from './components/MyAccount.js';
 import Chat2 from './components/Chat.js';
 import Confirm from './components/Confirm.js';
 import Chat from './modules/chat/Chat.js';
+import Chat3 from './modules/chat3/Chat.js';
 
 class App extends Component {
   render() {
@@ -29,7 +30,9 @@ class App extends Component {
         <Route exact={true} path="/chat2/:toUserId" component={Chat2} />	
 		
         <Route exact={true} path="/chat" component={Chat} />
-        <Route exact={true} path="/chat/:toUserId" component={Chat} />	
+        <Route exact={true} path="/chat/:toUserId" component={Chat} />
+        <Route exact={true} path="/chat3" component={Chat3} />
+        <Route exact={true} path="/chat3/:toUserId" component={Chat3} />	
 		
 		<Route exact={true} path="/search/:type/:keyword/:lat/:lng/:boundary/:addr/:country/:state/:county/:city" component={Home} />
 		<Route exact={true} path="/search/:type/:keyword" component={Home} />
