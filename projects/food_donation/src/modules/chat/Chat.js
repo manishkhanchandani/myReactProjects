@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Alert} from 'react-bootstrap';
+
 import {changeUserId, changeUserDetails} from './ChatAction.js';
 
 import * as firebase from 'firebase';
@@ -15,10 +17,15 @@ class Chat extends Component {
 		super(props);
 		
 		this.state = {
+			pageNumber: 1,
 			message: '',
 			chat_users: null,
 			records: null
 		};
+	}
+
+	onActivePageChange(page) {
+		this.setState({pageNumber: page});
 	}
 	
 	getChatUsers() {
@@ -89,7 +96,17 @@ class Chat extends Component {
 			updated_dt: firebase.database.ServerValue.TIMESTAMP,
 			id: userObj.uid
 		};
-		firebaseDatabase.ref(url2).child(this.props.chatReducer.toUserId).child(userObj.uid).set(tobj);
+		var toRef = firebaseDatabase.ref(url2).child(this.props.chatReducer.toUserId).child(userObj.uid);
+		var toRefCounter = toRef.child('cnt');
+		toRefCounter.once('value', (snapshot) => {
+			var cnt = snapshot.val();
+			
+			if (!cnt) cnt = 0;
+			cnt++;
+			tobj.cnt = cnt;
+			toRef.set(tobj);
+		});
+		
 		this.setState({message: ''});
 	}
 	
@@ -144,9 +161,6 @@ class Chat extends Component {
 			myArray.sort(dynamicSort('-message_date'));
 			
 			//filtering
-			
-			//pagination
-
 			this.setState({records: myArray});
 		});
 	}
@@ -159,6 +173,8 @@ class Chat extends Component {
 						<ChatUsers chat_users={this.state.chat_users} {...this.props} displayChatMessage={this.displayChatMessage.bind(this)} />
 					</div>
 					<div className="col-md-9">
+						{
+							this.props.chatReducer.toUserDetails ?
 							<div><h3>Chatting With {this.props.chatReducer.toUserDetails ? this.props.chatReducer.toUserDetails.displayName : ''}</h3>
 							
 							<form onSubmit={this.sendMessage.bind(this)} >
@@ -173,6 +189,11 @@ class Chat extends Component {
 							
 							
 							</div>
+							:
+							<Alert bsStyle="warning">
+								Please select the user before chatting!!!
+							  </Alert>
+						}
 					</div>
 				</div>
 			</div>

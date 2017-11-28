@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 
 class Results extends Component {
 	render() {
+		if (!this.props.record) {
+			return null;	
+		}
 		var distance = '';
 		if (this.props.record.distance) {
 			distance = 	(<span> (<strong>{this.props.record.distance} mi.</strong>)</span>);
