@@ -99,6 +99,11 @@ class ResultContainer extends Component {
 		}
 		
 		
+		var userObjStr = localStorage.getItem('userObj');
+		var userObj = JSON.parse(userObjStr);
+		var uid = userObj.uid;
+		
+		
 		return (
 			<div>
 				<div className="row">
@@ -119,7 +124,7 @@ class ResultContainer extends Component {
 				<div className="row">
 				{
 					myArrayConverted.map((value, index) => {
-						return	<Results record={value} key={index}  /> 			 
+						return	<Results record={value} key={index} fromUid={uid}  /> 			 
 					})	
 				}
 				</div>

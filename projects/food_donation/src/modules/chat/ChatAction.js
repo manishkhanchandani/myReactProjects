@@ -1,6 +1,5 @@
 
-import * as firebase from 'firebase';
-import {firebaseApp, firebaseDatabase, FirebaseConstant} from '../../MyFirebase.js';
+import {firebaseDatabase, FirebaseConstant} from '../../MyFirebase.js';
 
 export const changeUserId = (newUserId) => {
 	return {

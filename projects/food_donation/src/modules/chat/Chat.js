@@ -119,9 +119,9 @@ class Chat extends Component {
 	}
 	
 	componentDidMount() {
-		this.getChatUsers();
 
 		var toUserId = (this.props.match.params.toUserId) ? this.props.match.params.toUserId : null;
+		this.getChatUsers();
 		this.getUserDetails(toUserId);
 		
 		this.displayChatMessage(toUserId);
