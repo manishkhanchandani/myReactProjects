@@ -79,7 +79,7 @@ class Chat extends Component {
 			id: this.props.chatReducer.toUserId
 		};
 		firebaseDatabase.ref(url2).child(userObj.uid).child(this.props.chatReducer.toUserId).set(fobj);
-		
+
 		var obj2 = {
 			message: this.state.message,
 			message_date: firebase.database.ServerValue.TIMESTAMP,
