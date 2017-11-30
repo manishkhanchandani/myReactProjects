@@ -1,8 +1,8 @@
 const ChatReducer = (state = {
 	toUserId: null,
 	toUserDetails: null,
-	chat_users_general: null,
-	chat_users_total_cnt: null
+	chatMessageCnt: null,
+	chatUsers: null
 }, action) => {
 	switch (action.type) {
 		case 'CHANGE_USER_ID':
@@ -17,16 +17,16 @@ const ChatReducer = (state = {
 				toUserDetails: action.payload
 			};
 			break;
-		case 'GET_CHAT_USERS':
+		case 'CHAT_MESSAGE_CNT':
 			state = {
 				...state,
-				chat_users_general: action.payload
+				chatMessageCnt: action.payload
 			};
 			break;
-		case 'GET_CHAT_USERS_TOTAL_COUNT':
+		case 'CHAT_USERS':
 			state = {
 				...state,
-				chat_users_total_cnt: action.payload
+				chatUsers: action.payload
 			};
 			break;
 		default:

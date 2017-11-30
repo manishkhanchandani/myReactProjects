@@ -1,3 +1,4 @@
+
 import {firebaseDatabase, FirebaseConstant} from '../../MyFirebase.js';
 import {dynamicSort} from '../../utilities/functions.js';
 
@@ -25,44 +26,48 @@ export const changeUserDetails = (toUserId) => {
 	};
 };
 
-export const getChatUsersAction = (dispatch) => {	
+export const chatMessageCnt = (cnt) => {
+	return {
+		type: 'CHAT_MESSAGE_CNT',
+		payload: cnt
+	};
+};
+
+export const chat_user = (u) => {
+	return {
+		type: 'CHAT_USERS',
+		payload: u
+	};
+};
+
+
+export const getChatUsers = (dispatch) => {
+	console.log('get chat users action started');
 	var userObjStr = localStorage.getItem('userObj');
 	var userObj = JSON.parse(userObjStr);
 	var uid = userObj.uid;
-	
-	if (!uid) {
-		return false;	
-	}
+	if (!uid) return null;
 	
 	var url = FirebaseConstant.basePath + '/chat/chatUsers';
 	var ref = firebaseDatabase.ref(url).child(uid);//uid is person who is logged in
-	ref.off();
+	
 	ref.on('value', (snapshot) => {
 		var chatUsers = [];
+		var totalCount = 0;
 		var result = snapshot.val();
 		if (!result) {
 			return;	
 		}
 		
-		var totalCount = 0;
 		for (let key in result) {
 			chatUsers.push(result[key]);
-			
 			if (result[key].cnt) {
-				totalCount = totalCount + result[key].cnt;	
+				totalCount = totalCount + result[key].cnt;
 			}
 		}
-
-		dispatch({
-			type: 'GET_CHAT_USERS_TOTAL_COUNT',
-			payload: totalCount
-		});
-		
+		dispatch(chatMessageCnt(totalCount));
 		chatUsers.sort(dynamicSort('-updated_dt'));
-		
-		dispatch({
-			type: 'GET_CHAT_USERS',
-			payload: chatUsers
-		});
+		dispatch(chat_user(chatUsers));
 	});
+	console.log('get chat users action ended');
 }

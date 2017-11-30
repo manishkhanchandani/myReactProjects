@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom'; 
 import {connect} from 'react-redux';
-import {Badge} from 'react-bootstrap';
 
 import {actionGoogleLogin, actionSignOut} from '../actions/MyAction.js';
 
@@ -18,17 +17,14 @@ class Nav extends Component {
 		this.props.func2();
 	}
 	
-	render() {		
+	render() {
+		console.log('myReducer: ', this.props.myReducer);
+		
 		var showUser = [];
 		var navItem1 = [];
 		var rightSide = [];
 		
 		if (this.props.myReducer.uid) {
-			var showBadge = '';
-			if (this.props.chatReducer.chat_users_total_cnt > 0) {
-				showBadge = (<Badge>{this.props.chatReducer.chat_users_total_cnt}</Badge>);
-			}
-		
 			showUser.push(<li key="3" className="myName">{this.props.myReducer.displayName}</li>);
 			showUser.push(<li key="1"><a href="" onClick={this.signOut.bind(this)}>SignOut</a></li>);
 			
@@ -36,7 +32,7 @@ class Nav extends Component {
 			navItem1.push(<li key="2"><Link to="/">My Account</Link></li>);
 			
 			
-			rightSide.push(<li key="1"><Link to="/chat">Messages {showBadge}</Link> </li>);
+			rightSide.push(<li key="1"><Link to="/">Messages</Link></li>);
 		} else {
 			showUser.push(<li key="2"><a href="" onClick={this.googleLogin.bind(this)}>Google Login</a></li>);
 		}
@@ -77,8 +73,7 @@ class Nav extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		myReducer: state.MyReducer,
-		chatReducer: state.ChatReducer
+		myReducer: state.MyReducer
 	}
 };
 

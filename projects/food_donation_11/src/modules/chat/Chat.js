@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Alert} from 'react-bootstrap';
 
-import {changeUserId, changeUserDetails} from './ChatAction.js';
+import {changeUserId, changeUserDetails, chatMessageCnt, getChatUsers} from './ChatAction.js';
 
 import * as firebase from 'firebase';
 import {firebaseDatabase, FirebaseConstant} from '../../MyFirebase.js';
@@ -26,6 +26,37 @@ class Chat extends Component {
 
 	onActivePageChange(page) {
 		this.setState({pageNumber: page});
+	}
+	
+	getChatUsers() {
+		console.log('get chat users started');
+		var userObjStr = localStorage.getItem('userObj');
+		var userObj = JSON.parse(userObjStr);
+		var uid = userObj.uid;
+		
+		var url = FirebaseConstant.basePath + '/chat/chatUsers';
+		var ref = firebaseDatabase.ref(url).child(uid);//uid is person who is logged in
+		
+		ref.on('value', (snapshot) => {
+			var chatUsers = [];
+			var totalCount = 0;
+			var result = snapshot.val();
+			if (!result) {
+				return;	
+			}
+			
+			for (let key in result) {
+				chatUsers.push(result[key]);
+				if (result[key].cnt) {
+					totalCount = totalCount + result[key].cnt;
+				}
+			}
+			this.props.callChatMessageCnt(totalCount);
+			chatUsers.sort(dynamicSort('-updated_dt'));
+			
+			this.setState({chat_users: chatUsers});
+		});
+		console.log('get chat users ended');
 	}
 	
 	sendMessage(e) {
@@ -95,8 +126,17 @@ class Chat extends Component {
 	
 	componentDidMount() {
 
+		var userObjStr = localStorage.getItem('userObj');
+		var userObj = JSON.parse(userObjStr);
 		var toUserId = (this.props.match.params.toUserId) ? this.props.match.params.toUserId : null;
+
+		if (toUserId === userObj.uid) {
+			this.props.history.push("/chat");
+		}//redirect if to and from is same user
+
+		this.props.callChatUsers();
 		this.getUserDetails(toUserId);
+		
 		this.displayChatMessage(toUserId);
 	}
 	
@@ -138,12 +178,12 @@ class Chat extends Component {
 		});
 	}
 	
-	render() {		
+	render() {
 		return (
 			<div className="container">
 				<div className="row">
 					<div className="col-md-3">
-						<ChatUsers chat_users={this.props.chatReducer.chat_users_general} {...this.props} displayChatMessage={this.displayChatMessage.bind(this)} />
+						<ChatUsers chat_users={this.props.chatReducer.chatUsers} {...this.props} displayChatMessage={this.displayChatMessage.bind(this)} />
 					</div>
 					<div className="col-md-9">
 						{
@@ -188,6 +228,12 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		callChangeUserDetails: (toUserId) => {
 			dispatch(changeUserDetails(toUserId));
+		},
+		callChatMessageCnt: (cnt) => {
+			dispatch(chatMessageCnt(cnt));
+		},
+		callChatUsers: () => {
+			getChatUsers(dispatch);	
 		}
 	};	
 };
