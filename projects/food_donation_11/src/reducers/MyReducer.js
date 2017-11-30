@@ -4,7 +4,9 @@ const MyReducer = (state = {
 	photoURL: null,
 	uid: null,
 	profile_uid: null,
-	providerId: null
+	providerId: null,
+	toUserId: null,
+	toUserIdDetails: null
 }, action) => {
 	switch (action.type) {
 		case 'LOGGEDIN':
@@ -38,6 +40,18 @@ const MyReducer = (state = {
 			state = {
 				...state
 			}
+			break;
+		case 'CHAT_TO_USER_ID':
+			state = {
+				...state,
+				toUserId: action.payload
+			}
+			break;
+		case 'CHAT_TO_USER_ID_DETAILS_FULFILLED':
+			state = {
+				...state,
+				toUserIdDetails: action.payload
+			};
 			break;
 		default:
 			break;
