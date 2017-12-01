@@ -12,6 +12,9 @@ export const changeUserDetails = (toUserId) => {
 	return {
 		type: 'CHANGE_USER_DETAILS',
 		payload: new Promise((resolve, reject) => {
+			if (!toUserId) {
+				resolve(null);
+			}
 			var url = FirebaseConstant.basePath + '/users/' + toUserId;
 				
 			firebaseDatabase.ref(url).once('value').then((snapshot) => {
@@ -26,9 +29,7 @@ export const changeUserDetails = (toUserId) => {
 };
 
 export const getChatUsersAction = (dispatch) => {	
-	var userObjStr = localStorage.getItem('userObj');
-	var userObj = JSON.parse(userObjStr);
-	var uid = userObj.uid;
+	var uid = localStorage.getItem('userId');
 	
 	if (!uid) {
 		return false;	

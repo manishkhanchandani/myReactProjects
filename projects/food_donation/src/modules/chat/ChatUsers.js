@@ -20,9 +20,7 @@ class ChatUsers extends Component {
 		this.props.callChangeUserDetails(toUid);
 		
 		//code to remove the bubble
-		var userObjStr = localStorage.getItem('userObj');
-		var userObj = JSON.parse(userObjStr);
-		var fromUid = userObj.uid;
+		var fromUid = localStorage.getItem('userId');
 		var url2 = FirebaseConstant.basePath + '/chat/chatUsers';
 		firebaseDatabase.ref(url2).child(fromUid).child(toUid).child('cnt').set(null);
 		
@@ -36,6 +34,8 @@ class ChatUsers extends Component {
 				{
 					this.props.chat_users && this.props.chat_users.map((value, key) => {
 						var strTime = timeAgo(value.updated_dt);
+						var d = new Date(value.updated_dt);
+						var myDate = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
 						let myClass = "row";
 						if (value.id === this.props.chatReducer.toUserId) {
 							myClass = myClass + ' active';	

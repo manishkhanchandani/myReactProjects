@@ -96,6 +96,19 @@ class Chat extends Component {
 	componentDidMount() {
 
 		var toUserId = (this.props.match.params.toUserId) ? this.props.match.params.toUserId : null;
+		if (!toUserId) {
+			//do something	
+			this.props.callChangeUserId(null);
+			this.props.callChangeUserDetails(null);
+			return;
+		}
+
+		var fromUid = localStorage.getItem('userId');
+		
+		if (fromUid === toUserId) {
+			this.props.history.push("/chat");
+			return;
+		}
 		this.getUserDetails(toUserId);
 		this.displayChatMessage(toUserId);
 	}
@@ -106,9 +119,7 @@ class Chat extends Component {
 			return false;	
 		}
 		
-		var userObjStr = localStorage.getItem('userObj');
-		var userObj = JSON.parse(userObjStr);
-		var fromUid = userObj.uid;
+		var fromUid = localStorage.getItem('userId');
 		if (!fromUid) {
 			return false;	
 		}
