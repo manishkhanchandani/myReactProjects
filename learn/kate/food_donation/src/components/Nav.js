@@ -1,102 +1,102 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {actionGoogleLogin, actionSignOut} from '../actions/MyAction.js'
+import {Badge} from 'react-bootstrap';
 import * as firebase from 'firebase';
-import {firebaseApp, firebaseDatabase} from   '../MyFirebase.js';
- import {connect} from 'react-redux';
+import {firebaseApp, firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 
 class Nav extends Component {
 	
 		googleLogin(e) {
-
-		e.preventDefault();
+			e.preventDefault();
+			this.props.func1();		
+		}	
 		
-		var provider = new firebase.auth.GoogleAuthProvider();
-	    firebaseApp.auth().signInWithPopup(provider).then(function(result) {  
-		
-		var obj = {};
-		
-		obj.email = result.user.email;
-		
-		obj.displayName = result.user.displayName;
-		
-		obj.photoURL = result.user.photoURL;
-		
-		obj.uid = result.user.uid;
-		
-		obj.profile_uid = result.user.providerData[0].uid;
-		
-		obj.providerId = result.user.providerData[0].providerId;
-		
-		
-		
-		});
-		
-		
-		
-		}
-
 		
 		signOut(e) {
-		
-		e.preventDefault();
-		firebaseApp.auth().signOut().then(function(){
-												   
-												   console.log('signout');
-												   });
-	
-			
+			e.preventDefault();
+			this.props.func2(); 	
 		}
 	
-	render() {
-		console.log(this.props.myReducer);
-		return (
-<div>
-<nav className="navbar navbar-inverse navbar-static-top">
-			  <div className="container">
-				<div className="navbar-header">
-				  <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-					<span className="sr-only">Toggle navigation</span>
-					<span className="icon-bar"></span>
-					<span className="icon-bar"></span>
-					<span className="icon-bar"></span>
-				  </button>
-				  <Link className="navbar-brand" to="/">Food Donation</Link>
-				</div>
-				<div id="navbar" className="navbar-collapse collapse">
-				  <ul className="nav navbar-nav">
-					<li className="active"><Link to="/">Home</Link></li>
-					<li><Link to="/create">Create</Link></li>
-					<li><a href="#contact">Contact</a></li>
-					<li className="dropdown">
-					  <a href="" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>
-					  <ul className="dropdown-menu">
-								<li><a href="" onClick={this.googleLogin.bind(this)}>Google Login</a></li>
-								
-								<li><a href="" onClick={this.signOut.bind(this)}>SignOut</a></li>
-					  </ul>
-					</li>
-				  </ul>
-				  <ul className="nav navbar-nav navbar-right">
-					<li><a href="../navbar/">Default</a></li>
-					<li className="active"><a href="./">Static top <span className="sr-only">(current)</span></a></li>
-					<li><a href="../navbar-fixed-top/">Fixed top</a></li>
-				  </ul>
-				</div>
-			  </div>
-			</nav>
-				
-</div>
-		);
-	}
-}
+	    render() {	
+			console.log('myReducer:', this.props.myReducer);
+			
+			var showUser = [];
+			var navItem1 = [];
+			var rightSide = [];
+		
+		if (this.props.myReducer.uid) {
+			
+			var showBadge = '';
+			if (this.props.chatReducer.chat_users_total_cnt > 0) {
+			showBadge = (<Badge>{this.props.chatReducer.chat_users_total_cnt}</Badge>);
+			}
+			showUser.push(<li key="3" className="myName">{this.props.myReducer.displayName}</li>);
+			showUser.push(<li key="1"><a href="" onClick={this.signOut.bind(this)}>SignOut</a></li>);
+			navItem1.push(<li key="1"><Link to="/create">Create</Link></li>);
+			navItem1.push(<li key="2"><Link to="/">My Account</Link></li>);
+			
+			rightSide.push(<li key="1"><Link to="/chat">Messages {showBadge}</Link> </li>);
+
+		} else {
+			showUser.push(<li key="2"><a href="" onClick={this.googleLogin.bind(this)}>Google Login</a></li>);
+		    console.log(this.props.myReducer);
+		}
+		
+		return (		
+				<nav className="navbar navbar-inverse navbar-static-top">
+					<div className="container">
+						<div className="navbar-header">
+					    	<button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+								<span className="sr-only">Toggle navigation</span>
+								<span className="icon-bar"></span>
+								<span className="icon-bar"></span>
+								<span className="icon-bar"></span>
+							  </button>
+							  <Link className="navbar-brand" to="/">Food Donation</Link>
+							</div>
+							<div id="navbar" className="navbar-collapse collapse">
+							  <ul className="nav navbar-nav">
+								<li className="active"><Link to="/">Home</Link></li>
+								{navItem1}
+								<li><a href="#contact">Contact</a></li>
+								<li className="dropdown">
+								  <a href="" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Users <span className="caret"></span></a>
+								  <ul className="dropdown-menu">
+											{showUser}
+								  </ul>
+								</li>
+							  </ul>
+							  <ul className="nav navbar-nav navbar-right">
+								{rightSide}
+							  </ul>
+							</div>
+						  </div>
+						</nav>		
+			
+					);
+				}
+			}
 
 const mapStateToProps = (state) => {
 	return {
 		myReducer: state.MyReducer
-		
 		}
-	
 	};
+	
+const mapDispatchToProps = (dispatch) => {
+	return {
+		func1: () => {		
+			dispatch(actionGoogleLogin());
+		},
+		
+		func2: () => {
+			dispatch(actionSignOut());
+		}
 
+	};
+};
 
-export default connect(mapStateToProps)(Nav);
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);
+

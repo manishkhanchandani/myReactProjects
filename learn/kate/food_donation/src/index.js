@@ -5,23 +5,17 @@ import registerServiceWorker from './registerServiceWorker';
 import './style.css';
 
 import {Provider} from 'react-redux';
-
 import store from './store.js';
 import {loggedIn, loggedOut} from './actions/MyAction.js';
-
-
-
+ 
+ 
 import * as firebase from 'firebase';
-import {firebaseApp, firebaseDatabase} from   './MyFirebase.js';
+import {firebaseApp, firebaseDatabase, firebaseConstant} from   './MyFirebase.js';
+import {getChatUsersAction} from './modules/chat/ChatAction.js';
 
-firebaseApp.auth().onAuthStateChanged(
-						(user) => {
-					
-					
-					if(user){
-						
-						var obj = {};
-		
+firebaseApp.auth().onAuthStateChanged((user) => {			
+		  if(user){
+					var obj = {};	
 						obj.email = user.email
 						obj.displayName = user.displayName;
 						obj.photoURL = user.photoURL
@@ -30,13 +24,12 @@ firebaseApp.auth().onAuthStateChanged(
 						obj.providerId = user.providerData[0].providerId;
 						
 						store.dispatch(loggedIn(obj));
-
-						}else {
-							
-							store.dispatch(loggedOut());
-							}
-					
-					});
+						getChatUsersAction(store.dispatch);
+ 
+		     }else {
+					    store.dispatch(loggedOut());
+					}
+});
 
 ReactDOM.render(
 				

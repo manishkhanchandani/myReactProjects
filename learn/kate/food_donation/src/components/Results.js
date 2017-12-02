@@ -1,19 +1,45 @@
 import React, {Component} from 'react';
-
+import {Link} from 'react-router-dom';
 class Results extends Component {
 	render() {
+		
+		var distance = '';
+		if (this.props.record.distance) {
+distance = (<span> (<strong>{this.props.record.distance} mi.</strong>)</span>);
+		}
+			var myLink = null;
+
+			if (this.props.fromUid && this.props.fromUid !== this.props.record.user_id) {
+			
+			myLink = '/chat/' + this.props.record.user_id;
+			
+			}
+		
 		return (
-<div className="media">
-<div className="media-left">
-<a href="">
-<img className="media-object myImage" src="https://img.buzzfeed.com/buzzfeed-static/static/2014-06/23/15/campaign_images/webdr07/26-traditional-indian-foods-that-will-change-your-1-7312-1403550756-15_big.jpg" alt="..." />
-</a>
-</div>
-<div className="media-body">
-<h4 className="media-heading">Media heading</h4>
-<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-</div>
-</div>
+			<div className="col-md-6">
+          <div className="media">
+  			<div className="media-left">
+			<a href="">		
+			  <img className="media-object myImage" src={this.props.record.imageUrl} alt="..." />		
+			</a>	
+			  </div>
+			    <div className="media-body">
+			<h4 className="media-heading">{this.props.record.title}</h4>	
+			<p>{this.props.record.description}</p>
+			<p>{this.props.record.location.formatted_address}
+			 {distance}
+			</p>
+						{
+				
+				myLink &&		
+				<p><Link to={myLink}>Chat</Link></p>
+				
+				}
+			
+			
+			  </div>
+			</div>
+			</div>
 		);
 	}
 }
