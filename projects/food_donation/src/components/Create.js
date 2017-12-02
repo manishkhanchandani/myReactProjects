@@ -68,6 +68,13 @@ class Create extends Component {
 		this.props.history.push("/confirm");
 	}
 	
+	componentDidMount() {
+		var uid = localStorage.getItem('userId');
+		if (!uid) {
+			this.props.history.push("/");	
+		}
+	}
+	
 	render() {
 		console.log('state value: ', this.state);
 		return (
