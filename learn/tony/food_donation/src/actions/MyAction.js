@@ -5,6 +5,7 @@ import {firebaseApp, firebaseDatabase, FirebaseConstant} from '../MyFirebase.js'
 
 export const loggedIn = (params) => {
 	localStorage.setItem('userObj', JSON.stringify(params));
+	localStorage.setItem('userId', params.uid);
 	return {
 		type: 'LOGGEDIN',
 		email: params.email,
@@ -18,6 +19,7 @@ export const loggedIn = (params) => {
 
 export const loggedOut = () => {
 	localStorage.removeItem('userObj');
+	localStorage.removeItem('userId');
 	return {
 		type: 'LOGGEDOUT'	
 	};	

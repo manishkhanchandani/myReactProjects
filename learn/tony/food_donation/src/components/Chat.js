@@ -9,7 +9,7 @@ import Messages from './Messages.js';
 import ChatUsers from './ChatUsers.js';
 import {dynamicSort} from '../utilities/functions.js';
 
-class Chat extends Component {
+class Chat2 extends Component {
 	
 	constructor(props) {
 		super(props);
@@ -131,6 +131,7 @@ class Chat extends Component {
 	componentDidMount() {
 		var toUserId = (this.props.match.params.toUserId) ? this.props.match.params.toUserId : null;	
 		this.getToUserIdDetails(toUserId);
+		
 	}
 
 	render() {
@@ -188,4 +189,4 @@ const mapDispatchToProps = (dispatch) => {
 	};	
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Chat);
+export default connect(mapStateToProps, mapDispatchToProps)(Chat2);

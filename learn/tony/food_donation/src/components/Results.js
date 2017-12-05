@@ -1,11 +1,20 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom'; 
 
 class Results extends Component {
 	render() {
+		if (!this.props.record) {
+			return null;	
+		}
 		var distance = '';
 		if (this.props.record.distance) {
 			distance = 	(<span> (<strong>{this.props.record.distance} mi.</strong>)</span>);
 		}
+		
+		var myLink = null;
+		//if (this.props.fromUid && this.props.fromUid !== this.props.record.user_id) {
+			myLink = '/chat/' + this.props.record.user_id;
+		//}
 		return (
 			<div className="col-md-6">
 			<div className="media">
@@ -22,6 +31,10 @@ class Results extends Component {
 				{distance}
 				
 				</p>
+				{
+					myLink &&
+					<p><Link to={myLink}>Chat</Link></p>
+				}
 			  </div>
 			</div>
 			</div>

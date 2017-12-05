@@ -34,8 +34,6 @@ class ResultContainer extends Component {
 	}
 	
 	render() {
-		console.log('props are ', this.props);
-		console.log('state are ', this.state);
 		if (!this.props.data) {
 			return null;	
 		}
@@ -97,6 +95,8 @@ class ResultContainer extends Component {
 		  next: true,
 		  prev: true
 		}
+
+		var uid = localStorage.getItem('userId');
 		
 		
 		return (
@@ -119,7 +119,7 @@ class ResultContainer extends Component {
 				<div className="row">
 				{
 					myArrayConverted.map((value, index) => {
-						return	<Results record={value} key={index}  /> 			 
+						return	<Results record={value} key={index} fromUid={uid}  /> 			 
 					})	
 				}
 				</div>
