@@ -16,63 +16,108 @@ class Home extends Component {
 			keyword: '',
 			location: null,
 			boundary: 'county',
-			tmp_keyword: null,
-			tmp_location: {
-				formatted_address: ''	
-			}
+			data: []
 		};
 	}
 	
-	getDataFromFB(obj=null) {
-		console.log('props are: ', this.props);
-		var url = FirebaseConstant.basePath + '/data/posts';
-		var ref = firebaseDatabase.ref(url).limitToLast(500);
-		ref.on('value', (snapshot) => {
-			console.log('snapshot is ', snapshot.val());
-			//getting results from the firebase
-			var records = snapshot.val();
-			//converting object to array
-			var myArray = [];
-			for (let key in records) {
-				var record = records[key];
-				record.id = key;
-				if (props && props.food_reducer.form_fields && props.food_reducer.form_fields.location && props.food_reducer.form_fields.location.lat && props.food_reducer.form_fields.location.lng) {
-					record.distance = distance(props.food_reducer.form_fields.location.lat, props.food_reducer.form_fields.location.lng, record.location.lat, record.location.lng);
-				}
-				myArray.push(record);
+	processRecords(key) {
+		var url = FirebaseConstant.basePath + '/data/posts/' + key;
+		var ref = firebaseDatabase.ref(url);
+
+		var tmp = this.state.data;
+		ref.once('value', (snapshot) => {
+			var record = snapshot.val();
+			record.id = key;
+			if (this.state.location && this.state.location.lat && this.state.location.lng) {
+				record.distance = distance(this.state.location.lat, this.state.location.lng, record.location.lat, record.location.lng).toFixed(2);
 			}
-			
-			console.log('myArray: ', myArray);
-			this.props.callViewData(myArray);
+			tmp.push(record);
+			this.setState({data: tmp});
+			this.props.callViewData(this.state.data);
 		});
+		
+	}
+	
+	refreshData()
+	{
+		if (this.state.keyword && this.state.location) {
+			url = `${FirebaseConstant.basePath}/data/tags/${this.state.keyword}/county/${this.state.location.country}/${this.state.location.administrative_area_level_1}/${this.state.location.administrative_area_level_2}`;
+			console.log(url);
+			ref = firebaseDatabase.ref(url).limitToLast(500);
+			ref.on('value', (snapshot) => {
+				var records = snapshot.val();
+				for (var key in records) {
+					console.log('key is ', key, ', and record is ', records[key]);
+					this.processRecords(key);
+				}
+			});
+		} else if (this.state.keyword) {
+			url = `${FirebaseConstant.basePath}/data/tags/${this.state.keyword}/all_tag_post`;
+			console.log(url);
+			ref = firebaseDatabase.ref(url).limitToLast(500);
+			ref.on('value', (snapshot) => {
+				var records = snapshot.val();
+				for (var key in records) {
+					console.log('key is ', key, ', and record is ', records[key]);
+					this.processRecords(key);
+				}
+			});
+		} else if (this.state.location) {
+			url = `${FirebaseConstant.basePath}/data/county/${this.state.location.country}/${this.state.location.administrative_area_level_1}/${this.state.location.administrative_area_level_2}`;
+			console.log(url);
+			ref = firebaseDatabase.ref(url).limitToLast(500);
+			ref.on('value', (snapshot) => {
+				var records = snapshot.val();
+				for (var key in records) {
+					console.log('key is ', key, ', and record is ', records[key]);
+					this.processRecords(key);
+				}
+			});
+		} else {
+			var url = FirebaseConstant.basePath + '/data/posts';
+			var ref = firebaseDatabase.ref(url).limitToLast(500);
+			ref.on('value', (snapshot) => {
+				console.log('snapshot is ', snapshot.val());
+				//getting results from the firebase
+				var records = snapshot.val();
+				//converting object to array
+				var myArray = [];
+				for (let key in records) {
+					var record = records[key];
+					record.id = key;
+					if (this.state.location && this.state.location.lat && this.state.location.lng) {
+						record.distance = distance(this.state.location.lat, this.state.location.lng, record.location.lat, record.location.lng).toFixed(2);
+					}
+					myArray.push(record);
+				}
+				
+				console.log('myArray: ', myArray);
+				this.props.callViewData(myArray);
+			});
+		}		
+	}
+
+	getDataFromFB() {
+		console.log('props are: ', this.props);
+		
+		this.setState({data: []}, () => {
+			this.refreshData();	   
+		});
+		
+		
+		
+
+		
+		
 	}
 	
 	componentDidMount() {
 		this.getDataFromFB();	
 	}
-	
-	componentWillReceiveProps(nextProps) {		
-		if (nextProps.food_reducer.form_fields) {
-			let check1 = (nextProps.food_reducer.form_fields.keyword && this.state.tmp_keyword != nextProps.food_reducer.form_fields.keyword);
-			let check2 = (nextProps.food_reducer.form_fields.location && this.state.tmp_location != nextProps.food_reducer.form_fields.location.formatted_address);
-			console.log('check1: ', check1, ', check2: ', check2);
-			if (check1 || check2) {
-			console.log('check1: ', check1, ', check2: ', check2);
-				this.getDataFromFB(nextProps);
-			}
-			this.setState({tmp_location: nextProps.food_reducer.form_fields.location.formatted_address, tmp_keyword: nextProps.food_reducer.form_fields.keyword});
-			
-		}
-	}
-	
+
 	frmSub(e) {
 		e.preventDefault();
-		var obj = {
-			keyword: this.state.keyword,
-			location: this.state.location,
-			boundary: this.state.boundary
-		}
-		this.props.callSaveSearchInfo(obj);
+		this.getDataFromFB();
 	}
 
 	render() {
@@ -140,7 +185,11 @@ class Home extends Component {
 											  <div className="media-body">
 												<h4 className="media-heading">{value.title}</h4>
 												<div>{value.description}</div>
-												<div><a href="">Send Message</a></div>
+												<div><a href="">Chat</a></div>
+												{
+													value.distance &&
+													<div>{value.distance} miles</div>
+												}
 											  </div>
 											</div>
 									
