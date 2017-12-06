@@ -54,3 +54,48 @@ export const dynamicSort = (property) => {
 		return result * sortOrder;
 	}
 };
+
+export const processRecords = (recordArray, sortingOrder=null, filterText=null, filterFields=[], maxRows=20, pageNumber=1, onSelectFunc=null) => {
+	var myArr = JSON.parse(JSON.stringify(recordArray));
+	//filter Text
+	if (filterText && filterFields.length > 0) {
+		myArr = myArr.filter((record) => {
+			let results = false;
+			for (let i = 0; i < filterFields.length; i++) {
+				let str = record[filterFields[i]];
+				let strResult = str.toLowerCase().indexOf(filterText.toLowerCase());
+				if (strResult >= 0) {
+					return true;	
+				}
+			}
+			return false;
+		});
+	}
+	
+	//sorting
+	if (sortingOrder) {
+		myArr.sort(dynamicSort(sortingOrder));	
+	}
+
+	//pagination
+	const pageNum = pageNumber - 1;
+	const startRow = pageNum * maxRows;
+	const totalRows = myArr.length;
+	const totalPages = Math.ceil(totalRows/maxRows);
+	const myArrayConverted = myArr.splice(startRow, maxRows);
+	
+	//pagination component
+	const paginationProps = {
+	  activePage: pageNumber,
+	  items: totalPages,//number of pages
+	  onSelect: onSelectFunc,
+	  maxButtons: 3, //numer of buttons to display
+	  boundaryLinks: true,
+	  first: true,
+	  last: true,
+	  next: true,
+	  prev: true
+	}
+	
+	return {myArrayConverted, paginationProps};
+};

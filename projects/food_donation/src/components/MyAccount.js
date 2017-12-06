@@ -4,8 +4,12 @@ class MyAccount extends Component {
 	render() {
 		return (
 			<div>
-				MyAccount
-			</div>
+				<div className="row">
+					<div className="col-md-6">
+						my account
+					</div>
+				</div>
+            </div>
 		);
 	}
 }

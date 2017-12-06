@@ -104,7 +104,7 @@ class Chat extends Component {
 		}
 
 		var fromUid = localStorage.getItem('userId');
-		
+
 		if (fromUid === toUserId) {
 			this.props.history.push("/chat");
 			return;

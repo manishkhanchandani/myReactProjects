@@ -1,6 +1,12 @@
 
 const initialState = {
-	data: null
+	data: null,
+	form_fields: {
+		keyword: null,
+		location: {
+			formatted_address: ''	
+		}
+	}
 };
 
 const FoodReducer = (state = initialState, action) => {
@@ -15,6 +21,13 @@ const FoodReducer = (state = initialState, action) => {
 				data: action.payload
 			}
 			break;
+		case 'SAVE_SEARCH_INFO':
+			state = {
+				...state,
+				form_fields: action.payload
+			}
+			break;
+			
 		default:
 			break;
 	}

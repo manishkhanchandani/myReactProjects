@@ -21,3 +21,11 @@ export const viewData = (obj) => {
 		payload: obj
 	};
 };
+
+export const saveSearchInfo = (obj) => {
+	return {
+		type: 'SAVE_SEARCH_INFO',
+		payload: obj
+	};
+};
+

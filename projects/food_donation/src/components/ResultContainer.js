@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Results from './Results.js';
 
-import {distance} from '../utilities/functions.js';
+import {distance, processRecords} from '../utilities/functions.js';
 import Paginator from '../utilities/Paginator.js';
 
 class ResultContainer extends Component {
@@ -46,27 +46,8 @@ class ResultContainer extends Component {
 			}
 			myArray.push(this.props.data[key]);
 		}
-		
-		//FILTER RESULTS
-		if (this.state.filterTerm) {
-			myArray = myArray.filter((record) => {
-				if (!record.title) record.title = '';
-				if (!record.description) record.description = '';
-				if (!record.location.administrative_area_level_1) record.location.administrative_area_level_1 = '';
-				if (!record.location.administrative_area_level_2) record.location.administrative_area_level_2 = '';
-				if (!record.location.country) record.location.country = '';
-				if (!record.location.formatted_address) record.location.formatted_address = '';
-				if (!record.location.locality) record.location.locality = '';
-				if (!record.id) record.id = '';
-				return (record.title.toLowerCase().indexOf(this.state.filterTerm.toLowerCase())	>= 0 || record.description.toLowerCase().indexOf(this.state.filterTerm.toLowerCase()) >= 0 || record.tags.toLowerCase().indexOf(this.state.filterTerm.toLowerCase()) >= 0 || record.location.administrative_area_level_1.toLowerCase().indexOf(this.state.filterTerm.toLowerCase())	>= 0 || record.location.administrative_area_level_2.toLowerCase().indexOf(this.state.filterTerm.toLowerCase()) >= 0 || record.location.country.toLowerCase().indexOf(this.state.filterTerm.toLowerCase()) >= 0 || record.location.formatted_address.toLowerCase().indexOf(this.state.filterTerm.toLowerCase()) >= 0 || record.location.locality.toLowerCase().indexOf(this.state.filterTerm.toLowerCase())	>= 0 || record.id.toLowerCase().indexOf(this.state.filterTerm.toLowerCase()) >= 0);  
-				
-			});	
-		}		
-		
-		//SORTING RESULTS
-		if (this.state.sortingField) {
-			myArray.sort(this.dynamicSort(this.state.sortingField));	
-		}
+
+		const {myArrayConverted, paginationProps} = processRecords(myArray, this.state.sortingField, this.state.filterTerm, ['title', 'description', 'tags'], 20, this.state.pageNumber, this.onActivePageChange.bind(this));
 		
 		var distanceOption = [];
 		distanceOption.push(<option key="3" value="">Select Sorting Order</option>);
@@ -75,27 +56,6 @@ class ResultContainer extends Component {
 				distanceOption.push(<option key="2" value="-distance">Distance Descending</option>);
 		}
 		
-		
-		const maxRows = 20;
-		const pageNum = this.state.pageNumber - 1;
-		const startRow = pageNum * maxRows;
-		const totalRows = myArray.length;
-		const totalPages = Math.ceil(totalRows/maxRows);
-		const myArrayConverted = myArray.splice(startRow, maxRows);
-		
-		//pagination component
-		const paginationProps = {
-		  activePage: this.state.pageNumber,
-		  items: totalPages,//number of pages
-		  onSelect: this.onActivePageChange.bind(this),
-		  maxButtons: 3, //numer of buttons to display
-		  boundaryLinks: true,
-		  first: true,
-		  last: true,
-		  next: true,
-		  prev: true
-		}
-
 		var uid = localStorage.getItem('userId');
 		
 		
