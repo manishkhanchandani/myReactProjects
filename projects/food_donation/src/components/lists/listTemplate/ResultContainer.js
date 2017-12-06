@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import Results from './lists/template1/Results.js';
+import Results from './Results.js';
 
-import {distance, processRecords} from '../utilities/functions.js';
-import Paginator from '../utilities/Paginator.js';
+import {distance, processRecords} from '../../../utilities/functions.js';
+import Paginator from '../../../utilities/Paginator.js';
 
 class ResultContainer extends Component {
 	
@@ -76,7 +76,7 @@ class ResultContainer extends Component {
 					</div>
 				</div>
 				<br />
-				<div className="row resultsContainer">
+				<div className="row">
 				{
 					myArrayConverted.map((value, index) => {
 						return	<Results record={value} key={index} fromUid={uid}  /> 			 
