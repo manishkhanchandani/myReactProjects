@@ -70,6 +70,11 @@ var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 
 			});	
 		}		
 		console.log('myArray: ', myArray);
+		myArray.push(this.s)
+		
+
+		const {myArrayConverted, paginationProps} = processRecords(myArray, this.state.sortingField, this.state.filterTerm, ['title', 'description', 'tags'], 20, this.state.pageNumber, this.onActivePageChange.bind(this));
+
 		//SORTING RESULTS
 		if (this.state.sortingField) {
 			myArray.sort(this.dynamicSort(this.state.sortingField));	
