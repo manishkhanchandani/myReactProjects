@@ -139,6 +139,12 @@ class Chat extends Component {
 	 	this.displayChatMessage(toUserId);
 	}
 	
+	
+	
+
+var fromUid = localStorage.getItem('userId'); if (fromUid === toUserId) { this.props.history.push("/chat"); return; }
+
+
 	 displayChatMessage(toUid, oldUid=null) { 
 
 		if (!toUid) {
