@@ -10,6 +10,7 @@ import MyAccount from './components/MyAccount.js';
 import Confirm from './components/Confirm.js';
 import Chat from './modules/chat/Chat.js';
 import MyMap2 from './components/MyMap2.js';
+import Detail from './components/lists/template1/Detail.js';
 
 class App extends Component {
   render() {
@@ -29,6 +30,7 @@ class App extends Component {
         <Route exact={true} path="/chat" component={Chat} />
         <Route exact={true} path="/chat/:toUserId" component={Chat} />
         <Route exact={true} path="/map" component={MyMap2} />
+        <Route exact={true} path="/detail/:id" component={Detail} />
 		
 		<Route exact={true} path="/search/:type/:keyword/:lat/:lng/:boundary/:addr/:country/:state/:county/:city" component={Home} />
 		<Route exact={true} path="/search/:type/:keyword" component={Home} />

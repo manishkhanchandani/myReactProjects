@@ -26,8 +26,6 @@ class Results extends Component {
 		var myDate = new Date(this.props.record.created_dt);
 		var myDateStr = myDate.toString();
 		
-		var detailLink = '/detail/'+this.props.record.id;
-		
 		return (
 			<div className="col-md-12">
 				<div className="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
@@ -41,7 +39,7 @@ class Results extends Component {
                                 <a href="#" target="_parent"></a>
 
                                 <h4 className="media-heading">
-                                  <Link to={detailLink}>{this.props.record.title} <small className="pull-right">{this.props.record.location.formatted_address} {distance}</small></Link></h4>
+                                  <a href="#" target="_parent">{this.props.record.title} <small className="pull-right">{this.props.record.location.formatted_address} {distance}</small></a></h4>
 
 
                                 <ul className="list-inline mrg-0 btm-mrg-10 clr-535353">
@@ -55,7 +53,7 @@ class Results extends Component {
 										<li className="myStyle1">|</li>
 									}
 
-                                 
+                                    
 
                                     <li><b>id:</b> {this.props.record.id}</li>
 
