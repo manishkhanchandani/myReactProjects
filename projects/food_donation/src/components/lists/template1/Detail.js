@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {firebaseDatabase, FirebaseConstant} from '../../../MyFirebase.js';
-import './DetailUser.css';
+import DetailUser from './DetailUser.js';
+
+import {Link} from 'react-router-dom'; 
 
 class Detail extends Component {
 	
@@ -40,60 +42,43 @@ class Detail extends Component {
 		if (this.state.data.imageUrl) {
 			image = this.state.data.imageUrl;	
 		}
+		
+		var myDate = new Date(this.state.data.created_dt);
+		var myDateStr = myDate.toString();
+		
+		var fromUid = localStorage.getItem('userId');
+		var myLink = null;
+		if (fromUid && fromUid !== this.state.data.user_id) {
+			myLink = '/chat/' + this.state.data.user_id;
+		}
+		
 		return (
 			<div className="container">
 				<div className="row">
-					<div className="col-md-4">
-						<img src={image} alt={this.state.data.title} className="img-responsive" />
-					</div>
-					<div className="col-md-5">
+					<div className="col-md-9">
 						<h1>{this.state.data.title}</h1>
+						<div className="row">
+							<div className="col-md-6">
+								<img src={image} alt={this.state.data.title} className="img-responsive" />
+								<br /><br />
+								<p><Link to={myLink} className="btn btn-primary form-control">Chat With Post Owner</Link></p>
+							</div>
+							<div className="col-md-6">
+								<p><b>ID: </b><br />{this.state.data.id}</p>
+								<p><b>Description: </b><br />{this.state.data.description}</p>
+								<p><b>Created On: </b><br />{myDateStr}</p>
+								<p><b>Location: </b><br />{this.state.data.location.formatted_address}</p>
+								<p><b>Tags: </b><br />{this.state.data.tags}</p>
+								<p><b>Latitude: </b><br />{this.state.data.location.lat}</p>
+								<p><b>Longitude: </b><br />{this.state.data.location.lng}</p>
+							</div>
+						</div>
 					</div>
 					<div className="col-md-3">
 						
 						
+						<DetailUser userDetails={this.state.userDetails}/>
 						
-						<div className="container">
-							<div className="row">
-								<div className="col-lg-3 col-sm-6">
-						
-									<div className="card hovercard">
-										<div className="cardheader">
-						
-										</div>
-										<div className="avatar">
-											<img alt="" src={this.state.userDetails.photoURL} />
-										</div>
-										<div className="info">
-											<div className="title">
-												<a target="_blank" href="http://scripteden.com/">Script Eden</a>
-											</div>
-											<div className="desc">Passionate designer</div>
-											<div className="desc">Curious developer</div>
-											<div className="desc">Tech geek</div>
-										</div>
-										<div className="bottom">
-											<a className="btn btn-primary btn-twitter btn-sm" href="https://twitter.com/webmaniac">
-												<i className="fa fa-twitter"></i>
-											</a>
-											<a className="btn btn-danger btn-sm" rel="publisher"
-											   href="https://plus.google.com/+ahmshahnuralam">
-												<i className="fa fa-google-plus"></i>
-											</a>
-											<a className="btn btn-primary btn-sm" rel="publisher"
-											   href="https://plus.google.com/shahnuralam">
-												<i className="fa fa-facebook"></i>
-											</a>
-											<a className="btn btn-warning btn-sm" rel="publisher" href="https://plus.google.com/shahnuralam">
-												<i className="fa fa-behance"></i>
-											</a>
-										</div>
-									</div>
-						
-								</div>
-						
-							</div>
-						</div>
 						
 						
 						

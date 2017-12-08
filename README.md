@@ -18,6 +18,7 @@
    npm install redux-promise-middleware --save 
    npm install redux-thunk --save 
    npm install react-google-autocomplete --save 
+   npm install react-google-maps --save
    
    npm install react-router-dom firebase redux react-redux redux-logger redux-promise-middleware redux-thunk --save 
    npm install react-google-autocomplete --save
@@ -43,6 +44,9 @@ npm run build
   
 Important links
 https://github.com/enaqx/awesome-react
+
+https://bootsnipp.com/forms
+
 
 design9992@gmail.com, manishkk74@gmail.com, nikhilkhanchandani@gmail.com, tws0321@gmail.com
   
