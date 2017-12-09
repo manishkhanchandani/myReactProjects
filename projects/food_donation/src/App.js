@@ -11,6 +11,7 @@ import Confirm from './components/Confirm.js';
 import Chat from './modules/chat/Chat.js';
 import MyMap2 from './components/MyMap2.js';
 import Detail from './components/lists/template1/Detail.js';
+import Profile from './components/Profile.js';
 
 class App extends Component {
   render() {
@@ -26,6 +27,7 @@ class App extends Component {
         <Route exact={true} path="/edit/:id" component={Edit} />
         <Route exact={true} path="/delete/:id" component={Delete} />
         <Route exact={true} path="/myaccount" component={MyAccount} />
+        <Route exact={true} path="/profile" component={Profile} />
 		
         <Route exact={true} path="/chat" component={Chat} />
         <Route exact={true} path="/chat/:toUserId" component={Chat} />
