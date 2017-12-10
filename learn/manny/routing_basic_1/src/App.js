@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
 import { Link, Route, Switch } from 'react-router-dom';
-
-import Category from './routes/Category';
 
 /* Home component */
 const Home = () => (
   <div>
     <h2>Home</h2>
+  </div>
+)
+
+/* Category component */
+const Category = () => (
+  <div>
+    <h2>Category</h2>
   </div>
 )
 
@@ -17,10 +24,11 @@ const Products = () => (
   </div>
 )
 
+
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="App">
         <nav className="navbar navbar-light">
           <ul className="nav navbar-nav">
 
@@ -30,12 +38,10 @@ class App extends Component {
 
           </ul>
          </nav>
+           <Route path="/" component={Home}/>
+           <Route path="/category" component={Category}/>
+           <Route path="/products" component={Products}/>
 
-           <Switch>
-      <Route exact path="/" component={Home}/>
-      <Route path="/category" component={Category}/>
-       <Route path="/products" component={Products}/>
-    </Switch>
       </div>
     );
   }
