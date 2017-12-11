@@ -1,0 +1,49 @@
+Deploy nodejs application on server
+
+digitalocean.com
+sign up for $5 account
+
+1. Install node
+2. Install forever
+3. Create a deploy user
+4. setup password less ssh for that user
+
+
+Automatic deployment
+Add flightplan for our node app
+Capistrono is also a great tool
+
+deploy
+enhance deployment by running node app as a service
+
+
+https://gist.github.com/learncodeacademy/35045e64d2bbe6eb14f9
+
+ssh to your server
+
+Droplet Name: nodejs-512mb-sfo2-01
+IP Address: 165.227.58.168
+Username: root
+Password: 1656dfde264a176bbd57e05e2c
+
+ssh root@165.227.58.168
+
+
+sudo useradd --create-home -s /bin/bash deploy
+sudo adduser deploy sudo
+sudo passwd deploy
+
+
+
+ssh deploy@165.227.58.168
+
+mkdir .ssh
+
+exit
+
+scp C:/Users/manis/.ssh/id_rsa.pub deploy@165.227.58.168:~/.ssh/authorized_keys
+
+now in your machine
+npm install -f flightplan
+
+npm install --save-dev fly
