@@ -27,7 +27,7 @@ class Navigation extends Component {
 			strLoggedIn.push(<li key="1"><a href="" onClick={this.signOut.bind(this)}>Sign Out</a></li>);
 			leftBox.push(<li key="1"><Link to="/create">Create</Link></li>);
 			leftBox.push(<li key="2"><Link to="/myaccount">My Account</Link></li>);
-			rightBox.push(<li key="1"><Link to="/messages">Messages</Link></li>);
+			rightBox.push(<li key="2"><Link to="/chat">Chat</Link></li>);
 		} else {
 			strLoggedIn.push(<li key="2"><a href="" onClick={this.googleAuth.bind(this)}>Google Login</a></li>);
 		}

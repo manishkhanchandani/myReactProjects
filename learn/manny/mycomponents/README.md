@@ -17,6 +17,9 @@ npm install --save firebase
 To install router add following
 npm install --save react-router-dom react-router
 
+Maps
+npm install --save react-google-maps
+https://github.com/tomchentw/react-google-maps
 
 
 Create a folder components

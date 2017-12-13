@@ -1,0 +1,17 @@
+[
+	{
+		"key": "contracts",
+		"name": "Contracts Law",
+		"sorting": 1
+	},
+	{
+		"key": "torts",
+		"name": "Torts Law",
+		"sorting": 2	
+	},
+	{
+		"key": "criminal",
+		"name": "Criminal Law",
+		"sorting": 3	
+	}
+]

@@ -34,7 +34,7 @@ class Nav extends Component {
 			showUser.push(<li key="1"><a href="" onClick={this.signOut.bind(this)}>SignOut</a></li>);
 			
 			navItem1.push(<li key="1"><Link to="/create">Create</Link></li>);
-			navItem1.push(<li key="2"><Link to="/">My Account</Link></li>);
+			navItem1.push(<li key="2"><Link to="/myaccount">My Account</Link></li>);
 			
 			
 			rightSide.push(<li key="1"><Link to="/chat">Messages {showBadge}</Link> </li>);

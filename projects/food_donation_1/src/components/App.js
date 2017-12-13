@@ -6,7 +6,8 @@ import Home from './Home.js';
 import NewPost from './NewPost.js';
 import EditPost from './EditPost.js';
 import MyAccount from './MyAccount.js';
-import Messages from './Messages.js';
+import Chat from './Chat/Chat.js';
+import Details from './Details.js';
 import Confirm from './Confirm.js';
 
 class App extends Component {
@@ -21,7 +22,8 @@ class App extends Component {
         <Route exact={true} path="/create" component={NewPost} />
         <Route exact={true} path="/edit/:id" component={EditPost} />
         <Route exact={true} path="/myaccount" component={MyAccount} />
-        <Route exact={true} path="/messages" component={Messages} />
+        <Route exact={true} path="/chat" component={Chat} />
+        <Route exact={true} path="/details/:id" component={Details} />
         
         
       </div>

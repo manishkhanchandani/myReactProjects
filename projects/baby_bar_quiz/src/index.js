@@ -4,8 +4,7 @@ import registerServiceWorker from './registerServiceWorker';
 import {Provider} from 'react-redux';
 
 import store from './store.js';
-import {firebaseApp} from './MyFirebase.js';
-import {loggedIn, loggedOut} from './actions/MyAction.js';
+import {FirebaseAuthSystem} from './modules/auth/AuthAction.js';
 import Main from './Main.js';
 
 import './assets/css/bootstrap.min.css';
@@ -14,23 +13,7 @@ import './assets/sass/light-bootstrap-dashboard.css';
 import './assets/css/demo.css';
 import './assets/css/pe-icon-7-stroke.css';
 
-
-firebaseApp.auth().onAuthStateChanged((user) => {
-	if (user) {
-		var obj = {};
-		obj.email = user.email;
-		obj.displayName = user.displayName;
-		obj.photoURL = user.photoURL;
-		obj.uid = user.uid;
-		obj.profile_uid = user.providerData[0].uid;
-		obj.providerId = user.providerData[0].providerId;
-		localStorage.setItem('usersObject', JSON.stringify(obj));
-		store.dispatch(loggedIn(obj));									  
-	} else {
-		store.dispatch(loggedOut());
-	}
-});
-
+FirebaseAuthSystem(store.dispatch);
 
 ReactDOM.render((
     <Provider store={store}>

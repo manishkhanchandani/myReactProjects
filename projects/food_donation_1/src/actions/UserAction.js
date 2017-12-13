@@ -3,6 +3,7 @@ import * as firebase from 'firebase';
 import {firebaseApp, firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 
 export const loginUser = (obj) => {
+	localStorage.setItem('simpleObj', JSON.stringify(obj));
 	return {
 		type: UserConstant.SIGNED_IN,
 		payload: obj

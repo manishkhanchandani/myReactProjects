@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import Autocomplete from 'react-google-autocomplete';
 import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 
 import {viewData, saveSearchInfo} from '../actions/FoodAction.js';
 
 import {distance} from '../utilities/functions.js';
+
+import Comments from './Comments/Comments.js';
 
 class Home extends Component {
 	
@@ -40,25 +43,25 @@ class Home extends Component {
 	
 	refreshData()
 	{
+		var url = '';
+		var ref = '';
 		if (this.state.keyword && this.state.location) {
 			url = `${FirebaseConstant.basePath}/data/tags/${this.state.keyword}/county/${this.state.location.country}/${this.state.location.administrative_area_level_1}/${this.state.location.administrative_area_level_2}`;
-			console.log(url);
+
 			ref = firebaseDatabase.ref(url).limitToLast(500);
 			ref.on('value', (snapshot) => {
 				var records = snapshot.val();
 				for (var key in records) {
-					console.log('key is ', key, ', and record is ', records[key]);
 					this.processRecords(key);
 				}
 			});
 		} else if (this.state.keyword) {
 			url = `${FirebaseConstant.basePath}/data/tags/${this.state.keyword}/all_tag_post`;
-			console.log(url);
 			ref = firebaseDatabase.ref(url).limitToLast(500);
 			ref.on('value', (snapshot) => {
 				var records = snapshot.val();
+				console.log('records: ', records);
 				for (var key in records) {
-					console.log('key is ', key, ', and record is ', records[key]);
 					this.processRecords(key);
 				}
 			});
@@ -69,15 +72,13 @@ class Home extends Component {
 			ref.on('value', (snapshot) => {
 				var records = snapshot.val();
 				for (var key in records) {
-					console.log('key is ', key, ', and record is ', records[key]);
 					this.processRecords(key);
 				}
 			});
 		} else {
-			var url = FirebaseConstant.basePath + '/data/posts';
-			var ref = firebaseDatabase.ref(url).limitToLast(500);
+			url = FirebaseConstant.basePath + '/data/posts';
+			ref = firebaseDatabase.ref(url).limitToLast(500);
 			ref.on('value', (snapshot) => {
-				console.log('snapshot is ', snapshot.val());
 				//getting results from the firebase
 				var records = snapshot.val();
 				//converting object to array
@@ -91,7 +92,6 @@ class Home extends Component {
 					myArray.push(record);
 				}
 				
-				console.log('myArray: ', myArray);
 				this.props.callViewData(myArray);
 			});
 		}		
@@ -101,6 +101,7 @@ class Home extends Component {
 		console.log('props are: ', this.props);
 		
 		this.setState({data: []}, () => {
+			this.props.callViewData(this.state.data);
 			this.refreshData();	   
 		});
 		
@@ -175,6 +176,7 @@ class Home extends Component {
 						{
 							this.props.food_reducer.data && 
 								this.props.food_reducer.data.map((value, key) => {
+									var detailsURL = '/details/' + value.id;
 									return <div className="col-md-6" key={key}>
 											<div className="media">
 											  <div className="media-left">
@@ -183,13 +185,14 @@ class Home extends Component {
 												</a>
 											  </div>
 											  <div className="media-body">
-												<h4 className="media-heading">{value.title}</h4>
+												<h4 className="media-heading"><Link to={detailsURL}>{value.title}</Link></h4>
 												<div>{value.description}</div>
 												<div><a href="">Chat</a></div>
 												{
 													value.distance &&
 													<div>{value.distance} miles</div>
 												}
+												
 											  </div>
 											</div>
 									

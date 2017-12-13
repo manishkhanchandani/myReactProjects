@@ -15,7 +15,7 @@ class Main extends Component {
 	render() {
 		const uid = localStorage.getItem('uid');
 		var content = null;
-		if (!this.props.myReducer.uid && !uid) {
+		if (!uid) {
 			content = (<Home />);
 		} else {
 			content = (<Switch>
@@ -34,7 +34,7 @@ class Main extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		myReducer: state.MyReducer
+		authReducer: state.AuthReducer
 	}
 };
 

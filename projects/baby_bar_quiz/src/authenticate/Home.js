@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {actionGoogleLogin} from '../actions/MyAction.js'; 
+import {actionGoogleLogin} from '../modules/auth/AuthAction.js'; 
 import './Home.css';
 
 
@@ -29,7 +29,7 @@ class Home extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		myReducer: state.MyReducer
+		authReducer: state.AuthReducer
 	}
 };
 

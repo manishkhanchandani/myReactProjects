@@ -8,6 +8,7 @@ import store from './store.js';
 import {firebaseApp} from './MyFirebase.js';
 import {loggedIn, loggedOut} from './actions/MyAction.js';
 import App from './App.js';
+import './style.css';
 
 
 firebaseApp.auth().onAuthStateChanged((user) => {
