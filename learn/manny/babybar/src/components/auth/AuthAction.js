@@ -45,6 +45,8 @@ export const FirebaseLogin = (type, additionalParams=null) => {
 	switch (type) {
 		case 'GOOGLELOGIN':
 			provider = new firebase.auth.GoogleAuthProvider();
+			provider.addScope('profile');
+			provider.addScope('email');
 			break;
 		case 'FACEBOOKLOGIN':
 			provider = new firebase.auth.FacebookAuthProvider();
@@ -67,9 +69,9 @@ export const FirebaseLogin = (type, additionalParams=null) => {
 		payload: new Promise((resolve, reject) => {
 			firebaseApp.auth().signInWithPopup(provider).then(function(result) {
 				var obj = {};
-				obj.email = result.user.email;
-				obj.displayName = result.user.displayName;
-				obj.photoURL = result.user.photoURL;
+				obj.email = result.user.providerData[0].email;
+				obj.displayName = result.user.providerData[0].displayName;
+				obj.photoURL = result.user.providerData[0].photoURL;
 				obj.uid = result.user.uid;
 				obj.profile_uid = result.user.providerData[0].uid;
 				obj.providerId = result.user.providerData[0].providerId;

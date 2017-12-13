@@ -18,14 +18,14 @@ class NavMulti extends Component {
 								<span className="icon-bar"></span>
 								<span className="icon-bar"></span>
 							</button>
-							<a className="navbar-brand" href="/">BabyBar</a>
+							<Link className="navbar-brand" to="/">California Baby Bar</Link>
 						</div>
 						<div className="collapse navbar-collapse">
 							<ul className="nav navbar-nav navbar-right">
-								<li><a href="https://github.com/fontenele/bootstrap-navbar-dropdowns" target="_blank">GitHub Project</a></li>
+								<li><Link to="/quiz">Quiz</Link></li>
 							</ul>
 							<ul className="nav navbar-nav">
-								<li className="active"><a href="">Home</a></li>
+								<li className="active"><Link to="">Home</Link></li>
 								<Auth />
 								<li>
 									<a href="" className="dropdown-toggle" data-toggle="dropdown">Menu 1 <b className="caret"></b></a>

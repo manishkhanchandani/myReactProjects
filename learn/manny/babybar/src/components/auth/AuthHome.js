@@ -1,17 +1,28 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import './AuthHome.css';
+import {actionGoogleLogin, actionSignOut, getUID, getUsersObj} from './AuthAction.js';
 
 class AuthHome extends Component {
+	googleLogin(e) {
+		e.preventDefault();
+		this.props.func1();
+	}
+	
+	signOut(e) {
+		e.preventDefault();
+		this.props.func2();
+	}
 	render() {
 		return (
-			<div>
+			<div className="home">
 				<div className="container">
 					<div className="container text-center">
-						<form className="form-signin" data-ember-action="2">
-							<h2 className="form-signin-heading">Sign in</h2>
+						<form className="form-signin">
+							<h2 className="form-signin-heading">California Baby Bar Sign-in</h2>
 				
 							<small className="text-muted">Connect [your service] with your favorite social network</small>
-							<br><br>
+							<br /><br />
 				
 							
 				<p>
@@ -20,7 +31,7 @@ class AuthHome extends Component {
 				</p>
 				<p>
 				<a className="btn btn-primary social-login-btn social-linkedin" href="/auth/linkedin"><i className="fa fa-linkedin"></i></a>
-				<a className="btn btn-primary social-login-btn social-google" href="/auth/google"><i className="fa fa-google-plus"></i></a>
+				<a className="btn btn-primary social-login-btn social-google" href="" onClick={this.googleLogin.bind(this)}><i className="fa fa-google-plus"></i></a>
 				</p>
 				
 				<div className="btn-group social-login-more">
@@ -28,40 +39,57 @@ class AuthHome extends Component {
 					More...
 				  </button>
 				  <ul className="dropdown-menu text-left " role="menu">
-					<li><a href="#"><i className="fa fa-tumblr-sign"></i>   Tumblr</a></li>
-					<li><a href="#"><i className="fa fa-github-alt"></i>   Github</a></li>
-					<li><a href="#"><i className="fa fa-dropbox"></i>   Dropbox</a></li>
-					<li><a href="/auth/amazon"><span className="zocial-amazon"></span>   Amazon</a></li>
-					<li><a href="#"><span className="zocial-bitbucket"></span>   Bitbucket</a></li>
-					<li><a href="#"><span className="zocial-evernote"></span>   Evernote</a></li>
-					<li><a href="#"><span className="zocial-meetup"></span>   Meetup</a></li>
-					<li><a href="#"><i className="fa fa-windows"></i>   Windows Live</a></li>
-					<li><a href="#"><i className="fa fa-weibo"></i>   Weibo</a></li>
-					<li><a href="#"><i className="fa fa-foursquare"></i>   Foursquare</a></li>
-					<li><a href="#"><i className="fa fa-stackexchange"></i>   Stack Exchange</a></li>
-					<li><a href="#"><i className="fa fa-trello"></i>   Trello</a></li>
-					<li><a href="#"><span className="zocial-wordpress"></span>   Wordpress</a></li>
+					<li><a href=""><i className="fa fa-tumblr-sign"></i> Tumblr</a></li>
+					<li><a href=""><i className="fa fa-github-alt"></i> Github</a></li>
+					<li><a href=""><i className="fa fa-dropbox"></i> Dropbox</a></li>
+					<li><a href="/auth/amazon"><span className="zocial-amazon"></span> Amazon</a></li>
+					<li><a href=""><span className="zocial-bitbucket"></span> Bitbucket</a></li>
+					<li><a href=""><span className="zocial-evernote"></span> Evernote</a></li>
+					<li><a href=""><span className="zocial-meetup"></span> Meetup</a></li>
+					<li><a href=""><i className="fa fa-windows"></i> Windows Live</a></li>
+					<li><a href=""><i className="fa fa-weibo"></i> Weibo</a></li>
+					<li><a href=""><i className="fa fa-foursquare"></i> Foursquare</a></li>
+					<li><a href=""><i className="fa fa-stackexchange"></i> Stack Exchange</a></li>
+					<li><a href=""><i className="fa fa-trello"></i> Trello</a></li>
+					<li><a href=""><span className="zocial-wordpress"></span> Wordpress</a></li>
 				  </ul>
 				</div>
-				<br><br>
+				<br /><br />
 				
 				
 							<small className="text-muted">Or sign in with [your service]</small>
-							<br><br>
+							<br /><br />
 							
-							<input id="ember360" className="ember-view ember-text-field form-control login-input" placeholder="Email Address" type="text">
-							<input id="ember361" className="ember-view ember-text-field form-control login-input-pass" placeholder="Password" type="password">
-				
-							<script id="metamorph-22-start" type="text/x-placeholder"></script><script id="metamorph-22-end" type="text/x-placeholder"></script>
+							<input className="form-control login-input" placeholder="Email Address" type="text" />
+							<input className="form-control login-input-pass" placeholder="Password" type="password" />
 				
 							<button className="btn btn-lg btn-primary btn-block btn-center" type="submit" data-bindattr-3="3">Sign in</button>
-							<br>
-							<small className="create-account text-muted">Dont have a [your service] or social network account? <button id="ember363" className="ember-view btn btn-sm btn-default"> Sign Up </button> </small>
+							<br />
+							<small className="create-account text-muted">Dont have a [your service] or social network account? <button className="btn btn-sm btn-default"> Sign Up </button> </small>
+							<br />
 						</form>
 					</div>
 			</div>
+		</div>
 		);
 	}
 }
 
-export default AuthHome;
+const mapStateToProps = (state) => {
+	return {
+		authReducer: state.AuthReducer
+	}
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		func1: () => {
+			dispatch(actionGoogleLogin());
+		},
+		func2: () => {
+			dispatch(actionSignOut());
+		}
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AuthHome);

@@ -1,51 +1,51 @@
-@import url(http://weloveiconfonts.com/api/?family=brandico|entypo|openwebicons|zocial);
+/*@import url(http://weloveiconfonts.com/api/?family=brandico|entypo|openwebicons|zocial);*/
 
 /* brandico */
-[class*="brandico-"]:before {
+.home [class*="brandico-"]:before {
   font-family: 'brandico', sans-serif;
 }
 
 /* entypo */
-[class*="entypo-"]:before {
+.home [class*="entypo-"]:before {
   font-family: 'entypo', sans-serif;
 }
 
 /* openwebicons */
-[class*="openwebicons-"]:before {
+.home [class*="openwebicons-"]:before {
   font-family: 'OpenWeb Icons', sans-serif;
 }
 
 /* zocial */
-[class*="zocial-"]:before {
+.home [class*="zocial-"]:before {
   font-family: 'zocial', sans-serif;
 }
 
-.form-signin{
+.home .form-signin{
   max-width: 330px;
   padding: 15px;
   margin: 0 auto;
 }
 
 
-.login-input {
+.home .login-input {
   margin-bottom: -1px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
-.login-input-pass {
+.home .login-input-pass {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
 
-.signup-input {
+.home .signup-input {
   margin-bottom: -1px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.signup-input-confirm {
+.home .signup-input-confirm {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
@@ -53,13 +53,13 @@
 
 
 
-.create-account {
+.home .create-account {
   text-align: center;
   width: 100%;
   display: block;
 }
 
-.form-signin .form-control {
+.home .form-signin .form-control {
   position: relative;
   font-size: 16px;
   height: auto;
@@ -69,55 +69,55 @@
   box-sizing: border-box;
 }
 
-.btn-center{
+.home .btn-center{
   width: 50%;
   text-align: center;
   margin: inherit;
 }
 
-.social-login-btn {
+.home .social-login-btn {
   margin: 5px;
   width: 20%;
   font-size: 250%;
   padding: 0;
 }
 
-.social-login-more {
+.home .social-login-more {
   width: 45%;
 }
 
-.social-google {
+.home .social-google {
   background-color: #da573b;
   border-color: #be5238;
 }
-.social-google:hover{
+.home .social-google:hover{
   background-color: #be5238;
   border-color: #9b4631;
 }
 
-.social-twitter {
+.home .social-twitter {
   background-color: #1daee3;
   border-color: #3997ba;
 }
-.social-twitter:hover {
+.home .social-twitter:hover {
   background-color: #3997ba;
   border-color: #347b95;
 }
 
-.social-facebook {
+.home .social-facebook {
   background-color: #4c699e;
   border-color: #47618d;
 }
-.social-facebook:hover {
+.home .social-facebook:hover {
   background-color: #47618d;
   border-color: #3c5173;
 }
 
-.social-linkedin {
+.home .social-linkedin {
   background-color: #4875B4;
   border-color: #466b99;
 }
-.social-linkedin:hover {
+.home .social-linkedin:hover {
   background-color: #466b99;
   border-color: #3b5a7c;
 }
