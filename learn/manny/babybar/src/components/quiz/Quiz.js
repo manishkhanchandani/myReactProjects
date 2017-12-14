@@ -2,17 +2,22 @@ import React, {Component} from 'react';
 
 import CategoriesJson from './quiz_categories.json';
 import {getUID, getUsersObj} from '../auth/AuthAction.js';
-import {getRandomizer, dynamicSort} from '../../utilities/functions.js';
+import {getRandomizer, dynamicSort, timeAgo} from '../../utilities/functions.js';
 import * as firebase from 'firebase';
 import {firebaseDatabase, FirebaseConstant} from '../../MyFirebase.js';
+import './Quiz.css';
+import {Alert} from 'react-bootstrap';
 
 class Quiz extends Component {
 	
 	constructor(props) {
 		 super(props);
-		 
+		 var current = new Date();
+		 var now = current.getTime();
 		 this.state = {
-			records: null 
+			records: null,
+			current: timeAgo(now),
+			error: 'Loading Challenges ....'
 		 };
 	}
 	
@@ -21,17 +26,28 @@ class Quiz extends Component {
 		var ref = firebaseDatabase.ref(url).orderByChild('status').equalTo('Pending');
 		
 		ref.on('value', (snapshot) => {
-			var myArray = [];
 			var result = snapshot.val();
-			for (var key in result) {				
-				myArray.push(result[key]);
+			if (!result) {
+				this.setState({error: 'No Challenges Available. Please Create one!!', records: null});
+				return;
+			}
+			var myArray = [];
+			var current = new Date();
+			var now = ((current.getTime() / 1000) - (10 * 60)) * 1000;
+			for (var key in result) {
+				var obj = result[key];
+				if (obj.created_dt < now) {
+					continue;
+				}
+				obj.dt = timeAgo(obj.created_dt);
+				myArray.push(obj);
 			}
 			
 			//sorting
 			myArray.sort(dynamicSort('-created_dt'));
 			
 			//filtering
-			this.setState({records: myArray});
+			this.setState({records: myArray, current: timeAgo(now), error: null});
 		});
 	}
 
@@ -77,26 +93,33 @@ class Quiz extends Component {
 					</div>
 				</div>
 				<div className="row">
-					<div className="col-md-6">
+					<div className="col-md-9 challenges">
 						<h3>Current Quiz Challenges</h3>
-						
+						{
+							!this.state.records &&
+							<Alert bsStyle="warning">
+								{this.state.error}
+							  </Alert>
+						}
 						{
 							this.state.records &&
 							<div className="table-responsive">
 								<table className="table table-striped">
 									<tbody>
 									<tr>
-										<th>Status</th>
-										<th>ID</th>
+										<th></th>
 										<th>Creator</th>
+										<th>Created</th>
+										<th>Topic</th>
 										<th>Action</th>
 									</tr>
 									{
 										this.state.records.map((value, key) => {
-											return <tr>
-												<td>Status</td>
-												<td>ID</td>
-												<td>Creator</td>
+											return <tr key={key}>
+												<td><img src={value.photoURL} /></td>
+												<td>{value.creator}<br />ID: <b>{value.id}</b></td>
+												<td>{value.dt}</td>
+												<td>{value.topic}</td>
 												<td>Action</td>
 											</tr>
 										})
@@ -107,7 +130,7 @@ class Quiz extends Component {
 							</div>
 						}
 					</div>
-					<div className="col-md-6">
+					<div className="col-md-3">
 						<h3>Create Quiz :: Choose Topic</h3>
 						{
 							CategoriesJson && 

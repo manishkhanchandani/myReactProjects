@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {firebaseDatabase, FirebaseConstant} from '../../../MyFirebase.js';
 import DetailUser from './DetailUser.js';
+import Comments from '../../../modules/Comments/Comments.js';
 
 import {Link} from 'react-router-dom'; 
 
@@ -62,6 +63,7 @@ class Detail extends Component {
 								<img src={image} alt={this.state.data.title} className="img-responsive" />
 								<br /><br />
 								<p><Link to={myLink} className="btn btn-primary form-control">Chat With Post Owner</Link></p>
+								<Comments id={this.props.match.params.id} />
 							</div>
 							<div className="col-md-6">
 								<p><b>ID: </b><br />{this.state.data.id}</p>
