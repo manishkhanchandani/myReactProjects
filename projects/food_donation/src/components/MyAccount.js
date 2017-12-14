@@ -23,7 +23,8 @@ class MyAccount extends Component {
 	getDataFromFirebase(uid) {	
 		var url = FirebaseConstant.basePath + '/data/posts';
 		var ref = firebaseDatabase.ref(url).orderByChild('user_id').equalTo(uid);
-		ref.once('value', (snapshot) => {
+		ref.off();
+		ref.on('value', (snapshot) => {
 			if (!snapshot.exists()) {
 				this.setState({myAccountData: null});
 				return;
