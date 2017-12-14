@@ -99,3 +99,9 @@ export const processRecords = (recordArray, sortingOrder=null, filterText=null, 
 	
 	return {myArrayConverted, paginationProps};
 };
+
+export const getRandomizer = (bottom, top) => {
+    return function() {
+        return Math.floor( Math.random() * ( 1 + top - bottom ) ) + bottom;
+    }
+};
