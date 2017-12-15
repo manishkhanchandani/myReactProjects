@@ -1,12 +1,15 @@
 import React, {Component} from 'react';
 
+import {connect} from 'react-redux';
 import CategoriesJson from './quiz_categories.json';
 import {getUID, getUsersObj} from '../auth/AuthAction.js';
 import {getRandomizer, dynamicSort, timeAgo} from '../../utilities/functions.js';
 import * as firebase from 'firebase';
 import {firebaseDatabase, FirebaseConstant} from '../../MyFirebase.js';
 import './Quiz.css';
-import {Alert} from 'react-bootstrap';
+import {Alert, Button, Modal} from 'react-bootstrap';
+import * as quizActions from './QuizAction.js';
+
 
 class Quiz extends Component {
 	
@@ -17,73 +20,47 @@ class Quiz extends Component {
 		 this.state = {
 			records: null,
 			current: timeAgo(now),
-			error: 'Loading Challenges ....'
+			error: 'Loading Challenges ....',
+			showModal: false,
+			currentRecord: null
 		 };
 	}
 	
+	//modal
+	close() {
+		this.setState({ showModal: false, currentRecord: null });
+	}
+	
+	open(rec, e) {
+		e.preventDefault();
+		this.setState({ showModal: true, currentRecord: rec });
+	}
+	//modal
+	
 	componentDidMount() {
-		var url = FirebaseConstant.basePath + '/quiz/posts';
-		var ref = firebaseDatabase.ref(url).orderByChild('status').equalTo('Pending');
-		
-		ref.on('value', (snapshot) => {
-			var result = snapshot.val();
-			if (!result) {
-				this.setState({error: 'No Challenges Available. Please Create one!!', records: null});
-				return;
-			}
-			var myArray = [];
-			var current = new Date();
-			var now = ((current.getTime() / 1000) - (10 * 60)) * 1000;
-			for (var key in result) {
-				var obj = result[key];
-				if (obj.created_dt < now) {
-					continue;
-				}
-				obj.dt = timeAgo(obj.created_dt);
-				myArray.push(obj);
-			}
-			
-			//sorting
-			myArray.sort(dynamicSort('-created_dt'));
-			
-			//filtering
-			this.setState({records: myArray, current: timeAgo(now), error: null});
-		});
+		this.props.callListQuiz();
 	}
 
 	createQuiz(topic, e) {
 		e.preventDefault();
-		const uid = getUID();
-		const uObject = getUsersObj();
-		var obj = {};
-		obj.creator = uObject.displayName;
-		obj.uid = uObject.uid;
-		obj.photoURL = uObject.photoURL;
-		obj.topic = topic.key;
-		obj.created_dt = firebase.database.ServerValue.TIMESTAMP;
-		obj.status = 'Pending';
-		
-		obj.questions = [];
-		//find min and max question number for topic
-		var num = 0;
-		var tmpObj = {};
-		var randomNumber = getRandomizer(0, 99);
-		while (num < 5) {
-			var tmp = randomNumber();
-			if (!tmpObj[tmp]) {
-				tmpObj[tmp] = 1;
-				obj.questions.push(tmp);
-				num++;
-			}
-		}
-
+		this.props.callCreateQuiz(topic);
+	}
+	
+	acceptRecord(rec, e) {
+		e.preventDefault();
 		var url = FirebaseConstant.basePath + '/quiz/posts';
-		var uniqueID = firebaseDatabase.ref(url).push(obj).key;
-		firebaseDatabase.ref(url).child(uniqueID).child('id').set(uniqueID);
+		firebaseDatabase.ref(url).child(rec.id).child('status').set('Started');
+	}
+	
+	deleteRecord() {
+		var url = FirebaseConstant.basePath + '/quiz/posts';
+		firebaseDatabase.ref(url).child(this.state.currentRecord.id).set(null);
+		this.close();
 	}
 	
 	render() {
-		console.log('state is ', this.state);
+		console.log('state is ', this.props);
+		const uid = getUID();
 		return (
 			<div className="container">
 				<div className="row">
@@ -96,13 +73,13 @@ class Quiz extends Component {
 					<div className="col-md-9 challenges">
 						<h3>Current Quiz Challenges</h3>
 						{
-							!this.state.records &&
+							!this.props.quizReducer.data &&
 							<Alert bsStyle="warning">
-								{this.state.error}
+								{this.props.quizReducer.error}
 							  </Alert>
 						}
 						{
-							this.state.records &&
+							this.props.quizReducer.data &&
 							<div className="table-responsive">
 								<table className="table table-striped">
 									<tbody>
@@ -114,13 +91,20 @@ class Quiz extends Component {
 										<th>Action</th>
 									</tr>
 									{
-										this.state.records.map((value, key) => {
+										this.props.quizReducer.data.map((value, key) => {
 											return <tr key={key}>
 												<td><img src={value.photoURL} /></td>
 												<td>{value.creator}<br />ID: <b>{value.id}</b></td>
 												<td>{value.dt}</td>
 												<td>{value.topic}</td>
-												<td>Action</td>
+												<td>
+												{
+													uid != value.uid ?
+													<a href="" onClick={this.acceptRecord.bind(this, value)}>Accept</a>
+													:
+													<a href="" onClick={this.open.bind(this, value)}>Delete</a>
+												}
+												</td>
 											</tr>
 										})
 									}
@@ -129,6 +113,19 @@ class Quiz extends Component {
 								</table>
 							</div>
 						}
+						
+						<Modal show={this.state.showModal} onHide={this.close.bind(this)}>
+							<Modal.Header closeButton>
+								<Modal.Title>Confirmation</Modal.Title>
+							</Modal.Header>
+							<Modal.Body>
+								<h4>Delete Record with ID: {this.state.currentRecord && this.state.currentRecord.id} </h4>
+								<p>Do you really want to delete this record? You wont be able to recover it later?</p>
+							</Modal.Body>
+							<Modal.Footer>
+								<Button onClick={this.deleteRecord.bind(this)}>Delete Record</Button>
+							</Modal.Footer>
+						</Modal>
 					</div>
 					<div className="col-md-3">
 						<h3>Create Quiz :: Choose Topic</h3>
@@ -149,4 +146,21 @@ class Quiz extends Component {
 	}
 }
 
-export default Quiz;
+const mapStateToProps = (state) => {
+	return {
+		quizReducer: state.QuizReducer
+	}
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		callCreateQuiz: (topic) => {
+			dispatch(quizActions.createQuiz(topic));
+		},
+		callListQuiz: () => {
+			dispatch(quizActions.listQuiz(dispatch));	
+		}
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Quiz);
