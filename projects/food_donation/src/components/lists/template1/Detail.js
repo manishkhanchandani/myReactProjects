@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import {firebaseDatabase, FirebaseConstant} from '../../../MyFirebase.js';
 import DetailUser from './DetailUser.js';
-import Comments from '../../../modules/Comments/Comments.js';
 
 import {Link} from 'react-router-dom'; 
+
+import Comments from '../../../modules/comments/Comments.js';
 
 class Detail extends Component {
 	
