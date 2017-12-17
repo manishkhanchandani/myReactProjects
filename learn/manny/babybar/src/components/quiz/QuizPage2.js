@@ -70,7 +70,6 @@ class QuizPage2 extends Component {
 		};
 		
 		var url = FirebaseConstant.basePath + '/quiz/posts/' + this.props.data.id;
-		console.log('pointer is ', this.props.data.quizDetails.common.question_pointer, ', for id ', this.props.data.id);
 		firebaseDatabase.ref(url).child('quizDetails').child('quiz').child(this.props.data.quizDetails.common.question_pointer).child(this.props.uid).update(obj);
 		
 		firebaseDatabase.ref(url).child(this.props.uid).child('points').set(totalPoints);
@@ -78,6 +77,7 @@ class QuizPage2 extends Component {
 	
 	
 	render() {
+		console.log('state is ', this.state);
 		const pageData = this.props.data;
 		
 		const questionData = this.props.quizReducer.questions ? this.props.quizReducer.questions[pageData.questions[pageData.quizDetails.common.question_pointer]] : null;
@@ -126,7 +126,7 @@ class QuizPage2 extends Component {
 											{
 												ansOptions.map((value, key) => {
 													return <div key={key} className="frb frb-primary">
-														<input type="radio" id={`option_${key}`} name="answers" value={key}  onChange={(e) => {this.setState({optionChoosen: e.target.value});}} checked={this.state.optionChoosen == key} />
+														<input type="radio" id={`option_${key}`} name="answers" value={key}  onClick={(e) => {this.setState({optionChoosen: e.target.value});}} checked={this.state.optionChoosen == key} />
 														<label htmlFor={`option_${key}`}>
 															<span className="frb-title">{value}</span>
 														</label>

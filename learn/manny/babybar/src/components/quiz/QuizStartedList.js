@@ -16,48 +16,54 @@ class QuizStartedList extends Component {
 		}
 		const uid = getUID();
 		return (
-			<div>				
-				<h3>Current Quiz Running Challenges</h3>
-				{
-					this.props.quizReducer.started_data &&
-					<div className="table-responsive">
-						<table className="table table-striped">
-							<tbody>
-							<tr>
-								<th>Topic</th>
-								<th></th>
-								<th>Creator</th>
-								<th></th>
-								<th>Challenger</th>
-								<th>Action</th>
-								<th>Winner</th>
-							</tr>
-							{
-								this.props.quizReducer.started_data.map((value, key) => {
-									let url = '/quiz/' + value.id;
-									return <tr key={key}>
-										<td>ID: <b>{value.id}</b><br />{value.topic}</td>
-										<td><img src={value.user1_photoURL} alt={value.user1_creator} /></td>
-										<td>{value.user1_creator}</td>
-										<td><img src={value.user2_photoURL} alt={value.user2_creator} /></td>
-										<td>{value.user2_creator}</td>
-										<td>
-										{
-											(uid === value.user1_uid || uid === value.user2_uid) ?
-											<Link to={url}>Play</Link>
-											:
-											<Link to={url}>Watch</Link>
-										}
-										</td>
-										<td>Pending</td>
+			<div>
+				<div className="panel panel-primary">
+				  <div className="panel-heading">
+					<h3 className="panel-title"><b>Current Quiz Running Challenges</b></h3>
+				  </div>
+				  <div className="panel-body">
+						{
+							this.props.quizReducer.started_data &&
+							<div className="table-responsive">
+								<table className="table table-striped">
+									<tbody>
+									<tr>
+										<th>Topic</th>
+										<th></th>
+										<th>Creator</th>
+										<th></th>
+										<th>Challenger</th>
+										<th>Action</th>
+										<th>Winner</th>
 									</tr>
-								})
-							}
-							
-							</tbody>
-						</table>
-					</div>
-				}
+									{
+										this.props.quizReducer.started_data.map((value, key) => {
+											let url = '/quiz/' + value.id;
+											return <tr key={key}>
+												<td>ID: <b>{value.id}</b><br />{value.topic}</td>
+												<td><img src={value.user1_photoURL} alt={value.user1_creator} /></td>
+												<td>{value.user1_creator}</td>
+												<td><img src={value.user2_photoURL} alt={value.user2_creator} /></td>
+												<td>{value.user2_creator}</td>
+												<td>
+												{
+													(uid === value.user1_uid || uid === value.user2_uid) ?
+													<Link to={url}>Play</Link>
+													:
+													<Link to={url}>Watch</Link>
+												}
+												</td>
+												<td>Pending</td>
+											</tr>
+										})
+									}
+									
+									</tbody>
+								</table>
+							</div>
+						}
+				  </div>
+				</div>
 			</div>
 		);
 	}

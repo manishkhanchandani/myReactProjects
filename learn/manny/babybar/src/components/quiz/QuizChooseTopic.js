@@ -33,17 +33,23 @@ class QuizChooseTopic extends Component {
 	render() {
 		return (
 			<div>
-				<h3>Create Quiz :: Choose Topic</h3>
-				{
-					this.state.categories && 
-					<ul className="list-group">
+				<div className="panel panel-info">
+				  <div className="panel-heading">
+					<h3 className="panel-title"><b>Create Quiz :: Choose Topic</b></h3>
+				  </div>
+				  <div className="panel-body">
 					{
-						this.state.categories.map((value, key) => {
-							return <li key={key} className="list-group-item"><a href="" onClick={this.createQuiz.bind(this, value)}>{value.name}</a></li>				
-						})
+						this.state.categories && 
+						<ul className="list-group">
+						{
+							this.state.categories.map((value, key) => {
+								return <li key={key} className="list-group-item"><a href="" onClick={this.createQuiz.bind(this, value)}>{value.name}</a></li>				
+							})
+						}
+						</ul>
 					}
-					</ul>
-				}
+				  </div>
+				</div>
 			</div>
 		);
 	}

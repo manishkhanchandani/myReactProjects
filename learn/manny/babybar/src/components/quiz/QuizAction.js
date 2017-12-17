@@ -143,7 +143,7 @@ export const completedQuizResult = (data, error=null) => {
 
 export const completedQuiz = (dispatch) => {
 	var url = FirebaseConstant.basePath + '/quiz/posts';
-	var ref = firebaseDatabase.ref(url).orderByChild('status').equalTo('Completed');
+	var ref = firebaseDatabase.ref(url).orderByChild('status').equalTo('Completed').limitToLast(500);
 	ref.off();
 	ref.on('value', (snapshot) => {
 		var result = snapshot.val();
@@ -159,10 +159,7 @@ export const completedQuiz = (dispatch) => {
 			obj.dtAccepted = timeAgo(obj.accepted_dt);
 			myArray.push(obj);
 		}
-		
-		//sorting
-		myArray.sort(dynamicSort('-created_dt'));
-				
+						
 		dispatch(completedQuizResult(myArray, null));
 	});
 	

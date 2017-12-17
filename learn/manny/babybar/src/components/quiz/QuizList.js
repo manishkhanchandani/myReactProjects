@@ -49,49 +49,55 @@ class QuizLizt extends Component {
 		const uid = getUID();
 		return (
 			<div>
-				<h3>Current Quiz Open Challenges</h3>
-				{
-					!this.props.quizReducer.data &&
-					<Alert bsStyle="warning">
-						{this.props.quizReducer.data_error}
-					  </Alert>
-				}
-				{
-					this.props.quizReducer.data &&
-					<div className="table-responsive">
-						<table className="table table-striped">
-							<tbody>
-							<tr>
-								<th></th>
-								<th>Creator</th>
-								<th>Created</th>
-								<th>Topic</th>
-								<th>Action</th>
-							</tr>
-							{
-								this.props.quizReducer.data.map((value, key) => {
-									return <tr key={key}>
-										<td><img src={value.user1_photoURL} alt={value.user1_creator} /></td>
-										<td>{value.user1_creator}<br />ID: <b>{value.id}</b></td>
-										<td>{value.dt}</td>
-										<td>{value.topic}</td>
-										<td>
-										{
-											uid !== value.user1_uid ?
-											<a href="" onClick={this.acceptRecord.bind(this, value)}>Accept</a>
-											:
-											<a href="" onClick={this.open.bind(this, value)}>Delete</a>
-										}
-										</td>
+				<div className="panel panel-danger">
+				  <div className="panel-heading">
+					<h3 className="panel-title"><b>Current Quiz Open Challenges</b></h3>
+				  </div>
+				  <div className="panel-body">
+						{
+							!this.props.quizReducer.data &&
+							<Alert bsStyle="warning">
+								{this.props.quizReducer.data_error}
+							  </Alert>
+						}
+						{
+							this.props.quizReducer.data &&
+							<div className="table-responsive">
+								<table className="table table-striped">
+									<tbody>
+									<tr>
+										<th></th>
+										<th>Creator</th>
+										<th>Created</th>
+										<th>Topic</th>
+										<th>Action</th>
 									</tr>
-								})
-							}
-							
-							</tbody>
-						</table>
-					</div>
-				}
-				<QuizShowDelete />
+									{
+										this.props.quizReducer.data.map((value, key) => {
+											return <tr key={key}>
+												<td><img src={value.user1_photoURL} alt={value.user1_creator} /></td>
+												<td>{value.user1_creator}<br />ID: <b>{value.id}</b></td>
+												<td>{value.dt}</td>
+												<td>{value.topic}</td>
+												<td>
+												{
+													uid !== value.user1_uid ?
+													<a href="" onClick={this.acceptRecord.bind(this, value)}>Accept</a>
+													:
+													<a href="" onClick={this.open.bind(this, value)}>Delete</a>
+												}
+												</td>
+											</tr>
+										})
+									}
+									
+									</tbody>
+								</table>
+							</div>
+						}
+						<QuizShowDelete />
+				  </div>
+				</div>
 				
 			</div>
 		);

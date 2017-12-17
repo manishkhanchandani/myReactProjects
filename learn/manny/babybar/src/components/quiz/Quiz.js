@@ -27,8 +27,8 @@ class Quiz extends Component {
 						<QuizChooseTopic />
 					</div>
 					<div className="col-md-9 challenges">
-						<QuizLizt />
 						<QuizStartedList />
+						<QuizLizt />
 						<QuizCompletedList />
 						
 					</div>
