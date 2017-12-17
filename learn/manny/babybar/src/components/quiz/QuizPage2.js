@@ -5,41 +5,70 @@ import * as quizActions from './QuizAction.js';
 import Clock1 from './Clock1.js';
 import * as firebase from 'firebase';
 import {firebaseDatabase, FirebaseConstant} from '../../MyFirebase.js';
+import Loader from '../Loader/Loader.js';
 
 class QuizPage2 extends Component {
 	constructor(props) {
 		super(props);
 		
 		this.state = {
-			questionData: null	
+			optionChoosen: '',
+			btnDisabled: false
 		}
 	}
 	
-	getQuestionDetails(id, topickey) {
-		var url = FirebaseConstant.basePath + '/quiz/posts/'+id + '/quizDetails/common';
-		console.log(url);
-		var ref = firebaseDatabase.ref(url);
-		ref.off();
+	
+	watchQuestion()
+	{
+		var url = FirebaseConstant.basePath + '/quiz/posts/' + this.props.data.id;
+		console.log('watch url ', url);
+		var ref = firebaseDatabase.ref(url).child('quizDetails').child('quiz');
+
 		ref.on('value', (snapshot) => {
 			var result = snapshot.val();
-			if (!result.question) {
-				return null;	
+			if (!result) return false;
+			var questionCounter = this.props.data.quizDetails.common.question_pointer;
+			var counter = null;
+			
+			if (result[questionCounter]) {
+				counter = Object.keys(result[questionCounter]).length;
 			}
-			var questionUrl = FirebaseConstant.basePath + '/quiz/questions/'+topickey+'/'+result.question;
-			var questionRef = firebaseDatabase.ref(questionUrl);
-			questionRef.once('value', (snapshot) => {
-				var questionResult = snapshot.val();
-				questionResult = {
-					...questionResult,
-					answers: JSON.parse(questionResult.answers)
-				}
-				this.setState({questionData: questionResult});
-			});
+			
+			if (counter === 2) {
+				this.setState({optionChoosen: '', btnDisabled: false});
+				var newVal = this.props.data.quizDetails.common.question_pointer + 1;
+				firebaseDatabase.ref(url).child('quizDetails').child('common').child('question_pointer').set(newVal);
+			}
+			console.log('watch result is ', result);
+			console.log('questionCounter is ', questionCounter);
+			
+			console.log('counter is ', counter);
 		});
 	}
 	
+	
 	componentDidMount() {
-		this.getQuestionDetails(this.props.data.id, this.props.data.topicKey);
+		this.watchQuestion();
+	}
+	
+	submittedBtn(questionData) {
+		this.setState({btnDisabled: true});
+		
+		var points = 0;
+		if (this.state.optionChoosen == questionData.correct) {
+			points = 20;
+		} else {
+			
+		}
+		var obj = {
+			answer: this.state.optionChoosen,
+			timeTaken: 0,
+			points: points,
+			isCorrect: this.state.optionChoosen ==  questionData.correct
+		};
+		
+		var url = FirebaseConstant.basePath + '/quiz/posts/' + this.props.data.id;
+		firebaseDatabase.ref(url).child('quizDetails').child('quiz').child(this.props.data.quizDetails.common.question_pointer).child(this.props.uid).update(obj);
 	}
 	
 	
@@ -47,7 +76,14 @@ class QuizPage2 extends Component {
 		const pageData = this.props.data;
 		const uid = this.props.uid;
 		
-		console.log('state is ', this.state);
+		const questionData = this.props.quizReducer.questions ? this.props.quizReducer.questions[pageData.questions[pageData.quizDetails.common.question_pointer]] : null;
+
+		if (!questionData) {
+			return <Loader />	
+		}
+		
+		const ansOptions = JSON.parse(questionData.answers);
+
 		return (
 			<div className="page2">
 				<div className="panel panel-primary">
@@ -65,9 +101,9 @@ class QuizPage2 extends Component {
 							  </div>
 							  <div className="panel-body">
 								{
-									this.state.questionData && 
+									questionData && 
 									<div className="question">
-										{this.state.questionData.question}
+										{questionData.question}
 									</div>
 								}
 								
@@ -81,21 +117,29 @@ class QuizPage2 extends Component {
 							  
 									<div className="panel-body">
 									{
-										(this.state.questionData && this.state.questionData.answers) && 
-										<div className="answers">
+										(questionData && ansOptions) && 
+											<div className="frb-group">
 											{
-												this.state.questionData.answers.map((value, key) => {
-													return <li key={key}>
-														<input type="radio" name="answers" value={key} onChange={(e) => {console.log(e.target.checked); console.log(e.target.value);}} /> {value}
-													</li>
-												
+												ansOptions.map((value, key) => {
+													return <div key={key} className="frb frb-primary">
+														<input type="radio" id={`option_${key}`} name="answers" value={key}  onChange={(e) => {this.setState({optionChoosen: e.target.value});}} checked={this.state.optionChoosen == key} />
+														<label htmlFor={`option_${key}`}>
+															<span className="frb-title">{value}</span>
+														</label>
+													</div>
 												})	
 											}
-										</div>
+											</div>
 									}
+									
 								
+										<input className="hidden" type="radio" id={`option_`} name="answers" value="" onChange={(e) => {this.setState({optionChoosen: e.target.value});}} checked={this.state.optionChoosen == ''} />
 							  		</div>
 								</div>
+								
+								<Button disabled={this.state.btnDisabled} bsStyle="primary" onClick={this.submittedBtn.bind(this, questionData)} className="form-control">Submit</Button>
+								<br /><br /><br />
+								
 						</div>
 						<div className="col-md-3 text-center">
 							<Clock1 startTime={120} />

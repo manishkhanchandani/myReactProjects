@@ -27,7 +27,7 @@ class QuizPage1 extends Component {
 								{pageData.user1_status}
 								{
 									(uid === pageData.user1_uid && pageData.user1_status === 'Pending') &&
-									<Button bsStyle="primary" onClick={() => {this.props.callChangeUser1Status(pageData.id, 'Ready'); this.props.callChangeQuizDetailsUser1(pageData.id, 'question', pageData.questions[0]); this.props.callChangeQuizDetails(pageData.id, 'question', pageData.questions[0]);}} className="form-control">Are you Ready ?</Button>
+									<Button bsStyle="primary" onClick={() => {this.props.callChangeUser1Status(pageData.id, 'Ready'); }} className="form-control">Are you Ready ?</Button>
 								}
 							  </div>
 							  <div className="panel-footer"><b>UID: </b>{pageData.user1_uid}</div>
@@ -48,7 +48,7 @@ class QuizPage1 extends Component {
 								{pageData.user2_status}
 								{
 									(uid === pageData.user2_uid && pageData.user2_status === 'Pending') &&
-									<Button bsStyle="primary" onClick={() => {this.props.callChangeUser2Status(pageData.id, 'Ready'); this.props.callChangeQuizDetailsUser2(pageData.id, 'question', pageData.questions[0]); this.props.callChangeQuizDetailsUser2(pageData.id, 'question', pageData.questions[0]); this.props.callChangeQuizDetails(pageData.id, 'question', pageData.questions[0]);}} className="form-control">Are you Ready?</Button>
+									<Button bsStyle="primary" onClick={() => {this.props.callChangeUser2Status(pageData.id, 'Ready');}} className="form-control">Are you Ready?</Button>
 								}
 								
 							  </div>
