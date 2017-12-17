@@ -1,3 +1,13 @@
 .challenges .table-responsive img {
 	max-width: 64px;
 }
+
+.page2 .sm {
+	max-width: 64px;
+}
+
+.page2 .question {
+	line-height: 2.0em;
+    font-size: 16px;
+    text-align: justify;
+}

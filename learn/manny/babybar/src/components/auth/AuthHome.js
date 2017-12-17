@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './AuthHome.css';
-import {actionGoogleLogin, actionSignOut, getUID, getUsersObj} from './AuthAction.js';
+import {actionGoogleLogin, actionSignOut} from './AuthAction.js';
 //https://bootsnipp.com/snippets/featured/social-network-login
 class AuthHome extends Component {
 	googleLogin(e) {

@@ -1,7 +1,16 @@
 const QuizReducer = (state = {
 	created_id: null,
 	data: null,
-	data_error: null
+	data_error: null,
+	
+	started_data: null,
+	started_data_error: null,
+	
+	showModal: false,
+	currentRecord: null,
+	
+	selectedQuiz: {},
+	questions: null
 }, action) => {
 	switch (action.type) {
 		case 'CREATE_QUIZ_FULFILLED':
@@ -15,6 +24,41 @@ const QuizReducer = (state = {
 				...state,
 				data: action.payload,
 				data_error: action.error
+			}
+			break;
+		case 'CLOSE':
+			state = {
+				...state,
+				showModal: action.showModal,
+				currentRecord: action.currentRecord
+			}
+			break;
+		case 'OPEN':
+			state = {
+				...state,
+				showModal: action.showModal,
+				currentRecord: action.currentRecord
+			}
+			break;
+		case 'SELECTED_QUIZ_RESULT':
+			var tmpObject = state.selectedQuiz;
+			tmpObject[action.key] = action.payload;
+			state = {
+				...state,
+				selectedQuiz: tmpObject
+			}
+			break;
+		case 'STARTED_QUIZ_RESULT':
+			state = {
+				...state,
+				started_data: action.payload,
+				started_data_error: action.error
+			}
+			break;
+		case 'QUESTIONS_FULFILLED':
+			state = {
+				...state,
+				questions: action.payload
 			}
 			break;
 		default:

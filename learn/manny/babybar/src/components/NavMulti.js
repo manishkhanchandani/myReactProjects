@@ -22,12 +22,12 @@ class NavMulti extends Component {
 						</div>
 						<div className="collapse navbar-collapse">
 							<ul className="nav navbar-nav navbar-right">
-								<li><Link to="/quiz">Quiz</Link></li>
+								<Auth />
 							</ul>
 							<ul className="nav navbar-nav">
 								<li className="active"><Link to="">Home</Link></li>
-								<Auth />
-								<li>
+								<li><Link to="/quiz">Quiz</Link></li>
+								{/*<li>
 									<a href="" className="dropdown-toggle" data-toggle="dropdown">Menu 1 <b className="caret"></b></a>
 									<ul className="dropdown-menu multi-level">
 										<li><a href="">Action</a></li>
@@ -101,7 +101,7 @@ class NavMulti extends Component {
 											</ul>
 										</li>
 									</ul>
-								</li>
+								</li>*/}
 							</ul>
 						</div>
 					</div>
