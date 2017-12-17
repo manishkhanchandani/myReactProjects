@@ -6,10 +6,15 @@
 	max-width: 64px;
 }
 
-.page2 .question {
+.page2 .question, .results .question {
 	line-height: 2.0em;
     font-size: 16px;
     text-align: justify;
+}
+
+.results .meta {
+	margin-top: 15px;
+	margin-bottom: 5px;
 }
 
 
@@ -81,7 +86,9 @@
 }
 
 .frb.frb-success input[type="radio"]:checked ~ label,
-.frb.frb-success input[type="checkbox"]:checked ~ label {
+.frb.frb-success input[type="checkbox"]:checked ~ label,
+.frb.frb-success input[type="radio"] ~ label,
+.frb.frb-success input[type="checkbox"] ~ label  {
 	background-color: #5cb85c;
 }
 

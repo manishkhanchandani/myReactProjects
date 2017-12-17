@@ -5,6 +5,7 @@ import * as quizActions from './QuizAction.js';
 import {getUID} from '../auth/AuthAction.js';
 import QuizPage1 from './QuizPage1.js';
 import QuizPage2 from './QuizPage2.js';
+import QuizResults from './QuizResults.js';
 
 class QuizWelcomeScreen extends Component {
 	
@@ -20,9 +21,7 @@ class QuizWelcomeScreen extends Component {
 	}
 
 	render() {
-		console.log('props are ', this.props);
 		const pageData = this.props.quizReducer.selectedQuiz[this.props.match.params.id];
-		console.log('pageData: ', pageData);
 		if (!pageData) {
 			return null;
 		}
@@ -38,8 +37,13 @@ class QuizWelcomeScreen extends Component {
 					}
 					
 					{
-						(pageData.user1_status === 'Ready' && pageData.user2_status === 'Ready') &&
+						(pageData.user1_status === 'Ready' && pageData.user2_status === 'Ready' && pageData.quizDetails.common.question_pointer < 5) &&
 						<QuizPage2 data={pageData} uid={uid} />
+					}
+					
+					{
+						(pageData.quizDetails.common.question_pointer > 4) && 
+						<QuizResults data={pageData} uid={uid} questions={this.props.quizReducer.questions} />
 					}
 					
 					

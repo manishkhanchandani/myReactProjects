@@ -6,6 +6,9 @@ const QuizReducer = (state = {
 	started_data: null,
 	started_data_error: null,
 	
+	completed_data: null,
+	completed_data_error: null,
+	
 	showModal: false,
 	currentRecord: null,
 	
@@ -53,6 +56,13 @@ const QuizReducer = (state = {
 				...state,
 				started_data: action.payload,
 				started_data_error: action.error
+			}
+			break;
+		case 'COMPLETED_QUIZ_RESULT':
+			state = {
+				...state,
+				completed_data: action.payload,
+				completed_data_error: action.error
 			}
 			break;
 		case 'QUESTIONS_FULFILLED':

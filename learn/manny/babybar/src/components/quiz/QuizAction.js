@@ -32,6 +32,9 @@ export const createQuiz = (topic) => {
 					num++;
 				}
 			}
+			obj[uObject.uid] = {
+				points: 0	
+			}
 		
 			var url = FirebaseConstant.basePath + '/quiz/posts';
 			var uniqueID = firebaseDatabase.ref(url).push(obj).key;
@@ -71,7 +74,6 @@ export const listQuiz = (dispatch) => {
 				for (var key in result) {
 					var obj = result[key];
 					if (obj.created_dt < now) {
-						console.log('deleting record with id ', obj.id);
 						deleteRecord(obj.id);
 						continue;
 					}
@@ -129,6 +131,44 @@ export const startedQuiz = (dispatch) => {
 }
 
 
+
+export const completedQuizResult = (data, error=null) => {
+	return {
+		type: 'COMPLETED_QUIZ_RESULT',
+		payload: data,
+		error: error
+	};	
+}
+
+
+export const completedQuiz = (dispatch) => {
+	var url = FirebaseConstant.basePath + '/quiz/posts';
+	var ref = firebaseDatabase.ref(url).orderByChild('status').equalTo('Completed');
+	ref.off();
+	ref.on('value', (snapshot) => {
+		var result = snapshot.val();
+		if (!result) {
+			dispatch(completedQuizResult(null, 'No Past Challenges Available!!'));
+			return;
+		}
+
+		var myArray = [];
+		for (var key in result) {
+			var obj = result[key];
+			obj.dt = timeAgo(obj.created_dt);
+			obj.dtAccepted = timeAgo(obj.accepted_dt);
+			myArray.push(obj);
+		}
+		
+		//sorting
+		myArray.sort(dynamicSort('-created_dt'));
+				
+		dispatch(completedQuizResult(myArray, null));
+	});
+	
+}
+
+
 export const changeStatus = (id, status) => {
 	var url = FirebaseConstant.basePath + '/quiz/posts';
 	firebaseDatabase.ref(url).child(id).child('status').set(status);
@@ -170,7 +210,6 @@ export const selectedQuizResult = (id, data, error=null) => {
 }
 
 export const getQuestions = (category_id) => {
-	console.log('category id is ', category_id);
 	return {
 		type: 'QUESTIONS',
 		payload: new Promise((resolve, reject) => {

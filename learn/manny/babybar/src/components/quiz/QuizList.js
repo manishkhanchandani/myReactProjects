@@ -34,10 +34,13 @@ class QuizLizt extends Component {
 			user2_status: 'Pending',
 			quizDetails: {
 				common: {
-					question_pointer: 0	
+					question_pointer: 0
 				}
 			}
 		};
+		obj[uObject.uid] = {
+			points: 0	
+		}
 		var url = FirebaseConstant.basePath + '/quiz/posts';
 		firebaseDatabase.ref(url).child(rec.id).update(obj);
 	}

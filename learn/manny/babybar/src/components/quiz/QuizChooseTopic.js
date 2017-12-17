@@ -21,8 +21,7 @@ class QuizChooseTopic extends Component {
 		var url = FirebaseConstant.basePath + '/quiz/categories';
 		var ref = firebaseDatabase.ref(url);
 		ref.once('value', (snapshot) => {
-			var result = snapshot.val()
-			console.log(result);
+			var result = snapshot.val();
 			var myArray = [];
 			for (let key in result) {
 				myArray.push(result[key]);
@@ -32,7 +31,6 @@ class QuizChooseTopic extends Component {
 		});
 	}
 	render() {
-		console.log('state is ', this.state);
 		return (
 			<div>
 				<h3>Create Quiz :: Choose Topic</h3>

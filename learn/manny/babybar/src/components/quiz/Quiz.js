@@ -6,6 +6,7 @@ import * as quizActions from './QuizAction.js';
 import QuizChooseTopic from './QuizChooseTopic.js';
 import QuizLizt from './QuizList.js';
 import QuizStartedList from './QuizStartedList.js';
+import QuizCompletedList from './QuizCompletedList.js';
 
 
 class Quiz extends Component {
@@ -28,6 +29,7 @@ class Quiz extends Component {
 					<div className="col-md-9 challenges">
 						<QuizLizt />
 						<QuizStartedList />
+						<QuizCompletedList />
 						
 					</div>
 				</div>

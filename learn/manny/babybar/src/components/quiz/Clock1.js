@@ -58,12 +58,16 @@ class Clock1 extends Component {
 		});
 	
 		if (t.total <= 0) {
-		  clearInterval(timeinterval);
+		  clearInterval(this.timeinterval);
 		}
 	  }
 	
 	  updateClock();
-	  var timeinterval = setInterval(updateClock, 1000);
+	  this.timeinterval = setInterval(updateClock, 1000);
+	}
+	
+	componentWillUnmount() {
+		clearInterval(this.timeinterval);
 	}
 	
 	render() {
