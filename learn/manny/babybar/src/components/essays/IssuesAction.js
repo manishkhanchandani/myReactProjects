@@ -8,41 +8,53 @@ export const getSubjectsResult = (result) => {
 	}	
 }
 
-export const getSubjects = (dispatch, subject=null) => {
+export const getSubjectResult = (result) => {
+	return {
+		type: 'GET_SUBJECT',
+		payload: result
+	}	
+}
+
+
+export const getIssuesResult = (result) => {
+	return {
+		type: 'GET_ISSUES',
+		payload: result
+	}	
+}
+
+export const getIssueResult = (result) => {
+	return {
+		type: 'GET_ISSUE',
+		payload: result
+	}	
+}
+
+
+export const getSubjects = (dispatch, subject=null, issue=null) => {
 	var url = FirebaseConstant.basePath + '/quiz/subjects';
 	var ref = firebaseDatabase.ref(url);
 	ref.once('value', (snapshot) => {
 		var result = snapshot.val();
 		dispatch(getSubjectsResult(result));
-		/*this.setState({subjects: result}, () => {
-			if (subject) {
-				//this.selectSubject(this.props.match.params.subject);	
-			}								   
-		});*/
-		
+		if (subject) {
+			dispatch(getSubjectResult(result[subject]));
+			selectSubject(dispatch, result, subject, issue);
+		}		
 	});
 }
 
-export const selectSubject = (eventKey, subjects=null) => {
-		//if (!this.props.match.params.subject) {
-			//window.location.href = "/essays/issues/"+eventKey;
-			//return;
-		//}
+export const selectSubject = (dispatch, subjects=null, subject=null, issue=null) => {
 		if (!subjects) {
 			return;	
-		}
-		var value = subjects[eventKey];
-		//this.setState({subjectKey: value.key, subject: value.name, issues: null, issue: null});
-		
-		var urlIssue = FirebaseConstant.basePath + '/quiz/issues/'+eventKey;
+		}		
+		var urlIssue = FirebaseConstant.basePath + '/quiz/issues/'+subject;
 		var refIssue = firebaseDatabase.ref(urlIssue);
 		refIssue.once('value', (snapshot) => {
-			var result = snapshot.val();			
-			this.setState({issues: result}, () => {
-				if (this.props.match.params.issue) {
-					this.selectIssue(this.props.match.params.issue);	
-				}								 
-			});
-			
+			var result = snapshot.val();	
+			dispatch(getIssuesResult(result));
+			if (issue) {
+				dispatch(getIssueResult(result[issue]));
+			}			
 		});
 	}

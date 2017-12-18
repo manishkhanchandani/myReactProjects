@@ -5,6 +5,7 @@ import renderHTML from 'react-render-html';
 import YouTube from 'react-youtube';
 import {Button} from 'react-bootstrap';
 import {connect} from 'react-redux';
+import {withRouter} from 'react-router';
 
 import * as issuesAction from './IssuesAction.js';
 
@@ -26,59 +27,8 @@ class EssayIssues extends Component {
 		};
 	}
 	
-	getSubjects() {
-		var url = FirebaseConstant.basePath + '/quiz/subjects';
-		var ref = firebaseDatabase.ref(url);
-		ref.once('value', (snapshot) => {
-			var result = snapshot.val();			
-			this.setState({subjects: result}, () => {
-				if (this.props.match.params.subject) {
-					this.selectSubject(this.props.match.params.subject);	
-				}								   
-			});
-			
-		});
-	}
-
-	componentWillUnmount(){
-	}
 	componentDidMount() {
-	}
-	
-	selectIssue(value) {
-		if (!this.state.issues) {
-			return false;	
-		}
-
-		//if (!this.props.match.params.issue) {
-			//window.location.href = "/essays/issues/"+this.props.match.params.subject+"/"+value;
-			//return;
-		//}
-		this.setState({issue: this.state.issues[value]});		
-	}
-
-	selectSubject(eventKey) {
-		//if (!this.props.match.params.subject) {
-			//window.location.href = "/essays/issues/"+eventKey;
-			//return;
-		//}
-		if (!this.props.issuesReducer.subjects) {
-			return;	
-		}
-		var value = this.props.issuesReducer.subjects[eventKey];
-		this.setState({subjectKey: value.key, subject: value.name, issues: null, issue: null});
-		
-		var urlIssue = FirebaseConstant.basePath + '/quiz/issues/'+value.key;
-		var refIssue = firebaseDatabase.ref(urlIssue);
-		refIssue.once('value', (snapshot) => {
-			var result = snapshot.val();			
-			this.setState({issues: result}, () => {
-				if (this.props.match.params.issue) {
-					this.selectIssue(this.props.match.params.issue);	
-				}								 
-			});
-			
-		});
+		this.props.callGetSubjects(this.props.match.params.subject, this.props.match.params.issue);
 	}
 
 	render() {
@@ -90,13 +40,17 @@ class EssayIssues extends Component {
 			}
 		}
 		
+		let subject = this.props.issuesReducer.subject;
+
 		let issues = null;
-		if (this.state.issues) {
+		if (this.props.issuesReducer.issues) {
 			issues = [];
-			for (let key in this.state.issues) {
-				issues.push(this.state.issues[key]);
+			for (let key in this.props.issuesReducer.issues) {
+				issues.push(this.props.issuesReducer.issues[key]);
 			}
 		}
+		
+		let issue = this.props.issuesReducer.issue;
 			
 		const opts = {
 		  playerVars: { // https://developers.google.com/youtube/player_parameters
@@ -107,69 +61,31 @@ class EssayIssues extends Component {
 		return (
 			<div className="container issues">
 				
-				<div className="row">
-					<div className="col-md-3">
-						<h3>Essay Issue Practice</h3>
-					{
-						subjects &&
-						<ButtonToolbar>
-							<Dropdown id="dropdown-custom-1" onSelect={this.selectSubject.bind(this)}>
-							  <Dropdown.Toggle>
-								Subjects
-							  </Dropdown.Toggle>
-									  <Dropdown.Menu className="super-colors">
-									  {
-											subjects.map((value, key) => {
-												return <MenuItem key={key} eventKey={value.key}>{value.name}</MenuItem>	
-											})
-									  }
-									  </Dropdown.Menu>
-							</Dropdown>
-						
-						  </ButtonToolbar>
-					}
-					
-					<h3>{this.state.subject}</h3>
-					{
-						issues &&
-						<ButtonToolbar>
-							<Dropdown id="dropdown-custom-1" onSelect={this.selectIssue.bind(this)}>
-							  <Dropdown.Toggle>
-								Issues
-							  </Dropdown.Toggle>
-									  <Dropdown.Menu className="super-colors">
-									  {
-											issues.map((value, key) => {
-												return <MenuItem key={key} eventKey={value.key}>{value.name}</MenuItem>	
-											})
-									  }
-									  </Dropdown.Menu>
-							</Dropdown>
-						
-						  </ButtonToolbar>
-					}
-					</div>
-					<div className="col-md-9">
-						<h3>{this.state.subject}
+				<div className="row">						
+					<div className="col-md-12">
+						<h3>{
+								(subject && subject.key) &&
+								<span>{subject.name}</span>
+							}
 							{
-								this.state.issue && 
-								<span> :: {this.state.issue.name}</span>
+								issue && 
+								<span> :: {issue.name}</span>
 							}
 						</h3>
 						{
-							this.state.issue &&
+							issue &&
 							<div className="row myFavText">
 								<div className="col-md-6">
 									<div>
-										<b>Rule: </b> {renderHTML(this.state.issue.rule)}
+										<b>Rule: </b> {renderHTML(issue.rule)}
 									</div>
 									{
-										this.state.issue.elements &&
+										issue.elements &&
 										<div className="divider">
 											<b>Elements to Prove: </b> 
 											<ul>
 												{
-													this.state.issue.elements.map((value, key) => {
+													issue.elements.map((value, key) => {
 														return <li key={key}>{value}</li>							   
 													})	
 												}
@@ -177,30 +93,30 @@ class EssayIssues extends Component {
 										</div>
 									}
 									{
-										this.state.issue.elementsQuestions &&
+										issue.elementsQuestions &&
 										<div className="divider">
 											<b>Sample Essay Format: </b> 
 											<div>
 												{
-													this.state.issue.elementsQuestions.map((value, key) => {
+													issue.elementsQuestions.map((value, key) => {
 														return <span key={key}>{renderHTML(value)} </span>							   
 													})	
 												}
 											</div>
 											<div className="divider">
-												{this.state.issue.conclusion}
+												{issue.conclusion}
 											</div>
 										</div>
 									}
 									{
-										this.state.issue.urls &&
+										issue.urls &&
 										<div className="divider">
 											<div>
 												<b>External Links: </b> 
 											</div>
 											<ul>
 												{
-													this.state.issue.urls.map((value, key) => {
+													issue.urls.map((value, key) => {
 														return <li key={key}><a href={value.link} target="_blank">{value.title}</a></li>							   
 													})	
 												}
@@ -208,12 +124,12 @@ class EssayIssues extends Component {
 										</div>
 									}
 									{
-										this.state.issue.videos &&
+										issue.videos &&
 										<div className="divider">
 											<b>Videos: </b> 
 											<ul>
 												{
-													this.state.issue.videos.map((value, key) => {
+													issue.videos.map((value, key) => {
 														return <li key={key}><a href="" onClick={(e) => {e.preventDefault(); this.setState({video: value})}}>{value.title}</a></li>							   
 													})	
 												}
@@ -238,14 +154,14 @@ class EssayIssues extends Component {
 								</div>
 								<div className="col-md-6">
 									{
-										this.state.issue.essays &&
+										issue.essays &&
 										<div className="essays">
 											<div>
-												<b>Essays To Practice: </b> Click on each of the following hypo and try to write the essay related to "{this.state.issue.name}" only in the following textarea.
+												<b>Essays To Practice: </b> Click on each of the following hypo and try to write the essay related to "{issue.name}" only in the following textarea.
 											</div>
 											<ul>
 												{
-													this.state.issue.essays.map((value, key) => {
+													issue.essays.map((value, key) => {
 														return <li key={key}><a href="" onClick={(e) => {e.preventDefault(); this.setState({selectedEssay: value});}}>{value.year}</a></li>							   
 													})	
 												}
@@ -277,14 +193,14 @@ class EssayIssues extends Component {
 									
 									
 									{
-										this.state.issue.mbe &&
+										issue.mbe &&
 										<div className="mbe">
 											<div>
-												<b>MBE To Practice: </b> Click on each of the following Ideas and try to understand the idea related to "{this.state.issue.name}". After that try to answer the related mbe questions.
+												<b>MBE Ideas: </b> Click on each of the following Ideas and try to understand the idea related to "{issue.name}".
 											</div>
 											<ul>
 												{
-													this.state.issue.mbe.map((value, key) => {
+													issue.mbe.map((value, key) => {
 														return <li key={key}><a href="" onClick={(e) => {e.preventDefault(); this.setState({selectedMBE: value});}}>{value.name}</a></li>							   
 													})	
 												}
@@ -328,10 +244,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		callGetSubjects: (subject=null) => {
-			issuesAction.getSubjects(dispatch, subject);
+		callGetSubjects: (subject=null, issue=null) => {
+			issuesAction.getSubjects(dispatch, subject, issue);
 		}
 	};	
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(EssayIssues);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(EssayIssues));
