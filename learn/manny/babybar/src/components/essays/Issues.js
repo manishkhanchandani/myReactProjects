@@ -4,6 +4,10 @@ import {Dropdown, MenuItem, ButtonToolbar} from 'react-bootstrap';
 import renderHTML from 'react-render-html';
 import YouTube from 'react-youtube';
 import {Button} from 'react-bootstrap';
+import {connect} from 'react-redux';
+
+import * as issuesAction from './IssuesAction.js';
+
 
 class EssayIssues extends Component {
 	
@@ -35,21 +39,33 @@ class EssayIssues extends Component {
 			
 		});
 	}
-	
+
+	componentWillUnmount(){
+	}
 	componentDidMount() {
-		this.getSubjects();
-		console.log('props', this.props);
 	}
 	
 	selectIssue(value) {
 		if (!this.state.issues) {
 			return false;	
 		}
+
+		//if (!this.props.match.params.issue) {
+			//window.location.href = "/essays/issues/"+this.props.match.params.subject+"/"+value;
+			//return;
+		//}
 		this.setState({issue: this.state.issues[value]});		
 	}
 
 	selectSubject(eventKey) {
-		var value = this.state.subjects[eventKey];
+		//if (!this.props.match.params.subject) {
+			//window.location.href = "/essays/issues/"+eventKey;
+			//return;
+		//}
+		if (!this.props.issuesReducer.subjects) {
+			return;	
+		}
+		var value = this.props.issuesReducer.subjects[eventKey];
 		this.setState({subjectKey: value.key, subject: value.name, issues: null, issue: null});
 		
 		var urlIssue = FirebaseConstant.basePath + '/quiz/issues/'+value.key;
@@ -66,12 +82,11 @@ class EssayIssues extends Component {
 	}
 
 	render() {
-		console.log('state is ', this.state);
 		let subjects = null;
-		if (this.state.subjects) {
+		if (this.props.issuesReducer.subjects) {
 			subjects = [];
-			for (let key in this.state.subjects) {
-				subjects.push(this.state.subjects[key]);
+			for (let key in this.props.issuesReducer.subjects) {
+				subjects.push(this.props.issuesReducer.subjects[key]);
 			}
 		}
 		
@@ -305,4 +320,18 @@ class EssayIssues extends Component {
 	}
 }
 
-export default EssayIssues;
+const mapStateToProps = (state) => {
+	return {
+		issuesReducer: state.IssuesReducer
+	}	
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		callGetSubjects: (subject=null) => {
+			issuesAction.getSubjects(dispatch, subject);
+		}
+	};	
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(EssayIssues);
