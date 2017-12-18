@@ -21,11 +21,12 @@ class AuthHome extends Component {
 						<form className="form-signin">
 							<h2 className="form-signin-heading">California Baby Bar Sign-in</h2>
 				
-							<small className="text-muted">Connect [your service] with your favorite social network</small>
+							<small className="text-muted">Connect CalBabyBar.com with your favorite social network</small>
 							<br /><br />
+							<a className="btn btn-primary social-login-btn social-google" href="" onClick={this.googleLogin.bind(this)}><i className="fa fa-google-plus"></i></a>
 				
 							
-				<p>
+				{/*<p>
 				<a className="btn btn-primary social-login-btn social-facebook" href="/auth/facebook"><i className="fa fa-facebook"></i></a>
 				<a className="btn btn-primary social-login-btn social-twitter" href="/auth/twitter"><i className="fa fa-twitter"></i></a>
 				</p>
@@ -66,7 +67,7 @@ class AuthHome extends Component {
 							<button className="btn btn-lg btn-primary btn-block btn-center" type="submit" data-bindattr-3="3">Sign in</button>
 							<br />
 							<small className="create-account text-muted">Dont have a [your service] or social network account? <button className="btn btn-sm btn-default"> Sign Up </button> </small>
-							<br />
+							<br />*/}
 						</form>
 					</div>
 			</div>

@@ -1,5 +1,12 @@
 import * as firebase from 'firebase';
 
+let fb_path = '';
+if (process.env.NODE_ENV === 'development') {
+	fb_path = '/babybar';
+} else {
+	fb_path = '/babybar_live';
+}
+
 var config = {
     apiKey: "AIzaSyBhpHK-ve2s0ynnr8og8Zx0S69ttEFpDKk",
 	authDomain: "project100-fe20e.firebaseapp.com",
@@ -10,7 +17,7 @@ var config = {
   };
 
 export const FirebaseConstant = {
-	basePath: '/babybar'
+	basePath: fb_path
 };
 
 export const firebaseApp = firebase.initializeApp(config);

@@ -87,7 +87,8 @@ class QuizPage2 extends Component {
 		}
 		
 		const ansOptions = JSON.parse(questionData.answers);
-		//const optionChoosen = parseInt(this.state.optionChoosen, 10);
+		const optionChoosen = parseInt(this.state.optionChoosen, 10);
+		console.log('optionChoosen: ', optionChoosen);
 		return (
 			<div className="page2">
 				<div className="panel panel-primary">
@@ -126,7 +127,7 @@ class QuizPage2 extends Component {
 											{
 												ansOptions.map((value, key) => {
 													return <div key={key} className="frb frb-primary">
-														<input type="radio" id={`option_${key}`} name="answers" value={key}  onClick={(e) => {this.setState({optionChoosen: e.target.value});}} checked={this.state.optionChoosen == key} />
+														<input type="radio" id={`option_${key}`} name="answers" value={key}  onClick={(e) => {this.setState({optionChoosen: e.target.value});}} checked={optionChoosen === key} />
 														<label htmlFor={`option_${key}`}>
 															<span className="frb-title">{value}</span>
 														</label>
@@ -137,7 +138,7 @@ class QuizPage2 extends Component {
 									}
 									
 								
-										<input className="hidden" type="radio" id={`option_`} name="answers" value="" onChange={(e) => {this.setState({optionChoosen: e.target.value});}} checked={this.state.optionChoosen == ''} />
+										<input className="hidden" type="radio" id={`option_`} name="answers" value="" onChange={(e) => {this.setState({optionChoosen: e.target.value});}} checked={optionChoosen === ''} />
 							  		</div>
 								</div>
 								

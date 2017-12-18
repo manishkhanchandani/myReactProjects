@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import * as quizActions from './QuizAction.js';
-import {getUID} from '../auth/AuthAction.js';
 import {Link} from 'react-router-dom'; 
 import {processRecords} from '../../utilities/functions.js';
 import Paginator from '../../utilities/Paginator.js';
