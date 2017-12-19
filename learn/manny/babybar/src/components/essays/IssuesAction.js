@@ -1,6 +1,77 @@
 import {firebaseDatabase, FirebaseConstant} from '../../MyFirebase.js';
 import {dynamicSort, timeAgo} from '../../utilities/functions.js';
 
+export const ajaxGetCall = (url, resolve, reject) => {
+	fetch(url, {
+		method: 'GET'	  
+	}).then((response) => {
+		return response.json();
+	}).then((j) => {
+		console.log('j is ', j);
+		resolve(j);
+	}).catch((err) => {
+		console.log('err is ', err);
+		reject(err);
+	});
+};
+
+export const selectIssueJson = (dispatch, subject=null, issue=null) => {
+	if (!subject || !issue) {
+		return {
+			type: 'ERROR_SUBJECT_ISSUE'	
+		};
+	}
+
+	return {
+		type: 'GET_ISSUE_JSON',
+		payload: new Promise((resolve, reject) => {
+			let url = '/assets/json/'+subject+'/'+issue+'.json';
+			fetch(url, {
+				method: 'GET'	  
+			}).then((response) => {
+				return response.json();
+			}).then((j) => {
+				console.log('issue json is ', j);
+				resolve(j);
+			}).catch((err) => {
+				console.log('err is ', err);
+				reject(err);
+			});					  
+		})
+	}
+}
+
+export const getSubjectResultJson = (result) => {
+	return {
+		type: 'GET_SUBJECT_JSON',
+		payload: result
+	}	
+}
+
+export const getSubjectsJson = (dispatch, subject=null) => {
+	return {
+		type: 'GET_SUBJECTS_JSON',
+		payload: new Promise((resolve, reject) => {
+			let url = '/assets/json/subjects.json';
+			fetch(url, {
+				method: 'GET'	  
+			}).then((response) => {
+				return response.json();
+			}).then((j) => {
+				console.log('subject json is ', j);
+				if (subject) {
+					dispatch(getSubjectResultJson(j[subject]));
+				}
+				resolve(j);
+			}).catch((err) => {
+				console.log('err is ', err);
+				reject(err);
+			});					  
+		})
+	}
+}
+/*
+
 export const getSubjectsResult = (result) => {
 	return {
 		type: 'GET_SUBJECTS',
@@ -30,7 +101,6 @@ export const getIssueResult = (result) => {
 	}	
 }
 
-
 export const getSubjects = (dispatch, subject=null, issue=null) => {
 	var url = FirebaseConstant.basePath + '/quiz/subjects';
 	var ref = firebaseDatabase.ref(url);
@@ -57,7 +127,7 @@ export const selectSubject = (dispatch, subjects=null, subject=null, issue=null)
 			dispatch(getIssueResult(result[issue]));
 		}			
 	});
-}
+}*/
 
 export const getIssueAnswers = (u, s, i) => {
 	return {

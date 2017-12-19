@@ -168,6 +168,7 @@ export const FirebaseAuthSystem = (dispatch) => {
 		}
 	});
 	
+	/*
 	let urlX = FirebaseConstant.basePath + '/online_users';
 	firebaseDatabase.ref(urlX).on('value', (snapshot) => {
 		let result = snapshot.val();
@@ -183,5 +184,5 @@ export const FirebaseAuthSystem = (dispatch) => {
 		myArray.sort(dynamicSort('-in_time'));
 		
 		dispatch(onlinePresence(myArray));
-	});
+	});*/
 };

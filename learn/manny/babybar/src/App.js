@@ -32,41 +32,43 @@ class App extends Component {
 			<Router>
 				<div>
 					<NavMulti />
-					<div className="row">
-						<div className="col-md-9">
-							<Route exact={true} path="/" component={Main} />
-							<Route exact={true} path="/quiz" component={Quiz} />
-							<Route exact={true} path="/quiz/:id" component={QuizWelcomeScreen} />
-							<Route exact={true} path="/admin/import1" component={Import1} />
-							<Route exact={true} path="/essays/issues/:subject/:issue" component={EssayIssues} />
-							<Route exact={true} path="/essays/issues/:subject" component={EssayIssues} />
-							<Route exact={true} path="/essays/issues" component={EssayIssues} />
-						</div>
-						<div className="col-md-3">
-							{
-								/*this.props.authReducer.online_users &&
-									<div className="panel panel-primary">
-										<div className="panel-heading">
-											<h3 className="panel-title">Online Users</h3>
+					<div className="container">
+						<div className="row">
+							<div className="col-md-9">
+								<Route exact={true} path="/" component={Main} />
+								<Route exact={true} path="/quiz" component={Quiz} />
+								<Route exact={true} path="/quiz/:id" component={QuizWelcomeScreen} />
+								<Route exact={true} path="/admin/import1" component={Import1} />
+								<Route exact={true} path="/essays/issues/:subject/:issue" component={EssayIssues} />
+								<Route exact={true} path="/essays/issues/:subject" component={EssayIssues} />
+								<Route exact={true} path="/essays/issues" component={EssayIssues} />
+							</div>
+							<div className="col-md-3">
+								{
+									/*this.props.authReducer.online_users &&
+										<div className="panel panel-primary">
+											<div className="panel-heading">
+												<h3 className="panel-title">Online Users</h3>
+											</div>
+											<div className="panel-body">
+											{
+												this.props.authReducer.online_users.map((value, key) => {
+													return <div key={key} className="row">
+																<div className="col-md-3">
+																	<img src={value.img} className="img-responsive" alt={value.name} />
+																</div>
+																<div className="col-md-9">
+																	{value.name} <br />
+																	{value.dt}
+																</div>
+															</div>	  									   
+													})
+											}
+											</div>
 										</div>
-										<div className="panel-body">
-										{
-											this.props.authReducer.online_users.map((value, key) => {
-												return <div key={key} className="row">
-															<div className="col-md-3">
-																<img src={value.img} className="img-responsive" alt={value.name} />
-															</div>
-															<div className="col-md-9">
-																{value.name} <br />
-																{value.dt}
-															</div>
-														</div>	  									   
-												})
-										}
-										</div>
-									</div>
-							*/}
-									
+								*/}
+										
+							</div>
 						</div>
 					</div>
 				</div>

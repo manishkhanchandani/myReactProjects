@@ -1,0 +1,14 @@
+{
+	"contracts": {
+		"key": "contracts",
+		"name": "Contracts"
+	},
+	"torts": {
+		"key": "torts",
+		"name": "Torts"
+	},
+	"criminal": {
+		"key": "criminal",
+		"name": "Criminal"
+	}
+}

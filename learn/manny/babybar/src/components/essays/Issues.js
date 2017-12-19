@@ -8,6 +8,11 @@ import {connect} from 'react-redux';
 import {withRouter} from 'react-router';
 import {getUID} from '../auth/AuthAction.js';
 import * as issuesAction from './IssuesAction.js';
+import {Link} from 'react-router-dom';
+import './Issues.css';
+
+import SimpleQuiz from '../simple-quiz/SimpleQuiz.js';
+import SimpleQuizResults from '../simple-quiz/SimpleQuizResults.js';
 
 
 class EssayIssues extends Component {
@@ -20,13 +25,88 @@ class EssayIssues extends Component {
 			selectedEssay: null,
 			selectedMBE: null,
 			deleteIssueModal: false,
-			deleteIssueModalData: false
+			deleteIssueModalData: false,
+			
+			quizDisplay: false,
+			quizPage: 0,
+			quizPoints: 0,
+			quizChoosenOption: null,
+			quizIsCorrect: null,
+			quizStatus: 'Pending',
+			quizDetails: {
+				total: 0,
+				details: [],
+				created_dt: null
+			}
 		};
+	}
+	
+	quizNext(data, type) {
+		let record = this.state.quizDetails;
+		let obj = JSON.parse(JSON.stringify(data[this.state.quizPage]));
+		obj.isCorrect = false;
+		
+		
+		let choosenOption = parseInt(this.state.quizChoosenOption, 10);
+		obj.choosenOption = choosenOption;
+		let pts = 0;
+		let isCorrect = 'Incorrect Answer, Correct Option is Number ' + (data[this.state.quizPage].correct + 1) + ', i.e. ' + data[this.state.quizPage].answerOptions[data[this.state.quizPage].correct];
+		
+		if (choosenOption === data[this.state.quizPage].correct) {
+			pts = 20;
+			isCorrect = 'Correct Answer';
+			obj.isCorrect = true;
+		}
+		
+		let totalPoints = this.state.quizPoints;
+		totalPoints = totalPoints + pts;
+		obj.pts = pts;
+
+		record.total = totalPoints;
+		record.details.push(obj);
+		this.setState({quizPoints: totalPoints, quizIsCorrect: isCorrect, quizPage: this.state.quizPage + 1, quizDetails: record, quizChoosenOption: null});
+		
+		if (type === 2) {
+			//save in firebase	
+			this.setState({quizStatus: 'Completed'});
+			if (!this.props.match.params.subject) {
+				return;
+			}
+			if (!this.props.match.params.issue) {
+				return;
+			}
+			let uid = getUID();
+			if (!uid) {
+				return;
+			}
+			let subject = '';
+			subject = '/' + this.props.match.params.subject;
+			let issue = '';
+			issue = '/' + this.props.match.params.issue;
+			let uidPath = '/' + uid;
+			record.created_dt = firebase.database.ServerValue.TIMESTAMP;
+			let url = FirebaseConstant.basePath + '/quiz/simple_quiz' + uidPath + subject + issue;
+			firebaseDatabase.ref(url).push(record);
+		}
+	}
+	
+	quizNextQuestion(data) {
+		this.quizNext(data, 1);
+	}
+	
+	quizSubmitQuestion(data) {
+		this.quizNext(data, 2);
+	}
+	
+	quiz_start(display=false)
+	{
+		this.setState({quizDisplay: display, quizPage: 0, quizPoints: 0, quizChoosenOption: null, quizIsCorrect: null, quizStatus: 'Pending', quizDetails: {total: 0, details: [], created_dt: null}});
 	}
 	
 	componentDidMount() {
 		let uid = getUID();
-		this.props.callGetSubjects(this.props.match.params.subject, this.props.match.params.issue);
+		this.props.callGetSubjectsJson(this.props.match.params.subject);
+		this.props.callGetIssueJson(this.props.match.params.subject, this.props.match.params.issue);
 		this.props.callGetIssueAnswers(uid, this.props.match.params.subject, this.props.match.params.issue);
 	}
 	
@@ -97,25 +177,8 @@ class EssayIssues extends Component {
 		this.setState({deleteIssueModal: false, deleteIssueModalData: null});
 	}
 
-	render() {
-		let subjects = null;
-		if (this.props.issuesReducer.subjects) {
-			subjects = [];
-			for (let key in this.props.issuesReducer.subjects) {
-				subjects.push(this.props.issuesReducer.subjects[key]);
-			}
-		}
-		
-		let subject = this.props.issuesReducer.subject;
-
-		let issues = null;
-		if (this.props.issuesReducer.issues) {
-			issues = [];
-			for (let key in this.props.issuesReducer.issues) {
-				issues.push(this.props.issuesReducer.issues[key]);
-			}
-		}
-		
+	render() {		
+		let subject = this.props.issuesReducer.subject;		
 		let issue = this.props.issuesReducer.issue;
 			
 		const opts = {
@@ -124,10 +187,25 @@ class EssayIssues extends Component {
 		  }
 		};
 		
-		console.log('this state is ', this.state);
+		let next = null;
+		if (subject && issue && issue.next && issue.next.key && issue.next.subject) {
+			next = '/essays/issues/'+issue.next.subject+'/'+issue.next.key;
+		}
+		
+		
+		let previous = null;
+		if (subject && issue && issue.previous && issue.previous.key && issue.previous.subject) {
+			previous = '/essays/issues/'+issue.previous.subject+'/'+issue.previous.key;
+		}
+		
+		let optionChoosen = parseInt(this.state.quizChoosenOption, 10);
+		
+		console.log('this state1 is ', this.state);
 			
 		return (
-			<div className="container issues">
+			<div className="issues">
+				
+				
 				
 				<div className="row">						
 					<div className="col-md-12">
@@ -158,6 +236,13 @@ class EssayIssues extends Component {
 													})	
 												}
 											</ul>
+										</div>
+									}
+									{
+										issue.description &&
+										<div className="divider">
+											<b>Description: </b> 
+											<div>{renderHTML(issue.description)}</div>
 										</div>
 									}
 									{
@@ -334,11 +419,41 @@ class EssayIssues extends Component {
 									
 									
 									
+									<SimpleQuiz issue={issue} subjectUrl={this.props.match.params.subject} issueUrl={this.props.match.params.issue} />
+									
+									
+									
+									
 								</div>
 							</div>
 						}
 					</div>
 				</div>
+				
+				
+				<div className="row">	
+					<br />
+					<br />
+					<hr />
+					<br />					
+					<div className="col-md-6">
+						{
+							previous &&
+							<Link className="btn btn-primary form-control" to={previous}>Previous</Link>
+						}
+					</div>						
+					<div className="col-md-6">
+						{
+							next &&
+							<Link className="btn btn-primary form-control" to={next}>Next {issue.next.name}</Link>
+						}
+					</div>
+					<br />
+					<br />
+				</div>
+				
+				
+				
 			</div>
 		);
 	}
@@ -352,14 +467,17 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		callGetSubjects: (subject=null, issue=null) => {
-			issuesAction.getSubjects(dispatch, subject, issue);
-		},
 		callGetIssueAnswers: (u=null, s=null, i=null) => {
 			if (!u || !s || !i) {
 				return;	
 			}
 			dispatch(issuesAction.getIssueAnswers(u, s, i));	
+		},
+		callGetSubjectsJson: (subject=null) => {
+			dispatch(issuesAction.getSubjectsJson(dispatch, subject));
+		},
+		callGetIssueJson: (subject=null, issue=null) => {
+			dispatch(issuesAction.selectIssueJson(dispatch, subject, issue));
 		}
 	};	
 };
