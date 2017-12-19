@@ -9,9 +9,7 @@ import QuizStartedList from './QuizStartedList.js';
 import QuizCompletedList from './QuizCompletedList.js';
 
 
-class Quiz extends Component {
-	
-	
+class Quiz extends Component {	
 	
 	render() {
 		return (

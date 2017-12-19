@@ -2,7 +2,8 @@ const IssuesReducer = (state = {
 	subjects: null,
 	subject: null,
 	issues: null,
-	issue: null
+	issue: null,
+	issue_answers: null
 }, action) => {
 	switch (action.type) {
 		case 'GET_SUBJECTS':
@@ -31,6 +32,12 @@ const IssuesReducer = (state = {
 			state = {
 				...state,
 				issue: action.payload
+			}
+			break;
+		case 'ISSUE_ANSWERS_FULFILLED':
+			state = {
+				...state,
+				issue_answers: action.payload
 			}
 			break;
 		default:

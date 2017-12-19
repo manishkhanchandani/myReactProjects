@@ -4,7 +4,8 @@ const AuthReducer = (state = {
 	photoURL: null,
 	uid: null,
 	profile_uid: null,
-	providerId: null
+	providerId: null,
+	online_users: null
 }, action) => {
 	switch (action.type) {
 		case 'LOGGEDIN':
@@ -27,6 +28,12 @@ const AuthReducer = (state = {
 				uid: null,
 				profile_uid: null,
 				providerId: null
+			}
+			break;
+		case 'ONLINE_PRESENCE':
+			state = {
+				...state,
+				online_users: action.payload
 			}
 			break;
 		default:

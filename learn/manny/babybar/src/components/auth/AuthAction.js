@@ -1,7 +1,7 @@
 
 import * as firebase from 'firebase';
 import {firebaseApp, firebaseDatabase, FirebaseConstant} from '../../MyFirebase.js';
-
+import {dynamicSort, timeAgo} from '../../utilities/functions.js';
 
 export const loggedIn = (params) => {
 	localStorage.setItem('uid', params.uid);
@@ -16,6 +16,17 @@ export const loggedIn = (params) => {
 		providerId: params.providerId
 	};
 };
+
+export const removeOnline = () => {
+	console.log('user removed from online system');
+	let uid = getUID();
+	console.log('user with id ', uid);
+	if (uid) {
+		let url = FirebaseConstant.basePath + '/online_users/' + uid;
+		console.log('user with url ', url);
+		firebaseDatabase.ref(url).set(null);
+	}	
+}
 
 export const loggedOut = () => {
 	localStorage.removeItem('uid');
@@ -111,6 +122,7 @@ export const actionEmailLogin = () => {
 
 
 export const actionSignOut = () => {
+	removeOnline();
 	return {
 		type: 'MAIN_SIGNOUT',
 		payload: new Promise((resolve, reject) => {
@@ -120,6 +132,14 @@ export const actionSignOut = () => {
 		})
 	};	
 };
+
+export const onlinePresence = (data) => {
+	return {
+		type: 'ONLINE_PRESENCE',
+		payload: data
+	};	
+};
+
 
 export const FirebaseAuthSystem = (dispatch) => {
 	firebaseApp.auth().onAuthStateChanged((user) => {
@@ -132,9 +152,36 @@ export const FirebaseAuthSystem = (dispatch) => {
 			obj.profile_uid = user.providerData[0].uid;
 			obj.providerId = user.providerData[0].providerId;
 			localStorage.setItem('usersObject', JSON.stringify(obj));
-			dispatch(loggedIn(obj));									  
+			dispatch(loggedIn(obj));
+			
+			console.log('user added in online system');
+			let uobj = {
+				uid: obj.uid,
+				name: obj.displayName,
+				img: obj.photoURL,
+				in_time: firebase.database.ServerValue.TIMESTAMP
+			};
+			let url = FirebaseConstant.basePath + '/online_users/' + obj.uid;
+			firebaseDatabase.ref(url).set(uobj);
 		} else {
 			dispatch(loggedOut());
 		}
+	});
+	
+	let urlX = FirebaseConstant.basePath + '/online_users';
+	firebaseDatabase.ref(urlX).on('value', (snapshot) => {
+		let result = snapshot.val();
+		console.log('online users is ', result);
+		var myArray = [];
+		for (var key in result) {
+			var obj = result[key];
+			obj.dt = timeAgo(obj.in_time);
+			myArray.push(obj);
+		}
+		
+		//sorting
+		myArray.sort(dynamicSort('-in_time'));
+		
+		dispatch(onlinePresence(myArray));
 	});
 };

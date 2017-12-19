@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
+import * as firebase from 'firebase';
 import {firebaseDatabase, FirebaseConstant} from '../../MyFirebase.js';
-import {Dropdown, MenuItem, ButtonToolbar} from 'react-bootstrap';
+import {Button, Modal} from 'react-bootstrap';
 import renderHTML from 'react-render-html';
 import YouTube from 'react-youtube';
-import {Button} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router';
-
+import {getUID} from '../auth/AuthAction.js';
 import * as issuesAction from './IssuesAction.js';
 
 
@@ -16,19 +16,85 @@ class EssayIssues extends Component {
 		super(props);	
 		
 		this.state = {
-			subjects: null,
-			subject: null,
-			subjectKey: null,
-			issues: null,
-			issue: null,
 			video: null,
 			selectedEssay: null,
-			selectedMBE: null
+			selectedMBE: null,
+			deleteIssueModal: false,
+			deleteIssueModalData: false
 		};
 	}
 	
 	componentDidMount() {
+		let uid = getUID();
 		this.props.callGetSubjects(this.props.match.params.subject, this.props.match.params.issue);
+		this.props.callGetIssueAnswers(uid, this.props.match.params.subject, this.props.match.params.issue);
+	}
+	
+	submitEssay() {
+		if (!this.props.match.params.subject) {
+			return;
+		}
+		if (!this.props.match.params.issue) {
+			return;
+		}
+		let uid = getUID();
+		if (!uid) {
+			return;
+		}
+		let subject = '';
+		subject = '/' + this.props.match.params.subject;
+		let issue = '';
+		issue = '/' + this.props.match.params.issue;
+		let uidPath = '/' + uid;
+		
+		var obj = {};
+		obj.text = this.state.selectedEssay.text;
+		obj.key = this.state.selectedEssay.key;
+		obj.year = this.state.selectedEssay.year;
+		obj.created_dt = firebase.database.ServerValue.TIMESTAMP;
+		var url = FirebaseConstant.basePath + '/quiz/issues_answers' + uidPath + subject + issue;
+		firebaseDatabase.ref(url).push(obj);
+		this.setState({selectedEssay: null});
+		this.props.callGetIssueAnswers(uid, this.props.match.params.subject, this.props.match.params.issue);
+	}
+	
+	updateEssayText(e) {
+		this.setState(
+			{
+				selectedEssay: 
+				{
+					...this.state.selectedEssay, 
+					text: e.target.value
+				}
+			}
+		);	
+	}
+	
+	deleteRecord() {
+		if (!this.props.match.params.subject) {
+			return;
+		}
+		if (!this.props.match.params.issue) {
+			return;
+		}
+		let uid = getUID();
+		if (!uid) {
+			return;
+		}
+		let subject = '';
+		subject = '/' + this.props.match.params.subject;
+		let issue = '';
+		issue = '/' + this.props.match.params.issue;
+		let uidPath = '/' + uid;
+		var url = FirebaseConstant.basePath + '/quiz/issues_answers' + uidPath + subject + issue;
+		firebaseDatabase.ref(url).child(this.state.deleteIssueModalData.id).set(null);
+		this.props.callGetIssueAnswers(uid, this.props.match.params.subject, this.props.match.params.issue);
+		return this.close();
+		
+	}
+	
+	close() {
+		this.setState({deleteIssueModal: false, deleteIssueModalData: null});
 	}
 
 	render() {
@@ -57,6 +123,8 @@ class EssayIssues extends Component {
 			autoplay: 1
 		  }
 		};
+		
+		console.log('this state is ', this.state);
 			
 		return (
 			<div className="container issues">
@@ -159,17 +227,20 @@ class EssayIssues extends Component {
 											<div>
 												<b>Essays To Practice: </b> Click on each of the following hypo and try to write the essay related to "{issue.name}" only in the following textarea.
 											</div>
-											<ul>
+											<ol>
 												{
 													issue.essays.map((value, key) => {
-														return <li key={key}><a href="" onClick={(e) => {e.preventDefault(); this.setState({selectedEssay: value});}}>{value.year}</a></li>							   
+														var obj = value;
+														obj.text = '';
+														obj.key = key;
+														return <li key={key}><a href="" onClick={(e) => {e.preventDefault(); this.setState({selectedEssay: obj});}}>{value.year}</a></li>							   
 													})	
 												}
 												{
 													this.state.selectedEssay &&
 													<li key="close"><a href="" onClick={(e) => {e.preventDefault(); this.setState({selectedEssay: null})}}>Close Textarea</a></li>
 												}
-											</ul>
+											</ol>
 											{
 												this.state.selectedEssay &&
 												<div>
@@ -180,10 +251,10 @@ class EssayIssues extends Component {
 														<b>Hypo: </b> {renderHTML(this.state.selectedEssay.hypo)}
 													</div>
 													<div className="divider">
-													<textarea className="form-control" rows="10"></textarea>
+													<textarea className="form-control" rows="10" value={this.state.selectedEssay.text} onChange={this.updateEssayText.bind(this)}></textarea>
 													</div>
 													<div className="divider">
-													<Button className="form-control" bsStyle="primary">Submit</Button>
+													<Button className="form-control" bsStyle="primary" onClick={this.submitEssay.bind(this)}>Submit</Button>
 													</div>
 												</div>
 											}
@@ -223,6 +294,43 @@ class EssayIssues extends Component {
 										</div>
 									}
 									
+									{
+										this.props.issuesReducer.issue_answers &&
+										<div>
+											<h3>Your Answers</h3>
+										{
+											this.props.issuesReducer.issue_answers.map((value, key) => {
+												return <div key={key} className="panel panel-primary">
+												  <div className="panel-heading">
+													<h3 className="panel-title">{value.year} (For Question {value.key + 1})</h3>
+												  </div>
+												  <div className="panel-body">
+													{value.text}
+												  </div>
+												  <div className="panel-footer">{value.dt}<span className="pull-right"><a href="" onClick={(e) => {e.preventDefault(); this.setState({deleteIssueModal: true, deleteIssueModalData: value});}}>Delete</a></span></div>
+												</div>						  									   
+											})
+										}
+											<Modal show={this.state.deleteIssueModal} onHide={this.close.bind(this)}>
+												<Modal.Header closeButton>
+													<Modal.Title>Confirmation</Modal.Title>
+												</Modal.Header>
+												<Modal.Body>
+													<h4>Delete Record For 
+													{
+														this.state.deleteIssueModalData && 
+															<span>
+																{this.state.deleteIssueModalData.year} (For Question {this.state.deleteIssueModalData.key + 1})
+															</span> 
+													} </h4>
+													<p>Do you really want to delete this record? You wont be able to recover it later?</p>
+												</Modal.Body>
+												<Modal.Footer>
+													<Button onClick={this.deleteRecord.bind(this)}>Delete Record</Button>
+												</Modal.Footer>
+											</Modal>
+										</div>
+									}
 									
 									
 									
@@ -246,6 +354,12 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		callGetSubjects: (subject=null, issue=null) => {
 			issuesAction.getSubjects(dispatch, subject, issue);
+		},
+		callGetIssueAnswers: (u=null, s=null, i=null) => {
+			if (!u || !s || !i) {
+				return;	
+			}
+			dispatch(issuesAction.getIssueAnswers(u, s, i));	
 		}
 	};	
 };
