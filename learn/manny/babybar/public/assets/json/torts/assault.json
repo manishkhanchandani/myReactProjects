@@ -2,7 +2,7 @@
 	"key": "assault",
 	"name": "Assault",
 	"rule": "Under tort law, An ASSAULT is an <b>intentional overt act</b> which causes an <b>immediate apprehension</b> of a harmful or offensive contact.",
-	"description": "Assault is an <b>intentional tort</b> when one is placed in <b>reasonable apprehension</b> of an intentional, imminent, unconsented, harmful, or offensive touching by another person. Assaults occur when the targeted person's anxiety is the product of the actor's threatening conduct, such as stalking or placing a gun in front of one's face (loaded or not). As long as the individual has a reasonable apprehension of some offensive contact, an assault has occurred. ",
+	"description": "Asssault occurs when one person <b>intentionally</b> places anther in a state of fear. Certain elements must be present to prove an assault occurred: 1. The plaintiff <b>perceived immediate physical contact</b> with the defendant, 2. Plaintiff had suspicion that he was <b>in imminent danger</b>. 3. The <b>actions</b> of the defendant, or tortfeasor, <b>were intentional</b>, not accidental. <br /><br />Assault is an <b>intentional tort</b> when one is placed in <b>reasonable apprehension</b> of an intentional, imminent, unconsented, harmful, or offensive touching by another person. Assaults occur when the targeted person's anxiety is the product of the actor's threatening conduct, such as stalking or placing a gun in front of one's face (loaded or not). As long as the individual has a reasonable apprehension of some offensive contact, an assault has occurred. ",
 	"elements": [
 		"Intent",
 		"Overt Act",
@@ -100,25 +100,39 @@
 	"quiz": [
 		{
 			"id": 1,
-			"question": "What is 2 + 2 equal to? 1",
+			"question": "Assault is intentional act or accidental?",
 			"answerOptions": [
-				"4",
-				"8",
-				"5",
-				"3"
+				"Intentional",
+				"Accidental"
 			],
 			"correct": 0
 		},
 		{
 			"id": 2,
-			"question": "What is 2 + 2 equal to? 2",
+			"question": "Overt Act is required in assault?",
 			"answerOptions": [
-				"4",
-				"8",
-				"5",
-				"3"
+				"false",
+				"true"
 			],
-			"correct": 2
+			"correct": 1
+		},
+		{
+			"id": 3,
+			"question": "Reasonable Apprehension is required in assault?",
+			"answerOptions": [
+				"true",
+				"false"
+			],
+			"correct": 0
+		},
+		{
+			"id": 4,
+			"question": "Touching of another person is required in assault?",
+			"answerOptions": [
+				"Yes",
+				"No"
+			],
+			"correct": 1
 		}
 	],
 	"next": {

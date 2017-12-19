@@ -75,8 +75,7 @@ class SimpleQuiz extends Component {
 			let issue = '';
 			issue = '/' + this.props.issueUrl;
 			let uidPath = '/' + uid;
-			var d = new Date();
-			record.created_dt = d.getTime();
+			record.created_dt = firebase.database.ServerValue.TIMESTAMP;
 			let url = FirebaseConstant.basePath + '/quiz/simple_quiz' + uidPath + subject + issue;
 			firebaseDatabase.ref(url).push(record);
 		}
@@ -125,7 +124,7 @@ class SimpleQuiz extends Component {
 								{
 									(this.state.quizStatus === 'Pending' && issue.quiz[this.state.quizPage]) &&
 									<div className="questions">
-										<div className="question">Question {this.state.quizPage + 1}. {issue.quiz[this.state.quizPage].question}?</div>
+										<div className="question">Question {this.state.quizPage + 1}. {issue.quiz[this.state.quizPage].question}</div>
 										<SimpleQuizAnsOptions opts={issue.quiz[this.state.quizPage].answerOptions} optionChoosen={optionChoosen} handleChooseOption={this.handleChooseOption} />
 										
 										
