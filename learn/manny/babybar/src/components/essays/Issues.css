@@ -7,3 +7,12 @@
 .issues .quiz .questions .ansOption {
 	margin-top: 20px;
 }
+
+.sample_essays ol {
+	padding: 0px;
+}
+.sample_essays ol li {
+	list-style-position: inside;
+	margin-top: 15px;	
+	margin-bottom: 15px;	
+}

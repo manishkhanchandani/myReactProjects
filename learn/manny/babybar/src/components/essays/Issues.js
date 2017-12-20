@@ -145,6 +145,9 @@ class EssayIssues extends Component {
 			var myArrayConverted = null;
 			var paginationProps = null;	
 		}
+		
+		let sitePanelClass_1 = 'primary';
+		let sitePanelClass_2 = 'primary';
 			
 		return (
 			<div className="issues">
@@ -166,127 +169,163 @@ class EssayIssues extends Component {
 							issue &&
 							<div className="row myFavText">
 								<div className="col-md-4">
-									<div>
-										<b>Rule: </b> {renderHTML(issue.rule)}
+									<div className={`panel panel-${sitePanelClass_1}`}>
+										<div className="panel-heading"><b>Rule</b></div>
+										<div className="panel-body">
+											{renderHTML(issue.rule)}
+										</div>
 									</div>
 									{
 										issue.elements &&
-										<div className="divider">
-											<b>Elements to Prove: </b> 
-											<ul>
-												{
-													issue.elements.map((value, key) => {
-														return <li key={key}>{value}</li>							   
-													})	
-												}
-											</ul>
+										<div className={`panel panel-${sitePanelClass_1}`}>
+											<div className="panel-heading"><b>Elements to Prove</b></div>
+											<div className="panel-body">
+												<ul>
+													{
+														issue.elements.map((value, key) => {
+															return <li key={key}>{value}</li>							   
+														})	
+													}
+												</ul>
+											</div>
 										</div>
 									}
 									{
 										issue.description &&
-										<div className="divider">
-											<b>Description: </b> 
-											<div>{renderHTML(issue.description)}</div>
+										<div className={`panel panel-${sitePanelClass_1}`}>
+											<div className="panel-heading"><b>Description</b></div>
+											<div className="panel-body">
+												{renderHTML(issue.description)}
+											</div>
 										</div>
 									}
 									{
 										issue.elementsQuestions &&
-										<div className="divider">
-											<b>Sample Essay Format: </b> 
-											<div>
+										<div className={`panel panel-${sitePanelClass_1}`}>
+											<div className="panel-heading"><b>Sample Essay Format</b></div>
+											<div className="panel-body">
 												{
 													issue.elementsQuestions.map((value, key) => {
 														return <span key={key}>{renderHTML(value)} </span>							   
 													})	
 												}
 											</div>
-											<div className="divider">
-												{issue.conclusion}
-											</div>
+											<div className="panel-footer">{issue.conclusion}</div>
 										</div>
 									}
 									{
 										issue.urls &&
-										<div className="divider">
-											<div>
-												<b>External Links: </b> 
+										<div className={`panel panel-${sitePanelClass_1}`}>
+											<div className="panel-heading"><b>External Links</b></div>
+											<div className="panel-body">
+												<ul>
+													{
+														issue.urls.map((value, key) => {
+															return <li key={key}><a href={value.link} target="_blank">{value.title}</a></li>							   
+														})	
+													}
+												</ul>
 											</div>
-											<ul>
-												{
-													issue.urls.map((value, key) => {
-														return <li key={key}><a href={value.link} target="_blank">{value.title}</a></li>							   
-													})	
-												}
-											</ul>
 										</div>
 									}
 									{
 										issue.videos &&
-										<div className="divider">
-											<b>Videos: </b> 
-											<ul>
-												{
-													issue.videos.map((value, key) => {
-														return <li key={key}><a href="" onClick={(e) => {e.preventDefault(); this.setState({video: value})}}>{value.title}</a></li>							   
-													})	
-												}
-												
+										<div>
+											<div className={`panel panel-${sitePanelClass_1}`}>
+												<div className="panel-heading"><b>Videos</b></div>
+												<div className="panel-body">
+													<ul>
+														{
+															issue.videos.map((value, key) => {
+																return <li key={key}><a href="" onClick={(e) => {e.preventDefault(); this.setState({video: value})}}>{value.title}</a></li>							   
+															})	
+														}
+														
+														{
+															this.state.video &&
+															<li key="close"><a href="" onClick={(e) => {e.preventDefault(); this.setState({video: null})}}>Close Video</a></li>
+														}
+													</ul>
+												</div>
+											</div>
+											<div>
 												{
 													this.state.video &&
-													<li key="close"><a href="" onClick={(e) => {e.preventDefault(); this.setState({video: null})}}>Close Video</a></li>
+													<div className="embed-responsive embed-responsive-16by9">
+													  <YouTube
+														videoId={this.state.video.key}
+														opts={opts}
+														className="embed-responsive-item"
+													  />
+													</div>
 												}
-											</ul>
-											{
-												this.state.video &&
-												<div className="embed-responsive embed-responsive-16by9">
-												  <YouTube
-													videoId={this.state.video.key}
-													opts={opts}
-													className="embed-responsive-item"
-												  />
-												</div>
-											}
+											</div>
 										</div>
 									}
 								</div>
 								<div className="col-md-4">
+									
+									{
+										issue.sample_essays &&
+										<div className={`panel panel-${sitePanelClass_1} sample_essays`}>
+											<div className="panel-heading"><b>Sample Essays</b></div>
+											<div className="panel-body">
+												<ol>
+													{
+														issue.sample_essays.map((value, key) => {
+															return <li key={key}>
+																<b>Hypo: </b> {renderHTML(value.hypo)}
+																<div className="divider"><b>SOLUTION: </b></div>
+																<div className="divider">{renderHTML(value.explanation)}</div>
+															
+															</li>							   
+														})	
+													}
+												</ol>
+											</div>
+										</div>
+									}
+									
+									
+									
 									{
 										issue.essays &&
-										<div className="essays">
-											<div>
-												<b>Essays To Practice: </b> Click on each of the following hypo and try to write the essay related to "{issue.name}" only in the following textarea.
-											</div>
-											<ol>
-												{
-													issue.essays.map((value, key) => {
-														var obj = value;
-														obj.text = '';
-														obj.key = key;
-														return <li key={key}><a href="" onClick={(e) => {e.preventDefault(); this.setState({selectedEssay: obj});}}>{value.year}</a></li>							   
-													})	
-												}
+										<div className={`panel panel-${sitePanelClass_1} essays` }>
+											<div className="panel-heading">Essays To Practice</div>
+											<div className="panel-body">
+												<div>Click on each of the following hypo and try to write the essay related to "{issue.name}" only in the following textarea.<br /></div>
+												<ol>
+													{
+														issue.essays.map((value, key) => {
+															var obj = value;
+															obj.text = '';
+															obj.key = key;
+															return <li key={key}><a href="" onClick={(e) => {e.preventDefault(); this.setState({selectedEssay: obj});}}>{value.year}</a></li>							   
+														})	
+													}
+													{
+														this.state.selectedEssay &&
+														<li key="close"><a href="" onClick={(e) => {e.preventDefault(); this.setState({selectedEssay: null})}}>Close Textarea</a></li>
+													}
+												</ol>
 												{
 													this.state.selectedEssay &&
-													<li key="close"><a href="" onClick={(e) => {e.preventDefault(); this.setState({selectedEssay: null})}}>Close Textarea</a></li>
+													<div>
+														<div className="divider">
+															<b>Year: </b> {this.state.selectedEssay.year}
+														</div>
+														<div className="divider">
+															<b>Hypo: </b> {renderHTML(this.state.selectedEssay.hypo)}
+														</div>
+														<div className="divider">
+														<textarea className="form-control" rows="10" value={this.state.selectedEssay.text} onChange={this.updateEssayText.bind(this)}></textarea>
+														</div>
+														<div className="divider">
+														<Button className="form-control" bsStyle="primary" onClick={this.submitEssay.bind(this)}>Submit</Button>
+														</div>
+													</div>
 												}
-											</ol>
-											{
-												this.state.selectedEssay &&
-												<div>
-													<div className="divider">
-														<b>Year: </b> {this.state.selectedEssay.year}
-													</div>
-													<div className="divider">
-														<b>Hypo: </b> {renderHTML(this.state.selectedEssay.hypo)}
-													</div>
-													<div className="divider">
-													<textarea className="form-control" rows="10" value={this.state.selectedEssay.text} onChange={this.updateEssayText.bind(this)}></textarea>
-													</div>
-													<div className="divider">
-													<Button className="form-control" bsStyle="primary" onClick={this.submitEssay.bind(this)}>Submit</Button>
-													</div>
-												</div>
-											}
+											</div>
 										</div>
 									}
 									
@@ -294,10 +333,10 @@ class EssayIssues extends Component {
 									
 									{
 										issue.mbe &&
-										<div className="mbe">
-											<div>
-												<b>MBE Ideas: </b> Click on each of the following Ideas and try to understand the idea related to "{issue.name}".
-											</div>
+										<div className={`panel panel-${sitePanelClass_1} mbe` }>
+										<div className="panel-heading">MBE Ideas</div>
+										<div className="panel-body">
+											<div>Click on each of the following Ideas and try to understand the idea related to "{issue.name}".</div>
 											<ul>
 												{
 													issue.mbe.map((value, key) => {
@@ -320,6 +359,8 @@ class EssayIssues extends Component {
 													</div>
 												</div>
 											}
+										</div>
+										
 										</div>
 									}
 									
@@ -349,7 +390,7 @@ class EssayIssues extends Component {
 													<h3>Your Essay Answers</h3>
 												{
 													this.props.issuesReducer.issue_answers.map((value, key) => {
-														return <div key={key} className="panel panel-primary">
+														return <div key={key} className={`panel panel-${sitePanelClass_1}`}>
 														  <div className="panel-heading">
 															<h3 className="panel-title">{value.year} (For Question {value.key + 1})</h3>
 														  </div>
