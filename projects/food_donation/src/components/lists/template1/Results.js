@@ -3,7 +3,9 @@ import {Link} from 'react-router-dom';
 import './style.css';
 import {firebaseDatabase, FirebaseConstant} from '../../../MyFirebase.js';
 
+
 class Results extends Component {
+	
 	
 	deleteRecord(rec, e)
 	{
@@ -132,9 +134,10 @@ class Results extends Component {
 									}
 									{
 										deleteLink &&
-										<li><a href="" onClick={this.deleteRecord.bind(this, this.props.record)}>Delete</a></li>
+										<li><a href="" onClick={this.props.changeShowModal.bind(this, true, this.props.record)}>Delete</a></li>
 									}
                                 </ul>
+								
 
                                 <p className="hidden-xs">{this.props.record.description}</p>
 								<p className="hidden-xs">{myDateStr}</p>
@@ -148,3 +151,6 @@ class Results extends Component {
 }
 
 export default Results;
+
+
+//this.deleteRecord.bind(this, this.props.record)

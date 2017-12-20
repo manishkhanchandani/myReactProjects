@@ -4,6 +4,7 @@ import Results from './lists/template1/Results.js';
 
 import {distance, processRecords} from '../utilities/functions.js';
 import Paginator from '../utilities/Paginator.js';
+import {Button, Modal} from 'react-bootstrap';
 
 class ResultContainer extends Component {
 	
@@ -13,8 +14,19 @@ class ResultContainer extends Component {
 		this.state = {
 			pageNumber: 1,
 			filterTerm: null,
-			sortingField: null
+			sortingField: null,
+			showModal: false,
+			modalDetails: null
 		}
+	}
+	
+	changeShowModal(val, details, e) {
+		e.preventDefault();
+		this.setState({showModal: val, modalDetails: details});
+	}
+	
+	close() {
+		
 	}
 	
 	onActivePageChange(page) {
@@ -37,6 +49,8 @@ class ResultContainer extends Component {
 		if (!this.props.data) {
 			return null;	
 		}
+		
+		console.log('STATE IS ', this.state);
 		var myArray = [];
 		//37.773972, -122.431297
 		for (var key in this.props.data) {
@@ -79,10 +93,28 @@ class ResultContainer extends Component {
 				<div className="row resultsContainer">
 				{
 					myArrayConverted.map((value, index) => {
-						return	<Results record={value} key={index} fromUid={uid}  /> 			 
+						return	<Results record={value} key={index} fromUid={uid} changeShowModal={this.changeShowModal.bind(this)}  /> 			 
 					})	
 				}
 				</div>
+				<Modal show={this.state.showModal} onHide={this.close.bind(this)}>
+					<Modal.Header closeButton>
+						<Modal.Title>Confirmation</Modal.Title>
+					</Modal.Header>
+					<Modal.Body>
+						<h4>Delete Record For&nbsp;
+						{
+							this.state.modalDetails && 
+								<span>
+									{this.state.modalDetails.title}
+								</span> 
+						} </h4>
+						<p>Do you really want to delete this record? You wont be able to recover it later?</p>
+					</Modal.Body>
+					<Modal.Footer>
+						<Button >Delete Record</Button>
+					</Modal.Footer>
+				</Modal>
 				
 				<hr />
 				<Paginator {...paginationProps} />

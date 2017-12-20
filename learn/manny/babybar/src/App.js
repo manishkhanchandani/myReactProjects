@@ -34,7 +34,7 @@ class App extends Component {
 					<NavMulti />
 					<div className="container">
 						<div className="row">
-							<div className="col-md-9">
+							<div className="col-md-12">
 								<Route exact={true} path="/" component={Main} />
 								<Route exact={true} path="/quiz" component={Quiz} />
 								<Route exact={true} path="/quiz/:id" component={QuizWelcomeScreen} />
@@ -43,9 +43,9 @@ class App extends Component {
 								<Route exact={true} path="/essays/issues/:subject" component={EssayIssues} />
 								<Route exact={true} path="/essays/issues" component={EssayIssues} />
 							</div>
-							<div className="col-md-3">
-								{
-									/*this.props.authReducer.online_users &&
+							{
+									/*<div className="col-md-3">
+								this.props.authReducer.online_users &&
 										<div className="panel panel-primary">
 											<div className="panel-heading">
 												<h3 className="panel-title">Online Users</h3>
@@ -66,9 +66,9 @@ class App extends Component {
 											}
 											</div>
 										</div>
-								*/}
+								
 										
-							</div>
+							</div>*/}
 						</div>
 					</div>
 				</div>

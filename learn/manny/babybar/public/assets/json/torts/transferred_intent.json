@@ -1,0 +1,14 @@
+{
+	"key": "transferred_intent",
+	"name": "Transferred Intent",
+	"next": {
+		"key": "",
+		"name": "",
+		"subject": ""
+	},
+	"previous": {
+		"key": "",
+		"name": "",
+		"subject": ""
+	}
+}

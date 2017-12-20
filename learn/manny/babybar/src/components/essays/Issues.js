@@ -10,7 +10,10 @@ import {getUID} from '../auth/AuthAction.js';
 import * as issuesAction from './IssuesAction.js';
 import {Link} from 'react-router-dom';
 import './Issues.css';
+import * as simpleQuizAction from '../simple-quiz/SimpleQuizAction.js';
 
+import Paginator from '../../utilities/Paginator.js';
+import {processRecords} from '../../utilities/functions.js';
 import SimpleQuiz from '../simple-quiz/SimpleQuiz.js';
 import SimpleQuizResults from '../simple-quiz/SimpleQuizResults.js';
 
@@ -26,81 +29,14 @@ class EssayIssues extends Component {
 			selectedMBE: null,
 			deleteIssueModal: false,
 			deleteIssueModalData: false,
-			
-			quizDisplay: false,
-			quizPage: 0,
-			quizPoints: 0,
-			quizChoosenOption: null,
-			quizIsCorrect: null,
-			quizStatus: 'Pending',
-			quizDetails: {
-				total: 0,
-				details: [],
-				created_dt: null
-			}
+			pageNumber: 1,
+			show_past_answer: false,
+			show_past_quiz: false
 		};
 	}
 	
-	quizNext(data, type) {
-		let record = this.state.quizDetails;
-		let obj = JSON.parse(JSON.stringify(data[this.state.quizPage]));
-		obj.isCorrect = false;
-		
-		
-		let choosenOption = parseInt(this.state.quizChoosenOption, 10);
-		obj.choosenOption = choosenOption;
-		let pts = 0;
-		let isCorrect = 'Incorrect Answer, Correct Option is Number ' + (data[this.state.quizPage].correct + 1) + ', i.e. ' + data[this.state.quizPage].answerOptions[data[this.state.quizPage].correct];
-		
-		if (choosenOption === data[this.state.quizPage].correct) {
-			pts = 20;
-			isCorrect = 'Correct Answer';
-			obj.isCorrect = true;
-		}
-		
-		let totalPoints = this.state.quizPoints;
-		totalPoints = totalPoints + pts;
-		obj.pts = pts;
-
-		record.total = totalPoints;
-		record.details.push(obj);
-		this.setState({quizPoints: totalPoints, quizIsCorrect: isCorrect, quizPage: this.state.quizPage + 1, quizDetails: record, quizChoosenOption: null});
-		
-		if (type === 2) {
-			//save in firebase	
-			this.setState({quizStatus: 'Completed'});
-			if (!this.props.match.params.subject) {
-				return;
-			}
-			if (!this.props.match.params.issue) {
-				return;
-			}
-			let uid = getUID();
-			if (!uid) {
-				return;
-			}
-			let subject = '';
-			subject = '/' + this.props.match.params.subject;
-			let issue = '';
-			issue = '/' + this.props.match.params.issue;
-			let uidPath = '/' + uid;
-			record.created_dt = firebase.database.ServerValue.TIMESTAMP;
-			let url = FirebaseConstant.basePath + '/quiz/simple_quiz' + uidPath + subject + issue;
-			firebaseDatabase.ref(url).push(record);
-		}
-	}
-	
-	quizNextQuestion(data) {
-		this.quizNext(data, 1);
-	}
-	
-	quizSubmitQuestion(data) {
-		this.quizNext(data, 2);
-	}
-	
-	quiz_start(display=false)
-	{
-		this.setState({quizDisplay: display, quizPage: 0, quizPoints: 0, quizChoosenOption: null, quizIsCorrect: null, quizStatus: 'Pending', quizDetails: {total: 0, details: [], created_dt: null}});
+	onActivePageChange(page) {
+		this.setState({pageNumber: page});
 	}
 	
 	componentDidMount() {
@@ -108,6 +44,7 @@ class EssayIssues extends Component {
 		this.props.callGetSubjectsJson(this.props.match.params.subject);
 		this.props.callGetIssueJson(this.props.match.params.subject, this.props.match.params.issue);
 		this.props.callGetIssueAnswers(uid, this.props.match.params.subject, this.props.match.params.issue);
+		
 	}
 	
 	submitEssay() {
@@ -135,7 +72,8 @@ class EssayIssues extends Component {
 		var url = FirebaseConstant.basePath + '/quiz/issues_answers' + uidPath + subject + issue;
 		firebaseDatabase.ref(url).push(obj);
 		this.setState({selectedEssay: null});
-		this.props.callGetIssueAnswers(uid, this.props.match.params.subject, this.props.match.params.issue);
+		//this.props.callGetIssueAnswers(uid, this.props.match.params.subject, this.props.match.params.issue);
+		//this.props.callGetSimpleQuiz(uid, this.props.match.params.subject, this.props.match.params.issue);
 	}
 	
 	updateEssayText(e) {
@@ -177,9 +115,11 @@ class EssayIssues extends Component {
 		this.setState({deleteIssueModal: false, deleteIssueModalData: null});
 	}
 
-	render() {		
+	render() {	
+		console.log('props are: ', this.props);
 		let subject = this.props.issuesReducer.subject;		
 		let issue = this.props.issuesReducer.issue;
+		let uid = getUID();
 			
 		const opts = {
 		  playerVars: { // https://developers.google.com/youtube/player_parameters
@@ -197,10 +137,14 @@ class EssayIssues extends Component {
 		if (subject && issue && issue.previous && issue.previous.key && issue.previous.subject) {
 			previous = '/essays/issues/'+issue.previous.subject+'/'+issue.previous.key;
 		}
-		
-		let optionChoosen = parseInt(this.state.quizChoosenOption, 10);
-		
-		console.log('this state1 is ', this.state);
+
+		if (this.props.simpleQuizReducer.simple_quiz_answers) {
+			var {myArrayConverted, paginationProps} = processRecords(this.props.simpleQuizReducer.simple_quiz_answers, '-created_dt', null, [], 1, this.state.pageNumber, this.onActivePageChange.bind(this));
+			console.log('myArrayConverted: ', myArrayConverted);
+		} else {
+			var myArrayConverted = null;
+			var paginationProps = null;	
+		}
 			
 		return (
 			<div className="issues">
@@ -221,7 +165,7 @@ class EssayIssues extends Component {
 						{
 							issue &&
 							<div className="row myFavText">
-								<div className="col-md-6">
+								<div className="col-md-4">
 									<div>
 										<b>Rule: </b> {renderHTML(issue.rule)}
 									</div>
@@ -305,7 +249,7 @@ class EssayIssues extends Component {
 										</div>
 									}
 								</div>
-								<div className="col-md-6">
+								<div className="col-md-4">
 									{
 										issue.essays &&
 										<div className="essays">
@@ -379,50 +323,96 @@ class EssayIssues extends Component {
 										</div>
 									}
 									
-									{
-										this.props.issuesReducer.issue_answers &&
-										<div>
-											<h3>Your Answers</h3>
-										{
-											this.props.issuesReducer.issue_answers.map((value, key) => {
-												return <div key={key} className="panel panel-primary">
-												  <div className="panel-heading">
-													<h3 className="panel-title">{value.year} (For Question {value.key + 1})</h3>
-												  </div>
-												  <div className="panel-body">
-													{value.text}
-												  </div>
-												  <div className="panel-footer">{value.dt}<span className="pull-right"><a href="" onClick={(e) => {e.preventDefault(); this.setState({deleteIssueModal: true, deleteIssueModalData: value});}}>Delete</a></span></div>
-												</div>						  									   
-											})
-										}
-											<Modal show={this.state.deleteIssueModal} onHide={this.close.bind(this)}>
-												<Modal.Header closeButton>
-													<Modal.Title>Confirmation</Modal.Title>
-												</Modal.Header>
-												<Modal.Body>
-													<h4>Delete Record For 
-													{
-														this.state.deleteIssueModalData && 
-															<span>
-																{this.state.deleteIssueModalData.year} (For Question {this.state.deleteIssueModalData.key + 1})
-															</span> 
-													} </h4>
-													<p>Do you really want to delete this record? You wont be able to recover it later?</p>
-												</Modal.Body>
-												<Modal.Footer>
-													<Button onClick={this.deleteRecord.bind(this)}>Delete Record</Button>
-												</Modal.Footer>
-											</Modal>
-										</div>
-									}
-									
 									
 									
 									<SimpleQuiz issue={issue} subjectUrl={this.props.match.params.subject} issueUrl={this.props.match.params.issue} />
 									
 									
 									
+									
+									
+									
+								</div>
+								
+								<div className="col-md-4">
+									{
+										!this.state.show_past_answer &&
+										<div><a href="" onClick={(e) => {e.preventDefault(); this.setState({show_past_answer: true}); this.props.callGetIssueAnswers(uid, this.props.match.params.subject, this.props.match.params.issue);}}>Show Past Essay Answer</a></div>
+									}
+									{
+										this.state.show_past_answer &&
+										<div>
+											<div><a href="" onClick={(e) => {e.preventDefault(); this.setState({show_past_answer: false}); }}>Hide Past Essay Answer</a></div>
+											{
+												this.props.issuesReducer.issue_answers &&
+												<div>
+													<h3>Your Essay Answers</h3>
+												{
+													this.props.issuesReducer.issue_answers.map((value, key) => {
+														return <div key={key} className="panel panel-primary">
+														  <div className="panel-heading">
+															<h3 className="panel-title">{value.year} (For Question {value.key + 1})</h3>
+														  </div>
+														  <div className="panel-body">
+															{value.text}
+														  </div>
+														  <div className="panel-footer">{value.dt}<span className="pull-right"><a href="" onClick={(e) => {e.preventDefault(); this.setState({deleteIssueModal: true, deleteIssueModalData: value});}}>Delete</a></span></div>
+														</div>						  									   
+													})
+												}
+													<Modal show={this.state.deleteIssueModal} onHide={this.close.bind(this)}>
+														<Modal.Header closeButton>
+															<Modal.Title>Confirmation</Modal.Title>
+														</Modal.Header>
+														<Modal.Body>
+															<h4>Delete Record For 
+															{
+																this.state.deleteIssueModalData && 
+																	<span>
+																		{this.state.deleteIssueModalData.year} (For Question {this.state.deleteIssueModalData.key + 1})
+																	</span> 
+															} </h4>
+															<p>Do you really want to delete this record? You wont be able to recover it later?</p>
+														</Modal.Body>
+														<Modal.Footer>
+															<Button onClick={this.deleteRecord.bind(this)}>Delete Record</Button>
+														</Modal.Footer>
+													</Modal>
+												</div>
+											}
+										</div>
+									}
+									
+									
+									<div className="pastResults">
+										{
+											!this.state.show_past_quiz &&
+											<div><a href="" onClick={(e) => {e.preventDefault(); this.setState({show_past_quiz: true});this.props.callGetSimpleQuiz(uid, this.props.match.params.subject, this.props.match.params.issue);}}>Show Past Quiz</a></div>
+										}
+										{
+											this.state.show_past_quiz &&
+											<div>
+												<div><a href="" onClick={(e) => {e.preventDefault(); this.setState({show_past_quiz: false});}}>Hide Past Quiz</a></div>
+												<div>
+												{
+													this.props.simpleQuizReducer.simple_quiz_answers && 
+													<div>
+														<h3>Past Quiz Results</h3>
+														<Paginator {...paginationProps} />
+														{
+															myArrayConverted.map((value, key) => {
+																return <SimpleQuizResults key={key} quizDetails={value} pastResults={true} />													  
+															})
+														}
+														
+														<hr />
+														<Paginator {...paginationProps} />
+													</div>
+												}
+												</div>
+											</div>
+										}
+									</div>
 									
 								</div>
 							</div>
@@ -461,7 +451,8 @@ class EssayIssues extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		issuesReducer: state.IssuesReducer
+		issuesReducer: state.IssuesReducer,
+		simpleQuizReducer: state.SimpleQuizReducer
 	}	
 };
 
@@ -478,6 +469,12 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		callGetIssueJson: (subject=null, issue=null) => {
 			dispatch(issuesAction.selectIssueJson(dispatch, subject, issue));
+		},
+		callGetSimpleQuiz: (u=null, s=null, i=null) => {
+			if (!u || !s || !i) {
+				return;	
+			}
+			dispatch(simpleQuizAction.getSimpleQuizAnswers(u, s, i));	
 		}
 	};	
 };

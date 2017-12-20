@@ -15,6 +15,11 @@
 		"Here there is <b>Reasonable Apprehension</b> because ...",
 		"Here there is Apprehension of <b>Immediate Battery</b> because ..."
 	],
+	"sample_essays": [
+		{
+			"explanation": "Under tort law, An ASSAULT is an <b>intentional overt act</b> which causes an <b>immediate apprehension</b> of a harmful or offensive contact. An act is intentional if it is done purposely knowingly that the results will follow.<br /><br />"	
+		}	  
+	],
 	"videos": [
 		{
 			"key": "1gJSD71WZeE",
@@ -133,12 +138,32 @@
 				"No"
 			],
 			"correct": 1
+		},
+		{
+			"id": 5,
+			"question": "A person shows empty revolver to person B and person B knows that revolver is empty, does this causes assault?",
+			"answerOptions": [
+				"No",
+				"Yes",
+				"May Be"
+			],
+			"correct": 0
+		},
+		{
+			"id": 5,
+			"question": "A person shows knife to person B who is sleeping and does this causes assault?",
+			"answerOptions": [
+				"Yes",
+				"No",
+				"May Be"
+			],
+			"correct": 1
 		}
 	],
 	"next": {
-		"key": "battery",
-		"name": "Battery",
-		"subject": "torts"
+		"key": "",
+		"name": "",
+		"subject": ""
 	},
 	"previous": {
 		"key": "",

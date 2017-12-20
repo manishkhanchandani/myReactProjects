@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
-
 import {Button} from 'react-bootstrap';
 import * as firebase from 'firebase';
 import {firebaseDatabase, FirebaseConstant} from '../../MyFirebase.js';
 import SimpleQuizResults from './SimpleQuizResults.js';
 import {getUID} from '../auth/AuthAction.js';
 import SimpleQuizAnsOptions from './SimpleQuizAnsOptions.js';
+import './SimpleQuiz.css';
+import {withRouter} from 'react-router';
 
 class SimpleQuiz extends Component {
 	constructor(props) {
@@ -33,6 +34,10 @@ class SimpleQuiz extends Component {
 	}
 
 	quizNext(data, type) {
+		if (!this.state.quizChoosenOption) {
+			alert('please fill the option');
+			return;
+		}
 		let record = this.state.quizDetails;
 		let obj = JSON.parse(JSON.stringify(data[this.state.quizPage]));
 		obj.isCorrect = false;
@@ -118,14 +123,14 @@ class SimpleQuiz extends Component {
 							<div>
 								{
 									this.state.quizStatus === 'Completed' &&
-									<SimpleQuizResults quizDetails={this.state.quizDetails} />
+									<SimpleQuizResults quizDetails={this.state.quizDetails} quiz_start={this.quiz_start.bind(this)} />
 								}
 								
 								{
 									(this.state.quizStatus === 'Pending' && issue.quiz[this.state.quizPage]) &&
 									<div className="questions">
-										<div className="question">Question {this.state.quizPage + 1}. {issue.quiz[this.state.quizPage].question}</div>
-										<SimpleQuizAnsOptions opts={issue.quiz[this.state.quizPage].answerOptions} optionChoosen={optionChoosen} handleChooseOption={this.handleChooseOption} />
+										<div className="question">Question {this.state.quizPage + 1} / {issue.quiz.length}. {issue.quiz[this.state.quizPage].question}</div>
+										<SimpleQuizAnsOptions id={issue.quiz[this.state.quizPage].id} opts={issue.quiz[this.state.quizPage].answerOptions} optionChoosen={optionChoosen} handleChooseOption={this.handleChooseOption} />
 										
 										
 										<div className="divider">
@@ -141,9 +146,7 @@ class SimpleQuiz extends Component {
 							</div>
 						}
 						
-						<div className="pastResulst">
 						
-						</div>
 						
 						
 					</div>
@@ -153,4 +156,5 @@ class SimpleQuiz extends Component {
 	}
 }
 
-export default SimpleQuiz;
+
+export default withRouter(SimpleQuiz);

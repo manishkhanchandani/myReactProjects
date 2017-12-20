@@ -1,0 +1,14 @@
+{
+	"key": "trespass_to_chattels",
+	"name": "Trespass to Chattels",
+	"next": {
+		"key": "",
+		"name": "",
+		"subject": ""
+	},
+	"previous": {
+		"key": "",
+		"name": "",
+		"subject": ""
+	}
+}
