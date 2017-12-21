@@ -1,0 +1,4 @@
+<?php
+include('phpFiles/inc.php');
+?>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name="theme-color" content="#000000"><link rel="manifest" href="/manifest.json"><link rel="shortcut icon" href="/favicon.ico"><title>California Baby Bar</title><meta property="fb:app_id" content="168072164626"/><link href="/css/bootstrap.css" rel="stylesheet"><link href="/css/font-awesome.min.css" rel="stylesheet"><link href="/static/css/main.53a90d71.css" rel="stylesheet"><?php echo $head; ?></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"><?php echo $contentForTemplate; ?></div><script src="/js/jquery.min.js"></script><script src="/js/bootstrap.min.js"></script><script type="text/javascript" src="/static/js/main.5ac839ab.js"></script></body></html>

@@ -3,7 +3,6 @@ const SimpleQuizReducer = (state = {
 }, action) => {
 	switch (action.type) {
 		case 'SIMPLE_QUIZ_ANSWERS_FULFILLED':
-		console.log('action is ', action);
 			state = {
 				...state,
 				simple_quiz_answers: action.payload

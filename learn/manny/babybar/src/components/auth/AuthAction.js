@@ -1,7 +1,6 @@
 
 import * as firebase from 'firebase';
 import {firebaseApp, firebaseDatabase, FirebaseConstant} from '../../MyFirebase.js';
-import {dynamicSort, timeAgo} from '../../utilities/functions.js';
 
 export const loggedIn = (params) => {
 	localStorage.setItem('uid', params.uid);

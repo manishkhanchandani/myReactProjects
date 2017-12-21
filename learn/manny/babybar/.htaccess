@@ -4,4 +4,4 @@ Options +FollowSymLinks
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} !=/favicon.ico
-RewriteRule ^(.*)$ index.php [L,QSA]
+RewriteRule ^(.*)$ 1.php?p=$1 [L,QSA]

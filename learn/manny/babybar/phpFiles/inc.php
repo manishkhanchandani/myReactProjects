@@ -25,51 +25,22 @@ define('DEFAULT_LATITUDE', 37.3867);
 define('DEFAULT_LONGITUDE', -121.897);
 define('ENCRYPTKEY', 'JKjVXtFdY3NNT6Fp6U9uM3m5eeWbtqXWrR5qwWpyM9b8SFSdWVK2vruN');
 
+$myRealPath = dirname(__FILE__);
+define('MY_REAL_PATH', $myRealPath);
+
 //ini_set("include_path", '/home/consultlawyers/php:/home/consultlawyers/public_html/libraries:' . ini_get("include_path") );
 
 //my autoloader
 function myautoload($class_name) {
-    $classPath = SITEDIR.'/api/help/MkGalaxy/'.implode('/', explode('_', $class_name));
+    $classPath = SITEDIR.'/api/'.implode('/', explode('_', $class_name));
    if (file_exists($classPath.'.class.php')) {
     include_once $classPath . '.class.php';
    }
 }
 spl_autoload_register('myautoload', true);
 
-include_once('functions.php');
+$head = '';
+include_once(MY_REAL_PATH.'/functions.php');
 
-
-$defaultPage = 'home';
-$page = $defaultPage;
-$p = $defaultPage;
-if (!empty($_GET['p'])) {
-  $page = $_GET['p'];
-  $p = $_GET['p'];
-}
-$page .= '.php';
-$pageTitle = 'Some Page Title';
-
-ob_start();
-if (file_exists($page)) {
-  include($page);
-} else {
-  include($defaultPage.'.php');
-}
-
-$contentForTemplate = ob_get_clean();
-
-include('template.php');
+include_once(MY_REAL_PATH.'/layout.php');
 ?>
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>display</title>
-<style type="text/css">
-
-</style>
-</head>
-
-<body>
-</body>
-</html>

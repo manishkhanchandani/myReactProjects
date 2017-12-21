@@ -31,7 +31,6 @@ export const selectIssueJson = (dispatch, subject=null, issue=null) => {
 			}).then((response) => {
 				return response.json();
 			}).then((j) => {
-				console.log('issue json is ', j);
 				resolve(j);
 			}).catch((err) => {
 				console.log('err is ', err);
@@ -58,7 +57,6 @@ export const getSubjectsJson = (dispatch, subject=null) => {
 			}).then((response) => {
 				return response.json();
 			}).then((j) => {
-				console.log('subject json is ', j);
 				if (subject) {
 					dispatch(getSubjectResultJson(j[subject]));
 				}

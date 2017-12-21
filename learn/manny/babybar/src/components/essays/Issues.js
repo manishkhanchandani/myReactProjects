@@ -116,7 +116,6 @@ class EssayIssues extends Component {
 	}
 
 	render() {	
-		console.log('props are: ', this.props);
 		let subject = this.props.issuesReducer.subject;		
 		let issue = this.props.issuesReducer.issue;
 		let uid = getUID();
@@ -138,16 +137,18 @@ class EssayIssues extends Component {
 			previous = '/essays/issues/'+issue.previous.subject+'/'+issue.previous.key;
 		}
 
+		var myArrayConverted = null;
+		var paginationProps = null;	
 		if (this.props.simpleQuizReducer.simple_quiz_answers) {
-			var {myArrayConverted, paginationProps} = processRecords(this.props.simpleQuizReducer.simple_quiz_answers, '-created_dt', null, [], 1, this.state.pageNumber, this.onActivePageChange.bind(this));
-			console.log('myArrayConverted: ', myArrayConverted);
-		} else {
-			var myArrayConverted = null;
-			var paginationProps = null;	
+			let obj = processRecords(this.props.simpleQuizReducer.simple_quiz_answers, '-created_dt', null, [], 1, this.state.pageNumber, this.onActivePageChange.bind(this));
+			myArrayConverted = obj.myArrayConverted;
+			paginationProps = obj.paginationProps;
 		}
 		
 		let sitePanelClass_1 = 'primary';
 		let sitePanelClass_2 = 'primary';
+		let sitePanelClass_3 = 'primary';
+		let sitePanelClass_4 = 'primary';
 			
 		return (
 			<div className="issues">
@@ -177,7 +178,7 @@ class EssayIssues extends Component {
 									</div>
 									{
 										issue.elements &&
-										<div className={`panel panel-${sitePanelClass_1}`}>
+										<div className={`panel panel-${sitePanelClass_2}`}>
 											<div className="panel-heading"><b>Elements to Prove</b></div>
 											<div className="panel-body">
 												<ul>
@@ -192,7 +193,7 @@ class EssayIssues extends Component {
 									}
 									{
 										issue.description &&
-										<div className={`panel panel-${sitePanelClass_1}`}>
+										<div className={`panel panel-${sitePanelClass_3}`}>
 											<div className="panel-heading"><b>Description</b></div>
 											<div className="panel-body">
 												{renderHTML(issue.description)}
@@ -201,7 +202,7 @@ class EssayIssues extends Component {
 									}
 									{
 										issue.elementsQuestions &&
-										<div className={`panel panel-${sitePanelClass_1}`}>
+										<div className={`panel panel-${sitePanelClass_4}`}>
 											<div className="panel-heading"><b>Sample Essay Format</b></div>
 											<div className="panel-body">
 												{
@@ -231,7 +232,7 @@ class EssayIssues extends Component {
 									{
 										issue.videos &&
 										<div>
-											<div className={`panel panel-${sitePanelClass_1}`}>
+											<div className={`panel panel-${sitePanelClass_2}`}>
 												<div className="panel-heading"><b>Videos</b></div>
 												<div className="panel-body">
 													<ul>
@@ -267,7 +268,7 @@ class EssayIssues extends Component {
 									
 									{
 										issue.sample_essays &&
-										<div className={`panel panel-${sitePanelClass_1} sample_essays`}>
+										<div className={`panel panel-${sitePanelClass_3} sample_essays`}>
 											<div className="panel-heading"><b>Sample Essays</b></div>
 											<div className="panel-body">
 												<ol>
@@ -290,7 +291,7 @@ class EssayIssues extends Component {
 									
 									{
 										issue.essays &&
-										<div className={`panel panel-${sitePanelClass_1} essays` }>
+										<div className={`panel panel-${sitePanelClass_4} essays` }>
 											<div className="panel-heading">Essays To Practice</div>
 											<div className="panel-body">
 												<div>Click on each of the following hypo and try to write the essay related to "{issue.name}" only in the following textarea.<br /></div>
