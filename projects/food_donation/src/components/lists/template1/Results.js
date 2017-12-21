@@ -5,47 +5,6 @@ import {firebaseDatabase, FirebaseConstant} from '../../../MyFirebase.js';
 
 
 class Results extends Component {
-	
-	
-	deleteRecord(rec, e)
-	{
-		e.preventDefault();
-		var user_id = localStorage.getItem('userId');
-		if (user_id !== rec.user_id) {
-			return false;	
-		}
-		console.log('rec is ', rec);
-
-		var url = FirebaseConstant.basePath + '/data';
-		var postUrl = url + '/posts/' + rec.id;
-		firebaseDatabase.ref(postUrl).set(null);
-		
-		var country = rec.location.country;
-		var state = rec.location.administrative_area_level_1;
-		var county = rec.location.administrative_area_level_2;
-		var city = rec.location.locality;
-		
-		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/country').child(country).child(rec.id).set(null);
-		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/state').child(country).child(state).child(rec.id).set(null);
-		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/county').child(country).child(state).child(county).child(rec.id).set(null);
-		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/city').child(country).child(state).child(county).child(city).child(rec.id).set(null);
-		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/users').child(user_id).child(rec.id).set(null);
-		
-		var tags = rec.tags.split(',');
-		
-		if (tags.length > 0) {
-			for (var i = 0; i < tags.length; i++) {
-				var tag = tags[i].trim();
-				
-				var tagURL = FirebaseConstant.basePath + '/data/tags/' + tag;
-				firebaseDatabase.ref(tagURL + '/country').child(country).child(rec.id).set(null);
-				firebaseDatabase.ref(tagURL + '/state').child(country).child(state).child(rec.id).set(null);
-				firebaseDatabase.ref(tagURL + '/county').child(country).child(state).child(county).child(rec.id).set(null);
-				firebaseDatabase.ref(tagURL + '/city').child(country).child(state).child(county).child(city).child(rec.id).set(null);
-				firebaseDatabase.ref(tagURL + '/all_tag_posts').child(rec.id).set(null);
-			}
-		}
-	}
 
 	render() {
 		if (!this.props.record) {

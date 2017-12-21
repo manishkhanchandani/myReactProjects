@@ -5,6 +5,7 @@ import Results from './lists/template1/Results.js';
 import {distance, processRecords} from '../utilities/functions.js';
 import Paginator from '../utilities/Paginator.js';
 import {Button, Modal} from 'react-bootstrap';
+import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 
 class ResultContainer extends Component {
 	
@@ -20,13 +21,53 @@ class ResultContainer extends Component {
 		}
 	}
 	
+	deleteRecord(rec)
+	{
+		var user_id = localStorage.getItem('userId');
+		if (user_id !== rec.user_id) {
+			return false;	
+		}
+
+		var url = FirebaseConstant.basePath + '/data';
+		var postUrl = url + '/posts/' + rec.id;
+		firebaseDatabase.ref(postUrl).set(null);
+		
+		var country = rec.location.country;
+		var state = rec.location.administrative_area_level_1;
+		var county = rec.location.administrative_area_level_2;
+		var city = rec.location.locality;
+		
+		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/country').child(country).child(rec.id).set(null);
+		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/state').child(country).child(state).child(rec.id).set(null);
+		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/county').child(country).child(state).child(county).child(rec.id).set(null);
+		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/city').child(country).child(state).child(county).child(city).child(rec.id).set(null);
+		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/users').child(user_id).child(rec.id).set(null);
+		
+		var tags = rec.tags.split(',');
+		
+		if (tags.length > 0) {
+			for (var i = 0; i < tags.length; i++) {
+				var tag = tags[i].trim();
+				
+				var tagURL = FirebaseConstant.basePath + '/data/tags/' + tag;
+				firebaseDatabase.ref(tagURL + '/country').child(country).child(rec.id).set(null);
+				firebaseDatabase.ref(tagURL + '/state').child(country).child(state).child(rec.id).set(null);
+				firebaseDatabase.ref(tagURL + '/county').child(country).child(state).child(county).child(rec.id).set(null);
+				firebaseDatabase.ref(tagURL + '/city').child(country).child(state).child(county).child(city).child(rec.id).set(null);
+				firebaseDatabase.ref(tagURL + '/all_tag_posts').child(rec.id).set(null);
+			}
+		}
+		
+		this.close();
+	}
+	
 	changeShowModal(val, details, e) {
 		e.preventDefault();
 		this.setState({showModal: val, modalDetails: details});
 	}
 	
 	close() {
-		
+		this.setState({showModal: false});
 	}
 	
 	onActivePageChange(page) {
@@ -112,7 +153,7 @@ class ResultContainer extends Component {
 						<p>Do you really want to delete this record? You wont be able to recover it later?</p>
 					</Modal.Body>
 					<Modal.Footer>
-						<Button >Delete Record</Button>
+						<Button onClick={this.deleteRecord.bind(this, this.state.modalDetails)} >Delete Record</Button>
 					</Modal.Footer>
 				</Modal>
 				
