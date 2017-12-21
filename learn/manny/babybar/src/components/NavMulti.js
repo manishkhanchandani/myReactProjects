@@ -53,8 +53,20 @@ class NavMulti extends Component {
 												</li>*/}
 											</ul>
 										</li>
-										{/*<li><Link to="/essays/issues/contracts">Contracts</Link></li>
-										<li><Link to="/essays/issues/criminal">Criminal</Link></li>	*/}									
+										<li className="dropdown-submenu">
+											<Link to="/essays/issues/torts" className="dropdown-toggle" data-toggle="dropdown">Contracts</Link>
+											<ul className="dropdown-menu">
+												<li className="dropdown-submenu">
+													<a href="" className="dropdown-toggle" data-toggle="dropdown">Terms of Contracts</a>
+													<ul className="dropdown-menu">
+														<li><Link to="/essays/issues/contracts/contract_terms">Basic Contract Terms</Link></li>
+													</ul>
+												</li>
+											</ul>
+										</li>
+										
+										
+										<li><Link to="/essays/issues/criminal">Criminal</Link></li>								
 									</ul>
 								</li>
 								{/*<li>

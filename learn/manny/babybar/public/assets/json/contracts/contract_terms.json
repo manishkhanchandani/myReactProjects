@@ -1,6 +1,22 @@
 {
-	"key": "ucc",
-	"name": "Does UCC apply",
+	"key": "contract_terms",
+	"name": "Contract Terms",
+	"rule": "Under common law, contracts must include <b>Time of Peformance</b>, <b>Identity of Parties</b>, <b>Price</b>, <b>Subject Matter</b>, <b>Quantity</b>. <br /><br />Most of the contract terms are considered as express material condition of the contract except \"time of performance\", \"buyer's satisfaction\" and \"Not to assign the contract\". These three terms are called covenants. <br /><br />Under the UCC, contracts must include <b>Parties</b> and <b>Quantity</b> and other terms will be filled by <b>Gap Filler</b> provisions of UCC. Under Perfect tender rule of UCC, all the terms are considered as a material terms.",
+	"elements": [
+		"Time of Performance",
+		"Identity of Parties",
+		"Price",
+		"Subject Matter",
+		"Quantity"
+	],
+	"elementsQuestions": [
+		"Here the <b>time of performance</b> was ...",
+		"Here the <b>Parties</b> were ...",
+		"Here the <b>Price</b> was ...",
+		"Here the <b>Subject Matter</b> was ...",
+		"Here the <b>Quantity</b> was ..."
+	],
+	"conclusion": "Therefore, the contract was <b>enforceable</b>.",
 	"next": {
 		"key": "",
 		"name": "",
