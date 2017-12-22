@@ -1,0 +1,299 @@
+{
+	"terms": {
+		"acceptantce": {
+			"name": "Acceptance?",
+			"years": [
+				{
+					"id": 1,
+					"year": "june 2002"
+				}
+			]
+		},
+		"consequential_damages": {
+			"name": "Consequential Damages?",
+			"years": [s
+				{
+					"id": 1,
+					"year": "june 2002"
+				}
+			]
+		},
+		"detrimental_reliance": {
+			"name": "Detrimental Reliance?",
+			"years": [
+				{
+					"id": 1,
+					"year": "june 2002"
+				}
+			]
+		},
+		"expected_damages": {
+			"name": "Expectation Damages?",
+			"years": [
+				{
+					"id": 1,
+					"year": "june 2002"
+				}
+			]
+		},
+		"merchants_firm_offer": {
+			"name": "Merchant's Firm Offer?",
+			"years": [
+				{
+					"id": 1,
+					"year": "june 2002"
+				}
+			]
+		},
+		"offer": {
+			"name": "Offer?",
+			"years": [
+				{
+					"id": 1,
+					"year": "june 2002"
+				}
+			]
+		},
+		"parties_merchant":  {
+			"name": "Are Parties Merchants?",
+			"years": [
+				{
+					"id": 1,
+					"year": "june 2002"
+				}
+			]
+		},
+		"ucc":  {
+			"name": "Is UCC?",
+			"years": [
+				{
+					"id": 1,
+					"year": "june 2002"
+				}
+			]
+		},
+		"ucc_remedy_non_breaching_buyer": {
+			"name": "Remedy For Non Breaching Buyer",
+			"years": [
+				{
+					"id": 1,
+					"year": "june 2002"
+				}
+			]
+		},
+		"valid_contract": {
+			"name": "Is it a Valid Contract?",
+			"years": [
+				{
+					"id": 1,
+					"year": "june 2002"
+				}
+			]
+		},
+		"writing_needed": {
+			"name": "Is Writing Needed?",
+			"years": [
+				{
+					"id": 1,
+					"year": "june 2002"
+				}
+			]
+		}
+	},
+	"data": [
+		{
+			"id": 1,
+			"year": "june 2002",
+			"hypo": "Buyer opened a new automobile service station earlier this year. Buyer wanted to buy a television set for the station so her customers could watch television while she worked on their cars.<br /><br />Buyer found the television set she wanted at Seller Sets, Inc. (\"Seller\"), a television set retailer. A Seller salesperson told Buyer she could purchase the set for $300. Buyer replied that she would like to \"shop around\". The salesperson then wrote \"Seller Sets, Inc.– $300\" on a sales brochure describing the set and gave the brochure to Buyer. The printed phrase \"Available for a Limited Time Only\" appeared at the top of the brochure. As the salesperson handed Buyer the brochure he said, \"I think you'll find no one will beat our price.\"<br /><br />Not finding a better price, Buyer returned to Seller's one week later to buy the television set. However, the salesperson told her that the set was out of stock and that Seller could not sell her another at the $300 price. Two months later, Buyer purchased the same model set from another dealer for $450.<br /><br />Buyer wishes to sue Seller, seeking damages for lost profits. Buyer intends to allege that she lost customers because she has not had television in the station for the past two months.<br /><br />What theory or theories for recovery of damages will Buyer assert in her complaint and what is her likelihood of success on each theory? Discuss.",
+			"topic": "formation of contracts, breach, remedies",
+			"issues": [
+				"ucc",
+				"parties_merchant",
+				"valid_contract",
+				"offer",
+				"acceptantce",
+				"merchants_firm_offer",
+				"detrimental_reliance",
+				"ucc_remedy_non_breaching_buyer",
+				"expected_damages",
+				"consequential_damages",
+				"writing_needed"
+			]
+		},
+		{
+			"id": 2,
+			"year": "october 2002",
+			"hypo": "",
+			"topic": "Windco manufactures and installs insulated window-frame units. Installation comprises about 15% of Windco's total price for the units.<br /><br />Sam, a commercial builder, saw a Windco advertisement and mailed an order for thirty window frames, at $100 per frame, for a total order of $3,000. He also wrote on his order, \"Must have your guarantee of installation within 15 days due to construction deadlines.\"<br /><br />Windco immediately sent Sam an \"Acknowledgment of Order,\" listing the windows and price as per Sam's order, and including a $200 shipping charge. Shipping costs are customarily borne by the buyer of window-frame units. At the bottom of the Windco form was printed the following: \"Installation guaranteed within 60 days.\" Also printed in bold and conspicuous type was the following: \"All warranties of merchantability and fitness are hereby expressly disclaimed.\" Finally, the form stated, \"Contract of Sale Subject to Terms Contained Herein.\"<br /><br />Windco installed the windows 55 days after the order was placed and Sam incurred several delay-related expenses. Windco later submitted a bill for the full amount shown on the \"Acknowledgment of Order\" form. Sam refused to pay the $200 shipping charges. He also discovered that because of a manufacturing defect, the glass in the windows did not fit snugly, permitting rain to leak through.<br /><br />Windco sued Sam for the full price shown on the \"Acknowledgment of Order\" form. Sam counterclaimed against Windco for damages resulting from the delayed installation and unmerchantable quality of the windows.<br /><br />How should the court rule on Windco's and Sam's actions? Discuss.",
+			"issues": [
+				"ucc",
+				"parties_merchant",
+				"valid_contract",
+				"offer",
+				"acceptantce",  
+			]
+		},
+		{
+			"id": 3,
+			"year": "october 2002",
+			"hypo": "Debbie, a well known photographer, owns a studio that offers \"on location\" photogra phy, enabling patrons to be photographed in environments of their choice.<br /><br />Jon owns a new health spa located in a nearby mountain region. Jon had seen and admired Debbie's \"on location\" photography work. He called Debbie to arrange for photography as part of his promotional plan for the spa. Jon told her that he planned to trim 50 pounds from his own considerably hefty frame by participating in the program of diet, exercise and strength training offered at the spa. He wanted to have \"before and after\" pictures taken of himself eating at the spa, working out on the spa exercise equipment and hiking along one of the spa's scenic trails. The photographs were to be displayed in strategic locations throughout the spa and would be included in the spa's brochure. Debbie stated that the total charge for the photography (which would consist of five \"before\" pictures and five \"after\" pictures) would be $1,000. The parties agreed that the \"before\" pictures would be taken on the following day.<br /><br />When Debbie arrived at the spa, she learned for the first time that it was a health spa for nudists. Debbie was extremely uncomfortable, but the naked Jon persuaded her to stay and take the first set of pictures.<br /><br />On the next day, Jon received the five \"before\" pictures and a letter from Debbie requesting immediate payment of $500, and stating that the five \"after\" pictures would be taken by her assistant upon notification that Jon had lost 50 pounds.<br /><br />Jon consults you and asks the following questions:<br /><br />1. Does an enforceable contract exist between Debbie and Jon? Discuss.<br /><br />2. Assuming that an enforceable contract exists, can Jon require Debbie to take the \"after\" pictures personally? Discuss.<br /><br />3. Is Debbie entitled to a $500 payment at this time? Discuss.",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 4,
+			"year": "june 2003",
+			"hypo": "Ted is the President of Chip Co, a small company that makes computer chips for the secondary personal computer market. In the regular course of Chip Co’s business Ted did the following:<br /><br />Ted sent an e-mail to his daughter Pam, a Vice President of Chip Co, which stated: “This is to confirm our conversation of the other day wherein you agreed to make your home garage available next week to Chip Co for storage of Chip Co items. You will be paid $5.00 per year.” Pam e-mailed back, stating, “That’s right, Dad; the garage is clean and ready for storage.”<br /><br />Ted also sent an e-mail to Dave, a customer of Chip Co, which stated, “We agree to replace our defective chip in your computer, but only if you agree not to bring any legal action against Chip Co.” Dave sent a return e-mail stating that he agreed to these terms.<br /><br />Ted telephoned Bob, another customer of Chip Co, to confirm that Chip Co will send 100 computer chip units to Bob, who had already fully paid for the units, but only if Bob agreed to pay an additional 10% due to an increase in Chip Co’s operating costs. Bob reluctantly agreed, as he needed the chips immediately.<br /><br />Ted wrote a letter to Silicon Inc., in which Chip Co offered to buy 10 tons of processed silicon during the coming year, at market price, should Chip Co need any silicon. Silicon Inc. responded, agreeing to sell all the silicon to Chip Co that it might want.<br /><br />Is there adequate consideration for Chip Co’s agreements above-described with Pam, Dave, Bob and Silicon, Inc.? Discuss.",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 5,
+			"year": "june 2003",
+			"hypo": "Seller sent Buyer a form letter stating that Seller was “offering for sale a full line of zinc bolts, in 1,000 bolt lot s, delivery within 30 da ys.” The letter con cluded by stating, “Responses must be received within ten days.” Attached to the letter was a purchase order form. The front of the purchase order form contained the prices of various bolts followed by blank spaces in which the purchaser could enter the desired quantity of bolts. The back of the purchase order form included the following statement: “Any action for breach of warranty under this contract must be commenced within one year after the cause of action has accrued.”<br /><br />Upon receipt of Seller’s letter, Buyer immediately copied the description and price of one type of bolt from Seller’s form onto the front of Buyer’s own purchase order form, specified a quantity of 1,000 bolts, and sent the form to Seller, who received it three days later. On the back of Buyer’s form was the following statement: “This order is subject to the terms and conditions below.” Paragraph 4 of said form provided in part: “The parties agree that the four-year limitations period provided in Uniform Commercial Code 2-725(1) shall be applicable.”<br /><br />Section 2-725(1) of the Uniform Commercial Code states: “An action for breach of any contract for sale must be commenced within four years after the cause of action has accrued. By original agreement the parties may reduce the period of limitation to not less than one year but may not extend it.”<br /><br />The price of zinc rose dramatically in the two weeks following Seller’s receipt of Buyer’s form. Seller then sent a telegram to Buyer stating: “Because of market conditions we cannot fill your order.” Buyer responded with a demand for delivery.<br /><br />1. If Seller fails to deliver the bolts, will it be liable for breach of contract? Discuss.<br />2. If Seller does deliver the bolts and they are defective, what is the applicable limitations period for Buyer to file an action for breach of warranty under the contract? Discuss.",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 6,
+			"year": "october 2003",
+			"hypo": "Rita is beginning a new business as a painter. In order to attract clients, she printed hundreds of flyers that said, “Rita can paint your home for $2,000—Call Rita now to accept this offer!” Each flyer also contained contact information for Rita, including her telephone number. Rita placed the flyers in the local grocery store where neighborhood residents would be likely to see them.<br /><br />Marvin picked up a flyer and decided to call Rita. He owned a very large home in an adjoining town. Marvin knew that $2,000 for painting his home would be a tremendous bargain for him. He telephoned Rita, and when she answered the phone, Marvin said, “I accept your offer to paint my home for $2,000. Please start as soon as possible.” Before Rita could say a word, Marvin blurted out his home address and abruptly hung up.<br /><br />Sue also telephoned Rita and asked about having her garage painted. Rita informed Sue that she would have to come to Sue’s home before providing a bid, and the two got together at Sue’s home later that day. After looking over the garage and negotiating the particulars of the paint job, Rita told Sue that she would paint the garage for $700. Sue responded that $700 was a “pretty good price,” but that she wished Rita would do the job for less and needed to consider her options. The following morning, Sue left a phone message on Rita’s answering machine saying that she had decided to accept Rita’s offer.<br /><br />Rita also received a recorded phone message from Mary, another possible new client, stating, “I saw your flyer in the grocery store. If you can paint my house for $2,000, the job is yours.” The message provided Mary’s address. After Rita drove past Mary’s house to look at the prospective job, she decided to paint Mary’s house. The next day Rita went to Mary’s home, with all the necessary painting supplies, but when she started working on Mary’s home, Mary came running outside and told Rita to stop painting the house, as she had found a different painting contractor for the job.<br /><br />Does Rita have enforceable contracts with either Marvin, Sue, or Mary? Discuss.",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 7,
+			"year": "october 2003",
+			"hypo": "Paintco intended to place a bid on the painting work for a large government project, the deadline for which was April 16. Paintco’s president published an advertisement in a local trade paper asking paint suppliers to place bids with Paintco for the furnishing of 10,000 gallons of special paint in accordance with the government’s specifications. The advertisement, published March 1, stated that Paintco was going to bid on the government job, and asked all interested parties to submit their bids, in writing, on or before April 15, specifying that the bids were to be “irrevocable for 30 days.”<br /><br />On the evening of April 15, Ritzcorp’s president telephoned Paintco and submitted Ritzcorp’s bid orally by leaving a message on Paintco’s answering machine, which was equipped with a voice-decoding feature that translated telephone messages into a written printout. The telephone message, which Paintco’s president both heard and read that evening, identified the speaker as Ritzcorp’s president and stated that his company would supply 8,500 gallons of paint to Paintco at a price of $10 per gallon. The telephone message also stated that the bid price did not include the cost of delivery, that any acceptance of Ritzcorp’s bid must be in writing and must be received by Ritzcorp on or before May 1.<br /><br />Because Ritzcorp’s bid was the lowest, Paintco used it to compute the price of its own irrevocable bid to the government the next d ay. On May 1, Paintco was notified that it had won the government contract. The same day it mailed a letter to Ritzcorp stating: “We accept your offer of April 15, but ask that the paint be fully warranted as to quality and that you arrange for delivery of 10,000 gallons of the paint to the job site.” The letter arrived at Ritzcorp’s offices on May 2. Ritzcorp dispatched an e-mail to Paintco that very afternoon, stating that in light of an unexpected rise in the cost of ingredients it was only prepared to offer a price per gallon of $12, and that any paint Paintco chose to purchase would be sold “as is,” without any warranties. After subsequent talks between the parties failed to resolve their differences, Paintco promptly secured a commitment from the next lowest bidder, BrushCorp, to supply all 10,000 gallons at a price of $14 per gallon. Paintco then immediately wrote a letter to Ritzcorp declaring that Ritzcorp had repudiated its contractual commitment to supply paint, and threatening to hold it accountable for all damages. Paintco completed the government job using the paint supplied by BrushCorp.<br /><br />What action(s) can Paintco reasonably assert against Ritzcorp, and what would be the likely result of these action(s)? Discuss.",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 8,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 9,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 10,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 11,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 12,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 13,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 14,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 15,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 16,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 17,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 18,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 19,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 20,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		}
+	]
+}

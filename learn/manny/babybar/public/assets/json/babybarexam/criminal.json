@@ -1,0 +1,285 @@
+{
+	"terms": {
+		"accomplice_liability": {
+			"name": "Accomplice Liability?",
+			"years": [
+				{
+					"id": 2,
+					"year": "june 2002"
+				}
+			]
+		},
+		"arson": {
+			"name": "Arson?",
+			"years": [
+				{
+					"id": 2,
+					"year": "june 2002"
+				}
+			]
+		},
+		"assault": {
+			"name": "Assault",
+			"years": [
+				{
+					"id": 1,
+					"year": "june 2002"
+				}
+			]
+		},
+		"battery": {
+			"name": "Battery",
+			"years": [
+				{
+					"id": 1,
+					"year": "june 2002"
+				}
+			]
+		},
+		"conspiracy": {
+			"name": "Conspiracy?",
+			"years": [
+				{
+					"id": 2,
+					"year": "june 2002"
+				}
+			]
+		},
+		"involuntary_manslaughter": {
+			"name": "Involuntary Manslaughter",
+			"years": [
+				{
+					"id": 1,
+					"year": "june 2002"
+				},
+				{
+					"id": 2,
+					"year": "june 2002"
+				}
+			]
+		},
+		"mitigation": {
+			"name": "Mitigation",
+			"years": [
+				{
+					"id": 1,
+					"year": "june 2002"
+				}
+			]
+		},
+		"murder": {
+			"name": "Murder",
+			"years": [
+				{
+					"id": 1,
+					"year": "june 2002"
+				}
+			]
+		},
+		"solicitation":  {
+			"name": "Solicitation",
+			"years": [
+				{
+					"id": 2,
+					"year": "june 2002"
+				}		  
+			]
+		},
+		"voluntary_manslaughter":  {
+			"name": "Voluntary Manslaughter",
+			"years": []
+		}
+	},
+	"data": [
+		{
+			"id": 1,
+			"year": "june 2002",
+			"hypo": "Debbie and Jon met in college and dated each other for two years. Debbie loved Jon very much and wanted to marry him. Jon always told her that he loved only her, but he told her he thought they were too young and should not rush into marriage.
+	One day as Debbie was putting gasoline into her car at the gasoline station, she looked into the car parked next to hers. She was enraged to see her best friend Vickie passionately kissing Jon. Debbie walked over to the car, with the fuel dispenser in her hand, and started yelling at Vickie and Jon. Vickie said, \"I'm sorry you had to find out this way. Jon and I love each other and are going to get married.\" Debbie was enraged and shouted, \"You're not going to marry anyone, you slime!\" She then pointed the gasoline dispenser at Vickie and sprayed her with gasoline, soaking her hair and clothes. Jon reached over to try to help Vickie. Unfortunately, he was smoking a cigarette. The cigarette ignited the gasoline and Vickie burned to death. What offense or offenses has Debbie committed and what defenses, if any, would she assert? Discuss.",
+			"topic": "murder",
+			"issues": [
+				"assault",
+				"battery",
+				"murder",
+				"mitigation",
+				"involuntary_manslaughter"			
+			]
+		},
+		{
+			"id": 2,
+			"year": "june 2002",
+			"hypo": "Anna owned a business and stored insured business inventory at a warehouse owned by Bob. Anna was experiencing financial problems and needed funds to pay her creditors. Bob, after hearing of Anna’s money problems, suggested that they hire someone to burn down the warehouse since he was planning to build condominiums on the warehouse property and could use the insurance proceeds for the construction of the condominiums. Bob told Anna that he knew someone who would handle burning the warehouse in return for a percentage of the insurance proceeds. Anna agreed and Bob contacted Cindy to burn down the warehouse. Cindy obtained the location of the warehouse from Bob and proceeded to set fire to the warehouse. Unbeknownst to Anna, Bob or Cindy, a homeless person, Daryll, was living in the warehouse. Daryll died as a result of the fire.<br /><br />After hearing about Daryll’s death, Anna and Bob decided not to make any insurance claims. After an investigation Anna, Bob and Cindy were arrested.<br /><br />With what crimes, if any, might Anna, Bob and Cindy be charged and what defenses, if any, could each assert? Discuss.",
+			"topic": "conspiracy, murder",
+			"issues": [
+				"conspiracy",
+				"solicitation",
+				"murder",
+				"arson",
+				"involuntary_manslaughter",
+				"accomplice_liability"
+			]
+		},
+		{
+			"id": 3,
+			"year": "october 2002",
+			"hypo": "As Dan walked down a busy city street one afternoon, Vic, a scruffy, long-haired young man, approached him. For some time, Dan had been plagued by a pathological fear that long-haired transients were trying to kill him. Mistakenly believing that his life was about to be taken, Dan pulled out a handgun and fired the gun, intending only to wound Vic in the legs to prevent the anticipated attack. Rather than inflicting the intended leg wound, the bullet ricocheted off the sidewalk and hit Vic in the heart, killing him instantly.<br /><br />1. With what crime or crimes should Dan be charged? Discuss. <br /><br />2. What defense or defenses might Dan assert? Discuss.",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 4,
+			"year": "june 2003",
+			"hypo": "Bill and his wife, Alice, fought constantly. On occasion Alice had to miss work when Bill physically beat her up during quarrels. Alice is Chuck’s supervisor at Acme Bank. Chuck would like to take over Alice’s job at the bank. Knowing of Bill’s violent temper, Chuck devised a scheme that he hoped would induce Bill to murder Alice, so that Chuck would be promoted to Alice’s position at the bank.<br /><br />One evening, Chuck followed Bill to his favorite bar. When Bill had become very drunk, Chuck told him that Alice was having an affair with the bank president and that Chuck had found them locked in an embrace in the president’s office that very afternoon. Chuck’s story was completely fabricated. As Chuck expected, Bill became furious and ran out of the bar in a rage, shouting, “This time I’m going to kill her.”<br /><br />On the way home, Bill, who was still obviously drunk and in a state of severe agitation, stopped at a sporting goods store and bought a shotgun. The store owner, Dave, sold him the gun, even though Bill stated to Dave that he was going to use it to kill his wife. Bill rushed to his house with the gun, looked through a window, and saw Alice sitting at the dining room table playing cards with a neighbor, Emily. He stood outside the window and took aim at Alice. Meanwhile, Emily’s husband Fred was coming to pick up his wife. Fred saw Bill and tackled him, hoping to disarm Bill before he fired the gun. Unfortunately, Bill pulled the trigger just as he was tackled by Fred, and the deflected shot hit and killed Emily.<br /><br />With what crime or crimes, if any, should Chuck, Bill, Dave and Fred be charged and what, if any, defenses should each assert? Discuss.",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 5,
+			"year": "october 2003",
+			"hypo": "Able was low on money and short on credit, so he borrowed money from a loan shark who was associated with organized crime. When Able failed to meet the repayment deadline, the loan shark told Able he had one more day to come up with the money or Able would find it “very, very painful.”<br /><br />Frightened and desperate, Able decided to break into the home of Rich and steal a collection of valuable antique coins. (Able had done some carpentry jobs for Rich on occasion, so he was familiar with his home.) Able knew that the coin collection was kept in a safe in a small room in Rich’s home, so he asked Baker to help him with the heist. Baker was a master welder and Able knew Baker’s skills would come in handy if they were to steal the coins. Baker agreed and brought a blowtorch with him that night. Able and Baker easily gained entry to the house by cutting a hole in the back door and entered through the hole. They quickly disabled the alarm system and then Baker went to work on the safe with his blowtorch. They had nearly gotten the safe open when Able knocked over the blowtorch. It ignited some curtains nearby and the fire quickly spread. Soon the whole structure was ablaze. Able and Baker fled without having taken anything.<br /><br />Sam and Carol lived next door to Rich and the fire soon jumped from Rich’s home to their residence. Carol woke up, smelled the smoke, and ran into the living room. Her husband, Sam, was sleeping on the couch. Carol was very angry with Sam. He had told her earlier that evening that he wanted a divorce and Carol now saw a chance for revenge. Carol ran from the burning house, leaving him asleep on the couch. By the time Sam awoke, the house was full of flames and heavy dark smoke. He tried to exit the house, but was quickly overcome by the fire and died.<br /><br />What crimes, if any, have been committed by Able, Baker, and Carol, and what defenses should each assert? Discuss.",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 6,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 7,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 8,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 9,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 10,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 11,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 12,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 13,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 14,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 15,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 16,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 17,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 18,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 19,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 20,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		}
+	]
+}

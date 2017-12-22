@@ -1,6 +1,6 @@
 {
-	"key": "consideration",
-	"name": "Consideration",
+	"key": "valid_contract",
+	"name": "Is it a Valid Contract?",
 	"next": {
 		"key": "",
 		"name": "",

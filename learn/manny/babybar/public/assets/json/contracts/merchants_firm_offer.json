@@ -1,6 +1,6 @@
 {
-	"key": "ucc",
-	"name": "Does UCC apply",
+	"key": "merchants_firm_offer",
+	"name": "Merchant's Firm Offer?",
 	"next": {
 		"key": "",
 		"name": "",

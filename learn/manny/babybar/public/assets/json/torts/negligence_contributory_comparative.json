@@ -1,6 +1,6 @@
 {
-	"key": "tort_damages",
-	"name": "Tort Damages",
+	"key": "negligence_contributory_comparative",
+	"name": "Contributory & Comparative Negligence",
 	"next": {
 		"key": "",
 		"name": "",

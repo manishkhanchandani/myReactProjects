@@ -1,6 +1,6 @@
 {
-	"key": "tort_damages",
-	"name": "Tort Damages",
+	"key": "negligence_assumption_of_risks",
+	"name": "Assumption of Risks (Negligence)",
 	"next": {
 		"key": "",
 		"name": "",

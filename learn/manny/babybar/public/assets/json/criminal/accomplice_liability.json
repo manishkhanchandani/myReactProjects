@@ -1,6 +1,6 @@
 {
-	"key": "ucc",
-	"name": "Does UCC apply",
+	"key": "accomplice_liability",
+	"name": "Accomplice Liability?",
 	"next": {
 		"key": "",
 		"name": "",

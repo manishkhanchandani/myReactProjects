@@ -1,6 +1,6 @@
 {
-	"key": "ucc",
-	"name": "Does UCC apply",
+	"key": "parties_merchant",
+	"name": "Are Parties Merchants?",
 	"next": {
 		"key": "",
 		"name": "",

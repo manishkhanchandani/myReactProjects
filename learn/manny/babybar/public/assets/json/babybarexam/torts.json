@@ -1,0 +1,374 @@
+{
+	"terms": {
+		"assault": {
+			"name": "Assault",
+			"years": [
+				{
+					"id": 1,
+					"year": "june 2002"
+				}
+			]
+		},
+		"battery": {
+			"name": "Battery",
+			"years": [
+				{
+					"id": 1,
+					"year": "june 2002"
+				}
+			]
+		},
+		"conversion": {
+			"name": "Conversion",
+			"years": [
+				{
+					"id": 1,
+					"year": "june 2002"
+				}
+			]
+		},
+		"negligence": {
+			"name": "Negligence",
+			"years": [
+				{
+					"id": 1,
+					"year": "june 2002"
+				},
+				{
+					"id": 2,
+					"year": "october 2002"
+				}
+			]
+		},
+		"negligence_actual_cause": {
+			"name": "Negligence Actual Cause",
+			"years": [
+				{
+					"id": 1,
+					"year": "june 2002"
+				},
+				{
+					"id": 2,
+					"year": "october 2002"
+				}
+			]
+		},
+		"negligence_assumption_of_risks": {
+			"name": "Assumption of Risks (Negligence)",
+			"years": [
+				{
+					"id": 1,
+					"year": "june 2002"
+				},
+				{
+					"id": 2,
+					"year": "october 2002"
+				}
+			]
+		},
+		"negligence_breach": {
+			"name": "Negligence Breach",
+			"years": [
+				{
+					"id": 1,
+					"year": "june 2002"
+				},
+				{
+					"id": 2,
+					"year": "october 2002"
+				}
+			]
+		},
+		"negligence_contributory_comparative": {
+			"name": "Contributory & Comparative Negligence",
+			"years": [
+				{
+					"id": 1,
+					"year": "june 2002"
+				}
+			]
+		},
+		"negligence_duty": {
+			"name": "Negligence Duty",
+			"years": [
+				{
+					"id": 1,
+					"year": "june 2002"
+				},
+				{
+					"id": 2,
+					"year": "october 2002"
+				}
+			]
+		},
+		"negligience_duty_premises": {
+			"name": "Negligience Duty Premises",
+			"years": [
+				{
+					"id": 1,
+					"year": "june 2002"
+				}
+			]
+		},
+		"negligence_general_damages": {
+			"name": "Negligence General Damages",
+			"years": [
+				{
+					"id": 1,
+					"year": "june 2002"
+				},
+				{
+					"id": 2,
+					"year": "october 2002"
+				}
+			]
+		},
+		"negligence_proximate_cause": {
+			"name": "Negligence Proximate Cause",
+			"years": [
+				{
+					"id": 1,
+					"year": "june 2002"
+				},
+				{
+					"id": 2,
+					"year": "october 2002"
+				}
+			]
+		},
+		"negligence_special_damages": {
+			"name": "Negligence Special Damages",
+			"years": [
+				{
+					"id": 1,
+					"year": "june 2002"
+				},
+				{
+					"id": 2,
+					"year": "october 2002"
+				}
+			]
+		},
+		"strict_liability": {
+			"name": "Strict Liability",
+			"years": [
+				{
+					"id": 2,
+					"year": "october 2002"
+				}
+			]
+		},
+		"trespass_to_chattels": {
+			"name": "Trespass to Chattels",
+			"years": [
+				{
+					"id": 1,
+					"year": "june 2002"
+				}
+			]
+		}
+	},
+	"data": [
+		{
+			"id": 1,
+			"year": "june 2002",
+			"hypo": "Craft Village is a small town that is popular with tourists because of its fine arts and crafts stores. Craft Village has no public transportation. All of the stores are located on Main Street. There is one large gallery, Northwoods Gallery, at the north end of Main Street. At the south end of Main Street is the Snooze Inn, a large motel. Tourists often stay at the Snooze Inn when they want to spend more than a day in Craft Village. Craft Village shops, by town ordinance, must remain open from at least 10:00 a.m. to 8:00 p.m. every day, including Sundays. All of the shops close at 8:00 p.m. except Northwoods Gallery, which is open until 11:00 p.m. every night. Craft Village provides street lighting along Main Street, which is turned on each night at dusk.<br /><br />Jean arrived in Craft Village on Sunday night for her annual shopping expedition. As on all of her previous trips to Craft Village, she stayed at the Sn ooze Inn f or two nights. She does not own a car, and one of the reasons she likes Craft Village is that she can walk to all the shops.<br /><br />Jean got up on Monday morning to go shopping. She shopped all day, and walked back to the Snooze Inn at 7:00 p.m. for dinner. After dinner, at around 8:30 p.m., she began walking to Northwoods Gallery. Half way there, she was accosted by a mugger. The mugger stood in front of her and shouted, \"Hand over your purse, or I'll beat you up!\" The mugger roughly snatched Jean's purse as she held it out to him. The mugger fled, and Jean turned around and ran back to the Snooze Inn. The mugger was later captured by the police.<br /><br />On what theory or theories, if any, might Jean recover damages from, and what defenses might she anticipate, in an action against:<br />1. The mugger? Discuss.<br />2. Craft Village? Discuss.<br />3. Northwoods Gallery? Discuss. 4. Snooze Inn? Discuss.",
+			"topic": "intentional torts, negligence",
+			"issues": [
+				"assault",
+				"battery",
+				"trespass_to_chattels",
+				"conversion",
+				"negligence",
+				"negligence_duty",
+				"negligience_duty_premises",
+				"negligence_breach",
+				"negligence_actual_cause",
+				"negligence_proximate_cause",
+				"negligence_general_damages",
+				"negligence_special_damages",
+				"negligence_contributory_comparative",
+				"negligence_assumption_of_risks"
+			]
+		},
+		{
+			"id": 2,
+			"year": "october 2002",
+			"hypo": "A zoo maintenance employee threw a pile of used cleaning rags into a hot, enclosed room on the zoo's premises. The rags contained a flammable cleaning fluid that later spontaneously burst into flames as a result of the heat in the room.<br /><br />The fire caused a large water main in the zoo to burst, and the escaping water from the main washed away a portion of the zoo's zebra pen fence. A zebra escaped from the zoo through the hole in the fence caused by the water.<br /><br />A young child encountered the zebra in a nearby residential area. The child petted the zebra and offered it a stick of candy. In taking the candy from the child the zebra bit off one of the child's fingers.<br /><br />On what theory or theories of liability might an action be brought against the zoo on behalf of the child and what should be the likely outcome of such action? Discuss.",
+			"topic": "strict liability",
+			"issues": [
+				"negligence",
+				"negligence_duty",
+				"strict_liability",
+				"negligence_breach",
+				"negligence_actual_cause",
+				"negligence_proximate_cause",
+				"negligence_general_damages",
+				"negligence_special_damages",
+				"negligence_assumption_of_risks"
+			]
+		},
+		{
+			"id": 3,
+			"year": "june 2003",
+			"hypo": "Flora owns a busy florist shop on a major thoroughfare near a dangerous intersection. The intersection has been the site of recent accidents, some involving cars exiting Flora’s parking lot. Because of this situation she hired Attendant to direct traffic into and out of the parking lot and placed a sign at the lot’s entrance, visible from the street, which states: “Caution, Cars Entering Street.” Flora also instructed Attendant to make sure that the street was clear before sending a car out, but she provided no other instruc tions or training. She was aware that Attendant was sometimes careless in his work. Attendant, given the clothes he wears, could not be mistaken for a police officer.<br /><br />One morning, distracted by the line of honking cars that wished to exit the lot, Attendant waved Customer’s car out of the parking lot with only a hurried glance to determine if the street was clear. Customer heeded Attendant’s signal to exit the lot, but was distracted by her crying baby in the back seat and did not check to see if the street was clear. Businessman, who was driving toward Flora’s shop, was dialing his cellular phone, and did not see Customer’s car exiting the lot.<br /><br />Businessman, whose driver’s license had expired, collided with Customer. Both drivers were injured and both cars were damaged.<br /><br />It is a crime to drive with an expired driver’s license. It is also a crime to employ a parking attendant who does not possess a special parking attendant license which costs $50, and requires three hours of safety training relating to operating a parking lot. Any employer of a parking attendant must obtain the license on behalf of the employee and is responsible for ensuring that the employee attends the three hours of safety training. Flora did neither.<br /><br />On what theory or theories might an action or actions for damages be brought, and what defenses might be anticipated by:<br /><br />1. Customer against Businessman? Discuss.<br />2. Customer against Flora? Discuss.<br />3. Businessman against Flora? Discuss.<br />4. Customer and Businessman against Attendant? Discuss.",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 4,
+			"year": "october 2003",
+			"hypo": "Peter, walking along the street at 10:00 p.m. on April 20, urgently needed to find a restroom. Just ahead was Dell’s Supper Club (“Dell’s”), which Peter had patronized a few times in the past. There was a sign on the door of Dell’s that said “Restrooms for Patrons Only.” He was not familiar with Dell’s restroom. He entered the dimly lit club and was directed by a waitress toward a door marked “MEN”. Peter opened this door and stepped into an even darker room. Just inside the door, Peter felt for and pushed a light switch, but no light came on because the bulb in the ceiling fixture was burned out. Nevertheless, Peter walked towards what he thought was the toilet, but tripped over a step, fell, and suffered severe cuts and bruises.<br /><br />Later that night at Dell’s John ordered a steak with mushrooms. Dell’s used canned mushrooms purchased from Acme Foods, which three weeks earlier had discovered that some of its canned mushrooms had been improperly prepared and if eaten could cause botulism. Acme Foods notified all its customers of the problems with the canned mushrooms and offered to replace any cans of mushrooms purchased from them. Dell’s received this notice, but disregarded it. John was served some of the mushrooms in question and as a result contracted botulism, recovering only after five days of severe illness and hospital treatment.<br /><br />At 6:00 a.m. the next morning Carl, who was paid to pick up the garbage at Dell’s, drove to the back of the club to carry out his duties. He did not see Dell’s large guard dog chained next to the bin to keep out trespassers, and the dog was asleep when Carl entered the bin. As Carl walked to the bin, he startled the dog and it attacked Carl. The dog grabbed Carl’s shoe and held on tightly. Carl managed to get his foot out of the shoe, ran to the fence surrounding the back of the restaurant, and climbed over it to get away from the dog. Once he reached the top of the fence, he fell to the ground on the other side and broke his leg.<br /><br />What actions could Peter, John and Carl assert against Dell’s, what defenses should Dell’s assert, and what would be the probable results? Discuss.",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 5,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 6,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 7,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 8,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 9,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 10,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 11,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 12,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 13,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 14,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 15,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 16,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 17,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 18,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 19,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		},
+		{
+			"id": 20,
+			"year": "",
+			"hypo": "",
+			"topic": "",
+			"issues": [
+					   
+			]
+		}
+	]
+}

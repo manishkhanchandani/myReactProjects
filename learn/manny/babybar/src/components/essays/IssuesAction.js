@@ -1,5 +1,6 @@
 import {firebaseDatabase, FirebaseConstant} from '../../MyFirebase.js';
 import {dynamicSort, timeAgo} from '../../utilities/functions.js';
+import {issuesConstant} from './IssuesConstant.js';
 
 export const ajaxGetCall = (url, resolve, reject) => {
 	fetch(url, {
@@ -63,6 +64,33 @@ export const getSubjectsJson = (dispatch, subject=null) => {
 				resolve(j);
 			}).catch((err) => {
 				console.log('err is ', err);
+				reject(err);
+			});					  
+		})
+	}
+}
+
+
+export const getBabyBarExamJson = (subject=null) => {
+	return {
+		type: 'GET_BABYBAREXAM_JSON',
+		payload: new Promise((resolve, reject) => {
+			let StorageKey = issuesConstant.local_storage_key + "_" + subject;
+			let j = localStorage.getItem(StorageKey);
+			if (j) {
+				//resolve(JSON.parse(j));
+				//return;
+			}
+			let url = '/assets/json/babybarexam/'+subject+'.json';
+			fetch(url, {
+				method: 'GET'	  
+			}).then((response) => {
+				return response.json();
+			}).then((j) => {
+				localStorage.setItem(StorageKey, JSON.stringify(j));
+				resolve(j);
+			}).catch((err) => {
+				console.log('err getBabyBarExamJson is ', err);
 				reject(err);
 			});					  
 		})

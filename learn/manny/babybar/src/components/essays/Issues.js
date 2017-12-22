@@ -44,7 +44,7 @@ class EssayIssues extends Component {
 	componentDidMount() {
 		this.props.callGetSubjectsJson(this.props.match.params.subject);
 		this.props.callGetIssueJson(this.props.match.params.subject, this.props.match.params.issue);
-		
+		this.props.callGetBabyBarExamJson(this.props.match.params.subject);
 	}
 	
 	componentWillReceiveProps(nextProps) {
@@ -52,6 +52,7 @@ class EssayIssues extends Component {
 		if (nextProps.match.params.subject !== this.state.isPageSubject || nextProps.match.params.issue !== this.state.isPageIssue) {
 			nextProps.callGetSubjectsJson(nextProps.match.params.subject);
 			nextProps.callGetIssueJson(nextProps.match.params.subject, nextProps.match.params.issue);
+			nextProps.callGetBabyBarExamJson(nextProps.match.params.subject);
 			
 			this.setState({isPageSubject: nextProps.match.params.subject, isPageIssue: nextProps.match.params.issue, show_past_answer: false, show_past_quiz: false});
 		}
@@ -78,6 +79,8 @@ class EssayIssues extends Component {
 		obj.text = this.state.selectedEssay.text;
 		obj.key = this.state.selectedEssay.key;
 		obj.year = this.state.selectedEssay.year;
+		obj.qid = this.state.selectedEssay.qid;
+		obj.topic = this.state.selectedEssay.topic;
 		obj.created_dt = firebase.database.ServerValue.TIMESTAMP;
 		var url = FirebaseConstant.basePath + '/quiz/issues_answers' + uidPath + subject + issue;
 		firebaseDatabase.ref(url).push(obj);
@@ -124,9 +127,27 @@ class EssayIssues extends Component {
 	close() {
 		this.setState({deleteIssueModal: false, deleteIssueModalData: null});
 	}
+	
+	selectEssay(obj, data, e)
+	{
+		e.preventDefault();		
+		let records = data.filter((rec) => {
+			return rec.id == obj.id;
+		});
+		
+		if (!records) {
+			return false;	
+		}
+		
+		let record = records[0];
+		
+		obj.hypo = record.hypo;
+		obj.issues = record.issues;
+		obj.topic = record.topic;
+		this.setState({selectedEssay: obj})
+	}
 
 	render() {	
-	console.log('state is ', this.state);
 		let subject = this.props.issuesReducer.subject;		
 		let issue = this.props.issuesReducer.issue;
 		let uid = getUID();
@@ -160,7 +181,15 @@ class EssayIssues extends Component {
 		let sitePanelClass_2 = 'primary';
 		let sitePanelClass_3 = 'primary';
 		let sitePanelClass_4 = 'primary';
-			
+		
+		let exam_term_definition = null;
+		let exam_data = null;
+		if (this.props.match.params.issue && this.props.issuesReducer.baby_bar_exam) {
+			exam_term_definition =  this.props.issuesReducer.baby_bar_exam.terms[this.props.match.params.issue];
+			exam_data = this.props.issuesReducer.baby_bar_exam.data;
+		}
+		
+		
 		return (
 			<div className="issues">
 				
@@ -181,12 +210,15 @@ class EssayIssues extends Component {
 							issue &&
 							<div className="row myFavText">
 								<div className="col-md-4">
-									<div className={`panel panel-${sitePanelClass_1}`}>
-										<div className="panel-heading"><b>Rule</b></div>
-										<div className="panel-body">
-											{renderHTML(issue.rule)}
+									{
+										 issue.rule &&
+										<div className={`panel panel-${sitePanelClass_1}`}>
+											<div className="panel-heading"><b>Rule</b></div>
+											<div className="panel-body">
+												{renderHTML(issue.rule)}
+											</div>
 										</div>
-									</div>
+									}
 									{
 										issue.elements &&
 										<div className={`panel panel-${sitePanelClass_2}`}>
@@ -298,9 +330,51 @@ class EssayIssues extends Component {
 										</div>
 									}
 									
-									
-									
 									{
+										exam_term_definition &&
+										<div className={`panel panel-${sitePanelClass_4} essays` }>
+											<div className="panel-heading">Essays To Practice</div>
+											<div className="panel-body">
+												<div>Click on each of the following hypo and try to write the essay related to "{issue.name}" only in the following textarea.<br /></div>
+												<ol>
+													{
+														exam_term_definition.years.map((value, key) => {
+															var obj = value;
+															obj.text = '';
+															obj.key = key;
+															obj.qid = value.id;
+															obj.year = value.year;
+															return <li key={key}><a href="" onClick={this.selectEssay.bind(this, obj, exam_data)}>{value.year} (id: {value.id})</a></li>							   
+														})	
+													}
+													{
+														this.state.selectedEssay &&
+														<li key="close"><a href="" onClick={(e) => {e.preventDefault(); this.setState({selectedEssay: null})}}>Close Textarea</a></li>
+													}
+												</ol>
+												{
+													this.state.selectedEssay &&
+													<div>
+														<div className="divider">
+															<b>Year: </b> {this.state.selectedEssay.year}
+														</div>
+														<div className="divider">
+															<b>Hypo: </b> {renderHTML(this.state.selectedEssay.hypo)}
+														</div>
+														<div className="divider">
+														<textarea className="form-control" rows="10" value={this.state.selectedEssay.text} onChange={this.updateEssayText.bind(this)}></textarea>
+														</div>
+														<div className="divider">
+														<Button className="form-control" bsStyle="primary" onClick={this.submitEssay.bind(this)}>Submit</Button>
+														</div>
+													</div>
+												}
+											</div>
+										</div>
+									}
+									
+									
+									{/*
 										issue.essays &&
 										<div className={`panel panel-${sitePanelClass_4} essays` }>
 											<div className="panel-heading">Essays To Practice</div>
@@ -339,7 +413,7 @@ class EssayIssues extends Component {
 												}
 											</div>
 										</div>
-									}
+									*/}
 									
 									
 									
@@ -404,7 +478,7 @@ class EssayIssues extends Component {
 													this.props.issuesReducer.issue_answers.map((value, key) => {
 														return <div key={key} className={`panel panel-${sitePanelClass_1}`}>
 														  <div className="panel-heading">
-															<h3 className="panel-title">{value.year} (For Question {value.key + 1})</h3>
+															<h3 className="panel-title">{value.year} (ID: {value.qid})</h3>
 														  </div>
 														  <div className="panel-body">
 															{value.text}
@@ -522,6 +596,10 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		callGetIssueJson: (subject=null, issue=null) => {
 			dispatch(issuesAction.selectIssueJson(dispatch, subject, issue));
+		},
+		callGetBabyBarExamJson: (subject=null) => {
+			if (!subject) return;
+			dispatch(issuesAction.getBabyBarExamJson(subject));
 		},
 		callGetSimpleQuiz: (u=null, s=null, i=null) => {
 			if (!u || !s || !i) {
