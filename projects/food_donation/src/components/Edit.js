@@ -121,7 +121,7 @@ class Edit extends Component {
 		}
 		
 		//redirect user to confirm page
-		this.props.history.push("/confirm");
+		this.props.history.push("/confirm_update");
 	}
 	
 	componentDidMount() {
@@ -134,7 +134,6 @@ class Edit extends Component {
 	}
 	
 	render() {
-		console.log('state value: ', this.state);
 		return (
 			<div className="container">
 				<div className="row">
@@ -155,7 +154,6 @@ class Edit extends Component {
 									return null;
 								}
 								
-								console.log(place);
 								var componentForm = {
 									locality: 'long_name',
 									administrative_area_level_1: 'short_name',

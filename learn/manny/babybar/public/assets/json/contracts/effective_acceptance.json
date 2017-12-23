@@ -1,6 +1,28 @@
 {
-	"key": "ucc",
-	"name": "Does UCC apply",
+	"key": "effective_acceptance",
+	"name": "Effective Acceptance",
+	"rule": "Under the MAILBOX RULES of the common law an acceptance is effective when dispatched, if dispatched in the manner specified in the offer, or by the same or faster means the offer was transmitted where the offer does not specify a means of communication.",
+	"mbe": [
+		{
+			"key": "idea1",
+			"name": "Idea 1: Acceptance Upon Distpatch",
+			"description": "Day 1 - A received the contract from B, A signed the document and mailed to B. Day 1 - Evening, A thought to cancel the contract. Day 2 - A called B and told him to cancel the contract. Day 3 - B received the signed doc. Is it a valid Contract? Answer is yes, becaused acceptance is effective upon dispatch",
+			"examples": [
+				{
+					"question": "2. Questions 2-3 Bob thought Sam’s home was beautiful and he often told Sam if he ever wanted to sell it he (Bob) would like to buy it. On June 10 Sam decided to sell his house to Bob. He drafted a real estate contract to sell the house to Bob, signed it and mailed it to Bob. The document had all necessary terms. Bob received the contract on June 12. He immediately signed it and mailed it back to Sam. Later that day, Bob had second thoughts and decided to cancel the agreement. He called Sam June 13 and told him to ignore the signed contract because he had changed his mind. Sam received the signed contract the next day, June 14. Does Sam have an enforceable contract for the sale of his home under the broadly adopted view in the United States?",
+					"ansOptions": [
+						"Yes, because Bob told Sam he was withdrawing his acceptance by telephone instead of by mail.",
+						"Yes, because Bob’s act of mailing the signed document was an effective acceptance of Sam’s offer.",
+						"No, because Bob effectively retracted his acceptance before Sam received it.",
+						"No, because the U.S. Postal Service was an agent for Bob, not for Sam, and under U.S. Postal Regulations Bob might have retrieved the document after mailing it back to Sam on June 12."
+					],
+					"explanation": "(B) If an offer does not require acceptance by any particular means, an acceptance sent by the same method the offer was sent, or by a faster method, is effective (binding) upon dispatch. [See “Simple Contracts & UCC Outline”, acceptance effective on dispatch, p. 18.] Sam’s offer did not require Bob to respond in any particular way and Bob sent his acceptance the same way Sam sent the offer, so Bob’s acceptance was effective as soon as he mailed it. Therefore (B) correct. Once an acceptance is effective both parties are bound and there are no “take backs” no matter how they are communicated, whether the offeree can get into the Post Office, or even if offerees try to retract acceptances before offerors know of them. Therefore (A), (C) and (D) are all wrong..",
+					"correct": 1
+				}
+			]
+		}
+	
+	],
 	"next": {
 		"key": "",
 		"name": "",

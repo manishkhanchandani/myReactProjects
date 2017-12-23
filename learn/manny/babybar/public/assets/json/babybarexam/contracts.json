@@ -1,104 +1,6 @@
 {
 	"terms": {
-		"acceptantce": {
-			"name": "Acceptance?",
-			"years": [
-				{
-					"id": 1,
-					"year": "june 2002"
-				}
-			]
-		},
-		"consequential_damages": {
-			"name": "Consequential Damages?",
-			"years": [s
-				{
-					"id": 1,
-					"year": "june 2002"
-				}
-			]
-		},
-		"detrimental_reliance": {
-			"name": "Detrimental Reliance?",
-			"years": [
-				{
-					"id": 1,
-					"year": "june 2002"
-				}
-			]
-		},
-		"expected_damages": {
-			"name": "Expectation Damages?",
-			"years": [
-				{
-					"id": 1,
-					"year": "june 2002"
-				}
-			]
-		},
-		"merchants_firm_offer": {
-			"name": "Merchant's Firm Offer?",
-			"years": [
-				{
-					"id": 1,
-					"year": "june 2002"
-				}
-			]
-		},
-		"offer": {
-			"name": "Offer?",
-			"years": [
-				{
-					"id": 1,
-					"year": "june 2002"
-				}
-			]
-		},
-		"parties_merchant":  {
-			"name": "Are Parties Merchants?",
-			"years": [
-				{
-					"id": 1,
-					"year": "june 2002"
-				}
-			]
-		},
-		"ucc":  {
-			"name": "Is UCC?",
-			"years": [
-				{
-					"id": 1,
-					"year": "june 2002"
-				}
-			]
-		},
-		"ucc_remedy_non_breaching_buyer": {
-			"name": "Remedy For Non Breaching Buyer",
-			"years": [
-				{
-					"id": 1,
-					"year": "june 2002"
-				}
-			]
-		},
-		"valid_contract": {
-			"name": "Is it a Valid Contract?",
-			"years": [
-				{
-					"id": 1,
-					"year": "june 2002"
-				}
-			]
-		},
-		"writing_needed": {
-			"name": "Is Writing Needed?",
-			"years": [
-				{
-					"id": 1,
-					"year": "june 2002"
-				}
-			]
-		}
+		
 	},
 	"data": [
 		{
@@ -123,14 +25,14 @@
 		{
 			"id": 2,
 			"year": "october 2002",
-			"hypo": "",
-			"topic": "Windco manufactures and installs insulated window-frame units. Installation comprises about 15% of Windco's total price for the units.<br /><br />Sam, a commercial builder, saw a Windco advertisement and mailed an order for thirty window frames, at $100 per frame, for a total order of $3,000. He also wrote on his order, \"Must have your guarantee of installation within 15 days due to construction deadlines.\"<br /><br />Windco immediately sent Sam an \"Acknowledgment of Order,\" listing the windows and price as per Sam's order, and including a $200 shipping charge. Shipping costs are customarily borne by the buyer of window-frame units. At the bottom of the Windco form was printed the following: \"Installation guaranteed within 60 days.\" Also printed in bold and conspicuous type was the following: \"All warranties of merchantability and fitness are hereby expressly disclaimed.\" Finally, the form stated, \"Contract of Sale Subject to Terms Contained Herein.\"<br /><br />Windco installed the windows 55 days after the order was placed and Sam incurred several delay-related expenses. Windco later submitted a bill for the full amount shown on the \"Acknowledgment of Order\" form. Sam refused to pay the $200 shipping charges. He also discovered that because of a manufacturing defect, the glass in the windows did not fit snugly, permitting rain to leak through.<br /><br />Windco sued Sam for the full price shown on the \"Acknowledgment of Order\" form. Sam counterclaimed against Windco for damages resulting from the delayed installation and unmerchantable quality of the windows.<br /><br />How should the court rule on Windco's and Sam's actions? Discuss.",
+			"hypo": "Windco manufactures and installs insulated window-frame units. Installation comprises about 15% of Windco's total price for the units.<br /><br />Sam, a commercial builder, saw a Windco advertisement and mailed an order for thirty window frames, at $100 per frame, for a total order of $3,000. He also wrote on his order, \"Must have your guarantee of installation within 15 days due to construction deadlines.\"<br /><br />Windco immediately sent Sam an \"Acknowledgment of Order,\" listing the windows and price as per Sam's order, and including a $200 shipping charge. Shipping costs are customarily borne by the buyer of window-frame units. At the bottom of the Windco form was printed the following: \"Installation guaranteed within 60 days.\" Also printed in bold and conspicuous type was the following: \"All warranties of merchantability and fitness are hereby expressly disclaimed.\" Finally, the form stated, \"Contract of Sale Subject to Terms Contained Herein.\"<br /><br />Windco installed the windows 55 days after the order was placed and Sam incurred several delay-related expenses. Windco later submitted a bill for the full amount shown on the \"Acknowledgment of Order\" form. Sam refused to pay the $200 shipping charges. He also discovered that because of a manufacturing defect, the glass in the windows did not fit snugly, permitting rain to leak through.<br /><br />Windco sued Sam for the full price shown on the \"Acknowledgment of Order\" form. Sam counterclaimed against Windco for damages resulting from the delayed installation and unmerchantable quality of the windows.<br /><br />How should the court rule on Windco's and Sam's actions? Discuss.",
+			"topic": "",
 			"issues": [
 				"ucc",
 				"parties_merchant",
 				"valid_contract",
 				"offer",
-				"acceptantce",  
+				"acceptantce"
 			]
 		},
 		{

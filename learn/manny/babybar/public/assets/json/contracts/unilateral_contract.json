@@ -1,6 +1,7 @@
 {
-	"key": "ucc",
-	"name": "Does UCC apply",
+	"key": "unilateral_contract",
+	"name": "Unilateral Contract",
+	"rule": "Under the common law a UNILATERAL CONTRACT OFFER is one that unequivocally indicates acceptance can only be manifested by completion of performance by the offeree. GENERAL OFFERS, reward or bounty offers, are always unilateral contract offers.",
 	"next": {
 		"key": "",
 		"name": "",

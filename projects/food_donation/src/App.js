@@ -8,6 +8,7 @@ import Edit from './components/Edit.js';
 import Delete from './components/Delete.js';
 import MyAccount from './components/MyAccount.js';
 import Confirm from './components/Confirm.js';
+import ConfirmUpdate from './components/ConfirmUpdate.js';
 import Chat from './modules/chat/Chat.js';
 import MyMap2 from './components/MyMap2.js';
 import Detail from './components/lists/template1/Detail.js';
@@ -24,6 +25,7 @@ class App extends Component {
         <Route exact={true} path="/" component={Home} />
         <Route exact={true} path="/create" component={Create} />
         <Route exact={true} path="/confirm" component={Confirm} />
+        <Route exact={true} path="/confirm_update" component={ConfirmUpdate} />
         <Route exact={true} path="/edit/:id" component={Edit} />
         <Route exact={true} path="/delete/:id" component={Delete} />
         <Route exact={true} path="/myaccount" component={MyAccount} />

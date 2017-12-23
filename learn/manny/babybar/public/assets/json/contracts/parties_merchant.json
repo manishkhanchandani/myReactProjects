@@ -1,6 +1,24 @@
 {
 	"key": "parties_merchant",
-	"name": "Are Parties Merchants?",
+	"name": "Merchant Parties?",
+	"rule": "Under the UCC a Merchant is a person who <b>trades in</b> or otherwise <b>holds himself out</b> by occupation or otherwise as <b>knowledgeable about the goods</b> of the contract.",
+	"elements": [
+		"Trades In",
+		"Occupation or Knowledgeable about goods"
+	],
+	"elementsQuestions": [
+		"Here the seller <b>trades in</b> the goods because .... ",
+		"Here the seller <b>holds himself out</b> by occupation or knowledgeable about goods because ... ",
+		"Here the buyer <b>trades in</b> the goods because .... ",
+		"Here the buyer <b>holds himself out</b> by occupation or knowledgeable about goods because ... "
+	],
+	"conclusion": "Therefore, seller is a (not a) merchant and buyer is a (not a) merchant.",
+	"sample_essays": [
+		{
+			"hypo": "Jen has a clothing store and he sells lot of jeans and t-shirts. Amar has \"bought lot of jeans\" in his life time and he went to Jen to buy jeans.",
+			"explanation": "Under the UCC a Merchant is a person who <b>trades in</b> or otherwise <b>holds himself out</b> by occupation or otherwise as <b>knowledgeable about the goods</b> of the contract.<br /><br />Here Jen trades in jeans and t-shirts because he has clothing store and he sells jeans and t-shirts. Here Amar has bought lot of jeans but he does not trade in jeans or t-shirt. Everybody buys many clothes in his life time and that does not make them trader.<br /><br />Therefore, Jen is a merchant and Amer is not a merchant."	
+		}	  
+	],
 	"next": {
 		"key": "",
 		"name": "",

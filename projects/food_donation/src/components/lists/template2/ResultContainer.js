@@ -56,7 +56,6 @@ class ResultContainer extends Component {
 	}
 	
 	handleMarkerClick(val) {
-		console.log('val is ', val);
 	}
 	
 	onActivePageChange(page) {

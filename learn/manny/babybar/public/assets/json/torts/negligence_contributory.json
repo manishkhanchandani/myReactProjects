@@ -1,0 +1,31 @@
+{
+	"key": "negligence_contributory",
+	"name": "Contributory Negligence",
+	"rule": "Under tort law, in Contributory Negligence, plaintiff is barred from recovery if he <b>acted negligently</b> and helped to cause the accident.",
+	"elements": [
+		"Plaintiff acted Negligently",
+		"Plaintiff helped to cause accident"
+	],
+	"elementsQuestions": [
+		"Here plaintiff acted <b>Negligently</b> because ...",
+		"Here plaintiff helped to <b>cause accident</b> because ..."
+	],
+	"conclusion": "Therefore, under contributory negligence theory, Plaintiff will be barred of any recovery.",
+	"description": "In Contributory Negligence, if <b>plaintiff is the reason of injury</b> then he is barred from all recovery. A plaintiff can be barred from recovery for being 1% or more fault for an accident. For example, if a plaintiff is speeding in her car and another car cuts her off, she will not be able to recover if the jury determines she is even 1% at fault for speeding.",
+	"sample_essays": [
+		{
+			"hypo": "Heena is speeding in her car at 100 mph and Amar is in another car cuts her off, will Heena recover?",
+			"explanation": "Under tort law, in Contributory Negligence, plaintiff is barred from recovery if he <b>acted negligently</b> and helped to cause the accident.<br /><br />Here Heena acted <b>Negligently</b> because she was driving her car at 100 mph. Also Heena helped to <b>cause accident</b> because she was speeding her car and Amar's car cuts her off which causes accident. If she would be driving at slow speed, then accident could have been avoided.<br /><br />Therefore, under contributory negligence theory, Heena will be barred of any recovery."	
+		}	  
+	],
+	"next": {
+		"key": "",
+		"name": "",
+		"subject": ""
+	},
+	"previous": {
+		"key": "",
+		"name": "",
+		"subject": ""
+	}
+}

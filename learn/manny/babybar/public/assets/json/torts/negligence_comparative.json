@@ -1,0 +1,31 @@
+{
+	"key": "negligence_comparative",
+	"name": "Comparative Negligence",
+	"rule": "Under tort law, in Comparative Negligence, plaintiff's recovery is reduced proportionally to the degree of plaintiff's fault in causing the damage.",
+	"elements": [
+		"Plaintiff acted Negligently",
+		"Plaintiff helped to cause accident"
+	],
+	"elementsQuestions": [
+		"Here plaintiff acted <b>Negligently</b> because ...",
+		"Here plaintiff helped to <b>cause accident</b> because ..."
+	],
+	"conclusion": "Therefore, under comparative negligence theory, Plaintiff's recovery is reduced based on his fault percentage.",
+	"description": "Comparative negligence places economic burdens on each party  in proportion to their percentage of fault. If a plaintiff suffers $100,000 worth of injury and the jury finds that defendant was 80% at fault and the plaintiff was 20% at fault, the plaintiff would recover $80,000 of her damages. Now here we have 2 types conttributory negligence. A. Pure Comparative Negligence, B. Partial Comparative Negligence.",
+	"sample_essays": [
+		{
+			"hypo": "Heena is speeding in her car at 100 mph and Amar is in another car cuts her off, will Heena recover?",
+			"explanation": "Under tort law, in Contributory Negligence, plaintiff is barred from recovery if he <b>acted negligently</b> and helped to cause the accident.<br /><br />Here Heena acted <b>Negligently</b> because she was driving her car at 100 mph. Also Heena helped to <b>cause accident</b> because she was speeding her car and Amar's car cuts her off which causes accident. If she would be driving at slow speed, then accident could have been avoided.<br /><br />Therefore, under contributory negligence theory, Heena will be barred of any recovery."	
+		}	  
+	],
+	"next": {
+		"key": "",
+		"name": "",
+		"subject": ""
+	},
+	"previous": {
+		"key": "",
+		"name": "",
+		"subject": ""
+	}
+}

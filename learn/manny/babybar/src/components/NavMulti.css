@@ -1,4 +1,10 @@
 /* To Dropdown navbar dropdown on hover */
+
+.navMulti a {
+	font-size: 12px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
 .navMulti .navbar-nav > li:hover > .dropdown-menu {
     display: block;
 }

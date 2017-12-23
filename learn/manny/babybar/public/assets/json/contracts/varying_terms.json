@@ -1,6 +1,7 @@
 {
-	"key": "ucc",
-	"name": "Does UCC apply",
+	"key": "varying_terms",
+	"name": "Varying Terms?",
+	"rule": "Under UCC 2-207 an acceptance that includes varying terms is still effective. If the contract is between merchants the varying term proposed by the offeree may become part of the contract if the offer did not expressly require acceptance according to its terms, the offeror does not object to the varying terms within a reasonable time, and the varying terms are not a material alteration of the offer term.",
 	"next": {
 		"key": "",
 		"name": "",

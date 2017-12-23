@@ -2,8 +2,7 @@ import React, {Component} from 'react';
 import * as firebase from 'firebase';
 import {firebaseDatabase, FirebaseConstant} from '../../MyFirebase.js';
 
-import {timeAgo, processRecords} from '../../utilities/functions.js';
-import Paginator from '../../utilities/Paginator.js';
+import {timeAgo} from '../../utilities/functions.js';
 
 class Comments extends Component {
 	
@@ -58,15 +57,13 @@ class Comments extends Component {
 		}
 		
 		var url = FirebaseConstant.basePath + '/comments/' + this.props.id;
-		var unique_id = firebaseDatabase.ref(url).push(obj).key;
+		firebaseDatabase.ref(url).push(obj);
 		this.setState({comment: ''});
 		
 	}
 	
 	
 	render() {
-		console.log('comments props are ', this.props);
-		console.log('state are ', this.state);
 		return (
 			<div className="comments">
 				<div className="row">

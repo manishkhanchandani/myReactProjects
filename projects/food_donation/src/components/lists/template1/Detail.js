@@ -18,7 +18,6 @@ class Detail extends Component {
 	}
 	
 	componentDidMount() {
-		console.log('i am in component did mount: ', this.props);
 		var url = FirebaseConstant.basePath + '/data/posts/'+this.props.match.params.id;
 		var ref = firebaseDatabase.ref(url);
 		ref.once('value', (snapshot) => {
@@ -34,7 +33,6 @@ class Detail extends Component {
 		});
 	}
 	render() {
-		console.log('state is ', this.state);
 		
 		let loadingIcon = 'https://loading.io/spinners/gears/lg.dual-gear-loading-icon.gif';
 		if (!this.state.data || !this.state.userDetails) {

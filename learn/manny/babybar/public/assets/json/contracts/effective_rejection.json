@@ -1,6 +1,7 @@
 {
-	"key": "ucc",
-	"name": "Does UCC apply",
+	"key": "effective_rejection",
+	"name": "Effective Rejection?",
+	"rule": "Under the MAILBOX RULES of contract law a rejection is effective upon receipt while an acceptance may be effective upon dispatch. An EXCEPTION is made if the OFFEROR CHANGES POSITION in reliance upon a communication of rejection, not knowing that an acceptance was dispatched prior to receipt of the rejection. In that case the rejection is effective upon receipt regardless of the fact an acceptance was also dispatched.",
 	"next": {
 		"key": "",
 		"name": "",

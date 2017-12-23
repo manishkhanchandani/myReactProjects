@@ -1,6 +1,7 @@
 {
-	"key": "ucc",
-	"name": "Does UCC apply",
+	"key": "parol_evidence_rule",
+	"name": "Parol Evidence Rule",
+	"rule": "Under the PAROL EVIDENCE RULE evidence of PRIOR or CONTEMPORANEOUS agreements may not be introduced to VARY or CONTRADICT the terms of a FULLY INTEGRATED WRITING unless it is to show evidence of [DAM FOIL] Duress, Ambiguity, Mistake, Fraud, Oral condition precedent, Illegality, or Lack of consideration. ",
 	"next": {
 		"key": "",
 		"name": "",

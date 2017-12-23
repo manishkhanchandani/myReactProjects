@@ -1,6 +1,7 @@
 {
 	"key": "writing_needed",
 	"name": "Is Writing Needed?",
+	"rule": "If ONLY common law governs say, <br /><br />Under the STATUTE OF FRAUDS certain types of contracts must be written in order to be legally enforced, and one type is a contract for (pick one if it applies here -- MARRIAGE, more than a YEAR, LAND, EXECUTOR of an estate, GUARANTEE of a debt).<br /><br />If UCC say,<br /><br />Under UCC 2-201, a contract for sale of goods worth $500 or more must evidenced by a writing sufficient to show the existence of a contract and signed by the party against whom the contract is to be enforced. But between merchants a SALES CONFIRMATION by one listing quantity will bind both parties if the receiving party does not object within 10 days.<br /><br />Furthermore, the UCC provides exceptions for SPECIAL MADE GOODS, where there is an ADMISSION by the party to be bound that there had been an agreement, or where there has been PARTIAL PERFORMANCE of the contract (i.e. acceptance of some or all goods or payment).<br /><br />Under UCC 2-209 contract modifications must be written to be legally enforceable if the contract, as modified, is for over $500. Otherwise modification agreements will be treated as waivers of conditions that can be always be retracted, unless the Court estops retraction to prevent injustice.",
 	"next": {
 		"key": "",
 		"name": "",

@@ -6,6 +6,7 @@ import {distance, processRecords} from '../utilities/functions.js';
 import Paginator from '../utilities/Paginator.js';
 import {Button, Modal} from 'react-bootstrap';
 import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
+import NoDataFound from './NoDataFound.js';
 
 class ResultContainer extends Component {
 	
@@ -88,10 +89,9 @@ class ResultContainer extends Component {
 	
 	render() {
 		if (!this.props.data) {
-			return null;	
+			return <NoDataFound />;	
 		}
 		
-		console.log('STATE IS ', this.state);
 		var myArray = [];
 		//37.773972, -122.431297
 		for (var key in this.props.data) {
@@ -113,7 +113,6 @@ class ResultContainer extends Component {
 		
 		var uid = localStorage.getItem('userId');
 		
-		
 		return (
 			<div>
 				<div className="row">
@@ -132,6 +131,12 @@ class ResultContainer extends Component {
 				</div>
 				<br />
 				<div className="row resultsContainer">
+				{
+					myArrayConverted.length === 0 && 
+					<div>
+						No Record Found. Please change the search criteria.
+					</div>
+				}
 				{
 					myArrayConverted.map((value, index) => {
 						return	<Results record={value} key={index} fromUid={uid} changeShowModal={this.changeShowModal.bind(this)}  /> 			 

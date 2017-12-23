@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom'; 
 import './style.css';
-import {firebaseDatabase, FirebaseConstant} from '../../../MyFirebase.js';
 
 
 class Results extends Component {
@@ -42,13 +41,12 @@ class Results extends Component {
 			<div className="col-md-12">
 				<div className="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
                         <div className="media">
-                            <a className="pull-left" href="#" target="_parent">
-                            <img alt="image" className="img-responsive" src={image} /></a>
+                            <a className="pull-left" href="" target="_parent">
+                            <img alt="Record" className="img-responsive" src={image} /></a>
 
                             <div className="clearfix visible-sm"></div>
 
                             <div className="media-body fnt-smaller">
-                                <a href="#" target="_parent"></a>
 
                                 <h4 className="media-heading">
                                   <Link to={detailLink}>{this.props.record.title} <small className="pull-right">{this.props.record.location.formatted_address} {distance}</small></Link></h4>

@@ -1,6 +1,21 @@
 {
 	"key": "ucc",
 	"name": "Is UCC?",
+	"rule": "UCC Article 2 governs contracts for the <b>sale of GOODS</b>, <b>movable things</b> at the time of identification to the contract. Otherwise, only COMMON LAW governs the contract.",
+	"elements": [
+		"Sale of Movable Things"
+	],
+	"elementsQuestions": [
+		"Here the contract is for <b>sale of a movable things</b> because it is for sale of widgets and widgets are movable because it has to be transported to buyer's place.",
+		"Or Here the contract is not for the <b>sale of movable things</b> because it is for painting job and painting job is not movable."
+	],
+	"conclusion": "Therefore, this was a contract for a sale of goods and the UCC governs. or Therefore Common Law governs this contract.",
+	"sample_essays": [
+		{
+			"hypo": "Jen has a clothing store and he sells lot of jeans and t-shirts. Amar has \"bought lot of jeans\" in his life time and he went to Jen to buy jeans.",
+			"explanation": "UCC Article 2 governs contracts for the <b>sale of GOODS</b>, <b>movable things</b> at the time of identification to the contract. Otherwise, only COMMON LAW governs the contract.<br /><br />Here the contract is for <b>sale of a movable things</b> because it is for sale of jeans and jeans are movable because it has to be transported to buyer's place.<br /><br />Therefore, this was a contract for a sale of goods and the UCC governs."	
+		}	  
+	],
 	"next": {
 		"key": "",
 		"name": "",

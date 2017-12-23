@@ -1,0 +1,15 @@
+{
+	"key": "effective_revocation",
+	"name": "Effective Revocation?",
+	"rule": "Under the MAILBOX RULES revocation of a contract offer is usually effective upon receipt.<br /><br />Under common law a unilateral offer could be revoked at any time, and revocation of GENERAL OFFERS, reward or bounty offers, was effective when published in the same manner the offer was first announced. But modernly SAVING DOCTRINES prevent the revocation of a unilateral contract offer if the offeror is aware the offeree has commenced the requested act for a reasonable period during which the offeree will be allowed to complete acceptance by performance.",
+	"next": {
+		"key": "",
+		"name": "",
+		"subject": ""
+	},
+	"previous": {
+		"key": "",
+		"name": "",
+		"subject": ""
+	}
+}

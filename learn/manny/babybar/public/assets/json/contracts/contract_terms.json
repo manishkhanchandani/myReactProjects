@@ -17,6 +17,27 @@
 		"Here the <b>Quantity</b> was ..."
 	],
 	"conclusion": "Therefore, the contract was <b>enforceable</b>.",
+	"mbe": [
+		{
+			"key": "idea1",
+			"name": "Idea 1: Prior Service",
+			"description": "A did some service X for B with some standard rates. Now B is specialized in service Y, which B agreed to do for A in return for service X. Now B did not finish his service Y, A has to pay extra to C to complete that service, Now can A sue B for breach.  Inference: A can recover from B' breach for A's prior service X.",
+			"examples": [
+				{
+					"question": "1. Paul painted Elwood’s house. Elwood agreed to pay Paul “standard rates” for his services. After painting was completed, Paul and Elwood executed the following written document: “In exchange for Paul’s prior services in painting his house, Elwood, a licensed electrician, agrees to rewire Paul’s house. Paul hereby releases any claim he may have against Elwood for the unpaid painting bill.” Elwood started work on Paul’s house but skipped town without finishing. The house was not inhabitable and Paul had to pay another electrician $2,000 to finish it. If Paul sues Elwood for breach of contract, which of the following will be the court’s decision?",
+					"ansOptions": [
+						"Paul can recover for Elwood’s breach of a valid agreement made in settlement and discharge of an unliquidated claim by Paul against Elwood for Paul’s prior painting services.",
+						"Paul can only recover for Elwood’s breach of promise under the doctrine of promissory estoppel because there was no bargained for consideration for Elwood’s promise.",
+						"Paul cannot recover more than nominal damages in any event, because his other damages, if any, were speculative.",
+						"Paul cannot recover because Elwood’s promise to rewire Paul’s house was given in substance, if not in form, for Paul’s past services."
+					],
+					"explanation": "(A) Clearly Elwood and Paul created a contract with an open (uncertain) term, the price Elwood had to pay Paul. That could have caused a problem but they settled that uncertainty by agreement after the fact. The second agreement is not a modification of the first contract. Rather it is a second contract to settle the uncertainty of the first contract. [See “Simple Contracts & UCC Outline”, reasonable certainty of terms, p. 2.] (C) is wrong because their second contract established what Elwood owed Paul, ending any possible “speculation”. (D) is wrong because the phrase “in substance, but not form” is simply nonsense meaning nothing. (B) is wrong because their second agreement is a valid contract and “promissory estoppel” is only an equitable remedy that cannot be awarded unless there is no legally enforceable contract in the first place. [See “Simple Contracts & UCC Outline”, promissory estoppel, p. 96.] Everything (A) states is true, so it is the right answer.",
+					"correct": 0
+				}
+			]
+		}
+	
+	],
 	"next": {
 		"key": "",
 		"name": "",

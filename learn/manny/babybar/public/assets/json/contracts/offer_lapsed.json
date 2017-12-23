@@ -1,6 +1,7 @@
 {
-	"key": "ucc",
-	"name": "Does UCC apply",
+	"key": "offer_lapsed",
+	"name": "Offer Lapsed",
+	"rule": "Under common law an offer LAPSES AND CANNOT BE ACCEPTED unless it is accepted in a reasonable period of time. Oral offers are deemed to lapse at the end of the conversation, and written offers are deemed to lapse within the timeframe implied by the means of dispatch, absent contrary agreement or implication.",
 	"next": {
 		"key": "",
 		"name": "",

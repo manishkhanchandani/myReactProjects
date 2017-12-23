@@ -1,6 +1,7 @@
 {
-	"key": "ucc",
-	"name": "Does UCC apply",
+	"key": "implied_in_fact",
+	"name": "Implied In Fact?",
+	"rule": "Under contract law an IMPLIED-IN-FACT CONTRACT will be deemed to have existed, even if there is no express agreement between the parties, if one party acts to bestow benefits on the other party reasonably expecting to be compensated, and the other party knowingly accepts those benefits knowing that the other party expects to be compensated.",
 	"next": {
 		"key": "",
 		"name": "",

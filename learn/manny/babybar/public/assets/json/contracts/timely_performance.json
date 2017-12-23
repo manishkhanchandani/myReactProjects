@@ -1,6 +1,7 @@
 {
-	"key": "ucc",
-	"name": "Does UCC apply",
+	"key": "timely_performance",
+	"name": "TIMELY PERFORMANCE a MATERIAL CONDITION?",
+	"rule": "Under contract law the parties may agree at the time of contract execution that timely performance (by the party to first perform contract services) is a MATERIAL CONDITION. Then the condition is called an EXPRESS CONDITION, and typically the contract says, \"Time is of the essence\".<br /><br />But material conditions may also be or implied when the parties knew at the time of execution that tardy performance would deny the non-performing party the BENEFIT OF THE BARGAIN, the benefit expected when they entered into the agreement. In that case the condition is called an IMPLIED MATERIAL CONDITION.",
 	"next": {
 		"key": "",
 		"name": "",

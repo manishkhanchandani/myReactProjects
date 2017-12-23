@@ -16,7 +16,6 @@ class Home extends Component {
 	}
 
 	render() {
-		console.log('format checking: ', this.props.foodReducer.data);
 		return (
 			<div className="container">
 				<div className="row">

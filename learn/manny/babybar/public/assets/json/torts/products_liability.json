@@ -1,6 +1,7 @@
 {
-	"key": "tort_damages",
-	"name": "Tort Damages",
+	"key": "products_liability",
+	"name": "Products Liability",
+	"rule": "A manufacturer's or seller’s tort liability for any damages or injuries suffered by a buyer, user or bystander as a result of a defective product.",
 	"next": {
 		"key": "",
 		"name": "",

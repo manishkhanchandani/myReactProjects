@@ -1,6 +1,8 @@
 {
 	"key": "merchants_firm_offer",
 	"name": "Merchant's Firm Offer?",
+	"rule": "Under UCC 2-205 an offer by a merchant that promises to \"leave the offer open\" for a period of time cannot be revoked by the offeror if it is stated in writing, for the period of time stated, or for a reasonable period of time (given the circumstances) if no time period is stated. However, regardless of the period of time stated by the offeror, the offeror can revoke within 3 months if that is less than the time period stated. If the merchant promises to \"leave the offer open\" for any period of time, whether more or less than 3 months, that is the \"reasonable period of time\" in which the offeree can accept the offer even if the offeror could legally revoke the offer sooner.",
+	"description": " Under common law an OPTION is a contractual agreement that an offeror will not revoke an offer for a specific period of time in exchange for CONSIDERATION from the offeree. CONSIDERATION is an exchange of promises posing legal detriment such that the law deems it sufficient to support an agreement.",
 	"next": {
 		"key": "",
 		"name": "",

@@ -76,7 +76,6 @@ class Create extends Component {
 	}
 	
 	render() {
-		console.log('state value: ', this.state);
 		return (
 			<div className="container">
 				<div className="row">
@@ -96,8 +95,6 @@ class Create extends Component {
 									alert('please choose the address');
 									return null;
 								}
-								
-								console.log(place);
 								var componentForm = {
 									locality: 'long_name',
 									administrative_area_level_1: 'short_name',
