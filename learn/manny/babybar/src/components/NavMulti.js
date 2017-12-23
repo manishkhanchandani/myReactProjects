@@ -113,52 +113,24 @@ class NavMulti extends Component {
 										</li>
 										
 										<li className="dropdown-submenu">
-											<a href="" className="dropdown-toggle" data-toggle="dropdown">Third Party Contracts</a>
+											<a href="" className="dropdown-toggle" data-toggle="dropdown">Defenses</a>
 											<ul className="dropdown-menu">
-												<li><a href="">Action</a></li>
-												<li className="dropdown-submenu">
-													<a href="" className="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
-													<ul className="dropdown-menu">
-														<li className="dropdown-submenu">
-															<a href="" className="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
-															<ul className="dropdown-menu">
-																<li><a href="">Action</a></li>
-																<li><a href="">Another action</a></li>
-																<li><a href="">Something else here</a></li>
-																<li className="divider"></li>
-																<li><a href="">Separated link</a></li>
-																<li className="divider"></li>
-																<li><a href="">One more separated link</a></li>
-															</ul>
-														</li>
-													</ul>
-												</li>
+												<li><Link to="/essays/issues/contracts/defense_lack_of_intent">Lack of Intent</Link></li>
+												<li><Link to="/essays/issues/contracts/defense_lack_of_consideration">Lack of Consideration</Link></li>
+												<li><Link to="/essays/issues/contracts/defense_contract_modify">Contract Modification</Link></li>
+												<li><Link to="/essays/issues/contracts/defense_unconsionable">Unconsionable</Link></li>
+												<li><Link to="/essays/issues/contracts/defense_duress">Duress</Link></li>
+												<li><Link to="/essays/issues/contracts/defense_fraud">Fraud</Link></li>
+												<li><Link to="/essays/issues/contracts/defense_incapacity">Incapacity</Link></li>
+												<li><Link to="/essays/issues/contracts/defense_illegality">Illegality</Link></li>
+												<li><Link to="/essays/issues/contracts/defense_impossibility">Impossibility</Link></li>
+												<li><Link to="/essays/issues/contracts/defense_impracticability">Commercial Impracticability</Link></li>
+												<li><Link to="/essays/issues/contracts/defense_frustration_of_purpose">Frustration of Purpose</Link></li>
+												<li><Link to="/essays/issues/contracts/defense_mutual_mistake">Mutual Mistake</Link></li>
+												<li><Link to="/essays/issues/contracts/defense_unilateral_mistake">Unilateral Mistake</Link></li>
 											</ul>
 										</li>
 										
-										<li className="dropdown-submenu">
-											<a href="" className="dropdown-toggle" data-toggle="dropdown">Defenses In Contracts</a>
-											<ul className="dropdown-menu">
-												<li><a href="">Action</a></li>
-												<li className="dropdown-submenu">
-													<a href="" className="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
-													<ul className="dropdown-menu">
-														<li className="dropdown-submenu">
-															<a href="" className="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
-															<ul className="dropdown-menu">
-																<li><a href="">Action</a></li>
-																<li><a href="">Another action</a></li>
-																<li><a href="">Something else here</a></li>
-																<li className="divider"></li>
-																<li><a href="">Separated link</a></li>
-																<li className="divider"></li>
-																<li><a href="">One more separated link</a></li>
-															</ul>
-														</li>
-													</ul>
-												</li>
-											</ul>
-										</li>
 										
 										<li className="dropdown-submenu">
 											<a href="" className="dropdown-toggle" data-toggle="dropdown">Breach</a>
@@ -183,6 +155,34 @@ class NavMulti extends Component {
 												</li>
 											</ul>
 										</li>
+										
+										
+										
+										<li className="dropdown-submenu">
+											<a href="" className="dropdown-toggle" data-toggle="dropdown">Third Party Contracts</a>
+											<ul className="dropdown-menu">
+												<li><a href="">Action</a></li>
+												<li className="dropdown-submenu">
+													<a href="" className="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+													<ul className="dropdown-menu">
+														<li className="dropdown-submenu">
+															<a href="" className="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+															<ul className="dropdown-menu">
+																<li><a href="">Action</a></li>
+																<li><a href="">Another action</a></li>
+																<li><a href="">Something else here</a></li>
+																<li className="divider"></li>
+																<li><a href="">Separated link</a></li>
+																<li className="divider"></li>
+																<li><a href="">One more separated link</a></li>
+															</ul>
+														</li>
+													</ul>
+												</li>
+											</ul>
+										</li>
+										
+										
 										
 										<li className="dropdown-submenu">
 											<a href="" className="dropdown-toggle" data-toggle="dropdown">Remedies</a>

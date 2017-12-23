@@ -4,6 +4,7 @@ import Autocomplete from 'react-google-autocomplete';
 import {connect} from 'react-redux';
 import * as firebase from 'firebase';
 import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
+import {Alert} from 'react-bootstrap';
 
 class Create extends Component {
 	
@@ -15,12 +16,42 @@ class Create extends Component {
 			description: '',
 			tags: '',
 			imageUrl: '',
-			location: {}
+			location: {},
+			error: null
 		};
+	}
+	
+	
+	validateFrm() {
+		//conditions
+		if (!this.state.title) {
+			return false;	
+		}
+		
+		if (!this.state.location.lat) {
+			return false;	
+		}
+		
+		if (!this.state.location.lng) {
+			return false;	
+		}
+		
+		if (!this.state.description) {
+			return false;	
+		}
+		
+		return true
 	}
 	
 	submitToFirebase(e) {
 		e.preventDefault();
+		let check = this.validateFrm();
+		if (!check) {
+			//do something
+			this.setState({error: 'Please fill all required fields'});
+			return false;
+		}
+		
 		var current = firebase.database.ServerValue.TIMESTAMP;
 		var obj = {};
 		obj.title = this.state.title;
@@ -81,14 +112,20 @@ class Create extends Component {
 				<div className="row">
 					<div className="col-md-12">
 						<h1>Create New Post</h1>
+						{
+							this.state.error &&
+							<Alert bsStyle="warning">
+								{this.state.error}
+							</Alert>
+						}
 						<form onSubmit={this.submitToFirebase.bind(this)}>
 						  <div className="form-group">
-							<label>Title</label>
+							<label>Title *</label>
 							<input type="text" value={this.state.title} className="form-control" placeholder="Enter Title" onChange={(e) => {
 								this.setState({title: e.target.value});	
 							}} />
 						  </div>
-						  <label>Location</label>
+						  <label>Location *</label>
 						  <Autocomplete className="form-control addressBox" onPlaceSelected={(place) => {
 							  
 							  	if (!place.formatted_address) {
@@ -120,7 +157,7 @@ class Create extends Component {
 							}} types={['geocode']} />
 							
 							<div className="form-group mySpacing">
-								<label>Description</label>
+								<label>Description *</label>
 								<textarea rows="5" className="form-control" value={this.state.description} onChange={(e) => {
 									this.setState({description: e.target.value});	
 								}}></textarea>
