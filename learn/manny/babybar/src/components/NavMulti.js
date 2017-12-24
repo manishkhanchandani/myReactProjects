@@ -28,6 +28,20 @@ class NavMulti extends Component {
 								<li className="active"><Link to="">Home</Link></li>
 								<li><Link to="/quiz">Quiz</Link></li>
 								
+								
+								<li>
+									<a href="" className="dropdown-toggle" data-toggle="dropdown">Issue Spotting <b className="caret"></b></a>
+									<ul className="dropdown-menu">
+										<li><Link to="/essays/issue/spotting/contracts">Contracts</Link></li>
+										<li><Link to="/essays/issue/spotting/criminal">Criminal</Link></li>
+										<li><Link to="/essays/issue/spotting/torts">Torts</Link></li>
+										
+									
+									</ul>
+								</li>
+								
+								
+								
 								<li>
 									<a href="" className="dropdown-toggle" data-toggle="dropdown">Torts <b className="caret"></b></a>
 									<ul className="dropdown-menu multi-level">
@@ -135,24 +149,7 @@ class NavMulti extends Component {
 										<li className="dropdown-submenu">
 											<a href="" className="dropdown-toggle" data-toggle="dropdown">Breach</a>
 											<ul className="dropdown-menu">
-												<li><a href="">Action</a></li>
-												<li className="dropdown-submenu">
-													<a href="" className="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
-													<ul className="dropdown-menu">
-														<li className="dropdown-submenu">
-															<a href="" className="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
-															<ul className="dropdown-menu">
-																<li><a href="">Action</a></li>
-																<li><a href="">Another action</a></li>
-																<li><a href="">Something else here</a></li>
-																<li className="divider"></li>
-																<li><a href="">Separated link</a></li>
-																<li className="divider"></li>
-																<li><a href="">One more separated link</a></li>
-															</ul>
-														</li>
-													</ul>
-												</li>
+												<li><Link to="/essays/issues/contracts/anticipatory_breach">Anticipatory Breach</Link></li>
 											</ul>
 										</li>
 										

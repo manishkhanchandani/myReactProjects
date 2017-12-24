@@ -48,7 +48,6 @@ class EssayIssues extends Component {
 	}
 	
 	componentWillReceiveProps(nextProps) {
-		console.log('nextprops are', nextProps);
 		if (nextProps.match.params.subject !== this.state.isPageSubject || nextProps.match.params.issue !== this.state.isPageIssue) {
 			nextProps.callGetSubjectsJson(nextProps.match.params.subject);
 			nextProps.callGetIssueJson(nextProps.match.params.subject, nextProps.match.params.issue);
@@ -132,7 +131,7 @@ class EssayIssues extends Component {
 	{
 		e.preventDefault();		
 		let records = data.filter((rec) => {
-			return rec.id == obj.id;
+			return rec.id === obj.id;
 		});
 		
 		if (!records) {

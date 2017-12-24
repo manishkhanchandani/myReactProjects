@@ -1,4 +1,5 @@
 {
+	"subject": "Criminal",
 	"terms": {
 		"accomplice_liability": {
 			"name": "Accomplice Liability?",
@@ -94,8 +95,7 @@
 		{
 			"id": 1,
 			"year": "june 2002",
-			"hypo": "Debbie and Jon met in college and dated each other for two years. Debbie loved Jon very much and wanted to marry him. Jon always told her that he loved only her, but he told her he thought they were too young and should not rush into marriage.
-	One day as Debbie was putting gasoline into her car at the gasoline station, she looked into the car parked next to hers. She was enraged to see her best friend Vickie passionately kissing Jon. Debbie walked over to the car, with the fuel dispenser in her hand, and started yelling at Vickie and Jon. Vickie said, \"I'm sorry you had to find out this way. Jon and I love each other and are going to get married.\" Debbie was enraged and shouted, \"You're not going to marry anyone, you slime!\" She then pointed the gasoline dispenser at Vickie and sprayed her with gasoline, soaking her hair and clothes. Jon reached over to try to help Vickie. Unfortunately, he was smoking a cigarette. The cigarette ignited the gasoline and Vickie burned to death. What offense or offenses has Debbie committed and what defenses, if any, would she assert? Discuss.",
+			"hypo": "Debbie and Jon met in college and dated each other for two years. Debbie loved Jon very much and wanted to marry him. Jon always told her that he loved only her, but he told her he thought they were too young and should not rush into marriage. <br /><br />One day as Debbie was putting gasoline into her car at the gasoline station, she looked into the car parked next to hers. She was enraged to see her best friend Vickie passionately kissing Jon. Debbie walked over to the car, with the fuel dispenser in her hand, and started yelling at Vickie and Jon. Vickie said, \"I'm sorry you had to find out this way. Jon and I love each other and are going to get married.\" Debbie was enraged and shouted, \"You're not going to marry anyone, you slime!\" She then pointed the gasoline dispenser at Vickie and sprayed her with gasoline, soaking her hair and clothes. Jon reached over to try to help Vickie. Unfortunately, he was smoking a cigarette. The cigarette ignited the gasoline and Vickie burned to death. What offense or offenses has Debbie committed and what defenses, if any, would she assert? Discuss.",
 			"topic": "murder",
 			"issues": [
 				"assault",

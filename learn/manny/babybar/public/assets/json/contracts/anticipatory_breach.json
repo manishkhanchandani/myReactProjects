@@ -1,6 +1,7 @@
 {
-	"key": "ucc",
-	"name": "Does UCC apply",
+	"key": "anticipatory_breach",
+	"name": "Anticipatory Breach",
+	"rule": "Under contract law an anticipatory breach (or anticipatory repudiation) is a CLEAR STATEMENT OR INDICATION that a party WILL NOT PERFORM future contractual duties when they become due. This is a major breach as to those duties, the non-breaching party is EXCUSED from performance of all remaining contractual duties, and the future duties of the breaching party are ACCELERATED to the present.<br /><br />If a party has a REASONABLE BASIS to believe the other party may not perform future contractual duties, the party may demand REASONABLE ASSURANCES and REFUSE TO PERFORM until they are provided. Reasonable assurances generally means a financial guarantee or payment into escrow.<br /><br />If reasonable assurances are properly demanded and not provided, the failure to respond constitutes an anticipatory breach.",
 	"next": {
 		"key": "",
 		"name": "",

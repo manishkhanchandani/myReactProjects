@@ -17,14 +17,14 @@ export const loggedIn = (params) => {
 };
 
 export const removeOnline = () => {
-	console.log('user removed from online system');
+	/*console.log('user removed from online system');
 	let uid = getUID();
 	console.log('user with id ', uid);
 	if (uid) {
 		let url = FirebaseConstant.basePath + '/online_users/' + uid;
 		console.log('user with url ', url);
 		firebaseDatabase.ref(url).set(null);
-	}	
+	}*/
 }
 
 export const loggedOut = () => {
@@ -153,7 +153,7 @@ export const FirebaseAuthSystem = (dispatch) => {
 			localStorage.setItem('usersObject', JSON.stringify(obj));
 			dispatch(loggedIn(obj));
 			
-			console.log('user added in online system');
+			/*console.log('user added in online system');
 			let uobj = {
 				uid: obj.uid,
 				name: obj.displayName,
@@ -161,7 +161,7 @@ export const FirebaseAuthSystem = (dispatch) => {
 				in_time: firebase.database.ServerValue.TIMESTAMP
 			};
 			let url = FirebaseConstant.basePath + '/online_users/' + obj.uid;
-			firebaseDatabase.ref(url).set(uobj);
+			firebaseDatabase.ref(url).set(uobj);*/
 		} else {
 			dispatch(loggedOut());
 		}

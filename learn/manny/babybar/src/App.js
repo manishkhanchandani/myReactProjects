@@ -8,6 +8,7 @@ import Main from './components/Main.js';
 import Quiz from './components/quiz/Quiz.js';
 import QuizWelcomeScreen from './components/quiz/QuizWelcomeScreen.js';
 import EssayIssues from './components/essays/Issues.js';
+import IssuesSpotting from './components/essays/IssuesSpotting.js';
 
 import Import1 from './components/imports/Import1.js';
 import './App.css';
@@ -42,6 +43,7 @@ class App extends Component {
 								<Route exact={true} path="/essays/issues/:subject/:issue" component={EssayIssues} />
 								<Route exact={true} path="/essays/issues/:subject" component={EssayIssues} />
 								<Route exact={true} path="/essays/issues" component={EssayIssues} />
+								<Route exact={true} path="/essays/issue/spotting/:subject" component={IssuesSpotting} />
 							</div>
 							{
 									/*<div className="col-md-3">
