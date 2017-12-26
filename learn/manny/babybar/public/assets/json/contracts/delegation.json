@@ -1,6 +1,7 @@
 {
-	"key": "ucc",
-	"name": "Does UCC apply",
+	"key": "delegation",
+	"name": "Delegation",
+	"rule": "Under contract law the duty to perform under a contract may be DELEGATED to a DELEGATEE by an original promisor/delegator. However, the promisor/delegator remains primarily liable to the original promisee for performance of the contract. The delegation becomes EFFECTIVE when the delegatee agrees to perform the duties of the promisor/delegator.<br /><br />If the delegatee accepts the delegation in exchange for CONSIDERATION, a legal contract is created between the promisor/delegator and the delegatee, and the original promisee is an intended third-party beneficiary of that contract. As an intended third-party beneficiary the promisee has standing to pursue legal actions against both the promisor/delegator and the delegatee.<br /><br />If the delegatee GRATUITOUSLY accepts the delegation the delegatee has no legal liability to the original promisee and the promisee can only enforce the delegation agreement in equity by showing detrimental reliance.",
 	"next": {
 		"key": "",
 		"name": "",

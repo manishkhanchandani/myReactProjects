@@ -1,6 +1,7 @@
 {
-	"key": "ucc",
-	"name": "Does UCC apply",
+	"key": "breach",
+	"name": "Breach, Major or Minor?",
+	"rule": "Realize the first party to breach a contract is the breaching party and after that the other party is the non-breaching party no matter what they do later.<br /><br />For COMMON LAW say,<br />Under contract law a BREACH is a failure to perform a contractual duty when it becomes due. A MAJOR BREACH is either an act which deprives the other party of the BENEFIT OF THE BARGAIN or the violation of an EXPRESS OR IMPLIED MATERIAL CONDITION by a party, regardless of its effect on the other party. A major breach EXCUSES the non-breaching party from all further performance of contractual duties and ACCELERATES the future contractual duties of the breaching party to the present so the non-breaching party can seek IMMEDIATE PAYMENT OF DAMAGES.<br /><br />For UCC say,<br />Under the PERFECT TENDER RULE of the UCC any shipment of non-conforming goods is a breach of contract. There is no distinction between “major” and “minor” breaches.<br /><br />For UCC DIVISIBLE CONTRACT SITUATION say,<br />Under the UCC a breach with respect to any shipment of goods under a DIVISIBLE CONTRACT does not constitute a breach of the entire contract. A DIVISIBLE contract is one under which goods are to be delivered in separate shipments which can each be evaluated separately under the contract.",
 	"next": {
 		"key": "",
 		"name": "",

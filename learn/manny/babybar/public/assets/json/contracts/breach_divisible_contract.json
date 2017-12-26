@@ -1,6 +1,7 @@
 {
-	"key": "ucc",
-	"name": "Does UCC apply",
+	"key": "breach_divisible_contract",
+	"name": "Effect of Breach on Divisible Contract",
+	"rule": "Under the UCC a breach with respect to any shipment of goods under a DIVISIBLE CONTRACT does not constitute a breach of the entire contract. A DIVISIBLE contract is one under which goods are to be delivered in separate shipments which can each be evaluated separately under the contract.",
 	"next": {
 		"key": "",
 		"name": "",

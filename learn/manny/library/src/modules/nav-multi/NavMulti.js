@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import './NavMulti.css';
 
+import Auth from '../auth/Auth.js';
+
 class NavMulti extends Component {
 	render() {
 		return (
@@ -18,7 +20,7 @@ class NavMulti extends Component {
 						</div>
 						<div className="collapse navbar-collapse">
 							<ul className="nav navbar-nav navbar-right">
-								<li><a href="https://github.com/fontenele/bootstrap-navbar-dropdowns" target="_blank">GitHub Project</a></li>
+								<Auth />
 							</ul>
 							<ul className="nav navbar-nav">
 								<li className="active"><a href="">Home</a></li>

@@ -1,7 +1,14 @@
 {
 	"subject": "Contracts",
 	"terms": {
-		
+		"acceptance": {
+			"name": "Acceptance?",
+			"years": []
+		},
+		"accord_satisfaction": {
+			"name": "Accord & Satisfaction?",
+			"years": []
+		}
 	},
 	"data": [
 		{

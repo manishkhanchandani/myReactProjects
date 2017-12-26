@@ -1,6 +1,7 @@
 {
-	"key": "ucc",
-	"name": "Does UCC apply",
+	"key": "breach_implied_covenant",
+	"name": "Breach of Implied Covenant",
+	"rule": "An IMPLIED MATERIAL CONDITION of every contract is that the parties must act in good faith and are bound by an IMPLIED COVENANT that they will act as reasonably necessary to help the other parties enjoy the benefits of the contract and that they will not act in any way to prevent that from occurring.",
 	"next": {
 		"key": "",
 		"name": "",

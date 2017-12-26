@@ -148,11 +148,21 @@
 		},
 		{
 			"id": 6,
-			"year": "",
-			"hypo": "",
+			"year": "june 2004",
+			"hypo": "After drinking heavily, Art and Ben decided that they would rob the local all-night convenience store. They drove Art’s truck to the store, entered, and yelled, “This is a stick- up,” while brandishing their unloaded pistols. They discovered that the only persons in the store were Mark, who worked at the store, and Fran, a customer. Art became enraged, since he regarded Fran as his steady girlfriend and was jealous that she had been spending time with Mark. Art announced, “We’ll chill these lovers out,” and loaded them into the truck. Art drove a very short distance down the dirt road behind the store to a large refrigerator. Art locked Fran and Mark in the refrigerator. Art then returned to the store to pick up Ben, who took $250 from the cash register on his way out of the store.<br /><br />The next day, the store manager saw that things were amiss and called police, who rescued Fran and Mark from the refrigerator. Fran suffered no significant injury, but Mark soon developed pneumonia and died as a result of it several weeks later. The coroner’s report showed that Mark had an extraordinary susceptibility to pneumonia and that it was triggered by exposure to the combination of viruses and the intense cold of the refrigerator.<br /><br />1. What criminal charges, if any, should be brought against Art and Ben? Discuss. <br /><br />2. What defenses, if any, do Art and Ben have to the criminal charges? Discuss.",
 			"topic": "",
 			"issues": [
-					   
+				"conspiracy",
+				"attempted",
+				"robbery",
+				"criminal_assault",
+				"criminal_battery",
+				"kidnapping",
+				"murder",
+				"voluntary_manslaughter",
+				"involuntary_manslaughter",
+				"accomplice_liability",
+				"voluntary_intoxication"
 			]
 		},
 		{

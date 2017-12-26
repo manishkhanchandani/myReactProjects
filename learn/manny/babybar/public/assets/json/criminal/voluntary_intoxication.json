@@ -1,0 +1,16 @@
+{
+	"key": "voluntary_intoxication",
+	"name": "Voluntary Intoxication?",
+	"rule": "",
+	"description": "",
+	"next": {
+		"key": "",
+		"name": "",
+		"subject": ""
+	},
+	"previous": {
+		"key": "",
+		"name": "",
+		"subject": ""
+	}
+}

@@ -1,6 +1,7 @@
 {
-	"key": "ucc",
-	"name": "Does UCC apply",
+	"key": "waiver_condition",
+	"name": "Waiver of Condition",
+	"rule": "Under contract law if a party performs a contractual duty that is subject to a condition precedent at a time the condition fails to hold, the party WAIVES THE CONDITION. But after a condition has been waived the waiving party has a legal right to retract the waiver. Nevertheless, a Court of EQUITY may estop the retraction based on considerations of equitable estoppel.",
 	"next": {
 		"key": "",
 		"name": "",

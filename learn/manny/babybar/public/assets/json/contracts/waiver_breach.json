@@ -1,6 +1,7 @@
 {
-	"key": "ucc",
-	"name": "Does UCC apply",
+	"key": "waiver_breach",
+	"name": "Waiver of the Breach",
+	"rule": "Under contract law if a non-breaching party lets the breaching party continue performance after a major breach it WAIVES THE BREACH. The waiver cannot be revoked, and the non-breaching party is forever ESTOPPED from citing the breach as major and can only cite it as a minor breach.",
 	"next": {
 		"key": "",
 		"name": "",

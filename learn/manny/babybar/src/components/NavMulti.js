@@ -27,6 +27,18 @@ class NavMulti extends Component {
 							<ul className="nav navbar-nav">
 								<li className="active"><Link to="">Home</Link></li>
 								<li><Link to="/quiz">Quiz</Link></li>
+								<li>
+									<a href="" className="dropdown-toggle" data-toggle="dropdown">Exam Simulation<b className="caret"></b></a>
+									<ul className="dropdown-menu">
+										<li><Link to="/simulation/contracts">2 Contracts</Link></li>
+										<li><Link to="/simulation/criminal">2 Criminal</Link></li>
+										<li><Link to="/simulation/torts">2 Torts</Link></li>
+										
+									
+									</ul>
+								</li>
+								
+								
 								
 								
 								<li>
@@ -81,12 +93,16 @@ class NavMulti extends Component {
 											</ul>
 										</li>
 										
-										
+										<li><Link to="/essays/issues/torts/products_liability">Products Liability</Link></li>
 										<li className="dropdown-submenu">
-											<a href="" className="dropdown-toggle" data-toggle="dropdown">Products Liability</a>
-										</li>							
-										
-										
+											<a href="" className="dropdown-toggle" data-toggle="dropdown">Invasion of Privacy</a>
+											<ul className="dropdown-menu">
+												<li><Link to="/essays/issues/torts/intrusion_into_solitude.json">Intrusion Into Solitude</Link></li>
+												<li><Link to="/essays/issues/torts/false_light">False Light</Link></li>
+												<li><Link to="/essays/issues/torts/public_disclosure_private_facts.json">Public Disclosure of Private Facts</Link></li>
+												<li><Link to="/essays/issues/torts/appropriation_of_likeness">Appropriation of Likeness</Link></li>
+											</ul>
+										</li>
 										
 									
 									
@@ -150,6 +166,12 @@ class NavMulti extends Component {
 											<a href="" className="dropdown-toggle" data-toggle="dropdown">Breach</a>
 											<ul className="dropdown-menu">
 												<li><Link to="/essays/issues/contracts/anticipatory_breach">Anticipatory Breach</Link></li>
+												<li><Link to="/essays/issues/contracts/waiver_breach">Waiver of Breach</Link></li>
+												<li><Link to="/essays/issues/contracts/breach_implied_covenant">Breach of Implied Covenant</Link></li>
+												<li><Link to="/essays/issues/contracts/breach">Breach, Major or Minor?</Link></li>
+												<li><Link to="/essays/issues/contracts/breach_divisible_contract">Effect of Breach on Divisible Contract</Link></li>
+												<li><Link to="/essays/issues/contracts/waiver_condition">Waiver of Condition</Link></li>
+												<li><Link to="/essays/issues/contracts/accord_satisfaction">Accord & Satisfaction</Link></li>
 											</ul>
 										</li>
 										
@@ -158,24 +180,9 @@ class NavMulti extends Component {
 										<li className="dropdown-submenu">
 											<a href="" className="dropdown-toggle" data-toggle="dropdown">Third Party Contracts</a>
 											<ul className="dropdown-menu">
-												<li><a href="">Action</a></li>
-												<li className="dropdown-submenu">
-													<a href="" className="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
-													<ul className="dropdown-menu">
-														<li className="dropdown-submenu">
-															<a href="" className="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
-															<ul className="dropdown-menu">
-																<li><a href="">Action</a></li>
-																<li><a href="">Another action</a></li>
-																<li><a href="">Something else here</a></li>
-																<li className="divider"></li>
-																<li><a href="">Separated link</a></li>
-																<li className="divider"></li>
-																<li><a href="">One more separated link</a></li>
-															</ul>
-														</li>
-													</ul>
-												</li>
+												<li><Link to="/essays/issues/contracts/third_party_beneficiary">Third Party Beneficiary</Link></li>
+												<li><Link to="/essays/issues/contracts/assignment">Assignment</Link></li>
+												<li><Link to="/essays/issues/contracts/delegation">Delegation</Link></li>
 											</ul>
 										</li>
 										

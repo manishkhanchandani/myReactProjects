@@ -1,6 +1,7 @@
 {
-	"key": "ucc",
-	"name": "Does UCC apply",
+	"key": "third_party_beneficiary",
+	"name": "Third Party Beneficiary",
+	"rule": "Under contract law an INTENDED THIRD-PARTY BENEFICIARY is a party that can seek damages for breach of a contract between two other parties because the contract was INTENDED to benefit them.<br /><br />An INCIDENTAL beneficiary, one that was not intended to benefit from a contract between others, has no ability to enforce the contract or seek damages.<br /><br />Contracts can only be enforced by VESTED, INTENDED third-party beneficiaries that are DONEES, intended to benefit as a GIFT, or CREDITORS, intended to benefit by EXTINGUISHING A DEBT.<br /><br />At common law vesting was a more demanding requirement than it is modernly. Under the modern view VESTING occurs if the beneficiary becomes aware of and relies on the existence of the contract.",
 	"next": {
 		"key": "",
 		"name": "",

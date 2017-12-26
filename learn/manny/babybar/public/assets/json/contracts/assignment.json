@@ -1,6 +1,7 @@
 {
-	"key": "ucc",
-	"name": "Does UCC apply",
+	"key": "assignment",
+	"name": "Assignment?",
+	"rule": "Under contract law an ASSIGNEE can seek damages for breach of a contract from the contract promisor if the assignee was EXPRESSLY ASSIGNED the rights of an original promisee, the ASSIGNOR, by EXPRESSION OF CLEAR INTENT.<br /><br />An assignment BECOMES EFFECTIVE when the assignee gives the promisor NOTICE of the specific rights assigned. When the assignment becomes effective the promisor is liable only to the assignee and the rights of the original promisee/assignor are EXTINGUISHED.<br /><br />If the assignment was in exchange for CONSIDERATION given by the assignee to the promisee/assignor, the assignment is IRREVOCABLE, and it creates a legal contract between the assignee and the promisee/assignor. That contract creates implied warranties 1) that the rights assigned exist, 2) that the promisee/assignor has the authority to assign them, and 3) all documents provided are bone fide. The assignee may seek legal damages from the assignor for a breach of warranty.<br /><br />If the assignment was GRATUITOUS it is REVOCABLE until the assignment is made 1) in writing, 2) a token chose is delivered, or 3) detrimental reliance makes revocation inequitable. A gratuitous assignment creates no implied warranties and can only be enforced in equity.<br /><br />Under contract law a promisor may generally assert any claim or defense against the assignee that could have been asserted against the promisee/assignor.<br /><br />MODIFICATION of a contract after it has been assigned is generally effective against the assignee if 1) the contract has not yet been fully performed, and 2) the modification is made in good faith and in accordance with reasonable commercial standards. The assignee acquires CORRESPONDING RIGHTS under the modified (or substituted) contract.",
 	"next": {
 		"key": "",
 		"name": "",

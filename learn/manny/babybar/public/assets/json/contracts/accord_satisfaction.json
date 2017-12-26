@@ -1,6 +1,7 @@
 {
-	"key": "ucc",
-	"name": "Does UCC apply",
+	"key": "accord_satisfaction",
+	"name": "Accord & Satisfaction",
+	"rule": "Under contract law an ACCORD AND SATISFACTION is binding on both parties if there is an agreement by the parties to settle a reasonable and good faith claim by one party that the other party has breached the original contract. ",
 	"next": {
 		"key": "",
 		"name": "",
