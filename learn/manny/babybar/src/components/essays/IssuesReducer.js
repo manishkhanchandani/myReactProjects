@@ -4,13 +4,20 @@ const IssuesReducer = (state = {
 	//issues: null,
 	issue: null,
 	issue_answers: null,
-	baby_bar_exam: null
+	baby_bar_exam: null,
+	baby_bar_rules: {}
 }, action) => {
 	switch (action.type) {
 		case 'GET_BABYBAREXAM_JSON_FULFILLED':
 			state = {
 				...state,
 				baby_bar_exam: action.payload
+			}
+			break;
+		case 'GET_BABYBARISSUES_FULFILLED':
+			state = {
+				...state,
+				baby_bar_rules: action.payload
 			}
 			break;
 		case 'GET_SUBJECTS_JSON_FULFILLED':

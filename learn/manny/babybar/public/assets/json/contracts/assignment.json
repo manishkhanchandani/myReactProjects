@@ -2,6 +2,26 @@
 	"key": "assignment",
 	"name": "Assignment?",
 	"rule": "Under contract law an ASSIGNEE can seek damages for breach of a contract from the contract promisor if the assignee was EXPRESSLY ASSIGNED the rights of an original promisee, the ASSIGNOR, by EXPRESSION OF CLEAR INTENT.<br /><br />An assignment BECOMES EFFECTIVE when the assignee gives the promisor NOTICE of the specific rights assigned. When the assignment becomes effective the promisor is liable only to the assignee and the rights of the original promisee/assignor are EXTINGUISHED.<br /><br />If the assignment was in exchange for CONSIDERATION given by the assignee to the promisee/assignor, the assignment is IRREVOCABLE, and it creates a legal contract between the assignee and the promisee/assignor. That contract creates implied warranties 1) that the rights assigned exist, 2) that the promisee/assignor has the authority to assign them, and 3) all documents provided are bone fide. The assignee may seek legal damages from the assignor for a breach of warranty.<br /><br />If the assignment was GRATUITOUS it is REVOCABLE until the assignment is made 1) in writing, 2) a token chose is delivered, or 3) detrimental reliance makes revocation inequitable. A gratuitous assignment creates no implied warranties and can only be enforced in equity.<br /><br />Under contract law a promisor may generally assert any claim or defense against the assignee that could have been asserted against the promisee/assignor.<br /><br />MODIFICATION of a contract after it has been assigned is generally effective against the assignee if 1) the contract has not yet been fully performed, and 2) the modification is made in good faith and in accordance with reasonable commercial standards. The assignee acquires CORRESPONDING RIGHTS under the modified (or substituted) contract.",
+	"mbe": [
+		{
+			"key": "rule1",
+			"name": "Rule 1: Wordings of Assignment",
+			"description": "The contract provided that \"neither party will assign this contract without the written consent of the other.\". Assignment of contractual rights are effective even if contract prohibits it. Only exception is when contract mentions words like \"void\" or assignee had notice, then it is ineffective.",
+			"examples": [
+				{
+					"question": "In a written contract a seller agreed to deliver to a buyer 500 described chairs at $20 each F.O.B. seller's place of business. The contract provided that \"neither party will assign this contract without the written consent of the other.\" The seller placed the chairs on board a carrier on January 30. On February 1 the seller said in a signed writing, \"I hereby assign to my friend all my rights under the seller-buyer contract.\" The seller did not request and did not get the buyer's consent to this transaction. On February 2 the chairs while in transit were destroyed in a derailment of the carrier's railroad car. In an action by the friend against the buyer, the friend probably will recover?",
+					"ansOptions": [
+						"$10,000, the contract price.",
+						"the difference between the contract price and the market value of the chairs.",
+						"nothing, because the chairs had not been delivered.",
+						"nothing, because the seller-buyer contract forbade an assignment."
+					],
+					"correct": 0,
+					"explanation": "A is correct. Although the contract required consent for assignment, and the buyer would have the right to damages for breach of this prohibition, in this case, the assignment of payment rights to the friend is effective. Assignment of contractual rights, such as the right to be paid, are effective even if the contract prohibits it, unless the clause makes assignments \"void\" or the assignee had notice, neither of which is present here. Further, the contract was F.O.B. seller's place of business. This means that the risk of loss passed to the buyer when the goods were delivered by the seller to the common carrier. Therefore, even though the chairs were destroyed there was no breach of contract and the seller is entitled to the entire contract price. Thus, D is incorrect.<br /><br />B is incorrect. This answer choice is measuring damages as if there had been a breach of contract. As stated above, since this contract was F.O.B. seller's place of business there was no breach. C is incorrect. As stated above, the risk of loss passed to the buyer when the goods were delivered by the seller to the common carrier."
+				}
+			]
+		}	
+	],
 	"next": {
 		"key": "",
 		"name": "",

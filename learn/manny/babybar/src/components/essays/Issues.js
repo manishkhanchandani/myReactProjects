@@ -42,16 +42,20 @@ class EssayIssues extends Component {
 	}
 	
 	componentDidMount() {
+		let uid = getUID();
 		this.props.callGetSubjectsJson(this.props.match.params.subject);
 		this.props.callGetIssueJson(this.props.match.params.subject, this.props.match.params.issue);
 		this.props.callGetBabyBarExamJson(this.props.match.params.subject);
+		this.props.f_babybarRules(uid, this.props.match.params.subject, this.props.match.params.issue);
 	}
 	
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.match.params.subject !== this.state.isPageSubject || nextProps.match.params.issue !== this.state.isPageIssue) {
+			let uid = getUID();
 			nextProps.callGetSubjectsJson(nextProps.match.params.subject);
 			nextProps.callGetIssueJson(nextProps.match.params.subject, nextProps.match.params.issue);
 			nextProps.callGetBabyBarExamJson(nextProps.match.params.subject);
+			nextProps.f_babybarRules(uid, nextProps.match.params.subject, nextProps.match.params.issue);
 			
 			this.setState({isPageSubject: nextProps.match.params.subject, isPageIssue: nextProps.match.params.issue, show_past_answer: false, show_past_quiz: false});
 		}
@@ -605,6 +609,12 @@ const mapDispatchToProps = (dispatch) => {
 				return;	
 			}
 			dispatch(simpleQuizAction.getSimpleQuizAnswers(u, s, i));	
+		},
+		f_babybarRules: (u=null, s=null, i=null) => {
+			if (!u || !s || !i) {
+				return;	
+			}
+			dispatch(issuesAction.babybarRules(u, s, i));	
 		}
 	};	
 };

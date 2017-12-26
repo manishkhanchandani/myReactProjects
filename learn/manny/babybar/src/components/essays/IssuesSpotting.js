@@ -21,7 +21,9 @@ class IssuesSpotting extends Component {
 			issueSpottingStarted: false,
 			issueSelected: {},
 			pageNumber: 1,
-			results: null
+			results: null,
+			deleteIssueModal: false,
+			deleteIssueDetail: null
 		};
 	}
 
@@ -89,8 +91,6 @@ class IssuesSpotting extends Component {
 	}
 	
 	submitIssue(issueDetails) {
-		console.log('st is ', this.state);	
-		console.log('issueDetails: ', issueDetails);
 		let obj = {};
 		obj.data = {};
 		let totalPoints = 70;
@@ -153,7 +153,7 @@ class IssuesSpotting extends Component {
 		firebaseDatabase.ref(url).push(obj);
 	}
 	
-	deleteRecord(id) {
+	deleteRecord(val) {
 		let uid = getUID();
 		if (!uid) {
 			return;
@@ -167,7 +167,12 @@ class IssuesSpotting extends Component {
 		let subjectUrl = '';
 		subjectUrl = '/' + this.props.match.params.subject;		
 		var url = FirebaseConstant.basePath + '/quiz/issue_spotting' + uidPath + subjectUrl;
-		firebaseDatabase.ref(url).child(id).set(null);
+		firebaseDatabase.ref(url).child(val._id).set(null);
+		this.close();
+	}
+	
+	close() {
+		this.setState({deleteIssueModal: false, deleteIssueData: null});
 	}
 	
 	showRecord(props) {
@@ -209,7 +214,6 @@ class IssuesSpotting extends Component {
 	
 	
 	render() {
-		console.log('state is ', this.state);
 		let subject = '';
 		let terms = '';
 		let data = null;
@@ -231,13 +235,11 @@ class IssuesSpotting extends Component {
 		var myArrayConverted = null;
 		var paginationProps = null;	
 		if (this.state.results) {
-			console.log('r is ', this.state.results);
 			let obj = processRecords(this.state.results, '-created_dt', null, [], 1, this.state.pageNumber, this.onActivePageChange.bind(this));
 			myArrayConverted = obj.myArrayConverted;
 			paginationProps = obj.paginationProps;
 		}
 		
-		console.log('myArrayConverted: ', myArrayConverted);
 		
 		return (
 			<div className="container">
@@ -343,10 +345,29 @@ class IssuesSpotting extends Component {
 												<div>Created On: <b>{date.toString()}</b></div>
 											</div>
 											<div className="panel-footer">Total Points: <b>{value.totalPoints}</b>
-														<a href="" className="pull-right">Delete</a></div>
+														<a href="" className="pull-right" onClick={(e) => {e.preventDefault(); this.setState({deleteIssueModal: true, deleteIssueDetail: value});}}>Delete</a></div>
 										</div>			  
 									})
 								}
+								
+								<Modal show={this.state.deleteIssueModal} onHide={this.close.bind(this)}>
+									<Modal.Header closeButton>
+										<Modal.Title>Confirmation</Modal.Title>
+									</Modal.Header>
+									<Modal.Body>
+										<h4>Delete Record For 
+										{
+											this.state.deleteIssueDetail && 
+												<span>
+													{this.state.deleteIssueDetail.year} / ID: {this.state.deleteIssueDetail.id}
+												</span> 
+										} </h4>
+										<p>Do you really want to delete this record? You wont be able to recover it later?</p>
+									</Modal.Body>
+									<Modal.Footer>
+										<Button onClick={this.deleteRecord.bind(this, this.state.deleteIssueDetail)}>Delete Record</Button>
+									</Modal.Footer>
+								</Modal>
 								
 								<Paginator {...paginationProps} />
 								

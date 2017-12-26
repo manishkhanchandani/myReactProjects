@@ -187,3 +187,31 @@ export const getIssueAnswers = (u, s, i) => {
 	}
 }
 
+
+export const babybarRules = (u, s, i) => {
+	return {
+		type: 'GET_BABYBARISSUES',
+		payload: new Promise((resolve, reject) => {
+			let uidPath = '/' + u;
+			let subject = '/' + s;
+			let issue = '/' + i;
+			var url = FirebaseConstant.basePath + '/quiz/rules' + uidPath + subject + issue;
+			var ref = firebaseDatabase.ref(url);
+			ref.once('value', (snapshot) => {
+				let result = snapshot.val();
+				let obj = {};
+				obj[subject] = {};
+				obj[subject][issue] = {};
+				if (!result) {
+					resolve(obj);
+					return;
+				}
+				
+				obj[subject][issue] = result;
+				
+				resolve(obj);
+			});	
+		})
+	}
+}
+

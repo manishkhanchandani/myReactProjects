@@ -1,6 +1,26 @@
 {
 	"key": "consideration",
 	"name": "Consideration",
+	"mbe": [
+		{
+			"key": "rule1",
+			"name": "Rule 1: PreExisting Duty",
+			"description": "Promise to perform a pre-existing duty is not sufficient consideration to support a return promise. But if additional condition is added to support the promise then it becomes valid consideration. For example if A has to pay some dollars to B by particular date and if A is not paying by that date, and B promised not to sue A if A pays by another date then this extension of condition is sufficient consideration.",
+			"examples": [
+				{
+					"question": "A man owed his friend $1,000, plus interest at 8% until paid, on a long-overdue promissory note, collection of which would become barred by the statute of limitations on June 30. On the preceding April 1, the man and his friend both signed a writing in which the man promised to pay the note in full on the following December 31, plus interest at 8% until that date, and the friend promised not to sue on the note in the meantime. The friend, having received some advice from his nonlawyer brother-in-law, became concerned about the legal effect of the April 1 agreement. On May 1, acting pro se as permitted by the rules of the local small claims court, he filed suit to collect the note. Assuming that there is no controlling statute, is the April 1 agreement an effective defense for the man?",
+					"ansOptions": [
+						"Yes, because the man's promise to pay interest until December 31 was consideration for the friend's promise not to sue.",
+						"Yes, because the law creates a presumption that the man relied on his friend's promise not to sue.",
+						"No, because there was no consideration for the friend's promise not to sue, in that the man was already obligated to pay $1,000 plus interest at 8% until the payment date.",
+						"No, because the man's April 1 promise is enforceable with or without consideration."
+					],
+					"correct": 0,
+					"explanation": "Answer A is correct. Generally, a promise to perform a preexisting legal duty is not sufficient consideration to support a return promise. Since the man was already obligated to pay the friend $1000 at 8% interest, normally a promise to do the same would not be sufficient consideration to support the friend's promise to refrain from suit. However, the man offered to extend interest payments until December 31 in consideration for the friend's promise not to sue during the remaining time under the statute of limitations. Therefore, there was adequate consideration for the April 1 agreement, and it will provide an effective defense against the friend's claim.<br /><br />B is incorrect because the man does not need to rely on detrimental reliance because there was adequate consideration for the April 1 agreement. C is incorrect because the payment of interest for six additional months is adequate consideration. D is incorrect because the April 1 agreement would provide an adequate defense against the friend's claim."
+				}
+			]
+		}	
+	],
 	"next": {
 		"key": "",
 		"name": "",

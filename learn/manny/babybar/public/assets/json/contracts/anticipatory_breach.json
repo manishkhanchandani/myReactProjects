@@ -2,6 +2,26 @@
 	"key": "anticipatory_breach",
 	"name": "Anticipatory Breach",
 	"rule": "Under contract law an anticipatory breach (or anticipatory repudiation) is a CLEAR STATEMENT OR INDICATION that a party WILL NOT PERFORM future contractual duties when they become due. This is a major breach as to those duties, the non-breaching party is EXCUSED from performance of all remaining contractual duties, and the future duties of the breaching party are ACCELERATED to the present.<br /><br />If a party has a REASONABLE BASIS to believe the other party may not perform future contractual duties, the party may demand REASONABLE ASSURANCES and REFUSE TO PERFORM until they are provided. Reasonable assurances generally means a financial guarantee or payment into escrow.<br /><br />If reasonable assurances are properly demanded and not provided, the failure to respond constitutes an anticipatory breach.",
+	"mbe": [
+		{
+			"key": "rule1",
+			"name": "Rule 1: Unequivocal Statement",
+			"description": "Anticipatory repudiation means an unequivocal statement of inability to perform in future. If the statement does not show unequivocal statement then it is not an anticipatory breach. For example if A has to perform before November and in October he says that he is unhappy with contract and he don't want to go to contract unless it is legally obliged to, then it is not anticipatory breach.",
+			"examples": [
+				{
+					"question": "On June 1, a seller and a buyer contracted in writing for the sale and purchase of the seller's cattle ranch (a large single tract) and to close the transaction on December 1. On October 1, the buyer told the seller, \"I'm increasingly unhappy about our June 1 contract because of the current cattle market, and do not intend to buy your ranch unless I'm legally obligated to do so.\" If the seller sues the buyer on October 15 for breach of contract, the seller will probably.",
+					"ansOptions": [
+						"win, because the buyer committed a total breach by anticipatory repudiation on October 1.",
+						"win, because the buyer's October 1 statement created reasonable grounds for the seller's insecurity with respect to the buyer's performance.",
+						"lose, because the parties contracted for the sale and conveyance of a single tract, and the seller cannot bring suit for breach of such a contract prior to the agreed closing date.",
+						"lose, because the buyer's October 1 statement to the seller was neither a repudiation nor a present breach of the June 1 contract."
+					],
+					"correct": 3,
+					"explanation": "Answer D is correct. Under the doctrine of anticipatory repudiation, an unequivocal statement of unwillingness or inability to perform a future contractual obligation, if material, may be treated as a total breach of that obligation and give rise to a right to immediately recover damages for that breach. In order to amount to a repudiation, however, the statement must be unequivocal; a statement that merely expresses doubt over a party's ability or willingness to perform is not sufficient. The buyer's October 1 statement to the seller that he did not intend to buy the ranch unless legally obligated to do so may have given rise to insecurity over his willingness to perform the contract, but it was not a repudiation. Nor was it a breach, since performance was not due until December 1.<br /><br />A is incorrect because the buyer's statement was not a clear manifestation of a prospective unwillingness to close the contract on December 1. B is incorrect because grounds for insecurity are not alone sufficient to entitle the seller to treat the contract as breached. Although C is partially correct in that the buyer's obligation is not due until the closing date, the seller could have brought suit on October 15 if the buyer's statement had been sufficiently unequivocal to amount to a repudiation of the contract."
+				}
+			]
+		}	
+	],
 	"next": {
 		"key": "",
 		"name": "",

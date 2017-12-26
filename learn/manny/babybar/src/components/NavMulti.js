@@ -27,7 +27,7 @@ class NavMulti extends Component {
 							<ul className="nav navbar-nav">
 								<li className="active"><Link to="">Home</Link></li>
 								<li><Link to="/quiz">Quiz</Link></li>
-								<li>
+								{/*<li>
 									<a href="" className="dropdown-toggle" data-toggle="dropdown">Exam Simulation<b className="caret"></b></a>
 									<ul className="dropdown-menu">
 										<li><Link to="/simulation/contracts">2 Contracts</Link></li>
@@ -36,7 +36,7 @@ class NavMulti extends Component {
 										
 									
 									</ul>
-								</li>
+								</li>*/}
 								
 								
 								

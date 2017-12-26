@@ -67,7 +67,6 @@ class Clock1 extends Component {
 	}
 	
 	render() {
-		console.log('state is ', this.state);
 		return (
 			<div className="clock1">
 				<div className="clockdiv">

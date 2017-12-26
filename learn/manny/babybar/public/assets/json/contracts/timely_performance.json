@@ -2,6 +2,26 @@
 	"key": "timely_performance",
 	"name": "TIMELY PERFORMANCE a MATERIAL CONDITION?",
 	"rule": "Under contract law the parties may agree at the time of contract execution that timely performance (by the party to first perform contract services) is a MATERIAL CONDITION. Then the condition is called an EXPRESS CONDITION, and typically the contract says, \"Time is of the essence\".<br /><br />But material conditions may also be or implied when the parties knew at the time of execution that tardy performance would deny the non-performing party the BENEFIT OF THE BARGAIN, the benefit expected when they entered into the agreement. In that case the condition is called an IMPLIED MATERIAL CONDITION.",
+	"mbe": [
+		{
+			"key": "rule1",
+			"name": "Rule 1: Time is an Essence",
+			"description": "Time is Essence. If contract mentions the time of completion then time of performance becomes the material condition of the contract. And failure to perform in time is considered as a breach of contract. So if A had a contract with B and B has to finish the contract by certain date and if B is late by 1 month then B has breached the contract by failing to meet an express condition precedent. So A will pay to B the regular price minus any offset for damages caused by the one-month delay.",
+			"examples": [
+				{
+					"question": "On March 2, a landowner and a builder orally agreed that the builder would erect a boathouse on the landowner's lot and dig a channel from the boathouse, across a neighbor's lot, to a lake. The neighbor had already orally agreed with the landowner to permit the digging of the channel across the neighbor's lot. The builder agreed to begin work on the boathouse on March 15, and to complete all the work before June 1. The total price of $10,000 was to be paid by the landowner in three installments: $2,500 on March 15; $2,500 when the boathouse was completed; $5,000 when the builder finished the digging of the channel. Assume that the landowner paid the $2,500 on March 15, that the builder completed the boathouse, that the landowner paid the second installment of $2,500, and that the builder completed the digging of the channel, but not until July 1. Assume further that the absence of a writing is not raised as a defense. Which of the following is correct?",
+					"ansOptions": [
+						"The landowner has a cause of action against the builder for breach of contract.",
+						"The landowner is excused from paying the $5,000.",
+						"The landowner has a cause of action against the builder for breach of contract and is excused from paying the $5,000.",
+						"The builder's breach is excused and the landowner must pay the builder $5,000."
+					],
+					"correct": 0,
+					"explanation": "A is correct. The landowner has a cause of action against the builder for breach of contract because the builder has breached by failing to meet an express condition precedent. The landowner is thus entitled to damages. However, the landowner is not excused from paying the $5,000 because the builder has substantially performed, and the landowner cannot withhold his entire payment. Instead, the landowner must pay the $5,000 minus any offset for damages caused by the one-month delay. Therefore, A is correct while B, C, and D are incorrect."
+				}
+			]
+		}	
+	],
 	"next": {
 		"key": "",
 		"name": "",

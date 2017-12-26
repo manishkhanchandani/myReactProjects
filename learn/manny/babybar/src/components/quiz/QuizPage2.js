@@ -77,7 +77,6 @@ class QuizPage2 extends Component {
 	
 	
 	render() {
-		console.log('state is ', this.state);
 		const pageData = this.props.data;
 		
 		const questionData = this.props.quizReducer.questions ? this.props.quizReducer.questions[pageData.questions[pageData.quizDetails.common.question_pointer]] : null;
@@ -88,7 +87,6 @@ class QuizPage2 extends Component {
 		
 		const ansOptions = JSON.parse(questionData.answers);
 		const optionChoosen = parseInt(this.state.optionChoosen, 10);
-		console.log('optionChoosen: ', optionChoosen);
 		return (
 			<div className="page2">
 				<div className="panel panel-primary">
