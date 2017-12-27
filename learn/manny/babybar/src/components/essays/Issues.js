@@ -18,6 +18,8 @@ import SimpleQuiz from '../simple-quiz/SimpleQuiz.js';
 import SimpleQuizResults from '../simple-quiz/SimpleQuizResults.js';
 
 
+import IssuesRule from './IssuesRule.js';
+
 class EssayIssues extends Component {
 	
 	constructor(props) {
@@ -192,6 +194,12 @@ class EssayIssues extends Component {
 			exam_data = this.props.issuesReducer.baby_bar_exam.data;
 		}
 		
+		let currentIssueRules = null;
+		if (this.props.issuesReducer.baby_bar_rules && this.props.issuesReducer.baby_bar_rules[this.props.match.params.subject] && this.props.issuesReducer.baby_bar_rules[this.props.match.params.subject][this.props.match.params.issue]) {
+			currentIssueRules = this.props.issuesReducer.baby_bar_rules[this.props.match.params.subject][this.props.match.params.issue];
+		}
+		
+		
 		
 		return (
 			<div className="issues">
@@ -213,7 +221,8 @@ class EssayIssues extends Component {
 							issue &&
 							<div className="row myFavText">
 								<div className="col-md-4">
-									{
+									<IssuesRule currentIssueRules={currentIssueRules} s={this.props.match.params.subject} i={this.props.match.params.issue} />
+									{/*
 										 issue.rule &&
 										<div className={`panel panel-${sitePanelClass_1}`}>
 											<div className="panel-heading"><b>Rule</b></div>
@@ -221,7 +230,7 @@ class EssayIssues extends Component {
 												{renderHTML(issue.rule)}
 											</div>
 										</div>
-									}
+									*/}
 									{
 										issue.elements &&
 										<div className={`panel panel-${sitePanelClass_2}`}>

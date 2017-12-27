@@ -14,7 +14,7 @@ const IssuesReducer = (state = {
 				baby_bar_exam: action.payload
 			}
 			break;
-		case 'GET_BABYBARISSUES_FULFILLED':
+		case 'GET_BABYBARRULES_FULFILLED':
 			state = {
 				...state,
 				baby_bar_rules: action.payload

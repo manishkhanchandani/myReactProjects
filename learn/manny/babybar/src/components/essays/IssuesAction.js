@@ -190,7 +190,7 @@ export const getIssueAnswers = (u, s, i) => {
 
 export const babybarRules = (u, s, i) => {
 	return {
-		type: 'GET_BABYBARISSUES',
+		type: 'GET_BABYBARRULES',
 		payload: new Promise((resolve, reject) => {
 			let uidPath = '/' + u;
 			let subject = '/' + s;
@@ -200,14 +200,14 @@ export const babybarRules = (u, s, i) => {
 			ref.once('value', (snapshot) => {
 				let result = snapshot.val();
 				let obj = {};
-				obj[subject] = {};
-				obj[subject][issue] = {};
+				obj[s] = {};
+				obj[s][i] = null;
 				if (!result) {
 					resolve(obj);
 					return;
 				}
 				
-				obj[subject][issue] = result;
+				obj[s][i] = result;
 				
 				resolve(obj);
 			});	

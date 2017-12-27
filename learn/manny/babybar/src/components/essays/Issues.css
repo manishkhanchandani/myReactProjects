@@ -16,3 +16,12 @@
 	margin-top: 15px;	
 	margin-bottom: 15px;	
 }
+
+.ql-editor {
+	height: 150px !important;
+}
+
+a.ruleBoxLink  {
+	text-decoration: none;
+	color: #fff;	
+}
