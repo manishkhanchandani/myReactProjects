@@ -11,6 +11,10 @@ class Auth extends Component {
 			showUser.push(<li key="2"><a href="" onClick={this.props.f_signout.bind(this)}>SignOut</a></li>);
 		} else {
 			showUser.push(<li key="3"><a href="" onClick={this.props.f_google.bind(this)}>Google Login</a></li>);
+			showUser.push(<li key="4"><a href="" onClick={this.props.f_facebook.bind(this)}>Facebook Login</a></li>);
+			showUser.push(<li key="5"><a href="" onClick={this.props.f_twitter.bind(this)}>Twitter Login</a></li>);
+			showUser.push(<li key="6"><a href="" onClick={this.props.f_github.bind(this)}>Github Login</a></li>);
+			showUser.push(<li key="7"><a href="" onClick={this.props.f_google.bind(this)}>Email Login</a></li>);
 		}
 		return (
 			<li>
@@ -36,13 +40,16 @@ const mapDispatchToProps = (dispatch) => {
 			e.preventDefault();
 			dispatch(actionGoogleLogin());
 		},
-		f_facebook: () => {
+		f_facebook: (e) => {
+			e.preventDefault();
 			dispatch(actionFacebookLogin());
 		},
-		f_twitter: () => {
+		f_twitter: (e) => {
+			e.preventDefault();
 			dispatch(actionTwitterLogin());
 		},
-		f_github: () => {
+		f_github: (e) => {
+			e.preventDefault();
 			dispatch(actionGithubLogin());
 		},
 		f_signout: (e) => {
