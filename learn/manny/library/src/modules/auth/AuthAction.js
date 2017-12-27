@@ -2,6 +2,27 @@ import * as firebase from 'firebase';
 import {firebaseApp, firebaseDatabase, FirebaseConstant} from '../../MyFirebase.js';
 
 
+export const loggedIn = (params) => {
+	localStorage.setItem('userObj', JSON.stringify(params));
+	localStorage.setItem('userId', params.uid);
+	return {
+		type: 'LOGGEDIN',
+		email: params.email,
+		displayName: params.displayName,
+		photoURL: params.photoURL,
+		uid: params.uid,
+		profile_uid: params.uid,
+		providerId: params.providerId
+	};
+};
+
+export const loggedOut = () => {
+	localStorage.removeItem('userObj');
+	localStorage.removeItem('userId');
+	return {
+		type: 'LOGGEDOUT'	
+	};	
+};
 
 export const actionSignOut = () => {
 	return {
@@ -90,3 +111,20 @@ export const actionGithubLogin = () => {
 export const actionEmailLogin = () => {
 	return FirebaseLogin('EMAILLOGIN');
 };
+
+export const FirebaseAuthSystem = (dispatch) => {
+	firebaseApp.auth().onAuthStateChanged((user) => {
+		if (user) {
+			var obj = {};
+			obj.email = user.providerData[0].email;
+			obj.displayName = user.providerData[0].displayName;
+			obj.photoURL = user.providerData[0].photoURL;
+			obj.uid = user.uid;
+			obj.profile_uid = user.providerData[0].uid;
+			obj.providerId = user.providerData[0].providerId;
+			dispatch(loggedIn(obj));
+		} else {
+			dispatch(loggedOut());
+		}
+	});
+}
