@@ -7,69 +7,139 @@
 			"title": "Battery"	
 		},
 		"conversion": {
-			"title": "Conversion"	
+			"title": "Conversion"
 		},
-		"trespass_to_chattels": {
-			"title": "Trespass To Chattel"
+		"defamation": {
+			"title": "Defamation"
+		},
+		"defense_of_necessity": {
+			"title": "Defense of Necessity"
+		},
+		"defense_of_recapture": {
+			"title": "Defense of Recapture"
+		},
+		"defense_of_discipline": {
+			"title": "Defense of Discipline"
+		},
+		"defense_of_authority_of_law": {
+			"title": "Defense of Authority of Law"
+		},
+		"defense_of_consent": {
+			"title": "Defense of Consent"
+		},
+		"defense_of_others": {
+			"title": "Defense of Others"
+		},
+		"defense_of_property": {
+			"title": "Defense of Property"
+		},
+		"defense_of_infancy_insanity": {
+			"title": "Defense of Insanity / Infancy"
+		},
+		"iied": {
+			"title": "Intentional Infliction of Emotional Distress"
+		},
+		"independent_contractor_liability": {
+			"title": "Independent Contractor"
 		},
 		"negligence": {
 			"title": "Negligence"
 		},
-		"negligence_duty": {
-			"title": "General Duty",
-			"parent": "negligence",
-			"child": "negligence_per_se"
+		"negligence_actual_cause": {
+			"title": "Negligence Actual Cause"
 		},
-		"negligence_per_se": {
-			"title": "Negligence Per Se",
-			"parent": "negligence_duty",
-			"child": "negligence_duty_peril"
-		},
-		"negligence_duty_peril": {
-			"title": "Duty based on PERIL",
-			"parent": "negligence_per_se",
-			"child": "negligence_duty_premises"
-		},
-		"negligence_duty_premises": {
-			"title": "Duty based on Premises Liability",
-			"parent": "negligence_duty_peril",
-			"child": "negligence_attractive_nuisance"
+		"negligence_assumption_of_risks": {
+			"title": "Negligence Assumption of Risks"
 		},
 		"negligence_attractive_nuisance": {
-			"title": "Attractive Nuisance Doctrine",
-			"parent": "negligence_duty_premises",
-			"child": "negligence_rescuer_doctrine"
-		},
-		"negligence_rescuer_doctrine": {
-			"title": "Rescuer Doctrine / Fireman's Rule",
-			"parent": "negligence_attractive_nuisance",
-			"child": "negligence_breach"
+			"title": "Attractive Nuisance Doctrine"
 		},
 		"negligence_breach": {
-			"title": "Breach",
-			"parent": "negligence_rescuer_doctrine",
-			"child": "negligence_breach_res_ipsa_loquitur"
+			"title": "Negligence Breach"
 		},
 		"negligence_breach_res_ipsa_loquitur": {
-			"title": "Breach based Res Ipsa Loquitur",
-			"parent": "negligence_breach",
-			"child": "respondent_superior"
+			"title": "Negligence Breach based Res Ipsa Loquitur"
+		},
+		"negligence_comparative": {
+			"title": "Comparative Negligence"
+		},
+		"negligence_contributory": {
+			"title": "Contributory Negligence"
+		},
+		"negligence_duty": {
+			"title": "Negligence General Duty"
+		},
+		"negligence_duty_peril": {
+			"title": "Negligence Duty based on PERIL"
+		},
+		"negligence_duty_premises": {
+			"title": "Negligence Duty based on Premises Liability"
+		},
+		"negligence_egg_shell_plaintiff": {
+			"title": "Negligence Egg Shell Plaintiff"
+		},
+		"negligence_general_damages": {
+			"title": "Negligence General Damages"
+		},
+		"negligence_nied": {
+			"title": "NIED"
+		},
+		"negligence_last_clear_chance": {
+			"title": "Negligence Last Clear Chance"
+		},
+		"negligence_per_se": {
+			"title": "Negligence Per Se"
+		},
+		"negligence_proximate_cause": {
+			"title": "Negligence Proximate Cause"
+		},
+		"negligence_rescuer_doctrine": {
+			"title": "Negligence Rescuer Doctrine / Fireman's Rule"
+		},
+		"negligence_special_damages": {
+			"title": "Negligence Special Damages"
+		},
+		"products_liability": {
+			"title": "Products Liability"
+		},
+		"pl_breach_exp_warranty": {
+			"title": "Products Liability Breach of Express Warranty"
+		},
+		"pl_breach_imp_warranty": {
+			"title": "Products Liability Breach of Implied Warranty"
+		},
+		"pl_negligence": {
+			"title": "Products Liability Negligence"
+		},
+		"pl_strict_liability": {
+			"title": "Products Liability Strict Liability in Tort"
 		},
 		"respondent_superior": {
-			"title": "Respondent Superior",
-			"parent": "negligence_breach_res_ipsa_loquitur",
-			"child": ""
+			"title": "Respondent Superior"
+		},
+		"self_defense": {
+			"title": "Self Defense"
+		},
+		"strict_liability": {
+			"title": "Strict Liability"
+		},
+		"trespass_to_chattels": {
+			"title": "Trespass To Chattel"
+		},
+		"transferred_intent": {
+			"title": "Transferred Intent"
+		},
+		"trespass_to_land": {
+			"title": "Trespass to Land"
 		},
 		"vicarious_liability": {
-			"title": "Vicarious Liability for Joint Enterprise",
-			"parent": "",
-			"child": ""
+			"title": "Vicarious Liability for Joint Enterprise"
 		}
 	},
 	"exams": [
 		{
 			"id": 1,
-			"reference": "Year 2002",
+			"reference": "June 2002",
 			"topic": "",
 			"essay": "Craft Village is a small town that is popular with tourists because of its fine arts and crafts stores. Craft Village has no public transportation. All of the stores are located on Main Street. There is one large gallery, Northwoods Gallery, at the north end of Main Street. At the south end of Main Street is the Snooze Inn, a large motel. Tourists often stay at the Snooze Inn when they want to spend more than a day in Craft Village. Craft Village shops, by town ordinance, must remain open from at least 10:00 a.m. to 8:00 p.m. every day, including Sundays. All of the shops close at 8:00 p.m. except Northwoods Gallery, which is open until 11:00 p.m. every night. Craft Village provides street lighting along Main Street, which is turned on each night at dusk.<br /><br />Jean arrived in Craft Village on Sunday night for her annual shopping expedition. As on all of her previous trips to Craft Village, she stayed at the Snooze Inn for two nights. She does not own a car, and one of the reasons she likes Craft Village is that she can walk to all the shops.<br /><br />Jean got up on Monday morning to go shopping. She shopped all day, and walked back to the Snooze Inn at 7:00 p.m. for dinner. After dinner, at around 8:30 p.m., she began walking to Northwoods Gallery. Half way there, she was accosted by a mugger. The mugger stood in front of her and shouted, “Hand over your purse, or I’ll beat you up!” The mugger roughly snatched Jean’s purse as she held it out to him. The mugger fled, and Jean turned around and ran back to the Snooze Inn. The mugger was later captured by the police.<br /><br />On what theory or theories, if any, might Jean recover damages from, and what defenses might she anticipate, in an action against: <br /><br />1. The mugger? Discuss. <br /><br />2. Craft Village? Discuss. <br /><br />3. Northwoods Gallery? Discuss. <br /><br />4. Snooze Inn? Discuss.",
 			"issues": {
@@ -116,9 +186,13 @@
 					]
 				}
 				
-				
-				
 			}
-		}		  
+						
+		}
+		
+		
+			
+		
+		
 	]	
 }

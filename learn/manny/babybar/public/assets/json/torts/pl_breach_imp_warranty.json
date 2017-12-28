@@ -1,6 +1,7 @@
 {
-	"key": "intrusion_into_solitude",
-	"name": "Tort Damages",
+	"key": "pl_breach_imp_warranty",
+	"name": "Products Liability Breach of Implied Warranty",
+	"rule": "",
 	"next": {
 		"key": "",
 		"name": "",

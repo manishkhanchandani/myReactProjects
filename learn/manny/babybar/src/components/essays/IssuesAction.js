@@ -32,7 +32,12 @@ export const selectIssueJson = (dispatch, subject=null, issue=null) => {
 			}).then((response) => {
 				return response.json();
 			}).then((j) => {
-				resolve(j);
+				let obj = {
+					subject,
+					issue,
+					data: j
+				};
+				resolve(obj);
 			}).catch((err) => {
 				console.log('err is ', err);
 				reject(err);
@@ -87,8 +92,12 @@ export const getBabyBarExamJson = (subject=null) => {
 			}).then((response) => {
 				return response.json();
 			}).then((j) => {
-				localStorage.setItem(StorageKey, JSON.stringify(j));
-				resolve(j);
+				let obj = {
+					subject,
+					data: j
+				};
+				localStorage.setItem(StorageKey, JSON.stringify(obj));
+				resolve(obj);
 			}).catch((err) => {
 				console.log('err getBabyBarExamJson is ', err);
 				reject(err);
