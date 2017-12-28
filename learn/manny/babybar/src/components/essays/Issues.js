@@ -13,7 +13,7 @@ import './Issues.css';
 import * as simpleQuizAction from '../simple-quiz/SimpleQuizAction.js';
 
 import Paginator from '../../utilities/Paginator.js';
-import {processRecords} from '../../utilities/functions.js';
+import {processRecords, essayPoints, mbePoints} from '../../utilities/functions.js';
 import SimpleQuiz from '../simple-quiz/SimpleQuiz.js';
 import SimpleQuizResults from '../simple-quiz/SimpleQuizResults.js';
 

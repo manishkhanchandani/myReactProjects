@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {actionGoogleLogin, actionFacebookLogin, actionTwitterLogin, actionGithubLogin, actionSignOut} from './AuthAction.js';
 import './Auth.css';
+import {Link} from 'react-router-dom';
 
 class Auth extends Component {
 	render() {
@@ -14,7 +15,8 @@ class Auth extends Component {
 			showUser.push(<li key="4"><a href="" onClick={this.props.f_facebook.bind(this)}>Facebook Login</a></li>);
 			showUser.push(<li key="5"><a href="" onClick={this.props.f_twitter.bind(this)}>Twitter Login</a></li>);
 			showUser.push(<li key="6"><a href="" onClick={this.props.f_github.bind(this)}>Github Login</a></li>);
-			showUser.push(<li key="7"><a href="" onClick={this.props.f_google.bind(this)}>Email Login</a></li>);
+			showUser.push(<li key="7"><Link to="/register">Email Registration</Link></li>);
+			showUser.push(<li key="8"><Link to="/login">Email Login</Link></li>);
 		}
 		return (
 			<li>

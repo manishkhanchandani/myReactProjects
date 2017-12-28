@@ -120,3 +120,16 @@ export const utubeIDGrabber = (url) => {
 	}
 	return ID;
 };
+
+/*
+Converted multiple-choice score= (Total Raw Multiple-Choice Score x 3.5911) + 16.2327
+Scaled written score= (Total Raw Written Score x 2.7235) – 446.2849
+Your Scaled Score is the sum of the two products above.
+*/
+export const essayPoints = (score) => {
+	return (score * 2.7235) - 446.2849;
+}
+
+export const mbePoints = (score) => {
+	return (score * 3.5911) + 16.2327;
+}
