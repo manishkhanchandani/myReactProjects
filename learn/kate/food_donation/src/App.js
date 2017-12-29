@@ -9,8 +9,9 @@ import Home from './components/Home';
 import MyAcc from './components/MyAcc';
 import Nav from './components/Nav';
 import Confirm from './components/Confirm.js';
+import ConfirmUpdate from './components/ConfirmUpdate.js';
 import Chat from './modules/chat/Chat.js';
-import Chat2 from './components/Chat2.js';
+import Chat2 from './components/Chat2.js';    
 
 
 
@@ -41,6 +42,7 @@ class App extends Component {
 				<Route exact={true} path="/edit/:id" component={Edit} />
 				<Route exact={true} path="/delete/:id" component={Delete} />
 			    <Route exact={true} path="/confirm" component={Confirm} />
+				 <Route exact={true} path="/confirm_update" component={ConfirmUpdate} />
 				
 				<Route exact={true} path="/search/:type/:keyword/:lat/:lng/:boundary/:addr/:country/:state/:county/:city" component={Home} />
 				<Route exact={true} path="/search/:type/:keyword" component={Home} />

@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 class Confirm extends Component {
 	render() {
 		return (
-<div>
+<div className="container">
 <h3>Confirm</h3>
 <p>Your post is created successfully.</p>
 </div>

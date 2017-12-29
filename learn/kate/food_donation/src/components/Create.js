@@ -3,6 +3,7 @@ import Autocomplete from 'react-google-autocomplete';
 import {connect} from 'react-redux';
 import * as firebase from 'firebase';
 import {firebaseApp, firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
+import {Alert} from 'react-bootstrap';
 
 class Create extends Component {
 	
@@ -14,12 +15,45 @@ class Create extends Component {
 			description:'',
 			tags:'',
 			imageUrl: '',
-			location: {}
-			};
+			location: {},
+			error: null
+		  };
 		}
+	
+	
+	validateFrm() {
+		//conditions
+		if (!this.state.title) {
+			return false;	
+		}
+		
+		if (!this.state.location.lat) {
+			return false;	
+		}
+		
+		if (!this.state.location.lng) {
+			return false;	
+		}
+		
+		if (!this.state.description) {
+			return false;	
+		}
+		
+		return true
+	}
+	
+	
 	
 	submitToFirebase(e) {
 		e.preventDefault();
+		
+		 let check = this.validateFrm();
+		if (!check) {
+			//do something
+			this.setState({error: 'Please fill all required fields'});
+			return false;
+		}
+		
 		var current = firebase.database.ServerValue.TIMESTAMP;
 		var obj = {};
 		obj.title = this.state.title;	
@@ -52,7 +86,7 @@ class Create extends Component {
 		if (tags.length > 0) {
 		for (var i = 0; i < tags.length; i++) {
 				var tag = tags[i].trim();
-				console.log('tag is ', tag);
+				
 				
 				var tagURL = FirebaseConstant.basePath + '/data/tags/' + tag;
 				firebaseDatabase.ref(tagURL + '/country').child(country).child(uniqueID).set(current);
@@ -65,17 +99,28 @@ class Create extends Component {
 		this.props.history.push("/confirm");
 	}
 
-	
+		componentDidMount() {
+		var uid = localStorage.getItem('userId');
+		if (!uid) {
+			this.props.history.push("/");	
+		}
+	}
 	
 	render() {
-		console.log('state value: ', this.state);
-		return (
-				
-			<div className="container">
-			
+		return (		
+			<div className="container">		
 				<div className="row">
 					<div className="col-md-12">
 						<h1>Create New Post</h1>
+						
+						 {
+							this.state.error &&
+									<Alert bsStyle="warning">
+										{this.state.error}
+									</Alert>
+						 }
+						
+						
 						
 						<form onSubmit={this.submitToFirebase.bind(this)}>
 						  <div className="form-group">
@@ -92,12 +137,12 @@ class Create extends Component {
 									return null;
 								}
 								
-								console.log(place);
+							
 								var componentForm = {
 									locality: 'long_name',
 									administrative_area_level_1: 'short_name',
 									administrative_area_level_2: 'long_name',
-									country: 'short_name',
+									country: 'short_name'
 								  };
 								
 								var obj = {};

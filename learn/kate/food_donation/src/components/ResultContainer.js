@@ -1,156 +1,176 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import Results from './Results.js';
-import {distance} from '../utilities/functions.js';
+import Results from './lists/template1/Results.js';
+
+import {distance, processRecords} from '../utilities/functions.js';
 import Paginator from '../utilities/Paginator.js';
+import {Button, Modal} from 'react-bootstrap';
+import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
+import NoDataFound from './NoDataFound.js';
+
 class ResultContainer extends Component {
 	
-	 constructor(props) {
+	constructor(props) {
 		super(props);
 		
 		this.state = {
-			pageNumber: 1,	
+			pageNumber: 1,
 			filterTerm: null,
-			sortingField:null
+			sortingField: null,
+			showModal: false,
+			modalDetails: null
 		}
 	}
-	 	 	  	
+	
+	deleteRecord(rec)
+	{
+		var user_id = localStorage.getItem('userId');
+		if (user_id !== rec.user_id) {
+			return false;	
+		}
+
+		var url = FirebaseConstant.basePath + '/data';
+		var postUrl = url + '/posts/' + rec.id;
+		firebaseDatabase.ref(postUrl).set(null);
+		
+		var country = rec.location.country;
+		var state = rec.location.administrative_area_level_1;
+		var county = rec.location.administrative_area_level_2;
+		var city = rec.location.locality;
+		
+		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/country').child(country).child(rec.id).set(null);
+		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/state').child(country).child(state).child(rec.id).set(null);
+		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/county').child(country).child(state).child(county).child(rec.id).set(null);
+		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/city').child(country).child(state).child(county).child(city).child(rec.id).set(null);
+		firebaseDatabase.ref(FirebaseConstant.basePath + '/data/users').child(user_id).child(rec.id).set(null);
+		
+		var tags = rec.tags.split(',');
+		
+		if (tags.length > 0) {
+			for (var i = 0; i < tags.length; i++) {
+				var tag = tags[i].trim();
+				
+				var tagURL = FirebaseConstant.basePath + '/data/tags/' + tag;
+				firebaseDatabase.ref(tagURL + '/country').child(country).child(rec.id).set(null);
+				firebaseDatabase.ref(tagURL + '/state').child(country).child(state).child(rec.id).set(null);
+				firebaseDatabase.ref(tagURL + '/county').child(country).child(state).child(county).child(rec.id).set(null);
+				firebaseDatabase.ref(tagURL + '/city').child(country).child(state).child(county).child(city).child(rec.id).set(null);
+				firebaseDatabase.ref(tagURL + '/all_tag_posts').child(rec.id).set(null);
+			}
+		}
+		
+		this.close();
+	}
+	
+	changeShowModal(val, details, e) {
+		e.preventDefault();
+		this.setState({showModal: val, modalDetails: details});
+	}
+	
+	close() {
+		this.setState({showModal: false});
+	}
+	
 	onActivePageChange(page) {
 		this.setState({pageNumber: page});
 	}
 	
-	 dynamicSort(property) {
+	dynamicSort(property) {
 		var sortOrder = 1;
 		if(property[0] === "-") {
 			sortOrder = -1;
 			property = property.substr(1);
 		}
 		return function (a,b) {
-var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+			var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
 			return result * sortOrder;
 		}
 	}
 	
-	
 	render() {
-		if (!this.props.data) {
-
-			return null;	
-			}		
-			var myArray = [];
-		for (var key in this.props.data) {	
-		   if (this.props.foodReducer.location.lat && this.props.foodReducer.location.lng) {
+		 if (!this.props.data) {
+			return <NoDataFound />; 
+		}
+		
+		console.log('STATE IS ', this.state);
+		var myArray = [];
+		//37.773972, -122.431297
+		for (var key in this.props.data) {
+			if (this.props.foodReducer.location.lat && this.props.foodReducer.location.lng) {
 				var dist = distance(this.props.foodReducer.location.lat, this.props.foodReducer.location.lng, this.props.data[key].location.lat, this.props.data[key].location.lng);
 				this.props.data[key].distance = dist.toFixed(2);
 			}
 			myArray.push(this.props.data[key]);
-			}
-					
-					
-	    //FILTER RESULTS
-		console.log('myArray: ', myArray);
-		if (this.state.filterTerm) {
-			myArray = myArray.filter((record) =>{
-									 
-				if (!record.title) record.title = '';
-				if (!record.description) record.description = '';
-				if (!record.location.administrative_area_level_1) record.location.administrative_area_level_1 = '';
-				if (!record.location.administrative_area_level_2) record.location.administrative_area_level_2 = '';
-				if (!record.location.country) record.location.country = '';
-				if (!record.location.formatted_address) record.location.formatted_address = '';
-				if (!record.location.locality) record.location.locality = '';
-				if (!record.id) record.id = '';
-				
-				
-				
-									  
-				
-				return (record.title.toLowerCase().indexOf(this.state.filterTerm.toLowerCase())	>= 0 || record.description.toLowerCase().indexOf(this.state.filterTerm.toLowerCase())>= 0 || record.tags.toLowerCase().indexOf(this.state.filterTerm.toLowerCase()) >= 0 || record.location.administrative_area_level_1.toLowerCase().indexOf(this.state.filterTerm.toLowerCase())	>= 0 || record.location.administrative_area_level_2.toLowerCase().indexOf(this.state.filterTerm.toLowerCase()) >= 0 || record.location.country.toLowerCase().indexOf(this.state.filterTerm.toLowerCase()) >= 0 || record.location.formatted_address.toLowerCase().indexOf(this.state.filterTerm.toLowerCase()) >= 0 || record.location.locality.toLowerCase().indexOf(this.state.filterTerm.toLowerCase())	>= 0 || record.id.toLowerCase().indexOf(this.state.filterTerm.toLowerCase()) >= 0);  
-				
-			});	
-		}		
-		console.log('myArray: ', myArray);
-		myArray.push(this.s)
-		
+		}
 
 		const {myArrayConverted, paginationProps} = processRecords(myArray, this.state.sortingField, this.state.filterTerm, ['title', 'description', 'tags'], 20, this.state.pageNumber, this.onActivePageChange.bind(this));
-
-		//SORTING RESULTS
-		if (this.state.sortingField) {
-			myArray.sort(this.dynamicSort(this.state.sortingField));	
-		}
+		
 		var distanceOption = [];
-distanceOption.push(<option key="3" value="">Select Sorting Order</option>);
+		distanceOption.push(<option key="3" value="">Select Sorting Order</option>);
 		if (this.props.foodReducer.location.lat && this.props.foodReducer.location.lng) {
-distanceOption.push(<option key="1" value="distance">Distance Ascending</option>);
-distanceOption.push(<option key="2" value="-distance">Distance Descending</option>);
+				distanceOption.push(<option key="1" value="distance">Distance Ascending</option>);
+				distanceOption.push(<option key="2" value="-distance">Distance Descending</option>);
 		}
 		
+		var uid = localStorage.getItem('userId');
 		
 		
-        const maxRows = 5;
-		const pageNum = this.state.pageNumber - 1;
-		const startRow = pageNum * maxRows;
-		const totalRows = myArray.length;
-		const totalPages = Math.ceil(totalRows/maxRows);
-		const myArrayConverted = myArray.splice(startRow, maxRows);
-		
-		//pagination component 
-		const paginationProps = {
-		  activePage: this.state.pageNumber,
-		  items: totalPages,//number of pages
-		  onSelect: this.onActivePageChange.bind(this),
-		  maxButtons: 3, //numer of buttons to display
-		  boundaryLinks: true,
-		  first: true,
-		  last: true,
-		  next: true,
-		  prev: true
-		}
-         var uid = localStorage.getItem('userId');
-		 return (
-<div> 
-<div className="row">
-<div className="col-md-6">
-<input type="text" placeholder="Filter" className="form-control" onChange={(e) => {this.setState({filterTerm: e.target.value, pageNumber: 1});}} />
-</div>
-
-
-
-<div className="col-md-6">
-<select className="form-control" onChange={(e) => {this.setState({sortingField: e.target.value, pageNumber: 1});}}>
+		return (
+			<div>
+				<div className="row">
+					<div className="col-md-6">
+						<input type="text" placeholder="Filter" className="form-control" onChange={(e) => {this.setState({filterTerm: e.target.value, pageNumber: 1});}} />
+					</div>
+					<div className="col-md-6">
+						<select className="form-control" onChange={(e) => {this.setState({sortingField: e.target.value, pageNumber: 1});}}>
 							{distanceOption}
-<option value="title">Title Ascending</option>
-<option value="-title">Title Descending</option>
-<option value="created_dt">Created Date Ascending</option>
-<option value="-created_dt">Created Date Descending</option>
-</select>
-</div></div>
-
+							<option value="title">Title Ascending</option>
+							<option value="-title">Title Descending</option>
+							<option value="created_dt">Created Date Ascending</option>
+							<option value="-created_dt">Created Date Descending</option>
+						</select>
+					</div>
+				</div>
 				<br />
-<div className="row">
+				<div className="row resultsContainer">
 				{
 					myArrayConverted.map((value, index) => {
-return <Results record={value} key={index} /> 
+						return	<Results record={value} key={index} fromUid={uid} changeShowModal={this.changeShowModal.bind(this)}  /> 			 
 					})	
 				}
-</div>
-				<hr/>
+				</div>
+				<Modal show={this.state.showModal} onHide={this.close.bind(this)}>
+					<Modal.Header closeButton>
+						<Modal.Title>Confirmation</Modal.Title>
+					</Modal.Header>
+					<Modal.Body>
+						<h4>Delete Record For&nbsp;
+						{
+							this.state.modalDetails && 
+								<span>
+									{this.state.modalDetails.title}
+								</span> 
+						} </h4>
+						<p>Do you really want to delete this record? You wont be able to recover it later?</p>
+					</Modal.Body>
+					<Modal.Footer>
+						<Button onClick={this.deleteRecord.bind(this, this.state.modalDetails)} >Delete Record</Button>
+					</Modal.Footer>
+				</Modal>
+				
+				<hr />
 				<Paginator {...paginationProps} />
-</div>
+				
+			</div>
 		);
 	}
 }
+
 
 const mapStateToProps = (state) => {
 	return {
 		foodReducer: state.FoodDonationReducer
 	}	
 };
-
-
-
-
-
 
 export default connect(mapStateToProps)(ResultContainer);

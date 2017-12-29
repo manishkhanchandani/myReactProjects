@@ -1,4 +1,16 @@
 import * as firebase from 'firebase';
+
+
+ let fb_path = '';
+if (process.env.NODE_ENV === 'development') {
+	fb_path = '/food_donation';
+} else {
+	fb_path = '/food_donation_live';
+}
+
+
+
+
 // Initialize Firebase
   var config = {
     apiKey: "AIzaSyA8sgehIfsKjEdhOHyv1Jo1U8oCM52fHuw",
@@ -12,7 +24,7 @@ import * as firebase from 'firebase';
   
   
   export const FirebaseConstant = {
-    basePath: '/food_donation'	
+    basePath: fb_path	
 };
   
   export const firebaseApp = firebase.initializeApp(config);
