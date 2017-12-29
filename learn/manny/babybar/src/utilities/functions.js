@@ -104,3 +104,32 @@ export const getRandomizer = (bottom, top) => {
         return Math.floor( Math.random() * ( 1 + top - bottom ) ) + bottom;
     }
 };
+
+
+export const utubeIDGrabber = (url) => {
+	var ID = '';
+	url = url.replace(/(>|<)/gi,'').split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
+	console.log('url is ', url);
+	if(url[2] !== undefined) {
+		ID = url[2].split(/[^0-9a-z_\-]/i);
+		ID = ID[0];
+	} else if(url[0] !== undefined) {
+		ID = url[0];
+	} else {
+		ID = url;
+	}
+	return ID;
+};
+
+/*
+Converted multiple-choice score= (Total Raw Multiple-Choice Score x 3.5911) + 16.2327
+Scaled written score= (Total Raw Written Score x 2.7235) – 446.2849
+Your Scaled Score is the sum of the two products above.
+*/
+export const essayPoints = (score) => {
+	return (score * 2.7235) - 446.2849;
+}
+
+export const mbePoints = (score) => {
+	return (score * 3.5911) + 16.2327;
+}

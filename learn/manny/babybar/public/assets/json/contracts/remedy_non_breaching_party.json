@@ -1,6 +1,65 @@
 {
-	"key": "ucc",
-	"name": "Does UCC apply",
+	"key": "remedy_non_breaching_party",
+	"name": "Remedy for Non Breaching Party",
+	"mbe": [
+		{
+			"key": "rule1",
+			"name": "Rule 1: Tort Damages in Contract",
+			"description": "If any option ask for tort damages in contract question, then it is a wrong option. For example, Contractor A wants to build house for B, and B paid 3 monthly installment and he has to pay total 9 monthly installment and now if A breaches the contract, and option ask for tort damages for B, then it is wrong option. Like mental distress for B which is tort damages.",
+			"examples": [
+				{
+					"question": "A father had made a legally binding promise to furnish his son and his son's fiancée a house on their wedding day, planned for June 10, 2002. Pursuant to that promise, the father telephoned his old contractor-friend on May 1, 2001, and made the following oral agreement--each making full and accurate written notes thereof: The contractor was to cut 30 trees into fireplace logs from a specified portion of a certain one-acre plot owned by the father, and the father was to pay therefore $20 per tree. The contractor agreed further to build a house on the plot conforming to the specifications of Plan OP5 published by Builders, Inc. for a construction price of $18,000. The father agreed to make payments of $2,000 on the first of every month for nine months beginning August 1, 2001, upon monthly presentation of certificate by Builders, Inc. that the specifications of Plan OP5 were being met. The contractor delivered the cut logs to the father in July 2001, when he also began building the house. The father made three $2,000 payments for the work done in July, August, and September 2001, without requiring a certificate. The contractor worked through October, but no work was done from November 1, 2001, to the end of February 2002, because of bad weather, and the father made no payments during that period. The contractor did not object. On March 1, 2002, the contractor demanded payment of $2,000, but the father refused on the grounds that no construction work had been done for four months and Builders had issued no certificate. The contractor thereupon abandoned work and repudiated the agreement. Assuming that the contractor committed a total breach on March 1, 2002, what would be the probable measure of the father's damages in an action against the contractor for breach of contract?",
+					"ansOptions": [
+						"Restitution of the three monthly installments paid in August, September, and October.",
+						"What it would cost to get the house completed by another contractor, minus installments not yet paid to the contractor.",
+						"The difference between the market value of the partly built house, as of the time of the contractor's breach, and the market value of the house if completed according to specifications.",
+						"In addition to other legally allowable damages, an allowance for the father's mental distress if the house cannot be completed in time for his son's wedding on June 10, 2002."
+					],
+					"correct": 1,
+					"explanation": "B is correct. The father is entitled to damages representing the reasonable cost of completion, which is an amount equal to what another contractor would require to complete performance minus what the father should have paid to the contractor for the performance already completed.<br /><br />A is incorrect. When a party is in total breach of contract, the injured party has a right to damages based upon his expectation interest.<br /><br />C is incorrect. If the father were to elect a damage recovery based upon the loss in value to him, the damages would be calculated by measuring the diminution in the market price of the property and not by measuring the expected market value if the contract had been properly completed.<br /><br />D is incorrect. The contractor's breach of contract did not also include a tort or bodily harm and the contract was not the type of agreement for which emotional distress was a particularly likely result because it was geared toward economic loss."
+				}
+			]
+		},
+		{
+			"key": "rule2",
+			"name": "Rule 2: Breach with Expectation Damage",
+			"description": "When party is in total breach of contract then injured party has right to damages based on his expectation interest.  For example, Contractor A wants to build house for B, and B paid 3 monthly installment and he has to pay total 9 monthly installment and now if A breaches the contract, B is entitled to damages for the reasonable cost of completion i.e. amount of what another contractor would need to complete the building of house minus what B has paid to A for performance already completed.",
+			"examples": [
+				{
+					"question": "A father had made a legally binding promise to furnish his son and his son's fiancée a house on their wedding day, planned for June 10, 2002. Pursuant to that promise, the father telephoned his old contractor-friend on May 1, 2001, and made the following oral agreement--each making full and accurate written notes thereof: The contractor was to cut 30 trees into fireplace logs from a specified portion of a certain one-acre plot owned by the father, and the father was to pay therefore $20 per tree. The contractor agreed further to build a house on the plot conforming to the specifications of Plan OP5 published by Builders, Inc. for a construction price of $18,000. The father agreed to make payments of $2,000 on the first of every month for nine months beginning August 1, 2001, upon monthly presentation of certificate by Builders, Inc. that the specifications of Plan OP5 were being met. The contractor delivered the cut logs to the father in July 2001, when he also began building the house. The father made three $2,000 payments for the work done in July, August, and September 2001, without requiring a certificate. The contractor worked through October, but no work was done from November 1, 2001, to the end of February 2002, because of bad weather, and the father made no payments during that period. The contractor did not object. On March 1, 2002, the contractor demanded payment of $2,000, but the father refused on the grounds that no construction work had been done for four months and Builders had issued no certificate. The contractor thereupon abandoned work and repudiated the agreement. Assuming that the contractor committed a total breach on March 1, 2002, what would be the probable measure of the father's damages in an action against the contractor for breach of contract?",
+					"ansOptions": [
+						"Restitution of the three monthly installments paid in August, September, and October.",
+						"What it would cost to get the house completed by another contractor, minus installments not yet paid to the contractor.",
+						"The difference between the market value of the partly built house, as of the time of the contractor's breach, and the market value of the house if completed according to specifications.",
+						"In addition to other legally allowable damages, an allowance for the father's mental distress if the house cannot be completed in time for his son's wedding on June 10, 2002."
+					],
+					"correct": 1,
+					"explanation": "B is correct. The father is entitled to damages representing the reasonable cost of completion, which is an amount equal to what another contractor would require to complete performance minus what the father should have paid to the contractor for the performance already completed.<br /><br />A is incorrect. When a party is in total breach of contract, the injured party has a right to damages based upon his expectation interest.<br /><br />C is incorrect. If the father were to elect a damage recovery based upon the loss in value to him, the damages would be calculated by measuring the diminution in the market price of the property and not by measuring the expected market value if the contract had been properly completed.<br /><br />D is incorrect. The contractor's breach of contract did not also include a tort or bodily harm and the contract was not the type of agreement for which emotional distress was a particularly likely result because it was geared toward economic loss."
+				}
+			]
+		},
+		{
+			"key": "rule3",
+			"name": "Rule 3: Market value vs Diminishing Market Price",
+			"description": "If the party were to elect a damage recovery based upon the loss in value to him, the damages would be calculated by measuring the diminution in the market price of the property and not by measuring the expected market value if the contract had been properly completed.",
+			"examples": [
+				{
+					"question": "A father had made a legally binding promise to furnish his son and his son's fiancée a house on their wedding day, planned for June 10, 2002. Pursuant to that promise, the father telephoned his old contractor-friend on May 1, 2001, and made the following oral agreement--each making full and accurate written notes thereof: The contractor was to cut 30 trees into fireplace logs from a specified portion of a certain one-acre plot owned by the father, and the father was to pay therefore $20 per tree. The contractor agreed further to build a house on the plot conforming to the specifications of Plan OP5 published by Builders, Inc. for a construction price of $18,000. The father agreed to make payments of $2,000 on the first of every month for nine months beginning August 1, 2001, upon monthly presentation of certificate by Builders, Inc. that the specifications of Plan OP5 were being met. The contractor delivered the cut logs to the father in July 2001, when he also began building the house. The father made three $2,000 payments for the work done in July, August, and September 2001, without requiring a certificate. The contractor worked through October, but no work was done from November 1, 2001, to the end of February 2002, because of bad weather, and the father made no payments during that period. The contractor did not object. On March 1, 2002, the contractor demanded payment of $2,000, but the father refused on the grounds that no construction work had been done for four months and Builders had issued no certificate. The contractor thereupon abandoned work and repudiated the agreement. Assuming that the contractor committed a total breach on March 1, 2002, what would be the probable measure of the father's damages in an action against the contractor for breach of contract?",
+					"ansOptions": [
+						"Restitution of the three monthly installments paid in August, September, and October.",
+						"What it would cost to get the house completed by another contractor, minus installments not yet paid to the contractor.",
+						"The difference between the market value of the partly built house, as of the time of the contractor's breach, and the market value of the house if completed according to specifications.",
+						"In addition to other legally allowable damages, an allowance for the father's mental distress if the house cannot be completed in time for his son's wedding on June 10, 2002."
+					],
+					"correct": 1,
+					"explanation": "B is correct. The father is entitled to damages representing the reasonable cost of completion, which is an amount equal to what another contractor would require to complete performance minus what the father should have paid to the contractor for the performance already completed.<br /><br />A is incorrect. When a party is in total breach of contract, the injured party has a right to damages based upon his expectation interest.<br /><br />C is incorrect. If the father were to elect a damage recovery based upon the loss in value to him, the damages would be calculated by measuring the diminution in the market price of the property and not by measuring the expected market value if the contract had been properly completed.<br /><br />D is incorrect. The contractor's breach of contract did not also include a tort or bodily harm and the contract was not the type of agreement for which emotional distress was a particularly likely result because it was geared toward economic loss."
+				}
+			]
+		}		
+		
+		
+		
+	],
 	"next": {
 		"key": "",
 		"name": "",

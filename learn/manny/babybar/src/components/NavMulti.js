@@ -62,10 +62,26 @@ class NavMulti extends Component {
 											<ul className="dropdown-menu">
 												<li><Link to="/essays/issues/torts/assault">Assault</Link></li>
 												<li><Link to="/essays/issues/torts/battery">Battery</Link></li>
+												<li><Link to="/essays/issues/torts/transferred_intent">Transferred Intent</Link></li>
 												<li><Link to="/essays/issues/torts/conversion">Conversion</Link></li>
 												<li><Link to="/essays/issues/torts/false_imprisonment">False Imprisonment</Link></li>
+												<li><Link to="/essays/issues/torts/iied">Intentional Infliction of Emotional Distress</Link></li>
 												<li><Link to="/essays/issues/torts/trespass_to_land">Trespass to Land</Link></li>
 												<li><Link to="/essays/issues/torts/trespass_to_chattels">Trespass to Chattel</Link></li>
+											</ul>
+										</li><li className="dropdown-submenu">
+											<a href="" className="dropdown-toggle" data-toggle="dropdown">Defenses</a>
+											<ul className="dropdown-menu">
+												<li><Link to="/essays/issues/torts/tort_damages">Tort Damages</Link></li>
+												<li><Link to="/essays/issues/torts/self_defense">Self Defense</Link></li>
+												<li><Link to="/essays/issues/torts/defense_of_necessity">Defense of Necessity</Link></li>
+												<li><Link to="/essays/issues/torts/defense_of_recapture">Defense of Recapture</Link></li>
+												<li><Link to="/essays/issues/torts/defense_of_discipline">Defense of Discipline</Link></li>
+												<li><Link to="/essays/issues/torts/defense_of_authority_of_law">Defense of Authority of Law</Link></li>
+												<li><Link to="/essays/issues/torts/defense_of_consent">Defense of Consent</Link></li>
+												<li><Link to="/essays/issues/torts/defense_of_property">Defense of Property</Link></li>
+												<li><Link to="/essays/issues/torts/defense_of_others">Defense of Others</Link></li>
+												<li><Link to="/essays/issues/torts/defense_of_infancy_insanity">Defense of Insanity / Infancy</Link></li>
 											</ul>
 										</li>
 										<li className="dropdown-submenu">
@@ -78,29 +94,64 @@ class NavMulti extends Component {
 												<li><Link to="/essays/issues/torts/negligence_duty_premises">Duty Based on Premises</Link></li>
 												<li><Link to="/essays/issues/torts/negligence_attractive_nuisance">Attractive Nuisance</Link></li>
 												<li><Link to="/essays/issues/torts/strict_liability">Strict Liability</Link></li>
+												<li><Link to="/essays/issues/torts/negligence_rescuer_doctrine">Rescuer Doctrine</Link></li>
+												<li><Link to="/essays/issues/torts/respondent_superior">Respondent Superior</Link></li>
+												<li><Link to="/essays/issues/torts/vicarious_liability">Vicarious Liability for Joint Enterprise</Link></li>
+												<li><Link to="/essays/issues/torts/independent_contractor_liability">Independent Contractor</Link></li>
 												<li><Link to="/essays/issues/torts/negligence_breach">Breach</Link></li>
 												<li><Link to="/essays/issues/torts/negligence_breach_res_ipsa_loquitur">Breach Res Ipsa Loquitor</Link></li>
 												<li><Link to="/essays/issues/torts/negligence_actual_cause">Actual Cause</Link></li>
 												<li><Link to="/essays/issues/torts/negligence_proximate_cause">Proximate Cause</Link></li>
 												<li><Link to="/essays/issues/torts/negligence_egg_shell_plaintiff">Egg Shell Plaintiff</Link></li>
-												<li><Link to="/essays/issues/torts/negligence_rescuer_doctrine">Rescuer Doctrine</Link></li>
 												<li><Link to="/essays/issues/torts/negligence_general_damages">General Damages</Link></li>
 												<li><Link to="/essays/issues/torts/negligence_special_damages">Special Damages</Link></li>
 												<li><Link to="/essays/issues/torts/negligence_contributory">Contributory Negligence</Link></li>
+												<li><Link to="/essays/issues/torts/negligence_last_clear_chance">Last Clear Chance</Link></li>
 												<li><Link to="/essays/issues/torts/negligence_comparative">Comparative Negligence</Link></li>
 												<li><Link to="/essays/issues/torts/negligence_assumption_of_risks">Assumption of Risks</Link></li>
 												<li><Link to="/essays/issues/torts/negligence_nied">NIED</Link></li>
 											</ul>
 										</li>
 										
-										<li><Link to="/essays/issues/torts/products_liability">Products Liability</Link></li>
+										<li className="dropdown-submenu">
+											<a href="" className="dropdown-toggle" data-toggle="dropdown">Products Liability</a>
+											<ul className="dropdown-menu">
+												<li><Link to="/essays/issues/torts/products_liability">Products Liability</Link></li>
+												<li><Link to="/essays/issues/torts/pl_breach_exp_warranty">Breach of Express Warranty</Link></li>
+												<li><Link to="/essays/issues/torts/pl_breach_imp_warranty">Breach of Implied Warranty</Link></li>
+												<li><Link to="/essays/issues/torts/pl_negligence">Negligence</Link></li>
+												<li><Link to="/essays/issues/torts/pl_strict_liability">Strict Liability in Tort</Link></li>
+											</ul>
+										</li>
+										<li><Link to="/essays/issues/torts/defamation">Defamation</Link></li>
+										
+										
 										<li className="dropdown-submenu">
 											<a href="" className="dropdown-toggle" data-toggle="dropdown">Invasion of Privacy</a>
 											<ul className="dropdown-menu">
-												<li><Link to="/essays/issues/torts/intrusion_into_solitude.json">Intrusion Into Solitude</Link></li>
 												<li><Link to="/essays/issues/torts/false_light">False Light</Link></li>
-												<li><Link to="/essays/issues/torts/public_disclosure_private_facts.json">Public Disclosure of Private Facts</Link></li>
 												<li><Link to="/essays/issues/torts/appropriation_of_likeness">Appropriation of Likeness</Link></li>
+												<li><Link to="/essays/issues/torts/intrusion_into_solitude">Intrusion Into Solitude</Link></li>
+												<li><Link to="/essays/issues/torts/public_disclosure_private_facts">Public Disclosure of Private Facts</Link></li>
+											</ul>
+										</li>
+										
+										<li className="dropdown-submenu">
+											<a href="" className="dropdown-toggle" data-toggle="dropdown">Nuisance</a>
+											<ul className="dropdown-menu">
+												<li><Link to="/essays/issues/torts/private_nuisance">Private Nuisance</Link></li>
+												<li><Link to="/essays/issues/torts/public_nuisance">Public Nuisance</Link></li>
+											</ul>
+										</li>
+										<li className="dropdown-submenu">
+											<a href="" className="dropdown-toggle" data-toggle="dropdown">Misc</a>
+											<ul className="dropdown-menu">
+												<li><Link to="/essays/issues/torts/abuse_of_process">Abuse of Process</Link></li>
+												<li><Link to="/essays/issues/torts/illegal_interference">Illegal Interference</Link></li>
+												<li><Link to="/essays/issues/torts/malicious_prosecution">Malicious Prosecution.json</Link></li>
+												<li><Link to="/essays/issues/torts/deciet">Fraud</Link></li>
+												<li><Link to="/essays/issues/torts/nondisclosure">Nondisclosure</Link></li>
+												<li><Link to="/essays/issues/torts/tort_restitution">Tort Restitution.json</Link></li>
 											</ul>
 										</li>
 										

@@ -13,10 +13,12 @@ import './Issues.css';
 import * as simpleQuizAction from '../simple-quiz/SimpleQuizAction.js';
 
 import Paginator from '../../utilities/Paginator.js';
-import {processRecords} from '../../utilities/functions.js';
+import {processRecords, essayPoints, mbePoints} from '../../utilities/functions.js';
 import SimpleQuiz from '../simple-quiz/SimpleQuiz.js';
 import SimpleQuizResults from '../simple-quiz/SimpleQuizResults.js';
 
+
+import IssuesRule from './IssuesRule.js';
 
 class EssayIssues extends Component {
 	
@@ -43,18 +45,32 @@ class EssayIssues extends Component {
 	
 	componentDidMount() {
 		let uid = getUID();
-		this.props.callGetSubjectsJson(this.props.match.params.subject);
-		this.props.callGetIssueJson(this.props.match.params.subject, this.props.match.params.issue);
-		this.props.callGetBabyBarExamJson(this.props.match.params.subject);
+		
+		
+		if (!this.props.issuesReducer.subjects) {
+			this.props.callGetSubjectsJson(this.props.match.params.subject);
+		}
+		if (!(this.props.issuesReducer && this.props.issuesReducer.issue && this.props.issuesReducer.issue[this.props.match.params.subject] && this.props.issuesReducer.issue[this.props.match.params.subject][this.props.match.params.issue])) {
+			this.props.callGetIssueJson(this.props.match.params.subject, this.props.match.params.issue);
+		}
+		if (!(this.props.issuesReducer.baby_bar_exam && this.props.issuesReducer.baby_bar_exam[this.props.match.params.subject])) {
+			this.props.callGetBabyBarExamJson(this.props.match.params.subject);
+		}
 		this.props.f_babybarRules(uid, this.props.match.params.subject, this.props.match.params.issue);
 	}
 	
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.match.params.subject !== this.state.isPageSubject || nextProps.match.params.issue !== this.state.isPageIssue) {
 			let uid = getUID();
-			nextProps.callGetSubjectsJson(nextProps.match.params.subject);
-			nextProps.callGetIssueJson(nextProps.match.params.subject, nextProps.match.params.issue);
-			nextProps.callGetBabyBarExamJson(nextProps.match.params.subject);
+			if (!nextProps.issuesReducer.subjects) {
+				nextProps.callGetSubjectsJson(nextProps.match.params.subject);
+			}
+			if (!(nextProps.issuesReducer && nextProps.issuesReducer.issue && nextProps.issuesReducer.issue[nextProps.match.params.subject] && nextProps.issuesReducer.issue[nextProps.match.params.subject][nextProps.match.params.issue])) {
+				nextProps.callGetIssueJson(nextProps.match.params.subject, nextProps.match.params.issue);
+			}
+			if (!(nextProps.issuesReducer.baby_bar_exam && nextProps.issuesReducer.baby_bar_exam[nextProps.match.params.subject])) {
+				nextProps.callGetBabyBarExamJson(nextProps.match.params.subject);
+			}
 			nextProps.f_babybarRules(uid, nextProps.match.params.subject, nextProps.match.params.issue);
 			
 			this.setState({isPageSubject: nextProps.match.params.subject, isPageIssue: nextProps.match.params.issue, show_past_answer: false, show_past_quiz: false});
@@ -152,7 +168,16 @@ class EssayIssues extends Component {
 
 	render() {	
 		let subject = this.props.issuesReducer.subject;		
-		let issue = this.props.issuesReducer.issue;
+		let issue = null;
+		if (this.props.issuesReducer.issue && this.props.issuesReducer.issue[this.props.match.params.subject] && this.props.issuesReducer.issue[this.props.match.params.subject][this.props.match.params.issue]) {
+			issue = this.props.issuesReducer.issue[this.props.match.params.subject][this.props.match.params.issue];
+		}
+		let baby_bar_exam = null;
+		if (this.props.issuesReducer.baby_bar_exam && this.props.issuesReducer.baby_bar_exam[this.props.match.params.subject]) {
+			baby_bar_exam = this.props.issuesReducer.baby_bar_exam[this.props.match.params.subject];
+		}
+		
+		
 		let uid = getUID();
 			
 		const opts = {
@@ -187,10 +212,16 @@ class EssayIssues extends Component {
 		
 		let exam_term_definition = null;
 		let exam_data = null;
-		if (this.props.match.params.issue && this.props.issuesReducer.baby_bar_exam) {
-			exam_term_definition =  this.props.issuesReducer.baby_bar_exam.terms[this.props.match.params.issue];
-			exam_data = this.props.issuesReducer.baby_bar_exam.data;
+		if (this.props.match.params.issue && baby_bar_exam) {
+			exam_term_definition =  baby_bar_exam.terms[this.props.match.params.issue];
+			exam_data = baby_bar_exam.data;
 		}
+		
+		let currentIssueRules = null;
+		if (this.props.issuesReducer.baby_bar_rules && this.props.issuesReducer.baby_bar_rules[this.props.match.params.subject] && this.props.issuesReducer.baby_bar_rules[this.props.match.params.subject][this.props.match.params.issue]) {
+			currentIssueRules = this.props.issuesReducer.baby_bar_rules[this.props.match.params.subject][this.props.match.params.issue];
+		}
+		
 		
 		
 		return (
@@ -213,7 +244,8 @@ class EssayIssues extends Component {
 							issue &&
 							<div className="row myFavText">
 								<div className="col-md-4">
-									{
+									<IssuesRule currentIssueRules={currentIssueRules} s={this.props.match.params.subject} i={this.props.match.params.issue} />
+									{/*
 										 issue.rule &&
 										<div className={`panel panel-${sitePanelClass_1}`}>
 											<div className="panel-heading"><b>Rule</b></div>
@@ -221,7 +253,7 @@ class EssayIssues extends Component {
 												{renderHTML(issue.rule)}
 											</div>
 										</div>
-									}
+									*/}
 									{
 										issue.elements &&
 										<div className={`panel panel-${sitePanelClass_2}`}>

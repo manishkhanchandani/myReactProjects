@@ -1,6 +1,6 @@
 {
-	"key": "tort_damages",
-	"name": "Tort Damages",
+	"key": "negligence_duty_peril",
+	"name": "Duty based on PERIL",
 	"next": {
 		"key": "",
 		"name": "",

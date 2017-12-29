@@ -1,6 +1,7 @@
 {
-	"key": "intrusion_into_solitude",
-	"name": "Tort Damages",
+	"key": "pl_strict_liability",
+	"name": "Products Liability Strict Liability in Tort",
+	"rule": "",
 	"next": {
 		"key": "",
 		"name": "",

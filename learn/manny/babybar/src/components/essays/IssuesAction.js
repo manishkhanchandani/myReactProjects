@@ -32,7 +32,12 @@ export const selectIssueJson = (dispatch, subject=null, issue=null) => {
 			}).then((response) => {
 				return response.json();
 			}).then((j) => {
-				resolve(j);
+				let obj = {
+					subject,
+					issue,
+					data: j
+				};
+				resolve(obj);
 			}).catch((err) => {
 				console.log('err is ', err);
 				reject(err);
@@ -87,8 +92,12 @@ export const getBabyBarExamJson = (subject=null) => {
 			}).then((response) => {
 				return response.json();
 			}).then((j) => {
-				localStorage.setItem(StorageKey, JSON.stringify(j));
-				resolve(j);
+				let obj = {
+					subject,
+					data: j
+				};
+				localStorage.setItem(StorageKey, JSON.stringify(obj));
+				resolve(obj);
 			}).catch((err) => {
 				console.log('err getBabyBarExamJson is ', err);
 				reject(err);
@@ -190,7 +199,7 @@ export const getIssueAnswers = (u, s, i) => {
 
 export const babybarRules = (u, s, i) => {
 	return {
-		type: 'GET_BABYBARISSUES',
+		type: 'GET_BABYBARRULES',
 		payload: new Promise((resolve, reject) => {
 			let uidPath = '/' + u;
 			let subject = '/' + s;
@@ -200,14 +209,14 @@ export const babybarRules = (u, s, i) => {
 			ref.once('value', (snapshot) => {
 				let result = snapshot.val();
 				let obj = {};
-				obj[subject] = {};
-				obj[subject][issue] = {};
+				obj[s] = {};
+				obj[s][i] = null;
 				if (!result) {
 					resolve(obj);
 					return;
 				}
 				
-				obj[subject][issue] = result;
+				obj[s][i] = result;
 				
 				resolve(obj);
 			});	
