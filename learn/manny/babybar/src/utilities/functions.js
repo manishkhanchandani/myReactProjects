@@ -139,6 +139,8 @@ export const mbePoints = (score) => {
 	return (score * 3.5911) + 16.2327;
 }
 
+//tracking activity
+//activityTracker('Browsing: ' + this.props.match.params.subject + ' / ' + this.props.match.params.issue, this.props.match.url);
 export const activityTracker = (page, url) => {
 	let usersObj = getUsersObj();
 	let obj = {};
