@@ -151,7 +151,7 @@ class Chat extends Component {
 	
 	render() {		
 		return (
-			<div className="container">
+			<div>
 				<div className="row">
 					<div className="col-md-3">
 						<ChatUsers chat_users={this.props.chatReducer.chat_users_general} {...this.props} displayChatMessage={this.displayChatMessage.bind(this)} />

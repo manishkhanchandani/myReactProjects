@@ -14,6 +14,7 @@ import Simulation from './components/essays/Simulation.js';
 import Import1 from './components/imports/Import1.js';
 import './App.css';
 import Activities from './components/activities/Activities.js';
+import Chat from './components/chat/Chat.js';
 
 
 class App extends Component {
@@ -37,7 +38,7 @@ class App extends Component {
 					<NavMulti />
 					<div className="container">
 						<div className="row">
-							<div className="col-md-12">
+							<div className="col-md-9">
 								<Route exact={true} path="/" component={Main} />
 								<Route exact={true} path="/quiz" component={Quiz} />
 								<Route exact={true} path="/quiz/:id" component={QuizWelcomeScreen} />
@@ -47,11 +48,10 @@ class App extends Component {
 								<Route exact={true} path="/essays/issues" component={EssayIssues} />
 								<Route exact={true} path="/essays/issue/spotting/:subject" component={IssuesSpotting} />
 								<Route exact={true} path="/simulation/:subject" component={Simulation} />
+								<Route exact={true} path="/chat" component={Chat} />
+								<Route exact={true} path="/chat/:toUserId" component={Chat} />
 							</div>
-						</div>
-						<div className="row">	
-							
-							<div className="col-md-4">
+							<div className="col-md-3">
 								<Activities />
 							</div>
 							{
