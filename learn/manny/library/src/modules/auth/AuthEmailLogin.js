@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button} from 'react-bootstrap';
+import {Button, Alert} from 'react-bootstrap';
 
 class AuthEmailLogin extends Component {
 	

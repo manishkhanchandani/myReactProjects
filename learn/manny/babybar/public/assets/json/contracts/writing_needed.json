@@ -2,6 +2,26 @@
 	"key": "writing_needed",
 	"name": "Is Writing Needed?",
 	"rule": "If ONLY common law governs say, <br /><br />Under the STATUTE OF FRAUDS certain types of contracts must be written in order to be legally enforced, and one type is a contract for (pick one if it applies here -- MARRIAGE, more than a YEAR, LAND, EXECUTOR of an estate, GUARANTEE of a debt).<br /><br />If UCC say,<br /><br />Under UCC 2-201, a contract for sale of goods worth $500 or more must evidenced by a writing sufficient to show the existence of a contract and signed by the party against whom the contract is to be enforced. But between merchants a SALES CONFIRMATION by one listing quantity will bind both parties if the receiving party does not object within 10 days.<br /><br />Furthermore, the UCC provides exceptions for SPECIAL MADE GOODS, where there is an ADMISSION by the party to be bound that there had been an agreement, or where there has been PARTIAL PERFORMANCE of the contract (i.e. acceptance of some or all goods or payment).<br /><br />Under UCC 2-209 contract modifications must be written to be legally enforceable if the contract, as modified, is for over $500. Otherwise modification agreements will be treated as waivers of conditions that can be always be retracted, unless the Court estops retraction to prevent injustice.",
+	"mbe": [
+		{
+			"key": "rule1",
+			"name": "Rule 1: Person Knows about the contract",
+			"description": "If two parties agree orally, but then one party knows about the contract, the statute of frauds is not applied. For example, if A has an oral contract with B and A says to C that he has contracted, and then if A brings action using the statute of frauds, he will fail in this issue as he already accepted that contract exists.",
+			"examples": [
+				{
+					"question": "In financial straits and needing $4,000 immediately, a nephew asked his uncle for a $4,000 loan. The uncle said that he would lend the money to the nephew only if the nephew's mother would \"guarantee\" the loan. At the nephew's suggestion, the uncle then telephoned the nephew's mother, told her about the loan, and asked if she would guarantee it. She replied, \"Yes. Lend my son the $4,000, and I'll repay it if he doesn't.\" The uncle then lent $4,000 to the nephew, and the nephew orally agreed to repay that amount in six weeks. The next day, the nephew's mother wrote to him and concluded her letter with the words, \"Son, I was happy to do you a favor by promising your uncle I would repay your six-week $4,000 loan if you don't. /s/ Mother.\" Neither the nephew nor his mother repaid the loan when it came due, and the uncle sued the mother for breach of contract. In that action, the mother raised the statute of frauds as her only defense. Will the mother's statute-of-frauds defense likely be successful?",
+					"ansOptions": [
+						"No, because the amount of the loan was less than $5,000.",
+						"No, because the mother's letter satisfies the statute-of-frauds requirement.",
+						"Yes, because the mother's promise to the uncle was oral.",
+						"Yes, because the nephew's promise to the uncle was oral."
+					],
+					"correct": 1,
+					"explanation": "Answer B is correct. The statute of frauds requires that promises to answer for the debt of another be made in writing. But the memorandum sufficient to satisfy the statute needn't be written at the time of the making of the promise, nor need it be a writing addressed to the promisee. In this case, the mother's letter to her son, the nephew, satisfies the requirement of the statute of frauds. Thus, Answer B is correct, and Answer C is incorrect.<br /><br />Answer A is incorrect. The amount of the loan is irrelevant here. The writing requirement arises under the suretyship provision of the statute of frauds. A person selecting this answer might be thinking of the $500 limit which may trigger a writing requirement in cases involving sales of goods under the UCC. The UCC does not apply here, since this is not a sale of goods. As to the enforceability of the mother's promise, the statute of frauds requires a writing in cases of promises to answer for the debt of another. As explained above, the letter written by the mother to her son, the nephew, is sufficient to satisfy the statute of frauds.<br /><br />Answer D is incorrect. The issue in this case is not the enforceability of the nephew's promise, but the enforceability of the mother's promise. And even if the issue did involve the nephew's promise, there is no statute of frauds requirement that a promise to repay a debt be in writing. As to the enforceability of the mother's promise, the statute of frauds requires a writing in cases of promises to answer for the debt of another. As explained above, the letter written by the mother to her son, the nephew, is sufficient to satisfy the statute of frauds."
+				}
+			]
+		}	
+	],
 	"next": {
 		"key": "",
 		"name": "",

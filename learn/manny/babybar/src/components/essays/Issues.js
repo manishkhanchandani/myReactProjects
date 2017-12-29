@@ -13,12 +13,13 @@ import './Issues.css';
 import * as simpleQuizAction from '../simple-quiz/SimpleQuizAction.js';
 
 import Paginator from '../../utilities/Paginator.js';
-import {processRecords, essayPoints, mbePoints} from '../../utilities/functions.js';
+import {processRecords, essayPoints, mbePoints, activityTracker} from '../../utilities/functions.js';
 import SimpleQuiz from '../simple-quiz/SimpleQuiz.js';
 import SimpleQuizResults from '../simple-quiz/SimpleQuizResults.js';
-
+import IssuesBarExam from './IssuesBarExam.js';
 
 import IssuesRule from './IssuesRule.js';
+//import MyModal from '../MyModal/MyModal.js';
 
 class EssayIssues extends Component {
 	
@@ -45,8 +46,7 @@ class EssayIssues extends Component {
 	
 	componentDidMount() {
 		let uid = getUID();
-		
-		
+
 		if (!this.props.issuesReducer.subjects) {
 			this.props.callGetSubjectsJson(this.props.match.params.subject);
 		}
@@ -57,11 +57,16 @@ class EssayIssues extends Component {
 			this.props.callGetBabyBarExamJson(this.props.match.params.subject);
 		}
 		this.props.f_babybarRules(uid, this.props.match.params.subject, this.props.match.params.issue);
+		
+
+		//tracking activity
+		activityTracker('Browsing: ' + this.props.match.params.subject + ' / ' + this.props.match.params.issue, this.props.match.url);
 	}
 	
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.match.params.subject !== this.state.isPageSubject || nextProps.match.params.issue !== this.state.isPageIssue) {
 			let uid = getUID();
+
 			if (!nextProps.issuesReducer.subjects) {
 				nextProps.callGetSubjectsJson(nextProps.match.params.subject);
 			}
@@ -74,51 +79,13 @@ class EssayIssues extends Component {
 			nextProps.f_babybarRules(uid, nextProps.match.params.subject, nextProps.match.params.issue);
 			
 			this.setState({isPageSubject: nextProps.match.params.subject, isPageIssue: nextProps.match.params.issue, show_past_answer: false, show_past_quiz: false});
+
+			//tracking activity
+			activityTracker('Browsing: ' + nextProps.match.params.subject + ' / ' + nextProps.match.params.issue, nextProps.match.url);
 		}
 	}
 	
-	submitEssay() {
-		if (!this.props.match.params.subject) {
-			return;
-		}
-		if (!this.props.match.params.issue) {
-			return;
-		}
-		let uid = getUID();
-		if (!uid) {
-			return;
-		}
-		let subject = '';
-		subject = '/' + this.props.match.params.subject;
-		let issue = '';
-		issue = '/' + this.props.match.params.issue;
-		let uidPath = '/' + uid;
-		
-		var obj = {};
-		obj.text = this.state.selectedEssay.text;
-		obj.key = this.state.selectedEssay.key;
-		obj.year = this.state.selectedEssay.year;
-		obj.qid = this.state.selectedEssay.qid;
-		obj.topic = this.state.selectedEssay.topic;
-		obj.created_dt = firebase.database.ServerValue.TIMESTAMP;
-		var url = FirebaseConstant.basePath + '/quiz/issues_answers' + uidPath + subject + issue;
-		firebaseDatabase.ref(url).push(obj);
-		this.setState({selectedEssay: null});
-		//this.props.callGetIssueAnswers(uid, this.props.match.params.subject, this.props.match.params.issue);
-		//this.props.callGetSimpleQuiz(uid, this.props.match.params.subject, this.props.match.params.issue);
-	}
 	
-	updateEssayText(e) {
-		this.setState(
-			{
-				selectedEssay: 
-				{
-					...this.state.selectedEssay, 
-					text: e.target.value
-				}
-			}
-		);	
-	}
 	
 	deleteRecord() {
 		if (!this.props.match.params.subject) {
@@ -147,24 +114,6 @@ class EssayIssues extends Component {
 		this.setState({deleteIssueModal: false, deleteIssueModalData: null});
 	}
 	
-	selectEssay(obj, data, e)
-	{
-		e.preventDefault();		
-		let records = data.filter((rec) => {
-			return rec.id === obj.id;
-		});
-		
-		if (!records) {
-			return false;	
-		}
-		
-		let record = records[0];
-		
-		obj.hypo = record.hypo;
-		obj.issues = record.issues;
-		obj.topic = record.topic;
-		this.setState({selectedEssay: obj})
-	}
 
 	render() {	
 		let subject = this.props.issuesReducer.subject;		
@@ -172,11 +121,6 @@ class EssayIssues extends Component {
 		if (this.props.issuesReducer.issue && this.props.issuesReducer.issue[this.props.match.params.subject] && this.props.issuesReducer.issue[this.props.match.params.subject][this.props.match.params.issue]) {
 			issue = this.props.issuesReducer.issue[this.props.match.params.subject][this.props.match.params.issue];
 		}
-		let baby_bar_exam = null;
-		if (this.props.issuesReducer.baby_bar_exam && this.props.issuesReducer.baby_bar_exam[this.props.match.params.subject]) {
-			baby_bar_exam = this.props.issuesReducer.baby_bar_exam[this.props.match.params.subject];
-		}
-		
 		
 		let uid = getUID();
 			
@@ -209,14 +153,7 @@ class EssayIssues extends Component {
 		let sitePanelClass_2 = 'primary';
 		let sitePanelClass_3 = 'primary';
 		let sitePanelClass_4 = 'primary';
-		
-		let exam_term_definition = null;
-		let exam_data = null;
-		if (this.props.match.params.issue && baby_bar_exam) {
-			exam_term_definition =  baby_bar_exam.terms[this.props.match.params.issue];
-			exam_data = baby_bar_exam.data;
-		}
-		
+				
 		let currentIssueRules = null;
 		if (this.props.issuesReducer.baby_bar_rules && this.props.issuesReducer.baby_bar_rules[this.props.match.params.subject] && this.props.issuesReducer.baby_bar_rules[this.props.match.params.subject][this.props.match.params.issue]) {
 			currentIssueRules = this.props.issuesReducer.baby_bar_rules[this.props.match.params.subject][this.props.match.params.issue];
@@ -245,15 +182,6 @@ class EssayIssues extends Component {
 							<div className="row myFavText">
 								<div className="col-md-4">
 									<IssuesRule currentIssueRules={currentIssueRules} s={this.props.match.params.subject} i={this.props.match.params.issue} />
-									{/*
-										 issue.rule &&
-										<div className={`panel panel-${sitePanelClass_1}`}>
-											<div className="panel-heading"><b>Rule</b></div>
-											<div className="panel-body">
-												{renderHTML(issue.rule)}
-											</div>
-										</div>
-									*/}
 									{
 										issue.elements &&
 										<div className={`panel panel-${sitePanelClass_2}`}>
@@ -290,6 +218,26 @@ class EssayIssues extends Component {
 												}
 											</div>
 											<div className="panel-footer">{renderHTML(issue.conclusion)}</div>
+										</div>
+									}
+									{
+										issue.sample_essays &&
+										<div className={`panel panel-${sitePanelClass_3} sample_essays`}>
+											<div className="panel-heading"><b>Sample Essays</b></div>
+											<div className="panel-body">
+												<ol>
+													{
+														issue.sample_essays.map((value, key) => {
+															return <li key={key}>
+																<b>Hypo: </b> {renderHTML(value.hypo)}
+																<div className="divider"><b>SOLUTION: </b></div>
+																<div className="divider">{renderHTML(value.explanation)}</div>
+															
+															</li>							   
+														})	
+													}
+												</ol>
+											</div>
 										</div>
 									}
 									{
@@ -344,70 +292,8 @@ class EssayIssues extends Component {
 								</div>
 								<div className="col-md-4">
 									
-									{
-										issue.sample_essays &&
-										<div className={`panel panel-${sitePanelClass_3} sample_essays`}>
-											<div className="panel-heading"><b>Sample Essays</b></div>
-											<div className="panel-body">
-												<ol>
-													{
-														issue.sample_essays.map((value, key) => {
-															return <li key={key}>
-																<b>Hypo: </b> {renderHTML(value.hypo)}
-																<div className="divider"><b>SOLUTION: </b></div>
-																<div className="divider">{renderHTML(value.explanation)}</div>
-															
-															</li>							   
-														})	
-													}
-												</ol>
-											</div>
-										</div>
-									}
 									
-									{
-										exam_term_definition &&
-										<div className={`panel panel-${sitePanelClass_4} essays` }>
-											<div className="panel-heading">Essays To Practice</div>
-											<div className="panel-body">
-												<div>Click on each of the following hypo and try to write the essay related to "{issue.name}" only in the following textarea.<br /></div>
-												<ol>
-													{
-														exam_term_definition.years.map((value, key) => {
-															var obj = value;
-															obj.text = '';
-															obj.key = key;
-															obj.qid = value.id;
-															obj.year = value.year;
-															return <li key={key}><a href="" onClick={this.selectEssay.bind(this, obj, exam_data)}>{value.year} (id: {value.id})</a></li>							   
-														})	
-													}
-													{
-														this.state.selectedEssay &&
-														<li key="close"><a href="" onClick={(e) => {e.preventDefault(); this.setState({selectedEssay: null})}}>Close Textarea</a></li>
-													}
-												</ol>
-												{
-													this.state.selectedEssay &&
-													<div>
-														<div className="divider">
-															<b>Year: </b> {this.state.selectedEssay.year}
-														</div>
-														<div className="divider">
-															<b>Hypo: </b> {renderHTML(this.state.selectedEssay.hypo)}
-														</div>
-														<div className="divider">
-														<textarea className="form-control" rows="10" value={this.state.selectedEssay.text} onChange={this.updateEssayText.bind(this)}></textarea>
-														</div>
-														<div className="divider">
-														<Button className="form-control" bsStyle="primary" onClick={this.submitEssay.bind(this)}>Submit</Button>
-														</div>
-													</div>
-												}
-											</div>
-										</div>
-									}
-									
+									<IssuesBarExam subject={this.props.match.params.subject} issue={this.props.match.params.issue} issuesReducer={this.props.issuesReducer} issueDetails={issue}/>
 									
 									{/*
 										issue.essays &&
@@ -522,6 +408,8 @@ class EssayIssues extends Component {
 														</div>						  									   
 													})
 												}
+												
+												
 													<Modal show={this.state.deleteIssueModal} onHide={this.close.bind(this)}>
 														<Modal.Header closeButton>
 															<Modal.Title>Confirmation</Modal.Title>

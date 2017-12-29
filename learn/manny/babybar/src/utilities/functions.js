@@ -1,3 +1,8 @@
+import * as firebase from 'firebase';
+import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
+
+import {getUsersObj} from '../components/auth/AuthAction.js';
+
 export const distance = (lat1, lon1, lat2, lon2, unit='') => {
       var radlat1 = Math.PI * lat1/180
       var radlat2 = Math.PI * lat2/180
@@ -55,7 +60,7 @@ export const dynamicSort = (property) => {
 	}
 };
 
-export const processRecords = (recordArray, sortingOrder=null, filterText=null, filterFields=[], maxRows=20, pageNumber=1, onSelectFunc=null) => {
+export const processRecords = (recordArray, sortingOrder=null, filterText=null, filterFields=[], maxRows=20, pageNumber=1, onSelectFunc=null, maxButtons=3) => {
 	var myArr = JSON.parse(JSON.stringify(recordArray));
 	//filter Text
 	if (filterText && filterFields.length > 0) {
@@ -88,7 +93,7 @@ export const processRecords = (recordArray, sortingOrder=null, filterText=null, 
 	  activePage: pageNumber,
 	  items: totalPages,//number of pages
 	  onSelect: onSelectFunc,
-	  maxButtons: 3, //numer of buttons to display
+	  maxButtons: maxButtons, //numer of buttons to display
 	  boundaryLinks: true,
 	  first: true,
 	  last: true,
@@ -132,4 +137,17 @@ export const essayPoints = (score) => {
 
 export const mbePoints = (score) => {
 	return (score * 3.5911) + 16.2327;
+}
+
+export const activityTracker = (page, url) => {
+	let usersObj = getUsersObj();
+	let obj = {};
+	obj.uid = usersObj.uid;
+	obj.displayName = usersObj.displayName;
+	obj.photoURL = usersObj.photoURL;
+	obj.page = page;
+	obj.url = url;
+	obj.created_dt = firebase.database.ServerValue.TIMESTAMP;
+	var url = FirebaseConstant.basePath + '/activities';
+	firebaseDatabase.ref(url).push(obj);
 }

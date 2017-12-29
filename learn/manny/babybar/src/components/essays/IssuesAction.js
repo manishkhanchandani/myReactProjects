@@ -86,7 +86,8 @@ export const getBabyBarExamJson = (subject=null) => {
 				//resolve(JSON.parse(j));
 				//return;
 			}
-			let url = '/assets/json/babybarexam/'+subject+'.json';
+			//let url = '/assets/json/babybarexam/'+subject+'.json';
+			let url = '/assets/issues/'+subject+'.json';
 			fetch(url, {
 				method: 'GET'	  
 			}).then((response) => {

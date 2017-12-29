@@ -55,7 +55,21 @@ export const FirebaseLogin = (type, additionalParams=null) => {
 			provider = new firebase.auth.GithubAuthProvider();
 			break;
 		case 'EMAILLOGIN':
-			
+			return {
+				type: type,
+				payload: new Promise((resolve, reject) => {
+					firebaseApp.auth().createUserWithEmailAndPassword(additionalParams.email, additionalParams.password).then((user) => {
+						if (user.emailVerified === false) {
+							user.sendEmailVerification().then((data) => {
+								console.log('email verification sent to user');
+							});
+						}
+						resolve(user);
+					}).catch((error) => {
+						reject(error);
+					});	  
+				})
+			};
 			break;
 		default:
 			break;
@@ -108,8 +122,12 @@ export const actionGithubLogin = () => {
 	return FirebaseLogin('GITHUBLOGIN');
 };
 
-export const actionEmailLogin = () => {
-	return FirebaseLogin('EMAILLOGIN');
+export const actionEmailLogin = (email, password) => {
+	let obj = {
+		email,
+		password
+	};
+	return FirebaseLogin('EMAILLOGIN', obj);
 };
 
 export const FirebaseAuthSystem = (dispatch) => {

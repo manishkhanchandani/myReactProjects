@@ -1,0 +1,9 @@
+.activities img {
+	max-width: 60px;
+	float: left;
+}
+.activities .media-body {
+	width: inherit;
+	display: inherit;
+	margin-top: 0px;
+}

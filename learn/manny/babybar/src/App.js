@@ -13,6 +13,7 @@ import Simulation from './components/essays/Simulation.js';
 
 import Import1 from './components/imports/Import1.js';
 import './App.css';
+import Activities from './components/activities/Activities.js';
 
 
 class App extends Component {
@@ -46,6 +47,12 @@ class App extends Component {
 								<Route exact={true} path="/essays/issues" component={EssayIssues} />
 								<Route exact={true} path="/essays/issue/spotting/:subject" component={IssuesSpotting} />
 								<Route exact={true} path="/simulation/:subject" component={Simulation} />
+							</div>
+						</div>
+						<div className="row">	
+							
+							<div className="col-md-4">
+								<Activities />
 							</div>
 							{
 									/*<div className="col-md-3">
