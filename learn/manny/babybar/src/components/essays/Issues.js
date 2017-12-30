@@ -60,7 +60,7 @@ class EssayIssues extends Component {
 		this.props.f_babybarRules(uid, this.props.match.params.subject, this.props.match.params.issue);
 		
 		//tracking activity
-		activityTracker('Browsing: ' + this.props.match.params.subject + ' / ' + this.props.match.params.issue, this.props.match.url);
+		//activityTracker('Browsing: ' + this.props.match.params.subject + ' / ' + this.props.match.params.issue, this.props.match.url);
 	
 	}
 	
@@ -82,7 +82,7 @@ class EssayIssues extends Component {
 			
 			this.setState({isPageSubject: nextProps.match.params.subject, isPageIssue: nextProps.match.params.issue, show_past_answer: false, show_past_quiz: false});
 			//tracking activity
-			activityTracker('Browsing: ' + nextProps.match.params.subject + ' / ' + nextProps.match.params.issue, nextProps.match.url);
+			//activityTracker('Browsing: ' + nextProps.match.params.subject + ' / ' + nextProps.match.params.issue, nextProps.match.url);
 
 		}
 	}

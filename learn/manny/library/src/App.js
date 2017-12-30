@@ -6,6 +6,8 @@ import SimpleQuiz from './modules/simple-quiz/SimpleQuiz.js';
 import AuthEmailLogin from './modules/auth/AuthEmailLogin.js';
 import AuthEmailRegister from './modules/auth/AuthEmailRegister.js';
 
+import Main from './modules/ui-work/Main.js';
+
 class App extends Component {
   render() {
     return (
@@ -16,6 +18,7 @@ class App extends Component {
 				<Route exact={true} path="/simpleQuiz" component={SimpleQuiz} />
 				<Route exact={true} path="/register" component={AuthEmailRegister} />
 				<Route exact={true} path="/login" component={AuthEmailLogin} />
+				<Route exact={true} path="/ui" component={Main} />
 				
 			</div>
 		</Router>

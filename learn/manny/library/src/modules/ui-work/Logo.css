@@ -1,0 +1,33 @@
+@font-face{font-family:nf-icon;src:url(https://assets.nflxext.com/ffe/siteui/fonts/nf-icon-v1-88.eot);src:url(https://assets.nflxext.com/ffe/siteui/fonts/nf-icon-v1-88.eot?#iefix) format('embedded-opentype'),url(https://assets.nflxext.com/ffe/siteui/fonts/nf-icon-v1-88.woff) format('woff'),url(https://assets.nflxext.com/ffe/siteui/fonts/nf-icon-v1-88.ttf) format('truetype'),url(https://assets.nflxext.com/ffe/siteui/fonts/nf-icon-v1-88.svg#nf-icon-v1-88) format('svg');font-weight:400;font-style:normal}
+
+.f-logo .logo {
+    text-decoration: none;
+    padding: 10px 0;
+    font-size: 1.8em;
+    color: #e50914;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.f-logo [class*=" icon-"], .f-logo [class^=icon-] {
+    font-family: nf-icon;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.f-logo a {
+    background-color: transparent;
+}
+
+.icon-logoUpdate:before {
+    content: '\e5d0';
+}
