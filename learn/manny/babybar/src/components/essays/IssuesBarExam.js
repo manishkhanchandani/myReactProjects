@@ -95,6 +95,7 @@ class IssuesBarExam extends Component {
 		let exam_term_definition = null;
 		let exam_data = null;
 		exam_term_definition =  baby_bar_exam.issues[this.props.issue];
+		console.log('baby_bar_exam: ', baby_bar_exam, this.props.issue);
 		if (!exam_term_definition) {
 			return null;	
 		}

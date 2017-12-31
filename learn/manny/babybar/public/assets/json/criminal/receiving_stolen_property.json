@@ -1,6 +1,6 @@
 {
-	"key": "ucc",
-	"name": "Does UCC apply",
+	"key": "receiving_stolen_property",
+	"name": "Receiving Stolen Property",
 	"next": {
 		"key": "",
 		"name": "",

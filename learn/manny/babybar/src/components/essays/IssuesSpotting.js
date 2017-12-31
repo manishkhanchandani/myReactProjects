@@ -6,7 +6,7 @@ import renderHTML from 'react-render-html';
 import {connect} from 'react-redux';
 import * as issuesAction from './IssuesAction.js';
 import {getUID} from '../auth/AuthAction.js';
-import {dynamicSort, timeAgo, processRecords} from '../../utilities/functions.js';
+import {timeAgo, processRecords} from '../../utilities/functions.js';
 import Paginator from '../../utilities/Paginator.js';
 import {Alert} from 'react-bootstrap';
 
@@ -71,12 +71,10 @@ class IssuesSpotting extends Component {
 	addIssue(val, issueDetails, e) {
 		let obj = this.state.issueSelected;
 
-		let records = issueDetails.issues.filter((rec) => {
-			return val.key === rec;
-		});
+		let record = issueDetails.issues[val.key];
 		
 		let isCorrect = false;
-		if (records.length > 0) {
+		if (record) {
 			isCorrect = true;
 		}
 		obj[val.key] = val;
@@ -97,22 +95,26 @@ class IssuesSpotting extends Component {
 		let issueSelected = this.state.issueSelected;
 		let issueSpotting = this.state.issueSpotting;
 		let issues = JSON.parse(JSON.stringify(issueSpotting.issues));
+		
 		if (Object.keys(issueSelected).length === 0) {
 			totalPoints = 0;	
 		} else {
 			for (let i in issueSelected) {
-				let pos = issues.indexOf(i);
-				issues.splice(pos, 1);
-				
 				let isCorrect = true;
-				if (pos === -1) {
-					totalPoints = totalPoints - 5;
+				let pos = issues[i];
+				let point = '+++';
+				if (pos) {
+					delete issues[i];
+				} else {
+					totalPoints = totalPoints - 2;
 					isCorrect = false;
+					point = -2;
 				}
 				obj.data[i] = {
-					name: issueSelected[i].name,
+					name: issueSelected[i].title,
 					isCorrect: isCorrect,
-					missed: false
+					missed: false,
+					point: point
 				};
 			}
 
@@ -121,10 +123,11 @@ class IssuesSpotting extends Component {
 		if (Object.keys(issues).length > 0) {
 			for (let i in issues) {
 				totalPoints = totalPoints - 5;
-				obj.data[issues[i]] = {
-					name: issueDetails[issues[i]].name,
+				obj.data[i] = {
+					name: issueDetails[i].title,
 					isCorrect: false,
-					missed: true
+					missed: true,
+					point: -5
 				};
 			}
 		}
@@ -133,7 +136,7 @@ class IssuesSpotting extends Component {
 		obj.totalPoints = totalPoints;
 		obj.subject = this.props.match.params.subject;
 		obj.id = issueSpotting.id;
-		obj.year = issueSpotting.year;
+		obj.year = issueSpotting.reference;
 		
 		let uid = getUID();
 		if (!uid) {
@@ -218,10 +221,14 @@ class IssuesSpotting extends Component {
 		let terms = '';
 		let data = null;
 		let termsArray = [];
-		if (this.props.issuesReducer && this.props.issuesReducer.baby_bar_exam) {
+		let recordDetails = null;
+		if (this.props.issuesReducer && this.props.issuesReducer.baby_bar_exam && this.props.issuesReducer.baby_bar_exam[this.props.match.params.subject]) {
+			recordDetails = this.props.issuesReducer.baby_bar_exam[this.props.match.params.subject];
+			console.log('recordDetails: ', recordDetails);
+
 			subject = this.props.issuesReducer.baby_bar_exam.subject;
-			data = this.props.issuesReducer.baby_bar_exam.data;
-			terms = this.props.issuesReducer.baby_bar_exam.terms;
+			data = recordDetails.exams;
+			terms = recordDetails.issues;
 			
 			if (terms) {
 				for (let i in terms) {
@@ -239,142 +246,193 @@ class IssuesSpotting extends Component {
 			myArrayConverted = obj.myArrayConverted;
 			paginationProps = obj.paginationProps;
 		}
-		
+		console.log('this.state: ', this.state);
 		
 		return (
 			<div className="container">
 				<h3>Issue Spotting :: <span> {subject}</span></h3>
 				<div className="row">
-					<div className="col-md-8">
+					<div className="col-md-12">
 						<div className="panel panel-primary">
 							<div className="panel-heading"><b>Issue Spotting</b></div>
 							<div className="panel-body">
-								<select className="form-control" onChange={(e) => {this.setState({issueSpotting: JSON.parse(e.target.value)})}}>
-									<option>Select Year</option>
+								<select className="form-control" onChange={(e) => {if (!e.target.value) {return;} this.setState({issueSpotting: JSON.parse(e.target.value)})}}>
+									<option value="">Select Year</option>
 									{
 										data && 
 										data.map((value, key) => {
-											if (!value.year) {
+											if (!value.reference) {
 												return null;	
 											}
 											const opt = JSON.stringify(value);
-											return <option key={key} value={opt}>{value.year} / id: {value.id}</option>		  
+											return <option key={key} value={opt}>{value.reference} / id: {value.id}</option>		  
 										})
 									}
 								</select>
 								<br />
-								<Button bsStyle="primary" className="form-control" onClick={() => {this.setState({issueSpottingStarted: true})}}>Start Issue Spotting</Button>
-							</div>
-						</div>
-						
-						
-						{
-							this.state.issueSpottingStarted &&
-							<div className="panel panel-primary">
-								<div className="panel-heading"><b>Issue Spotting</b></div>
-								<div className="panel-body">
-									<div><b>Read the following hypo and try to choose all the issues. Total points is 100, you will get max 70 points if you answer all correct. And you will loose 5 to 10 points on each missing or wrong issue which is not on our list.</b></div>
-									<hr />
-									<div>{renderHTML(this.state.issueSpotting.hypo)}</div>
-									<hr />
-									<div><b>Choose from following issues:</b></div>
-									<hr />
-									{
-										termsArray && 
-										termsArray.map((value, key) => {
-											let obj = JSON.stringify(value);
-											return <div key={key}><input type="checkbox" value={obj} onClick={this.addIssue.bind(this, value, this.state.issueSpotting)} /> {value.name}</div>				
-										})
-									}
-									<hr />
-									<Button bsStyle="primary" className="form-control" onClick={this.submitIssue.bind(this, terms)}>Submit Spotting</Button>
-								</div>
-							</div>
-						}
-						
-					</div>
-					<div className="col-md-4">
-						<div className="panel panel-primary">
-							<div className="panel-heading"><b>Past Issue Spotting</b></div>
-							<div className="panel-body">
-							
-								{
-									myArrayConverted && 
-									myArrayConverted.map((value, key) => {
-										let date = new Date(value.created_dt);
-										return <div key={key} className="panel panel-default">
-											<div className="panel-heading"><b>{value.year} / ID: {value.id}</b><div className="pull-right">{value.dt}</div></div>
-											<div className="panel-body">
-												
-												<b>You selected following options: </b><br /><br />
-												{
-													value.dataArray && 
-													value.dataArray.map((value, key) => {
-														let obj = JSON.stringify(value);
-														return <div key={key}><b>{value.name}</b><br />
-														Is Correct: 
-														{
-															value.isCorrect ?
-															<span><b>Yes</b></span>
-															:
-															<span><b>No</b></span>
-														}
-														{
-															!value.isCorrect && 
-															<div> Points Deducted: <b>-5</b></div>
-														}
-														
-														{
-															value.missed && 
-															<Alert bsStyle="info">
-															You Missed this issue
-														  </Alert>
-														}
-														
-														{
-															(!value.isCorrect && !value.missed) && 
-															<Alert bsStyle="danger">
-															Wrong Issue
-														  </Alert>
-														}
-														<hr />
-														</div>				
-													})
-												}
-												
-												<div>Created On: <b>{date.toString()}</b></div>
-											</div>
-											<div className="panel-footer">Total Points: <b>{value.totalPoints}</b>
-														<a href="" className="pull-right" onClick={(e) => {e.preventDefault(); this.setState({deleteIssueModal: true, deleteIssueDetail: value});}}>Delete</a></div>
-										</div>			  
-									})
-								}
-								
-								<Modal show={this.state.deleteIssueModal} onHide={this.close.bind(this)}>
-									<Modal.Header closeButton>
-										<Modal.Title>Confirmation</Modal.Title>
-									</Modal.Header>
-									<Modal.Body>
-										<h4>Delete Record For 
-										{
-											this.state.deleteIssueDetail && 
-												<span>
-													{this.state.deleteIssueDetail.year} / ID: {this.state.deleteIssueDetail.id}
-												</span> 
-										} </h4>
-										<p>Do you really want to delete this record? You wont be able to recover it later?</p>
-									</Modal.Body>
-									<Modal.Footer>
-										<Button onClick={this.deleteRecord.bind(this, this.state.deleteIssueDetail)}>Delete Record</Button>
-									</Modal.Footer>
-								</Modal>
-								
-								<Paginator {...paginationProps} />
-								
+								<Button bsStyle="primary" className="form-control" onClick={() => {if(!this.state.issueSpotting) { return false; }this.setState({issueSpottingStarted: true})}}>Start Issue Spotting</Button>
 							</div>
 						</div>
 					</div>
 				</div>
+						
+				
+				<div className="row">
+					<div className="col-md-8">
+						{
+								this.state.issueSpottingStarted &&
+								<div className="row">
+									<div className="col-md-7">
+										<div className="panel panel-warning">
+											<div className="panel-heading"><b>Issue Spotting</b></div>
+											<div className="panel-body">
+												<div><b>Read the following hypo and try to choose all the issues mentioned from list on right side. Total points is 100, you will get max 70 points if you answer all correct. And you will loose 5 points on each missing and 2 points on each wrong issue which is not on our list.</b></div>
+												<hr />
+												<div>{renderHTML(this.state.issueSpotting.essay)}</div>
+											</div>
+										</div>
+									</div>
+									<div className="col-md-5">
+										
+										
+										
+										<div className="panel panel-warning">
+											<div className="panel-heading"><b>Choose from following issues</b></div>
+											<div className="panel-body">
+											{
+												termsArray && 
+												termsArray.map((value, key) => {
+													let obj = JSON.stringify(value);
+													return <div key={key}><input type="checkbox" value={obj} onClick={this.addIssue.bind(this, value, this.state.issueSpotting)} /> {value.title}</div>				
+												})
+											}
+											<hr />
+											<Button bsStyle="primary" className="form-control" onClick={this.submitIssue.bind(this, terms)}>Submit Spotting</Button>
+											</div>
+										</div>
+										
+										
+										
+										
+									</div>
+								</div>
+							}
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					</div>
+					<div className="col-md-4">
+					
+					
+						{
+							myArrayConverted && 
+							<div className="row">
+								<div className="col-md-12">
+									<div className="panel panel-success">
+										<div className="panel-heading"><b>Past Issue Spotting</b></div>
+										<div className="panel-body">
+										
+											{
+												myArrayConverted.map((value, key) => {
+													let date = new Date(value.created_dt);
+													return <div key={key} className="panel panel-default">
+														<div className="panel-heading"><b>{value.year} / ID: {value.id}</b><div className="pull-right">{value.dt}</div></div>
+														<div className="panel-body">
+															
+															<b>You selected following options: </b><br /><br />
+															{
+																value.dataArray && 
+																value.dataArray.map((value, key) => {
+																	return <div key={key}><b>{value.name}</b><br />
+																	Is Correct: 
+																	{
+																		value.isCorrect ?
+																		<span><b>Yes</b></span>
+																		:
+																		<span><b>No</b></span>
+																	}
+																	{
+																		!value.isCorrect && 
+																		<div> Points Deducted: <b>{value.point}</b></div>
+																	}
+																	
+																	{
+																		value.missed && 
+																		<Alert bsStyle="info">
+																		You Missed this issue
+																	  </Alert>
+																	}
+																	
+																	{
+																		(!value.isCorrect && !value.missed) && 
+																		<Alert bsStyle="danger">
+																		Wrong Issue
+																	  </Alert>
+																	}
+																	<hr />
+																	</div>				
+																})
+															}
+															
+															<div>Created On: <b>{date.toString()}</b></div>
+														</div>
+														<div className="panel-footer"><small>Total Points: <b>{value.totalPoints}</b>
+														
+														{
+															value.totalPoints >= 65 ?
+															<span> / You Passed</span> :
+															<span> / You Failed</span>
+														}
+																	<a href="" className="pull-right" onClick={(e) => {e.preventDefault(); this.setState({deleteIssueModal: true, deleteIssueDetail: value});}}>Delete</a></small></div>
+													</div>			  
+												})
+											}
+											
+											<Modal show={this.state.deleteIssueModal} onHide={this.close.bind(this)}>
+												<Modal.Header closeButton>
+													<Modal.Title>Confirmation</Modal.Title>
+												</Modal.Header>
+												<Modal.Body>
+													<h4>Delete Record For 
+													{
+														this.state.deleteIssueDetail && 
+															<span>
+																{this.state.deleteIssueDetail.year} / ID: {this.state.deleteIssueDetail.id}
+															</span> 
+													} </h4>
+													<p>Do you really want to delete this record? You wont be able to recover it later?</p>
+												</Modal.Body>
+												<Modal.Footer>
+													<Button onClick={this.deleteRecord.bind(this, this.state.deleteIssueDetail)}>Delete Record</Button>
+												</Modal.Footer>
+											</Modal>
+											
+											<Paginator {...paginationProps} />
+											
+										</div>
+									</div>
+								</div>
+							</div>
+						}
+						
+						
+						
+						
+					</div>
+				</div>	
+						
+						
+						
+	
+				
 			</div>
 		);
 	}

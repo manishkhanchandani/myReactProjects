@@ -1,6 +1,6 @@
 {
-	"key": "ucc",
-	"name": "Does UCC apply",
+	"key": "liquidated_damages",
+	"name": "Liquidated Damages",
 	"next": {
 		"key": "",
 		"name": "",

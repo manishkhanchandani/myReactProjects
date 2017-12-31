@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import * as firebase from 'firebase';
+
 import {firebaseDatabase, FirebaseConstant} from '../../MyFirebase.js';
 import {Button, Modal} from 'react-bootstrap';
 import renderHTML from 'react-render-html';
@@ -13,7 +13,7 @@ import './Issues.css';
 import * as simpleQuizAction from '../simple-quiz/SimpleQuizAction.js';
 
 import Paginator from '../../utilities/Paginator.js';
-import {processRecords, essayPoints, mbePoints, activityTracker} from '../../utilities/functions.js';
+import {processRecords} from '../../utilities/functions.js'; //, essayPoints, mbePoints, activityTracker
 import SimpleQuiz from '../simple-quiz/SimpleQuiz.js';
 import SimpleQuizResults from '../simple-quiz/SimpleQuizResults.js';
 import IssuesBarExam from './IssuesBarExam.js';

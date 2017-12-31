@@ -31,7 +31,7 @@ class IssuesRule extends Component {
 		let subject = '/' + this.props.s;
 		let issue = '/' + this.props.i;
 		var url = FirebaseConstant.basePath + '/quiz/rules' + uidPath + subject + issue;
-		var ref = firebaseDatabase.ref(url).child('rule').set(this.state.rule);
+		firebaseDatabase.ref(url).child('rule').set(this.state.rule);
 		this.props.f_babybarRules(uid, this.props.s, this.props.i);
 		this.setState({showBox: false});
 	}
