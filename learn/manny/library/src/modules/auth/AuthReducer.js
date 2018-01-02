@@ -31,6 +31,32 @@ const AuthReducer = (state = {
 				providerId: null
 			}
 			break;
+		case 'EMAILREGISTER_FULFILLED':
+			state = {
+				...state,
+				email: action.payload.providerData[0].email,
+				displayName: action.payload.providerData[0].displayName,
+				photoURL: action.payload.providerData[0].photoURL,
+				uid: action.payload.uid,
+				profile_uid: action.payload.providerData[0].uid,
+				providerId: action.payload.providerData[0].providerId,
+				error: null,
+				processCompleted: true
+			}
+			break;
+		case 'EMAILREGISTER_REJECTED':
+			state = {
+				...state,
+				email: null,
+				displayName: null,
+				photoURL: null,
+				uid: null,
+				profile_uid: null,
+				providerId: null,
+				error: action.payload.message,
+				processCompleted: false
+			}
+			break;
 		case 'EMAILLOGIN_FULFILLED':
 			state = {
 				...state,

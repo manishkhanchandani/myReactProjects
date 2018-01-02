@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Button, Alert} from 'react-bootstrap';
 import {connect} from 'react-redux';
 
-import {actionEmailLogin} from './AuthAction.js';
+import {actionEmailRegister} from './AuthAction.js';
 import {Redirect} from 'react-router-dom';
 
 class AuthEmailRegister extends Component {
@@ -91,7 +91,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		f_email: (email, password) => {
-			dispatch(actionEmailLogin(email, password));
+			dispatch(actionEmailRegister(email, password));
 		}
 	};
 };

@@ -58,6 +58,18 @@ export const FirebaseLogin = (type, additionalParams=null) => {
 			return {
 				type: type,
 				payload: new Promise((resolve, reject) => {
+					firebaseApp.auth().signInWithEmailAndPassword(additionalParams.email, additionalParams.password).then((user) => {
+						resolve(user);
+					}).catch((error) => {
+						reject(error);
+					});	  
+				})
+			};
+			break;
+		case 'EMAILREGISTER':
+			return {
+				type: type,
+				payload: new Promise((resolve, reject) => {
 					firebaseApp.auth().createUserWithEmailAndPassword(additionalParams.email, additionalParams.password).then((user) => {
 						if (user.emailVerified === false) {
 							user.sendEmailVerification().then((data) => {
@@ -121,6 +133,15 @@ export const actionTwitterLogin = () => {
 export const actionGithubLogin = () => {
 	return FirebaseLogin('GITHUBLOGIN');
 };
+
+export const actionEmailRegister = (email, password) => {
+	let obj = {
+		email,
+		password
+	};
+	return FirebaseLogin('EMAILREGISTER', obj);
+};
+
 
 export const actionEmailLogin = (email, password) => {
 	let obj = {
