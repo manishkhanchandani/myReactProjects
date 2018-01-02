@@ -54,24 +54,36 @@ export const FirebaseLogin = (type, additionalParams=null) => {
 			provider = new firebase.auth.GithubAuthProvider();
 			break;
 		case 'EMAILLOGIN':
-		    return {
+			console.log('additionalParams:', additionalParams);
+			return{
 				type: type,
-				payload: new Promise((resolve, reject) => {
-					firebaseApp.auth().createUserWithEmailAndPassword(additionalParams.email, additionalParams.password).then((user) => {
-						if (user.emailVerified === false) {
-							user.sendEmailVerification().then((data) => {
-								console.log('email verification sent to user');
+				payload: new Promise((resolve, reject)=>{
+					firebaseApp.auth().createUserWithEmailAndPassword(additionalParams.email,additionalParams.password).then((user)=>{
+						console.log('user is ', user);
+						
+						if(user.emailVerified===false){
+							console.log('email is not verified');
+							user.sendEmailVerification().then((data)=>{
+								console.log('email verification sent to user');								
 							});
+						
 						}
-						resolve(user);
-					}).catch((error) => {
+						
+						resolve(user);					
+			
+					}).catch((error)=>{
+	 					console.log('error is ', error);
 						reject(error);
-					});	  
+					});			  
+								  
 				})
-			};		
+			};			
+			return;
 			break;
+			
 		default:
 			break;
+
 	}
 	
 	return {
@@ -123,8 +135,14 @@ export const actionGithubLogin = () => {
 	return FirebaseLogin('GITHUBLOGIN');
 };
 
-export const actionEmailLogin = () => {
-	return FirebaseLogin('EMAILLOGIN');
+export const actionEmailLogin = (email,password) => {
+	let obj = {
+		email,	    //email:email,es5  when key and value are same in es6 we can use that
+		password	//password:password
+		
+	};
+	
+	return FirebaseLogin('EMAILLOGIN', obj);
 };
 
 

@@ -33,7 +33,9 @@ const AuthReducer = (state = {
 				providerId: null
 			}
 			break;
+			
 		 case 'EMAILLOGIN_FULFILLED':
+		 	console.log(action);
 			state = {
 				...state,
 				email: action.payload.providerData[0].email,
@@ -41,7 +43,7 @@ const AuthReducer = (state = {
 				photoURL: action.payload.providerData[0].photoURL,
 				uid: action.payload.uid,
 				profile_uid: action.payload.providerData[0].uid,
-				providerId: action.payload.providerData[0].providerId,
+				providerId: action.payload.providerData[0].providerId, 
 				error: null,
 				processCompleted: true
 			}

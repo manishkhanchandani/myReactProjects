@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
-
 import {Button, Alert} from 'react-bootstrap';
 import {connect} from 'react-redux';
-
 import {actionEmailLogin} from './AuthAction.js';
 import {Redirect} from 'react-router-dom';
+
 class AuthEmailRegister extends Component {
 	
 	
@@ -45,7 +44,7 @@ class AuthEmailRegister extends Component {
 	render() {
 		
 		 if (this.props.authReducer.processCompleted) {
-				return <Redirect to="/" push={true} />;
+			    return <Redirect to="/" push={true} />;
 		}
 		
 		
@@ -53,40 +52,35 @@ class AuthEmailRegister extends Component {
 				 <div className="container">
 					<form onSubmit={this.submitFrm.bind(this)}>
 					<h3 className="text-center">User Registration</h3>
-					{
-						this.state.error &&
-						<Alert bsStyle="warning">
-							{this.state.error}
-						</Alert>
-					}
-					{
-						this.props.authReducer.error &&
-						<Alert bsStyle="warning">
-							{this.props.authReducer.error}
-						</Alert>
-					}				
+					
+					{this.state.error && <Alert bsStyle="warning">{this.state.error}</Alert>}
+					{this.props.authReducer.error && <Alert bsStyle="warning">{this.props.authReducer.error}</Alert>}	
 																	
 										
 					<div className="form-group">
 					<label>Email address</label>
 					<input type="email" className="form-control" placeholder="Enter email" value={this.state.email} onChange={(e) => {this.setState({email: e.target.value})}} />
 					</div>
+					
 					<div className="form-group">
 					<label>Password</label>
 					<input type="password" className="form-control" placeholder="Enter password" value={this.state.password} onChange={(e) => {this.setState({password: e.target.value})}} />
 					</div>
+					
 					<div className="form-group">
 					<label>Confirm Password</label>
 					<input type="password" className="form-control" placeholder="Enter confirm password" value={this.state.cpassword} onChange={(e) => {this.setState({cpassword: e.target.value})}} />
 					</div>
-					<Button bsStyle="primary" className="form-control" type="submit">Submit</Button>
+					
+					<Button bsStyle="primary" className="form-control" type="submit">Regist</Button>
+					
 					</form>
 					</div>
 		);
 	}
 }
-
- const mapStateToProps = (state) => {
+// redux part
+const mapStateToProps = (state) => {
 	return {
 		authReducer: state.AuthReducer
 	}

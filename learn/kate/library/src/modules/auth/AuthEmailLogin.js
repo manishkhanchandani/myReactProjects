@@ -36,12 +36,10 @@ class AuthEmailLogin extends Component {
 			<div className="container">
 					<form onSubmit={this.submitFrm.bind(this)}>
 					<h3 className="text-center">User Login</h3>
-										{
-											this.state.error &&
-					<Alert bsStyle="warning">
-												{this.state.error}
-					</Alert>
-										}
+					
+					{this.state.error && <Alert bsStyle="warning">{this.state.error}</Alert>}
+											
+										
 					<div className="form-group">
 					<label>Email address</label>
 					<input type="email" className="form-control" placeholder="Enter email" value={this.state.email} onChange={(e) => {this.setState({email: e.target.value})}} />
