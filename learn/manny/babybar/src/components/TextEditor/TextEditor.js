@@ -20,7 +20,6 @@ class TextEditor extends Component {
 	}
 	
 	submitRec() {
-		console.log('state is ', this.state);	
 	}
 	
 	render() {

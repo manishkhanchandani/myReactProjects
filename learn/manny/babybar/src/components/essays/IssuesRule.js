@@ -16,14 +16,10 @@ class IssuesRule extends Component {
 		super(props);	
 		
 		this.state = {
-			rule: '',
 			showBox: false
 		};
 	}
 	
-	handleChange (html) {
-		this.setState({ rule: html });
-	}
   
 	addRule() {
 		let uid = getUID();
@@ -31,19 +27,13 @@ class IssuesRule extends Component {
 		let subject = '/' + this.props.s;
 		let issue = '/' + this.props.i;
 		var url = FirebaseConstant.basePath + '/quiz/rules' + uidPath + subject + issue;
-		firebaseDatabase.ref(url).child('rule').set(this.state.rule);
+		firebaseDatabase.ref(url).child('rule').set(this.refs.rule.state.value);
 		this.props.f_babybarRules(uid, this.props.s, this.props.i);
 		this.setState({showBox: false});
 	}
 
 
-	componentWillReceiveProps(nextProps) {
-		if (nextProps.currentIssueRules) {
-			this.setState({rule: nextProps.currentIssueRules.rule});
-		}
-	}
 	render() {
-		console.log('this state is ', this.state);
 		let currentIssueRules = this.props.currentIssueRules;
 		if (!currentIssueRules) {
 			//return null;
@@ -64,7 +54,7 @@ class IssuesRule extends Component {
 					{
 						!currentIssueRules.rule && 
 						<div>
-							<ReactQuill theme="snow" onChange={this.handleChange.bind(this)} value={this.state.rule} placeholder="Add your rule here" className="rulebox" modules={{
+							<ReactQuill theme="snow" ref="rule" value="" placeholder="Add your rule here" className="rulebox" modules={{
     toolbar: [
       ['bold', 'italic', 'underline']
     ],
@@ -86,7 +76,7 @@ class IssuesRule extends Component {
 								this.state.showBox &&
 								<div>
 									<br />
-									<ReactQuill theme="snow" onChange={this.handleChange.bind(this)} value={this.state.rule} placeholder="Add your rule here" className="rulebox" modules={{
+									<ReactQuill theme="snow" ref="rule" value={currentIssueRules.rule} placeholder="Add your rule here" className="rulebox" modules={{
     toolbar: [
       ['bold', 'italic', 'underline']
     ],

@@ -9,6 +9,11 @@ import IssuesReducer from './components/essays/IssuesReducer.js';
 import SimpleQuizReducer from './components/simple-quiz/SimpleQuizReducer.js';
 import ChatReducer from './components/chat/ChatReducer.js';
 
-const store = createStore(combineReducers({AuthReducer, QuizReducer, IssuesReducer, SimpleQuizReducer, ChatReducer}), {}, applyMiddleware(createLogger(), thunk, promise()));
+var store = null;
+if (process.env.NODE_ENV === 'development') {
+	store = createStore(combineReducers({AuthReducer, QuizReducer, IssuesReducer, SimpleQuizReducer, ChatReducer}), {}, applyMiddleware(createLogger(), thunk, promise()));
+} else {
+	store = createStore(combineReducers({AuthReducer, QuizReducer, IssuesReducer, SimpleQuizReducer, ChatReducer}), {}, applyMiddleware(thunk, promise()));	
+}
 
 export default store;

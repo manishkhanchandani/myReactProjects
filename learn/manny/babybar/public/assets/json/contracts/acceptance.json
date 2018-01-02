@@ -2,6 +2,12 @@
 	"key": "acceptance",
 	"name": "Acceptance?",
 	"rule": "If ONLY common law, say,Under the common law MIRROR IMAGE RULE an acceptance is an unequivocal assent to an offer.<br /><br />If UCC say, Under UCC 2-206 an acceptance of an offer not otherwise expressly conditioned may be made in any REASONABLE MANNER, including a promise to ship or shipment of either conforming or non-conforming goods. BUT a shipment of NON-CONFORMING goods as an EXPRESS ACCOMMODATION is not an acceptance. Further, UCC 2-207 allows an acceptance containing varying terms to be effective. ",
+	"videos": [
+		{
+			"key": "IwyjuuZ1U6g",
+			"title": "Contracts Offer Accept"
+		}
+	],
 	"next": {
 		"key": "",
 		"name": "",

@@ -23,7 +23,8 @@ class IssuesSpotting extends Component {
 			pageNumber: 1,
 			results: null,
 			deleteIssueModal: false,
-			deleteIssueDetail: null
+			deleteIssueDetail: null,
+			checked: {}
 		};
 	}
 
@@ -46,9 +47,18 @@ class IssuesSpotting extends Component {
 		}
 	}
 
+	resetChecked() {
+		let checked = {};
+		for (let i = 0; i < 100; i++) {
+			checked[i] = false;
+		}
+		this.setState({checked: checked});
+	}
+
 	componentDidMount() {
 		this.props.callGetBabyBarExamJson(this.props.match.params.subject);
 		this.showRecord(this.props);
+		this.resetChecked();
 	}
 	
 	componentWillUnmount() {
@@ -63,12 +73,11 @@ class IssuesSpotting extends Component {
 		let uidPath = '/' + uid;
 		let subject = '/' + this.props.match.params.subject;
 		var url = FirebaseConstant.basePath + '/quiz/issue_spotting' + uidPath + subject;
-		console.log("url is ", url);
 		var ref = firebaseDatabase.ref(url).limitToLast(500);
 		ref.off();
 	}
 	
-	addIssue(val, issueDetails, e) {
+	addIssue(val, issueDetails, key, e) {
 		let obj = this.state.issueSelected;
 
 		let record = issueDetails.issues[val.key];
@@ -85,7 +94,10 @@ class IssuesSpotting extends Component {
 			delete obj[val.key];
 		}
 		
-		this.setState({issueSelected: obj});
+		let checked = this.state.checked;
+		checked[key] = e.target.checked;
+
+		this.setState({issueSelected: obj, checked: checked});
 	}
 	
 	submitIssue(issueDetails) {
@@ -154,6 +166,8 @@ class IssuesSpotting extends Component {
 		
 		var url = FirebaseConstant.basePath + '/quiz/issue_spotting' + uidPath + subjectUrl;
 		firebaseDatabase.ref(url).push(obj);
+		
+		this.resetChecked();
 	}
 	
 	deleteRecord(val) {
@@ -224,7 +238,6 @@ class IssuesSpotting extends Component {
 		let recordDetails = null;
 		if (this.props.issuesReducer && this.props.issuesReducer.baby_bar_exam && this.props.issuesReducer.baby_bar_exam[this.props.match.params.subject]) {
 			recordDetails = this.props.issuesReducer.baby_bar_exam[this.props.match.params.subject];
-			console.log('recordDetails: ', recordDetails);
 
 			subject = this.props.issuesReducer.baby_bar_exam.subject;
 			data = recordDetails.exams;
@@ -246,7 +259,6 @@ class IssuesSpotting extends Component {
 			myArrayConverted = obj.myArrayConverted;
 			paginationProps = obj.paginationProps;
 		}
-		console.log('this.state: ', this.state);
 		
 		return (
 			<div className="container">
@@ -270,7 +282,7 @@ class IssuesSpotting extends Component {
 									}
 								</select>
 								<br />
-								<Button bsStyle="primary" className="form-control" onClick={() => {if(!this.state.issueSpotting) { return false; }this.setState({issueSpottingStarted: true})}}>Start Issue Spotting</Button>
+								<Button bsStyle="primary" className="form-control" onClick={() => {if(!this.state.issueSpotting) { return false; } this.resetChecked(); this.setState({issueSpottingStarted: true})}}>Start Issue Spotting</Button>
 							</div>
 						</div>
 					</div>
@@ -303,7 +315,7 @@ class IssuesSpotting extends Component {
 												termsArray && 
 												termsArray.map((value, key) => {
 													let obj = JSON.stringify(value);
-													return <div key={key}><input type="checkbox" value={obj} onClick={this.addIssue.bind(this, value, this.state.issueSpotting)} /> {value.title}</div>				
+													return <div key={key}><input type="checkbox" onClick={this.addIssue.bind(this, value, this.state.issueSpotting, key)} value={key} checked={this.state.checked[key]} /> {value.title}</div>				
 												})
 											}
 											<hr />

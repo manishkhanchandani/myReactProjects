@@ -1,6 +1,6 @@
 {
-	"key": "ucc",
-	"name": "Does UCC apply",
+	"key": "defense_impracticability",
+	"name": "Defense of Commercial Impracticability",
 	"next": {
 		"key": "",
 		"name": "",

@@ -1,6 +1,6 @@
 {
-	"key": "tort_damages",
-	"name": "Tort Damages",
+	"key": "negligence_breach_res_ipsa_loquitur",
+	"name": "Breach Res Ipsa Loquitor",
 	"next": {
 		"key": "",
 		"name": "",

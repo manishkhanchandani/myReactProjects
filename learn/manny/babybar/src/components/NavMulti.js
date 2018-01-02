@@ -26,7 +26,7 @@ class NavMulti extends Component {
 							</ul>
 							<ul className="nav navbar-nav">
 								<li className="active"><Link to="">Home</Link></li>
-								<li><Link to="/quiz">Quiz</Link></li>
+								
 								{/*<li>
 									<a href="" className="dropdown-toggle" data-toggle="dropdown">Exam Simulation<b className="caret"></b></a>
 									<ul className="dropdown-menu">
@@ -37,22 +37,27 @@ class NavMulti extends Component {
 									
 									</ul>
 								</li>*/}
-								
-								
-								
-								
 								<li>
-									<a href="" className="dropdown-toggle" data-toggle="dropdown">Issue Spotting <b className="caret"></b></a>
-									<ul className="dropdown-menu">
-										<li><Link to="/essays/issue/spotting/contracts">Contracts</Link></li>
-										<li><Link to="/essays/issue/spotting/criminal">Criminal</Link></li>
-										<li><Link to="/essays/issue/spotting/torts">Torts</Link></li>
+									<a href="" className="dropdown-toggle" data-toggle="dropdown">Baby Bar<b className="caret"></b></a>
+									<ul className="dropdown-menu multi-level">
+										<li><Link to="/quiz">Quiz</Link></li>
+										<li className="dropdown-submenu">
+											<a href="" className="dropdown-toggle" data-toggle="dropdown">Issue Spotting</a>
+											<ul className="dropdown-menu">
+												<li><Link to="/essays/issue/spotting/contracts">Contracts</Link></li>
+												<li><Link to="/essays/issue/spotting/criminal">Criminal</Link></li>
+												<li><Link to="/essays/issue/spotting/torts">Torts</Link></li>
+											</ul>
+										</li>
+										<li className="dropdown-submenu">
+											<a href="" className="dropdown-toggle" data-toggle="dropdown">MBE</a>
+											<ul className="dropdown-menu">
+												<li><Link to="/essays/issues/mbe/prep">Preparation</Link></li>
+											</ul>
+										</li>
 										
-									
 									</ul>
 								</li>
-								
-								
 								
 								<li>
 									<a href="" className="dropdown-toggle" data-toggle="dropdown">Torts <b className="caret"></b></a>
@@ -148,10 +153,10 @@ class NavMulti extends Component {
 											<ul className="dropdown-menu">
 												<li><Link to="/essays/issues/torts/abuse_of_process">Abuse of Process</Link></li>
 												<li><Link to="/essays/issues/torts/illegal_interference">Illegal Interference</Link></li>
-												<li><Link to="/essays/issues/torts/malicious_prosecution">Malicious Prosecution.json</Link></li>
+												<li><Link to="/essays/issues/torts/malicious_prosecution">Malicious Prosecution</Link></li>
 												<li><Link to="/essays/issues/torts/deciet">Fraud</Link></li>
 												<li><Link to="/essays/issues/torts/nondisclosure">Nondisclosure</Link></li>
-												<li><Link to="/essays/issues/torts/tort_restitution">Tort Restitution.json</Link></li>
+												<li><Link to="/essays/issues/torts/tort_restitution">Tort Restitution</Link></li>
 											</ul>
 										</li>
 										
@@ -243,6 +248,9 @@ class NavMulti extends Component {
 											<a href="" className="dropdown-toggle" data-toggle="dropdown">Remedies</a>
 											<ul className="dropdown-menu">
 												<li><Link to="/essays/issues/contracts/remedy_non_breaching_party">Remedy for Non Breaching Party</Link></li>
+												<li><Link to="/essays/issues/contracts/reliance_damages">Reliance Damages?</Link></li>
+												<li><Link to="/essays/issues/contracts/expected_damages">Expected Damages?</Link></li>
+												<li><Link to="/essays/issues/contracts/incidental_damages">Incidental Damages?</Link></li>
 												<li><Link to="/essays/issues/contracts/consequential_damages">Consequential Damages?</Link></li>
 												<li><Link to="/essays/issues/contracts/remedy_breaching_party">Remedy of Breaching Party</Link></li>
 												<li><Link to="/essays/issues/contracts/ucc_remedy_non_breaching_buyer">UCC Remedy For Non Breaching Buyer</Link></li>

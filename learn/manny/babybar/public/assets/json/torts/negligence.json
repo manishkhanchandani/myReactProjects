@@ -1,6 +1,7 @@
 {
 	"key": "negligence",
 	"name": "Negligence",
+	"description": "dd",
 	"next": {
 		"key": "negligence_duty",
 		"name": "Negligence Duty",
