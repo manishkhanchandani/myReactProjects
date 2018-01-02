@@ -1,6 +1,6 @@
 {
-	"key": "ucc",
-	"name": "Does UCC apply",
+	"key": "redline_rule",
+	"name": "Redline Rule",
 	"next": {
 		"key": "",
 		"name": "",

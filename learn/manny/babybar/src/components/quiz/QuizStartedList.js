@@ -42,9 +42,9 @@ class QuizStartedList extends Component {
 											return <tr key={key}>
 												<td>ID: <b>{value.id}</b><br />{value.topic}</td>
 												<td><img src={value.user1_photoURL} alt={value.user1_creator} /></td>
-												<td>{value.user1_creator}</td>
+												<td>{value.user1_creator}<br />{value.user1_status}</td>
 												<td><img src={value.user2_photoURL} alt={value.user2_creator} /></td>
-												<td>{value.user2_creator}</td>
+												<td>{value.user2_creator}<br />{value.user2_status}</td>
 												<td>
 												{
 													(uid === value.user1_uid || uid === value.user2_uid) ?

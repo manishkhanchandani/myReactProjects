@@ -1,6 +1,160 @@
 {
 	"issues": {
+		"accomplice_liability": {
+			"title": "Accomplice Liability"	
+		},
+		"arson": {
+			"title": "Arson"	
+		},
+		"attempted": {
+			"title": "Attempted"	
+		},
+		"burglary": {
+			"title": "Burglary"	
+		},
+		"compounding": {
+			"title": "Compounding"	
+		},
+		"conspiracy": {
+			"title": "Conspiracy"	
+		},
+		"criminal_assault": {
+			"title": "Criminal Assault"	
+		},
+		"criminal_battery": {
+			"title": "Criminal Battery"	
+		},
+		"defense_consent": {
+			"title": "Defense of Consent"	
+		},
+		"defense_duress": {
+			"title": "Defense of Duress"	
+		},
+		"defense_entrapment": {
+			"title": "Defense of Entrapment"	
+		},
+		"defense_factual_impossibility": {
+			"title": "Defense of Factual Impossibility"	
+		},
+		"defense_infancy": {
+			"title": "Defense of Infancy"	
+		},
+		"defense_insanity": {
+			"title": "Defense of Insanity"	
+		},
+		"defense_legal_impossibility": {
+			"title": "Defense of Legal Impossibility"	
+		},
+		"defense_mistake_of_fact": {
+			"title": "Defense of Mistake of Fact"	
+		},
+		"defense_mistake_of_law": {
+			"title": "Defense of Mistake of Law"	
+		},
+		"defense_necessity": {
+			"title": "Defense of Necessity"	
+		},
+		"defense_of_others": {
+			"title": "Defense of Others"	
+		},
+		"defense_of_property": {
+			"title": "Defense of Property"	
+		},
+		"defense_prevention_crime": {
+			"title": "Defense of Prevention of Crime"	
+		},
+		"defense_self_defense": {
+			"title": "Defense of Self Defense"	
+		},
+		"defense_withdrawal": {
+			"title": "Defense of Withdrawal"	
+		},
+		"embezzlement": {
+			"title": "Embezzlement"	
+		},
+		"extortion": {
+			"title": "Extortion"	
+		},
+		"false_imprisonment": {
+			"title": "False Imprisonment"	
+		},
+		"false_pretenses": {
+			"title": "False Pretenses"	
+		},
+		"involuntary_manslaughter": {
+			"title": "Involuntary Manslaughter"	
+		},
+		"kidnapping": {
+			"title": "Kidnapping"	
+		},
+		"larceny": {
+			"title": "Larceny"	
+		},
+		"mayhem": {
+			"title": "Mayhem"	
+		},
+		"misprison": {
+			"title": "Misprison"	
+		},
+		"mitigating_factors": {
+			"title": "Mitigating Factors"	
+		},
+		"murder": {
+			"title": "Murder"	
+		},
+		"rape": {
+			"title": "Rape"	
+		},
+		"receiving_stolen_property": {
+			"title": "Receiving Stolen Property"	
+		},
+		"redline_rule": {
+			"title": "Redline Rule"	
+		},
+		"robbery": {
+			"title": "Robbery"	
+		},
+		"solicitation": {
+			"title": "Solicitation"	
+		},
+		"voluntary_intoxication": {
+			"title": "Voluntary Intoxication"	
+		},
+		"voluntary_manslaughter": {
+			"title": "Voluntary Manslaughter"	
+		}
 	},
 	"exams": [
+		{
+			"id": 1,
+			"reference": "Year 2002",
+			"topic": "",
+			"essay": "Debbie and Jon met in college and dated each other for two years. Debbie loved Jon very much and wanted to marry him. Jon always told her that he loved only her, but he told her he thought they were too young and should not rush into marriage.<br /><br /> One day as Debbie was putting gasoline into her car at the gasoline station, she looked into the car parked next to hers. She was enraged to see her best friend Vickie passionately kissing Jon. Debbie walked over to the car, with the fuel dispenser in her hand, and started yelling at Vickie and Jon. Vickie said, \"I'm sorry you had to find out this way. Jon and I love each other and are going to get married.\"<br /><br /> Debbie was enraged and shouted, \"You're not going to marry anyone, you slime!\" She then pointed the gasoline dispenser at Vickie and sprayed her with gasoline, soaking her hair and clothes. Jon reached over to try to help Vickie. Unfortunately, he was smoking a cigarette. The cigarette ignited the gasoline and Vickie burned to death.<br /><br /> What offense or offenses has Debbie committed and what defenses, if any, would she assert? Discuss.",
+			"issues": {
+				"criminal_assault": {},
+				"criminal_battery": {},
+				"murder": {},
+				"voluntary_manslaughter": {},
+				"involuntary_manslaughter": {},
+				"attempted": {},
+				"mitigating_factors": {},
+				"defense_insanity": {}
+				
+			}
+		},
+		{
+			"id": 2,
+			"reference": "Year 2002",
+			"topic": "",
+			"essay": "Anna owned a business and stored insured business inventory at a warehouse owned by Bob. Anna was experiencing financial problems and needed funds to pay her creditors. Bob, after hearing of Anna's money problems, suggested that they hire someone to burn down the warehouse since he was planning to build condominiums on the warehouse property and could use the insurance proceeds for the construction of the condominiums. Bob told Anna that he knew someone who would handle burning the warehouse in return for a percentage of the insurance proceeds. Anna agreed and Bob contacted Cindy to burn down the warehouse. Cindy obtained the location of the warehouse from Bob and proceeded to set fire to the warehouse. Unbeknownst to Anna, Bob or Cindy, a homeless person, Daryll, was living in the warehouse. Daryll died as a result of the fire.<br /><br /> After hearing about Daryll's death, Anna and Bob decided not to make any insurance claims. After an investigation Anna, Bob and Cindy were arrested.<br /><br /> With what crimes, if any, might Anna, Bob and Cindy be charged and what defenses, if any, could each assert? Discuss.",
+			"issues": {
+				"conspiracy": {},
+				"solicitation": {},
+				"murder": {},
+				"arson": {},
+				"accomplice_liability": {},
+				"attempted": {}
+			}
+		}
 	]	
 }

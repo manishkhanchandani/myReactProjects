@@ -111,7 +111,7 @@ class IssuesBarExam extends Component {
 					smallObj.essay = record.essay;
 					smallObj.topic = record.topic;
 					smallObj.data = record.issues[this.props.issue];
-					if (smallObj.data.def.length > 0) {
+					if (smallObj.data.def && smallObj.data.def.length > 0) {
 						for (let x = 0; x < smallObj.data.def.length; x++) {
 							exam_term_definition.defs.push(smallObj.data.def[x]);
 						}
@@ -121,12 +121,11 @@ class IssuesBarExam extends Component {
 				}
 			}
 		}
-console.log('exam_term_definition: ', exam_term_definition);
-console.log('this.state.selectedEssay: ', this.state.selectedEssay);
+
 		return (
 			<div>
 				{
-					exam_term_definition.years.length > 0 &&
+					(exam_term_definition.years && exam_term_definition.years.length > 0) &&
 					<div className="panel panel-primary essays">
 						<div className="panel-heading">Essays To Practice</div>
 						<div className="panel-body">
@@ -153,9 +152,12 @@ console.log('this.state.selectedEssay: ', this.state.selectedEssay);
 									<div className="divider">
 										<b>Year: </b> {this.state.selectedEssay.year}
 									</div>
-									<div className="divider">
-										<b>Hypo: </b> {renderHTML(this.state.selectedEssay.data.hypo)}										
-									</div>
+									{
+										(this.state.selectedEssay.data && this.state.selectedEssay.data.hypo) &&
+										<div className="divider">
+											<b>Hypo: </b> {renderHTML(this.state.selectedEssay.data.hypo)}										
+										</div>
+									}
 									{
 										this.state.viewFullEssay &&
 										<div className="divider">
@@ -187,7 +189,7 @@ console.log('this.state.selectedEssay: ', this.state.selectedEssay);
 									}
 									
 									{
-										this.state.selectedEssay.data.samples.length > 0 &&
+										(this.state.selectedEssay.data.samples && this.state.selectedEssay.data.samples.length > 0) &&
 										<div className="divider">
 											<a href="" onClick={(e) => {e.preventDefault(); this.setState({showSamples: !this.state.showSamples})}}><span>
 												{
@@ -211,7 +213,7 @@ console.log('this.state.selectedEssay: ', this.state.selectedEssay);
 					</div>
 				}
 				{
-					exam_term_definition.defs.length > 0 &&
+					(exam_term_definition.defs && exam_term_definition.defs.length > 0) &&
 					<div className="panel panel-primary essays">
 						<div className="panel-heading">Definitions in Babybar Exams</div>
 						<div className="panel-body">

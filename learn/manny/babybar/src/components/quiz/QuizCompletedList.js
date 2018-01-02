@@ -67,7 +67,7 @@ class QuizCompletedList extends Component {
 												<td><img src={value.user2_photoURL} alt={value.user2_creator} /></td>
 												<td>{value.user2_creator}</td>
 												<td>
-												<Link to={url}>Watch</Link>
+												<Link to={url}>View</Link>
 												</td>
 												<td>{winner}</td>
 											</tr>

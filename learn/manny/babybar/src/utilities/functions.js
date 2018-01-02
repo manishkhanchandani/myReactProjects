@@ -114,9 +114,8 @@ export const getRandomizer = (bottom, top) => {
 export const utubeIDGrabber = (url) => {
 	var ID = '';
 	url = url.replace(/(>|<)/gi,'').split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
-	console.log('url is ', url);
 	if(url[2] !== undefined) {
-		ID = url[2].split(/[^0-9a-z_\-]/i);
+		ID = url[2].split(/[^0-9a-z_-]/i); //ID = url[2].split(/[^0-9a-z_\-]/i);
 		ID = ID[0];
 	} else if(url[0] !== undefined) {
 		ID = url[0];
@@ -150,6 +149,6 @@ export const activityTracker = (page, url) => {
 	obj.page = page;
 	obj.url = url;
 	obj.created_dt = firebase.database.ServerValue.TIMESTAMP;
-	var url = FirebaseConstant.basePath + '/activities';
-	firebaseDatabase.ref(url).push(obj);
+	var urlfb = FirebaseConstant.basePath + '/activities';
+	firebaseDatabase.ref(urlfb).push(obj);
 }

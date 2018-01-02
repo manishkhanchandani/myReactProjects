@@ -24,6 +24,9 @@ class Clock1 extends Component {
 		this.initializeClock(deadline);	
 	}
 	
+	componentWillReceiveProps(nextProps) {
+	}
+	
 	getTimeRemaining(endtime) {
 	  var t = Date.parse(endtime) - Date.parse(new Date());
 	  var seconds = Math.floor((t / 1000) % 60);
@@ -56,14 +59,14 @@ class Clock1 extends Component {
 			minutesSpan: ('0' + t.minutes).slice(-2),
 			secondsSpan: ('0' + t.seconds).slice(-2)
 		});
-	
+		that.props.changeSeconds(that.state);
 		if (t.total <= 0) {
-		  clearInterval(this.timeinterval);
+		  clearInterval(that.timeinterval);
 		}
 	  }
 	
 	  updateClock();
-	  this.timeinterval = setInterval(updateClock, 1000);
+	  that.timeinterval = setInterval(updateClock, 1000);
 	}
 	
 	componentWillUnmount() {

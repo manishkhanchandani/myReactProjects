@@ -113,7 +113,6 @@ What intentional tort claims, if any, do Alex, Betty, and Carl have against Dede
 				]
 			}
 		}
-		console.log('issue is ', issue);
 		var url = FirebaseConstant.basePath + '/quiz/issues/torts';
 		firebaseDatabase.ref(url).update(issue);
 	}

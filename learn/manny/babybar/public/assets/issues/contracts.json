@@ -1,6 +1,203 @@
 {
 	"issues": {
+		"acceptance": {
+			"title": "Acceptance"	
+		},
+		"accord_satisfaction": {
+			"title": "Accord & Satisfaction"	
+		},
+		"anticipatory_breach": {
+			"title": "Anticipatory Breach"	
+		},
+		"assignment": {
+			"title": "Assignment"	
+		},
+		"breach": {
+			"title": "Breach, Major or Minor"	
+		},
+		"breach_divisible_contract": {
+			"title": "Effect of Breach on Divisible Contract"	
+		},
+		"breach_implied_covenant": {
+			"title": "Breach of Implied Covenant"	
+		},
+		"buyer_satisfaction": {
+			"title": "Buyer SATISFACTION a MATERIAL CONDITION"	
+		},
+		"consequential_damages": {
+			"title": "Consequential Damage"	
+		},
+		"consideration": {
+			"title": "Consideration"	
+		},
+		"contract_terms": {
+			"title": "Contract Terms"	
+		},
+		"defense_contract_modify": {
+			"title": "Contract Modification"	
+		},
+		"defense_duress": {
+			"title": "Defense of Duress"	
+		},
+		"defense_fraud": {
+			"title": "Defense of Fraud"	
+		},
+		"defense_frustration_of_purpose": {
+			"title": "Defense of Frustration of Purpose"	
+		},
+		"defense_illegality": {
+			"title": "Defense of Illegality"	
+		},
+		"defense_impossibility": {
+			"title": "Defense of Impossibility"	
+		},
+		"defense_impracticability": {
+			"title": "Defense of Commercial Impracticability"	
+		},
+		"defense_incapacity": {
+			"title": "Defense of Incapacity"	
+		},
+		"defense_lack_of_consideration": {
+			"title": "Defense of Lack of Consideration"	
+		},
+		"defense_lack_of_intent": {
+			"title": "Defense of Lack of Intent"	
+		},
+		"defense_mutual_mistake": {
+			"title": "Defense of Mutual Mistake"	
+		},
+		"defense_unconsionable": {
+			"title": "Defense of Unconsionable"	
+		},
+		"defense_unilateral_mistake": {
+			"title": "Defense of Unilateral Mistake"	
+		},
+		"delegation": {
+			"title": "Delegation"	
+		},
+		"detrimental_reliance": {
+			"title": "Detrimental Reliance"	
+		},
+		"effective_acceptance": {
+			"title": "Effective Acceptance"	
+		},
+		"effective_rejection": {
+			"title": "Effective Rejection"	
+		},
+		"effective_revocation": {
+			"title": "Effective Revocation"	
+		},
+		"equitable_restitution": {
+			"title": "Equitable Restitution"	
+		},
+		"expected_damages": {
+			"title": "Expectation Damages"	
+		},
+		"implied_in_fact": {
+			"title": "Implied In Fact"	
+		},
+		"implied_in_law": {
+			"title": "Implied In Law Contract"	
+		},
+		"incidental_damages": {
+			"title": "Incidental Damages"	
+		},
+		"liquidated_damages": {
+			"title": "Liquidated Damages"	
+		},
+		"merchants_firm_offer": {
+			"title": "Merchant's Firm Offer"	
+		},
+		"modificaiton_after_assignment": {
+			"title": "Modificaiton After Assignment"	
+		},
+		"offer": {
+			"title": "Offer"	
+		},
+		"offer_lapsed": {
+			"title": "Offer Lapsed"	
+		},
+		"parol_evidence_rule": {
+			"title": "Parol Evidence Rule"	
+		},
+		"parties_merchant": {
+			"title": "Are parties Merchant"	
+		},
+		"promissory_estoppel": {
+			"title": "Promissory Estoppel"	
+		},
+		"reliance_damages": {
+			"title": "Reliance Damages"	
+		},
+		"remedy_breaching_party": {
+			"title": "Remedy of Breaching Party"	
+		},
+		"remedy_non_breaching_party": {
+			"title": "Remedy for Non Breaching Party"	
+		},
+		"specific_performance": {
+			"title": "Specific Performance"	
+		},
+		"third_party_beneficiary": {
+			"title": "Third Party Beneficiary"	
+		},
+		"timely_performance": {
+			"title": "Time is of the essence (Timely Performance)"	
+		},
+		"ucc": {
+			"title": "Is UCC? (Governing Law)"	
+		},
+		"ucc_remedy_for_breaching_seller": {
+			"title": "UCC Remedy For Breaching Seller"	
+		},
+		"ucc_remedy_non_breaching_buyer": {
+			"title": "UCC Remedy For Non Breaching Buyer"	
+		},
+		"ucc_remedy_non_breaching_seller": {
+			"title": "UCC Remedy For Non Breaching Seller"	
+		},
+		"unilateral_contract": {
+			"title": "Unilateral Contract"	
+		},
+		"unilateral_contract_saving_doctrine": {
+			"title": "SAVING DOCTRINES of a UNILATERAL CONTRACT"	
+		},
+		"valid_contract": {
+			"title": "Is it a Valid Contract"	
+		},
+		"varying_terms": {
+			"title": "Varying Terms"	
+		},
+		"waiver_breach": {
+			"title": "Waiver of the Breach"	
+		},
+		"waiver_condition": {
+			"title": "Waiver of Condition"	
+		},
+		"writing_needed": {
+			"title": "Is Writing Needed"	
+		}
 	},
 	"exams": [
+		{
+			"id": 1,
+			"reference": "Year 2002",
+			"topic": "",
+			"essay": "Buyer opened a new automobile service station earlier this year. Buyer wanted to buy a television set for the station so her customers could watch television while she worked on their cars.<br /><br /> Buyer found the television set she wanted at Seller Sets, Inc. (\"Seller\"), a television set retailer. A Seller salesperson told Buyer she could purchase the set for $300. Buyer replied that she would like to \"shop around\". The salesperson then wrote \"Seller Sets, Inc. - $300\" on a sales brochure describing the set and gave the brochure to Buyer. The printed phrase \"Available for a Limited Time Only\" appeared at the top of the brochure. As the salesperson handed Buyer the brochure he said, \"I think you'll find no one will beat our price.\"<br /><br /> Not finding a better price, Buyer returned to Seller's one week later to buy the television set. However, the salesperson told her that the set was out of stock and that Seller could not sell her another at the $300 price. Two months later, Buyer purchased the same model set from another dealer for $450.<br /><br /> Buyer wishes to sue Seller, seeking damages for lost profits. Buyer intends to allege that she lost customers because she has not had television in the station for the past two months.<br /><br /> What theory or theories for recovery of damages will Buyer assert in her complaint and what is her likelihood of success on each theory? Discuss.",
+			"issues": {
+				"ucc": {},
+				"parties_merchant": {},
+				"valid_contract": {},
+				"offer": {},
+				"acceptance": {},
+				"merchants_firm_offer": {},
+				"detrimental_reliance": {},
+				"expected_damages": {},
+				"consequential_damages": {},
+				"offer_lapsed": {},
+				"reliance_damages": {}
+				
+			}
+		}
 	]	
 }

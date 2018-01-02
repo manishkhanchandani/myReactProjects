@@ -1,0 +1,14 @@
+{
+	"key": "incidental_damages",
+	"name": "Incidental Damages?",
+	"next": {
+		"key": "",
+		"name": "",
+		"subject": ""
+	},
+	"previous": {
+		"key": "",
+		"name": "",
+		"subject": ""
+	}
+}

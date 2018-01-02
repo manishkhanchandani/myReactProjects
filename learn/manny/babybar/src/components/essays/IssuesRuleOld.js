@@ -43,7 +43,6 @@ class IssuesRule extends Component {
 		}
 	}
 	render() {
-		console.log('this state is ', this.state);
 		let currentIssueRules = this.props.currentIssueRules;
 		if (!currentIssueRules) {
 			//return null;

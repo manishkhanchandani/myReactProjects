@@ -1,6 +1,6 @@
 {
 	"key": "parties_merchant",
-	"name": "Merchant Parties?",
+	"name": "Are parties Merchant?",
 	"rule": "Under the UCC a Merchant is a person who <b>trades in</b> or otherwise <b>holds himself out</b> by occupation or otherwise as <b>knowledgeable about the goods</b> of the contract.",
 	"elements": [
 		"Trades In",

@@ -12,7 +12,8 @@ class QuizPage2 extends Component {
 		
 		this.state = {
 			optionChoosen: '',
-			btnDisabled: false
+			btnDisabled: false,
+			timeRemaining: 0
 		}
 	}
 	
@@ -31,7 +32,7 @@ class QuizPage2 extends Component {
 			if (result[questionCounter]) {
 				counter = Object.keys(result[questionCounter]).length;
 			}
-			
+
 			if (counter === 2) {
 				this.setState({optionChoosen: '', btnDisabled: false});
 				if (questionCounter === 4) {
@@ -45,19 +46,29 @@ class QuizPage2 extends Component {
 		});
 	}
 	
+	changeSeconds(secs) {
+		let total = secs.total;
+		let newTotal = total / 1000;
+		this.setState({timeRemaining: newTotal});
+	}
 	
 	componentDidMount() {
 		this.watchQuestion();
 	}
 	
 	submittedBtn(questionData) {
+		if (!this.state.optionChoosen) {
+			return;	
+		}
 		this.setState({btnDisabled: true});
 		
 		var points = 0;
+		//var newPoints = 0;
 		const option1 = parseInt(this.state.optionChoosen, 10);
 		const option2 = parseInt(questionData.correct, 10);
 		if (option1 === option2) {
 			points = 20;
+			//newPoints = 9 + Math.floor(this.state.timeRemaining / 10);
 		}
 		
 		var totalPoints = this.props.data[this.props.uid].points + points;
@@ -67,6 +78,8 @@ class QuizPage2 extends Component {
 			points,
 			totalPoints,
 			isCorrect: option1 === option2
+			//,timeRemaining: this.state.timeRemaining,
+			//newPoints: newPoints
 		};
 		
 		var url = FirebaseConstant.basePath + '/quiz/posts/' + this.props.data.id;
@@ -84,7 +97,14 @@ class QuizPage2 extends Component {
 		if (!questionData) {
 			return <Loader />	
 		}
+				
+		let isUserParticipant = false;
+		if (pageData[this.props.uid]) {
+			isUserParticipant = true;
+		}
 		
+		let seconds_assigned = parseInt(questionData.seconds_assigned, 10);
+				
 		const ansOptions = JSON.parse(questionData.answers);
 		const optionChoosen = parseInt(this.state.optionChoosen, 10);
 		return (
@@ -125,7 +145,7 @@ class QuizPage2 extends Component {
 											{
 												ansOptions.map((value, key) => {
 													return <div key={key} className="frb frb-primary">
-														<input type="radio" id={`option_${key}`} name="answers" value={key}  onClick={(e) => {this.setState({optionChoosen: e.target.value});}} checked={optionChoosen === key} />
+														<input type="radio" id={`option_${key}`} name="answers" value={key}  onClick={(e) => {this.setState({optionChoosen: e.target.value});}} checked={optionChoosen === key} disabled={!isUserParticipant} />
 														<label htmlFor={`option_${key}`}>
 															<span className="frb-title">{value}</span>
 														</label>
@@ -140,12 +160,21 @@ class QuizPage2 extends Component {
 							  		</div>
 								</div>
 								
-								<Button disabled={this.state.btnDisabled} bsStyle="primary" onClick={this.submittedBtn.bind(this, questionData)} className="form-control">Submit</Button>
+								{
+									isUserParticipant && 
+									<div>
+										{
+											this.state.btnDisabled &&
+											<div>Waiting for Opponent....</div>
+										}
+										<Button disabled={this.state.btnDisabled} bsStyle="primary" onClick={this.submittedBtn.bind(this, questionData)} className="form-control">Submit</Button>
+									</div>
+								}
 								<br /><br /><br />
 								
 						</div>
 						<div className="col-md-3 text-center">
-							<Clock1 startTime={120} />
+							<Clock1 startTime={seconds_assigned} changeSeconds={this.changeSeconds.bind(this)} id={pageData.quizDetails.common.question_pointer} />
 							<br />
 							<div className="panel panel-default">
 							  <div className="panel-heading">

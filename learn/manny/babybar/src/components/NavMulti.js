@@ -26,7 +26,7 @@ class NavMulti extends Component {
 							</ul>
 							<ul className="nav navbar-nav">
 								<li className="active"><Link to="">Home</Link></li>
-								<li><Link to="/quiz">Quiz</Link></li>
+								
 								{/*<li>
 									<a href="" className="dropdown-toggle" data-toggle="dropdown">Exam Simulation<b className="caret"></b></a>
 									<ul className="dropdown-menu">
@@ -37,22 +37,27 @@ class NavMulti extends Component {
 									
 									</ul>
 								</li>*/}
-								
-								
-								
-								
 								<li>
-									<a href="" className="dropdown-toggle" data-toggle="dropdown">Issue Spotting <b className="caret"></b></a>
-									<ul className="dropdown-menu">
-										<li><Link to="/essays/issue/spotting/contracts">Contracts</Link></li>
-										<li><Link to="/essays/issue/spotting/criminal">Criminal</Link></li>
-										<li><Link to="/essays/issue/spotting/torts">Torts</Link></li>
+									<a href="" className="dropdown-toggle" data-toggle="dropdown">Baby Bar<b className="caret"></b></a>
+									<ul className="dropdown-menu multi-level">
+										<li><Link to="/quiz">Quiz</Link></li>
+										<li className="dropdown-submenu">
+											<a href="" className="dropdown-toggle" data-toggle="dropdown">Issue Spotting</a>
+											<ul className="dropdown-menu">
+												<li><Link to="/essays/issue/spotting/contracts">Contracts</Link></li>
+												<li><Link to="/essays/issue/spotting/criminal">Criminal</Link></li>
+												<li><Link to="/essays/issue/spotting/torts">Torts</Link></li>
+											</ul>
+										</li>
+										<li className="dropdown-submenu">
+											<a href="" className="dropdown-toggle" data-toggle="dropdown">MBE</a>
+											<ul className="dropdown-menu">
+												<li><Link to="/essays/issues/mbe/prep">Preparation</Link></li>
+											</ul>
+										</li>
 										
-									
 									</ul>
 								</li>
-								
-								
 								
 								<li>
 									<a href="" className="dropdown-toggle" data-toggle="dropdown">Torts <b className="caret"></b></a>
@@ -148,10 +153,10 @@ class NavMulti extends Component {
 											<ul className="dropdown-menu">
 												<li><Link to="/essays/issues/torts/abuse_of_process">Abuse of Process</Link></li>
 												<li><Link to="/essays/issues/torts/illegal_interference">Illegal Interference</Link></li>
-												<li><Link to="/essays/issues/torts/malicious_prosecution">Malicious Prosecution.json</Link></li>
+												<li><Link to="/essays/issues/torts/malicious_prosecution">Malicious Prosecution</Link></li>
 												<li><Link to="/essays/issues/torts/deciet">Fraud</Link></li>
 												<li><Link to="/essays/issues/torts/nondisclosure">Nondisclosure</Link></li>
-												<li><Link to="/essays/issues/torts/tort_restitution">Tort Restitution.json</Link></li>
+												<li><Link to="/essays/issues/torts/tort_restitution">Tort Restitution</Link></li>
 											</ul>
 										</li>
 										
@@ -242,24 +247,22 @@ class NavMulti extends Component {
 										<li className="dropdown-submenu">
 											<a href="" className="dropdown-toggle" data-toggle="dropdown">Remedies</a>
 											<ul className="dropdown-menu">
-												<li><a href="">Action</a></li>
-												<li className="dropdown-submenu">
-													<a href="" className="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
-													<ul className="dropdown-menu">
-														<li className="dropdown-submenu">
-															<a href="" className="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
-															<ul className="dropdown-menu">
-																<li><a href="">Action</a></li>
-																<li><a href="">Another action</a></li>
-																<li><a href="">Something else here</a></li>
-																<li className="divider"></li>
-																<li><a href="">Separated link</a></li>
-																<li className="divider"></li>
-																<li><a href="">One more separated link</a></li>
-															</ul>
-														</li>
-													</ul>
-												</li>
+												<li><Link to="/essays/issues/contracts/remedy_non_breaching_party">Remedy for Non Breaching Party</Link></li>
+												<li><Link to="/essays/issues/contracts/reliance_damages">Reliance Damages?</Link></li>
+												<li><Link to="/essays/issues/contracts/expected_damages">Expected Damages?</Link></li>
+												<li><Link to="/essays/issues/contracts/incidental_damages">Incidental Damages?</Link></li>
+												<li><Link to="/essays/issues/contracts/consequential_damages">Consequential Damages?</Link></li>
+												<li><Link to="/essays/issues/contracts/remedy_breaching_party">Remedy of Breaching Party</Link></li>
+												<li><Link to="/essays/issues/contracts/ucc_remedy_non_breaching_buyer">UCC Remedy For Non Breaching Buyer</Link></li>
+												<li><Link to="/essays/issues/contracts/ucc_remedy_non_breaching_seller">UCC Remedy For Non Breaching Seller</Link></li>
+												<li><Link to="/essays/issues/contracts/ucc_remedy_for_breaching_seller">UCC Remedy for Breaching Seller</Link></li>
+												<li><Link to="/essays/issues/contracts/liquidated_damages">Liquidated Damages</Link></li>
+												<li><Link to="/essays/issues/contracts/unilateral_contract_saving_doctrine">Saving Doctrine for Unilateral Contract</Link></li>
+												<li><Link to="/essays/issues/contracts/implied_in_law">Implied In Law Contract</Link></li>
+												<li><Link to="/essays/issues/contracts/promissory_estoppel">Promissory Estoppel</Link></li>
+												<li><Link to="/essays/issues/contracts/detrimental_reliance">Detrimental Reliance</Link></li>
+												<li><Link to="/essays/issues/contracts/equitable_restitution">Equitable Restitution</Link></li>
+												<li><Link to="/essays/issues/contracts/specific_performance">Specific Performance</Link></li>
 											</ul>
 										</li>
 										
@@ -269,37 +272,99 @@ class NavMulti extends Component {
 								<li>
 									<a href="" className="dropdown-toggle" data-toggle="dropdown">Criminal <b className="caret"></b></a>
 									<ul className="dropdown-menu multi-level">
-										<li><a href="">Action</a></li>
-										<li><a href="">Another action</a></li>
-										<li><a href="">Something else here</a></li>
-										<li className="divider"></li>
-										<li><a href="">Separated link</a></li>
-										<li className="divider"></li>
-										<li><a href="">One more separated link</a></li>
 										<li className="dropdown-submenu">
-											<a href="" className="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+											<a href="" className="dropdown-toggle" data-toggle="dropdown">Inchoate Offenses</a>
 											<ul className="dropdown-menu">
-												<li><a href="">Action</a></li>
-												<li className="dropdown-submenu">
-													<a href="" className="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
-													<ul className="dropdown-menu">
-														<li className="dropdown-submenu">
-															<a href="" className="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
-															<ul className="dropdown-menu">
-																<li><a href="">Action</a></li>
-																<li><a href="">Another action</a></li>
-																<li><a href="">Something else here</a></li>
-																<li className="divider"></li>
-																<li><a href="">Separated link</a></li>
-																<li className="divider"></li>
-																<li><a href="">One more separated link</a></li>
-															</ul>
-														</li>
-													</ul>
-												</li>
+												<li><Link to="/essays/issues/criminal/attempted">Attempted</Link></li>
+												<li><Link to="/essays/issues/criminal/conspiracy">Conspiracy</Link></li>
+												<li><Link to="/essays/issues/criminal/solicitation">Solicitation</Link></li>
 											</ul>
 										</li>
+										
+										
+										<li className="dropdown-submenu">
+											<a href="" className="dropdown-toggle" data-toggle="dropdown">Crimes Against Persons</a>
+											<ul className="dropdown-menu">
+												<li><Link to="/essays/issues/criminal/criminal_assault">Criminal Assault</Link></li>
+												<li><Link to="/essays/issues/criminal/criminal_battery">Criminal Battery</Link></li>
+												<li><Link to="/essays/issues/criminal/mayhem">Mayhem</Link></li>
+												<li><Link to="/essays/issues/criminal/rape">Rape</Link></li>
+												<li><Link to="/essays/issues/criminal/false_imprisonment">False Imprisonment</Link></li>
+												<li><Link to="/essays/issues/criminal/kidnapping">Kidnapping</Link></li>
+											</ul>
+										</li>
+										
+										
+										<li className="dropdown-submenu">
+											<a href="" className="dropdown-toggle" data-toggle="dropdown">Crimes Against the Home</a>
+											<ul className="dropdown-menu">
+												<li><Link to="/essays/issues/criminal/burglary">Burglary</Link></li>
+												<li><Link to="/essays/issues/criminal/arson">Arson</Link></li>
+											</ul>
+										</li>
+										
+										
+										<li className="dropdown-submenu">
+											<a href="" className="dropdown-toggle" data-toggle="dropdown">Crimes Against Property</a>
+											<ul className="dropdown-menu">
+												<li><Link to="/essays/issues/criminal/larceny">Larceny</Link></li>
+												<li><Link to="/essays/issues/criminal/embezzlement">Embezzlement</Link></li>
+												<li><Link to="/essays/issues/criminal/false_pretenses">False Pretenses</Link></li>
+												<li><Link to="/essays/issues/criminal/robbery">Robbery</Link></li>
+												<li><Link to="/essays/issues/criminal/extortion">Extortion</Link></li>
+												<li><Link to="/essays/issues/criminal/receiving_stolen_property">Receiving Stolen Property</Link></li>
+											</ul>
+										</li>
+										
+										
+										
+										<li className="dropdown-submenu">
+											<a href="" className="dropdown-toggle" data-toggle="dropdown">Murder</a>
+											<ul className="dropdown-menu">
+												<li><Link to="/essays/issues/criminal/murder">Murder</Link></li>
+												<li><Link to="/essays/issues/criminal/mitigating_factors">Mitigating Factors</Link></li>
+												<li><Link to="/essays/issues/criminal/voluntary_manslaughter">Voluntary Manslaughter</Link></li>
+												<li><Link to="/essays/issues/criminal/involuntary_manslaughter">Involuntary Manslaughter</Link></li>
+												<li><Link to="/essays/issues/criminal/redline_rule">Redline Rule</Link></li>
+											</ul>
+										</li>
+										
+										
+										<li className="dropdown-submenu">
+											<a href="" className="dropdown-toggle" data-toggle="dropdown">Defenses</a>
+											<ul className="dropdown-menu">
+												<li><Link to="/essays/issues/criminal/defense_infancy">Infancy</Link></li>
+												<li><Link to="/essays/issues/criminal/defense_insanity">Insanity</Link></li>
+												<li><Link to="/essays/issues/criminal/voluntary_intoxication">Intoxication</Link></li>
+												<li><Link to="/essays/issues/criminal/defense_mistake_of_fact">Mistake of Fact</Link></li>
+												<li><Link to="/essays/issues/criminal/defense_mistake_of_law">Mistake of Law</Link></li>
+												<li><Link to="/essays/issues/criminal/defense_necessity">Necessity</Link></li>
+												<li><Link to="/essays/issues/criminal/defense_duress">Duress</Link></li>
+												<li><Link to="/essays/issues/criminal/defense_entrapment">Entrapment</Link></li>
+												<li><Link to="/essays/issues/criminal/defense_consent">Consent</Link></li>
+												<li><Link to="/essays/issues/criminal/defense_self_defense">Self Defense</Link></li>
+												<li><Link to="/essays/issues/criminal/defense_of_others">Defense of Others</Link></li>
+												<li><Link to="/essays/issues/criminal/defense_of_property">Property</Link></li>
+												<li><Link to="/essays/issues/criminal/defense_legal_impossibility">Legal Impossibility</Link></li>
+												<li><Link to="/essays/issues/criminal/defense_factual_impossibility">Factual Impossibility</Link></li>
+												<li><Link to="/essays/issues/criminal/defense_withdrawal">Withdrawal</Link></li>
+												<li><Link to="/essays/issues/criminal/defense_prevention_crime">Prevention of Crime</Link></li>
+											</ul>
+										</li>
+										
+										
+										<li className="dropdown-submenu">
+											<a href="" className="dropdown-toggle" data-toggle="dropdown">Misc</a>
+											<ul className="dropdown-menu">
+												<li><Link to="/essays/issues/criminal/misprison">Misprison</Link></li>
+												<li><Link to="/essays/issues/criminal/compounding">Compounding</Link></li>
+												<li><Link to="/essays/issues/criminal/accomplice_liability">Accomplice Liability</Link></li>
+											</ul>
+										</li>
+										
+										
 									</ul>
+									
 								</li>
 								{/*<li>
 									<a href="" className="dropdown-toggle" data-toggle="dropdown">Menu 1 <b className="caret"></b></a>
