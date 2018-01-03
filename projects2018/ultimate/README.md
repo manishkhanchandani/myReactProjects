@@ -18,3 +18,37 @@ Buy
 	domain is onlineRx
 		set to 2, 
 			Online Doctors & Patients
+
+
+MyFlix - Netflix (youtube videos)
+free
+
+Online Buy & Sell
+	new or old, put posting,
+free,  
+	
+Services (paid)
+
+	A. Tutors 
+	B. Handyman
+	C. Cleaning Service
+	D. Hair Cut Salon (Beauty Parlor)
+	E. Massage Specialist
+
+Online Doctors & Patients (Homeopathic)
+paid
+
+Debate Website
+
+Booking System
+	Hotel Room Booking System
+	Parlor - Booking System
+	Generic Booking System
+	
+	
+Two ways
+Method 1.
+
+
+
+Form

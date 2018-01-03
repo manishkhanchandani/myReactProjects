@@ -76,6 +76,12 @@ export const FirebaseLogin = (type, additionalParams=null) => {
 								console.log('email verification sent to user');
 							});
 						}
+						user.updateProfile({
+							displayName: additionalParams.displayName,
+							photoURL: additionalParams.photoUrl		   
+						}).then((data) => {
+							window.location.href = '/';
+						});
 						resolve(user);
 					}).catch((error) => {
 						reject(error);
@@ -134,10 +140,12 @@ export const actionGithubLogin = () => {
 	return FirebaseLogin('GITHUBLOGIN');
 };
 
-export const actionEmailRegister = (email, password) => {
+export const actionEmailRegister = (email, password, displayName, photoUrl) => {
 	let obj = {
 		email,
-		password
+		password,
+		displayName, 
+		photoUrl
 	};
 	return FirebaseLogin('EMAILREGISTER', obj);
 };

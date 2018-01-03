@@ -14,6 +14,8 @@ class AuthEmailRegister extends Component {
 			email: '',
 			password: '',
 			cpassword: '',
+			displayName: '',
+			photoUrl: '',
 			error: null
 		};
 	}
@@ -37,7 +39,15 @@ class AuthEmailRegister extends Component {
 			this.setState({error: 'Password does not match with confirm password.'});
 			return;
 		}
-		this.props.f_email(this.state.email, this.state.password);
+		if (!this.state.displayName) {
+			this.setState({error: 'Please fill display name.'});
+			return;
+		} 
+		if (!this.state.photoUrl) {
+			this.setState({error: 'Please fill photo / image url.'});
+			return;
+		} 
+		this.props.f_email(this.state.email, this.state.password, this.state.displayName, this.state.photoUrl);
 	}
 
 	render() {
@@ -64,17 +74,25 @@ class AuthEmailRegister extends Component {
 					}
 					
 					 <div className="form-group">
-						  <label>Email address</label>
+						  <label>Email address *</label>
 						  <input type="email" className="form-control" placeholder="Enter email" value={this.state.email} onChange={(e) => {this.setState({email: e.target.value})}} />
 					  </div>
 					<div className="form-group">
-						<label>Password</label>
+						<label>Password *</label>
 						<input type="password" className="form-control" placeholder="Enter password" value={this.state.password} onChange={(e) => {this.setState({password: e.target.value})}} />
 					</div>
 					<div className="form-group">
-						<label>Confirm Password</label>
+						<label>Confirm Password *</label>
 						<input type="password" className="form-control" placeholder="Enter confirm password" value={this.state.cpassword} onChange={(e) => {this.setState({cpassword: e.target.value})}} />
 					</div>
+					 <div className="form-group">
+						  <label>Display Name *</label>
+						  <input type="text" className="form-control" placeholder="Enter display name" value={this.state.displayName} onChange={(e) => {this.setState({displayName: e.target.value})}} />
+					  </div>
+					 <div className="form-group">
+						  <label>Photo URL *</label>
+						  <input type="text" className="form-control" placeholder="Enter your photo / image url" value={this.state.photoUrl} onChange={(e) => {this.setState({photoUrl: e.target.value})}} />
+					  </div>
 					<Button bsStyle="primary" className="form-control" type="submit">Submit</Button>
 				</form>
 			</div>
@@ -90,8 +108,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		f_email: (email, password) => {
-			dispatch(actionEmailRegister(email, password));
+		f_email: (email, password, displayName, photoUrl) => {
+			dispatch(actionEmailRegister(email, password, displayName, photoUrl));
 		}
 	};
 };
