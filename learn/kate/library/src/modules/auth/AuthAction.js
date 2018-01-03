@@ -53,7 +53,7 @@ export const FirebaseLogin = (type, additionalParams=null) => {
 		case 'GITHUBLOGIN':
 			provider = new firebase.auth.GithubAuthProvider();
 			break;
-		case 'EMAILLOGIN':
+		case 'EMAILREGISTER':
 			console.log('additionalParams:', additionalParams);
 			return{
 				type: type,
@@ -65,8 +65,7 @@ export const FirebaseLogin = (type, additionalParams=null) => {
 							console.log('email is not verified');
 							user.sendEmailVerification().then((data)=>{
 								console.log('email verification sent to user');								
-							});
-						
+							});					
 						}
 						
 						resolve(user);					
@@ -78,7 +77,24 @@ export const FirebaseLogin = (type, additionalParams=null) => {
 								  
 				})
 			};			
-			return;
+			break;
+			
+		case 'EMAILLOGIN':
+			return{
+				type: type,
+				payload: new Promise((resolve, reject)=>{
+					firebaseApp.auth().signInWithEmailAndPassword(additionalParams.email,additionalParams.password).then((user)=>{
+						console.log('user is ', user);
+						
+						resolve(user);					
+			
+					}).catch((error)=>{
+	 					console.log('error is ', error);
+						reject(error);
+					});			  
+								  
+				})
+			};			
 			break;
 			
 		default:
@@ -135,13 +151,20 @@ export const actionGithubLogin = () => {
 	return FirebaseLogin('GITHUBLOGIN');
 };
 
-export const actionEmailLogin = (email,password) => {
+export const actionEmailRegister = (email,password) => {
 	let obj = {
 		email,	    //email:email,es5  when key and value are same in es6 we can use that
 		password	//password:password
-		
+	};	
+	return FirebaseLogin('EMAILREGISTER', obj);
+};
+
+
+export const actionEmailLogin = (email,password) => {
+	let obj = {
+		email,	    //email:email,es5  when key and value are same in es6 we can use that
+		password	//password:password	
 	};
-	
 	return FirebaseLogin('EMAILLOGIN', obj);
 };
 

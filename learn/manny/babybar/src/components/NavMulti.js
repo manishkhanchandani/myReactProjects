@@ -105,6 +105,7 @@ class NavMulti extends Component {
 												<li><Link to="/essays/issues/torts/independent_contractor_liability">Independent Contractor</Link></li>
 												<li><Link to="/essays/issues/torts/negligence_breach">Breach</Link></li>
 												<li><Link to="/essays/issues/torts/negligence_breach_res_ipsa_loquitur">Breach Res Ipsa Loquitor</Link></li>
+												<li><Link to="/essays/issues/torts/negligence_breach_negligent_entrustment">Breach Negligent Entrustment</Link></li>
 												<li><Link to="/essays/issues/torts/negligence_actual_cause">Actual Cause</Link></li>
 												<li><Link to="/essays/issues/torts/negligence_proximate_cause">Proximate Cause</Link></li>
 												<li><Link to="/essays/issues/torts/negligence_egg_shell_plaintiff">Egg Shell Plaintiff</Link></li>

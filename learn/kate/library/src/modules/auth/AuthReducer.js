@@ -34,7 +34,36 @@ const AuthReducer = (state = {
 			}
 			break;
 			
-		 case 'EMAILLOGIN_FULFILLED':
+		 case 'EMAILREGISTER_FULFILLED':
+		 	console.log(action);
+			state = {
+				...state,
+				email: action.payload.providerData[0].email,
+				displayName: action.payload.providerData[0].displayName,
+				photoURL: action.payload.providerData[0].photoURL,
+				uid: action.payload.uid,
+				profile_uid: action.payload.providerData[0].uid,
+				providerId: action.payload.providerData[0].providerId, 
+				error: null,
+				processCompleted: true
+			}
+			break;
+		case 'EMAILREGEISTER_REJECTED':
+			state = {
+				...state,
+				email: null,
+				displayName: null,
+				photoURL: null,
+				uid: null,
+				profile_uid: null,
+				providerId: null,
+				error: action.payload.message,
+				processCompleted: false
+			}
+			break;
+		//	action
+		case 'EMAILLOGIN_FULFILLED':
+		
 		 	console.log(action);
 			state = {
 				...state,
