@@ -12,9 +12,9 @@ class Results extends Component {
 		}
 		
 		var myLink = null;
-		//if (this.props.fromUid && this.props.fromUid !== this.props.record.user_id) {
+		if (this.props.fromUid && this.props.fromUid !== this.props.record.user_id) {
 			myLink = '/chat/' + this.props.record.user_id;
-		//}
+		}
 		return (
 			<div className="col-md-6">
 			<div className="media">

@@ -34,8 +34,8 @@ class ChatUsers extends Component {
 				{
 					this.props.chat_users && this.props.chat_users.map((value, key) => {
 						var strTime = timeAgo(value.updated_dt);
-						var d = new Date(value.updated_dt);
-						var myDate = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+						//var d = new Date(value.updated_dt);
+						//var myDate = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
 						let myClass = "row";
 						if (value.id === this.props.chatReducer.toUserId) {
 							myClass = myClass + ' active';	

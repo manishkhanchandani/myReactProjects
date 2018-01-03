@@ -16,9 +16,6 @@ class Home extends Component {
 	}
 
 	render() {
-		console.log('state is ', this.state);
-
-
 		return (
 			<div className="container">
 				<div className="row">
