@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import {Button,Alert} from 'react-bootstrap';
+import {connect} from 'react-redux';
+import {actionEmailLogin} from './AuthAction.js';
+import {Redirect} from 'react-router-dom';
 
 
 class AuthEmailLogin extends Component {
@@ -25,6 +28,7 @@ class AuthEmailLogin extends Component {
 					return;
 				}
 				console.log('frm: ', this.state);
+				this.props.f_email(this.state.emial, this.state.password);
 			}				
 			
 	
@@ -32,12 +36,18 @@ class AuthEmailLogin extends Component {
 	
 	
 	render() {
+		
+		 if (this.props.authReducer.processCompleted) {
+			    return <Redirect to="/" push={true} />;
+		}
+		
 		return (
 			<div className="container">
 					<form onSubmit={this.submitFrm.bind(this)}>
 					<h3 className="text-center">User Login</h3>
 					
 					{this.state.error && <Alert bsStyle="warning">{this.state.error}</Alert>}
+					{this.props.authReducer.error && <Alert bsStyle="warning">{this.props.authReducer.error}</Alert>}	
 											
 										
 					<div className="form-group">
@@ -55,4 +65,20 @@ class AuthEmailLogin extends Component {
 	}
 }
 
-export default AuthEmailLogin;	// JavaScript Document
+// redux part
+const mapStateToProps = (state) => {
+	return {
+		authReducer: state.AuthReducer
+	}
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		f_email: (email, password) => {
+			dispatch(actionEmailLogin(email, password));
+		}
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AuthEmailLogin);
+

@@ -16,7 +16,7 @@ class App extends Component {
 				 <Route exact={true} path="/simpleQuiz" component={SimpleQuiz} />
 				 <Route exact={true} path="/register" component={AuthEmailRegister} />
 				 <Route exact={true} path="/login" component={AuthEmailLogin} />
-				
+				 
 			</div>
 		</Router>
     );
