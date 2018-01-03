@@ -1356,10 +1356,52 @@ data
 
 
 
+Jan to March,
+April - public (paid, free)
 
 
+MyFlix - Netflix (youtube videos)
+free
 
+Online Buy & Sell
+	new or old, put posting,
+free,  
+	
+Services (paid)
 
+	A. Tutors 
+	B. Handyman
+	C. Cleaning Service
+	D. Hair Cut Salon (Beauty Parlor)
+	E. Massage Specialist
+
+Online Doctors & Patients (Homeopathic)
+paid
+
+Following things:
+	There are different cities in world
+
+	1 doctor per city, ($10 to my site per year)
+		Fremont - doctor
+		san jose - doctor 
+		
+		Fremont - doctor
+		consultation charges - 300
+		medicine charges - 100$
+		
+		
+		san jose - doctor 
+		consultation charges - 300
+		
+		Fremont - doctor
+		medicine charges - 100$
+		
+		paypal - 
+	
+
+food donation
+
+money donation
 
 
 

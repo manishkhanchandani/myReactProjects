@@ -1,7 +1,7 @@
 {
 	"key": "negligence",
 	"name": "Negligence",
-	"description": "dd",
+	"description": "Negligence is the failure to use <b>due care</b> that a <b>reasonable person</b> would use in the same or similar circumstances.<br /><br />Negligence question can be answered in <b>multi paragraph</b> or <b>single paragraph</b>. If you have other issues in exam like intentional torts, defamation, etc and plus negligence issue then explain negligence in one paragraph as a single issue. And if you have <b>only negligence as a issue in exam</b> then you have to write negligence as following: <b>negligence, general duty, special duty, breach, actual cause, proximate cause, damages, contributory negligence, comparative negligence, last clear chance, assumption of risks.</b><br /><br />",
 	"next": {
 		"key": "negligence_duty",
 		"name": "Negligence Duty",

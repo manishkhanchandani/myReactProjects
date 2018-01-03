@@ -1,6 +1,6 @@
 {
-	"key": "independent_contractor_liability",
-	"name": "Vicarious Liability for Independent Contractor",
+	"key": "negligence_breach_negligent_entrustment",
+	"name": "Breach Based on Negligent Entrustment",
 	"next": {
 		"key": "",
 		"name": "",
