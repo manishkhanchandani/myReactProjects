@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import NavMulti from '../ClearningLayout/nav-multi/NavMulti.js';
+import NavMulti from '../Clearning/nav-multi/NavMulti.js';
 
 class CleaningLayout extends Component {
 	render() {
