@@ -68,6 +68,9 @@ export const FirebaseLogin = (type, additionalParams=null) => {
 							});					
 						}
 						
+						
+						
+					    //
 						resolve(user);					
 			
 					}).catch((error)=>{
