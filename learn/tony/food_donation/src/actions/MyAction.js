@@ -30,11 +30,13 @@ export const actionGoogleLogin = () => {
 		type: 'GOOGLELOGIN',
 		payload: new Promise((resolve, reject) => {
 			var provider = new firebase.auth.GoogleAuthProvider();
-			firebaseApp.auth().signInWithPopup(provider).then(function(result) {
+			provider.addScope('profile');
+			provider.addScope('email');
+			firebaseApp.auth().signInWithPopup(provider).then(function(result) {											   
 				var obj = {};
-				obj.email = result.user.email;
-				obj.displayName = result.user.displayName;
-				obj.photoURL = result.user.photoURL;
+				obj.email = result.user.providerData[0].email;
+				obj.displayName = result.user.providerData[0].displayName;
+				obj.photoURL = result.user.providerData[0].photoURL;
 				obj.uid = result.user.uid;
 				obj.profile_uid = result.user.providerData[0].uid;
 				obj.providerId = result.user.providerData[0].providerId;

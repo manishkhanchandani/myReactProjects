@@ -1,0 +1,81 @@
+/* CSS Document */
+
+
+.resultsContainer myStyle1 {
+	list-style: none;
+}
+
+.resultsContainer a {
+    color: #03a1d1;
+    text-decoration: none!important;
+}
+
+/**** LAYOUT ****/
+.resultsContainer .list-inline>li {
+    padding: 0 10px 0 0;
+}
+.resultsContainer .container-pad {
+    padding: 30px 15px;
+}
+
+
+/**** MODULE ****/
+.resultsContainer .bgc-fff {
+    background-color: #fff!important;
+}
+.resultsContainer .box-shad {
+    -webkit-box-shadow: 1px 1px 0 rgba(0,0,0,.2);
+    box-shadow: 1px 1px 0 rgba(0,0,0,.2);
+}
+.resultsContainer .brdr {
+    border: 1px solid #ededed;
+}
+
+/* Font changes */
+.resultsContainer .fnt-smaller {
+    font-size: .9em;
+}
+.resultsContainer .fnt-lighter {
+    color: #bbb;
+}
+
+/* Padding - Margins */
+.resultsContainer .pad-10 {
+    padding: 10px!important;
+}
+.resultsContainer .mrg-0 {
+    margin: 0!important;
+}
+.resultsContainer .btm-mrg-10 {
+    margin-bottom: 10px!important;
+}
+.resultsContainer .btm-mrg-20 {
+    margin-bottom: 20px!important;
+}
+
+/* Color  */
+.resultsContainer .clr-535353 {
+    color: #535353;
+}
+
+
+
+
+/**** MEDIA QUERIES ****/
+@media only screen and (max-width: 991px) {
+    .resultsContainer  .property-listing {
+        padding: 5px!important;
+    }
+    .resultsContainer  .property-listing a {
+        margin: 0;
+    }
+    .resultsContainer  .property-listing .media-body {
+        padding: 10px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .resultsContainer .property-listing img {
+        max-width: 120px;
+    }
+}

@@ -41,9 +41,7 @@ class SearchForm extends Component {
 		//and pass to func3, 4 and 5 for keyword, location and boundary respectively
 		var str = localStorage.getItem('formSearchData');
 		var obj = JSON.parse(str);
-		console.log('object is ', obj);
 		if (obj) {
-			console.log('localstorage in action');
 			if (obj.keyword) {
 				this.props.func3(obj.keyword);
 			}
@@ -56,7 +54,6 @@ class SearchForm extends Component {
 				this.props.func5(obj.boundary);
 			}
 		} else {
-			console.log('reducer in action');
 			obj = this.props.foodReducer;
 		}
 		
@@ -96,7 +93,6 @@ class SearchForm extends Component {
 			return;
 		}
 		
-		console.log('url is ', url);
 		var ref = firebaseDatabase.ref(url);
 		ref.on('value', (snapshot) => {
 			var records = snapshot.val();
