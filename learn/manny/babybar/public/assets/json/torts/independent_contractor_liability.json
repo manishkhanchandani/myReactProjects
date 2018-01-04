@@ -2,13 +2,13 @@
 	"key": "independent_contractor_liability",
 	"name": "Vicarious Liability for Independent Contractor",
 	"next": {
-		"key": "",
-		"name": "",
-		"subject": ""
+		"key": "negligence_breach",
+		"name": "Breach",
+		"subject": "torts"
 	},
 	"previous": {
-		"key": "",
-		"name": "",
-		"subject": ""
+		"key": "vicarious_liability",
+		"name": "Vicarious Liability for Joint Enterprise",
+		"subject": "torts"
 	}
 }

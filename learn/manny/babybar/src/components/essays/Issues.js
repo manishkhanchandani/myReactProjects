@@ -219,7 +219,10 @@ class EssayIssues extends Component {
 													})	
 												}
 											</div>
-											<div className="panel-footer">{renderHTML(issue.conclusion)}</div>
+											{
+												issue.conclusion && 
+												<div className="panel-footer">{renderHTML(issue.conclusion)}</div>
+											}
 										</div>
 									}
 									{

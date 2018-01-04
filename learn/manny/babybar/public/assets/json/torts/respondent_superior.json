@@ -2,13 +2,13 @@
 	"key": "respondent_superior",
 	"name": "Respondent Superior",
 	"next": {
-		"key": "",
-		"name": "",
-		"subject": ""
+		"key": "vicarious_liability",
+		"name": "Vicarious Liability for Joint Enterprise",
+		"subject": "torts"
 	},
 	"previous": {
-		"key": "",
-		"name": "",
-		"subject": ""
+		"key": "negligence_rescuer_doctrine",
+		"name": "Rescuer Doctrine / Fireman's Rule",
+		"subject": "torts"
 	}
 }

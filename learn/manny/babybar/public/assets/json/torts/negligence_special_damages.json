@@ -2,13 +2,13 @@
 	"key": "negligence_special_damages",
 	"name": "Negligence Special Damages",
 	"next": {
-		"key": "",
-		"name": "",
-		"subject": ""
+		"key": "negligence_contributory",
+		"name": "Contributory Negligence",
+		"subject": "torts"
 	},
 	"previous": {
-		"key": "",
-		"name": "",
-		"subject": ""
+		"key": "negligence_general_damages",
+		"name": "Negligence General Damages",
+		"subject": "torts"
 	}
 }

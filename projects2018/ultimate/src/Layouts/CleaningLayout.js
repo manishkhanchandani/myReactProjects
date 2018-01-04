@@ -10,4 +10,4 @@ class CleaningLayout extends Component {
 	}
 }
 
-export default CleaningLayout;// JavaScript Document
+export default CleaningLayout;

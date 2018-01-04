@@ -2,13 +2,13 @@
 	"key": "negligence_proximate_cause",
 	"name": "Negligence Proximate Cause",
 	"next": {
-		"key": "",
-		"name": "",
-		"subject": ""
+		"key": "negligence_egg_shell_plaintiff",
+		"name": "Egg Shell Plaintiff",
+		"subject": "torts"
 	},
 	"previous": {
-		"key": "",
-		"name": "",
-		"subject": ""
+		"key": "negligence_actual_cause",
+		"name": "Negligence Actual Cause",
+		"subject": "torts"
 	}
 }

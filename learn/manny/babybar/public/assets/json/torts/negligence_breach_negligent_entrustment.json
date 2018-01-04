@@ -2,13 +2,13 @@
 	"key": "negligence_breach_negligent_entrustment",
 	"name": "Breach Based on Negligent Entrustment",
 	"next": {
-		"key": "",
-		"name": "",
-		"subject": ""
+		"key": "negligence_actual_cause",
+		"name": "Negligence Actual Cause",
+		"subject": "torts"
 	},
 	"previous": {
-		"key": "",
-		"name": "",
-		"subject": ""
+		"key": "negligence_breach_res_ipsa_loquitur",
+		"name": "Breach Res Ipsa Loquitor",
+		"subject": "torts"
 	}
 }

@@ -2,13 +2,13 @@
 	"key": "negligence_rescuer_doctrine",
 	"name": "Rescuer Doctrine / Fireman's Rule",
 	"next": {
-		"key": "",
-		"name": "",
-		"subject": ""
+		"key": "respondent_superior",
+		"name": "Respondent Superior",
+		"subject": "torts"
 	},
 	"previous": {
-		"key": "",
-		"name": "",
-		"subject": ""
+		"key": "strict_liability",
+		"name": "Strict Liability",
+		"subject": "torts"
 	}
 }
