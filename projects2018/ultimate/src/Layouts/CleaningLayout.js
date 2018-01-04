@@ -5,6 +5,7 @@ class CleaningLayout extends Component {
 	render() {
 		return (
 			<div>
+                <NavMulti />
 				Cleaning Layout
 			</div>
 		);
