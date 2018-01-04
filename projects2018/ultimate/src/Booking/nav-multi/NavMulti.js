@@ -15,7 +15,7 @@ class NavMulti extends Component {
 								<span className="icon-bar"></span>
 								<span className="icon-bar"></span>
 							</button>
-							<a className="navbar-brand" href="">MyFlix</a>
+							<a className="navbar-brand" href="">Booking</a>
 						</div>
 						<div className="collapse navbar-collapse">
 							<ul className="nav navbar-nav navbar-right">
