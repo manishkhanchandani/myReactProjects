@@ -55,3 +55,32 @@ Form
 
 
 http://www.debate.org/
+
+
+
+
+
+
+
+Task:
+1. Build Simple Component
+Tony: 
+	CleaningLayout
+	
+Kate:
+	BookingLayout
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
