@@ -8,7 +8,6 @@ class BookingLayout extends Component {
 		return (
             <Router>
              <div>
-                BookingLayout
                 <NavMulti/>
                 
                 <Route exact={true} path="/" component={Home} />
