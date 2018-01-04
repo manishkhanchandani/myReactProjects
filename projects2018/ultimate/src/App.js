@@ -6,7 +6,7 @@ import OnlineRxLayout from './Layouts/OnlineRxLayout.js';
 class App extends Component {
   render() {
 	  let layout = '';
-	  const site = 'onlinerx.info';
+	  const site = 'myflix.info';
 	  if (site === 'myflix.info') {
 		  layout = (<MyFlixLayout />);
 	  } else if (site === 'onlinerx.info') {
