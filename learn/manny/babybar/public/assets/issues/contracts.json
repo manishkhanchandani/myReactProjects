@@ -185,12 +185,60 @@
 			"topic": "",
 			"essay": "Buyer opened a new automobile service station earlier this year. Buyer wanted to buy a television set for the station so her customers could watch television while she worked on their cars.<br /><br /> Buyer found the television set she wanted at Seller Sets, Inc. (\"Seller\"), a television set retailer. A Seller salesperson told Buyer she could purchase the set for $300. Buyer replied that she would like to \"shop around\". The salesperson then wrote \"Seller Sets, Inc. - $300\" on a sales brochure describing the set and gave the brochure to Buyer. The printed phrase \"Available for a Limited Time Only\" appeared at the top of the brochure. As the salesperson handed Buyer the brochure he said, \"I think you'll find no one will beat our price.\"<br /><br /> Not finding a better price, Buyer returned to Seller's one week later to buy the television set. However, the salesperson told her that the set was out of stock and that Seller could not sell her another at the $300 price. Two months later, Buyer purchased the same model set from another dealer for $450.<br /><br /> Buyer wishes to sue Seller, seeking damages for lost profits. Buyer intends to allege that she lost customers because she has not had television in the station for the past two months.<br /><br /> What theory or theories for recovery of damages will Buyer assert in her complaint and what is her likelihood of success on each theory? Discuss.",
 			"issues": {
-				"ucc": {},
-				"parties_merchant": {},
-				"valid_contract": {},
-				"offer": {},
-				"acceptance": {},
-				"merchants_firm_offer": {},
+				"ucc": {
+					"def":[
+						"The UCC is the governing law for the sale of goods. Goods are movable items and do not include services, real estate, or intangibles."   
+					],
+					"hypo": "Buyer opened a new automobile service station earlier this year.",
+					"samples": [
+						"What law applies: <b>Uniform Commercial Code (UCC) or common law</b>? <br /><br />The UCC is the governing law for the sale of goods. Goods are movable items and do not include services, real estate, or intangibles. <br /><br />Here, the governing law is the UCC."	
+					]
+				},
+				"parties_merchant": {
+					"def":[
+						"The UCC defines merchant as someone who trades the types of goods in question or holds themselves out to be knowledgeable regarding the goods."
+					],
+					"hypo": "Buyer found the television set she wanted at Seller Sets, Inc. (\"Seller\"), a television set retailer.",
+					"samples": [
+						"Is Seller a merchant as defined by the UCC?<br /><br />The UCC defines merchant as someone who trades the types of goods in question or holds themselves out to be knowledgeable regarding the goods.<br /><br />Here, Seller is a television set retailer and is clearly a merchant.<br /><br />Note: Seller's salesperson, since acting within the scope of her/his employment, binds Seller Sets, Inc. to any  contracts/offers, etc., that she makes (respondeat superior)."			
+					]
+				},
+				"valid_contract": {
+					"def":[
+						"A contract consists of an offer, an acceptance, and consideration."  
+					],
+					"hypo": "A Seller salesperson told Buyer she could purchase the set for $300. Buyer replied that she would like to \"shop around\". The salesperson then wrote \"Seller Sets, Inc. - $300\" on a sales brochure describing the set and gave the brochure to Buyer. The printed phrase \"Available for a Limited Time Only\" appeared at the top of the brochure.",
+					"samples": [
+						"Did Buyer and Seller have a contract for the sale of a TV set for $300?<br /><br />A contract consists of an offer, an acceptance, and consideration. <br /><br />Then explain offer and acceptance in 2 paragraphs and then conclude with: <br /><br />Therefore, as of the time of the Buyer's first visit to Seller Sets, there is no contract between Seller and Buyer."	
+					]
+				},
+				"offer": {
+					"def":[
+						"An offer is a manifestation to be presently found or committed, communicated to specific offerees, with definite subject matter and material terms. Under the UCC, quantity and subject matter are generally the only two terms required."  
+					],
+					"hypo": "A Seller salesperson told Buyer she could purchase the set for $300. Buyer replied that she would like to \"shop around\". The salesperson then wrote \"Seller Sets, Inc. - $300\" on a sales brochure describing the set and gave the brochure to Buyer. The printed phrase \"Available for a Limited Time Only\" appeared at the top of the brochure.",
+					"samples": [
+						"Was sale of a TV set for $300 an Offer?<br /><br />An offer is a manifestation to be presently found or committed, communicated to specific offerees, with definite subject matter and material terms. Under the UCC, quantity and subject matter are generally the only two terms required.<br /><br />Here, the salesperson clearly offers Buyer the television set for $300."	
+					]
+				},
+				"acceptance": {
+					"def":[
+						"Acceptance is the manifest willingness to be presently bound to a valid offer. It can be express or implied. Under the UCC acceptance can occur by a means stipulated by the offer, or if no such means is provided, in any reasonable manner."  
+					],
+					"hypo": "A Seller salesperson told Buyer she could purchase the set for $300. Buyer replied that she would like to \"shop around\". The salesperson then wrote \"Seller Sets, Inc. - $300\" on a sales brochure describing the set and gave the brochure to Buyer. The printed phrase \"Available for a Limited Time Only\" appeared at the top of the brochure.",
+					"samples": [
+						"Was reply by Buyer for sale of a TV set for $300 an Acceptance?<br /><br />Acceptance is the manifest willingness to be presently bound to a valid offer. It can be express or implied. Under the UCC acceptance can occur by a means stipulated by the offer, or if no such means is provided, in any reasonable manner.<br /><br />Here, Buyer clearly does not accept Seller's offer because Buyer states that she would like to \"shop around\"<br /><br />Therefore, as of the time of the Buyer's first visit to Seller Sets, there is no contract between Seller and Buyer."	
+					]
+				},
+				"merchants_firm_offer": {
+					"def":[
+						""  
+					],
+					"hypo": "A Seller salesperson told Buyer she could purchase the set for $300. Buyer replied that she would like to \"shop around\". The salesperson then wrote \"Seller Sets, Inc. - $300\" on a sales brochure describing the set and gave the brochure to Buyer. The printed phrase \"Available for a Limited Time Only\" appeared at the top of the brochure.",
+					"samples": [
+						""	
+					]
+				},
 				"detrimental_reliance": {},
 				"expected_damages": {},
 				"consequential_damages": {},

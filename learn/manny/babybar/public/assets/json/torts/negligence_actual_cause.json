@@ -2,13 +2,13 @@
 	"key": "negligence_actual_cause",
 	"name": "Negligence Actual Cause",
 	"next": {
-		"key": "",
-		"name": "",
-		"subject": ""
+		"key": "negligence_proximate_cause",
+		"name": "Negligence Proximate Cause",
+		"subject": "torts"
 	},
 	"previous": {
-		"key": "",
-		"name": "",
-		"subject": ""
+		"key": "negligence_breach_negligent_entrustment",
+		"name": "Breach Based on Negligent Entrustment",
+		"subject": "torts"
 	}
 }

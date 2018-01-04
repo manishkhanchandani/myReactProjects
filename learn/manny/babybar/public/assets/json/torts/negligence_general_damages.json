@@ -2,13 +2,13 @@
 	"key": "negligence_general_damages",
 	"name": "Negligence General Damages",
 	"next": {
-		"key": "",
-		"name": "",
-		"subject": ""
+		"key": "negligence_special_damages",
+		"name": "Negligence Special Damages",
+		"subject": "torts"
 	},
 	"previous": {
-		"key": "",
-		"name": "",
-		"subject": ""
+		"key": "negligence_egg_shell_plaintiff",
+		"name": "Egg Shell Plaintiff",
+		"subject": "torts"
 	}
 }

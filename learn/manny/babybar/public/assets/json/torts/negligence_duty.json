@@ -2,13 +2,13 @@
 	"key": "negligence_duty",
 	"name": "Negligence Duty",
 	"next": {
-		"key": "",
-		"name": "",
-		"subject": ""
+		"key": "negligence_per_se",
+		"name": "Negligence Per Se",
+		"subject": "torts"
 	},
 	"previous": {
-		"key": "",
-		"name": "",
-		"subject": ""
+		"key": "negligence",
+		"name": "Negligence",
+		"subject": "torts"
 	}
 }

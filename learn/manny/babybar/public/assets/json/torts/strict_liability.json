@@ -2,13 +2,13 @@
 	"key": "strict_liability",
 	"name": "Strict Liability",
 	"next": {
-		"key": "",
-		"name": "",
-		"subject": ""
+		"key": "negligence_rescuer_doctrine",
+		"name": "Rescuer Doctrine / Fireman's Rule",
+		"subject": "torts"
 	},
 	"previous": {
-		"key": "",
-		"name": "",
-		"subject": ""
+		"key": "negligence_attractive_nuisance",
+		"name": "Attractive Nuisance",
+		"subject": "torts"
 	}
 }

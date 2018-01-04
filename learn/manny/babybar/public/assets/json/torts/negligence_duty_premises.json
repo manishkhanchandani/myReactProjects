@@ -2,13 +2,13 @@
 	"key": "negligence_duty_premises",
 	"name": "Duty based on Premises Liability",
 	"next": {
-		"key": "",
-		"name": "",
-		"subject": ""
+		"key": "negligence_attractive_nuisance",
+		"name": "Attractive Nuisance",
+		"subject": "torts"
 	},
 	"previous": {
-		"key": "",
-		"name": "",
-		"subject": ""
+		"key": "negligence_duty_peril",
+		"name": "Duty based on PERIL",
+		"subject": "torts"
 	}
 }

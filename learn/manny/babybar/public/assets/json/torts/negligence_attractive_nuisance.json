@@ -2,13 +2,13 @@
 	"key": "negligence_attractive_nuisance",
 	"name": "Attractive Nuisance",
 	"next": {
-		"key": "",
-		"name": "",
-		"subject": ""
+		"key": "strict_liability",
+		"name": "Strict Liability",
+		"subject": "torts"
 	},
 	"previous": {
-		"key": "",
-		"name": "",
-		"subject": ""
+		"key": "negligence_duty_premises",
+		"name": "Duty based on Premises Liability",
+		"subject": "torts"
 	}
 }
