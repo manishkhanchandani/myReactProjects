@@ -66,6 +66,7 @@ Task:
 1. Build Simple Component
 Tony: 
 	CleaningLayout
+	BuySellLayout
 	
 Kate:
 	BookingLayout
