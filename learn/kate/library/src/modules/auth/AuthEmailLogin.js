@@ -28,7 +28,7 @@ class AuthEmailLogin extends Component {
 					return;
 				}
 				console.log('frm: ', this.state);
-				this.props.f_email(this.state.emial, this.state.password);
+				this.props.f_email(this.state.email, this.state.password);
 			}				
 			
 	
@@ -75,6 +75,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		f_email: (email, password) => {
+			console.log(email,password);
 			dispatch(actionEmailLogin(email, password));
 		}
 	};

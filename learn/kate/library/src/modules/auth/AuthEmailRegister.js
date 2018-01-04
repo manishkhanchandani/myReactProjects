@@ -71,7 +71,7 @@ class AuthEmailRegister extends Component {
 					<label>Confirm Password</label>
 					<input type="password" className="form-control" placeholder="Enter confirm password" value={this.state.cpassword} onChange={(e) => {this.setState({cpassword: e.target.value})}} />
 					</div>
-					
+									
 					<Button bsStyle="primary" className="form-control" type="submit">Regist</Button>
 					
 					</form>
