@@ -2,13 +2,13 @@
 	"key": "vicarious_liability",
 	"name": "Vicarious Liability for Joint Enterprise",
 	"next": {
-		"key": "",
-		"name": "",
-		"subject": ""
+		"key": "independent_contractor_liability",
+	"name": "Vicarious Liability for Independent Contractor",
+		"subject": "torts"
 	},
 	"previous": {
-		"key": "",
-		"name": "",
-		"subject": ""
+		"key": "respondent_superior",
+		"name": "Respondent Superior",
+		"subject": "torts"
 	}
 }

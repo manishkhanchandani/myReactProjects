@@ -2,13 +2,13 @@
 	"key": "negligence_breach",
 	"name": "Breach",
 	"next": {
-		"key": "",
-		"name": "",
-		"subject": ""
+		"key": "negligence_breach_res_ipsa_loquitur",
+		"name": "Breach Res Ipsa Loquitor",
+		"subject": "torts"
 	},
 	"previous": {
-		"key": "",
-		"name": "",
-		"subject": ""
+		"key": "independent_contractor_liability",
+		"name": "Vicarious Liability for Independent Contractor",
+		"subject": "torts"
 	}
 }

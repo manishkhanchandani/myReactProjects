@@ -2,7 +2,28 @@
 	"key": "offer",
 	"name": "Offer?",
 	"rule": "Under contract law an OFFER is a manifestation of present contractual intent communicated to the offeree such that an objective person would reasonably believe assent would form a bargain. <br /><br />If ONLY common law go on to say, At common law a communication was only deemed sufficient to constitute an offer if it specified the parties, subject matter, quantity, price, and time of performance.<br /><br />If UCC say, The UCC deems a communication sufficient to constitute an offer if it specifies the parties and quantity. The UCC provides \"GAP FILLERS\" that may be used by the Court to determine any additional terms.",
-	"description": "Advertisements are generally not offers because they usually fail to identify the parties or the quantity being offered.",
+	"description": "Advertisements are generally not offers because they usually fail to identify the parties or the quantity being offered. <br /><br />You can add contract terms in the offer or you can create a separate issue for contract terms where you can mention quantity, price, subject, time, parties.",
+	"elements": [
+		"Manifestation of Intent",
+		"Reasonable person would believe that assent will form bargain",
+		"Quantity",
+		"Time of Performance",
+		"Identity of Parties",
+		"Price",
+		"Subject Matter"
+	],
+	"elementsQuestions": [
+		"Here statement by 'A' does not sound like he <b>manifest present contractual intent</b> because ...",
+		"No Reasonable person would believe that <b>assent will form bargain</b> because ... OR ...",
+		"Here statement by 'A' sounds like he <b>manifest present contractual intent</b> because ...",
+		"Any Reasonable person would believe that <b>assent will form bargain</b> because ...",
+		"Here the <b>time of performance</b> was ...",
+		"Here the <b>Parties</b> were ...",
+		"Here the <b>Price</b> was ...",
+		"Here the <b>Subject Matter</b> was ...",
+		"Here the <b>Quantity</b> was ..."
+	],
+	"conclusion": "Therefore that statment is an offer or that statement is not an offer.",
 	"videos": [
 		{
 			"key": "IwyjuuZ1U6g",

@@ -19,13 +19,13 @@
 		}	  
 	],
 	"next": {
-		"key": "",
-		"name": "",
-		"subject": ""
+		"key": "negligence_assumption_of_risks",
+		"name": "Assumption of Risks (Negligence)",
+		"subject": "torts"
 	},
 	"previous": {
-		"key": "",
-		"name": "",
-		"subject": ""
+		"key": "negligence_last_clear_chance",
+		"name": "Last Clear Chance",
+		"subject": "torts"
 	}
 }
