@@ -152,3 +152,4 @@ export const activityTracker = (page, url) => {
 	var urlfb = FirebaseConstant.basePath + '/activities';
 	firebaseDatabase.ref(urlfb).push(obj);
 }
+

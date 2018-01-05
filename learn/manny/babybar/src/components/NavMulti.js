@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import Auth from './auth/Auth.js';
 import './NavMulti.css';
 import renderHTML from 'react-render-html';
-
+/*
 const x1 = [
 	{
 		name: 'Contracts',
@@ -28,7 +28,7 @@ const x1 = [
 		link: ''
 	}
 ]
-
+*/
 var menuStr = '';
 /*
 function loopMenu(obj, first)

@@ -314,7 +314,6 @@ class IssuesSpotting extends Component {
 											{
 												termsArray && 
 												termsArray.map((value, key) => {
-													let obj = JSON.stringify(value);
 													return <div key={key}><input type="checkbox" onClick={this.addIssue.bind(this, value, this.state.issueSpotting, key)} value={key} checked={this.state.checked[key]} /> {value.title}</div>				
 												})
 											}

@@ -10,6 +10,7 @@ import QuizWelcomeScreen from './components/quiz/QuizWelcomeScreen.js';
 import EssayIssues from './components/essays/Issues.js';
 import IssuesSpotting from './components/essays/IssuesSpotting.js';
 import Simulation from './components/essays/Simulation.js';
+//import AdminQuizCreate from './components/adminQuiz/Create.js';
 
 import Import1 from './components/imports/Import1.js';
 import './App.css';
