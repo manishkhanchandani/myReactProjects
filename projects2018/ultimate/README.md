@@ -70,10 +70,23 @@ Tony:
 	
 Kate:
 	BookingLayout
+	
+2. Nav Multi
+Tony
+	CleaningLayout
+	
+Kate:
+	BookingLayout
 
 
 
+Kate:
+create store.js in src folder
+and call it in index.js
 
+Tony
+go to myFlix layout
+and add the router functionality with any dummy component
 
 
 

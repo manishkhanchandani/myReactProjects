@@ -2,6 +2,73 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import Auth from './auth/Auth.js';
 import './NavMulti.css';
+import renderHTML from 'react-render-html';
+
+const x1 = [
+	{
+		name: 'Contracts',
+		url: '',
+		link: '',
+		child: [
+			{
+				name: 'Quiz',
+				url: '',
+				link: '/quiz'
+			}		
+		]
+	},
+	{
+		name: 'Criminal',
+		url: '',
+		link: ''
+	},
+	{
+		name: 'Torts',
+		url: '',
+		link: ''
+	}
+]
+
+var menuStr = '';
+/*
+function loopMenu(obj, first)
+{
+	console.log('obj is ', obj);
+	for (let i = 0; i < obj.length; i++) {
+		let extraString = '';
+		let extraString2 = '';
+		if (first) {
+			if (obj[i].child) {
+				extraString = ' className="dropdown-toggle" data-toggle="dropdown"';	
+				extraString2 = '<b className="caret"></b>';
+			}
+		}
+		
+		let path = '';
+		if (obj[i].url) {
+			path = '<a href="" ' + extraString + '>' + obj[i].name + extraString2 + '</a>';
+		} else if (obj[i].link) {
+			path = '<Link to="'+obj[i].link+'" ' + extraString + '>' + obj[i].name + extraString2 + '</Link>';
+		} else {
+			path = '<a href="" ' + extraString + '>' + obj[i].name + extraString2 + '</a>';	
+		}
+
+		menuStr = menuStr + '<li>' + path;
+		
+		if (obj[i].child) {
+			menuStr = menuStr + '<ul className="dropdown-menu multi-level">';
+			loopMenu(obj[i].child, false);
+			menuStr = menuStr + '</ul>';
+		}
+
+		menuStr = menuStr + '</li>';
+	}
+	
+}
+
+loopMenu(x1, true);
+console.log('menuStr: ', menuStr);
+*/
 
 class NavMulti extends Component {
 	
@@ -26,7 +93,7 @@ class NavMulti extends Component {
 							</ul>
 							<ul className="nav navbar-nav">
 								<li className="active"><Link to="">Home</Link></li>
-								
+								{renderHTML(menuStr)}
 								{/*<li>
 									<a href="" className="dropdown-toggle" data-toggle="dropdown">Exam Simulation<b className="caret"></b></a>
 									<ul className="dropdown-menu">

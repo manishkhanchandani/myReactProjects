@@ -194,8 +194,8 @@ class IssuesBarExam extends Component {
 											<a href="" onClick={(e) => {e.preventDefault(); this.setState({showSamples: !this.state.showSamples})}}><span>
 												{
 													!this.state.showSamples ?
-													'View Sample Answwers' :
-													'Hide Sample Answwers'
+													'View Sample Answers' :
+													'Hide Sample Answers'
 												}
 											</span></a>										
 										</div>
@@ -219,7 +219,7 @@ class IssuesBarExam extends Component {
 						<div className="panel-body">
 							{
 								exam_term_definition.defs.map((value, key) => {
-									return <div key={key}>{value} <hr /></div>							   
+									return <div key={key}>{renderHTML(value)} <hr /></div>							   
 								})	
 							}
 						</div>

@@ -232,14 +232,22 @@
 				},
 				"merchants_firm_offer": {
 					"def":[
-						""  
+						"Under the UCC, an offer can remain open if supported by consideration (an options contract) or if a merchant firm offer is made. A merchant firm offer occurs when a merchant makes a signed writing to keep an offer open. The offer remains open for the stated period of time not to exceed three months or for a reasonable period of time if no time is stated, again not to exceed three months."  
 					],
 					"hypo": "A Seller salesperson told Buyer she could purchase the set for $300. Buyer replied that she would like to \"shop around\". The salesperson then wrote \"Seller Sets, Inc. - $300\" on a sales brochure describing the set and gave the brochure to Buyer. The printed phrase \"Available for a Limited Time Only\" appeared at the top of the brochure.",
 					"samples": [
-						""	
+						"Did Seller make a Merchant Firm Offer to Buyer? <br /><br />Under the UCC, an offer can remain open if supported by consideration (an options contract) or if a merchant firm offer is made. A merchant firm offer occurs when a merchant makes a signed writing to keep an offer open. The offer remains open for the stated period of time not to exceed three months or for a reasonable period of time if no time is stated, again not to exceed three months.<br /><br /> Here, Seller is a merchant as discussed above. Seller wrote on the T.V. sales brochure that described the set \"Seller Sets, Inc. $300.\" Buyer will argue that this is a signed writing because of Seller's handwritten note. Seller, on the other hand, will argue that Seller's writing is not a signature. In general, the UCC favors contracts and a trier of fact may determine that Seller's handwritten notes with the words \"Seller Sets\" constitutes a signing.<br /><br /> Here, no specific time is given for the length of the firm offer. Seller will argue that the printed phrase \"Available for a limited time only\" suggests only for a period of time in which Seller has inventory. Also, this phrase suggests a short period of time. Buyer, on the other hand, would argue that one week, the time in which the Buyer returned, is within a \"limited time\" and furthermore one week is within a reasonable time as contemplated by the UCC, which cuts off firm offers without consideration at three months. Because one week is a reasonable time for holding open an offer to sell a TV, Seller must keep its offer open for one week.<br /><br /> Therefore, Seller gave Buyer a merchant firm offer that was open for at least one week."	
 					]
 				},
-				"detrimental_reliance": {},
+				"detrimental_reliance": {
+					"def":[
+						"When party <b>promises</b> something to make another party <b>rely on his promises</b> and another party <b>really relied</b> on the promise and then party <b>fails to perform</b> is considered as detrimental reliance."  
+					],
+					"hypo": "A Seller salesperson told Buyer she could purchase the set for $300. Buyer replied that she would like to \"shop around\". The salesperson then wrote \"Seller Sets, Inc. - $300\" on a sales brochure describing the set and gave the brochure to Buyer. The printed phrase \"Available for a Limited Time Only\" appeared at the top of the brochure. As the salesperson handed Buyer the brochure he said, \"I think you'll find no one will beat our price.\"",
+					"samples": [
+						"Detrimental Reliance<br /><br /> In the event that Seller was not found to have made a merchant firm offer, Buyer may argue that she detrimentally, reasonably, and foreseeably relied upon Seller's statement that T.V.'s at $300 would be available.* If so, this detrimental reliance in effect provides the consideration to keep Seller's offer open.<br /><br /> *Here, in addition to the facts pertaining to the merchant firm offer, Seller says Buyer will not find anyone that can beat Seller's price."	
+					]
+				},
 				"expected_damages": {},
 				"consequential_damages": {},
 				"offer_lapsed": {},

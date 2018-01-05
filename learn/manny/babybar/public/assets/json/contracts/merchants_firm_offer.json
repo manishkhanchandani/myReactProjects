@@ -2,7 +2,27 @@
 	"key": "merchants_firm_offer",
 	"name": "Merchant's Firm Offer?",
 	"rule": "Under UCC 2-205 an offer by a merchant that promises to \"leave the offer open\" for a period of time cannot be revoked by the offeror if it is stated in writing, for the period of time stated, or for a reasonable period of time (given the circumstances) if no time period is stated. However, regardless of the period of time stated by the offeror, the offeror can revoke within 3 months if that is less than the time period stated. If the merchant promises to \"leave the offer open\" for any period of time, whether more or less than 3 months, that is the \"reasonable period of time\" in which the offeree can accept the offer even if the offeror could legally revoke the offer sooner.",
-	"description": " Under common law an OPTION is a contractual agreement that an offeror will not revoke an offer for a specific period of time in exchange for CONSIDERATION from the offeree. CONSIDERATION is an exchange of promises posing legal detriment such that the law deems it sufficient to support an agreement.",
+	"description": " Under common law an OPTION is a contractual agreement that an offeror will not revoke an offer for a specific period of time in exchange for CONSIDERATION from the offeree. <br /><br />CONSIDERATION is an exchange of promises posing legal detriment such that the law deems it sufficient to support an agreement.",
+	"elements": [
+		"Merchant",
+		"In Writing",
+		"Promise to Leave the Offer Open",
+		"Period of Time Stated or Reasonable Period of Time",
+		"Offer cannot be revoked"
+	],
+	"elementsQuestions": [
+		"Here Seller is a <b>merchant</b> because ...",
+		"Here Seller gave <b>signed writing</b> to buyer because ...",
+		"Here Seller promises to<b> leave the offer open</b> because ...",
+		"Here the <b>time period</b> stated was 3 months because ..."
+	],
+	"sample_essays": [
+		{
+			"hypo": "Sellco has a TV shop and he gave a signed writing to Buyco for a TV at discounted price of $300, Sellco told Buyco \"You can comeback anytime within 3 months to get this offer\".",
+			"explanation": "A merchant firm offer occurs when a <b>merchant</b> makes a <b>signed writing</b> to keep an offer open. The offer remains open for the stated <b>period of time</b> or reasonable period of time. Merchant cannot revoke this offer.<br /><br />Here Sellco is a <b>merchant</b> because Sellco has a TV shop and he sells the TV. Here Sellco gave <b>signed writing</b> to buyer because implied by fact that Sellco gave a signed writing to Buyco for a TV at discounted price of $300. Here Sellco <b>promises to leave the offer open</b> because Sellco told Buyco \"You can comeback anytime withing 3 months\". Here the <b>time period </b>stated was 3 months because Sellco said to Buyco that he can come anytime within the 3 months.<br /><br />Therefore Sellco cannot revoke his offer."	
+		}	  
+	],
+	"conclusion": "Therefore, the Seller cannot revoke his offer.",
 	"next": {
 		"key": "",
 		"name": "",

@@ -1,6 +1,25 @@
 {
 	"key": "detrimental_reliance",
 	"name": "Detrimental Reliance",
+	"elements": [
+		"Promise something",
+		"To create relaince",
+		"Another party really relied on it",
+		"Failure to keep promise"
+	],
+	"elementsQuestions": [
+		"Here Seller promises to do something because ...",
+		"Here Seller wanted to create reliance because ...",
+		"Here Buyer relied on what seller told because ...",
+		"Here Seller failed to keep his promise because ..."
+	],
+	"sample_essays": [
+		{
+			"hypo": "Jean got up on Monday morning to go shopping. She shopped all day, and walked back to the Snooze Inn at 7:00 p.m. for dinner. After dinner, at around 8:30 p.m., she began walking to Northwoods Gallery. Half way there, she was accosted by a mugger. The mugger stood in front of her and shouted, \"Hand over your purse, or I'll beat you up!\" The mugger roughly snatched Jean's purse as she held it out to him.",
+			"explanation": "Your Rule will come here<br /><br />Here Seller promises to do something because ... Here Seller wanted to create reliance because ... Here Buyer relied on what seller told because ... Here Seller failed to keep his promise because ..."	
+		}	  
+	],
+	"conclusion": "Therefore, court may reward the amount to prevent unjust enrichment.",
 	"next": {
 		"key": "",
 		"name": "",
