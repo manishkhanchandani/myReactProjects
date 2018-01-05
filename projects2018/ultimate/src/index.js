@@ -6,8 +6,10 @@ import App from './App';
 import {Provider} from 'react-redux';
 import store from './store.js';
 
-import registerServiceWorker from './registerServiceWorker';
+//import registerServiceWorker from './registerServiceWorker';
 
+import {FirebaseAuthSystem} from './modules/auth/AuthAction.js';
+FirebaseAuthSystem(store.dispatch);
 
 
 ReactDOM.render(
@@ -16,4 +18,4 @@ ReactDOM.render(
 				<App />
 				</Provider>    
 				, document.getElementById('root'));
-registerServiceWorker();
+//registerServiceWorker();

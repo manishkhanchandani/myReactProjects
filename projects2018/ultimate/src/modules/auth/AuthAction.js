@@ -54,41 +54,6 @@ export const FirebaseLogin = (type, additionalParams=null) => {
 		case 'GITHUBLOGIN':
 			provider = new firebase.auth.GithubAuthProvider();
 			break;
-		case 'EMAILLOGIN':
-			return {
-				type: type,
-				payload: new Promise((resolve, reject) => {
-					firebaseApp.auth().signInWithEmailAndPassword(additionalParams.email, additionalParams.password).then((user) => {
-						resolve(user);
-					}).catch((error) => {
-						reject(error);
-					});	  
-				})
-			};
-			break;
-		case 'EMAILREGISTER':
-			return {
-				type: type,
-				payload: new Promise((resolve, reject) => {
-					firebaseApp.auth().createUserWithEmailAndPassword(additionalParams.email, additionalParams.password).then((user) => {
-						if (user.emailVerified === false) {
-							user.sendEmailVerification().then((data) => {
-								console.log('email verification sent to user');
-							});
-						}
-						user.updateProfile({
-							displayName: additionalParams.displayName,
-							photoURL: additionalParams.photoUrl		   
-						}).then((data) => {
-							window.location.href = '/';
-						});
-						resolve(user);
-					}).catch((error) => {
-						reject(error);
-					});	  
-				})
-			};
-			break;
 		default:
 			break;
 	}
@@ -113,7 +78,6 @@ export const FirebaseLogin = (type, additionalParams=null) => {
 					}
 					
 					firebaseDatabase.ref(url).update(obj);
-					console.log('obj is ', obj);
 					resolve(obj);
 				});
 			}).catch(function(error) {
@@ -138,25 +102,6 @@ export const actionTwitterLogin = () => {
 
 export const actionGithubLogin = () => {
 	return FirebaseLogin('GITHUBLOGIN');
-};
-
-export const actionEmailRegister = (email, password, displayName, photoUrl) => {
-	let obj = {
-		email,
-		password,
-		displayName, 
-		photoUrl
-	};
-	return FirebaseLogin('EMAILREGISTER', obj);
-};
-
-
-export const actionEmailLogin = (email, password) => {
-	let obj = {
-		email,
-		password
-	};
-	return FirebaseLogin('EMAILLOGIN', obj);
 };
 
 export const FirebaseAuthSystem = (dispatch) => {

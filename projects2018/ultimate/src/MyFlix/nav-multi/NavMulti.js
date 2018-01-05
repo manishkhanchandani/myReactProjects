@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './NavMulti.css';
-
+import {Link} from 'react-router-dom'; 
+import Auth from '../../modules/auth/Auth.js';
 
 class NavMulti extends Component {
 	render() {
@@ -19,83 +20,30 @@ class NavMulti extends Component {
 						</div>
 						<div className="collapse navbar-collapse">
 							<ul className="nav navbar-nav navbar-right">
-								
+								<Auth />
 							</ul>
 							<ul className="nav navbar-nav">
 								<li className="active"><a href="">Home</a></li>
 								<li>
-									<a href="" className="dropdown-toggle" data-toggle="dropdown">Menu 1 <b className="caret"></b></a>
+									<a href="" className="dropdown-toggle" data-toggle="dropdown">Admin <b className="caret"></b></a>
 									<ul className="dropdown-menu multi-level">
-										<li><a href="">Action</a></li>
-										<li><a href="">Another action</a></li>
-										<li><a href="">Something else here</a></li>
-										<li className="divider"></li>
-										<li><a href="">Separated link</a></li>
-										<li className="divider"></li>
-										<li><a href="">One more separated link</a></li>
+										
 										<li className="dropdown-submenu">
-											<a href="" className="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+											<a href="" className="dropdown-toggle" data-toggle="dropdown">List</a>
 											<ul className="dropdown-menu">
-												<li><a href="">Action</a></li>
-												<li className="dropdown-submenu">
-													<a href="" className="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
-													<ul className="dropdown-menu">
-														<li className="dropdown-submenu">
-															<a href="" className="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
-															<ul className="dropdown-menu">
-																<li><a href="">Action</a></li>
-																<li><a href="">Another action</a></li>
-																<li><a href="">Something else here</a></li>
-																<li className="divider"></li>
-																<li><a href="">Separated link</a></li>
-																<li className="divider"></li>
-																<li><a href="">One more separated link</a></li>
-															</ul>
-														</li>
-													</ul>
-												</li>
+												<li><Link to="/create">Create New List</Link></li>
+												<li><a href="">View My List</a></li>
 											</ul>
 										</li>
-									</ul>
-								</li>
-								<li>
-									<a href="" className="dropdown-toggle" data-toggle="dropdown">Menu 2 <b className="caret"></b></a>
-									<ul className="dropdown-menu">
-										<li><a href="">Action</a></li>
-										<li><a href="">Another action</a></li>
-										<li><a href="">Something else here</a></li>
-										<li className="divider"></li>
-										<li><a href="">Separated link</a></li>
-										<li className="divider"></li>
-										<li><a href="">One more separated link</a></li>
+										
+										
 										<li className="dropdown-submenu">
-											<a href="" className="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+											<a href="" className="dropdown-toggle" data-toggle="dropdown">My Account</a>
 											<ul className="dropdown-menu">
-												<li><a href="">Action</a></li>
-												<li><a href="">Another action</a></li>
-												<li><a href="">Something else here</a></li>
-												<li className="divider"></li>
-												<li><a href="">Separated link</a></li>
-												<li className="divider"></li>
-												<li className="dropdown-submenu">
-													<a href="" className="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
-													<ul className="dropdown-menu">
-														<li className="dropdown-submenu">
-															<a href="" className="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
-															<ul className="dropdown-menu">
-																<li><a href="">Action</a></li>
-																<li><a href="">Another action</a></li>
-																<li><a href="">Something else here</a></li>
-																<li className="divider"></li>
-																<li><a href="">Separated link</a></li>
-																<li className="divider"></li>
-																<li><a href="">One more separated link</a></li>
-															</ul>
-														</li>
-													</ul>
-												</li>
+												<li><a href="">Edit Profile</a></li>
 											</ul>
 										</li>
+										
 									</ul>
 								</li>
 							</ul>

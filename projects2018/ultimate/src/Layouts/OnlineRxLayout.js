@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import NavMulti from '../OnlineRx/nav-multi/NavMulti.js';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+
 
 class OnlineRxLayout extends Component {
 	render() {
@@ -8,11 +10,6 @@ class OnlineRxLayout extends Component {
 				<Router>
 				<div >
 					<NavMulti />
-				
-					<Route exact={true} path="/Home" component={SimpleQuiz} />
-					<Route exact={true} path="/register" component={AuthEmailRegister} />
-					<Route exact={true} path="/login" component={AuthEmailLogin} />
-					
 				
 				</div>
 			</Router>

@@ -14,7 +14,6 @@ export const distance = (lat1, lon1, lat2, lon2, unit='') => {
       return dist;
 };
 
-
 export const timeAgo = (date) => {
 	var seconds = Math.floor((new Date() - date) / 1000);
 	
@@ -44,7 +43,6 @@ export const timeAgo = (date) => {
 	return Math.floor(seconds) + " seconds ago";
 };
 
-
 export const dynamicSort = (property) => {
 	var sortOrder = 1;
 	if(property[0] === "-") {
@@ -56,8 +54,6 @@ export const dynamicSort = (property) => {
 		return result * sortOrder;
 	}
 };
-
-
 
 export const processRecords = (recordArray, sortingOrder=null, filterText=null, filterFields=[], maxRows=20, pageNumber=1, onSelectFunc=null) => {
 	var myArr = JSON.parse(JSON.stringify(recordArray));
@@ -104,3 +100,12 @@ export const processRecords = (recordArray, sortingOrder=null, filterText=null, 
 	return {myArrayConverted, paginationProps};
 };
 
+
+export const getUID = () => {
+	return localStorage.getItem('userId');
+}
+
+export const getUserObj = () => {
+	let obj = localStorage.getItem('userObj');
+	return JSON.parse(obj);
+}

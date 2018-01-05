@@ -92,6 +92,29 @@ and add the router functionality with any dummy component
 
 
 
+MyFlix
+	user will login to site
+	he will be able to create list of websites
+		Netflix1
+			Categories
+				subcategories
+			Youtube videos
+			
+		Netflix2
+		Netflix3
+		Netflix4
+
+Login
+	List
+		Netflix1
+			admin
+				category
+				subcategories
+				videos
+		Netflix2
+		Netflix3
+		Netflix4
+
 
 
 
