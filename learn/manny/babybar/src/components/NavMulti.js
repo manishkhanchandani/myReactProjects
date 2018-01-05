@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom';
 import Auth from './auth/Auth.js';
 import './NavMulti.css';
 import renderHTML from 'react-render-html';
+
+import Themes from '../Themes.js';
 /*
 const x1 = [
 	{
@@ -89,6 +91,7 @@ class NavMulti extends Component {
 						</div>
 						<div className="collapse navbar-collapse">
 							<ul className="nav navbar-nav navbar-right">
+								<Themes />
 								<Auth />
 							</ul>
 							<ul className="nav navbar-nav">
