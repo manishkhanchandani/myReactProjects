@@ -25,7 +25,7 @@
 			"examples": [
 				{
 					"question": "Paul painted Elwood’s house. Elwood agreed to pay Paul “standard rates” for his services. After painting was completed, Paul and Elwood executed the following written document: “In exchange for Paul’s prior services in painting his house, Elwood, a licensed electrician, agrees to rewire Paul’s house. Paul hereby releases any claim he may have against Elwood for the unpaid painting bill.” Elwood started work on Paul’s house but skipped town without finishing. The house was not inhabitable and Paul had to pay another electrician $2,000 to finish it. If Paul sues Elwood for breach of contract, which of the following will be the court’s decision?",
-					"ansOptions": [
+					"answerOptions": [
 						"Paul can recover for Elwood’s breach of a valid agreement made in settlement and discharge of an unliquidated claim by Paul against Elwood for Paul’s prior painting services.",
 						"Paul can only recover for Elwood’s breach of promise under the doctrine of promissory estoppel because there was no bargained for consideration for Elwood’s promise.",
 						"Paul cannot recover more than nominal damages in any event, because his other damages, if any, were speculative.",
@@ -43,7 +43,7 @@
 			"examples": [
 				{
 					"question": "An innkeeper, who had no previous experience in the motel or commercial laundry business and who knew nothing about the trade usages of either business, bought a motel and signed an agreement with a laundry company for the motel's laundry services. The agreement was for a term of one year and provided for \"daily service at $500 a week.\" From their conversations during negotiation, the laundry company owner knew that the innkeeper expected laundry services seven days a week. When the laundry company refused to pick up the motel's laundry on two successive Sundays and indicated that it would never do so, the innkeeper canceled the agreement. The laundry company sued the innkeeper for breach of contract. At trial, clear evidence was introduced to show that in the commercial laundry business \"daily service\" did not include service on Sundays. Is the laundry company likely to succeed in its action?",
-					"ansOptions": [
+					"answerOptions": [
 						"No, because the laundry company knew the meaning the innkeeper attached to \"daily service\", and, therefore the innkeeper's meaning will control.",
 						"No, because the parties attached materially different meanings to \"daily service\", and therefore no contract was formed.",
 						"Yes, because the parol evidence rule will not permit the innkeeper to prove the meaning she attached to \"daily service.\"",

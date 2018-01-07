@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './NavMulti.css';
 import {Link} from 'react-router-dom'; 
 import Auth from '../../modules/auth/Auth.js';
+import Themes from '../../Themes.js';
 
 class NavMulti extends Component {
 	render() {
@@ -20,6 +21,7 @@ class NavMulti extends Component {
 						</div>
 						<div className="collapse navbar-collapse">
 							<ul className="nav navbar-nav navbar-right">
+								<Themes />
 								<Auth />
 							</ul>
 							<ul className="nav navbar-nav">

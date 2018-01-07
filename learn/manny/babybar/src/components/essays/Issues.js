@@ -19,6 +19,7 @@ import SimpleQuizResults from '../simple-quiz/SimpleQuizResults.js';
 import IssuesBarExam from './IssuesBarExam.js';
 
 import IssuesRule from './IssuesRule.js';
+import {config} from '../../config.js';
 //import MyModal from '../MyModal/MyModal.js';
 
 class EssayIssues extends Component {
@@ -123,9 +124,28 @@ class EssayIssues extends Component {
 		if (this.props.issuesReducer.issue && this.props.issuesReducer.issue[this.props.match.params.subject] && this.props.issuesReducer.issue[this.props.match.params.subject][this.props.match.params.issue]) {
 			issue = this.props.issuesReducer.issue[this.props.match.params.subject][this.props.match.params.issue];
 		}
-		
 		let uid = getUID();
-			
+
+		var quizExtra = null;
+		if (config.adminId === uid && issue) {
+			quizExtra = [];
+			var counter = issue.quiz.length + 1;
+			if (issue.mbe) {
+				for (let x1 = 0; x1 < issue.mbe.length; x1++) {
+					if (issue.mbe[x1].examples && issue.mbe[x1].examples.length > 0) {
+						for (let x2 = 0; x2 < issue.mbe[x1].examples.length; x2++) {
+							let obj = issue.mbe[x1].examples[x2];
+							obj.id = counter;
+							quizExtra.push(obj);
+							counter++;
+						}
+					}
+				}
+			}
+			var children = issue.quiz.concat(quizExtra);
+			quizExtra = children;
+		}
+		
 		const opts = {
 		  playerVars: { // https://developers.google.com/youtube/player_parameters
 			autoplay: 1
@@ -382,7 +402,7 @@ class EssayIssues extends Component {
 									
 									
 									
-									<SimpleQuiz issue={issue} subjectUrl={this.props.match.params.subject} issueUrl={this.props.match.params.issue} />
+									<SimpleQuiz issue={issue} quizExtra={quizExtra} subjectUrl={this.props.match.params.subject} issueUrl={this.props.match.params.issue} />
 									
 									
 									
@@ -460,7 +480,7 @@ class EssayIssues extends Component {
 														<Paginator {...paginationProps} />
 														{
 															myArrayConverted.map((value, key) => {
-																return <SimpleQuizResults key={key} quizDetails={value} pastResults={true} />													  
+																return <SimpleQuizResults key={key} quizDetails={value} pastResults={true} callGetSimpleQuiz={this.props.callGetSimpleQuiz} onActivePageChange={this.onActivePageChange.bind(this)} />													  
 															})
 														}
 														

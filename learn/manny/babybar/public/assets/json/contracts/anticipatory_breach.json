@@ -10,7 +10,7 @@
 			"examples": [
 				{
 					"question": "On June 1, a seller and a buyer contracted in writing for the sale and purchase of the seller's cattle ranch (a large single tract) and to close the transaction on December 1. On October 1, the buyer told the seller, \"I'm increasingly unhappy about our June 1 contract because of the current cattle market, and do not intend to buy your ranch unless I'm legally obligated to do so.\" If the seller sues the buyer on October 15 for breach of contract, the seller will probably.",
-					"ansOptions": [
+					"answerOptions": [
 						"win, because the buyer committed a total breach by anticipatory repudiation on October 1.",
 						"win, because the buyer's October 1 statement created reasonable grounds for the seller's insecurity with respect to the buyer's performance.",
 						"lose, because the parties contracted for the sale and conveyance of a single tract, and the seller cannot bring suit for breach of such a contract prior to the agreed closing date.",

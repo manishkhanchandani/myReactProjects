@@ -67,10 +67,6 @@ class IssuesRule extends Component {
 					{
 						currentIssueRules.rule && 
 						<div>
-							<div>
-								
-								{renderHTML(currentIssueRules.rule)}
-							</div>
 							
 							{
 								this.state.showBox &&
@@ -83,8 +79,14 @@ class IssuesRule extends Component {
   }} />
 									<br />
 									<Button className="form-control" bsStyle="primary" onClick={this.addRule.bind(this)}>Update Rule</Button>
+									<br />
+									<br />
 								</div>
 							}
+							<div>
+								
+								{renderHTML(currentIssueRules.rule)}
+							</div>
 							
 						</div>
 					}

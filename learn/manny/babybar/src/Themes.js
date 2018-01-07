@@ -13,7 +13,7 @@ class Themes extends Component {
 	componentDidMount() {
 		let theme = localStorage.getItem('theme');
 		if (!theme) {
-			theme = 'Default';
+			theme = 'Default2';
 		}
 		this.fetchTheme(theme);
 	}
@@ -46,6 +46,7 @@ class Themes extends Component {
 						<li><a href="" onClick={this.getTheme.bind(this, 'Default')}>Default</a><style>
 							{this.state.theme}
 						</style></li>
+						<li><a href="" onClick={this.getTheme.bind(this, 'Default2')}>Default2</a></li>
 						<li><a href="" onClick={this.getTheme.bind(this, 'Cerulean')}>Cerulean</a></li>
 						<li><a href="" onClick={this.getTheme.bind(this, 'Cosmo')}>Cosmo</a></li>
 						<li><a href="" onClick={this.getTheme.bind(this, 'Cyborg')}>Cyborg</a></li>

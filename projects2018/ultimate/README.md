@@ -118,6 +118,69 @@ Login
 
 
 
+OnlineRx Homeopathic System
 
+	Section: Doctors
+	
+		Doctor A,
+			Fill all details
+			Upload all documents
+			Approved or not
+			
+			
+			Pending Training
+				Appointment for training
+				Training $50,
+			30 day training
+				Ready
+				
+				
+				
+			
+		Doctor B,
+		Doctor C,
+	
+	Section: Patients
+		User to Login to website
+			Profiles or Patients
+			
+			Family Member 1 age, dob, address, phone
+			Family Member 2
+			Family Member 3
+			
+				Family Member 1
+					Main Problem
+					
+					History of Symptoms
+						5th jan, 2018	: he is feeling headache in morning, before breakfast
+						6th Jan, 2018: no headache, Diabetes: 100
+						
+					Likings of food: 
+						sweet
+						salt
+						
+					fears:
+						fear of death
+						fear of drakness
+						
+					Doctor A, 
+						Book Time and Date with this doctor (appointment time) : consultation fee => 10% charges
+						
+						Time Chat (chat)
+						
+					Doctor will prescribe the medicine, pay $100: 10% admin of website
+						Referral, some extra charges
+						
+					After 1 month
+					
+					Patient : $100: 10% charges
+						
+						
+						
+						
+						
+						
+		
+						
 
 

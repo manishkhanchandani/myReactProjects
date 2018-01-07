@@ -5,6 +5,7 @@ import {firebaseDatabase, FirebaseConstant} from '../../MyFirebase.js';
 import SimpleQuizResults from './SimpleQuizResults.js';
 import {getUID} from '../auth/AuthAction.js';
 import SimpleQuizAnsOptions from './SimpleQuizAnsOptions.js';
+import renderHTML from 'react-render-html';
 import './SimpleQuiz.css';
 import {withRouter} from 'react-router';
 
@@ -30,7 +31,7 @@ class SimpleQuiz extends Component {
 	}
 	
 	handleChooseOption(e) {
-		this.setState({quizChoosenOption: e.target.value});
+		this.setState({quizChoosenOption: e});
 	}
 
 	quizNext(data, type) {
@@ -102,16 +103,17 @@ class SimpleQuiz extends Component {
 	render() {
 		
 		let issue = this.props.issue;
-		if (!issue.quiz) {
+
+		var quiz = this.props.quizExtra || issue.quiz;
+		if (!quiz) {
 			return null;	
 		}
-
 		let optionChoosen = parseInt(this.state.quizChoosenOption, 10);
 
 		return (
 			<div>
 				{
-					issue.quiz &&
+					quiz &&
 					<div className="quiz divider">
 						<h3>Simple Quiz</h3>
 						{
@@ -127,18 +129,18 @@ class SimpleQuiz extends Component {
 								}
 								
 								{
-									(this.state.quizStatus === 'Pending' && issue.quiz[this.state.quizPage]) &&
+									(this.state.quizStatus === 'Pending' && quiz[this.state.quizPage]) &&
 									<div className="questions">
-										<div className="question">Question {this.state.quizPage + 1} / {issue.quiz.length}. {issue.quiz[this.state.quizPage].question}</div>
-										<SimpleQuizAnsOptions id={issue.quiz[this.state.quizPage].id} opts={issue.quiz[this.state.quizPage].answerOptions} optionChoosen={optionChoosen} handleChooseOption={this.handleChooseOption} />
+										<div className="question"><b>Question {this.state.quizPage + 1} / {quiz.length}.</b> {renderHTML(quiz[this.state.quizPage].question)}<hr /></div>
+										<SimpleQuizAnsOptions id={quiz[this.state.quizPage].id} opts={quiz[this.state.quizPage].answerOptions} optionChoosen={optionChoosen} handleChooseOption={this.handleChooseOption} details={quiz[this.state.quizPage]} />
 										
 										
 										<div className="divider">
 											{
-												issue.quiz[(this.state.quizPage + 1)] ?
-												<Button bsStyle="primary" className="form-control" onClick={this.quizNextQuestion.bind(this, issue.quiz)}>Next Question</Button>
+												quiz[(this.state.quizPage + 1)] ?
+												<Button bsStyle="primary" className="form-control" onClick={this.quizNextQuestion.bind(this, quiz)}>Next Question</Button>
 												:
-												<Button bsStyle="primary" className="form-control" onClick={this.quizSubmitQuestion.bind(this, issue.quiz)}>Submit & See Results</Button>
+												<Button bsStyle="primary" className="form-control" onClick={this.quizSubmitQuestion.bind(this, quiz)}>Submit & See Results</Button>
 											}
 										</div>
 									</div>

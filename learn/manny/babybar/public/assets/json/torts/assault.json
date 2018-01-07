@@ -62,7 +62,7 @@
 			"examples": [
 				{
 					"question": "Amit pointed an unloaded revolver at her guest Vineeta, threatening to shoot him. The Vineeta knew that the revolver was not loaded, and that the ammunition for the revolver was stored in a locked basement closet, two stories below where the two were then standing. <br /><br />In an action brought by the guest Vineeta against the Amit for assault, will the Vineeta prevail?",
-					"ansOptions": [
+					"answerOptions": [
 						"No, because the Amit did not intend to shoot her guest Vineeta.",
 						"No, because the Amit did not put her guest Vineeta in apprehension of an imminent contact.",
 						"Yes, because the ammunition was accessible to the Amit.",
@@ -79,7 +79,7 @@
 			"examples": [
 				{
 					"question": "A student Amit was sleeping when his roommate Vijay entered into the room intending to attack the student with knife. A phone rang and awakened the student Amit. Vijay retreated and threw the knife out of window. Will student Amit prevail against roommate Vijay for assault?",
-					"ansOptions": [
+					"answerOptions": [
 						"No, because the roommate Vijay did not touch the student Amit.",
 						"No, because the student Amit was not awake when the roommate Vijay entered the room and was unaware until later that the roommate Vijay was intending to attack him.",
 						"Yes, because it was reasonable for the student Amit to feel afraid of sleeping in his room afterward.",
@@ -151,7 +151,7 @@
 			"correct": 0
 		},
 		{
-			"id": 5,
+			"id": 6,
 			"question": "A person shows knife to person B who is sleeping and does this causes assault?",
 			"answerOptions": [
 				"Yes",

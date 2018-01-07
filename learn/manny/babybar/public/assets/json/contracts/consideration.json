@@ -9,7 +9,7 @@
 			"examples": [
 				{
 					"question": "A man owed his friend $1,000, plus interest at 8% until paid, on a long-overdue promissory note, collection of which would become barred by the statute of limitations on June 30. On the preceding April 1, the man and his friend both signed a writing in which the man promised to pay the note in full on the following December 31, plus interest at 8% until that date, and the friend promised not to sue on the note in the meantime. The friend, having received some advice from his nonlawyer brother-in-law, became concerned about the legal effect of the April 1 agreement. On May 1, acting pro se as permitted by the rules of the local small claims court, he filed suit to collect the note. Assuming that there is no controlling statute, is the April 1 agreement an effective defense for the man?",
-					"ansOptions": [
+					"answerOptions": [
 						"Yes, because the man's promise to pay interest until December 31 was consideration for the friend's promise not to sue.",
 						"Yes, because the law creates a presumption that the man relied on his friend's promise not to sue.",
 						"No, because there was no consideration for the friend's promise not to sue, in that the man was already obligated to pay $1,000 plus interest at 8% until the payment date.",

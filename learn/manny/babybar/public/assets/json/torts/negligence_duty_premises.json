@@ -1,6 +1,131 @@
 {
 	"key": "negligence_duty_premises",
 	"name": "Duty based on Premises Liability",
+	"elements": [
+		"Invitee or Licensee or Trespasser (known or unknown)",
+		"Unknown Trespasser - No Duty",
+		"Licensee or Known Trespasser - Warn & Protect",
+		"Invitee - Inspect, Warn & Protect",
+		"For Known, hidden dangers & artificial conditions"
+	],
+	"sample_essays": [
+		{
+			"hypo": "Craft Village is a small town that is popular with tourists because of its fine arts and crafts stores. Craft Village has no public transportation. Tourists often stay at the Snooze Inn when they want to spend more than a day in Craft Village. Jean a tourist got up on Monday morning to go shopping. She shopped all day, and walked back to the Snooze Inn at 7:00 p.m. for dinner. After dinner, at around 8:30 p.m., she began walking to Northwoods Gallery. Half way there, she was accosted by a mugger. The mugger stood in front of her and shouted, \"Hand over your purse, or I'll beat you up!\" The mugger roughly snatched Jean's purse as she held it out to him. The mugger fled, and Jean turned around and ran back to the Snooze Inn. The mugger was later captured by the police. Discuss Duty based on premises liability as a Craft Village",
+			"explanation": "Your Rule will come here<br /><br />As a small town, Craft Village is the occupier of the city street, including Main Street. Jean will argue that Jean is an invitee because she was on the street for the purpose it was open to the public. Thus, Craft Village owed a duty to inspect, discover, warn or correct any harm.<br /><br />Even if Jean is determined to be a licensee Craft would owe a duty to warn or make safe any known harm.<br /><br />The facts do not indicate that Craft Village was aware of or had reason to inspect for any incidents of crime. There is no special duty owed."	
+		}	  
+	],
+	"mbe": [
+		{
+			"key": "rule1",
+			"name": "Rule 1: Invitee Rule",
+			"description": "With respect to an invitee, a business has a duty to make a reasonable inspection and a duty to warn of, or repair, known hazards on the premises. The duty to protect applies to defects that are: (1) known to the business, (2) dangerous, and (3) non-obvious to the invitee. This liability may be abated if the invitee became a trespasser by entering an area that was restricted and off-limits to visitors. If a customer wanders into an off-limits area, the only duty the business owes is to refrain from willful and wanton conduct.",
+			"examples": [
+				{
+					"question": "A plaintiff entered a drug store to make some purchases. As he was searching the aisles for various items, he noticed a display card containing automatic pencils. The display card was on a high shelf behind a cashier's counter. The plaintiff saw a sign on the counter that read, \"No Admittance, Employees Only.\" Seeing no clerks in the vicinity to help him, the plaintiff went behind the counter to get a pencil. A clerk then appeared behind the counter and asked whether she could help him. He said he just wanted a pencil and that he could reach the display card himself. The clerk said nothing further. While reaching for the display card, the plaintiff stepped sideways into an open shaft and fell to the basement, ten feet below. The clerk knew of the presence of the open shaft, and had reason to believe that the plaintiff had not noticed it when stepping behind the counter.<br /><br />The plaintiff sued the drug store to recover damages for the injuries he sustained in the fall. The jurisdiction has adopted a rule of pure comparative negligence, and it follows traditional common-law rules governing the duties of a land possessor.<br /><br />Will the plaintiff recover a judgment against the drug store?",
+					"answerOptions": [
+						"No, because the plaintiff was a trespasser.",
+						"No, because the plaintiff's injuries did not result from the defendant's willful or wanton misconduct.",
+						"Yes, because the premises were defective with respect to a public invitee.",
+						"Yes, because the clerk had reason to believe that the plaintiff was unaware of the open shaft."
+					],
+					"correct": 3,
+					"explanation": "D is the correct answer. With respect to an invitee, a business has a duty to make a reasonable inspection and a duty to warn of, or repair, known hazards on the premises. The duty to protect applies to defects that are: (1) known to the business, (2) dangerous, and (3) non-obvious to the invitee. This liability may be abated if the invitee became a trespasser by entering an area that was restricted and off-limits to visitors. If a customer wanders into an off-limits area, the only duty the business owes is to refrain from willful and wanton conduct.<br /><br />The first issue in this question is the customer's status. The facts state that the customer went into an \"Employees Only\" area. However, an employee observed the plaintiff and allowed the entry. Therefore, the plaintiff is not a trespasser in this situation, but an invitee. Thus, A and B are incorrect. The second issue is whether the hazard was open and obvious, thus abating the drug store's liability. Choice D appropriately addresses the issue that the clerk had a duty to warn the plaintiff of the danger if he had reason to believe that the plaintiff was unaware of the open shaft. C is not the best answer because the store only has a duty to warn if the defect is non-obvious. A, B, and C are incorrect."
+				}
+			]
+		},
+		{
+			"key": "rule2",
+			"name": "Rule 2: Unknown Trespassers",
+			"description": "The person has no duty to an unknown trespasser. If the person knew or reasonably should have known of the trespasser's presence, under majority law he has a duty of reasonable care to avoid injury to the trespasser.",
+			"examples": [
+				{
+					"question": "A vintner is the owner of a large vineyard and offers balloon rides to visitors who wish to tour the grounds from the air. During one of the rides, the vintner was forced to make a crash landing on his own property due to high winds. Without the vintner's knowledge or consent, a trespasser had entered the vineyard to camp for a couple of days. The trespasser was injured when he was hit by the basket of the descending balloon.<br /><br />If the trespasser sues the vintner to recover damages for his injuries, will the trespasser prevail?",
+					"answerOptions": [
+						"No, because there is no evidence that the crash landing was made necessary by the vintner's negligence.",
+						"No, because the vintner was unaware of the trespasser's presence until after the injury had occurred.",
+						"Yes, because even a trespasser may recover for injuries caused by an abnormally dangerous activity.",
+						"Yes, because the accident occurred at a place which the vintner knew was frequented by intruders."
+					],
+					"correct": 1,
+					"explanation": "B is correct. The vintner has no duty to an undiscovered trespasser. If the vintner knew or reasonably should have known of the trespasser's presence, under majority law he has a duty of reasonable care to avoid injury to the trespasser. (Under traditional common law a discovered trespasser was only owed the duty to avoid gross negligence or willful and wanton misconduct.)<br /><br />D is not the best answer because the facts give no indication that the vineyard was frequented by trespassers and specifically states that the trespasser was there without consent or knowledge of the vintner. Choice B appropriately addresses the issue of awareness and the corresponding duty.<br /><br />A is incorrect. The vintner only has a duty of reasonable care for an activity that has a foreseeably harmful result to a specific plaintiff or a potential plaintiff in the zone of danger. The facts do not indicate that visitors were known to frequent the property where the vintner was forced to land. The vintner has no duty to an unknown and unforeseeable trespasser.<br /><br />C is incorrect. The facts do not support an inference that ballooning is an ultra-hazardous or abnormally dangerous activity. B is the correct answer because it most closely fits the facts given."
+				}
+			]
+		}
+	],
+	"quiz": [
+		{
+			"id": 1,
+			"question": "Occupiers of land had no duty to <b>Unknown Tresspassers</b>?",
+			"answerOptions": [
+				"True",
+				"False"
+			],
+			"correct": 0
+		},
+		{
+			"id": 2,
+			"question": "Occupiers of land had a duty to warn and protect <b>Licensees</b> from known or hidden dangers and artificial conditions?",
+			"answerOptions": [
+				"False",
+				"True"
+			],
+			"correct": 1
+		},
+		{
+			"id": 3,
+			"question": "Occupiers of land had a duty to warn and protect <b>Unknown Tresspassers</b> from known or hidden dangers and artificial conditions?",
+			"answerOptions": [
+				"False",
+				"True"
+			],
+			"correct": 1
+		},
+		{
+			"id": 4,
+			"question": "Does Occupiers of land has duty to both who come <b>on land</b> and <b>off the land</b>?",
+			"answerOptions": [
+				"Yes",
+				"No"
+			],
+			"correct": 0
+		},
+		{
+			"id": 5,
+			"question": "Are Licensees come to a land for <b>occupier's benefit</b>?",
+			"answerOptions": [
+				"Yes",
+				"No"
+			],
+			"correct": 1
+		},
+		{
+			"id": 6,
+			"question": "Are Invitees come to a land for <b>occupier's benefit</b>?",
+			"answerOptions": [
+				"Yes",
+				"No"
+			],
+			"correct": 0
+		},
+		{
+			"id": 7,
+			"question": "Occupiers of land had a duty to inspect the land, and warn and protect <b>Invitees</b> from known or hidden dangers and artificial conditions?",
+			"answerOptions": [
+				"False",
+				"True"
+			],
+			"correct": 1
+		},
+		{
+			"id": 8,
+			"question": "Occupiers of land had a duty to <b>inspect</b> the land, and <b>warn</b> and <b>protect</b> <b>Invitees</b> from known or hidden dangers and artificial conditions?",
+			"answerOptions": [
+				"False",
+				"True"
+			],
+			"correct": 1
+		}
+	],
 	"next": {
 		"key": "negligence_attractive_nuisance",
 		"name": "Attractive Nuisance",

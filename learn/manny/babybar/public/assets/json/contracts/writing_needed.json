@@ -10,7 +10,7 @@
 			"examples": [
 				{
 					"question": "In financial straits and needing $4,000 immediately, a nephew asked his uncle for a $4,000 loan. The uncle said that he would lend the money to the nephew only if the nephew's mother would \"guarantee\" the loan. At the nephew's suggestion, the uncle then telephoned the nephew's mother, told her about the loan, and asked if she would guarantee it. She replied, \"Yes. Lend my son the $4,000, and I'll repay it if he doesn't.\" The uncle then lent $4,000 to the nephew, and the nephew orally agreed to repay that amount in six weeks. The next day, the nephew's mother wrote to him and concluded her letter with the words, \"Son, I was happy to do you a favor by promising your uncle I would repay your six-week $4,000 loan if you don't. /s/ Mother.\" Neither the nephew nor his mother repaid the loan when it came due, and the uncle sued the mother for breach of contract. In that action, the mother raised the statute of frauds as her only defense. Will the mother's statute-of-frauds defense likely be successful?",
-					"ansOptions": [
+					"answerOptions": [
 						"No, because the amount of the loan was less than $5,000.",
 						"No, because the mother's letter satisfies the statute-of-frauds requirement.",
 						"Yes, because the mother's promise to the uncle was oral.",
