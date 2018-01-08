@@ -108,6 +108,9 @@ class SimpleQuiz extends Component {
 		if (!quiz) {
 			return null;	
 		}
+		if (quiz.length === 0) {
+			return null;	
+		}
 		let optionChoosen = parseInt(this.state.quizChoosenOption, 10);
 
 		return (

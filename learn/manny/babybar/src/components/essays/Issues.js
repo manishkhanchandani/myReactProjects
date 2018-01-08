@@ -129,7 +129,8 @@ class EssayIssues extends Component {
 		var quizExtra = null;
 		if (config.adminId === uid && issue) {
 			quizExtra = [];
-			var counter = issue.quiz.length + 1;
+			let len = (issue.quiz) ? issue.quiz.length : 0;
+			var counter = len + 1;
 			if (issue.mbe) {
 				for (let x1 = 0; x1 < issue.mbe.length; x1++) {
 					if (issue.mbe[x1].examples && issue.mbe[x1].examples.length > 0) {
@@ -142,8 +143,12 @@ class EssayIssues extends Component {
 					}
 				}
 			}
-			var children = issue.quiz.concat(quizExtra);
-			quizExtra = children;
+			
+			let children = quizExtra;
+			if (issue.quiz && issue.quiz.length > 0) {
+				children = issue.quiz.concat(quizExtra);
+				quizExtra = children;
+			}
 		}
 		
 		const opts = {
