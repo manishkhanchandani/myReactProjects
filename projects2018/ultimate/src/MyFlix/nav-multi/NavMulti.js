@@ -17,7 +17,7 @@ class NavMulti extends Component {
 								<span className="icon-bar"></span>
 								<span className="icon-bar"></span>
 							</button>
-							<a className="navbar-brand" href="">MyFlix</a>
+							<Link className="navbar-brand" to="/">MyFlix</Link>
 						</div>
 						<div className="collapse navbar-collapse">
 							<ul className="nav navbar-nav navbar-right">
@@ -25,7 +25,7 @@ class NavMulti extends Component {
 								<Auth />
 							</ul>
 							<ul className="nav navbar-nav">
-								<li className="active"><a href="">Home</a></li>
+								<li className="active"><Link to="/">Home</Link></li>
 								<li>
 									<a href="" className="dropdown-toggle" data-toggle="dropdown">Admin <b className="caret"></b></a>
 									<ul className="dropdown-menu multi-level">
@@ -33,8 +33,7 @@ class NavMulti extends Component {
 										<li className="dropdown-submenu">
 											<a href="" className="dropdown-toggle" data-toggle="dropdown">List</a>
 											<ul className="dropdown-menu">
-												<li><Link to="/create">Create New List</Link></li>
-												<li><a href="">View My List</a></li>
+												<li><Link to="/create">Manage List</Link></li>
 											</ul>
 										</li>
 										

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import * as firebase from 'firebase';
 import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 import {getUserObj, getUID} from '../utilities/functions.js';
+import {Link} from 'react-router-dom'; 
 
 class Create extends Component {
 	constructor(props) {
@@ -93,12 +94,14 @@ class Create extends Component {
 									</tr>
 									{
 										this.state.data.map((value, key) => {
+															 console.log('value is ', value, ', and key is ', key);
+											let linkUrl = '/manage/' + value._id + '/categories';
 											return <tr key={key}>
 												<td>
 													{value.list}
 												</td>
 												<td>
-													Add Categories & Videos
+													<Link to={linkUrl}>Add Categories</Link>
 												</td>
 												<td>
 													Edit
