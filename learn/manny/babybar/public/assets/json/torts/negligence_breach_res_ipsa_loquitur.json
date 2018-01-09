@@ -1,6 +1,26 @@
 {
 	"key": "negligence_breach_res_ipsa_loquitur",
 	"name": "Breach Res Ipsa Loquitor",
+	"mbe": [
+		{
+			"key": "rule1",
+			"name": "Rule 1: doctrine of res ipsa loquitur",
+			"description": "Doctrine of res ipsa loquitur consist of i. <b>Negligence </b>is there by someone, ii. <b>defendant has control</b> of the event, iii. <b>plaintiff has no control</b> over the event. If a pot fells from apartment building, and hits some pedestrian, then pedestrain cannot bring the rule of res ipsa loquitur against landlord of the building because here there is no basis for a reasonable interference that landlord was negligent, anyone can be negligent in his apartment building.",
+			"examples": [
+				{
+					"question": "A landlord owns and operates a 12-story apartment building containing 72 apartments, 70 of which are rented. A pedestrian has brought an action against the landlord alleging that while he was walking along a public sidewalk adjacent to the landlord's apartment building a flower pot fell from above and struck him on the shoulder, causing extensive injuries. The action was to recover damages for those injuries.<br /><br />If the pedestrian proves the foregoing facts and offers no other evidence explaining the accident, will his claim survive a motion for directed verdict offered by the defense?",
+					"answerOptions": [
+						"Yes, because the pedestrian was injured by an artificial condition of the premises while using an adjacent public way.",
+						"Yes, because such an accident does not ordinarily happen in the absence of negligence.",
+						"No, because the landlord is in no better position than the pedestrian to explain the accident.",
+						"No, because there is no basis for a reasonable inference that the landlord was negligent."
+					],
+					"correct": 3,
+					"explanation": "D is correct. Any time negligence must be inferred, there is a res ipsa loquitur issue. The doctrine of res ipsa loquitur will establish a prima facie case for negligence where (1) the <b>defendant had exclusive control</b> of the instrumentality during the relevant time, and (2) <b>the plaintiff shows that he was not responsible</b> for the injury. For a claim based on res ipsa loquitur to prevail, the pedestrian must show that the landlord had exclusive control of the flowerpot before it fell. In this case, the landlord did not have exclusive control of the flowerpot during the relevant time frame because 70 of the units had tenants, so res ipsa loquitur may not be used to establish negligence. Therefore, the pedestrian will not be able to make his prima facie case, and the landlord's motion for a directed verdict should be granted.<br /><br />A is incorrect because the landlord would not be responsible for conditions created by tenants in their apartments. B is incorrect because it makes a true statement but does not address the requirement of exclusive control, so the negligence cannot be imputed on the landlord. C is incorrect. The landlord is not required to explain the accident. It is the plaintiff's burden to prove her case, including the fact that the landlord was in exclusive control of the instrumentality at the time the negligence occurred. The facts do not support the requirement, so the landlord's motion for a directed verdict will be granted."
+				}
+			]
+		}
+	],
 	"next": {
 		"key": "negligence_breach_negligent_entrustment",
 		"name": "Breach Based on Negligent Entrustment",

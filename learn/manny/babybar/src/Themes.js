@@ -6,7 +6,8 @@ class Themes extends Component {
 		super(props);
 		
 		this.state = {
-			theme: null	
+			theme: null,
+			themeName: ''
 		};
 	}
 	
@@ -20,6 +21,7 @@ class Themes extends Component {
 	
 	fetchTheme(theme) {
 		localStorage.setItem('theme', theme);
+		this.setState({themeName: theme});
 		let url = '/themes/' + theme + '/bootstrap.min.css';
 		fetch(url, {
 			method: 'GET'	  
@@ -41,7 +43,7 @@ class Themes extends Component {
 	render() {
 		return (
 				<li>
-					<a href="" className="dropdown-toggle" data-toggle="dropdown">Theme<b className="caret"></b></a>
+					<a href="" className="dropdown-toggle" data-toggle="dropdown">Theme {this.state.themeName} <b className="caret"></b></a>
 					<ul className="dropdown-menu">
 						<li><a href="" onClick={this.getTheme.bind(this, 'Default')}>Default</a><style>
 							{this.state.theme}

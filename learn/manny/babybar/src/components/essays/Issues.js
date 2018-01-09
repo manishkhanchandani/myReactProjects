@@ -21,6 +21,7 @@ import IssuesBarExam from './IssuesBarExam.js';
 import IssuesRule from './IssuesRule.js';
 import {config} from '../../config.js';
 //import MyModal from '../MyModal/MyModal.js';
+import LearnRule from './LearnRule.js';
 
 class EssayIssues extends Component {
 	
@@ -497,6 +498,9 @@ class EssayIssues extends Component {
 											</div>
 										}
 									</div>
+									
+									
+									<LearnRule />
 									
 								</div>
 								

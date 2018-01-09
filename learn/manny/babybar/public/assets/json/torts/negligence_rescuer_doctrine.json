@@ -1,6 +1,76 @@
 {
 	"key": "negligence_rescuer_doctrine",
 	"name": "Rescuer Doctrine / Fireman's Rule",
+	"elements": [
+		"Person creates a Peril Situation",
+		"Rescuer Saves the Person",
+		"Rescuer is Injured in the process",
+		"Rescuer is not a professional rescuer like fireman"
+	],
+	"sample_essays": [
+		{
+			"hypo": "Jean was siphoning gas from friends car without his consent when gasoline exploaded and catches fire. A rescuer Bob, grabbed the fire extinguisher and put it on fire to save Jean. In the process, Bob got injured badly. If Bob asserts claim against Jean for personal injuries, will he prevail?",
+			"explanation": "Your Rule will come here<br /><br />Here Jean <b>created a Peril Situation</b> because he was siphoning the gas from friends car without consent and gas is a dangerous substance if handled improperly. And fact does not show that Jean was a professional in this matter. Here <b>Bob saves the Jean</b> because when gasoline exploded, it catches fire and Bob took fire extinguisher to save the Jean. Here <b>Bob got injured</b> because while he was saving Jean, he got severely injured in the process. Here Bob is <b>not a professional rescuer</b> because fact does not say that Bob is a fireman or something who assumes the risks of saving others as a professional conduct.<br /><br />Therefore Jean will be liable for the injures suffered by Bob."	
+		}	  
+	],
+	"mbe": [
+		{
+			"key": "rule1",
+			"name": "Rule 1: Rescue Rules",
+			"description": "A rescuer is foreseeable plaintiff when rescue is conducted in a reasonable manner. If a person puts himself in danger and so he is liable for the injury to the rescuer. Rescuer needs to be injured in rescue attempt.",
+			"examples": [
+				{
+					"question": "A man was in the act of siphoning gasoline from a neighbor's car in the neighbor's garage and without his consent when the gasoline exploded and caused a fire. A rescuer, seeing the fire, grabbed a fire extinguisher from his car and put out the fire, saving the man's life and the neighbor's car and garage. In doing so, the rescuer was badly burned.<br /><br />If the rescuer asserts a claim against the man for personal injuries, the rescuer will",
+					"answerOptions": [
+						"prevail, because he saved the man's life.",
+						"prevail, because the man was at fault in causing the fire.",
+						"not prevail, because the rescuer knowingly assumed the risk.",
+						"not prevail, because the rescuer's action was not a foreseeable consequence of the man's conduct."
+					],
+					"correct": 1,
+					"explanation": "B is correct. The man will be liable to the rescuer because the rescuer is a foreseeable plaintiff as long as the rescue was reasonably conducted. Since the man negligently caused a fire and put himself in danger, he is liable for the injury to the rescuer who was injured in the attempted rescue. Thus, D is incorrect. A is incorrect because a rescuer needs only to be injured in attempting the rescue to recover. C is incorrect because an attempted rescue is not an assumption of risk if the rescue is attempted in a reasonable fashion."
+				}
+			]
+		}
+	],
+	"quiz": [
+		{
+			"id": 1,
+			"question": "A rescuer is foreseeable plaintiff when rescue is conducted in a reasonable manner.?",
+			"answerOptions": [
+				"True",
+				"False"
+			],
+			"correct": 0
+		},
+		{
+			"id": 2,
+			"question": "A person who creates danger to himself <b>is liable to</b> all who are accidently injured in saving him?",
+			"answerOptions": [
+				"True",
+				"False"
+			],
+			"correct": 0
+		},
+		{
+			"id": 3,
+			"question": "Rescuer need not to be in the zone of danger when saving a person?",
+			"answerOptions": [
+				"True",
+				"False"
+			],
+			"correct": 0
+		},
+		{
+			"id": 4,
+			"question": "A person who creates danger to himself is <b>not liable</b> to professional rescuers like Fireman under Rescuer Doctrine because they assume the risks of their professions?",
+			"answerOptions": [
+				"True",
+				"False"
+			],
+			"correct": 0
+		}
+	],
 	"next": {
 		"key": "respondent_superior",
 		"name": "Respondent Superior",

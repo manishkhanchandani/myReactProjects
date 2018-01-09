@@ -1,6 +1,11 @@
 {
 	"key": "negligence_assumption_of_risks",
 	"name": "Assumption of Risks (Negligence)",
+	"elements": [
+		"Put themselves in Risk",
+		"Fully aware of the Risk",
+		"Consciously accepted the Risk"
+	],
 	"mbe": [
 		{
 			"key": "rule1",
@@ -23,6 +28,51 @@
 	"quiz": [
 		{
 			"id": 1,
+			"question": "Is Assumption of Risk, a complete bar to recover for negligence?",
+			"answerOptions": [
+				"Yes",
+				"No"
+			],
+			"correct": 0
+		},
+		{
+			"id": 2,
+			"question": "Is Assumption of Risk, does plaintiff has to <b>put themselves</b> at risk?",
+			"answerOptions": [
+				"No",
+				"Yes"
+			],
+			"correct": 1
+		},
+		{
+			"id": 3,
+			"question": "Is Assumption of Risk, does plaintiff has <b>full awareness</b> of the risks?",
+			"answerOptions": [
+				"No",
+				"Yes"
+			],
+			"correct": 1
+		},
+		{
+			"id": 4,
+			"question": "Is Assumption of Risk, does plaintiff has <b>conscious acceptance</b> of the risks?",
+			"answerOptions": [
+				"No",
+				"Yes"
+			],
+			"correct": 1
+		},
+		{
+			"id": 5,
+			"question": "Is Assumption of Risk, used mostly in cases of Strict Liability and Attractive Nuisance Doctrine?",
+			"answerOptions": [
+				"No",
+				"Yes"
+			],
+			"correct": 1
+		},
+		{
+			"id": 6,
 			"question": "Leena went to Bowling, Before Bowling starts, Instructor ask Leena to sign a waiver that she assumes all risks during bowling because of any fault like negligence? She did that and she was injured by instructor's negligence and ball dropped on to Leena. What is Leena's best argument against initial waiver?",
 			"answerOptions": [
 				"Bowling is an inherently dangerous activity.",
