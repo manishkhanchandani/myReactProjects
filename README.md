@@ -1,6 +1,8 @@
 # myReactProjects
+
 PPangelinan@mac.com
 626-818-1463
+
 ,
     "firebase": "^4.5.0",
     "react-google-autocomplete": "^1.0.13",
@@ -1409,7 +1411,8 @@ food donation
 money donation
 
 
-
+https://github.com/JedWatson/react-select
+http://jedwatson.github.io/react-select/
 
 
 
