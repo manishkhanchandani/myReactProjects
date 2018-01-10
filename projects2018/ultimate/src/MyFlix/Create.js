@@ -83,7 +83,10 @@ class Create extends Component {
 											List Name
 										</th>
 										<th>
-											Add Categories & Videos
+											Add Categories
+										</th>
+										<th>
+											Add Videos
 										</th>
 										<th>
 											Edit
@@ -96,12 +99,16 @@ class Create extends Component {
 										this.state.data.map((value, key) => {
 															 console.log('value is ', value, ', and key is ', key);
 											let linkUrl = '/manage/' + value._id + '/categories';
+											let videoUrl = '/manage/' + value._id + '/videos';
 											return <tr key={key}>
 												<td>
 													{value.list}
 												</td>
 												<td>
 													<Link to={linkUrl}>Add Categories</Link>
+												</td>
+												<td>
+													<Link to={videoUrl}>Add Videos</Link>
 												</td>
 												<td>
 													Edit

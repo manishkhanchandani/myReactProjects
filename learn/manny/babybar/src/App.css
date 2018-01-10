@@ -7,3 +7,7 @@
 .issues .divider {
 	margin-top: 15px;
 }
+
+.changeUser img {
+	max-width: 60px;
+}

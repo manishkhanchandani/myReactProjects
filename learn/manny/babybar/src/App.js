@@ -17,6 +17,10 @@ import './App.css';
 //import Activities from './components/activities/Activities.js';
 //import Chat from './components/chat/Chat.js';
 
+import UserQuizCategories from './components/userQuiz/Categories.js';
+import UserQuiz from './components/userQuiz/Quiz.js';
+import ChangeUser from './components/admin/ChangeUser.js';
+import UserQuizAdd from './components/userQuiz/Add.js';
 
 class App extends Component {
 	
@@ -49,6 +53,10 @@ class App extends Component {
 								<Route exact={true} path="/essays/issues" component={EssayIssues} />
 								<Route exact={true} path="/essays/issue/spotting/:subject" component={IssuesSpotting} />
 								<Route exact={true} path="/simulation/:subject" component={Simulation} />
+								<Route exact={true} path="/user-quiz" component={UserQuiz} />
+								<Route exact={true} path="/user-quiz/categories" component={UserQuizCategories} />
+								<Route exact={true} path="/user-quiz/addQuiz" component={UserQuizAdd} />
+								<Route exact={true} path="/admin/changeuser" component={ChangeUser} />
 							</div>
 							{/*<div className="col-md-3">
 								<Activities />
