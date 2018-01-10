@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
-import {Link} from 'react-router-dom';
+import {firebaseDatabase, FirebaseConstant} from '../../MyFirebase.js';
+import {getUID} from '../auth/AuthAction.js';
 
-class Categories extends Component {
+class UserQuizCategories extends Component {
 
 	constructor(props) {
 		super(props);	
@@ -12,7 +12,13 @@ class Categories extends Component {
 			categories: null,
 			error: null,
 			category_id: null,
-			subcategory: ''
+			subcategory: '',
+			category_id_add: null,
+			subcategory_id_add: null,
+			question: '',
+			answerOptions: ['', '', '', ''],
+			correct: '',
+			explanation: ''
 		};
 	}
 	
@@ -22,7 +28,8 @@ class Categories extends Component {
 	
 	
 	getCategories() {
-		let url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/categories';
+		let uid = getUID();
+		let url = FirebaseConstant.basePath + '/userQuiz/' + uid + '/categories';
 		let ref = firebaseDatabase.ref(url);
 		ref.once('value', (snapshot) => {
 			if (!snapshot.exists()) {
@@ -32,18 +39,16 @@ class Categories extends Component {
 			let records = snapshot.val();
 			let myArray = [];
 			for (let k in records) {
-				let obj = records[k];
-				obj._id = k;
-				if (obj.subcategories) {
-					obj.subcat = [];
-					for (let j in obj.subcategories) {
-						let subObject = obj.subcategories[j];
-						subObject._id = j;
-						obj.subcat.push(subObject);
+				records[k]._id = k;
+				if (records[k].subcategories) {
+					let subcat = [];
+					for (let j in records[k].subcategories) {
+						records[k].subcategories[j]._id = j;
+						subcat.push(records[k].subcategories[j]);
 					}
-					
+					records[k].subcat = subcat;
 				}
-				myArray.push(obj);
+				myArray.push(records[k]);
 			}
 
 			this.setState({categories: myArray});
@@ -53,9 +58,10 @@ class Categories extends Component {
 	
 	submitToFirebase(e) {
 		e.preventDefault();
+		let uid = getUID();
 		var obj = {};
 		obj.category = this.state.category;
-		var url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/categories';
+		var url = FirebaseConstant.basePath + '/userQuiz/' + uid + '/categories';
 		firebaseDatabase.ref(url).push(obj);
 		this.setState({category: ''});
 		this.getCategories();
@@ -67,17 +73,17 @@ class Categories extends Component {
 			return;	
 		}
 		
+		let uid = getUID();
 		var obj = {};
 		obj.subcategory = this.state.subcategory;
-		var url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/categories/' + this.state.category_id + '/subcategories';
+		var url = FirebaseConstant.basePath + '/userQuiz/' + uid + '/categories/' + this.state.category_id + '/subcategories';
 		firebaseDatabase.ref(url).push(obj);
 		this.setState({subcategory: ''});
 		this.getCategories();
 	}
 
 	render() {
-		console.log('state is ', this.state);
-		let videoUrl = '/manage/' + this.props.match.params.list + '/videos';
+		console.log("state is ", this.state);
 		return (
 			<div className="container">
 				<h3>Categories</h3>
@@ -93,8 +99,8 @@ class Categories extends Component {
 				
 				{
 					this.state.categories && 
-					<div className="panel panel-danger">
-						<div className="panel-heading">Categories<Link to={videoUrl} className="pull-right">Add Videos</Link></div>
+					<div className="panel panel-primary">
+						<div className="panel-heading">Categories</div>
 						<div className="panel-body">
 							
 							<div className="table-responsive">
@@ -108,15 +114,12 @@ class Categories extends Component {
 											Add SubCategories
 										</th>
 										<th>
-											Edit
-										</th>
-										<th>
 											Delete
 										</th>
 									</tr>
 									{
 										this.state.categories.map((value, key) => {
-																   console.log('value is ', value);
+											
 											return <tr key={key}>
 												<td>
 													{value.category}
@@ -140,23 +143,22 @@ class Categories extends Component {
 													
 													{
 														value.subcat && 
-														<ul>
+														<div>
+															<hr />
 															{
 																value.subcat.map((value2, key2) => {
-																	return <li key={key2}>{value2.subcategory}</li>
-																})	
+																	return <div key={key2}>
+																			{value2.subcategory}
+																	</div>					 
+																})
 															}
-														</ul>
+														</div>
 													}
-													
-												</td>
-												<td>
-													Edit
 												</td>
 												<td>
 													Delete
 												</td>
-											</tr>			 
+											</tr>		 
 										})
 									}
 									</tbody>
@@ -171,4 +173,4 @@ class Categories extends Component {
 	}
 }
 
-export default Categories;
+export default UserQuizCategories;

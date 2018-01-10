@@ -1,5 +1,5 @@
 import * as firebase from 'firebase';
-import {config} from './common/config.js';
+import {config} from './common2/config.js';
 
 var configFb = {
     apiKey: "AIzaSyBhpHK-ve2s0ynnr8og8Zx0S69ttEFpDKk",
