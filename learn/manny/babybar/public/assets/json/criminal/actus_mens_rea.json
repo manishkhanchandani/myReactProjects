@@ -1,0 +1,44 @@
+{
+	"key": "actus_mens_rea",
+	"name": "Actus reus & Mens Rea",
+	"quiz": [
+		{
+			"id": 1,
+			"question": "What is required for a crime?",
+			"answerOptions": [
+				"Actus Reus",
+				"Mens Rea",
+				"Actus Reus & Mens Rea"
+			],
+			"correct": 2
+		},
+		{
+			"id": 2,
+			"question": "What is actus reus?",
+			"answerOptions": [
+				"The Required Mental State for the crime",
+				"A voluntary act / lack to act that causes a criminal result"
+			],
+			"correct": 1
+		},
+		{
+			"id": 3,
+			"question": "What is mens rea?",
+			"answerOptions": [
+				"The Required Mental State for the crime",
+				"A voluntary act / lack to act that causes a criminal result"
+			],
+			"correct": 0
+		}
+	],
+	"next": {
+		"key": "",
+		"name": "",
+		"subject": ""
+	},
+	"previous": {
+		"key": "",
+		"name": "",
+		"subject": ""
+	}
+}

@@ -1,6 +1,19 @@
 {
 	"key": "reliance_damages",
 	"name": "Reliance Damages?",
+	"quiz": [
+		{
+			"id": 1,
+			"question": "Damages that would not have taken place but for the breach and is out of pocket expenses. A party cannot receive both expectation and reliance damages, What is it?",
+			"answerOptions": [
+				"Reliance Damages",
+				"Expectation Damages",
+				"Specific Performance",
+				"Incidental Damages"
+			],
+			"correct": 0
+		}
+	],
 	"next": {
 		"key": "",
 		"name": "",

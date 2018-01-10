@@ -1,6 +1,19 @@
 {
 	"key": "liquidated_damages",
 	"name": "Liquidated Damages",
+	"quiz": [
+		{
+			"id": 1,
+			"question": "Damages set out explicitly in the contract to be due upon breach. Requires that the damages be reasonable and the actual damages from breach would be uncertain, What is it?",
+			"answerOptions": [
+				"Reliance Damages",
+				"Liquidated Damages",
+				"Specific Performance",
+				"Restitution Damages"
+			],
+			"correct": 1
+		}
+	],
 	"next": {
 		"key": "",
 		"name": "",

@@ -1,6 +1,19 @@
 {
 	"key": "equitable_restitution",
 	"name": "Equitable Restitution",
+	"quiz": [
+		{
+			"id": 1,
+			"question": "Damages that plaintiff receives an amount equal to the economic benefit that the plaintiff has conferred on the defendant, What is it?",
+			"answerOptions": [
+				"Reliance Damages",
+				"Expectation Damages",
+				"Specific Performance",
+				"Restitution Damages"
+			],
+			"correct": 3
+		}
+	],
 	"next": {
 		"key": "",
 		"name": "",

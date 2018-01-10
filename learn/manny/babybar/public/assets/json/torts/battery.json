@@ -13,6 +13,19 @@
 			"title": "Torts Battery"
 		}
 	],
+	"quiz": [
+		{
+			"id": 1,
+			"question": "An offensive or harmful conduct of a person?",
+			"answerOptions": [
+				"Contract",
+				"Murder",
+				"Assault",
+				"Battery"
+			],
+			"correct": 3
+		}
+	],
 	"next": {
 		"key": "",
 		"name": "",

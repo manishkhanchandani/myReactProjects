@@ -7,6 +7,19 @@
 			"title": "Torts Conversion"
 		}
 	],
+	"quiz": [
+		{
+			"id": 1,
+			"question": "An act of invasion of personal property that seriously interferes with one's possessory interest in the chattel?",
+			"answerOptions": [
+				"Battery",
+				"Trespass to Chattel",
+				"Trespass to Land",
+				"Conversion"
+			],
+			"correct": 3
+		}
+	],
 	"next": {
 		"key": "",
 		"name": "",

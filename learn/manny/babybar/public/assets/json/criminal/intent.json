@@ -1,0 +1,84 @@
+{
+	"key": "actus_mens_rea",
+	"name": "Actus reus & Mens Rea",
+	"quiz": [
+		{
+			"id": 1,
+			"question": "Are Following vaild types of crime - General Intent Crime, Specific Intent Crime, Malice Crimes, Strict liability crimes?",
+			"answerOptions": [
+				"Yes",
+				"No"
+			],
+			"correct": 0
+		},
+		{
+			"id": 2,
+			"question": "Subjective desire, specific objective, knowledge to accomplish criminal result?",
+			"answerOptions": [
+				"Specific Intent Crime",
+				"General Intent Crime"
+			],
+			"correct": 0
+		},
+		{
+			"id": 3,
+			"question": "First Degree Murder, Inchoate offense, Assault with intent to commit battery, Theft offenses?",
+			"answerOptions": [
+				"Specific Intent Crime",
+				"General Intent Crime"
+			],
+			"correct": 0
+		},
+		{
+			"id": 4,
+			"question": "Reckless disregard of a high risk of harm?",
+			"answerOptions": [
+				"Specific Intent Crime",
+				"Malicious Intent Crime",
+				"General Intent Crime"
+			],
+			"correct": 1
+		},
+		{
+			"id": 5,
+			"question": "Common law murder & arson?",
+			"answerOptions": [
+				"Specific Intent Crime",
+				"Malicious Intent Crime",
+				"General Intent Crime"
+			],
+			"correct": 1
+		},
+		{
+			"id": 6,
+			"question": "Knowingly, recklessly, negligently doing a criminal act?",
+			"answerOptions": [
+				"Specific Intent Crime",
+				"Malicious Intent Crime",
+				"General Intent Crime"
+			],
+			"correct": 2
+		},
+		{
+			"id": 7,
+			"question": "Doing the act = criminal liability?",
+			"answerOptions": [
+				"Specific Intent Crime",
+				"Malicious Intent Crime",
+				"General Intent Crime",
+				"Strict liability Crime"
+			],
+			"correct": 3
+		}
+	],
+	"next": {
+		"key": "",
+		"name": "",
+		"subject": ""
+	},
+	"previous": {
+		"key": "",
+		"name": "",
+		"subject": ""
+	}
+}

@@ -339,10 +339,12 @@ class NavMulti extends Component {
 										
 										
 									</ul>
-								</li>
+								</li>Actus reus & Mens Rea
 								<li>
 									<a href="" className="dropdown-toggle" data-toggle="dropdown">Criminal <b className="caret"></b></a>
 									<ul className="dropdown-menu multi-level">
+										<li><Link to="/essays/issues/criminal/actus_mens_rea">Actus reus & Mens Rea</Link></li>
+										<li><Link to="/essays/issues/criminal/intent">Specific Intent & General Intent Crimes</Link></li>
 										<li className="dropdown-submenu">
 											<a href="" className="dropdown-toggle" data-toggle="dropdown">Inchoate Offenses</a>
 											<ul className="dropdown-menu">

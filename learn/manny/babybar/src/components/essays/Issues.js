@@ -71,7 +71,7 @@ class EssayIssues extends Component {
 			window.scrollTo(0, 0);
 			let uid = getUID();
 
-			if (!nextProps.issuesReducer.subjects) {
+			if (!nextProps.issuesReducer.subjects || (nextProps.match.params.subject && nextProps.match.params.subject !== nextProps.issuesReducer.subject.key)) {
 				nextProps.callGetSubjectsJson(nextProps.match.params.subject);
 			}
 			if (!(nextProps.issuesReducer && nextProps.issuesReducer.issue && nextProps.issuesReducer.issue[nextProps.match.params.subject] && nextProps.issuesReducer.issue[nextProps.match.params.subject][nextProps.match.params.issue])) {

@@ -2,6 +2,18 @@
 	"key": "products_liability",
 	"name": "Products Liability",
 	"rule": "A manufacturer's or seller’s tort liability for any damages or injuries suffered by a buyer, user or bystander as a result of a defective product.",
+	"quiz": [
+		{
+			"id": 1,
+			"question": "A problem common to each unit that the seller could have eliminated through a reasonable alternative design?",
+			"answerOptions": [
+				"Manufacturing Defect",
+				"Design Defect",
+				"Warning Defect"
+			],
+			"correct": 1
+		}
+	],
 	"next": {
 		"key": "",
 		"name": "",

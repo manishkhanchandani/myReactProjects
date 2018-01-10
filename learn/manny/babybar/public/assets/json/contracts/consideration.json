@@ -21,6 +21,26 @@
 			]
 		}	
 	],
+	"quiz": [
+		{
+			"id": 1,
+			"question": "Is promising not to sue valid consideration?",
+			"answerOptions": [
+				"Yes",
+				"No"
+			],
+			"correct": 0
+		},
+		{
+			"id": 2,
+			"question": "Is consideration needed to modify a contract under a UCC?",
+			"answerOptions": [
+				"Yes",
+				"No"
+			],
+			"correct": 1
+		}
+	],
 	"next": {
 		"key": "",
 		"name": "",

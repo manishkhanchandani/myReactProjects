@@ -159,6 +159,35 @@
 				"May Be"
 			],
 			"correct": 1
+		},
+		{
+			"id": 7,
+			"question": "A reasonable apprehension of immediate contact?",
+			"answerOptions": [
+				"Assault",
+				"Battery",
+				"Murder",
+				"Contract"
+			],
+			"correct": 0
+		},
+		{
+			"id": 8,
+			"question": "Does apprehension include fear or intimidation?",
+			"answerOptions": [
+				"Yes",
+				"No"
+			],
+			"correct": 1
+		},
+		{
+			"id": 9,
+			"question": "Are words alone enough to constitute an assault?",
+			"answerOptions": [
+				"Yes",
+				"No"
+			],
+			"correct": 1
 		}
 	],
 	"next": {

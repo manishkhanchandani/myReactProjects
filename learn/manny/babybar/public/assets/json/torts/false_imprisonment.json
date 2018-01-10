@@ -1,6 +1,35 @@
 {
 	"key": "false_imprisonment",
 	"name": "False Imprisonment",
+	"quiz": [
+		{
+			"id": 1,
+			"question": "Does the length of confinement matter for false imprisonment?",
+			"answerOptions": [
+				"Yes",
+				"No"
+			],
+			"correct": 1
+		},
+		{
+			"id": 2,
+			"question": "Is a mere inconvenience enough to be constiute a bounded area?",
+			"answerOptions": [
+				"Yes",
+				"No"
+			],
+			"correct": 1
+		},
+		{
+			"id": 3,
+			"question": "Is an area bounded if there is reasonable means of escape of which the plaintiff is aware?",
+			"answerOptions": [
+				"Yes",
+				"No"
+			],
+			"correct": 1
+		}
+	],
 	"next": {
 		"key": "",
 		"name": "",

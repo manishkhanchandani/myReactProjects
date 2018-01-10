@@ -30,6 +30,35 @@
 			"title": "Contracts Offer Accept"
 		}
 	],
+	"quiz": [
+		{
+			"id": 1,
+			"question": "Can you accept an offer not directed to you?",
+			"answerOptions": [
+				"Yes",
+				"No"
+			],
+			"correct": 1
+		},
+		{
+			"id": 2,
+			"question": "Can you accept an offer you don't know about?",
+			"answerOptions": [
+				"Yes",
+				"No"
+			],
+			"correct": 1
+		},
+		{
+			"id": 3,
+			"question": "Can you accept an offer without communicating it to the offeror?",
+			"answerOptions": [
+				"Yes",
+				"No"
+			],
+			"correct": 1
+		}
+	],
 	"next": {
 		"key": "",
 		"name": "",

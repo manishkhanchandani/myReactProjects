@@ -1,6 +1,17 @@
 {
 	"key": "ucc_remedy_for_breaching_seller",
 	"name": "UCC Remedy For Breaching Seller",
+	"quiz": [
+		{
+			"id": 1,
+			"question": "Can a seller accept an offer by shipping non-confirming goods?",
+			"answerOptions": [
+				"Yes",
+				"No"
+			],
+			"correct": 0
+		}
+	],
 	"next": {
 		"key": "",
 		"name": "",

@@ -1,6 +1,18 @@
 {
 	"key": "false_light",
 	"name": "False Light",
+	"quiz": [
+		{
+			"id": 1,
+			"question": "Invasion of privacy based on false light can occur in?",
+			"answerOptions": [
+				"Public property",
+				"Private property",
+				"Both"
+			],
+			"correct": 2
+		}
+	],
 	"next": {
 		"key": "",
 		"name": "",
