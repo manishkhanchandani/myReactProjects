@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import {config} from './common2/config.js';
+import {config} from './common/config.js';
 import MyFlixLayout from './MyFlix/MyFlixLayout.js';
 import OnlineRxLayout from './Layouts/OnlineRxLayout.js';
 import DcToolsLayout from './Layouts/DcToolsLayout.js';

@@ -1,5 +1,5 @@
 export const config = {
-	site: 'dctools.info',
+	site: 'myflix.info',
 	firebasePathName: {
 		'myflix.info': '/myflix',
 		'onlinerx.info': '/onlinerx',
