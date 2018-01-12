@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
 import {utubeIDGrabber} from '../utilities/functions.js';
 import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
+import VideosCategory from './VideosCategory';
+
+
 const API_KEY = 'AIzaSyBhpHK-ve2s0ynnr8og8Zx0S69ttEFpDKk';
+
 
 
 class Videos extends Component {
@@ -18,11 +22,13 @@ class Videos extends Component {
 			videoMovieType: '',
 			category_id: '',
 			subcategory_id: '',
-			error: null
+			error: null,
+			categories: null
 		};
 	}
 	
 	componentDidMount() {
+		
 	}
 	
 	getVideoDetails(q) {
@@ -75,14 +81,19 @@ class Videos extends Component {
 		this.getVideoDetails(videoUrl);
 		this.setState({videoInput: e.target.value, videoInputId: videoUrl});
 	}
+	
+	chooseCategory(e) {
+		console.log(e.target.value);
+	}
+
 	render() {
-		console.log('state is ', this.state);
 		return (
 			<div className="container">
 				<div className="row">
 					<div className="col-md-6">
 						<h3>Add Videos</h3>
 						<form onSubmit={this.submitFrm.bind(this)}>
+							<VideosCategory />
 							<div className="form-group">
 								<label>Youtube Video URL / ID</label>
 								<input type="text" className="form-control" placeholder="Enter Video ID or URL" value={this.state.videoInput} onChange={this.changeVideoUrl.bind(this)} />
