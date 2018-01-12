@@ -3,14 +3,20 @@
 	"name": "Battery",
 	"description": "Intentional Infliction of <b>Harmful</b> or<b> Offensive</b> bodily Contact. <br /><br />First thing which is required in Battery is <b>Intent To Act</b>. Here Blink of eye is no as it is not a volational, Extending arm is volational and it is considered as Intent.<br /><br />Mind must instruct to do something and it is <b>Actual and Proximate cause</b> (rarely an issue) of Harmful or Offensive Contact.<br /><br />Mind must intend to cause either \"Harmful or Offensive Contact\" Or Apprehension of \"Harmful or Offensive Contact\". <br /><br />In Battery, Objective standards are taken into consideration and not the subjective standards. That is what a reasonable person will feel harmful or offensive is considered in Battery, not the particular person will feel harmful or offensive touching.",
 	"elements": [
-		"Intent",
-		"Overt Act",
-		"Harmful or Offensive Touching"
+		"Volitional Act, the D acted volitionally",
+		"Intent, the D intended to cause a harmful or offensive contact",
+		"that a harmful or offensive contact actually occured",
+		"Causation, the D's volitional act caused the contact"
 	],
+	"conclusion": "Therefore, the defendant may be liable for tortious battery.",
 	"videos": [
 		{
 			"key": "Jiz-_lxJ9rM",
 			"title": "Torts Battery"
+		},
+		{
+			"key": "A1c2GFFm8Ic",
+			"title": "Episode 2.1: An Overview of Intentional Torts"
 		}
 	],
 	"quiz": [

@@ -1,6 +1,12 @@
 {
 	"key": "strict_liability",
 	"name": "Strict Liability",
+	"videos": [
+		{
+			"key": "GaEJKnUEHHE",
+			"title": "Torts Strict Liability"
+		}
+	],
 	"next": {
 		"key": "negligence_rescuer_doctrine",
 		"name": "Rescuer Doctrine / Fireman's Rule",

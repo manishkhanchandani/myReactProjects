@@ -4,10 +4,10 @@
 	"rule": "Under tort law, An ASSAULT is an <b>intentional overt act</b> which causes an <b>immediate apprehension</b> of a harmful or offensive contact.",
 	"description": "Asssault occurs when one person <b>intentionally</b> places another in a state of fear. Certain elements must be present to prove an assault occurred: 1. The plaintiff <b>perceived immediate physical contact</b> with the defendant, 2. Plaintiff had suspicion that he was <b>in imminent danger</b>. 3. The <b>actions</b> of the defendant, or tortfeasor, <b>were intentional</b>, not accidental. <br /><br />Assault is an <b>intentional tort</b> when one is placed in <b>reasonable apprehension</b> of an intentional, imminent, unconsented, harmful, or offensive touching by another person. Assaults occur when the targeted person's anxiety is the product of the actor's threatening conduct, such as stalking or placing a gun in front of one's face (loaded or not). As long as the individual has a reasonable apprehension of some offensive contact, an assault has occurred. ",
 	"elements": [
-		"Intent",
-		"Overt Act",
-		"Reasonable Apprehension",
-		"Immediate Battery"
+		"Volitional Act, the D acted volitionally",
+		"Intent, the D intended to cause imminent apprehension of a harmful or offensive contact",
+		"imminent apprehension of a harmful or offensive contact actually occured",
+		"Causation, the D's volitional act caused the apprehension"
 	],
 	"elementsQuestions": [
 		"Here defendant acted <b>intentionally</b> because ...",

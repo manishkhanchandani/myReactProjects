@@ -339,7 +339,7 @@ class NavMulti extends Component {
 										
 										
 									</ul>
-								</li>Actus reus & Mens Rea
+								</li>
 								<li>
 									<a href="" className="dropdown-toggle" data-toggle="dropdown">Criminal <b className="caret"></b></a>
 									<ul className="dropdown-menu multi-level">

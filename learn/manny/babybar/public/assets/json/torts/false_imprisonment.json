@@ -1,6 +1,14 @@
 {
 	"key": "false_imprisonment",
 	"name": "False Imprisonment",
+	"elements": [
+		"Volitional Act, the D acted volitionally",
+		"Intent, the D intended to cause confinement of P to a limited area",
+		"No Reasonable means of escape",
+		"Causation, Confinement was caused by D's volitional Act",
+		"Against their will and plaintiff is aware of being confined"
+	],
+	"conclusion": "Therefore, the defendant may be liable for false imprisonment.",
 	"quiz": [
 		{
 			"id": 1,
@@ -28,6 +36,12 @@
 				"No"
 			],
 			"correct": 1
+		}
+	],
+	"videos": [
+		{
+			"key": "A1c2GFFm8Ic",
+			"title": "Episode 2.1: An Overview of Intentional Torts"
 		}
 	],
 	"next": {

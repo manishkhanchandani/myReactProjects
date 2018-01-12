@@ -11,7 +11,6 @@ import store from './store.js';
 import {FirebaseAuthSystem} from './modules/auth/AuthAction.js';
 FirebaseAuthSystem(store.dispatch);
 
-
 ReactDOM.render(
 				
 				<Provider store = {store}>

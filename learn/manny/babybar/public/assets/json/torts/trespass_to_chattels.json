@@ -1,6 +1,18 @@
 {
 	"key": "trespass_to_chattels",
 	"name": "Trespass to Chattels",
+	"elements": [
+		"Volitional Act, the D acted volitionally",
+		"Intent, the D intended to cause contact with a specific peice of property",
+		"Invasion upon P's Chattel actually occured",
+		"Causation, the D's volitional act caused the invasion to property"
+	],
+	"videos": [
+		{
+			"key": "A1c2GFFm8Ic",
+			"title": "Episode 2.1: An Overview of Intentional Torts"
+		}
+	],
 	"next": {
 		"key": "",
 		"name": "",

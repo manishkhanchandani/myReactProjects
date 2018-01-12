@@ -1,4 +1,8 @@
 import React, {Component} from 'react';
+import {utubeIDGrabber} from '../utilities/functions.js';
+import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
+const API_KEY = 'AIzaSyBhpHK-ve2s0ynnr8og8Zx0S69ttEFpDKk';
+
 
 class Videos extends Component {
 	constructor(props) {
@@ -6,29 +10,85 @@ class Videos extends Component {
 		
 		this.state = {
 			videoInput: '',
+			videoInputId: '',
 			videoTitle: '',
 			videoDescription: '',
 			videoStarring: '',
 			videoDirector: '',
 			videoMovieType: '',
+			category_id: '',
+			subcategory_id: '',
 			error: null
 		};
 	}
+	
+	componentDidMount() {
+	}
+	
+	getVideoDetails(q) {
+		/*console.log('q is ', q);
+		var request = gapi.client.youtube.search.list({
+			q: q,
+			part: 'snippet',
+			type: 'video',
+			maxResults: 1
+		});
+		request.execute(function(response) {
+			console.log('response is ', response);
+		});*/
+	}
+
+	getRelatedVideos() {
+		
+	}
+
+	submitFrm(e) {
+		e.preventDefault();
+		
+		if (!this.state.videoInput) {
+			this.setState({error: 'Missing Video Id or Video URL'});
+			return;
+		}
+		
+		if (!this.state.videoTitle) {
+			this.setState({error: 'Missing title'});
+			return;
+		}
+		
+		var obj = {};
+		obj.videoInput = this.state.videoInput;
+		obj.videoInputId = this.state.videoInputId;
+		obj.videoTitle = this.state.videoTitle;
+		obj.videoDescription = this.state.videoDescription;
+		obj.videoStarring = this.state.videoStarring;
+		obj.videoDirector = this.state.videoDirector;
+		obj.videoMovieType = this.state.videoMovieType;
+		var url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/videos/' + this.state.category_id + '/' + this.state.subcategory_id;
+		firebaseDatabase.ref(url).push(obj);
+	}
+
+	changeVideoUrl(e) {
+		if (!e.target.value) {
+			return;	
+		}
+		let videoUrl = utubeIDGrabber(e.target.value);
+		this.getVideoDetails(videoUrl);
+		this.setState({videoInput: e.target.value, videoInputId: videoUrl});
+	}
 	render() {
+		console.log('state is ', this.state);
 		return (
 			<div className="container">
 				<div className="row">
 					<div className="col-md-6">
 						<h3>Add Videos</h3>
-						<form>
+						<form onSubmit={this.submitFrm.bind(this)}>
 							<div className="form-group">
 								<label>Youtube Video URL / ID</label>
-								<input type="text" className="form-control" placeholder="Enter Video ID or URL" value={this.state.videoInput} onChange={(e) => {
-									this.setState({videoInput: e.target.value});	
-								}} />
+								<input type="text" className="form-control" placeholder="Enter Video ID or URL" value={this.state.videoInput} onChange={this.changeVideoUrl.bind(this)} />
 							</div>
 							<div className="form-group">
-								<label>Title</label>
+								<label>Title *</label>
 								<input type="text" className="form-control" placeholder="Enter Title" value={this.state.videoTitle} onChange={(e) => {
 									this.setState({videoTitle: e.target.value});	
 								}} />

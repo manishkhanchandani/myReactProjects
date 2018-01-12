@@ -259,6 +259,8 @@ class IssuesSpotting extends Component {
 			myArrayConverted = obj.myArrayConverted;
 			paginationProps = obj.paginationProps;
 		}
+
+		let issueUrl = '/essays/issues/' + this.props.match.params.subject;
 		
 		return (
 			<div className="container">
@@ -314,7 +316,7 @@ class IssuesSpotting extends Component {
 											{
 												termsArray && 
 												termsArray.map((value, key) => {
-													return <div key={key}><input type="checkbox" onClick={this.addIssue.bind(this, value, this.state.issueSpotting, key)} value={key} checked={this.state.checked[key]} /> {value.title}</div>				
+													return <div key={key}><input type="checkbox" onClick={this.addIssue.bind(this, value, this.state.issueSpotting, key)} value={key} checked={this.state.checked[key]} /> <a href={`${issueUrl}/${value.key}`} target="_blank">{value.title}</a></div>				
 												})
 											}
 											<hr />

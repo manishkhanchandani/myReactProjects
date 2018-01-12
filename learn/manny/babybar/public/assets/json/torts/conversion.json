@@ -1,10 +1,22 @@
 {
 	"key": "conversion",
 	"name": "Conversion",
+	"elements": [
+		"Volitional Act, the D acted volitionally",
+		"Intent, the D intended to cause serious invasion of P's chattel",
+		"Serious Invasion upon P's Chattel actually occured",
+		"Causation, the D's volitional act caused the serious invasion to property"
+	],
+	"description": "If I throw the stone to someone's cattle, It will hurt the cattle and that is called trespass to chattel but if I shoot the cattle, cattle will die or get seriously injured, that is conversion.",
+	"conclusion": "Therefore, the defendant may be liable for conversion.",
 	"videos": [
 		{
 			"key": "RHgiRu2E4AY",
 			"title": "Torts Conversion"
+		},
+		{
+			"key": "A1c2GFFm8Ic",
+			"title": "Episode 2.1: An Overview of Intentional Torts"
 		}
 	],
 	"quiz": [

@@ -209,7 +209,7 @@ class EssayIssues extends Component {
 							issue &&
 							<div className="row myFavText">
 								<div className="col-md-4">
-									<IssuesRule currentIssueRules={currentIssueRules} s={this.props.match.params.subject} i={this.props.match.params.issue} />
+									<IssuesRule currentIssueRules={currentIssueRules} s={this.props.match.params.subject} i={this.props.match.params.issue} frontContent={issue.name} />
 									{
 										issue.elements &&
 										<div className={`panel panel-${sitePanelClass_2}`}>
