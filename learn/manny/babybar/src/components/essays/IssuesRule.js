@@ -44,7 +44,6 @@ class IssuesRule extends Component {
 			//return null;
 			currentIssueRules = {};
 		}
-console.log('this.props: ', this.props);
 		return (
 			<div className="panel panel-primary">
 				<div className="panel-heading"><b>Rule</b>

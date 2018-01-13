@@ -19,7 +19,7 @@ class FlashCard extends Component {
 		const iconClass = this.state.showAnswer ? 'reply' : 'share';
 		const cardClass = this.state.showAnswer ? 'back' : '';
 		const contentClass = this.state.showAnswer ? 'back' : 'front';
-		const actionClass = this.state.showAnswer ? 'active' : '';
+		//const actionClass = this.state.showAnswer ? 'active' : '';
 		return (
 			<div 
 				className={`card ${cardClass}`}

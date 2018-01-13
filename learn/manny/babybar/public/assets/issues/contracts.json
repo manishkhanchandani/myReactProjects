@@ -181,7 +181,7 @@
 	"exams": [
 		{
 			"id": 1,
-			"reference": "Year 2002",
+			"reference": "June 2002",
 			"topic": "",
 			"essay": "Buyer opened a new automobile service station earlier this year. Buyer wanted to buy a television set for the station so her customers could watch television while she worked on their cars.<br /><br /> Buyer found the television set she wanted at Seller Sets, Inc. (\"Seller\"), a television set retailer. A Seller salesperson told Buyer she could purchase the set for $300. Buyer replied that she would like to \"shop around\". The salesperson then wrote \"Seller Sets, Inc. - $300\" on a sales brochure describing the set and gave the brochure to Buyer. The printed phrase \"Available for a Limited Time Only\" appeared at the top of the brochure. As the salesperson handed Buyer the brochure he said, \"I think you'll find no one will beat our price.\"<br /><br /> Not finding a better price, Buyer returned to Seller's one week later to buy the television set. However, the salesperson told her that the set was out of stock and that Seller could not sell her another at the $300 price. Two months later, Buyer purchased the same model set from another dealer for $450.<br /><br /> Buyer wishes to sue Seller, seeking damages for lost profits. Buyer intends to allege that she lost customers because she has not had television in the station for the past two months.<br /><br /> What theory or theories for recovery of damages will Buyer assert in her complaint and what is her likelihood of success on each theory? Discuss.",
 			"issues": {
@@ -253,6 +253,122 @@
 				"offer_lapsed": {},
 				"reliance_damages": {}
 				
+			}
+		},
+		{
+			"id": 2,
+			"reference": "October 2002",
+			"topic": "",
+			"essay": "Windco manufactures and installs insulated window-frame units. Installation comprises about 15% of Windco's total price for the units.<br /><br /> Sam, a commercial builder, saw a Windco advertisement and mailed an order for thirty window frames, at $100 per frame, for a total order of $3,000. He also wrote on his order, \"Must have your guarantee of installation within 15 days due to construction deadlines.\"<br /><br /> Windco immediately sent Sam an \"Acknowledgment of Order,\" listing the windows and price as per Sam's order, and including a $200 shipping charge. Shipping costs are customarily borne by the buyer of window-frame units. At the bottom of the Windco form was printed the following: \"Installation guaranteed within 60 days.\" Also printed in bold and conspicuous type was the following: \"All warranties of merchantability and fitness are hereby expressly disclaimed.\" Finally, the form stated, \"Contract of Sale Subject to Terms Contained Herein.\"<br /><br /> Windco installed the windows 55 days after the order was placed and Sam incurred several delay-related expenses. Windco later submitted a bill for the full amount shown on the \"Acknowledgment of Order\" form. Sam refused to pay the $200 shipping charges. He also discovered that because of a manufacturing defect, the glass in the windows did not fit snugly, permitting rain to leak through.<br /><br /> Windco sued Sam for the full price shown on the \"Acknowledgment of Order\" form. Sam counterclaimed against Windco for damages resulting from the delayed installation and unmerchantable quality of the windows.<br /><br /> How should the court rule on Windco’s and Sam’s actions? Discuss.",
+			"issues": {
+				"ucc": {
+					"def":[
+						"The UCC applies to all contracts for the sale of goods. Goods are moveable, tangible property."   
+					],
+					"hypo": "Windco manufactures and installs insulated window-frame units. Installation comprises about 15% of Windco's total price for the units.",
+					"samples": [
+						"<b>Does the UCC Apply?</b><br /><br /> The UCC applies to all contracts for the sale of goods. Goods are moveable, tangible property.<br /><br /> Here, the subject matter is shown to [be] predominately goods because \"installation comprises 15% of Windco's total price.\"<br /><br /> Therefore, the UCC applies."
+					]
+				},
+				"parties_merchant": {
+					"def":[
+						"A merchant is one who regularly deals in goods of this kind or who, by his occupation, has some special skill or knowledge as to this type of goods."   
+					],
+					"hypo": "Windco manufactures and installs insulated window-frame units. Installation comprises about 15% of Windco's total price for the units.<br /><br /> Sam, a commercial builder, saw a Windco advertisement and mailed an order for thirty window frames, at $100 per frame, for a total order of $3,000.",
+					"samples": [
+						"<b>Merchants?</b><br /><br />A merchant is one who regularly deals in goods of this kind or who, by his occupation, has some special skill or knowledge as to this type of goods.<br /><br />Here, \"Windco manufactures and installs insulated window-frame units\" and Sam, \"a commercial dealer,\" likely has special knowledge of windows.<br /><br />Therefore, both parties are merchants."	
+					]
+				},
+				"valid_contract": {
+					"def":[
+						"In order to determine if any rights exist we first must determine if there is a valid, enforceable contract. A contract consists of an offer, acceptance, consideration and lack of formation defenses."   
+					],
+					"hypo": "",
+					"samples": [
+						"<b>Valid Contract</b><br /><br />In order to determine if any rights exist we first must determine if there is a valid, enforceable contract. A contract consists of an offer, acceptance, consideration and lack of formation defenses."	
+					]
+				},
+				"offer": {
+					"def":[
+						"An offer is manifestation of present contractual intent, communicated to an identified offeree, containing definite and certain terms."   
+					],
+					"hypo": "Sam, a commercial builder, saw a Windco advertisement and mailed an order for thirty window frames, at $100 per frame, for a total order of $3,000.",
+					"samples": [
+						"<b>Offer</b><br /><br /> An offer is manifestation of present contractual intent, communicated to an identified offeree, containing definite and certain terms.<br /><br /> Here, Windco’s ad will be considered only an invitation to accept offers. When Sam mailed this order form he made an offer to Windco, containing terms (30 window frames @$100/frame). A reasonable person would believe Sam made a commitment to enter a contract because of this information.<br /><br /> Therefore, there is a valid offer."	
+					]
+				},
+				"acceptance": {
+					"def":[
+						"An acceptance is an unequivocal assent to the terms of a[n] offer, unlike common law, where the acceptance must be the \"mirror image.\" The UCC allows additional terms."   
+					],
+					"hypo": "Sam, a commercial builder, saw a Windco advertisement and mailed an order for thirty window frames, at $100 per frame, for a total order of $3,000. He also wrote on his order, \"Must have your guarantee of installation within 15 days due to construction deadlines.\"<br /><br /> Windco immediately sent Sam an \"Acknowledgment of Order,\" listing the windows and price as per Sam's order, and including a $200 shipping charge. Shipping costs are customarily borne by the buyer of window-frame units. At the bottom of the Windco form was printed the following: \"Installation guaranteed within 60 days.\" Also printed in bold and conspicuous type was the following: \"All warranties of merchantability and fitness are hereby expressly disclaimed.\" Finally, the form stated, \"Contract of Sale Subject to Terms Contained Herein.\"",
+					"samples": [
+						"Acceptance and Acceptance With Addition[al] Terms UCC2-207<br /><br /> An acceptance is an unequivocal assent to the terms of a[n] offer, unlike common law, where the acceptance must be the \"mirror image.\" The UCC allows additional terms.<br /><br />At issue here are the terms Sam first added to his offer guaranteeing installation within 15 days. Windco’s acknowledgment of order altered this term guaranteeing installation \"within 60 days.\" As between merchants any additional term will become part of the contract unless the contract limits it to its own terms, there is an objection within 10 days, or the term materially alters the contract.<br /><br /> Here, while Sam wanted installation within 15 days, the question arises if this qualifies as a time is of the essence condition. Because Sam did not object upon receiving Windco’s acceptance with additional terms, it likely will be held that this is not a material term. And this term will become part of the contract.<br /><br /> Shipping cost language will not be a material term as \"shipping costs are customarily borne by the buyer.\"<br /><br /> Warranty disclaimers are valid if conspicuous and use the term merchantability. <br /><br />Therefore, unless a court finds the installation date guaranty to be a material term, all of these terms will become part of the contract."
+					]
+				},
+				"varying_terms": {
+					"def":[
+						"As between merchants any additional term will become part of the contract unless the contract limits it to its own terms, there is an objection within 10 days, or the term materially alters the contract."   
+					],
+					"hypo": "Sam, a commercial builder, saw a Windco advertisement and mailed an order for thirty window frames, at $100 per frame, for a total order of $3,000. He also wrote on his order, \"Must have your guarantee of installation within 15 days due to construction deadlines.\"<br /><br /> Windco immediately sent Sam an \"Acknowledgment of Order,\" listing the windows and price as per Sam's order, and including a $200 shipping charge. Shipping costs are customarily borne by the buyer of window-frame units. At the bottom of the Windco form was printed the following: \"Installation guaranteed within 60 days.\" Also printed in bold and conspicuous type was the following: \"All warranties of merchantability and fitness are hereby expressly disclaimed.\" Finally, the form stated, \"Contract of Sale Subject to Terms Contained Herein.\"",
+					"samples": [
+						"Acceptance and Acceptance With Addition[al] Terms UCC2-207<br /><br /> An acceptance is an unequivocal assent to the terms of a[n] offer, unlike common law, where the acceptance must be the \"mirror image.\" The UCC allows additional terms.<br /><br />At issue here are the terms Sam first added to his offer guaranteeing installation within 15 days. Windco’s acknowledgment of order altered this term guaranteeing installation \"within 60 days.\" As between merchants any additional term will become part of the contract unless the contract limits it to its own terms, there is an objection within 10 days, or the term materially alters the contract.<br /><br /> Here, while Sam wanted installation within 15 days, the question arises if this qualifies as a time is of the essence condition. Because Sam did not object upon receiving Windco’s acceptance with additional terms, it likely will be held that this is not a material term. And this term will become part of the contract.<br /><br /> Shipping cost language will not be a material term as \"shipping costs are customarily borne by the buyer.\"<br /><br /> Warranty disclaimers are valid if conspicuous and use the term merchantability. <br /><br />Therefore, unless a court finds the installation date guaranty to be a material term, all of these terms will become part of the contract."	
+					]
+				},
+				"consideration": {
+					"def":[
+						"Consideration is a legally sufficient, bargained-for exchange."   
+					],
+					"hypo": "Sam, a commercial builder, saw a Windco advertisement and mailed an order for thirty window frames, at $100 per frame, for a total order of $3,000.",
+					"samples": [
+						"<b>Consideration</b><br /><br /> Consideration is a legally sufficient, bargained-for exchange.<br /><br /> Here, there appear to be no consideration issues as Sam is to pay money, Windco is to provide window frames which neither were legally obligated to do."	
+					]
+				},
+				"writing_needed": {
+					"def":[
+						"Under the statute of frauds certain contracts must be evidenced by a writing to be enforceable. Contracts for goods of $500 or more fall under the statute of frauds."   
+					],
+					"hypo": "Sam, a commercial builder, saw a Windco advertisement and mailed an order for thirty window frames, at $100 per frame, for a total order of $3,000.",
+					"samples": [
+						"<b>Defenses-Statute of Frauds (SOF)</b><br /><br /> Under the statute of frauds certain contracts must be evidenced by a writing to be enforceable. Contracts for goods of $500 or more fall under the statute of frauds. Such contracts can be taken out of the statute of frauds by performance. Facts here state \"Windco installed the windo[ws].\" Therefore, this contract can be taken out of the SOF.<br /><br /> In any case, because there are documents authenticated by both parties (mail order form by Sam & acknowledgment of order by Windco) that are writings sufficient to bring the contract within the statute of frauds.<br /><br /> Therefore, the statute of frauds will no[t] prevent this contract from being enforceable.<br /><br /><b>My Notes:</b> SOF should not be discussed if contract is in writing."	
+					]
+				},
+				"defense_unconsionable": {
+					"def":[
+						"Unconscionability arises if there can be shown both procedural and substantive unconscionability."   
+					],
+					"hypo": "Finally, the form stated, \"Contract of Sale Subject to Terms Contained Herein.\"",
+					"samples": [
+						"<b>Unconscionability</b><br /><br /> Unconscionability arises if there can be shown both procedural and substantive unconscionability.<br /><br /> Here, Windco's form stated \"contract of sale subject to terms herein.\" Sam may attempt to claim this is substantively unconscionable, however to be procedurally unconscionable a party must show a lack of bargaining power. Nothing in the facts indicates that Sam could not have purchased window frames elsewhere. Further, to be substantively unconscionable the term must be one-sided. On these facts there is no indication Windco was greatly or significantly in a position to make such a windfall.<br /><br /> Therefore, unconscionability will fail as a defense.<br /><br /> There is a valid enforceable contract."	
+					]
+				},
+				"contract_terms": {
+					"def":[
+						""   
+					],
+					"hypo": "Windco installed the windows 55 days after the order was placed and Sam incurred several delay-related expenses.",
+					"samples": [
+						"<b>Terms and Conditions</b><br /><br />As shown above Windco performed by installing the windows. This condition precedent was fulfilled. It therefore falls upon Sam to meet his obligation or be in breach."	
+					]
+				},
+				"breach": {
+					"def":[
+						"When one does not fulfill their obligation under a contract or excuse a condition they are in breach."   
+					],
+					"hypo": "Windco installed the windows 55 days after the order was placed and Sam incurred several delay-related expenses. Windco later submitted a bill for the full amount shown on the \"Acknowledgment of Order\" form. Sam refused to pay the $200 shipping charges. He also discovered that because of a manufacturing defect, the glass in the windows did not fit snugly, permitting rain to leak through.<br /><br /> Windco sued Sam for the full price shown on the \"Acknowledgment of Order\" form. Sam counterclaimed against Windco for damages resulting from the delayed installation and unmerchantable quality of the windows.",
+					"samples": [
+						"<b>Breach</b><br /><br /> When one does not fulfill their obligation under a contract or excuse a condition they are in breach.<br /><br /> Here, Sam's refusal to pay the $200 shipping fee is a breach. As noted above, this term became part of the contract because as shown by the usage in trade such a cost is \"borne by the buyer.\" Sam must pay the $200.<br /><br /> At issue here is the disclaimer of warranty discussed above. Often disclaimers of warranty can be material. However, as shown above, this disclaimer met the requirement of \"bold & conspicuous\" type and expressly mentioned \"merchantability and fitness.\"<br /><br /> Therefore, Sam will have no claim under either warranty or merchantability claim or a warranty of fitness for a particular purpose. In fact, Sam did not indicate a particular purpose at time of contracting so as to become a basis of the bargain."	
+					]
+				},
+				"remedy_non_breaching_party": {
+					"def":[
+						""   
+					],
+					"hypo": "Windco installed the windows 55 days after the order was placed and Sam incurred several delay-related expenses. Windco later submitted a bill for the full amount shown on the \"Acknowledgment of Order\" form. Sam refused to pay the $200 shipping charges. He also discovered that because of a manufacturing defect, the glass in the windows did not fit snugly, permitting rain to leak through.<br /><br /> Windco sued Sam for the full price shown on the \"Acknowledgment of Order\" form. Sam counterclaimed against Windco for damages resulting from the delayed installation and unmerchantable quality of the windows.",
+					"samples": [
+						"<b>Remedies</b><br /><br /> As discussed above, Windco will receive the full contract price plus the $200 shipping fee.<br /><br /> However, if Sam can demonstrate that the late installation did cause the \"several delay-related expenses\" th[at] he claims this will be considered a minor breach (usually timely performance is not a major breach and, as shown above, this contract does not qualify as a \"time is of the essence\" contract).<br /><br /> Therefore, Sam will be able to offset the delay-related costs against the contract price, thus reducing his payment by that amount, because Windco will be found to have substantially performed. The court abhors a waste and will reduce Sam’s debt by the difference between what the building now is worth and what it would have been worth if the contract was fulfilled as expected."	
+					]
+				}
 			}
 		}
 	]	

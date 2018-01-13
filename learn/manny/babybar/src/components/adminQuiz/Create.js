@@ -84,7 +84,6 @@ class AdminQuizNewSubCategory extends Component {
 	}
 	
 	render() {
-		console.log(this.props);
 		return (
 			<form onSubmit={this.submitToFirebase.bind(this)}>
 				<div className="row">

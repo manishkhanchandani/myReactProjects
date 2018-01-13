@@ -21,7 +21,6 @@ class Import1 extends Component {
 				name: 'Torts'
 			}
 		};
-		console.log('subjects are ', subjects);
 		var url = FirebaseConstant.basePath + '/quiz/subjects';
 		firebaseDatabase.ref(url).set(subjects);
 	}
