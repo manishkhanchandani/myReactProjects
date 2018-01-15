@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
 import {utubeIDGrabber} from '../utilities/functions.js';
+import * as firebase from 'firebase';
 import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 import VideosCategory from './VideosCategory';
-
-
-const API_KEY = 'AIzaSyBhpHK-ve2s0ynnr8og8Zx0S69ttEFpDKk';
+import searchYouTube from 'youtube-api-search';
 
 
 
@@ -20,10 +19,13 @@ class Videos extends Component {
 			videoStarring: '',
 			videoDirector: '',
 			videoMovieType: '',
-			category_id: '',
-			subcategory_id: '',
+			videoThumbnail: '',
+			videoYear: '',
+			videoMaturityRatings: '',
+			isFeatured: false,
 			error: null,
-			categories: null
+			categories: null,
+			videoDetails: null
 		};
 	}
 	
@@ -31,21 +33,26 @@ class Videos extends Component {
 		
 	}
 	
-	getVideoDetails(q) {
-		/*console.log('q is ', q);
-		var request = gapi.client.youtube.search.list({
-			q: q,
-			part: 'snippet',
-			type: 'video',
-			maxResults: 1
-		});
-		request.execute(function(response) {
-			console.log('response is ', response);
-		});*/
-	}
+	getVideoDetails(term) {
+		if (!term) return;
+		console.log('term is ', term, ', key is ', FirebaseConstant.configFb.apiKey);
+		searchYouTube({key: FirebaseConstant.configFb.apiKey, term: term, maxResults: 1}, (videos) => {
+            console.log('videos: ', videos);
+			if (!videos[0]) {
+				this.setState({videoDetails: null});
+				return;
+			}
+			let videoDetails = videos[0];
+			console.log('videoDetails: ', videoDetails);
+			let obj = {};
+			obj.videoId = videoDetails.id.videoId;
+			obj.description = videoDetails.snippet.description;
+			obj.publishedAt = videoDetails.snippet.publishedAt;
+			obj.imageUrl = videoDetails.snippet.thumbnails.high.url;
+			obj.title = videoDetails.snippet.title;
+			this.setState({videoDetails: obj, videoTitle: obj.title, videoDescription: obj.description, videoThumbnail: obj.imageUrl});
 
-	getRelatedVideos() {
-		
+        });	
 	}
 
 	submitFrm(e) {
@@ -69,8 +76,34 @@ class Videos extends Component {
 		obj.videoStarring = this.state.videoStarring;
 		obj.videoDirector = this.state.videoDirector;
 		obj.videoMovieType = this.state.videoMovieType;
-		var url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/videos/' + this.state.category_id + '/' + this.state.subcategory_id;
-		firebaseDatabase.ref(url).push(obj);
+		obj.isFeatured = this.state.isFeatured;
+		let current = firebase.database.ServerValue.TIMESTAMP;
+		obj.created_dt = current;
+		console.log('obj is ', obj);
+		return;
+		var url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/videos';
+		console.log('url is ', url);
+		var uniqueID = firebaseDatabase.ref(url).push(obj).key;
+		console.log('uniqueId is ', uniqueID);
+		if (!this.state.categories) return;
+		
+		let catUrl = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/categories';
+		console.log('catUrl: ', catUrl);
+		for (let k in this.state.categories) {
+			console.log('k is ', k);
+			let tmp = k.split('|');
+			console.log('tmp is ', tmp);
+			let cat = tmp[0];
+			let subcat = null;
+			console.log('lenght is ', tmp.length);
+			if (tmp.length === 2) {
+				subcat = tmp[1];
+				firebaseDatabase.ref(catUrl).child(cat).child('subcategories').child(subcat).child('videos').child(uniqueID).set(current);
+			} else {
+				firebaseDatabase.ref(catUrl).child(cat).child('videos').child(uniqueID).set(current);
+			}
+			
+		}
 	}
 
 	changeVideoUrl(e) {
@@ -83,17 +116,18 @@ class Videos extends Component {
 	}
 	
 	chooseCategory(e) {
-		console.log(e.target.value);
+		this.setState({categories: e});
 	}
 
 	render() {
+		console.log('this state: ', this.state);
 		return (
 			<div className="container">
 				<div className="row">
 					<div className="col-md-6">
 						<h3>Add Videos</h3>
 						<form onSubmit={this.submitFrm.bind(this)}>
-							<VideosCategory />
+							<VideosCategory chooseCategory={this.chooseCategory.bind(this)} />
 							<div className="form-group">
 								<label>Youtube Video URL / ID</label>
 								<input type="text" className="form-control" placeholder="Enter Video ID or URL" value={this.state.videoInput} onChange={this.changeVideoUrl.bind(this)} />
@@ -106,7 +140,7 @@ class Videos extends Component {
 							</div>
 							<div className="form-group">
 								<label>Description</label>
-								<textarea className="form-control" placeholder="Enter Description" value={this.state.videoDescription} onChange={(e) => {
+								<textarea className="form-control" placeholder="Enter Description" rows="5" value={this.state.videoDescription} onChange={(e) => {
 									this.setState({videoDescription: e.target.value});	
 								}} />
 							</div>
@@ -144,6 +178,12 @@ class Videos extends Component {
 								<label>Movie Thumbnail URL</label>
 								<input type="text" className="form-control" placeholder="Enter Thumbnail" value={this.state.videoThumbnail} onChange={(e) => {
 									this.setState({videoThumbnail: e.target.value});	
+								}} />
+							</div>
+							<div className="form-group">
+								<label>Featured Video</label>
+								<input type="checkbox" onClick={(e) => {
+									this.setState({isFeatured: e.target.checked});	
 								}} />
 							</div>
 							<br />

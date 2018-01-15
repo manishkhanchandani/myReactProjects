@@ -6,6 +6,7 @@ import Home from './Home.js'
 import Create from './Create.js';
 import Categories from './Categories.js';
 import Videos from './Videos.js';
+import Multiselect from './Multiselect';
 
 class MyFlixLayout extends Component {
 	render() {
@@ -18,6 +19,7 @@ class MyFlixLayout extends Component {
 				<Route exact={true} path="/create" component={Create} />
 				<Route exact={true} path="/manage/:list/categories" component={Categories} />
 				<Route exact={true} path="/manage/:list/videos" component={Videos} />
+				<Route exact={true} path="/test1" component={Multiselect} />
 			</div>
 			</Router>
 		);

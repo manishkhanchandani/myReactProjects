@@ -3,9 +3,7 @@ import {utubeIDGrabber} from '../utilities/functions.js';
 import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 import {withRouter} from 'react-router';
 import Select from 'react-select';
-import '../common/react-select.css';
-
-
+import '../common/react-select/react-select.css';
 
 class VideosCategory extends Component {
 	constructor(props) {
@@ -17,6 +15,7 @@ class VideosCategory extends Component {
 			crazy: false,
 			stayOpen: true,
 			value: [],
+			realValues: {},
 			categories: null,
 			showCategories: null,
 			rtl: false
@@ -48,9 +47,10 @@ class VideosCategory extends Component {
 					for (let j in obj.subcategories) {
 						let subObject = obj.subcategories[j];
 						subObject._id = j;
+						console.log('subObject: ', subObject);
 						obj.subcat.push(subObject);
+						showCategories.push({ label: '---- ' + subObject.subcategory, value: obj._id + '|' + subObject._id });
 					}
-					
 				}
 				myArray.push(obj);
 			}
@@ -64,21 +64,25 @@ class VideosCategory extends Component {
 	handleSelectChange (value) {
 		console.log('You\'ve selected:', value);
 		this.setState({ value });
-	}
-
-	toggleCheckbox (e) {
-		this.setState({
-			[e.target.name]: e.target.checked,
-		});
+		let obj = this.state.realValues;
+		if (!obj) obj = {};
+		let tmp = value.split(',');
+		if (!tmp) return;
+		
+		for (let i = 0; i < tmp.length; i++) {
+			obj[tmp[i]] = true;	
+		}
+		
+		this.props.chooseCategory(obj);
 	}
 
 	render() {
-		console.log('video category props: ', this.props);
-		console.log('video category is ', this.state);
 		
 		const { crazy, disabled, stayOpen, value } = this.state;
 		return (
 			<div className="section">
+				<div className="form-group">
+					<label>Choose Category / SubCategory</label>
 				{
 					this.state.showCategories &&
 					<Select
@@ -94,6 +98,7 @@ class VideosCategory extends Component {
 						value={value}
 					/>
 				}
+				</div>
 			</div>
 		);
 	}
