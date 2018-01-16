@@ -31,6 +31,10 @@ class Videos extends Component {
 		
 	}
 	
+	chooseCategory(val) {
+		this.setState({categories: val});
+	}
+	
 	getVideoDetails(q) {
 		/*console.log('q is ', q);
 		var request = gapi.client.youtube.search.list({
@@ -82,18 +86,19 @@ class Videos extends Component {
 		this.setState({videoInput: e.target.value, videoInputId: videoUrl});
 	}
 	
-	chooseCategory(e) {
-		console.log(e.target.value);
+	chooseCategory(val) {
+		console.log('val in video: ', val);
 	}
 
 	render() {
+		console.log('state var in video.js is ', this.state);
 		return (
 			<div className="container">
 				<div className="row">
 					<div className="col-md-6">
 						<h3>Add Videos</h3>
 						<form onSubmit={this.submitFrm.bind(this)}>
-							<VideosCategory />
+							<VideosCategory chooseCategory={this.chooseCategory.bind(this)} />
 							<div className="form-group">
 								<label>Youtube Video URL / ID</label>
 								<input type="text" className="form-control" placeholder="Enter Video ID or URL" value={this.state.videoInput} onChange={this.changeVideoUrl.bind(this)} />

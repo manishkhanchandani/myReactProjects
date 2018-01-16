@@ -3,7 +3,7 @@ import {utubeIDGrabber} from '../utilities/functions.js';
 import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 import {withRouter} from 'react-router';
 import Select from 'react-select';
-import '../common/react-select.css';
+import '../common/react-select/react-select.css';
 
 
 
@@ -19,7 +19,8 @@ class VideosCategory extends Component {
 			value: [],
 			categories: null,
 			showCategories: null,
-			rtl: false
+			rtl: false,
+			realValues: null
 		};
 	}
 	
@@ -49,6 +50,7 @@ class VideosCategory extends Component {
 						let subObject = obj.subcategories[j];
 						subObject._id = j;
 						obj.subcat.push(subObject);
+						showCategories.push({label: '---- ' + subObject.subcategory, value: obj._id + '|' + subObject._id});
 					}
 					
 				}
@@ -64,6 +66,18 @@ class VideosCategory extends Component {
 	handleSelectChange (value) {
 		console.log('You\'ve selected:', value);
 		this.setState({ value });
+		
+		let obj = this.state.realValues;
+		if (!obj) obj = {};
+		
+		let tmp = value.split(',');
+		if (!tmp) return;
+		
+		for (let i = 0; i < tmp.length; i++) {
+			obj[tmp[i]] = true;
+		}
+		this.props.chooseCategory(obj);
+		
 	}
 
 	toggleCheckbox (e) {
@@ -79,6 +93,8 @@ class VideosCategory extends Component {
 		const { crazy, disabled, stayOpen, value } = this.state;
 		return (
 			<div className="section">
+				<div className="form-group">
+					<label>Choose Category / SubCategory</label>
 				{
 					this.state.showCategories &&
 					<Select
@@ -94,6 +110,7 @@ class VideosCategory extends Component {
 						value={value}
 					/>
 				}
+				</div>
 			</div>
 		);
 	}
