@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
 import {utubeIDGrabber} from '../utilities/functions.js';
+import * as firebase from 'firebase';
 import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 import VideosCategory from './VideosCategory';
-
-
-const API_KEY = 'AIzaSyBhpHK-ve2s0ynnr8og8Zx0S69ttEFpDKk';
-
+import searchYouTube from 'youtube-api-search';
 
 
 class Videos extends Component {
@@ -20,6 +18,9 @@ class Videos extends Component {
 			videoStarring: '',
 			videoDirector: '',
 			videoMovieType: '',
+			videoMaturityRatings: '',
+			videoThumbnail: '',
+			videoTags: '',
 			category_id: '',
 			subcategory_id: '',
 			error: null,
@@ -35,9 +36,26 @@ class Videos extends Component {
 		this.setState({categories: val});
 	}
 	
-	getVideoDetails(q) {
-		/*console.log('q is ', q);
-		var request = gapi.client.youtube.search.list({
+	getVideoDetails(q) {		
+		if (!q) return;
+		searchYouTube({key: FirebaseConstant.configFb.apiKey, term: q, maxResults: 1}, (videos) => {
+            if (!videos[0]) {
+				return;	
+			}
+			
+			let videoDetails = videos[0];
+			let obj = {};
+			
+			obj.videoId = videoDetails.id.videoId;
+			obj.description = videoDetails.snippet.description;
+			obj.publishedAt = videoDetails.snippet.publishedAt;
+			obj.imageUrl = videoDetails.snippet.thumbnails.high.url;
+			obj.title = videoDetails.snippet.title;
+			
+			this.setState({videoTitle: obj.title, videoDescription: obj.description, videoThumbnail: obj.imageUrl});
+		});
+		
+		/*var request = gapi.client.youtube.search.list({
 			q: q,
 			part: 'snippet',
 			type: 'video',
@@ -73,8 +91,13 @@ class Videos extends Component {
 		obj.videoStarring = this.state.videoStarring;
 		obj.videoDirector = this.state.videoDirector;
 		obj.videoMovieType = this.state.videoMovieType;
-		var url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/videos/' + this.state.category_id + '/' + this.state.subcategory_id;
-		firebaseDatabase.ref(url).push(obj);
+		obj.videoMaturityRatings = this.state.videoMaturityRatings;
+		obj.videoThumbnail = this.state.videoThumbnail;
+		let current = firebase.database.ServerValue.TIMESTAMP;
+		obj.created_dt = current;
+		var url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/videos';
+		var unique_id = firebaseDatabase.ref(url).push(obj).key;
+		console.log('unique id is ', unique_id);
 	}
 
 	changeVideoUrl(e) {
@@ -84,10 +107,6 @@ class Videos extends Component {
 		let videoUrl = utubeIDGrabber(e.target.value);
 		this.getVideoDetails(videoUrl);
 		this.setState({videoInput: e.target.value, videoInputId: videoUrl});
-	}
-	
-	chooseCategory(val) {
-		console.log('val in video: ', val);
 	}
 
 	render() {
@@ -104,6 +123,12 @@ class Videos extends Component {
 								<input type="text" className="form-control" placeholder="Enter Video ID or URL" value={this.state.videoInput} onChange={this.changeVideoUrl.bind(this)} />
 							</div>
 							<div className="form-group">
+								<label>Movie Thumbnail URL</label>
+								<input type="text" className="form-control" placeholder="Enter Thumbnail" value={this.state.videoThumbnail} onChange={(e) => {
+									this.setState({videoThumbnail: e.target.value});	
+								}} />
+							</div>
+							<div className="form-group">
 								<label>Title *</label>
 								<input type="text" className="form-control" placeholder="Enter Title" value={this.state.videoTitle} onChange={(e) => {
 									this.setState({videoTitle: e.target.value});	
@@ -113,6 +138,12 @@ class Videos extends Component {
 								<label>Description</label>
 								<textarea className="form-control" placeholder="Enter Description" value={this.state.videoDescription} onChange={(e) => {
 									this.setState({videoDescription: e.target.value});	
+								}} />
+							</div>
+							<div className="form-group">
+								<label>Tags (Comma separated words for search purpose)</label>
+								<input type="text" className="form-control" placeholder="Enter Tags" value={this.state.videoTags} onChange={(e) => {
+									this.setState({videoTags: e.target.value});	
 								}} />
 							</div>
 							<div className="form-group">
@@ -143,12 +174,6 @@ class Videos extends Component {
 								<label>Maturity Ratings like TV-14 or TV-18</label>
 								<input type="text" className="form-control" placeholder="Enter Maturity Ratings" value={this.state.videoMaturityRatings} onChange={(e) => {
 									this.setState({videoMaturityRatings: e.target.value});	
-								}} />
-							</div>
-							<div className="form-group">
-								<label>Movie Thumbnail URL</label>
-								<input type="text" className="form-control" placeholder="Enter Thumbnail" value={this.state.videoThumbnail} onChange={(e) => {
-									this.setState({videoThumbnail: e.target.value});	
 								}} />
 							</div>
 							<br />
