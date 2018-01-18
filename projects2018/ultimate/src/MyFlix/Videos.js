@@ -4,7 +4,9 @@ import * as firebase from 'firebase';
 import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 import VideosCategory from './VideosCategory';
 import searchYouTube from 'youtube-api-search';
-
+import {Alert} from 'react-bootstrap';
+import {processRecords} from '../utilities/functions.js';
+import Paginator from '../utilities/Paginator.js';
 
 class Videos extends Component {
 	constructor(props) {
@@ -24,12 +26,27 @@ class Videos extends Component {
 			category_id: '',
 			subcategory_id: '',
 			error: null,
-			categories: null
+			categories: null,
+			videoList: null,
+			pageNumber: 1
 		};
 	}
 	
 	componentDidMount() {
-		
+		var url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/videos';
+		var ref = firebaseDatabase.ref(url);
+		ref.on('value', (snapshot) => {
+			let records = snapshot.val();
+			if (!records) return;
+			let myArray = [];
+			for (let key in records) {
+				let obj = records[key];
+				obj._id = key;
+				myArray.push(obj);
+			}
+			this.setState({videoList: myArray});
+		});
+			
 	}
 	
 	chooseCategory(val) {
@@ -54,25 +71,16 @@ class Videos extends Component {
 			
 			this.setState({videoTitle: obj.title, videoDescription: obj.description, videoThumbnail: obj.imageUrl});
 		});
-		
-		/*var request = gapi.client.youtube.search.list({
-			q: q,
-			part: 'snippet',
-			type: 'video',
-			maxResults: 1
-		});
-		request.execute(function(response) {
-			console.log('response is ', response);
-		});*/
 	}
-
-	getRelatedVideos() {
-		
+	
+	
+	onActivePageChange(page) {
+		this.setState({pageNumber: page});
 	}
 
 	submitFrm(e) {
 		e.preventDefault();
-		
+		this.setState({error: null});
 		if (!this.state.videoInput) {
 			this.setState({error: 'Missing Video Id or Video URL'});
 			return;
@@ -97,7 +105,25 @@ class Videos extends Component {
 		obj.created_dt = current;
 		var url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/videos';
 		var unique_id = firebaseDatabase.ref(url).push(obj).key;
-		console.log('unique id is ', unique_id);
+		
+		if (!this.state.categories) return;
+		
+		let catUrl = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/categories';
+		
+		for (let k in this.state.categories) {
+			let tmp = k.split('|');
+			let cat = tmp[0];
+			let subcat = null;
+			if (tmp.length === 2) {
+				subcat = tmp[1];
+				firebaseDatabase.ref(catUrl).child(cat).child('subcategories').child(subcat).child('videos').child(unique_id).set(current);
+			} else {
+				firebaseDatabase.ref(catUrl).child(cat).child('videos').child(unique_id).set(current);
+			}
+		}
+		
+		this.setState({error: 'Video Successfully added in the list.', videoInput: '', videoInputId: '', videoTitle: '', videoDescription: '', videoStarring: '', videoDirector: '', videoMovieType: '', videoMaturityRatings: '', videoThumbnail: '', videoTags: ''});
+		window.scrollTo(0, 0);
 	}
 
 	changeVideoUrl(e) {
@@ -111,11 +137,29 @@ class Videos extends Component {
 
 	render() {
 		console.log('state var in video.js is ', this.state);
+		
+		let myArrayConverted = null;
+		let paginationProps = null;
+		if (this.state.videoList) {
+			let obj = processRecords(this.state.videoList, '-created_dt', null, null, 25, this.state.pageNumber, this.onActivePageChange.bind(this));
+			myArrayConverted = obj.myArrayConverted;
+			paginationProps = obj.paginationProps;
+		}
+		
+		console.log('myArrayConverted: ', myArrayConverted);
+		console.log('paginationProps: ', paginationProps);
+		
 		return (
 			<div className="container">
 				<div className="row">
 					<div className="col-md-6">
 						<h3>Add Videos</h3>
+						{
+							this.state.error &&
+							<Alert bsStyle="warning">
+								{this.state.error}
+							</Alert>
+						}
 						<form onSubmit={this.submitFrm.bind(this)}>
 							<VideosCategory chooseCategory={this.chooseCategory.bind(this)} />
 							<div className="form-group">
@@ -182,6 +226,19 @@ class Videos extends Component {
 					</div>
 					<div className="col-md-6">
 						<h3>View Videos</h3>
+						{
+							!myArrayConverted && 
+							<div>
+								No Record Found.
+							</div>
+						}
+						{
+							myArrayConverted && myArrayConverted.map((value, index) => {
+								return	<div key={index}>{value.videoTitle}</div> 			 
+							})	
+						}
+						<hr />
+						<Paginator {...paginationProps} />
 					</div>
 				</div>
 			</div>
