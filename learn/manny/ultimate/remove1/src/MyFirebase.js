@@ -10,12 +10,10 @@ var configFb = {
 	messagingSenderId: "674827815611"
   };
 
-
 //FirebaseConstant.configFb.apiKey
 export const FirebaseConstant = {
 	basePath: config.firebasePathName[config.site],
-	configFb: configFb,
-	defaultListId: '-L2OQwPD_BFG4iayeVax'
+	configFb: configFb
 };
 
 export const firebaseApp = firebase.initializeApp(configFb);

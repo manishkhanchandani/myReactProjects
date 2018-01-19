@@ -4,9 +4,8 @@ import * as firebase from 'firebase';
 import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 import VideosCategory from './VideosCategory';
 import searchYouTube from 'youtube-api-search';
-import {Alert} from 'react-bootstrap';
-import {processRecords} from '../utilities/functions.js';
-import Paginator from '../utilities/Paginator.js';
+
+
 
 class Videos extends Component {
 	constructor(props) {
@@ -20,67 +19,45 @@ class Videos extends Component {
 			videoStarring: '',
 			videoDirector: '',
 			videoMovieType: '',
-			videoMaturityRatings: '',
 			videoThumbnail: '',
-			videoTags: '',
-			category_id: '',
-			subcategory_id: '',
+			videoYear: '',
+			videoMaturityRatings: '',
+			isFeatured: false,
 			error: null,
 			categories: null,
-			videoList: null,
-			pageNumber: 1
+			videoDetails: null
 		};
 	}
 	
 	componentDidMount() {
-		var url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/videos';
-		var ref = firebaseDatabase.ref(url);
-		ref.on('value', (snapshot) => {
-			let records = snapshot.val();
-			if (!records) return;
-			let myArray = [];
-			for (let key in records) {
-				let obj = records[key];
-				obj._id = key;
-				myArray.push(obj);
-			}
-			this.setState({videoList: myArray});
-		});
-			
+		
 	}
 	
-	chooseCategory(val) {
-		this.setState({categories: val});
-	}
-	
-	getVideoDetails(q) {		
-		if (!q) return;
-		searchYouTube({key: FirebaseConstant.configFb.apiKey, term: q, maxResults: 1}, (videos) => {
-            if (!videos[0]) {
-				return;	
+	getVideoDetails(term) {
+		if (!term) return;
+		console.log('term is ', term, ', key is ', FirebaseConstant.configFb.apiKey);
+		searchYouTube({key: FirebaseConstant.configFb.apiKey, term: term, maxResults: 1}, (videos) => {
+            console.log('videos: ', videos);
+			if (!videos[0]) {
+				this.setState({videoDetails: null});
+				return;
 			}
-			
 			let videoDetails = videos[0];
+			console.log('videoDetails: ', videoDetails);
 			let obj = {};
-			
 			obj.videoId = videoDetails.id.videoId;
 			obj.description = videoDetails.snippet.description;
 			obj.publishedAt = videoDetails.snippet.publishedAt;
 			obj.imageUrl = videoDetails.snippet.thumbnails.high.url;
 			obj.title = videoDetails.snippet.title;
-			
-			this.setState({videoTitle: obj.title, videoDescription: obj.description, videoThumbnail: obj.imageUrl});
-		});
-	}
-	
-	
-	onActivePageChange(page) {
-		this.setState({pageNumber: page});
+			this.setState({videoDetails: obj, videoTitle: obj.title, videoDescription: obj.description, videoThumbnail: obj.imageUrl});
+
+        });	
 	}
 
 	submitFrm(e) {
 		e.preventDefault();
-		this.setState({error: null});
+		
 		if (!this.state.videoInput) {
 			this.setState({error: 'Missing Video Id or Video URL'});
 			return;
@@ -99,31 +76,34 @@ class Videos extends Component {
 		obj.videoStarring = this.state.videoStarring;
 		obj.videoDirector = this.state.videoDirector;
 		obj.videoMovieType = this.state.videoMovieType;
-		obj.videoMaturityRatings = this.state.videoMaturityRatings;
-		obj.videoThumbnail = this.state.videoThumbnail;
+		obj.isFeatured = this.state.isFeatured;
 		let current = firebase.database.ServerValue.TIMESTAMP;
 		obj.created_dt = current;
+		console.log('obj is ', obj);
+		return;
 		var url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/videos';
-		var unique_id = firebaseDatabase.ref(url).push(obj).key;
-		
+		console.log('url is ', url);
+		var uniqueID = firebaseDatabase.ref(url).push(obj).key;
+		console.log('uniqueId is ', uniqueID);
 		if (!this.state.categories) return;
 		
 		let catUrl = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/categories';
-		
+		console.log('catUrl: ', catUrl);
 		for (let k in this.state.categories) {
+			console.log('k is ', k);
 			let tmp = k.split('|');
+			console.log('tmp is ', tmp);
 			let cat = tmp[0];
 			let subcat = null;
+			console.log('lenght is ', tmp.length);
 			if (tmp.length === 2) {
 				subcat = tmp[1];
-				firebaseDatabase.ref(catUrl).child(cat).child('subcategories').child(subcat).child('videos').child(unique_id).set(current);
+				firebaseDatabase.ref(catUrl).child(cat).child('subcategories').child(subcat).child('videos').child(uniqueID).set(current);
 			} else {
-				firebaseDatabase.ref(catUrl).child(cat).child('videos').child(unique_id).set(current);
+				firebaseDatabase.ref(catUrl).child(cat).child('videos').child(uniqueID).set(current);
 			}
+			
 		}
-		
-		this.setState({error: 'Video Successfully added in the list.', videoInput: '', videoInputId: '', videoTitle: '', videoDescription: '', videoStarring: '', videoDirector: '', videoMovieType: '', videoMaturityRatings: '', videoThumbnail: '', videoTags: ''});
-		window.scrollTo(0, 0);
 	}
 
 	changeVideoUrl(e) {
@@ -134,43 +114,23 @@ class Videos extends Component {
 		this.getVideoDetails(videoUrl);
 		this.setState({videoInput: e.target.value, videoInputId: videoUrl});
 	}
+	
+	chooseCategory(e) {
+		this.setState({categories: e});
+	}
 
 	render() {
-		console.log('state var in video.js is ', this.state);
-		
-		let myArrayConverted = null;
-		let paginationProps = null;
-		if (this.state.videoList) {
-			let obj = processRecords(this.state.videoList, '-created_dt', null, null, 5, this.state.pageNumber, this.onActivePageChange.bind(this));
-			myArrayConverted = obj.myArrayConverted;
-			paginationProps = obj.paginationProps;
-		}
-		
-		console.log('myArrayConverted: ', myArrayConverted);
-		console.log('paginationProps: ', paginationProps);
-		
+		console.log('this state: ', this.state);
 		return (
 			<div className="container">
 				<div className="row">
 					<div className="col-md-6">
 						<h3>Add Videos</h3>
-						{
-							this.state.error &&
-							<Alert bsStyle="warning">
-								{this.state.error}
-							</Alert>
-						}
 						<form onSubmit={this.submitFrm.bind(this)}>
 							<VideosCategory chooseCategory={this.chooseCategory.bind(this)} />
 							<div className="form-group">
 								<label>Youtube Video URL / ID</label>
 								<input type="text" className="form-control" placeholder="Enter Video ID or URL" value={this.state.videoInput} onChange={this.changeVideoUrl.bind(this)} />
-							</div>
-							<div className="form-group">
-								<label>Movie Thumbnail URL</label>
-								<input type="text" className="form-control" placeholder="Enter Thumbnail" value={this.state.videoThumbnail} onChange={(e) => {
-									this.setState({videoThumbnail: e.target.value});	
-								}} />
 							</div>
 							<div className="form-group">
 								<label>Title *</label>
@@ -180,14 +140,8 @@ class Videos extends Component {
 							</div>
 							<div className="form-group">
 								<label>Description</label>
-								<textarea className="form-control" placeholder="Enter Description" value={this.state.videoDescription} onChange={(e) => {
+								<textarea className="form-control" placeholder="Enter Description" rows="5" value={this.state.videoDescription} onChange={(e) => {
 									this.setState({videoDescription: e.target.value});	
-								}} />
-							</div>
-							<div className="form-group">
-								<label>Tags (Comma separated words for search purpose)</label>
-								<input type="text" className="form-control" placeholder="Enter Tags" value={this.state.videoTags} onChange={(e) => {
-									this.setState({videoTags: e.target.value});	
 								}} />
 							</div>
 							<div className="form-group">
@@ -220,38 +174,24 @@ class Videos extends Component {
 									this.setState({videoMaturityRatings: e.target.value});	
 								}} />
 							</div>
+							<div className="form-group">
+								<label>Movie Thumbnail URL</label>
+								<input type="text" className="form-control" placeholder="Enter Thumbnail" value={this.state.videoThumbnail} onChange={(e) => {
+									this.setState({videoThumbnail: e.target.value});	
+								}} />
+							</div>
+							<div className="form-group">
+								<label>Featured Video</label>
+								<input type="checkbox" onClick={(e) => {
+									this.setState({isFeatured: e.target.checked});	
+								}} />
+							</div>
 							<br />
 							<button type="submit" className="btn btn-primary form-control">Add Video</button>
 						</form>
 					</div>
 					<div className="col-md-6">
 						<h3>View Videos</h3>
-						<br />
-						{
-							!myArrayConverted && 
-							<div>
-								No Record Found.
-							</div>
-						}
-						{
-							myArrayConverted &&
-							<ul className="list-group">
-								{
-									myArrayConverted.map((value, index) => {
-														  console.log(value);
-										let url = '/'+this.props.match.params.list+'/detail/' + value._id;
-										return	<li key={index} className="list-group-item">
-										<div className="row">
-											<div className="col-md-4"><img src={value.videoThumbnail} className="img-responsive img-thumbnail" alt="" /></div>
-											<div className="col-md-8"><a href={url} target="_blank"><b>{value.videoTitle}</b></a></div>
-										</div>
-										</li>		 
-									})
-								}
-							</ul>
-						}
-						<hr />
-						<Paginator {...paginationProps} />
 					</div>
 				</div>
 			</div>
