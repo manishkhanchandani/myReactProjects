@@ -1,6 +1,27 @@
 {
 	"key": "consequential_damages",
 	"name": "Consequential Damages?",
+	"mbe": [
+		{
+			"key": "rule1",
+			"name": "Rule 1: Recovery of consequential damages",
+			"description": "The recovery of consequential damages, however, requires more than a determination of breach. Additional requirements, such as foreseeability of the damages, must be satisfied. Restatement (Second) of Contracts $$ 346, 351.",
+			"examples": [
+				{
+					"question": "On March 1, a mechanic contracted to repair a textile company's knitting machine by March 6. On March 2, the textile company contracted to manufacture and deliver specified cloth to a customer on March 15. The textile company knew that it would have to use the machine then under repair to perform this contract. Because the customer's order was for a rush job, the customer and the textile company included in their contract a liquidated damages clause, providing that the textile company would pay the customer $5,000 for each day's delay in delivery after March 15. <br /><br />The mechanic was inexcusably five days late in repairing the machine, and, as a result, the textile company was five days late in delivering the cloth to the customer. The textile company paid $25,000 to the customer as liquidated damages and then sued the mechanic for $25,000. Both the mechanic and the textile company knew when making their contract on March 1 that under ordinary circumstances the textile company would sustain few or no damages of any kind as a result of a five-day delay in the machine repair. <br /><br />Assuming that the $5,000-per-day liquidated damages clause in the contract between the textile company and the customer is valid, which of the following arguments will serve as the mechanic's best defense to the textile company's action?",
+					"answerOptions": [
+						"Time was not of the essence in the contract between the mechanic and the textile company.",
+						"The mechanic had no reason to foresee on March 1 that the customer would suffer consequential damages in the amount of $25,000.",
+						"By entering into the contract with the customer while knowing that its knitting machine was being repaired, the textile company assumed the risk of any delay loss to the customer.",
+						"In all probability, the liquidated damages paid by the textile company to the customer are not the same amount as the actual damages sustained by the customer in consequence of the late delivery of the cloth."
+					],
+					"correct": 1,
+					"subtopic": "Remedies",
+					"explanation": "Answer A is incorrect. The mechanic contracted to complete the repairs by a specified time. His failure to execute the repairs within the time set forth in the contract constituted a breach entitling the textile company to damages. The recovery of consequential damages, however, requires more than a determination of breach. Additional requirements, such as foreseeability of the damages, must be satisfied. Restatement (Second) of Contracts §§ 346, 351.<br /><br />Answer B is correct. Assuming other requirements are met, an aggrieved party is entitled to recover consequential damages only if they were reasonably foreseeable to the breaching party. The textile company did not inform the mechanic of its contract with the customer, and thus the mechanic had no reason to know what impact his failure to timely perform would have on the textile company's relationship with its customer. Restatement (Second) of Contracts § 351.<br /><br />Answer C is incorrect. The facts are insufficient to support this conclusion since the textile company had contracted with the mechanic for repairs to be completed within a time frame that would have allowed the textile company to timely fulfill its contractual obligations to the customer.<br /><br />Answer D is incorrect. There are insufficient facts to support this conclusion. No information is provided concerning the actual damages sustained by the customer. Moreover, the facts assume the validity of the liquidated damages provision."
+				}
+			]
+		}
+	],
 	"next": {
 		"key": "",
 		"name": "",
