@@ -17,7 +17,27 @@
 						"lose, because the buyer's October 1 statement to the seller was neither a repudiation nor a present breach of the June 1 contract."
 					],
 					"correct": 3,
+					"subtopic": "Performance, Breach, and Discharge",
 					"explanation": "Answer D is correct. Under the doctrine of anticipatory repudiation, an unequivocal statement of unwillingness or inability to perform a future contractual obligation, if material, may be treated as a total breach of that obligation and give rise to a right to immediately recover damages for that breach. In order to amount to a repudiation, however, the statement must be unequivocal; a statement that merely expresses doubt over a party's ability or willingness to perform is not sufficient. The buyer's October 1 statement to the seller that he did not intend to buy the ranch unless legally obligated to do so may have given rise to insecurity over his willingness to perform the contract, but it was not a repudiation. Nor was it a breach, since performance was not due until December 1.<br /><br />A is incorrect because the buyer's statement was not a clear manifestation of a prospective unwillingness to close the contract on December 1. B is incorrect because grounds for insecurity are not alone sufficient to entitle the seller to treat the contract as breached. Although C is partially correct in that the buyer's obligation is not due until the closing date, the seller could have brought suit on October 15 if the buyer's statement had been sufficiently unequivocal to amount to a repudiation of the contract."
+				}
+			]
+		},
+		{
+			"key": "rule2",
+			"name": "Rule 2: Non Repudiating Party Materially Relies on Repudiation",
+			"description": "If the effect of a repudiation is to deprive the non-repudiating party of a substantial part of the contract, it gives the non-repudiating party the right to terminate the contract and pursue remedies for total breach. The repudiating party, however, is still free to retract the repudiation and reinstate the contract if done before the non-repudiating party either materially relies on the repudiation or indicates that she considers the repudiation to be final.",
+			"examples": [
+				{
+					"question": "On June 1, a seller and a buyer contracted in writing for the sale and purchase of the seller's cattle ranch (a large single tract) and to close the transaction on December 1.<br /><br />The buyer unequivocally repudiated the contract on August 1. On August 15, the seller urged the buyer to change her mind and proceed with the scheduled closing on December 1. On October 1, having heard nothing further from the buyer, the seller sold and conveyed his ranch to a rancher without notice to the buyer. On December 1, the buyer attempted to close under the June 1 contract by tendering the full purchase price to the seller. The seller rejected the tender.<br /><br />If the buyer sues the seller for breach of contract, the buyer will probably",
+					"answerOptions": [
+						"win, because the seller failed to seasonably notify the buyer of any pending sale to the rancher.",
+						"win, because the seller waived the buyer's August 1 repudiation by urging her to retract it on August 15.",
+						"lose, because the buyer did not retract her repudiation before the seller materially changed his position in reliance thereon by selling the ranch to the rancher.",
+						"lose, because acceptance of the purchase price by the seller was a concurrent condition to the seller's obligation to convey the ranch to the buyer on December 1."
+					],
+					"correct": 2,
+					"subtopic": "Performance, Breach, and Discharge",
+					"explanation": "Answer C is correct. If the effect of a repudiation is to deprive the non-repudiating party of a substantial part of the contract, it gives the non-repudiating party the right to terminate the contract and pursue remedies for total breach. The repudiating party, however, is still free to retract the repudiation and reinstate the contract if done before the non-repudiating party either materially relies on the repudiation or indicates that she considers the repudiation to be final. Although the buyer attempted to retract his repudiation on December 1, his repudiation was not timely because the seller had already materially relied on the repudiation on October 1 by conveying his ranch to the rancher.<br /><br />A is incorrect because the seller did not have to give notice in order for his reliance to preclude retraction of the repudiation. B is incorrect because the seller's efforts to preserve the contractual relationship cannot be construed as waiving any right the seller had to pursue remedies for breach of contract. D is incorrect because the seller is not obligated to convey the ranch to the buyer if the buyer has repudiated the contract and the time for retracting the repudiation has passed."
 				}
 			]
 		}	

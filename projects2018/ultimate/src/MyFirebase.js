@@ -14,7 +14,8 @@ var configFb = {
 //FirebaseConstant.configFb.apiKey
 export const FirebaseConstant = {
 	basePath: config.firebasePathName[config.site],
-	configFb: configFb
+	configFb: configFb,
+	defaultListId: '-L2OQwPD_BFG4iayeVax'
 };
 
 export const firebaseApp = firebase.initializeApp(configFb);

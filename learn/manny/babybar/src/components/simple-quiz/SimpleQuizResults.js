@@ -98,10 +98,10 @@ class SimpleQuizResults extends Component {
 						this.props.quizDetails.id && 
 						<div><a href="" onClick={(e) => {e.preventDefault(); this.setState({deleteModal: true})}}>Delete This Record</a>
 							<DeleteModal message={`id: ${this.props.quizDetails.id}`} closeFn={this.close.bind(this)} deleteRecordFn={this.deleteRecord.bind(this)} deleteModal={this.state.deleteModal} details={this.props.quizDetails} />  
+							<br />
+							<b>Created On:</b> {dt}
 						</div>
 					}
-					<br />
-					<b>Created On:</b> {dt})
 					</div>
 				</div>
 				

@@ -141,7 +141,7 @@ class Videos extends Component {
 		let myArrayConverted = null;
 		let paginationProps = null;
 		if (this.state.videoList) {
-			let obj = processRecords(this.state.videoList, '-created_dt', null, null, 25, this.state.pageNumber, this.onActivePageChange.bind(this));
+			let obj = processRecords(this.state.videoList, '-created_dt', null, null, 5, this.state.pageNumber, this.onActivePageChange.bind(this));
 			myArrayConverted = obj.myArrayConverted;
 			paginationProps = obj.paginationProps;
 		}
@@ -226,6 +226,7 @@ class Videos extends Component {
 					</div>
 					<div className="col-md-6">
 						<h3>View Videos</h3>
+						<br />
 						{
 							!myArrayConverted && 
 							<div>
@@ -233,9 +234,21 @@ class Videos extends Component {
 							</div>
 						}
 						{
-							myArrayConverted && myArrayConverted.map((value, index) => {
-								return	<div key={index}>{value.videoTitle}</div> 			 
-							})	
+							myArrayConverted &&
+							<ul className="list-group">
+								{
+									myArrayConverted.map((value, index) => {
+														  console.log(value);
+										let url = '/'+this.props.match.params.list+'/detail/' + value._id;
+										return	<li key={index} className="list-group-item">
+										<div className="row">
+											<div className="col-md-4"><img src={value.videoThumbnail} className="img-responsive img-thumbnail" alt="" /></div>
+											<div className="col-md-8"><a href={url} target="_blank"><b>{value.videoTitle}</b></a></div>
+										</div>
+										</li>		 
+									})
+								}
+							</ul>
 						}
 						<hr />
 						<Paginator {...paginationProps} />
