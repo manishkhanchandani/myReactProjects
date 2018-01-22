@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 import {Link} from 'react-router-dom';
 
+
 class Categories extends Component {
 
 	constructor(props) {
@@ -12,10 +13,10 @@ class Categories extends Component {
 			categories: null,
 			error: null,
 			category_id: null,
-			subcategory: ''
+			subcategory: '' // empty string in form
 		};
 	}
-	
+	// when page load
 	componentDidMount() {
 		this.getCategories();	
 	}
@@ -31,9 +32,11 @@ class Categories extends Component {
 			}
 			let records = snapshot.val();
 			let myArray = [];
+			
 			for (let k in records) {
-				let obj = records[k];
+				let obj = records[k]; 
 				obj._id = k;
+				
 				if (obj.subcategories) {
 					obj.subcat = [];
 					for (let j in obj.subcategories) {
@@ -57,7 +60,7 @@ class Categories extends Component {
 		var obj = {};
 		obj.category = this.state.category;
 		
-		var url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/categories';
+		var url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/categories';// when routing using this format
 		firebaseDatabase.ref(url).push(obj);
 		this.setState({category: ''});
 		this.getCategories();
@@ -65,7 +68,7 @@ class Categories extends Component {
 	
 	submitSubCatToFirebase(e) {
 		e.preventDefault();
-        
+		
 		if (!this.state.subcategory) {
 			return;	
 		}
@@ -86,16 +89,14 @@ class Categories extends Component {
 				<h3>Categories</h3>
 				<form onSubmit={this.submitToFirebase.bind(this)}>
 					<div className="form-group">
-						<input type="text" className="form-control" placeholder="Enter Category Name" value={this.state.category} onChange={(e) => {
-							this.setState({category: e.target.value});	
-						}} />
+						<label>Category Name</label>
+						<input type="text" className="form-control" placeholder="Enter Category Name" value={this.state.category} onChange={(e) => {this.setState({category: e.target.value});}} />
 						<br />
 						<button type="submit" className="btn btn-primary form-control">Create New Category</button>
 					</div>
 				</form>
-				
-				{
-					this.state.categories && 
+				{/*display*/}
+				{this.state.categories && 
 					<div className="panel panel-danger">
 						<div className="panel-heading">Categories<Link to={videoUrl} className="pull-right">Add Videos</Link></div>
 						<div className="panel-body">
@@ -111,15 +112,16 @@ class Categories extends Component {
 											Add SubCategories
 										</th>
 										<th>
+											Add Videos
+										</th>
+										<th>
 											Edit
 										</th>
 										<th>
 											Delete
 										</th>
 									</tr>
-									{
-										this.state.categories.map((value, key) => {
-																   console.log('value is ', value);
+									{this.state.categories.map((value, key) => {
 											return <tr key={key}>
 												<td>
 													{value.category}
@@ -127,26 +129,21 @@ class Categories extends Component {
 												<td>
 													<a href="" onClick={(e) => {e.preventDefault(); this.setState({category_id: value._id, subcategory: ''})}}>Add Subcategories</a>
 													
-													{
-														value._id === this.state.category_id &&
+													{value._id === this.state.category_id &&
 														<form onSubmit={this.submitSubCatToFirebase.bind(this)}>
 															<div className="form-group">
 																<br />
-																<input type="text" className="form-control" placeholder="Enter Sub Category Name" value={this.state.subcategory} onChange={(e) => {
-																	this.setState({subcategory: e.target.value});	
-																}} />
+																<input type="text" className="form-control" placeholder="Enter Sub Category Name" value={this.state.subcategory} onChange={(e) => {this.setState({subcategory: e.target.value});}} />
 																<br />
 																<button type="submit" className="btn btn-primary form-control">Create Sub Category</button>
 															</div>
 														</form>
 													}
 													
-													{
-														value.subcat && 
+													{value.subcat && 
 														<ul>
-															{
-																value.subcat.map((value2, key2) => {
-																	return <li key={key2}>{value2.subcategory}</li>
+															{value.subcat.map((value2, key2) => {
+																return <li key={key2}>{value2.subcategory}</li>
 																})	
 															}
 														</ul>
@@ -174,4 +171,4 @@ class Categories extends Component {
 	}
 }
 
-export default Categories;
+export default Categories;// JavaScript Document
