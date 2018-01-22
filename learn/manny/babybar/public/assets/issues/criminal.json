@@ -127,7 +127,7 @@
 	"exams": [
 		{
 			"id": 1,
-			"reference": "Year 2002",
+			"reference": "June 2002",
 			"topic": "",
 			"essay": "Debbie and Jon met in college and dated each other for two years. Debbie loved Jon very much and wanted to marry him. Jon always told her that he loved only her, but he told her he thought they were too young and should not rush into marriage.<br /><br /> One day as Debbie was putting gasoline into her car at the gasoline station, she looked into the car parked next to hers. She was enraged to see her best friend Vickie passionately kissing Jon. Debbie walked over to the car, with the fuel dispenser in her hand, and started yelling at Vickie and Jon. Vickie said, \"I'm sorry you had to find out this way. Jon and I love each other and are going to get married.\"<br /><br /> Debbie was enraged and shouted, \"You're not going to marry anyone, you slime!\" She then pointed the gasoline dispenser at Vickie and sprayed her with gasoline, soaking her hair and clothes. Jon reached over to try to help Vickie. Unfortunately, he was smoking a cigarette. The cigarette ignited the gasoline and Vickie burned to death.<br /><br /> What offense or offenses has Debbie committed and what defenses, if any, would she assert? Discuss.",
 			"issues": {
@@ -144,7 +144,7 @@
 		},
 		{
 			"id": 2,
-			"reference": "Year 2002",
+			"reference": "June 2002",
 			"topic": "",
 			"essay": "Anna owned a business and stored insured business inventory at a warehouse owned by Bob. Anna was experiencing financial problems and needed funds to pay her creditors. Bob, after hearing of Anna's money problems, suggested that they hire someone to burn down the warehouse since he was planning to build condominiums on the warehouse property and could use the insurance proceeds for the construction of the condominiums. Bob told Anna that he knew someone who would handle burning the warehouse in return for a percentage of the insurance proceeds. Anna agreed and Bob contacted Cindy to burn down the warehouse. Cindy obtained the location of the warehouse from Bob and proceeded to set fire to the warehouse. Unbeknownst to Anna, Bob or Cindy, a homeless person, Daryll, was living in the warehouse. Daryll died as a result of the fire.<br /><br /> After hearing about Daryll's death, Anna and Bob decided not to make any insurance claims. After an investigation Anna, Bob and Cindy were arrested.<br /><br /> With what crimes, if any, might Anna, Bob and Cindy be charged and what defenses, if any, could each assert? Discuss.",
 			"issues": {
@@ -154,6 +154,21 @@
 				"arson": {},
 				"accomplice_liability": {},
 				"attempted": {}
+			}
+		},
+		{
+			"id": 3,
+			"reference": "October 2002",
+			"topic": "",
+			"essay": "As Dan walked down a busy city street one afternoon, Vic, a scruffy, long-haired young man, approached him. For some time, Dan had been plagued by a pathological fear that long-haired transients were trying to kill him. Mistakenly believing that his life was about to be taken, Dan pulled out a handgun and fired the gun, intending only to wound Vic in the legs to prevent the anticipated attack. Rather than inflicting the intended leg wound, the bullet ricocheted off the sidewalk and hit Vic in the heart, killing him instantly.<br /><br /> 1. With what crime or crimes should Dan be charged? Discuss.<br /><br /> 2. What defense or defenses might Dan assert? Discuss.",
+			"issues": {
+				"criminal_assault": {},
+				"criminal_battery": {},
+				"murder": {},
+				"voluntary_manslaughter": {},
+				"involuntary_manslaughter": {},
+				"defense_self_defense": {},
+				"defense_insanity": {}
 			}
 		}
 	]	

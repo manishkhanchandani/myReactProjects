@@ -126,6 +126,8 @@ class DisplayChallengers extends Component {
 class DisplayQuestionResults extends Component {
 	render() {
 		const pageData = this.props.data;
+		console.log(pageData);
+		return null;
 		const questions = this.props.questions;
 		const counter = this.props.counter;
 		const question_id = this.props.question_id;

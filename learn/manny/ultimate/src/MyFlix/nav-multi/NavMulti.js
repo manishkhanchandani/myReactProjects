@@ -26,27 +26,7 @@ class NavMulti extends Component {
 							</ul>
 							<ul className="nav navbar-nav">
 								<li className="active"><Link to="/">Home</Link></li>
-								<li>
-									<a href="" className="dropdown-toggle" data-toggle="dropdown">Admin <b className="caret"></b></a>
-									<ul className="dropdown-menu multi-level">
-										
-										<li className="dropdown-submenu">
-											<a href="" className="dropdown-toggle" data-toggle="dropdown">List</a>
-											<ul className="dropdown-menu">
-												<li><Link to="/create">Manage List</Link></li>
-											</ul>
-										</li>
-										
-										
-										<li className="dropdown-submenu">
-											<a href="" className="dropdown-toggle" data-toggle="dropdown">My Account</a>
-											<ul className="dropdown-menu">
-												<li><a href="">Edit Profile</a></li>
-											</ul>
-										</li>
-										
-									</ul>
-								</li>
+								<li><Link to="/create">My List</Link></li>
 							</ul>
 						</div>
 					</div>

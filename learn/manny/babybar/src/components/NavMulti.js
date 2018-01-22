@@ -245,6 +245,7 @@ class NavMulti extends Component {
 												<li><Link to="/essays/issues/contracts/ucc">Governing Law</Link></li>
 												<li><Link to="/essays/issues/contracts/parties_merchant">Merchant Parties</Link></li>
 												<li><Link to="/essays/issues/contracts/offer">Offer</Link></li>
+												<li><Link to="/essays/issues/contracts/mutual_assent">Mutual Assent</Link></li>
 												<li><Link to="/essays/issues/contracts/merchants_firm_offer">Merchant Firm Offer</Link></li>
 												<li><Link to="/essays/issues/contracts/unilateral_contract">Unilateral Contract</Link></li>
 												<li><Link to="/essays/issues/contracts/acceptance">Acceptance</Link></li>

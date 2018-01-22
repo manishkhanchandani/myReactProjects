@@ -1,0 +1,14 @@
+{
+	"key": "mutual_assent",
+	"name": "Mutual Assent",
+	"next": {
+		"key": "",
+		"name": "",
+		"subject": ""
+	},
+	"previous": {
+		"key": "",
+		"name": "",
+		"subject": ""
+	}
+}

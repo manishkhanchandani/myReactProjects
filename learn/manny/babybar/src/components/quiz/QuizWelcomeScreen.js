@@ -37,12 +37,12 @@ class QuizWelcomeScreen extends Component {
 					}
 					
 					{
-						(pageData.user1_status === 'Ready' && pageData.user2_status === 'Ready' && pageData.quizDetails.common.question_pointer < 5) &&
+						(pageData.user1_status === 'Ready' && pageData.user2_status === 'Ready' && pageData[uid].question_pointer < 5) &&
 						<QuizPage2 data={pageData} uid={uid} />
 					}
 					
 					{
-						(pageData.quizDetails.common.question_pointer > 4) && 
+						(pageData[uid].question_pointer > 4) && 
 						<QuizResults data={pageData} uid={uid} questions={this.props.quizReducer.questions} />
 					}
 					

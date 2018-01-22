@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'; 
 import NavMulti from './nav-multi/NavMulti.js';
+import './MyFlix.css';
 
 import Home from './Home.js'
 import Create from './Create.js';
@@ -12,7 +13,7 @@ class MyFlixLayout extends Component {
 	render() {
 		return (
 			<Router>
-			<div>
+			<div className="myFlix">
 				<NavMulti />
 				<Switch>
 				<Route exact={true} path="/" component={Home} />

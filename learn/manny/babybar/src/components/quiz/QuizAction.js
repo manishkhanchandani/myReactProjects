@@ -33,7 +33,9 @@ export const createQuiz = (topic) => {
 				}
 			}
 			obj[uObject.uid] = {
-				points: 0	
+				points: 0,
+				question_pointer: 0,
+				status: 'Pending'
 			}
 		
 			var url = FirebaseConstant.basePath + '/quiz/posts';

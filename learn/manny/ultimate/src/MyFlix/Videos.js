@@ -23,6 +23,7 @@ class Videos extends Component {
 			videoMaturityRatings: '',
 			videoThumbnail: '',
 			videoTags: '',
+			videoFeatured: '',
 			category_id: '',
 			subcategory_id: '',
 			error: null,
@@ -101,6 +102,7 @@ class Videos extends Component {
 		obj.videoMovieType = this.state.videoMovieType;
 		obj.videoMaturityRatings = this.state.videoMaturityRatings;
 		obj.videoThumbnail = this.state.videoThumbnail;
+		obj.videoFeatured = this.state.videoFeatured;
 		let current = firebase.database.ServerValue.TIMESTAMP;
 		obj.created_dt = current;
 		var url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/videos';
@@ -218,6 +220,12 @@ class Videos extends Component {
 								<label>Maturity Ratings like TV-14 or TV-18</label>
 								<input type="text" className="form-control" placeholder="Enter Maturity Ratings" value={this.state.videoMaturityRatings} onChange={(e) => {
 									this.setState({videoMaturityRatings: e.target.value});	
+								}} />
+							</div>
+							<div className="form-group">
+								<label>Featured Video</label>
+								<input type="checkbox" value={this.state.videoFeatured} onClick={(e) => {
+									this.setState({videoFeatured: e.target.checked});	
 								}} />
 							</div>
 							<br />

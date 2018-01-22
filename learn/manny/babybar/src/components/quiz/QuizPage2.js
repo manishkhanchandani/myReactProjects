@@ -18,7 +18,7 @@ class QuizPage2 extends Component {
 	}
 	
 	
-	watchQuestion()
+	/*watchQuestion()
 	{
 		var url = FirebaseConstant.basePath + '/quiz/posts/' + this.props.data.id;
 		var ref = firebaseDatabase.ref(url).child('quizDetails').child('quiz');
@@ -44,16 +44,17 @@ class QuizPage2 extends Component {
 				firebaseDatabase.ref(url).child('quizDetails').child('common').child('question_pointer').set(newVal);
 			}
 		});
-	}
+	}*/
 	
 	changeSeconds(secs) {
+		return;
 		let total = secs.total;
 		let newTotal = total / 1000;
 		this.setState({timeRemaining: newTotal});
 	}
 	
 	componentDidMount() {
-		this.watchQuestion();
+		//this.watchQuestion();
 	}
 	
 	submittedBtn(questionData) {
@@ -63,13 +64,15 @@ class QuizPage2 extends Component {
 		this.setState({btnDisabled: true});
 		
 		var points = 0;
-		//var newPoints = 0;
+		var newPoints = 0;
 		const option1 = parseInt(this.state.optionChoosen, 10);
 		const option2 = parseInt(questionData.correct, 10);
 		if (option1 === option2) {
 			points = 20;
-			//newPoints = 9 + Math.floor(this.state.timeRemaining / 10);
+			newPoints = 9 + Math.floor(this.state.timeRemaining / 10);
 		}
+		
+		console.log('newPoints: ', newPoints);
 		
 		var totalPoints = this.props.data[this.props.uid].points + points;
 		var obj = {
@@ -77,22 +80,26 @@ class QuizPage2 extends Component {
 			timeTaken: 0,
 			points,
 			totalPoints,
-			isCorrect: option1 === option2
+			isCorrect: option1 === option2,
 			//,timeRemaining: this.state.timeRemaining,
-			//newPoints: newPoints
+			newPoints: newPoints
 		};
 		
 		var url = FirebaseConstant.basePath + '/quiz/posts/' + this.props.data.id;
 		firebaseDatabase.ref(url).child('quizDetails').child('quiz').child(this.props.data.quizDetails.common.question_pointer).child(this.props.uid).update(obj);
 		
-		firebaseDatabase.ref(url).child(this.props.uid).child('points').set(totalPoints);
+		let question_pointer = this.props.data[this.props.uid].question_pointer + 1;
+		
+		firebaseDatabase.ref(url).child(this.props.uid).update({points: totalPoints, question_pointer: question_pointer});
+		if (question_pointer > 4) {
+			firebaseDatabase.ref(url).child(this.props.uid).child('status').set('Completed');
+		}
 	}
 	
 	
 	render() {
-		const pageData = this.props.data;
-		
-		const questionData = this.props.quizReducer.questions ? this.props.quizReducer.questions[pageData.questions[pageData.quizDetails.common.question_pointer]] : null;
+		const pageData = this.props.data;		
+		const questionData = this.props.quizReducer.questions ? this.props.quizReducer.questions[pageData.questions[pageData[this.props.uid].question_pointer]] : null;
 
 		if (!questionData) {
 			return <Loader />	
@@ -102,11 +109,13 @@ class QuizPage2 extends Component {
 		if (pageData[this.props.uid]) {
 			isUserParticipant = true;
 		}
-		
-		let seconds_assigned = parseInt(questionData.seconds_assigned, 10);
+
+		let seconds_assigned = 600;
 				
 		const ansOptions = JSON.parse(questionData.answers);
 		const optionChoosen = parseInt(this.state.optionChoosen, 10);
+		
+		console.log('state is ', this.state);
 		return (
 			<div className="page2">
 				<div className="panel panel-primary">

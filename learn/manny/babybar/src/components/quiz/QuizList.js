@@ -39,7 +39,14 @@ class QuizLizt extends Component {
 			}
 		};
 		obj[uObject.uid] = {
-			points: 0	
+			points: 0,
+			question_pointer: 0,
+			status: 'Started'
+		}
+		obj[rec.user1_uid] = {
+			points: 0,
+			question_pointer: 0,
+			status: 'Started'
 		}
 		var url = FirebaseConstant.basePath + '/quiz/posts';
 		firebaseDatabase.ref(url).child(rec.id).update(obj);
