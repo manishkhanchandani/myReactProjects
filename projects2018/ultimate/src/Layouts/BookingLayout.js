@@ -19,4 +19,4 @@ class BookingLayout extends Component {
 	}
 }
 
-export default BookingLayout;
+export default BookingLayout; 
