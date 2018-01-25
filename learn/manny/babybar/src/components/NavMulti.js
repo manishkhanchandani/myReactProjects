@@ -267,6 +267,8 @@ class NavMulti extends Component {
 												<li><Link to="/essays/issues/contracts/timely_performance">Time is Essence</Link></li>
 												<li><Link to="/essays/issues/contracts/buyer_satisfaction">Buyer Satisfaction</Link></li>
 												<li><Link to="/essays/issues/contracts/parol_evidence_rule">Parol Evidence Rule</Link></li>
+												<li><Link to="/essays/issues/contracts/express_condition_precedent">Express Condition Precedent</Link></li>
+												<li><Link to="/essays/issues/contracts/requirement_contracts">Requirement Contracts</Link></li>
 											</ul>
 										</li>
 										

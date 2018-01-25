@@ -1,8 +1,10 @@
 export const config = {
-	site: 'myflix.info',
+	site: window.location.hostname,
 	firebasePathName: {
 		'myflix.info': '/myflix',
 		'onlinerx.info': '/onlinerx',
-		'dctools.info': '/dctools'
+		'dctools.info': '/dctools',
+		'categorylist.us': '/categorylist',
+		'localhost': '/myflix'
 	}
 };

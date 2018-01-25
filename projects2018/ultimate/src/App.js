@@ -4,15 +4,18 @@ import {config} from './common/config.js';
 import MyFlixLayout from './MyFlix/MyFlixLayout.js';
 import OnlineRxLayout from './Layouts/OnlineRxLayout.js';
 import DcToolsLayout from './Layouts/DcToolsLayout.js';
+import CategoryList from './CategoryList/CategoryList.js';
 
 class App extends Component {
   render() {
 	  let layout = '';
 	  const site = config.site;
-	  if (site === 'myflix.info') {
+	  if (site === 'myflix.info' || site === 'localhost') {
 		  layout = (<MyFlixLayout />);
 	  } else if (site === 'onlinerx.info') {
 		  layout = (<OnlineRxLayout />);
+	  } else if (site === 'categorylist.us') {
+		layout = (<CategoryList />);  
 	  } else if (site === 'dctools.info') {
 		  layout = (<DcToolsLayout />);
 		}

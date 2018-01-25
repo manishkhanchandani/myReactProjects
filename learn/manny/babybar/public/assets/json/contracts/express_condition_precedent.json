@@ -1,0 +1,14 @@
+{
+	"key": "express_condition_precedent",
+	"name": "Express Condition Precedent",
+	"next": {
+		"key": "",
+		"name": "",
+		"subject": ""
+	},
+	"previous": {
+		"key": "",
+		"name": "",
+		"subject": ""
+	}
+}

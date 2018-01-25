@@ -19,6 +19,7 @@ export const loggedIn = (params) => {
 export const loggedOut = () => {
 	localStorage.removeItem('userObj');
 	localStorage.removeItem('userId');
+	localStorage.removeItem('refreshToken');
 	return {
 		type: 'LOGGEDOUT'	
 	};	
@@ -61,7 +62,7 @@ export const FirebaseLogin = (type, additionalParams=null) => {
 	return {
 		type: type,
 		payload: new Promise((resolve, reject) => {
-			firebaseApp.auth().signInWithPopup(provider).then(function(result) {											   
+			firebaseApp.auth().signInWithPopup(provider).then(function(result) {
 				var obj = {};
 				obj.email = result.user.providerData[0].email;
 				obj.displayName = result.user.providerData[0].displayName;
@@ -70,6 +71,8 @@ export const FirebaseLogin = (type, additionalParams=null) => {
 				obj.profile_uid = result.user.providerData[0].uid;
 				obj.providerId = result.user.providerData[0].providerId;
 				obj.loggedIn = firebase.database.ServerValue.TIMESTAMP;
+				obj.refreshToken = result.user.refreshToken;
+				localStorage.setItem('refreshToken', obj.refreshToken);
 				var url = FirebaseConstant.basePath + '/users/' + obj.uid;
 				
 				firebaseDatabase.ref(url).once('value').then((snapshot) => {

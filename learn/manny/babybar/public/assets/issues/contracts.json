@@ -75,6 +75,9 @@
 		"delegation": {
 			"title": "Delegation"	
 		},
+		"express_condition_precedent": {
+			"title": "Express Condition Precedent"	
+		},
 		"detrimental_reliance": {
 			"title": "Detrimental Reliance"	
 		},
@@ -137,6 +140,9 @@
 		},
 		"remedy_non_breaching_party": {
 			"title": "Remedy for Non Breaching Party"	
+		},
+		"requirement_contracts": {
+			"title": "Requirement Contracts"	
 		},
 		"specific_performance": {
 			"title": "Specific Performance"	
@@ -668,6 +674,17 @@
 			"topic": "",
 			"essay": "Painter and Developer entered into a contract under the terms of which Painter was to paint the interior of Developer's new apartment building for a price of $40,000. The contract called for work to begin on June 1 and to be completed on July 1.<br /><br /> Painter was ready to start work on June 1, but Developer told Painter that because of problems with the drywall contractor, Painter could not start work until June 15. To avoid the possibility of losing her employees, who might quit if forced to take a two-week layoff, Painter took another job, which was not completed until June 20, at which time Painter started work on Developer's building.<br /><br /> On July 15, Painter informed Developer that she would not be able to complete the project until August 15. Developer told her he would lose substantial rental income if the project was not completed by August 1, when university students, his prime market, began moving in. He asked her to hire additional help, but she refused, saying the job would be finished on August 15 or not at all. In an attempt to get the job completed sooner, Developer fired Painter and looked for another painting contractor.<br /><br /> The best price Developer could get to have another painting contractor finish the job was $30,000. Before firing Painter, Developer had paid Painter one-half of the contract price. Because the painting was completed late, Developer lost $10,000 in rental income. This rental income would not have been lost if the painting had been completed by August 1.<br /><br /> At the time Painter was fired, she was out-of-pocket for $5,000 in materials. She expected a profit of $5,000 had she been allowed to complete the contract.<br /><br /> Developer has sued Painter for breach of contract. Painter cross-complained against Developer for breach of contract.<br /><br /> 1. Who breached the contract? Discuss.<br /><br /> 2. Assuming Painter breached the contract, what damages, if any, would Developer be entitled to? Discuss.<br /><br /> 3. Assuming Developer breached the contract, what damages, if any, would Painter be entitled to? Discuss.",
 			"issues": {
+				"ucc": {},
+				"valid_contract": {},
+				"offer": {},
+				"contract_terms": {},
+				"anticipatory_breach": {},
+				"breach": {},
+				"expected_damages": {},
+				"consequential_damages": {},
+				"equitable_restitution": {},
+				"reliance_damages": {},
+				"writing_needed": {}
 			}
 		},
 		{
@@ -676,6 +693,22 @@
 			"topic": "",
 			"essay": "Jack, a retiree, plans to build a new home on his vacant property. He decided to use a particular product called \"Austin Brown Stone\" for the exterior walls, and estimated he would need about 100 tons of stone.<br /><br /> Jack drafted a contract to present to Stone-Co, a local stone distributor, in which Jack agreed: (i) to buy all the Austin Brown Stone he needs to build the exterior walls of his house, (ii) at a price of $200 per ton, (iii) to be delivered to his property in 5-ton lots within 10 days following each request for 5 tons, (iv) to be paid for upon delivery. To ensure timely deliveries, Jack included a liquidated damages clause which provided that Stone-Co would pay $5,000 per day for each day that any requested delivery is late.<br /><br /> Jack signed and dropped off the contract to Stone-Co for its review and signature. That evening, the Stone-Co salesperson, knowing that Austin Brown Stone is often not easily obtained, wrote the following just below Jack's liquidated damages clause: \"Notwithstanding the foregoing, if Stone-Co has difficulty getting Austin Brown Stone, Stone-Co may substitute Austin White Stone.\"<br /><br /> The Stone-Co salesperson then signed the contract and returned it to Jack the next day. Jack did not read the modified contract or see the term added by Stone-Co.<br /><br /> One week later, Jack made a request for the first 5 tons of Austin Brown Stone, and Stone-Co started looking for a supplier. Stone-Co quickly discovered that Austin Brown Stone was not available in the United States. Although it could be imported from Canada, importing it would add $25 per ton to Stone-Co's expenses and reduce its profit margin.<br /><br /> Ten days after Jack's order, Stone-Co delivered Austin White Stone with a note stating that Austin Brown Stone was not available in the U.S., and a demand for payment at the new price of $225 per ton. Jack immediately called the Stone-Co salesperson, stating he would not accept the substitution because Austin White Stone is a completely different product.<br /><br /> Jack contracted with another supplier for Austin Brown Stone at $225 per ton. Jack thereafter filed a lawsuit against Stone-Co seeking damages for breach of contract and liquidated damages. <br /><br />1. What is Jack's likelihood of success in his lawsuit and what damages, if any, would he be entitled to? Discuss.<br /><br /> 2. What defenses, if any, can Stone-Co reasonably assert? Discuss.",
 			"issues": {
+				"ucc": {},
+				"valid_contract": {},
+				"offer": {},
+				"acceptance": {},
+				"consideration": {},
+				"liquidated_damages": {},
+				"defense_impracticability": {},
+				"defense_lack_of_consideration": {},
+				"parties_merchant": {},
+				"requirement_contracts": {},
+				"varying_terms": {},
+				"breach": {},
+				"anticipatory_breach": {},
+				"expected_damages": {},
+				"defense_impossibility": {},
+				"": {}
 			}
 		},
 		{
@@ -684,6 +717,23 @@
 			"topic": "",
 			"essay": "Sara is a doctor who collects, buys, sells, and trades baseball cards for profit, averaging 15 transactions a week. She is a recognized expert in the 1939-50 era.<br /><br /> Bill operates a store that regularly sells baseball cards. Bill claims he phoned Sara and offered to buy a 1939 Denny Wilson card for $550, and that Sara accepted.<br /><br /> Immediately after their phone conversation, Bill sent Sara an unsigned, typed letter confirming the contract, and identifying the parties, the Denny Wilson card and the price. Bill's letter had a letterhead identifying the name of his business, Beyer's Baseball Cards and Collectibles. The letter included the following term: \"Seller shall provide a certificate of authenticity from the Baseball Trading Cards Association.\" Certificates of authenticity cost $100 and significantly increase a card's value. Sara's card was not certified, and the parties had not discussed this before.<br /><br /> Sara received and read the letter but did not respond to it. When Bill called later, Sara said she had sold the card to another party for $575. Bill sued Sara for breach of contract, seeking $250 in damages (based on $800 as the fair market value of a certified card).<br /><br /> Sara denies the existence of a contract, alleging that Bill only asked, \"Would you consider taking $550\" for the card, and that she replied, \"Okay, send me something in writing.\" Alternatively, she claims that the phone agreement was unenforceable and that the so-called letter of confirmation had no legal effect. She also contests Bill's calculation of damages.<br /><br /> 1. Can Bill prevail in his lawsuit? Discuss.<br /><br /> 2. If so, what damages, if any, is Bill entitled to recover? Discuss.",
 			"issues": {
+				"ucc": {},
+				"parties_merchant": {},
+				"valid_contract": {},
+				"offer": {},
+				"varying_terms": {},
+				"acceptance": {},
+				"consideration": {},
+				"writing_needed": {},
+				"merchants_firm_offer": {},
+				"contract_terms": {},
+				"breach_implied_covenant": {},
+				"breach": {},
+				"parol_evidence_rule": {},
+				"expected_damages": {},
+				"consequential_damages": {},
+				"incidental_damages": {},
+				"specific_performance": {}
 			}
 		},
 		{
@@ -692,10 +742,200 @@
 			"topic": "",
 			"essay": "Dealer operates an antique shop. While traveling, she buys a Union cavalry officer's handgun for $1,500 from Seller. Dealer takes several photos of the handgun and Seller agrees to ship it to Dealer's shop. When Dealer arrives home, she immediately shows the photos of the handgun to Buyer. The parties shake hands on a deal to sell the handgun to Buyer for $2,000, payment upon delivery.<br /><br /> The next day, Buyer regrets agreeing to the deal without first having an opportunity to actually examine the handgun. Buyer tells Dealer that he will not pay the $2,000 unless she first allows him to have the handgun examined by an expert appraiser. Dealer becomes angry and tells Buyer, \"A deal's a deal. I'll expect my money when the handgun is delivered to you.\"<br /><br /> When the handgun arrives at Dealer's shop, she does some internet research and discovers that the handgun was issued to a general who played a prominent role at the Battle of Gettysburg, which increases the value of the handgun by a factor of ten. The next day, Dealer receives a letter from Buyer stating, \"Sorry. You're right. A deal's a deal.\" The envelope contains a check for $2,000. Dealer sends the check back to Buyer with a note stating, \"Buyer: Because you backed out of our deal, I will not sell you the handgun. //Signed// Dealer.\"<br /><br /> A few weeks later, Buyer learns that Dealer is offering the handgun for sale at her shop for $20,000 because of its connection to the Civil War general. Buyer brings suit against Dealer for breach of contract, requesting specific performance.<br /><br /> 1. Is Buyer likely to prevail against Dealer in his suit for breach of contract? Discuss.<br /><br /> 2. If so, is the court likely to grant Buyer's request for specific performance? Discuss",
 			"issues": {
+				"ucc": {},
+				"parties_merchant": {},
+				"valid_contract": {},
+				"offer": {},
+				"acceptance": {},
+				"consideration": {},
+				"writing_needed": {},
+				"merchants_firm_offer": {},
+				"anticipatory_breach": {},
+				"defense_mutual_mistake": {},
+				"specific_performance": {},
+				"expected_damages": {},
+				"varying_terms": {},
+				"defense_impossibility": {},
+				"defense_impracticability": {}
 			}
 		},
 		{
 			"id": 42,
+			"reference": "October 2016",
+			"topic": "",
+			"essay": "Owner wants to turn her warehouse into a restaurant. She decides to install an innovative solar heating system, which Contractor agrees to install at a cost of $50,000. Contractor's son (\"Son\") wants to use two parking spaces in the warehouse parking lot for his (Son's) business. If Owner agrees to designate two parking spaces for Son's use for five years, Contractor will drop the price to $35,000.<br /><br /> On November 13th, the parties agree to the latter arrangement in a valid written contract in which Contractor promises to start the job on November 17th and to complete it by January 1st. The contract includes a recital stating, \"Timely performance by Contractor is important to avoid any delay in the opening of Owner's restaurant.\"<br /><br /> State law requires that all installations of the new solar systems be done by a certified solar technician. On November 15th, the only certified technician who works for Contractor, Tech, is injured in a car accident. Contractor immediately notifies Owner and advises her that the start of the work will be delayed because of Tech's accident. Owner replies, \"You know that on-time performance is crucial. Yesterday, the city announced special tax breaks for businesses that open by the end of the year. Can you still finish by then?\" Contractor says, \"I don't know when we can start. It depends on how quickly Tech recovers.\" Owner tells Contractor that she is terminating the contract.<br /><br /> Owner finds an alternative supplier of a similar system at a cost of $60,000, but he can't start work immediately and the restaurant opens in February of the following year. Owner misses the deadline for the city tax break.<br /><br /> Owner sues Contractor for breach of contract. Son sues Owner for breach of contract, seeking damages for Owner's failure to provide the two parking spaces.<br /><br /> 1. Can Owner prevail in her lawsuit against Contractor? Discuss.<br /><br /> 2. If so, can Owner recover a. The $10,000 in increased costs for the heating system? Discuss. b. The lost profits for the delay in opening the restaurant? Discuss. c. The value of the tax reduction? Discuss.<br /><br /> 3. Can Son prevail in his lawsuit against Owner? Discuss.",
+			"issues": {
+				"ucc": {
+					"def":[
+						"UCC governs contract for the sale of goods. Common law governs all other contracts."
+					],
+					"hypo": "",
+					"samples": [
+						"<b>UCC/Common law</b><br /><br /> UCC governs contract for the sale of goods. Common law governs all other contracts.<br /><br /> <b>Goods:</b> Tangible, movable items, identifiable at the time of sale<br /><br /> The contract is for the installation of the heating system. It could be argued that the contract price includes the price of the unit itself, and that it is therefore a contract for the sale of goods. However, the facts state that the contract was for the installation of the unit, which indicated that the purchase of the unit is merely incidental to the terms. The court will evaluate this based on a test of what the major value of the contract is from. In this case, particularly since the law requires a specialist to install the unit, it seems clear that the installation of the unit is likely the major value of the contract price.<br /><br /> Thus, the common law will govern.",
+						"<b>GOVERNING LAW</b><br /><br /> All contracts for the sale of goods are governed by the UCC. Goods are movable and tangible items at the time of identification of a contract. All contracts not governed by the UCC are governed by the common law.<br /><br /> <b>HYBRID CONTRACT</b><br /><br /> Here the subject matter of the contract is for the purchase and installation of a solar heating system. The majority of jurisdictions will determine whether the thrust of the contract was for goods or services and use the thrust as the basis for determining governing law. A minority of jurisdictions apply the Gravamen test where the goods portion of the contract is governed by the UCC and the services component is governed by the common law.<br /><br /> Here, it is likely that the thrust of the contract will be established to be services since the installation was solicited and quoted, specifically.<br /><br /> Therefore, this contract will be governed by the common law."
+					]
+				},
+				"valid_contract": {
+					"def":[
+						"A valid contract consists of offer, acceptance, consideration and no defenses."
+					],
+					"hypo": "",
+					"samples": [
+						"<b>CONTRACT FORMATION</b><br /><br />A valid contract consists of offer, acceptance, consideration and no defenses."			
+					]
+				},
+				"mutual_assent": {
+					"def":[
+						"Where, the parties through a written agreement and/or their conduct, have expressly or impliedly demonstrated a mutual intent to be bound to the terms of a contract, mutual assent (consisting of a valid offer and acceptance) can be demonstrated."
+					],
+					"hypo": "",
+					"samples": [
+						"<b>MUTUAL ASSENT</b><br /><br /> Where, the parties through a written agreement and/or their conduct, have expressly or impliedly demonstrated a mutual intent to be bound to the terms of a contract, mutual assent (consisting of a valid offer and acceptance) can be demonstrated.<br /><br /> Here, the parties have a written contract for the installation of a solar system and it contains the necessary terms of parties, price ($35K plus 5 years use of parking space), quantity and subject matter (one solar system installation), and time of performance (beginning November 17 and completed by January 1).<br /><br /> Mutual assent can be demonstrated."			
+					]
+				},
+				"offer": {
+					"def":[
+						"An outward manifestation of present contractual intent, clear and definite in terms and communicated to the offeree in such a way as to create a reasonable expectation that the offeror is willing to enter into a contract."
+					],
+					"hypo": "",
+					"samples": [
+						"<b>Formation</b><br /><br /> <b>Offer</b><br /><br /> An outward manifestation of present contractual intent, clear and definite in terms and communicated to the offeree in such a way as to create a reasonable expectation that the offeror is willing to enter into a contract.<br /><br /> <b>Offer 1:</b><br /><br /> The facts indicate that the original offer was for $50,000 and contained no parking spaces. While this was a valid offer as it contained the other terms as outlined below, the facts indicate also that there was a modification of the contract."			
+					]
+				},
+				"varying_terms": {
+					"def":[
+					],
+					"hypo": "",
+					"samples": [
+						"<b>Modification of contract</b><br /><br /> The facts state that there was an offer based on the original terms which were agreed to. However, the facts also state that the parties later agreed to reduce the price to $35,000 in exchange for O adding two parking spaces to the deal. Because the change in price and the addition of the spaces was new consideration, this modification will be valid. The facts state that it was valid."			
+					]
+				},
+				"contract_terms": {
+					"def":[
+					],
+					"hypo": "",
+					"samples": [
+						"In this case, the terms of the offer are:<br /><br /> Quantity: 1 installation and 2 parking spaces<br /><br /> Time for Performance: Nov 17-Jan 1<br /><br /> Identity of the parties: O and C<br /><br /> Price: $35,000<br /><br /> Subject matter: Installation of a heating unit"			
+					]
+				},
+				"acceptance": {
+					"def":[
+						"An outward manifestation of unequivocal assent to the terms of the offer."
+					],
+					"hypo": "",
+					"samples": [
+						"<b>Acceptance</b><br /><br /> An outward manifestation of unequivocal assent to the terms of the offer.<br /><br /> There are no issues to discuss here. The facts state that there was a valid offer and acceptance."			
+					]
+				},
+				"consideration": {
+					"def":[
+						"The bargained-for exchange of legal benefit and legal detriment between parties.",
+						"Consideration is a legally sufficient bargained-for exchange between the parties requiring a valid benefit and/or detriment."
+					],
+					"hypo": "",
+					"samples": [
+						"<b>Consideration</b><br /><br /> The bargained-for exchange of legal benefit and legal detriment between parties.<br /><br /> There are no issues to discuss here. The facts state that the contract was valid, which required consideration. The consideration would be the installation of the unit and the receipt of two parking spaces in exchange for $35,000.<br /><br /> There is valid consideration.",
+						"CONSIDERATION<br /><br /> Consideration is a legally sufficient bargained-for exchange between the parties requiring a valid benefit and/or detriment.<br /><br /> Here, Owner was to pay $35,000 and provide two parking spaces for 5 years in exchange for installation of a solar system.<br /><br /> This is legally sufficient consideration."
+					]
+				},
+				"express_condition_precedent": {
+					"def":[
+						""
+					],
+					"hypo": "",
+					"samples": [
+						"Defenses<br /><br /> The facts state that it was a valid written contract. There are no defenses to the enforcement of the contract.<br /><br /> Conditions An act or event not certain to occur which, if it does occur, gives rise to or extinguishes a legal duty.<br /><br /> Express<br /><br /> O will argue that there was an express condition precedent to O's duty to pay that the installation be started by Nov. 12 and completed by Jan. 1. The court will typically construe a given term to be a promise rather than a condition unless it is clear from the terms that the intent of the parties was for a duty to not arise unless the condition was met. In the event of a time for performance, the courts typically will not find an express condition unless there is a \"time of the essence\" clause included.<br /><br /> Here, O will argue that the contract clearly states that the performance must begin and finish on time because they are trying to avoid delay in opening. This could be considered sufficient, but it does not clearly state that the duty of O is conditioned on such event; rather it outlines the importance and makes clear that C is required to perform.<br /><br /> The court could find this to be an express condition precedent, but more likely it will be construed as a promise by C."			
+					]
+				},
+				"writing_needed": {
+					"def":[
+						"The statute of frauds is a set of rules that requires certain types of contracts to be in writing and signed by the party to be charged. The only relevant rule under SOF would be if this contract could not be performed in a year, which is not the case here."
+					],
+					"hypo": "",
+					"samples": [
+						"<b>DEFENSES TO FORMATION</b><br /><br /> <b>STATUTE OF FRAUDS</b><br /><br /> The statute of frauds is a set of rules that requires certain types of contracts to be in writing and signed by the party to be charged. The only relevant rule under SOF would be if this contract could not be performed in a year, which is not the case here.<br /><br /> Therefore, the statute of frauds will not be a defense to formation.<br /><br /> Therefore, barring any defenses, there is an enforceable contract between Owner and Contractor."			
+					]
+				},
+				"third_party_beneficiary": {
+					"def":[
+						"A third-party beneficiary is one the parties to a contract intend to confer a benefit on at the time of contracting."
+					],
+					"hypo": "",
+					"samples": [
+						"<b>Can Son prevail in his lawsuit against Owner?</b><br /><br /> Third-party rights<br /><br /> Beneficiaries<br /><br /> intended beneficiary<br /><br /> The facts indicate that Son was an intended beneficiary of the O and C contract. The contract stated that S would receive 2 parking spaces for 5 years. An intended beneficiary can sue based on a breach of contract if his rights have vested. In this case, the facts are not clear as to whether S's rights have vested because they do not indicate whether he has relied or confirmed his understanding and acceptance of the arrangement. However, it is reasonable to assume that S would have been aware of the arrangement and would have consented because his father was the contractor.<br /><br /> O will be allowed to raise any defenses against S that he would have been able to raise against C. In this case, if C is found to have anticipatorily breached the contract then O will be able to use this as a defense against S and refuse to perform on the contract to S as well.<br /><br /> It is likely that C will be found to have anticipatorily breached, and thus O will be able to refuse performance to S and S will not be able to recover against Owner.",
+						"<b>THIRD-PARTY BENEFICIARIES</b><br /><br /> A third-party beneficiary is one the parties to a contract intend to confer a benefit on at the time of contracting. To have standing to sue upon the contract, it must be shown that the parties intended him to benefit and his rights must have vested. A donee beneficiary is one that receives the benefit gratuitously and his rights do not vest until he materially changes his position in reliance upon the promise. A creditor beneficiary is one where there is a duty owed and its rights vest when it learns of the right, changes its position, or sues to seek enforcement of the promise. Incidental beneficiaries have no standing to sue on the contract.<br /><br /> Here, Son was a third-party beneficiary of the contract between Owner and Contractor because the contract specifically named him and indicated that they intended to confer the benefit of the use of two parking spaces to him.<br /><br /> Son is a third-party beneficiary of the contract between Owner and Contractor.",
+						"<b>THIRD-PARTY BENEFICIARY</b><br /><br /> See rule supra.<br /><br /> Son is an intended beneficiary of the Owner/Contractor contract where he is to receive use of 2 parking spaces for 5 years. He is specifically named and is intended to benefit. He is an intended beneficiary.<br /><br /> Son was a donee beneficiary as Contractor gratuitously conferred the benefit upon him. However, he has not materially changed his position in reliance upon this promise, and Owner will use the Contractor's breach as a defense which relieves her of her duty to provide the space. Therefore, Son will not prevail against owner on a breach of contract action for the failure to provide parking spaces."
+					]
+				},
+				"timely_performance": {
+					"def":[
+						"Where a contract unequivocally states specific dates in which the contract must be performed, time is of the essence and failure to deliver duties in that period is considered a material breach."
+					],
+					"hypo": "",
+					"samples": [
+						"<b>PERFORMANCE</b><br /><br /> <b>CONDITIONS</b><br /><br /> <b>TIME OF ESSENCE</b><br /><br /> Where a contract unequivocally states specific dates in which the contract must be performed, time is of the essence and failure to deliver duties in that period is considered a material breach.<br /><br /> Here, within the contract, it states that \"Contractor promises to start the job on November 17 and complete it by January 1st.\" Owner will argue that it is unequivocal because it uses the words \"promises to\" which establishes an absolute duty to perform within that window. Furthermore, Contractor agreed to the terms during contracting without objection.<br /><br />This contract contains a time is of the essence clause."			
+					]
+				},
+				"anticipatory_breach": {
+					"def":[
+						"Where a party, through its words or conduct indicates that it may not be able to perform its duties under the contract or non-breaching party has reason to suspect he will not, non-breaching party can demand assurance. If adequate assurance is not received, non-breaching party can terminate its own performance and sue for damages.",
+						"Breach is the failure to perform a duty under the contract. A minor breach is when the breaching party has substantially performed under the contract, but not perfectly. A major breach is when the non-performance of the duty substantially impairs the expected benefit of the bargain for the non-breaching party."
+					],
+					"hypo": "",
+					"samples": [
+						"<b>Breach</b><br /><br /> The facts state that C told O that he was unable to perform in time because his technician was injured. Unless C's duty to perform on time was excused/delayed above, then this will be at least an anticipatory repudiation of the agreement, and possibly a major breach.<br /><br /> <b>Anticipatory breach</b><br /><br /> O will argue that the statement by C that he \"did not know\" when he could begin was a major breach, or at least that his first statement that they would not begin on time was. However, because there were still two days left to begin performance and because it was still possible for C to perform in time, this would likely not be a complete repudiation. Thus, it would give rise to the right by O to demand assurances of performance. The facts state that O did just that when he asked \"Can you still finish by then?\"<br /><br /> C was unable to provide these assurances, which would allow O to sue for breach, unless the duty to perform on time was excused above.<br /><br /> <b>Conclusion</b><br /><br /> It is likely that C is in breach on contract because is it likely that his duty was not excused, since he assumed the risk. Thus, his inability to provide assurances constitutes an anticipatory breach by C and allows O to sue for damages.",
+						"<b>BREACH</b><br /><br /> Breach is the failure to perform a duty under the contract. A minor breach is when the breaching party has substantially performed under the contract, but not perfectly. A major breach is when the non-performance of the duty substantially impairs the expected benefit of the bargain for the non-breaching party.<br /><br /> <b>PROSPECTIVE INABILITY TO PERFORM</b><br /><br /> Where a party, through its words or conduct indicates that it may not be able to perform its duties under the contract or non-breaching party has reason to suspect he will not, non-breaching party can demand assurance. If adequate assurance is not received, non-breaching party can terminate its own performance and sue for damages.<br /><br /> Here, Contractor contacts Owner on Nov 15, two days before job is scheduled to start, stating that the only possible installer has been injured and cannot perform within the time specified in the contract. When Owner demanded assurance, Contractor failed to provide adequate assurance that it would perform.<br /><br /> Therefore, Contractor has unequivocally repudiated and breached its duties under the contract. Owner can sue immediately."			
+					]
+				},
+				"defense_impossibility": {
+					"def":[
+						"Where the performance of duties due under a contract becomes objectively impossible, a breaching party may be excused from performance and all other duties terminated."
+					],
+					"hypo": "",
+					"samples": [
+						"<b>Duties</b><br /><br /> C had the duty to install the unit.<br /><br /> O had the duty to pay $35,000 and to allow the use of 2 parking spaces.<br /><br /><b> Excuse of duties: Impossibility/impracticability</b><br /><br /> C will argue that his duty to perform was legitimately delayed by his only certified worker becoming sick. If this argument prevails then C will be allowed to delay performance until impossibility is removed. The law requires the certified worker to be the one to install the unit. In this case, it is possible that C could have subcontracted with another worker, but the facts are not clear as to whether or not it was feasible to do or if this would have delayed completion of the installation.<br /><br /> It is possible that C will prevail on this argument, since the law prevented him from using his technicians, but O will argue that C assumed this risk by hiring only one technician when he knew that a certified technician was required. The court would likely agree with this argument because C should have foreseen this risk prior to contracting, and thus implicitly assumed it.<br /><br /> This excuse will likely fail.",
+						"<b>DEFENSES</b><br /><br /> <b>IMPOSSIBILITY OF PERFORMANCE</b><br /><br /> Where the performance of duties due under a contract becomes objectively impossible, a breaching party may be excused from performance and all other duties terminated.<br /><br /> Here, Contractor will argue that it was impossible to perform within the time frame specified in the contract due to the injury of the technician. He will argue that because state law requires them to be certified, replacements are not easy to find and his performance was, therefore, impossible.<br /><br /> Owner will argue that injury to a technician, especially when you have only one, is foreseeable and that this was a risk assumed by Contractor. Owner will also argue that it is not objectively impossible to find an alternate installer, even if it costs substantially more.<br /><br /> A court would likely agree and find that performance by Contractor of its duties was not impossible and he will not be excused from performing his duties."			
+					]
+				},
+				"defense_frustration_of_purpose": {
+					"def":[
+						
+					],
+					"hypo": "",
+					"samples": [
+						"<b>Frustration of purpose</b><br /><br /> O could argue that the purpose of the contract was frustrated because he was not able to complete in time to gain the necessary tax breaks. However, this argument will almost certainly fail because the facts do not indicate that this purpose was discussed between O and C prior to contracting. The court will require the purpose of the contract to have been completed by both parties before it will allow this excuse to prevail.<br /><br /> This excuse will fail."			
+					]
+				},
+				"expected_damages": {
+					"def":[
+						"Expectation damages are damages to provide the non-breaching party with the exchange bargained for. Under Hadley-Baxendale, damages must be contemplated by the parties at the time of contract formation."
+					],
+					"hypo": "",
+					"samples": [
+						"<b>Can Owner prevail for $10,000 for the heating system, the lost profit on the restaurant, or the value of the tax reduction?</b><br /><br /> Remedies<br /><br /> General Damages<br /><br /> <b>Expectation</b><br /><br /> Expectation damages are designed to put the injured party back in the position they would have been in had the contract been performed. In this case, O was contracted to pay C $35,000, but this price included the use of 2 parking spaces by C. The original contract was going to cost O $50,000. O was scheduled to receive the installation of the unit. The court cannot fully compensate C through expectation damages because C was expecting an installation, and the court will not require specific performance on a personal service contract.<br /><br /> <b>Cover.</b><br /><br /> The court will allow O to \"cover\" his damages by contracting with someone else to provide what C was not able to. Thus, O will be able to recover the difference between the cost of his new contract and the cost of his original contract. The court will likely estimate this against the $50,000 figure which was originally agreed to, because the $35,000 figure included the use of two parking spaces.<br /><br /> O will likely be able to recover the $10,000 extra that was spent under the new contract.<br /><br /> <b>Duty to mitigate</b><br /><br /> O has the duty to mitigate his damages to prevent any unreasonable and foreseeable increase in damages which could have been avoided. The facts are not clear as to whether or not O tried to find cheaper contractors before agreeing to the price of $60,000. However, considering that O was trying hard to get the work done quickly presumably he contacted multiple contractors and picked the one that was the best balance of price and timeliness.<br /><br /> If O failed to mitigate then C would be able to reduce the damages by the amount which O could reasonably have avoided.",
+						"COMPENSATORY DAMAGES<br /><br /> EXPECTATION DAMAGES<br /><br /> Expectation damages are damages to provide the non-breaching party with the exchange bargained for. Under Hadley-Baxendale, damages must be contemplated by the parties at the time of contract formation.<br /><br /> COVER PRICE<br /><br /> Here, the Owner bargained for a fully functional solar heating system for the price of $50,000. The value of the parking space that was to be provided, was established by the contract to be $15,000. As a result of the Contractor's breach, the solar system cost Owner $60,000. The value of the parking space is irrelevant for the calculation; therefore the difference between the contract price and the cover price was $10,000, which Owner can recover from Contractor.<br /><br /> LOST PROFITS<br /><br /> Generally, lost profits must be reasonably certain to be recoverable.<br /><br /> Here, this is a new establishment and profits would be very difficult to calculate. Therefore, lost profits resulting from the breach would likely not be recoverable and expectation damages will be limited to $10,000.<br /><br /> TAX REDUCTION<br /><br /> Under Hadley v. Baxendale the parties must contemplate damages at the time of contract formation. Here, though the contract stated that time was of the essence, the tax breaks were only instituted the day prior to the anticipatory repudiation. Neither party was aware of these yet-to-be-announced breaks; therefore they were not contemplated at the time of contract formation.<br /><br /> Therefore, the tax reduction will not be recoverable.<br /><br /> Therefore, in a breach of contract action, Owner will be able to recover $10,000 as a result of its increased cost to install system."			
+					]
+				},
+				"consequential_damages": {
+					"def":[
+					],
+					"hypo": "",
+					"samples": [
+						"Consequential<br /><br />Lost profits on the restaurant are most likely not recoverable. The court will usually only allow recovery for lost profits if it is an established business where the profits can be reasonably estimated, and if the damage was reasonably foreseeable by both parties. While the damage was reasonably foreseeable, because this restaurant was brand new, there is no good way to estimate the profits which were lost. Thus, O will not be able to recover for lost profits."			
+					]
+				},
+				"reliance_damages": {
+					"def":[
+					],
+					"hypo": "",
+					"samples": [
+						"<b>Reliance</b><br /><br /> O will argue that he relied on C's representations that work would be finished by Jan 1 and that he was damaged by the fact that work was not finished on time, causing him to lose the tax breaks. However, this argument will fail because, while O did fail to gain the tax breaks, this was not contemplated prior to the contract and, therefore, O did not rely on that representation.<br /><br /> <b>Conclusion</b><br /><br /> O will be able to recover $10,000 for the cost of the new heating system, will not be able to recover the lost profits on the restaurant, and will not be able to recover for the loss of the tax breaks."			
+					]
+				}
+			}
+		},
+		{
+			"id": 43,
 			"reference": "June 2017",
 			"topic": "",
 			"essay": "Mary, a football fan, owns an old-looking football seemingly autographed by Bart Starr (the winning quarterback in the first Super Bowl in 1967), that she bought for $100 at a flea market. Mary and her friend Dan both assumed that it was a genuine autographed game ball used in that 1967 Super Bowl. Dan offered Mary $10,000 for the ball. In response, Mary wrote in pen on a napkin, \"Dan agrees to buy Mary's Bart Starr football for $10,000 on or before December 1, 2016.\" Dan signed the napkin in pen, and Mary kept the napkin without signing it.<br /><br /> As December approached, Dan was unable to come up with $10,000. Dan's friend Ed, who also assumed the ball was a genuine autographed 1967 Super Bowl game ball, wanted the ball, so Dan typed a document which read, \"Dan hereby assigns all of his rights to buy Mary's football to Ed; Ed hereby assumes all of Dan's obligations under Dan's contract with Mary to buy her football.\" Dan and Ed both signed three copies, each keeping one copy and sending one copy to Mary.<br /><br /> After some internet research, Ed discovered that while the Bart Starr autograph on the football was genuine, the football was not the type used in the 1967 game; it was instead a consumer product manufactured after 2005. The ball is worth about $1,000. Dan and Ed no longer wanted the ball. On December 2, 2016, Mary sued Dan and Ed for breach of contract.<br /><br /> 1. Can Mary prevail on her lawsuit? Discuss.<br /><br /> 2. If so, what damages, if any, is Mary entitled to recover, and from whom? Discuss.<br /><br /> 3. What defenses, if any, may Dan and Ed reasonably assert, and will they be successful? Discuss.",
@@ -776,7 +1016,17 @@
 					],
 					"hypo": "",
 					"samples": [
-						"ASSIGNMENT OF RIGHTS<br /><br /> An assignment is the transfer of a contractual right to a third party. An assignment that declares \"all of my rights\" or similar language is both an assignment of rights and a delegation of duties. A delegation is the transfer of a contractual duty to a third party.<br /><br /> Here, Dan drafts a document that assigns \"all of his rights to buy Mary's football\" to Ed. This is both a delegation to Ed that he is now obligated to pay Mary, as Dan was supposed to under the original contract, and now Ed is also the one entitled to the ownership of the ball, per that assignment of Dan's right under the original contract. As Mary is still a party to the contract, both are liable to Mary for the purchase of the football.<br /><br /> Dan assigned his right to the contract and delegated his duties of the contract to Ed.<br /><br /> 1. Can Mary prevail on her lawsuit?<br /><br /> As there was a valid enforceable contract between Mary and Dan, to which Dan assigned his rights to Ed, when neither Dan nor Ed performed under the contract by the stated date, Mary was entitled to bring an action against both Dan and Ed. Mary would be successful in her suit against both Dan and Ed if there are no valid defenses (discussed below)."			
+						"ASSIGNMENT OF RIGHTS<br /><br /> An assignment is the transfer of a contractual right to a third party. An assignment that declares \"all of my rights\" or similar language is both an assignment of rights and a delegation of duties. A delegation is the transfer of a contractual duty to a third party.<br /><br /> Here, Dan drafts a document that assigns \"all of his rights to buy Mary's football\" to Ed. This is both a delegation to Ed that he is now obligated to pay Mary, as Dan was supposed to under the original contract, and now Ed is also the one entitled to the ownership of the ball, per that assignment of Dan's right under the original contract. As Mary is still a party to the contract, both are liable to Mary for the purchase of the football.<br /><br /> Dan assigned his right to the contract and delegated his duties of the contract to Ed.<br /><br /> 1. Can Mary prevail on her lawsuit?<br /><br /> As there was a valid enforceable contract between Mary and Dan, to which Dan assigned his rights to Ed, when neither Dan nor Ed performed under the contract by the stated date, Mary was entitled to bring an action against both Dan and Ed. Mary would be successful in her suit against both Dan and Ed if there are no valid defenses (discussed below).",
+						"<b>Assignment</b><br /><br /> Assignment is when a party transfers his or her rights under the contract to a third party not in the contract.<br /><br /> Here, there was an assignment because Dan types a document which read, “Dan hereby assigns all of his right to buy Mary's football to Ed.” Since there was no prohibition or clause that said the assignments are not allowed, the assignment was effective. Additionally, the assignment was written and signed and a copy was sent to Mary.<br /><br /> Therefore, there was an assignment.<br /><br /><b>Assignment Rights</b><br /><br />Here, the contract was assigned to Ed. Thus, Dan no longer has any rights under the contract. However, Mary will be able to use the same defenses against Ed as she would have used against Dan."
+					]
+				},
+				"delegation": {
+					"def":[
+						"Delegation is when a party under the contract transfers his duties or burdens to a third party not in the contract."
+					],
+					"hypo": "",
+					"samples": [
+						"Delegation<br /><br />Delegation is when a party under the contract transfers his duties or burdens to a third party not in the contract.<br /><br />Here, Dan transferred his right under the contract to Ed because the document stated that Ed hereby assumes all of Dan's obligations under Dan's contract with Mary to buy her football.<br /><br />Therefore, there was a delegation.<br /><br /><b>Delegation Rights</b><br /><br />Here, since all duties are assigned under the contract, the delegator is still liable if Ed does not perform under the contract."			
 					]
 				},
 				"expected_damages": {
@@ -785,7 +1035,26 @@
 					],
 					"hypo": "",
 					"samples": [
-						"2. If Mary is successful in her suit, what is Mary entitled to recover and from whom?<br /><br /> <b>EXPECTANCY DAMAGE</b><br /><br /> The damage amount that the plaintiff would have received had the contract been fulfilled.<br /><br /> Here, Mary's expectancy was that the football would be sold for $10,000. This amount is what she would have received had the contract been fulfilled by either Dan or Ed, as it was the amount agreed to in the contract.<br /><br /> Mary's expectancy damages are $10,000, the contract price.<br /><br /> Both Dan and Ed are still responsible to Mary for the contract as there was never a novation to let Dan out of the restraints of the contract. Even though Dan assigned his rights of the contract, he is still responsible for making sure that the contract is performed.<br /><br /> This would entitle Mary to her expectancy damage under the contract for the amount of $10,000."			
+						"2. If Mary is successful in her suit, what is Mary entitled to recover and from whom?<br /><br /> <b>EXPECTANCY DAMAGE</b><br /><br /> The damage amount that the plaintiff would have received had the contract been fulfilled.<br /><br /> Here, Mary's expectancy was that the football would be sold for $10,000. This amount is what she would have received had the contract been fulfilled by either Dan or Ed, as it was the amount agreed to in the contract.<br /><br /> Mary's expectancy damages are $10,000, the contract price.<br /><br /> Both Dan and Ed are still responsible to Mary for the contract as there was never a novation to let Dan out of the restraints of the contract. Even though Dan assigned his rights of the contract, he is still responsible for making sure that the contract is performed.<br /><br /> This would entitle Mary to her expectancy damage under the contract for the amount of $10,000.",
+						"2. <b>If so, what damages, if any, is Mary entitled to recover, and from whom?</b><br /><br /> Mary will be able to recover damages from Ed.<br /><br /> <b>DAMAGES</b><br /><br /> <b>Expectation damages</b><br /><br /> Expectation damages are those recovered by the non-breaching party to place that party in the position had the other party performed.<br /><br /> Here, Mary will assert that the damages that Mary can recover is the difference between the contract price and the market value at the time of the breach.<br /><br /> Therefore, there are expectation damages."
+					]
+				},
+				"specific_performance": {
+					"def":[
+						"Specific performance is an equitable remedy sought when the legal remedy is inadequate. The court will inform the breaching party to perform or face contempt to the court charges. Specific performance is provided for unique items like the sale of land."
+					],
+					"hypo": "",
+					"samples": [
+						"<b>Specific performance</b><br /><br /> Specific performance is an equitable remedy sought when the legal remedy is inadequate. The court will inform the breaching party to perform or face contempt to the court charges. Specific performance is provided for unique items like the sale of land.<br /><br /> Here, Mary will assert that Ed must perform and purchase the football because the football is a unique item. Mary will assert that the football is unique because the football was signed by Bart Starr.<br /><br /> Ed will argue that the football is not unique because the football was not in the first Super Bowl in 1967 and it was only autographed by the football player. Another football just the same would not be difficult to find.<br /><br /> Therefore, there is specific performance if the football is considered a unique good."			
+					]
+				},
+				"consequential_damages": {
+					"def":[
+						"Consequential damages are special damages that are foreseeable and reasonable at the time of the formation of the contract."
+					],
+					"hypo": "",
+					"samples": [
+						"<b>Consequential Damages</b><br /><br /> Consequential damages are special damages that are foreseeable and reasonable at the time of the formation of the contract.<br /><br /> Here, Mary will assert that Mary is able to recover special damages due to any lost profits because of the breaching party.<br /><br /> Therefore, there are consequential damages."			
 					]
 				},
 				"writing_needed": {
@@ -817,6 +1086,24 @@
 					"hypo": "",
 					"samples": [
 						"<b>FRUSTRATION OF PURPOSE</b><br /><br /> When the purpose of the contract is frustrated, the performance of the contract may be excused.<br /><br /> As the football was not the championship ball worth $10,000, the purpose of buying the collectable at the price is frustrated and likely to be excused by this doctrine. The court would not likely order Dan and Ed to purchase a ball worth $1000, not the bargained for ball that was bargained for, at a price ten times what it is worth. As most of the time the court will not dispute the terms of the bargain, this would give Mary a huge windfall and is not likely to be upheld by the court.<br /><br /> Dan and Ed would be excused from performing the contract under the doctrine of frustration of purpose."			
+					]
+				},
+				"express_condition_precedent": {
+					"def":[
+						"Constructive conditions are implied conditions that must occur in order for one party to perform."
+					],
+					"hypo": "",
+					"samples": [
+						"Constructive Conditions<br /><br /> Constructive conditions are implied conditions that must occur in order for one party to perform.<br /><br /> Here, Mary will assert that since Ed or Dan did not tender payment for the football, Mary was unable to give the football.<br /><br /> Therefore, there are constructive conditions that were not met."			
+					]
+				},
+				"breach": {
+					"def":[
+						"A breach is a failure to perform to the contractual obligations of the contract. Here, the breach was major because the contract terms were not substantially performed."
+					],
+					"hypo": "",
+					"samples": [
+						"<b>Breach</b><br /><br /> A breach is a failure to perform to the contractual obligations of the contract.<br /><br /> Here, Mary will assert that there was not tender of the payment for the football on December 1, 2016 as stated on the contract.<br /><br /> Therefore, there was a breach.<br /><br /> <b>Major Breach</b><br /><br /> Here, the breach was major because the contract terms were not substantially performed. Since Dan or Ed did not provided payment, then Dan and Ed performed a major breach.<br /><br /> Therefore, there was a major breach."			
 					]
 				}
 			}
