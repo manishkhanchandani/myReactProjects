@@ -2,6 +2,26 @@
 	"key": "effective_revocation",
 	"name": "Effective Revocation?",
 	"rule": "Under the MAILBOX RULES revocation of a contract offer is usually effective upon receipt.<br /><br />Under common law a unilateral offer could be revoked at any time, and revocation of GENERAL OFFERS, reward or bounty offers, was effective when published in the same manner the offer was first announced. But modernly SAVING DOCTRINES prevent the revocation of a unilateral contract offer if the offeror is aware the offeree has commenced the requested act for a reasonable period during which the offeree will be allowed to complete acceptance by performance.",
+	"mbe": [
+		{
+			"key": "rule1",
+			"name": "Rule 1: Intent for Revocation",
+			"description": "The seller called buyer informing the buyer that the remaining lots had been sold was a manifestation of the seller's intention not to enter into a contract with the buyer for the remaining lots and thus a revocation of his offer.",
+			"examples": [
+				{
+					"question": "On May 1 a lot owner telegraphed a buyer, \"Will sell you any or all of the lots in Grover subdivision at $5,000 each. Details will follow in letter.\" The letter contained all the necessary details concerning terms of payment, insurance, mortgages, etc., and provided, \"This offer remains open until June 1.\"<br /><br />On May 2, after he had received the telegram but before he had received the letter, the buyer telegraphed the owner, \"Accept your offer with respect to lot 101.\" Both parties knew that there were fifty lots in the Grover subdivision and that they were numbered 101 through 150.<br /><br />Assume that on May 5 the owner telephoned the buyer to explain that he had sold lots 102 through 150 to someone else on May 4 and that the buyer thereafter telegraphed the owner, \"Will take the rest of the lots.\" Assume further that there is no controlling statute. In an action by the buyer against the owner for breach of contract, the buyer probably will",
+					"answerOptions": [
+						"succeed, because the owner had promised him that the offer would remain open until June 1.",
+						"succeed, because the owner's attempted revocation was by telephone.",
+						"not succeed, because the buyer's power of acceptance was terminated by the owner's sale of the lots to another party.",
+						"not succeed, because the buyer's power of acceptance was terminated by an effective revocation."
+					],
+					"correct": 3,
+					"explanation": "Answer D is correct. The owner's telephone call on May 5 informing the buyer that the remaining lots had been sold was a manifestation of the owner's intention not to enter into a contract with the buyer for the remaining lots and thus a revocation of his May 1 offer.<br /><br />A is incorrect because there was no consideration to support an option to keep the offer open for a definite time. B is incorrect because the owner's telephone call to the buyer on May 5 served as actual notification of the revocation. C is incorrect because the sale to someone else would constitute indirect notice of revocation only if buyer also received reliable information of the sale; in this case, however, the owner's telephone call on May 5 was the only notice of revocation that the buyer received."
+				}
+			]
+		}	
+	],
 	"next": {
 		"key": "",
 		"name": "",

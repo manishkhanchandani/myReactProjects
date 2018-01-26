@@ -2,6 +2,26 @@
 	"key": "varying_terms",
 	"name": "Varying Terms?",
 	"rule": "Under UCC 2-207 an acceptance that includes varying terms is still effective. If the contract is between merchants the varying term proposed by the offeree may become part of the contract if the offer did not expressly require acceptance according to its terms, the offeror does not object to the varying terms within a reasonable time, and the varying terms are not a material alteration of the offer term.",
+	"mbe": [
+		{
+			"key": "rule1",
+			"name": "Rule 1: Varying terms will not become part of contract",
+			"description": "Under the UCC, a written acceptance generally will operate as such even if it states additional or different terms. The additional or different terms, however, will not become part of the contract if they materially alter the contract, unless the offeror expressly agrees to such term.",
+			"examples": [
+				{
+					"question": "On June 1, a wholesale company received a purchase-order form from a retailer, in which the latter ordered 1,000 anti-recoil widgets for delivery no later than August 30 at a delivered total price of $10,000, as quoted in the wholesale company's current catalog. Both parties are merchants with respect to widgets of all types. On June 2, the wholesale company mailed to the retailer its own form, across the top of which the wholesale company's president had written, \"We are pleased to accept your order.\" This form contained the same terms as the retailer's form except for an additional printed clause in the wholesale company's form that provided for a maximum liability of $100 for any breach of contract by the wholesale company.<br /><br />As of June 5, when the retailer received the wholesale company's acceptance form, which of the following is an accurate statement concerning the legal relationship between the wholesale company and the retailer?",
+					"answerOptions": [
+						"There is no contract, because the liability-limitation clause in the wholesale company's form is a material alteration of the retailer's offer.",
+						"There is no contract, because the retailer did not consent to the liability-limitation clause in the wholesale company's form.",
+						"There is an enforceable contract whose terms include the liability-limitation clause in the wholesale company's form, because liquidation of damages is expressly authorized by the Uniform Commercial Code.",
+						"There is an enforceable contract whose terms do not include the liability-limitation clause in the wholesale company's form."
+					],
+					"correct": 3,
+					"explanation": "Answer D is correct. Under the UCC, a written acceptance generally will operate as such even if it states additional or different terms. The additional or different terms, however, will not become part of the contract if they materially alter the contract, unless the offeror expressly agrees to such term. Although the wholesale company's form contained a limitation-on-liability clause, the acceptance, nonetheless, operated as an acceptance of the retailer's offer. Since the contract price was $10,000, the clause limiting wholesale company's liability to $100 proposes a material alteration to the contract and therefore will not become part of the contract, since the retailer did not expressly agree to it. A and B are incorrect, because the wholesale company's acceptance is effective notwithstanding the existence of a material additional term. C is incorrect because the liability-limitation clause proposes a material alteration and thus will not become part of the contract."
+				}
+			]
+		}	
+	],
 	"quiz": [
 		{
 			"id": 1,

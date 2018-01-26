@@ -105,12 +105,15 @@ class Videos extends Component {
 		obj.created_dt = current;
 		var url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/videos';
 		var unique_id = firebaseDatabase.ref(url).push(obj).key;
-		
+
 		if (!this.state.categories) return;
 		
 		let catUrl = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/categories';
 		
+		let catArr = [];
 		for (let k in this.state.categories) {
+			let rec = this.state.categories[k];
+			catArr.push(rec);
 			let tmp = k.split('|');
 			let cat = tmp[0];
 			let subcat = null;
@@ -120,6 +123,11 @@ class Videos extends Component {
 			} else {
 				firebaseDatabase.ref(catUrl).child(cat).child('videos').child(unique_id).set(current);
 			}
+		}
+		
+		if (catArr.length > 0) {
+			let catArrString = catArr.join(', ');
+			firebaseDatabase.ref(url).child(unique_id).child('categories').set(catArrString);
 		}
 		
 		this.setState({error: 'Video Successfully added in the list.', videoInput: '', videoInputId: '', videoTitle: '', videoDescription: '', videoStarring: '', videoDirector: '', videoMovieType: '', videoMaturityRatings: '', videoThumbnail: '', videoTags: ''});
@@ -136,7 +144,7 @@ class Videos extends Component {
 	}
 
 	render() {
-		console.log('state var in video.js is ', this.state);
+		//console.log('state var in video.js is ', this.state);
 		
 		let myArrayConverted = null;
 		let paginationProps = null;
@@ -146,8 +154,8 @@ class Videos extends Component {
 			paginationProps = obj.paginationProps;
 		}
 		
-		console.log('myArrayConverted: ', myArrayConverted);
-		console.log('paginationProps: ', paginationProps);
+		//console.log('myArrayConverted: ', myArrayConverted);
+		//console.log('paginationProps: ', paginationProps);
 		
 		return (
 			<div className="container">

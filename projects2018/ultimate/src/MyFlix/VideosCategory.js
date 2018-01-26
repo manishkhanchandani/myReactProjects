@@ -64,7 +64,6 @@ class VideosCategory extends Component {
 	}
 	
 	handleSelectChange (value) {
-		console.log('You\'ve selected:', value);
 		this.setState({ value });
 		
 		let obj = this.state.realValues;
@@ -74,7 +73,10 @@ class VideosCategory extends Component {
 		if (!tmp) return;
 		
 		for (let i = 0; i < tmp.length; i++) {
-			obj[tmp[i]] = true;
+			let myValue = this.state.showCategories.filter((rec) => {
+				return (rec.value === tmp[i]);											
+			});
+			obj[tmp[i]] = myValue[0].label;
 		}
 		this.props.chooseCategory(obj);
 		

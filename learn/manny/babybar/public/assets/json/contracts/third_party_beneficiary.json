@@ -2,6 +2,44 @@
 	"key": "third_party_beneficiary",
 	"name": "Third Party Beneficiary",
 	"rule": "Under contract law an INTENDED THIRD-PARTY BENEFICIARY is a party that can seek damages for breach of a contract between two other parties because the contract was INTENDED to benefit them.<br /><br />An INCIDENTAL beneficiary, one that was not intended to benefit from a contract between others, has no ability to enforce the contract or seek damages.<br /><br />Contracts can only be enforced by VESTED, INTENDED third-party beneficiaries that are DONEES, intended to benefit as a GIFT, or CREDITORS, intended to benefit by EXTINGUISHING A DEBT.<br /><br />At common law vesting was a more demanding requirement than it is modernly. Under the modern view VESTING occurs if the beneficiary becomes aware of and relies on the existence of the contract.",
+	"mbe": [
+		{
+			"key": "rule1",
+			"name": "Rule 1: By Definition of Third Party",
+			"description": "If a person was not a party to the contract between the 2 people, so the only way for her to have contractual rights is if she was the intended beneficiary of the contract.",
+			"examples": [
+				{
+					"question": "The aged mother of a sister and brother, both adults, wished to employ a live-in companion so that she might continue to live in her own home. Their mother, however, had only enough income to pay one-half of the companion's $2,000 monthly salary. Learning of their mother's plight, the siblings agreed with each other in a signed writing that on the last day of January and each succeeding month during their mother's lifetime, each would give their mother $500. Their mother then hired the companion.<br /><br />The siblings made the agreed payments in January, February, and March. In April, however, the brother refused to make any payment and notified his sister and mother that he would make no further payments.<br /><br />Will their mother succeed in an action for $500 brought against the brother after April 30?",
+					"answerOptions": [
+						"Yes, because by making his first three payments, the brother confirmed his intent to contract.",
+						"Yes, because the mother is an intended beneficiary of a contract between the siblings.",
+						"No, because a parent cannot sue her child for breach of a promise for support.",
+						"No, because the siblings intended their payment to their mother to be gifts."
+					],
+					"correct": 1,
+					"explanation": "B is correct. The mother was not a party to the contract between the sister and the brother, so the only way for her to have contractual rights is if she was the intended beneficiary of the contract. For the mother to be an intended beneficiary, she must be the person to whom performance is to be given. In this case several factors indicate that the mother is an intended beneficiary: the mother is named in the contract, the mother directly receives the payments, and the mother has a close familial relationship with the parties. Therefore, the mother is an intended beneficiary and will prevail in a suit against the brother for the $500 payment.<br /><br />A is incorrect because modern contract law is based upon the objective test, which does not consider a party's private intent. The brother's intent is irrelevant. Further, whether a contract was formed is not at issue. The issue is whether the mother has contractual rights that may be asserted.<br /><br />C is incorrect because the mother is simply asserting her rights as an intended beneficiary to the contract; her claim is not solely based on her relationship to the son. Furthermore, there is no rule of contract law which states that a parent may not sue a child.<br /><br />D is incorrect because the promise to pay $500 was made in exchange for a mutual promise to pay the other $500. Because consideration was present, a contract was formed, and the $500 payments will not be considered gifts."
+				}
+			]
+		},
+		{
+			"key": "rule2",
+			"name": "Rule 2: Intended third party beneficiary",
+			"description": "A third party acquires standing to enforce a promise only if that party is an intended beneficiary of the promise. A party is an intended beneficiary of a promise if recognition of a right to performance in the beneficiary is appropriate to effectuate the intent of the parties, such as where the promisor knows that the promisee intended to confer a benefit on the beneficiary.",
+			"examples": [
+				{
+					"question": "In exchange for valid and sufficient consideration, a mother orally promised her son, who had no car and wanted a minivan, \"to pay to anyone from whom you buy a minivan within the next six months the full purchase-price thereof.\" Two months later, the son bought a used minivan on credit from a car dealership for $8,000. At the time, the dealership was unaware of the mother's earlier promise to her son, but learned of it shortly after the sale.<br /><br />Can the dealership enforce the mother's promise to her son?",
+					"answerOptions": [
+						"Yes, under the doctrine of promissory estoppel.",
+						"Yes, because the dealership is an intended beneficiary of the mother-son contract.",
+						"No, because the mother's promise to her son is unenforceable under the suretyship clause of the statute of frauds.",
+						"No, because the dealership was neither identified when the mother's promise was made nor aware of it when the minivan sale was made."
+					],
+					"correct": 1,
+					"explanation": "Answer B is correct. A third party acquires standing to enforce a promise only if that party is an intended beneficiary of the promise. A party is an intended beneficiary of a promise if recognition of a right to performance in the beneficiary is appropriate to effectuate the intent of the parties, such as where the promisor knows that the promisee intended to confer a benefit on the beneficiary. The dealership is an intended beneficiary of the mother's promise to her son because both parties understood that the purpose of the contract between them was to confer a benefit on the future seller of the son's minivan. This purpose is clear from the terms of the mother's promise, which was to pay the purchase price \"to anyone from whom you buy a minivan.\"<br /><br />A is incorrect because the dealership was not aware of the mother's promise at the time that it sold the minivan to the son, and therefore could not have relied on it. C is incorrect because the suretyship provision of the Statute of Frauds does not apply where the surety promise was made to the principal (the son) and not to the obligee (the dealership). D is incorrect because, although the dealership's identification and awareness of the mother's promise is relevant to determining when its rights as beneficiary vest, it is not relevant to determining whether it is an intended or incidental beneficiary."
+				}
+			]
+		}	
+	],
 	"next": {
 		"key": "",
 		"name": "",

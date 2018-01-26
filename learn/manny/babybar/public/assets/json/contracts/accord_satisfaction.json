@@ -2,6 +2,44 @@
 	"key": "accord_satisfaction",
 	"name": "Accord & Satisfaction",
 	"rule": "Under contract law an ACCORD AND SATISFACTION is binding on both parties if there is an agreement by the parties to settle a reasonable and good faith claim by one party that the other party has breached the original contract. ",
+	"mbe": [
+		{
+			"key": "rule1",
+			"name": "Rule 1: Accord and Satisfaction by definition",
+			"description": "A promise to settle a claim may be consideration to support a return promise so long as there is a good faith dispute over the validity of the claim. The owner's communication, together with his check for $x amount with the notation \"payment in full\" is an offer of accord and satisfaction. The buyer accepted this offer when he retained and cashed the check without objection. In doing so, he waived his right to the remaining $200 from the original contract.",
+			"examples": [
+				{
+					"question": "A contractor had painted an owner's house, according to specifications, under a contract which called for payment of $2,000. The owner, contending in good faith that the porch had not been painted properly, refused to pay anything.<br /><br />On June 15, the contractor mailed a letter to the owner stating, \"I am in serious need of money. Please send the $2,000 to me before July 1.\" On June 18, the owner replied, \"I will settle for $1,800 provided you agree to repaint the porch.\" The contractor did not reply to this letter.<br /><br />Thereafter the owner mailed a check for $1,800 marked \"Payment in full on the painting contract as per letter dated June 18.\" The contractor received the check on June 30. Because he was badly in need of money, the contractor cashed the check without objection and spent the proceeds but has refused to repaint the porch.<br /><br />After cashing the check the contractor sued the owner for $200.00. The contractor probably will",
+					"answerOptions": [
+						"succeed, because he can prove that he had painted the porch according to specifications.",
+						"succeed, because he cashed the check under economic duress.",
+						"not succeed, because he cashed the check without objection.",
+						"not succeed, because he is entitled to recover only the reasonable value of his services."
+					],
+					"correct": 2,
+					"explanation": "Answer C is correct. A promise to settle a claim may be consideration to support a return promise so long as there is a good faith dispute over the validity of the claim. The owner's June 18th letter, together with his check for $1,800 with the notation \"payment in full\" is an offer of accord and satisfaction. The contractor accepted this offer when he retained and cashed the check without objection. In doing so, he waived his right to the remaining $200 from the original contract.<br /><br />A is incorrect because even if the contractor can establish that he painted the porch according to contract specifications, the owner's good faith belief that the contractor had not painted the porch properly is sufficient consideration for his offer of settlement. B is incorrect because although the contractor is in need of money, he has a reasonable alternative - he can refuse to make an accord and instead file a lawsuit for payment pursuant to the terms of the original agreement. D is incorrect because expectation damages, not reliance damages, are the standard measure of recovery in breach of contract claims."
+				}
+			]
+		},
+		{
+			"key": "rule2",
+			"name": "Rule 2: Payment in Full",
+			"description": "Under rules of accord and satisfaction, a debtor may make an offer to settle a dispute by offering a check marked \"payment in full.\"",
+			"examples": [
+				{
+					"question": "A client consulted a lawyer about handling the sale of the client's building, and asked the lawyer what her legal fee would be. The lawyer replied that her usual charge was $100 per hour, and estimated that the legal work on behalf of the client would cost about $5,000 at that rate. The client said, \"Okay, let's proceed with it,\" and the lawyer timely and successfully completed the work. Because of unexpected title problems, the lawyer reasonably spent 75 hours on the matter and shortly thereafter mailed the client a bill for $7,500, with a letter itemizing the work performed and time spent. The client responded by a letter expressing his good-faith belief that the lawyer had agreed to a total fee of no more than $5,000. The client enclosed a check in the amount of $5,000 payable to the lawyer and conspicuously marked, \"Payment in full for legal service in connection with the sale of the client's building.\" Despite reading the \"Payment in full. . .\" language, the lawyer, without any notation of protest or reservation of rights, endorsed and deposited the check to her bank account. The check was duly paid by the client's bank. A few days later, the lawyer unsuccessfully demanded payment from the client of the $2,500 difference between the amount of her bill and the check, and now sues the client for that difference.<br /><br />What, if anything, can the lawyer recover from the client?",
+					"answerOptions": [
+						"Nothing, because the risk of unexpected title problems in a real-property transaction is properly allocatable to the seller's attorney and thus to the lawyer in this case.",
+						"Nothing, because the amount of the lawyer's fee was disputed in good faith by the client, and the lawyer impliedly agreed to an accord and satisfaction.",
+						"$2,500, because the client agreed to an hourly rate for as many hours as the work reasonably required, and the sum of $5,000 was merely an estimate.",
+						"The reasonable value of the lawyer's services in excess of $5,000, if any, because there was no specific agreement on the total amount of the lawyer's fee."
+					],
+					"correct": 1,
+					"explanation": "Answer B is correct. Under rules of accord and satisfaction, a debtor may make an offer to settle a dispute by offering a check marked \"payment in full.\" If the notation was sufficiently plain that the creditor should have understood it, and if the amount owed to the creditor is an unliquidated sum, then cashing the check without protest amounts to an acceptance of the offer of an accord and satisfaction of the debt. Although mere payment of a lesser sum would not be sufficient consideration to support the accord, consideration is furnished where the amount owed to the creditor is genuinely in dispute. Even if the client lacked sufficient legal basis to prevail on his claim, his good-faith belief in the validity of the claim makes his promise to settle sufficient consideration to support the modification. Therefore, when the lawyer read the \"payment in full\" language on the client's $5,000 check and then cashed it without protest, the lawyer accepted the accord and satisfaction of the debt. A, C and D are incorrect because they fail to take into account the effect of the discharge of the client's debt through accord and satisfaction."
+				}
+			]
+		}	
+	],
 	"next": {
 		"key": "",
 		"name": "",
