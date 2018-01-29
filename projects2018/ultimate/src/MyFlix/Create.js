@@ -3,6 +3,7 @@ import * as firebase from 'firebase';
 import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 import {getUserObj, getUID} from '../utilities/functions.js';
 import {Link} from 'react-router-dom'; 
+import DeleteModal from '../common/DeleteModal.js';
 
 class Create extends Component {
 	constructor(props) {
@@ -11,8 +12,17 @@ class Create extends Component {
 		this.state = {
 			list: '',
 			data: null,
-			error: null
+			error: null,
+			deleteModal: false
 		};
+	}
+	
+	close() {
+		this.setState({deleteModal: false});
+	}
+	
+	deleteRecord(record) {
+		console.log('record deleted is ', record);	
 	}
 	
 	componentDidMount() {
@@ -46,6 +56,7 @@ class Create extends Component {
 		var obj = {};
 		obj.list = this.state.list;
 		obj.created = firebase.database.ServerValue.TIMESTAMP;
+		obj.updated = firebase.database.ServerValue.TIMESTAMP;
 		obj.user_id = userObj.uid;
 		obj.displayName = userObj.displayName;
 		obj.photoURL = userObj.photoURL;
@@ -89,9 +100,6 @@ class Create extends Component {
 											Add Videos
 										</th>
 										<th>
-											Edit
-										</th>
-										<th>
 											Delete
 										</th>
 									</tr>
@@ -111,10 +119,9 @@ class Create extends Component {
 													<Link to={videoUrl}>Add Videos</Link>
 												</td>
 												<td>
-													Edit
-												</td>
-												<td>
 													Delete
+													<a href="" onClick={(e) => {e.preventDefault(); this.setState({deleteModal: true})}}>Delete This List</a>
+													<DeleteModal message={`id: ${value._id}`} closeFn={this.close.bind(this)} deleteRecordFn={this.deleteRecord.bind(this)} deleteModal={this.state.deleteModal} details={value} />  
 												</td>
 											</tr>			 
 										})

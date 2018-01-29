@@ -20,6 +20,24 @@
 					"explanation": "Answer B is correct. A waiver is an excuse of the nonoccurrence or delay of a condition to fulfill a duty. Under the UCC, consideration is not required for a valid waiver. When the fixture company and the druggist agreed to postpone their delivery date under the contract from August 15 to August 20, in effect the druggist waived a non-material term of the agreement and the waiver was enforceable even without consideration. The druggist, therefore, was not justified in refusing to accept or to pay for the cabinets.<br /><br />A is incorrect because the July 15 agreement falls within the UCC Statute of Frauds, which requires a signed writing in order to enforce a contract for the sale of goods of $500 or more. C is incorrect because the waiver did not require consideration to be effective. D is incorrect because the parol evidence rule does not apply to promises made after the adoption of a final written contract."
 				}
 			]
+		}, 
+		{
+			"key": "rule2",
+			"name": "Rule 2: Nonoccurance of condition",
+			"description": "The nonoccurrence of an express condition will discharge the contractual obligation of a party who is subject to the condition, unless the nonoccurrence of the condition has been waived by that party. In other words, the effect of nonoccurrence of the condition will depend on whose obligation is subject to it. (Ref: 118)",
+			"examples": [
+				{
+					"question": "118. A buyer contracted in writing with a shareholder, who owned all of XYZ Corporation's outstanding stock, to purchase all of her stock at a specified price per share. At the time this contract was executed, the buyer's contracting officer said to the shareholder, \"Of course, our commitment to buy is conditioned on our obtaining approval of the contract from our parent company.\" The shareholder replied, \"Fine. No problem.\" The shareholder subsequently refused to consummate the sale on the ground that the buyer had neglected to request the parent company's approval of the contract, which was true. The parent company's chief executive officer, however, is prepared to testify that the parent company would have routinely approved the contract if requested to do so. The buyer can also prove that he has made a substantial sale of other assets to finance the stock purchase, although he admittedly had not anticipated any such necessity when he entered into the stock purchase agreement. If the buyer sues the shareholder for breach of contract, is the buyer likely to prevail?",
+					"answerOptions": [
+						"Yes, because the condition of the parent company's approval of the contract, being designed to protect only the buyer and the parent company, can be and has been waived by those entities.",
+						"Yes, because the buyer detrimentally relied on the shareholder's commitment by selling off other assets to finance the stock purchase.",
+						"No, because the express condition of the parent company's approval had not occurred prior to the lawsuit.",
+						"No, because obtaining the parent company's approval of the contract was an event within the buyer's control and the buyer's failure to obtain it was itself a material breach of contract."
+					],
+					"correct": 0,
+					"explanation": "Answer A is correct. The nonoccurrence of an express condition will discharge the contractual obligation of a party who is subject to the condition, unless the nonoccurrence of the condition has been waived by that party. In other words, the effect of nonoccurrence of the condition will depend on whose obligation is subject to it. The express condition in the buyer-shareholder contract relating to the parent company's approval (\"our commitment to buy is conditioned from the parent company\") affects the buyer's but not the shareholder's obligation. Since the facts suggest that both the buyer and the parent company are ready and willing to consummate the sale, it appears that those parties waived the nonoccurrence of the condition.<br /><br />B is incorrect because, if the buyer himself did not have reason to expect that the contract would induce such a change in position on the buyer's part, then the buyer's reliance was not reasonably foreseeable to the shareholder either. C is incorrect because the nonoccurrence of the condition was waived by the buyer and the parent company. D is incorrect because, although the buyer's failure to obtain the parent company's approval might have provided a basis for excuse of the condition under prevention doctrine, the issue presented here is the effect of the nonoccurrence of the condition on the shareholder's obligation to sell."
+				}
+			]
 		}	
 	],
 	"next": {

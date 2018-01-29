@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import * as firebase from 'firebase';
 import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 import {Link} from 'react-router-dom';
 
@@ -61,6 +62,9 @@ class Categories extends Component {
 		firebaseDatabase.ref(url).push(obj);
 		this.setState({category: ''});
 		this.getCategories();
+		
+		var url2 = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/updated';
+		firebaseDatabase.ref(url2).set(firebase.database.ServerValue.TIMESTAMP);
 	}
 	
 	submitSubCatToFirebase(e) {
@@ -76,6 +80,9 @@ class Categories extends Component {
 		firebaseDatabase.ref(url).push(obj);
 		this.setState({subcategory: ''});
 		this.getCategories();
+		
+		var url2 = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/updated';
+		firebaseDatabase.ref(url2).set(firebase.database.ServerValue.TIMESTAMP);
 	}
 
 	render() {

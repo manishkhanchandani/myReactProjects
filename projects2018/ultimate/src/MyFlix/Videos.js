@@ -106,6 +106,9 @@ class Videos extends Component {
 		var url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/videos';
 		var unique_id = firebaseDatabase.ref(url).push(obj).key;
 
+		var url2 = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/updated';
+		firebaseDatabase.ref(url2).set(firebase.database.ServerValue.TIMESTAMP);
+
 		if (!this.state.categories) return;
 		
 		let catUrl = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/categories';

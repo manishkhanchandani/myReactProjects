@@ -6,10 +6,10 @@
 		{
 			"key": "rule1",
 			"name": "Rule 1: Prompt Shipment",
-			"description": "Under the UCC, an order to buy goods \"for prompt shipment\" is interpreted as inviting acceptance either by a prompt promise to ship or by a prompt shipment of conforming or non-conforming goods. Where the goods delivered fail to conform to the contract, the buyer may reject the goods if the rejection is made within a reasonable time after delivery. ",
+			"description": "Under the UCC, an order to buy goods \"for prompt shipment\" is interpreted as inviting acceptance either by a prompt promise to ship or by a prompt shipment of conforming or non-conforming goods. Where the goods delivered fail to conform to the contract, the buyer may reject the goods if the rejection is made within a reasonable time after delivery. (Ref: 55)",
 			"examples": [
 				{
-					"question": "A buyer ordered from a seller 500 bushels of No. 1 Royal Fuzz peaches, at a specified price, \"for prompt shipment.\" The seller promptly shipped 500 bushels, but by mistake shipped No. 2 Royal Fuzz peaches instead of No. 1. The error in shipment was caused by the negligence of the seller's shipping clerk.<br /><br />Which of the following best states the buyer's rights and duties upon delivery of the peaches?",
+					"question": "55. A buyer ordered from a seller 500 bushels of No. 1 Royal Fuzz peaches, at a specified price, \"for prompt shipment.\" The seller promptly shipped 500 bushels, but by mistake shipped No. 2 Royal Fuzz peaches instead of No. 1. The error in shipment was caused by the negligence of the seller's shipping clerk.<br /><br />Which of the following best states the buyer's rights and duties upon delivery of the peaches?",
 					"answerOptions": [
 						"The seller's shipment of the peaches was a counteroffer and the buyer can refuse to accept them.",
 						"The seller's shipment of the peaches was a counteroffer but, since peaches are perishable, the buyer, if it does not want to accept them, must reship the peaches to the seller in order to mitigate the seller's losses.",

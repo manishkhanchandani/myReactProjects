@@ -63,6 +63,9 @@ export const processRecords = (recordArray, sortingOrder=null, filterText=null, 
 			let results = false;
 			for (let i = 0; i < filterFields.length; i++) {
 				let str = record[filterFields[i]];
+				if (!str) {
+					continue;	
+				}
 				let strResult = str.toLowerCase().indexOf(filterText.toLowerCase());
 				if (strResult >= 0) {
 					return true;	
