@@ -126,7 +126,6 @@ class Categories extends Component {
 									</tr>
 									{
 										this.state.categories.map((value, key) => {
-																   console.log('value is ', value);
 											return <tr key={key}>
 												<td>
 													{value.category}

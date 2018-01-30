@@ -12,7 +12,7 @@ class MyFlixLayout extends Component {
 	render() {
 		return (
 			<Router>
-			<div>
+			<div className="myFlix">
 				<NavMulti />
 				<Switch>
 				<Route exact={true} path="/" component={Home} />

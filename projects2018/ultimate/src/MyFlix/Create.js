@@ -13,16 +13,20 @@ class Create extends Component {
 			list: '',
 			data: null,
 			error: null,
-			deleteModal: false
+			deleteModal: false,
+			deleteDetailRecord: null
 		};
 	}
 	
 	close() {
-		this.setState({deleteModal: false});
+		this.setState({deleteModal: false, deleteDetailRecord: null});
 	}
 	
 	deleteRecord(record) {
-		console.log('record deleted is ', record);	
+		var url = FirebaseConstant.basePath + '/list/' + record._id;
+		firebaseDatabase.ref(url).set(null);
+		this.close();
+		this.getData();
 	}
 	
 	componentDidMount() {
@@ -40,7 +44,6 @@ class Create extends Component {
 			let records = snapshot.val();
 			let myArray = [];
 			for (let k in records) {
-				console.log('record is ', records[k]);
 				records[k]._id = k;
 				myArray.push(records[k]);
 			}
@@ -102,12 +105,15 @@ class Create extends Component {
 										<th>
 											Delete
 										</th>
+										<th>
+											View List
+										</th>
 									</tr>
 									{
 										this.state.data.map((value, key) => {
-															 console.log('value is ', value, ', and key is ', key);
 											let linkUrl = '/manage/' + value._id + '/categories';
 											let videoUrl = '/manage/' + value._id + '/videos';
+											let viewListUrl = '/' + value._id;
 											return <tr key={key}>
 												<td>
 													{value.list}
@@ -119,12 +125,18 @@ class Create extends Component {
 													<Link to={videoUrl}>Add Videos</Link>
 												</td>
 												<td>
-													Delete
-													<a href="" onClick={(e) => {e.preventDefault(); this.setState({deleteModal: true})}}>Delete This List</a>
-													<DeleteModal message={`id: ${value._id}`} closeFn={this.close.bind(this)} deleteRecordFn={this.deleteRecord.bind(this)} deleteModal={this.state.deleteModal} details={value} />  
+													<a href="" onClick={(e) => {e.preventDefault(); this.setState({deleteModal: true, deleteDetailRecord: value})}}>Delete This List</a>
+												</td>
+												<td>
+													<Link to={viewListUrl}>View List</Link>
 												</td>
 											</tr>			 
 										})
+									}
+									
+									{
+										this.state.deleteDetailRecord && 
+										<DeleteModal message={`id: ${this.state.deleteDetailRecord._id}`} closeFn={this.close.bind(this)} deleteRecordFn={this.deleteRecord.bind(this)} deleteModal={this.state.deleteModal} details={this.state.deleteDetailRecord} />
 									}
 									</tbody>
 								</table>
