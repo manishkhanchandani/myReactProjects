@@ -134,12 +134,13 @@ class Create extends Component {
 										})
 									}
 									
-									{
-										this.state.deleteDetailRecord && 
-										<DeleteModal message={`id: ${this.state.deleteDetailRecord._id}`} closeFn={this.close.bind(this)} deleteRecordFn={this.deleteRecord.bind(this)} deleteModal={this.state.deleteModal} details={this.state.deleteDetailRecord} />
-									}
+									
 									</tbody>
 								</table>
+								{
+									this.state.deleteDetailRecord && 
+									<DeleteModal message={`id: ${this.state.deleteDetailRecord._id}`} closeFn={this.close.bind(this)} deleteRecordFn={this.deleteRecord.bind(this)} deleteModal={this.state.deleteModal} details={this.state.deleteDetailRecord} />
+								}
 							</div>
 						</div>
 					

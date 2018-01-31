@@ -7,6 +7,7 @@ import searchYouTube from 'youtube-api-search';
 import {Alert} from 'react-bootstrap';
 import {processRecords} from '../utilities/functions.js';
 import Paginator from '../utilities/Paginator.js';
+import DeleteModal from '../common/DeleteModal.js';
 
 class Videos extends Component {
 	constructor(props) {
@@ -28,8 +29,33 @@ class Videos extends Component {
 			error: null,
 			categories: null,
 			videoList: null,
-			pageNumber: 1
+			pageNumber: 1,
+			deleteModal: false,
+			deleteDetailRecord: null
 		};
+	}
+
+	close() {
+		this.setState({deleteModal: false, deleteDetailRecord: null});
+	}
+	
+	
+	deleteRecord(record) {
+		console.log('record is ', record);
+		var url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/videos/' + record._id;
+		var ref = firebaseDatabase.ref(url);
+		ref.once('value', (snapshot) => {
+			let records = snapshot.val();
+			if (!records) return;
+			if (records.categoryPath) {
+				for (let i = 0; i < records.categoryPath.length; i++) {
+					firebaseDatabase.ref(records.categoryPath[i]).set(null);
+				}
+			}
+			var url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/videos/' + record._id;
+			firebaseDatabase.ref(url).set(null);
+		});
+		this.close();
 	}
 	
 	componentDidMount() {
@@ -111,6 +137,8 @@ class Videos extends Component {
 
 		if (!this.state.categories) return;
 		
+		let categoryPath = [];
+
 		let catUrl = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/categories';
 		
 		let catArr = [];
@@ -122,8 +150,10 @@ class Videos extends Component {
 			let subcat = null;
 			if (tmp.length === 2) {
 				subcat = tmp[1];
+				categoryPath.push(catUrl + '/' + cat + '/subcategories/' + subcat + '/videos/' + unique_id);
 				firebaseDatabase.ref(catUrl).child(cat).child('subcategories').child(subcat).child('videos').child(unique_id).set(current);
 			} else {
+				categoryPath.push(catUrl + '/' + cat + '/videos/' + unique_id);
 				firebaseDatabase.ref(catUrl).child(cat).child('videos').child(unique_id).set(current);
 			}
 		}
@@ -131,6 +161,7 @@ class Videos extends Component {
 		if (catArr.length > 0) {
 			let catArrString = catArr.join(', ');
 			firebaseDatabase.ref(url).child(unique_id).child('categories').set(catArrString);
+			firebaseDatabase.ref(url).child(unique_id).child('categoryPath').set(categoryPath);
 		}
 		
 		this.setState({error: 'Video Successfully added in the list.', videoInput: '', videoInputId: '', videoTitle: '', videoDescription: '', videoStarring: '', videoDirector: '', videoMovieType: '', videoMaturityRatings: '', videoThumbnail: '', videoTags: ''});
@@ -147,7 +178,7 @@ class Videos extends Component {
 	}
 
 	render() {
-		//console.log('state var in video.js is ', this.state);
+		console.log('state var in video.js is ', this.state);
 		
 		let myArrayConverted = null;
 		let paginationProps = null;
@@ -254,12 +285,21 @@ class Videos extends Component {
 										return	<li key={index} className="list-group-item">
 										<div className="row">
 											<div className="col-md-4"><img src={value.videoThumbnail} className="img-responsive img-thumbnail" alt="" /></div>
-											<div className="col-md-8"><a href={url} target="_blank"><b>{value.videoTitle}</b></a></div>
+											<div className="col-md-8">
+												<div><a href={url} target="_blank"><b>{value.videoTitle}</b></a></div>
+												<div className="pull-right"><a href="" onClick={(e) => {e.preventDefault(); this.setState({deleteModal: true, deleteDetailRecord: value})}}>Delete This Video</a></div>
+											</div>
 										</div>
 										</li>		 
 									})
 								}
 							</ul>
+						}
+						
+						
+						{
+							this.state.deleteDetailRecord && 
+							<DeleteModal message={`Title: ${this.state.deleteDetailRecord.videoTitle}`} closeFn={this.close.bind(this)} deleteRecordFn={this.deleteRecord.bind(this)} deleteModal={this.state.deleteModal} details={this.state.deleteDetailRecord} />
 						}
 						<hr />
 						<Paginator {...paginationProps} />
