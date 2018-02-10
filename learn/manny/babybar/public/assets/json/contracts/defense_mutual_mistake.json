@@ -1,6 +1,30 @@
 {
 	"key": "defense_mutual_mistake",
 	"name": "Defense of Mutual Mistake",
+	"quiz": [
+		{
+			"id": 1,
+			"question": "What is the element of a mistunderstanding defense? (ref 2)",
+			"answerOptions": [
+				"A material term that has one or more reasonable interpretations",
+				"Eash side attaches different meaning to the term",
+				"Both parties knows of the confusion",
+				"A material term that has three or more reasonable interpretations"
+			],
+			"correct": 1
+		},
+		{
+			"id": 2,
+			"question": "What are the defenses to contract formation? 1) Understanding of a material term, 2) Incapacity, 3) Mistake, 4) Fraud / Misrepresentation/Nondisclosure, 5) Duress, 6) Legality, 7) Unconsciounability. (ref 2)",
+			"answerOptions": [
+				"1, 2, 3, 5, 7",
+				"2, 3, 4, 5, 6",
+				"2, 3, 4, 5, 7",
+				"1, 2, 3, 4, 6"
+			],
+			"correct": 2
+		}
+	],
 	"next": {
 		"key": "",
 		"name": "",

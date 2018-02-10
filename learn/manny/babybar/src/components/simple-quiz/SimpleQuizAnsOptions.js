@@ -16,9 +16,9 @@ class SimpleQuizAnsOptions extends Component {
 			return false;
 		}
 		
-		const res = e.target.value;
+		const res = parseInt(e.target.value, 10);
 		this.setState({showResult: true, lastQuestionId: value.id}, () => {
-			this.props.handleChooseOption(res);														
+			this.props.handleChooseOption(res, value.correct === res, value);														
 		});
 		
 	}
@@ -44,7 +44,7 @@ class SimpleQuizAnsOptions extends Component {
 					let optId = 'id_' + id +'_'  +key;
 					let myCurrentClass = '';
 					let readOnlyVal = false;
-					if (this.state.showResult) {
+					if (optionChoosen >= 0) {
 						if (this.props.details.correct === key) {
 							myCurrentClass =  'active';
 						}
@@ -63,11 +63,21 @@ class SimpleQuizAnsOptions extends Component {
 					
 					return 	<div key={key} className={myCurrentClass}><input type="radio" className="ansOption" name={name} id={optId} value={key} onClick={(e) => {this.handleChooseOption(this.props.details, e)}}  checked={optionChoosen === key} disabled={readOnlyVal} /> {value}
 							{
-								(this.state.showResult && this.props.details.correct === key) && 
+								(optionChoosen >= 0 && this.props.details.correct === key) && 
 									<i className="fa fa-check" aria-hidden="true"></i>
 							}
 					</div>										   
 				})	
+			}
+			
+			{
+				(optionChoosen >= 0 && this.props.details.explanation) && 
+				<div>
+					<hr />
+					<h3>Explanation</h3>
+					<hr />
+					{this.props.details.explanation}
+				</div>
 			}
 			</div>
 		);

@@ -47,10 +47,9 @@ class QuizPage2 extends Component {
 	}*/
 	
 	changeSeconds(secs) {
-		return;
-		let total = secs.total;
+		/*let total = secs.total;
 		let newTotal = total / 1000;
-		this.setState({timeRemaining: newTotal});
+		this.setState({timeRemaining: newTotal});*/
 	}
 	
 	componentDidMount() {
@@ -61,7 +60,6 @@ class QuizPage2 extends Component {
 		if (!this.state.optionChoosen) {
 			return;	
 		}
-		this.setState({btnDisabled: true});
 		
 		var points = 0;
 		var newPoints = 0;
@@ -72,7 +70,6 @@ class QuizPage2 extends Component {
 			newPoints = 9 + Math.floor(this.state.timeRemaining / 10);
 		}
 		
-		console.log('newPoints: ', newPoints);
 		
 		var totalPoints = this.props.data[this.props.uid].points + points;
 		var obj = {
@@ -86,14 +83,19 @@ class QuizPage2 extends Component {
 		};
 		
 		var url = FirebaseConstant.basePath + '/quiz/posts/' + this.props.data.id;
-		firebaseDatabase.ref(url).child('quizDetails').child('quiz').child(this.props.data.quizDetails.common.question_pointer).child(this.props.uid).update(obj);
+		firebaseDatabase.ref(url).child('quizDetails').child('quiz').child(this.props.data[this.props.uid].question_pointer).child(this.props.uid).update(obj);
 		
 		let question_pointer = this.props.data[this.props.uid].question_pointer + 1;
 		
-		firebaseDatabase.ref(url).child(this.props.uid).update({points: totalPoints, question_pointer: question_pointer});
+		firebaseDatabase.ref(url).child(this.props.uid).child('points').set(totalPoints);
+		firebaseDatabase.ref(url).child(this.props.uid).child('question_pointer').set(question_pointer);
+
 		if (question_pointer > 4) {
 			firebaseDatabase.ref(url).child(this.props.uid).child('status').set('Completed');
 		}
+		
+		this.setState({optionChoosen: ''});
+		window.scrollTo(0, 0);
 	}
 	
 	

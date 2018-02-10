@@ -22,6 +22,18 @@
 			]
 		}	
 	],
+	"quiz": [
+		{
+			"id": 1,
+			"question": "Must modifications satisfy the Statute of Frauds? (ref 2)",
+			"answerOptions": [
+				"Yes",
+				"No",
+				"It depends"
+			],
+			"correct": 2
+		}
+	],
 	"next": {
 		"key": "",
 		"name": "",

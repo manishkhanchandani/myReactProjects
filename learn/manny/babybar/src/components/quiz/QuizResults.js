@@ -99,16 +99,34 @@ class DisplayChallengers extends Component {
 				
 				<div className="row">
 					<div className="col-md-5 text-center">
-						<div>Total Points: <b>{pageData[pageData.user1_uid].points}</b></div>
-						<DisplayWinners data={pageData} uid={uid} user1={pageData.user1_uid} user2={pageData.user2_uid} />
+						{
+							pageData[pageData.user1_uid].status !== 'Completed' && 
+							<div>Waiting for the results</div>
+						}
+						{
+							pageData[pageData.user1_uid].status === 'Completed' && 
+							<div>
+								<div>Total Points: <b>{pageData[pageData.user1_uid].points}</b></div>
+								<DisplayWinners data={pageData} uid={uid} user1={pageData.user1_uid} user2={pageData.user2_uid} />
+							</div>
+						}
 						
 					</div>
 					<div className="col-md-2 text-center">
 						
 					</div>
 					<div className="col-md-5 text-center">
-						<div>Total Points: <b>{pageData[pageData.user2_uid].points}</b></div>
-						<DisplayWinners data={pageData} uid={uid} user1={pageData.user2_uid} user2={pageData.user1_uid} />
+						{
+							pageData[pageData.user2_uid].status !== 'Completed' && 
+							<div>Waiting for the results</div>
+						}
+						{
+							pageData[pageData.user2_uid].status === 'Completed' && 
+							<div>
+								<div>Total Points: <b>{pageData[pageData.user2_uid].points}</b></div>
+								<DisplayWinners data={pageData} uid={uid} user1={pageData.user2_uid} user2={pageData.user1_uid} />
+							</div>
+						}
 					</div>
 				</div>
 					
@@ -126,8 +144,6 @@ class DisplayChallengers extends Component {
 class DisplayQuestionResults extends Component {
 	render() {
 		const pageData = this.props.data;
-		console.log(pageData);
-		return null;
 		const questions = this.props.questions;
 		const counter = this.props.counter;
 		const question_id = this.props.question_id;

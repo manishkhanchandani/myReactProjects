@@ -12,6 +12,17 @@
 				"Incidental Damages"
 			],
 			"correct": 0
+		},
+		{
+			"id": 2,
+			"question": "What is not the element for a reliance claim? (ref 2)",
+			"answerOptions": [
+				"The promisee takes detrimental action in relaince",
+				"Plaintiff confers a benefity on defendant in reliance",
+				"The promise would be reasonably expected to induce reliance",
+				"Enforcement of promise is the only way to avoid injuries"
+			],
+			"correct": 1
 		}
 	],
 	"next": {

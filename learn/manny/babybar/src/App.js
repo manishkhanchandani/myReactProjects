@@ -21,6 +21,7 @@ import UserQuizCategories from './components/userQuiz/Categories.js';
 import UserQuiz from './components/userQuiz/Quiz.js';
 import ChangeUser from './components/admin/ChangeUser.js';
 import UserQuizAdd from './components/userQuiz/Add.js';
+import QuizPractice from './components/quiz-practice/Practise.js';
 
 class App extends Component {
 	
@@ -57,6 +58,7 @@ class App extends Component {
 								<Route exact={true} path="/user-quiz/categories" component={UserQuizCategories} />
 								<Route exact={true} path="/user-quiz/addQuiz" component={UserQuizAdd} />
 								<Route exact={true} path="/admin/changeuser" component={ChangeUser} />
+								<Route exact={true} path="/quizPractice" component={QuizPractice} />
 							</div>
 							{/*<div className="col-md-3">
 								<Activities />

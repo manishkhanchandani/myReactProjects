@@ -6,7 +6,7 @@ import renderHTML from 'react-render-html';
 import YouTube from 'react-youtube';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router';
-import {getUID} from '../auth/AuthAction.js';
+import {getUID, getUsersObj} from '../auth/AuthAction.js';
 import * as issuesAction from './IssuesAction.js';
 import {Link} from 'react-router-dom';
 import './Issues.css';
@@ -19,8 +19,6 @@ import SimpleQuizResults from '../simple-quiz/SimpleQuizResults.js';
 import IssuesBarExam from './IssuesBarExam.js';
 
 import IssuesRule from './IssuesRule.js';
-import {config} from '../../config.js';
-//import MyModal from '../MyModal/MyModal.js';
 import LearnRule from './LearnRule.js';
 
 class EssayIssues extends Component {
@@ -126,9 +124,10 @@ class EssayIssues extends Component {
 			issue = this.props.issuesReducer.issue[this.props.match.params.subject][this.props.match.params.issue];
 		}
 		let uid = getUID();
+		let userObj = getUsersObj();
 
 		var quizExtra = null;
-		if (config.adminId === uid && issue) {
+		if ((userObj.access_level === 'admin' || userObj.access_level === 'admin2' || userObj.access_level === 'superadmin')  && issue) {
 			quizExtra = [];
 			let len = (issue.quiz) ? issue.quiz.length : 0;
 			var counter = len + 1;

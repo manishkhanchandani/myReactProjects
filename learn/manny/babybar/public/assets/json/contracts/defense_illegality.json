@@ -1,6 +1,17 @@
 {
 	"key": "defense_illegality",
 	"name": "Defense of Illegality",
+	"quiz": [
+		{
+			"id": 1,
+			"question": "Is a contract to perform a legal act that is in furtherance of an illegal contract enforceable? (ref 2)",
+			"answerOptions": [
+				"Yes",
+				"No"
+			],
+			"correct": 0
+		}
+	],
 	"next": {
 		"key": "",
 		"name": "",

@@ -110,7 +110,7 @@ class NavMulti extends Component {
 								<li>
 									<a href="" className="dropdown-toggle" data-toggle="dropdown">Baby Bar<b className="caret"></b></a>
 									<ul className="dropdown-menu multi-level">
-										<li><Link to="/quiz">Quiz</Link></li>
+										{/*<li><Link to="/quiz">Quiz</Link></li>*/}
 										<li className="dropdown-submenu">
 											<a href="" className="dropdown-toggle" data-toggle="dropdown">Issue Spotting</a>
 											<ul className="dropdown-menu">

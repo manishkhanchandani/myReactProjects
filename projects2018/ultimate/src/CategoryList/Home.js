@@ -10,7 +10,39 @@ class Home extends Component {
 		const singleEvent = "Single's Events";
 		return (
 			<div className="container">
+				
+				<div className="row">
+					<h2>Backend Services in Categorylist.us</h2>
+					<div className="col-md-3 col-xs-6 col-sm-6 text-center">
+						<span className="fa-stack fa-lg fa-4x">
+						  <i className="fa fa-circle fa-stack-2x fa-color"></i>
+						  <i className="fa fa-bath fa-stack-1x fa-inverse"></i>
+						</span>
+						<h3>Become City Manager</h3>
+					</div>
+					<div className="col-md-3 col-xs-6 col-sm-6 text-center">
+						<span className="fa-stack fa-lg fa-4x">
+						  <i className="fa fa-circle fa-stack-2x fa-color"></i>
+						  <i className="fa fa-bath fa-stack-1x fa-inverse"></i>
+						</span>
+						<h3>Become City Service Manager</h3>
+					</div>
+					<div className="col-md-3 col-xs-6 col-sm-6 text-center">
+						<span className="fa-stack fa-lg fa-4x">
+						  <i className="fa fa-circle fa-stack-2x fa-color"></i>
+						  <i className="fa fa-bath fa-stack-1x fa-inverse"></i>
+						</span>
+						<h3>Provide Service (Coming Soon)</h3>
+					</div>
+				</div>
+				<hr />
 				<h2>Services Provided by Categorylist.us</h2>
+				<div className="row">
+
+				</div>
+				
+				<hr />
+				<h2>Services (Ariving Soon)</h2>
 				<div className="row">
 					<div className="col-md-3 col-xs-6 col-sm-6 text-center">
 						<span className="fa-stack fa-lg fa-4x">
@@ -96,13 +128,6 @@ class Home extends Component {
 						</span>
 						<h3>Business Directory</h3>
 					</div>
-					<div className="col-md-3 text-center">
-						<span className="fa-stack fa-lg fa-4x">
-						  <i className="fa fa-circle fa-stack-2x fa-color"></i>
-						  <i className="fa fa-car fa-stack-1x fa-inverse"></i>
-						</span>
-						<h3>Automotive</h3>
-					</div>
 					<div className="col-md-3 col-xs-6 col-sm-6 text-center">
 						<span className="fa-stack fa-lg fa-4x">
 						  <i className="fa fa-circle fa-stack-2x fa-color"></i>
@@ -110,27 +135,85 @@ class Home extends Component {
 						</span>
 						<h3>Movers</h3>
 					</div>
-				</div>
-				
-				<hr />
-				
-				<div className="row">
-					<h2>Backend Services in Categorylist.us</h2>
 					<div className="col-md-3 col-xs-6 col-sm-6 text-center">
 						<span className="fa-stack fa-lg fa-4x">
 						  <i className="fa fa-circle fa-stack-2x fa-color"></i>
-						  <i className="fa fa-bath fa-stack-1x fa-inverse"></i>
+						  <i className="fa fa-truck fa-stack-1x fa-inverse"></i>
 						</span>
-						<h3>Provide Service</h3>
+						<h3>MyFlix</h3>
 					</div>
 					<div className="col-md-3 col-xs-6 col-sm-6 text-center">
 						<span className="fa-stack fa-lg fa-4x">
 						  <i className="fa fa-circle fa-stack-2x fa-color"></i>
-						  <i className="fa fa-bath fa-stack-1x fa-inverse"></i>
+						  <i className="fa fa-truck fa-stack-1x fa-inverse"></i>
 						</span>
-						<h3>Become City Manager</h3>
+						<h3>Online Homeopathic Treatment</h3>
+					</div>
+					<div className="col-md-3 col-xs-6 col-sm-6 text-center">
+						<span className="fa-stack fa-lg fa-4x">
+						  <i className="fa fa-circle fa-stack-2x fa-color"></i>
+						  <i className="fa fa-truck fa-stack-1x fa-inverse"></i>
+						</span>
+						<h3>Remedy Finder</h3>
+					</div>
+					<div className="col-md-3 col-xs-6 col-sm-6 text-center">
+						<span className="fa-stack fa-lg fa-4x">
+						  <i className="fa fa-circle fa-stack-2x fa-color"></i>
+						  <i className="fa fa-truck fa-stack-1x fa-inverse"></i>
+						</span>
+						<h3>Life Reminder</h3>
+					</div>
+					<div className="col-md-3 col-xs-6 col-sm-6 text-center">
+						<span className="fa-stack fa-lg fa-4x">
+						  <i className="fa fa-circle fa-stack-2x fa-color"></i>
+						  <i className="fa fa-truck fa-stack-1x fa-inverse"></i>
+						</span>
+						<h3>My Religion</h3>
+					</div>
+					<div className="col-md-3 col-xs-6 col-sm-6 text-center">
+						<span className="fa-stack fa-lg fa-4x">
+						  <i className="fa fa-circle fa-stack-2x fa-color"></i>
+						  <i className="fa fa-truck fa-stack-1x fa-inverse"></i>
+						</span>
+						<h3>Ride Share</h3>
+					</div>
+					<div className="col-md-3 col-xs-6 col-sm-6 text-center">
+						<span className="fa-stack fa-lg fa-4x">
+						  <i className="fa fa-circle fa-stack-2x fa-color"></i>
+						  <i className="fa fa-truck fa-stack-1x fa-inverse"></i>
+						</span>
+						<h3>Sell Your Products</h3>
+					</div>
+					<div className="col-md-3 col-xs-6 col-sm-6 text-center">
+						<span className="fa-stack fa-lg fa-4x">
+						  <i className="fa fa-circle fa-stack-2x fa-color"></i>
+						  <i className="fa fa-truck fa-stack-1x fa-inverse"></i>
+						</span>
+						<h3>Real Estate</h3>
+					</div>
+					<div className="col-md-3 col-xs-6 col-sm-6 text-center">
+						<span className="fa-stack fa-lg fa-4x">
+						  <i className="fa fa-circle fa-stack-2x fa-color"></i>
+						  <i className="fa fa-truck fa-stack-1x fa-inverse"></i>
+						</span>
+						<h3>Events</h3>
+					</div>
+					<div className="col-md-3 col-xs-6 col-sm-6 text-center">
+						<span className="fa-stack fa-lg fa-4x">
+						  <i className="fa fa-circle fa-stack-2x fa-color"></i>
+						  <i className="fa fa-truck fa-stack-1x fa-inverse"></i>
+						</span>
+						<h3>Groups</h3>
+					</div>
+					<div className="col-md-3 col-xs-6 col-sm-6 text-center">
+						<span className="fa-stack fa-lg fa-4x">
+						  <i className="fa fa-circle fa-stack-2x fa-color"></i>
+						  <i className="fa fa-truck fa-stack-1x fa-inverse"></i>
+						</span>
+						<h3>Dating</h3>
 					</div>
 				</div>
+				
 			</div>
 		);
 	}

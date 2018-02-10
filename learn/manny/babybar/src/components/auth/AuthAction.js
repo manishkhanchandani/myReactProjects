@@ -90,7 +90,8 @@ export const FirebaseLogin = (type, additionalParams=null) => {
 				
 				firebaseDatabase.ref(url).once('value').then((snapshot) => {
 					if (!snapshot.exists()) {
-						obj.createdDate = firebase.database.ServerValue.TIMESTAMP;	 
+						obj.createdDate = firebase.database.ServerValue.TIMESTAMP;
+						obj.access_level = 'member';
 					}
 					
 					firebaseDatabase.ref(url).update(obj);
@@ -143,15 +144,20 @@ export const onlinePresence = (data) => {
 export const FirebaseAuthSystem = (dispatch) => {
 	firebaseApp.auth().onAuthStateChanged((user) => {
 		if (user) {
-			var obj = {};
-			obj.email = user.email;
-			obj.displayName = user.displayName;
-			obj.photoURL = user.photoURL;
-			obj.uid = user.uid;
-			obj.profile_uid = user.providerData[0].uid;
-			obj.providerId = user.providerData[0].providerId;
-			localStorage.setItem('usersObject', JSON.stringify(obj));
-			dispatch(loggedIn(obj));
+			var url = FirebaseConstant.basePath + '/users/' + user.uid;
+			firebaseDatabase.ref(url).once('value').then((snapshot) => {
+				let result = snapshot.val();
+				var obj = {};
+				obj.email = result.email;
+				obj.displayName = result.displayName;
+				obj.photoURL = result.photoURL;
+				obj.uid = user.uid;
+				obj.profile_uid = result.profile_uid;
+				obj.providerId = result.providerId;
+				obj.access_level = result.access_level;
+				localStorage.setItem('usersObject', JSON.stringify(obj));
+				dispatch(loggedIn(obj));
+			});
 			
 			/*console.log('user added in online system');
 			let uobj = {

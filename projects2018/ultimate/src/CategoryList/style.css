@@ -7,3 +7,22 @@ h2 {
 	font-weight: bold !important;
 	font-size: 26px !important;
 }
+
+.category-list .col-md-3 {
+	min-height: 240px;
+}
+
+/*drag and drop files */
+.category-list .city-manager-new section {
+  display: flex;
+}
+
+.category-list .city-manager-new .dropzone {
+  flex: 1 auto;
+  width: 50%;
+}
+
+.category-list .city-manager-new aside {
+  width: 50%;
+}
+/*drag and drop files */

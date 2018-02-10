@@ -1,6 +1,28 @@
 {
 	"key": "implied_in_law",
 	"name": "Implied In Law Contract",
+	"quiz": [
+		{
+			"id": 1,
+			"question": "What is the other name of a quasi-contract? (ref 2)",
+			"answerOptions": [
+				"Implied in Law",
+				"Implied in Fact"
+			],
+			"correct": 0
+		},
+		{
+			"id": 2,
+			"question": "What is not the element of a quasi-contract? 1) Plaintiff confers a benefit on defendant, 2) Plaintiff reasonably expects to pay, 3) It would be unfair to allow the defendant to keep the benefit without paying. (ref 2)",
+			"answerOptions": [
+				"1, 2, and 3",
+				"1 and 3",
+				"2",
+				"1 and 2"
+			],
+			"correct": 1
+		}
+	],
 	"next": {
 		"key": "",
 		"name": "",

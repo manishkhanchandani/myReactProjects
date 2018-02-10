@@ -23,6 +23,30 @@
 		}	  
 	],
 	"conclusion": "Therefore, the Seller cannot revoke his offer.",
+	"quiz": [
+		{
+			"id": 1,
+			"question": "What are the types of warranties? (ref 2)",
+			"answerOptions": [
+				"Express, Implied Warranty of Merchantability",
+				"Express, Implied Warranty of Merchantability, Home Warranty",
+				"Express, Implied Warranty of Merchantability, Implied Warranty of Fitness for a Particular Purpose",
+				"mplied Warranty of Merchantability, Implied Warranty of Fitness for a Particular Purpose"
+			],
+			"correct": 2
+		},
+		{
+			"id": 2,
+			"question": "What is a warranty? (ref 2)",
+			"answerOptions": [
+				"A contract that shifts risk to the party making the promise. It is not all warranties can be disclaimed.",
+				"A contract that shifts risk to the party making the promise. All warranties can be disclaimed.",
+				"A promise about a contract term that explicitly shifts risk to the party making the promise. All warranties can be disclaimed.",
+				"A promise about a contract term that explicitly shifts risk to the party making the promise. It is not all warranties can be disclaimed."
+			],
+			"correct": 2
+		}
+	],
 	"next": {
 		"key": "",
 		"name": "",

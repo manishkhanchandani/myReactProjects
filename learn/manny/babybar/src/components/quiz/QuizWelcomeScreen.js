@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
+import {firebaseDatabase, FirebaseConstant} from '../../MyFirebase.js';
 import * as quizActions from './QuizAction.js';
 import {getUID} from '../auth/AuthAction.js';
 import QuizPage1 from './QuizPage1.js';
@@ -9,6 +10,28 @@ import QuizResults from './QuizResults.js';
 
 class QuizWelcomeScreen extends Component {
 	
+	
+	watchQuestion()
+	{
+		var url = FirebaseConstant.basePath + '/quiz/posts/'+this.props.match.params.id;
+		console.log('url is ', url);
+		var ref = firebaseDatabase.ref(url);
+
+		ref.off();
+		ref.on('value', (snapshot) => {
+			var result = snapshot.val();
+			if (!result) return false;
+			console.log('results is ', result);
+			
+			let data1 = result[result.user1_uid];
+			let data2 = result[result.user2_uid];
+			if (data1.status === 'Completed' && data2.status === 'Completed' && result.status !== 'Completed') {
+				ref.child('status').set('Completed');
+			}
+			
+		});
+	}
+
 	componentWillReceiveProps(nextProps) {
 		if (!nextProps.quizReducer.questions && nextProps.quizReducer.selectedQuiz[nextProps.match.params.id]) {
 			var details = nextProps.quizReducer.selectedQuiz[nextProps.match.params.id];
@@ -18,6 +41,7 @@ class QuizWelcomeScreen extends Component {
 	
 	componentDidMount() {
 		this.props.callSelectedQuiz(this.props.match.params.id);
+		this.watchQuestion();
 	}
 
 	render() {
@@ -25,7 +49,6 @@ class QuizWelcomeScreen extends Component {
 		if (!pageData) {
 			return null;
 		}
-		
 		const uid = getUID();
 		return (
 			<div className="welcome container">

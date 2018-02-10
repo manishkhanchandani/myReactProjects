@@ -10,6 +10,7 @@ import QuizCompletedList from './QuizCompletedList.js';
 
 
 class Quiz extends Component {	
+
 	
 	render() {
 		return (
