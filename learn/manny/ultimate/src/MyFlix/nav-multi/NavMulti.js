@@ -16,6 +16,8 @@ class NavMulti extends Component {
 			}
 		}
 		
+		console.log('url is ', url);
+		
 		return (
 			<div className="nav-multi">
 				<div className="navbar navbar-inverse navbar-static-top" role="navigation">
@@ -57,6 +59,7 @@ class NavMulti extends Component {
 										
 										<li><Link to={`${url}/view/View1`}>View 1</Link></li>
 										<li><Link to={`${url}/view/View2`}>View 2</Link></li>
+										<li><Link to={`${url}/view/View3`}>View 3</Link></li>
 										
 										
 									</ul>

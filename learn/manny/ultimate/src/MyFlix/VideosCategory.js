@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {utubeIDGrabber} from '../utilities/functions.js';
 import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 import {withRouter} from 'react-router';
 import Select from 'react-select';
@@ -57,8 +56,6 @@ class VideosCategory extends Component {
 				myArray.push(obj);
 			}
 			
-			console.log('showCategories: ', showCategories);
-
 			this.setState({categories: myArray, showCategories: showCategories});
 		});
 	}
@@ -88,10 +85,7 @@ class VideosCategory extends Component {
 		});
 	}
 
-	render() {
-		console.log('video category props: ', this.props);
-		console.log('video category is ', this.state);
-		
+	render() {		
 		const { crazy, disabled, stayOpen, value } = this.state;
 		return (
 			<div className="section">

@@ -1,12 +1,15 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 import YouTube from 'react-youtube';
+import {defaultList, changeList} from './MyFlixAction.js';
 
 class Detail extends Component {
 	constructor(props) {
 		super(props);
 		
-		const list_id = this.props.match.params.list ? this.props.match.params.list : FirebaseConstant.defaultListId;
+		const list_id = this.props.match.params.list ? this.props.match.params.list : defaultList;
+
 		this.state = {
 			list_id: list_id,
 			data: null
@@ -24,10 +27,10 @@ class Detail extends Component {
 			let record = snapshot.val();
 			this.setState({data: record});
 		});
+		this.props.callChangeList(this.state.list_id);
 	}
 
 	render() {
-		console.log('detail page: ', this.state);
 		
 		if (!this.state.data) return null;
 		
@@ -53,4 +56,18 @@ class Detail extends Component {
 	}
 }
 
-export default Detail;
+const mapStateToProps = (state) => {
+	return {
+		myFlixReducer: state.MyFlixReducer
+	}	
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		callChangeList: (newList) => {
+			dispatch(changeList(newList));
+		}
+	};	
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Detail);

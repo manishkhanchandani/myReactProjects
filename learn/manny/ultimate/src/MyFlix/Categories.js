@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import * as firebase from 'firebase';
 import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 import {Link} from 'react-router-dom';
+import DeleteModal from '../common/DeleteModal.js';
+import {defaultList} from './MyFlixAction.js';
 
 class Categories extends Component {
 
@@ -13,7 +15,11 @@ class Categories extends Component {
 			categories: null,
 			error: null,
 			category_id: null,
-			subcategory: ''
+			subcategory: '',
+			deleteModal: null,
+			deleteCategory: null,
+			deleteSubModal: null,
+			deleteSubCategory: null
 		};
 	}
 	
@@ -49,6 +55,28 @@ class Categories extends Component {
 
 			this.setState({categories: myArray});
 		});
+	}
+	
+	closeCat() {
+		this.setState({deleteModal: false, deleteCategory: null});
+	}
+	
+	closeSub() {
+		this.setState({deleteSubModal: false, deleteSubCategory: null});
+	}
+	
+	deleteCategoryRecord(record) {
+		var url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/categories/' + record._id;
+		firebaseDatabase.ref(url).set(null);
+		this.getCategories();
+		this.closeCat();
+	}
+	
+	deleteSubCategoryRecord(record) {
+		var url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/categories/' + record.cat_id + '/subcategories/' + record._id;
+		firebaseDatabase.ref(url).set(null);
+		this.getCategories();
+		this.closeSub();
 	}
 	
 	
@@ -88,6 +116,10 @@ class Categories extends Component {
 	render() {
 		console.log('state is ', this.state);
 		let videoUrl = '/manage/' + this.props.match.params.list + '/videos';
+		let viewListUrl = '/';
+		if (defaultList !== this.props.match.params.list) {
+			viewListUrl = '/' + this.props.match.params.list;
+		}
 		return (
 			<div className="container">
 				<h3>Categories</h3>
@@ -104,7 +136,7 @@ class Categories extends Component {
 				{
 					this.state.categories && 
 					<div className="panel panel-danger">
-						<div className="panel-heading">Categories<Link to={videoUrl} className="pull-right">Add Videos</Link></div>
+						<div className="panel-heading">Categories<span className="pull-right"><Link to={videoUrl}>Add Videos</Link> | <Link to={viewListUrl}>View List</Link></span></div>
 						<div className="panel-body">
 							
 							<div className="table-responsive">
@@ -116,9 +148,6 @@ class Categories extends Component {
 										</th>
 										<th>
 											Add SubCategories
-										</th>
-										<th>
-											Edit
 										</th>
 										<th>
 											Delete
@@ -152,7 +181,10 @@ class Categories extends Component {
 														<ul>
 															{
 																value.subcat.map((value2, key2) => {
-																	return <li key={key2}>{value2.subcategory}</li>
+																	let subcatdetails = value2;
+																	subcatdetails.cat_id = value._id;
+																	subcatdetails.category = value.category;
+																	return <li key={key2}>{value2.subcategory} <a href="" onClick={(e) => {e.preventDefault(); this.setState({deleteSubModal: true, deleteSubCategory: subcatdetails})}}>Delete</a></li>
 																})	
 															}
 														</ul>
@@ -160,16 +192,21 @@ class Categories extends Component {
 													
 												</td>
 												<td>
-													Edit
-												</td>
-												<td>
-													Delete
+													<a href="" onClick={(e) => {e.preventDefault(); this.setState({deleteModal: true, deleteCategory: value})}}>Delete</a>
 												</td>
 											</tr>			 
 										})
 									}
 									</tbody>
 								</table>
+								{
+									this.state.deleteModal && 
+									<DeleteModal message={`Category: ${this.state.deleteCategory.category}`} closeFn={this.closeCat.bind(this)} deleteRecordFn={this.deleteCategoryRecord.bind(this)} deleteModal={this.state.deleteModal} details={this.state.deleteCategory} />
+								}
+								{
+									this.state.deleteSubModal && 
+									<DeleteModal message={`Subcategory: ${this.state.deleteSubCategory.subcategory}`} closeFn={this.closeSub.bind(this)} deleteRecordFn={this.deleteSubCategoryRecord.bind(this)} deleteModal={this.state.deleteSubModal} details={this.state.deleteSubCategory} />
+								}
 							</div>
 						</div>
 					

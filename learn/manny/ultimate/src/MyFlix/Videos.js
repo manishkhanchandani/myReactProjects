@@ -8,6 +8,8 @@ import {Alert} from 'react-bootstrap';
 import {processRecords} from '../utilities/functions.js';
 import Paginator from '../utilities/Paginator.js';
 import DeleteModal from '../common/DeleteModal.js';
+import {defaultList} from './MyFlixAction.js';
+import {Link} from 'react-router-dom';
 
 class Videos extends Component {
 	constructor(props) {
@@ -180,6 +182,11 @@ class Videos extends Component {
 	render() {
 		console.log('state var in video.js is ', this.state);
 		
+		let viewListUrl = '/';
+		if (defaultList !== this.props.match.params.list) {
+			viewListUrl = '/' + this.props.match.params.list;
+		}
+
 		let myArrayConverted = null;
 		let paginationProps = null;
 		if (this.state.videoList) {
@@ -268,6 +275,7 @@ class Videos extends Component {
 					</div>
 					<div className="col-md-6">
 						<h3>View Videos</h3>
+						<span className="pull-right"> <Link to={viewListUrl}>View List</Link></span>
 						<br />
 						{
 							!myArrayConverted && 

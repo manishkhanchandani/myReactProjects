@@ -4,6 +4,7 @@ import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 import {getUserObj, getUID} from '../utilities/functions.js';
 import {Link} from 'react-router-dom'; 
 import DeleteModal from '../common/DeleteModal.js';
+import {defaultList} from './MyFlixAction.js';
 
 class Create extends Component {
 	constructor(props) {
@@ -113,7 +114,10 @@ class Create extends Component {
 										this.state.data.map((value, key) => {
 											let linkUrl = '/manage/' + value._id + '/categories';
 											let videoUrl = '/manage/' + value._id + '/videos';
-											let viewListUrl = '/' + value._id;
+											let viewListUrl = '/';
+											if (defaultList !== value._id) {
+												viewListUrl = '/' + value._id;
+											}
 											return <tr key={key}>
 												<td>
 													{value.list}
