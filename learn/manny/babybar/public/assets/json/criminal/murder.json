@@ -1,6 +1,24 @@
 {
 	"key": "murder",
 	"name": "Murder",
+	"sample_essays": [
+		{
+			"hypo": "FELONY MURDER RULE, Jane went to a Gun Store, but the owner Abel refused to sell any gun to Jane. Jane pulled another gun which she has and demanded the quality service from Able, the Sore Owner. Store owner fearing said \"Yes Miss\" and handed over few guns to the Jane. Jane got very happy with the service provided by the Gun Store Owner Abel, When she was putting her gun down, it accidently went off and shot Abel in the head. Abel died immediately on the scene. Jane was sad and felt very bad about it.",
+			"explanation": "Your Rule will come here<br /><br />"	
+		},
+		{
+			"hypo": "GREAT BODILY INJURY, ",
+			"explanation": "Your Rule will come here<br /><br />"	
+		},
+		{
+			"hypo": "INTENT TO KILL to Jyoti, Jina loved her boyfriend Ben, Ben ditched Jina and ran away with Jyoti. Jina decided to kill Jyoti with a bomb. Jina went to put the bomb under the car of Ben and Jyoti which will blow off the Jyoti and that blast will kill her boyfriend Ben too. Jina felt very bad about that. Ben was the reason which makes her to do this kind of the step. But she said she will do what she decided. She put the bomb under the car and bomb went off killing both Ben and Jyoti.",
+			"explanation": "Your Rule will come here<br /><br />"	
+		},
+		{
+			"hypo": "DEPREVAED HEART THEORY to kill Ben, Jina loved her boyfriend Ben, Ben ditched Jina and ran away with Jyoti. Jina decided to kill Jyoti with a bomb. Jina went to put the bomb under the car of Ben and Jyoti which will blow off the Jyoti and that blast will kill her boyfriend Ben too. Jina felt very bad about that. Ben was the reason which makes her to do this kind of the step. But she said she will do what she decided. She put the bomb under the car and bomb went off killing both Ben and Jyoti.",
+			"explanation": "Your Rule will come here<br /><br />"	
+		}  
+	],
 	"next": {
 		"key": "",
 		"name": "",

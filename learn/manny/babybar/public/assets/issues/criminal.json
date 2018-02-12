@@ -131,10 +131,43 @@
 			"topic": "",
 			"essay": "Debbie and Jon met in college and dated each other for two years. Debbie loved Jon very much and wanted to marry him. Jon always told her that he loved only her, but he told her he thought they were too young and should not rush into marriage.<br /><br /> One day as Debbie was putting gasoline into her car at the gasoline station, she looked into the car parked next to hers. She was enraged to see her best friend Vickie passionately kissing Jon. Debbie walked over to the car, with the fuel dispenser in her hand, and started yelling at Vickie and Jon. Vickie said, \"I'm sorry you had to find out this way. Jon and I love each other and are going to get married.\"<br /><br /> Debbie was enraged and shouted, \"You're not going to marry anyone, you slime!\" She then pointed the gasoline dispenser at Vickie and sprayed her with gasoline, soaking her hair and clothes. Jon reached over to try to help Vickie. Unfortunately, he was smoking a cigarette. The cigarette ignited the gasoline and Vickie burned to death.<br /><br /> What offense or offenses has Debbie committed and what defenses, if any, would she assert? Discuss.",
 			"issues": {
-				"criminal_assault": {},
-				"criminal_battery": {},
-				"murder": {},
-				"voluntary_manslaughter": {},
+				"criminal_assault": {
+					"def": [
+						"An assault is an act which causes an immediate apprehension of a harmful or offensive contact."
+					],
+					"hypo": "Debbie was enraged and shouted, \"You're not going to marry anyone, you slime!\" She then pointed the gasoline dispenser at Vickie and sprayed her with gasoline, soaking her hair and clothes. Jon reached over to try to help Vickie.",
+					"samples": [
+						"<b>1) Assault</b> <br /><br />An assault is an act which causes an immediate apprehension of a harmful or offensive contact.<br /><br /> In this case, the state may argue that when Debbie pointed the gasoline dispenser at Vickie, while shouting at her, Vickie could have reasonably apprehended an unlawful and offensive contact, i.e., being sprayed with gasoline. <br /><br />Debbie has committed an assault."	
+					]
+				},
+				"criminal_battery": {
+					"def": [
+						"Battery is an act which causes a person to suffer a harmful or offensive contact."		
+					],
+					"hypo": "Debbie was enraged and shouted, \"You're not going to marry anyone, you slime!\" She then pointed the gasoline dispenser at Vickie and sprayed her with gasoline, soaking her hair and clothes. Jon reached over to try to help Vickie.",
+					"samples": [
+						"<b>2) Battery </b><br /><br />Battery is an act which causes a person to suffer a harmful or offensive contact.<br /><br /> The state may argue that spraying Vickie with gasoline, soaking her hair and clothes, constituted a harmful and offensive contact.<br /><br /> Debbie has committed a battery, but it will merge with the crimes discussed below."			
+					]
+				},
+				"murder": {
+					"def": [
+						"<b>Homicide:</b> Homicide is the death of a human being, which is caused by another human being.",
+						"<b>Actual Cause:</b> But for defandant's act, injury would not have occured.",
+						"<b>Proximate Cause:</b> Defandant's act is the foreseeable result of the result",
+						"<b>Murder:</b> Murder is a homicide, with malice aforethought."
+					],
+					"hypo": "She then pointed the gasoline dispenser at Vickie and sprayed her with gasoline, soaking her hair and clothes. Jon reached over to try to help Vickie. Unfortunately, he was smoking a cigarette. The cigarette ignited the gasoline and Vickie burned to death.",
+					"samples": [
+						"<b>3) Homicide</b><br /><br /> Homicide is the death of a human being, which is caused by another human being.<br /><br /> In this case, Vickie was burned to death, so there is a death of a human being.<br /><br /> <b>4) Actual Cause</b><br /><br /> But for Debbie's act of spraying Vickie with gasoline, she would not have been burned to death, so Debbie is the actual cause.<br /><br /> <b>5) Proximate Cause</b><br /><br /> The state will argue that a personal being burned to death is the foreseeable result of spraying them with gasoline.<br /><br /> Debbie will argue that it was Jon's cigarette that ignited her clothes, which constitutes an independent intervening act which broke the issue of causation.<br /><br /> Debbie's argument will fail, especially if she could in some way tell that Jon was smoking a cigarette, i.e., saw smoke or smelled smoke.<br /><br /> Debbie is the proximate cause of Vickie's death, and is therefore responsible for her homicide.<br /><br /> <b>6) Murder</b><br /><br /> Murder is an unsuccessful homicide, with malice aforethought. Malice is established by showing:<br /><br /> 1) An intent to kill, or<br /><br /> 2) An intent to cause great bodily injury, or<br /><br /> 3) The death resulted from an awareness of and conscious disregard for a high risk to human life, or<br /><br /> 4) The death resulted during the commission of an inherently dangerous felony.<br /><br /> There is a homicide as discussed above. In this case, the state may argue that when Debbie yelled, \"You're not marrying anyone, you slime,\" and then sprayed Vickie with gasoline, she demonstrated an intent to kill, or an intent to cause great bodily harm.<br /><br /> The state may also argue that by spraying gasoline onto a person, Debbie demonstrated an awareness of and disregard for a high risk to human life (Depraved Heart).<br /><br /> The state will be able to establish malice.<br /><br /> <b>7) First Degree Murder/Second Degree Murder</b><br /><br /> Murder that is willful, deliberate and premeditated is First Degree Murder, Second Degree is other types of murder.<br /><br /> If the state can convince a jury that in the brief seconds between seeing Jon and Vickie and spraying her with gas, Debbie decided to kill her, They will establish First Degree Murder.<br /><br /> The state will have a difficult time showing that Debbie reflected upon her act, so she has probably committed second degree murder under a depraved heart theory."			
+					]
+				},
+				"voluntary_manslaughter": {
+					"def": [
+						"Voluntary manslaughter is an intentional killing of a human being, where malice is mitigated by adequate provocation."		
+					],
+					"hypo": "",
+					"samples": []
+				},
 				"involuntary_manslaughter": {},
 				"attempted": {},
 				"mitigating_factors": {},
