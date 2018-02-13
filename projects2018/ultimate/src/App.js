@@ -10,11 +10,11 @@ class App extends Component {
   render() {
 	  let layout = '';
 	  const site = config.site;
-	  if (site === 'myflix.info') {
+	  if (site === 'myflix.info'|| site === 'localhost') {
 		  layout = (<MyFlixLayout />);
 	  } else if (site === 'onlinerx.info') {
 		  layout = (<OnlineRxLayout />);
-	  } else if (site === 'categorylist.us' || site === 'localhost') {
+	  } else if (site === 'categorylist.us' ) {
 		layout = (<CategoryList />);  
 	  } else if (site === 'dctools.info') {
 		  layout = (<DcToolsLayout />);

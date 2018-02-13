@@ -26,3 +26,7 @@ class DeleteModal extends Component {
 }
 
 export default DeleteModal;
+
+/*
+<DeleteModal message={`id: ${this.props.quizDetails.id}`} closeFn={this.close.bind(this)} deleteRecordFn={this.deleteRecord.bind(this)} deleteModal={this.state.deleteModal} details={this.props.quizDetails} />  
+*/
