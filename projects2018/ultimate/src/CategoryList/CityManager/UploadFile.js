@@ -7,7 +7,90 @@ import {getUID} from '../../utilities/functions.js';
 import Dropzone from 'react-dropzone';
 import FileUploadProgress  from 'react-fileupload-progress';
 
+const styles = {
+  progressWrapper: {
+    height: '50px',
+    marginTop: '10px',
+    width: '400px',
+    float:'left',
+    overflow: 'hidden',
+    backgroundColor: '#f5f5f5',
+    borderRadius: '4px',
+    WebkitBoxShadow: 'inset 0 1px 2px rgba(0,0,0,.1)',
+    boxShadow: 'inset 0 1px 2px rgba(0,0,0,.1)'
+  },
+  progressBar: {
+    float: 'left',
+    width: '0',
+    height: '100%',
+    fontSize: '12px',
+    lineHeight: '20px',
+    color: '#fff',
+    textAlign: 'center',
+    backgroundColor: '#5cb85c',
+    WebkitBoxShadow: 'inset 0 -1px 0 rgba(0,0,0,.15)',
+    boxShadow: 'inset 0 -1px 0 rgba(0,0,0,.15)',
+    WebkitTransition: 'width .6s ease',
+    Otransition: 'width .6s ease',
+    transition: 'width .6s ease'
+  },
+  cancelButton: {
+    marginTop: '5px',
+    WebkitAppearance: 'none',
+    padding: 0,
+    cursor: 'pointer',
+    background: '0 0',
+    border: 0,
+    float: 'left',
+    fontSize: '21px',
+    fontWeight: 700,
+    lineHeight: 1,
+    color: '#000',
+    textShadow: '0 1px 0 #fff',
+    filter: 'alpha(opacity=20)',
+    opacity: '.2'
+  },
 
+  bslabel: {
+    display: 'inline-block',
+    maxWidth: '100%',
+    marginBottom: '5px',
+    fontWeight: 700
+  },
+
+  bsHelp: {
+    display: 'block',
+    marginTop: '5px',
+    marginBottom: '10px',
+    color: '#737373'
+  },
+
+  bsButton: {
+    padding: '1px 5px',
+    fontSize: '12px',
+    lineHeight: '1.5',
+    borderRadius: '3px',
+    color: '#fff',
+    backgroundColor: '#337ab7',
+    borderColor: '#2e6da4',
+    display: 'inline-block',
+    padding: '6px 12px',
+    marginBottom: 0,
+    fontWeight: 400,
+    textAlign: 'center',
+    whiteSpace: 'nowrap',
+    verticalAlign: 'middle',
+    touchAction: 'manipulation',
+    cursor: 'pointer',
+    WebkitUserSelect: 'none',
+    MozUserSelect: 'none',
+    msUserSelect: 'none',
+    userSelect: 'none',
+    backgroundImage: 'none',
+    border: '1px solid transparent'
+  }
+};
+//https://github.com/georgeOsdDev/react-fileupload-progress/blob/master/example/app.js
 class CityManagerNew extends Component {
 	constructor(props) {
 		super(props);	
@@ -22,6 +105,23 @@ class CityManagerNew extends Component {
 			error: null,
 			files: []
 		};
+	}
+	
+	formGetter(){
+		return new FormData(document.getElementById('customForm'));
+	}
+	
+	customFormRenderer(onSubmit){
+		return (
+		  <form id='customForm' style={{marginBottom: '15px'}}>
+			<label style={styles.bslabel} htmlFor="exampleInputFile">File input</label>
+			<input style={{display: 'block'}} type="file" name='file' id="exampleInputFile" />
+			<p style={styles.bsHelp}>This is custom form.</p>
+			<input type="text" name="title" id="title" /><br /><br />
+			<input type="text" name="name" id="name" /><br /><br />
+			<button type="button" style={styles.bsButton} onClick={onSubmit}>Upload</button>
+		  </form>
+		);
 	}
 	
 	onDrop(acceptedFiles, rejectedFiles) {
@@ -57,7 +157,7 @@ class CityManagerNew extends Component {
 								{this.state.error}
 							</Alert>
 						}
-						<form onSubmit={this.submitToFirebase.bind(this)}>
+						<form onSubmit={this.submitToFirebase.bind(this)} ref="form">
 						  <div className="form-group">
 							<label>Name *</label>
 							<input type="text" value={this.state.name} className="form-control" placeholder="Enter Name" onChange={(e) => {
@@ -117,7 +217,7 @@ class CityManagerNew extends Component {
 									</ul>
 								</aside>
 							</section>
-							<FileUploadProgress key='ex1' url='http://localhost:3000/api/upload'
+							<FileUploadProgress key='ex1' url='http://localhost/project2017/fileupload.php'
 						  onProgress={(e, request, progress) => {console.log('progress', e, request, progress);}}
 						  onLoad={ (e, request) => {console.log('load', e, request);}}
 						  onError={ (e, request) => {console.log('error', e, request);}}
@@ -130,6 +230,17 @@ class CityManagerNew extends Component {
 						  <button type="submit" className="btn btn-primary form-control">Apply</button>
 						  
 						</form>
+						
+						<h3>Custome rederer</h3>
+
+						<FileUploadProgress key='ex2' url='http://localhost/project2017/fileupload.php'
+						  onProgress={(e, request, progress) => {console.log('progress', e, request, progress);}}
+						  onLoad={ (e, request) => {console.log('load', e, request);}}
+						  onError={ (e, request) => {console.log('error', e, request);}}
+						  onAbort={ (e, request) => {console.log('abort', e, request);}}
+						  formGetter={this.formGetter.bind(this)}
+						  formRenderer={this.customFormRenderer.bind(this)}
+						  />
 					</div>
 				</div>
 			</div>

@@ -24,7 +24,8 @@ class IssuesSpotting extends Component {
 			results: null,
 			deleteIssueModal: false,
 			deleteIssueDetail: null,
-			checked: {}
+			checked: {},
+			displayAnswers: false
 		};
 	}
 
@@ -101,6 +102,7 @@ class IssuesSpotting extends Component {
 	}
 	
 	submitIssue(issueDetails) {
+		this.setState({displayAnswers: true});
 		let obj = {};
 		obj.data = {};
 		let totalPoints = 70;
@@ -231,6 +233,8 @@ class IssuesSpotting extends Component {
 	
 	
 	render() {
+		console.log('this props: ', this.props);
+		console.log('this state: ', this.state);
 		let subject = '';
 		let terms = '';
 		let data = null;
@@ -270,7 +274,7 @@ class IssuesSpotting extends Component {
 						<div className="panel panel-primary">
 							<div className="panel-heading"><b>Issue Spotting</b></div>
 							<div className="panel-body">
-								<select className="form-control" onChange={(e) => {if (!e.target.value) {return;} this.setState({issueSpotting: JSON.parse(e.target.value)})}}>
+								<select className="form-control" onChange={(e) => {if (!e.target.value) {return;} this.setState({displayAnswers: false, issueSpotting: JSON.parse(e.target.value)})}}>
 									<option value="">Select Year</option>
 									{
 										data && 
@@ -305,6 +309,25 @@ class IssuesSpotting extends Component {
 												<div>{renderHTML(this.state.issueSpotting.essay)}</div>
 											</div>
 										</div>
+										{
+											(this.state.displayAnswers && this.state.issueSpotting.sampleAnswers) &&
+											<div>
+												{
+													this.state.issueSpotting.sampleAnswers.map((value, key) => {
+														return <div key={key} className="panel panel-warning">
+														<div className="panel-heading">Sample Answer {key + 1}</div>
+															<div className="panel-body">
+																{renderHTML(value)}
+															</div>
+														</div>
+																								
+													})
+												}
+											</div>
+										}
+										
+										
+										
 									</div>
 									<div className="col-md-5">
 										
@@ -321,6 +344,10 @@ class IssuesSpotting extends Component {
 											}
 											<hr />
 											<Button bsStyle="primary" className="form-control" onClick={this.submitIssue.bind(this, terms)}>Submit Spotting</Button>
+											
+											
+											
+											
 											</div>
 										</div>
 										
