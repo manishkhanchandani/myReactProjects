@@ -73,7 +73,6 @@ class View2 extends Component {
 				obj._id = k;
 				videos.push(obj);						
 			}	
-			console.log('videos are : ', videos);
 			let recObject = processRecords(videos, null, this.state.filterTerm, ['videoTitle', 'categories', 'videoDescription'], 50, this.state.pageNumber, this.onActivePageChange.bind(this));
 			myArrayConverted = recObject.myArrayConverted;
 			paginationProps = recObject.paginationProps;
@@ -147,31 +146,33 @@ class View2 extends Component {
 						</div>
 					</div>
 				</div>
-				<div className="row ">
-					<div className="col-md-4">
-						
-						
-						
-						<h3>Search</h3>
-						<input type="text" placeholder="Filter" className="form-control" onChange={(e) => {this.setState({filterTerm: e.target.value, pageNumber: 1});}} />
-						
-					</div>
-					<div className="col-md-8">
-						<div className="row resultsContainer">
-							{
-								myArrayConverted &&
-									<div>
-										{
-											myArrayConverted.map((value, key) => {
-												return <View2Details videoData={value} key={key} list_id={this.props.list_id}  />	
-											})
-										}
-									</div>
-									
-							}
+				<div className="container">
+					<div className="row ">
+						<div className="col-md-4">
 							
-							<hr />
-							<Paginator {...paginationProps} />
+							
+							
+							<h3>Search</h3>
+							<input type="text" placeholder="Filter" className="form-control" onChange={(e) => {this.setState({filterTerm: e.target.value, pageNumber: 1});}} />
+							
+						</div>
+						<div className="col-md-8">
+							<div className="row resultsContainer">
+								{
+									myArrayConverted &&
+										<div>
+											{
+												myArrayConverted.map((value, key) => {
+													return <View2Details videoData={value} key={key} list_id={this.props.list_id}  />	
+												})
+											}
+										</div>
+										
+								}
+								
+								<hr />
+								<Paginator {...paginationProps} />
+							</div>
 						</div>
 					</div>
 				</div>

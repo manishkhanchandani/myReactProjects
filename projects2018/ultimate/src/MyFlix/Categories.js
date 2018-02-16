@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import * as firebase from 'firebase';
 import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 import {Link} from 'react-router-dom';
+import DeleteModal from '../common/DeleteModal.js';
+import {defaultList} from './MyFlixAction.js';
 
 class Categories extends Component {
 
@@ -13,7 +15,11 @@ class Categories extends Component {
 			categories: null,
 			error: null,
 			category_id: null,
-			subcategory: ''
+			subcategory: '',
+			deleteModal: false,
+			deleteCategory: null,
+			deleteSubModal: false,
+			deleteSubCategory: null
 		};
 	}
 	
@@ -84,9 +90,24 @@ class Categories extends Component {
 		var url2 = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/updated';
 		firebaseDatabase.ref(url2).set(firebase.database.ServerValue.TIMESTAMP);
 	}
+	
+	closeCat() {
+		this.setState({deleteModal: false, deleteCategory: null});	
+	}
+	
+	closeSubCat() {
+		this.setState({deleteSubModal: false, deleteSubCategory: null});	
+	}
+	
+	deleteCategoryRecord(record) {
+		console.log('category to be deleted is ', record);
+	}
+	
+	deleteSubCategoryRecord(record) {
+		console.log('subcategory to be deleted is ', record);
+	}
 
 	render() {
-		console.log('state is ', this.state);
 		let videoUrl = '/manage/' + this.props.match.params.list + '/videos';
 		return (
 			<div className="container">
@@ -116,9 +137,6 @@ class Categories extends Component {
 										</th>
 										<th>
 											Add SubCategories
-										</th>
-										<th>
-											Edit
 										</th>
 										<th>
 											Delete
@@ -160,16 +178,26 @@ class Categories extends Component {
 													
 												</td>
 												<td>
-													Edit
-												</td>
-												<td>
+													<a href="" onClick={(e) => {e.preventDefault(); this.setState({deleteModal: true, deleteCategory: value});}}>
 													Delete
+													</a>
 												</td>
 											</tr>			 
 										})
 									}
 									</tbody>
 								</table>
+								{
+									this.state.deleteModal && 
+									<DeleteModal />
+								}
+								{
+									this.state.deleteSubModal && 
+									<DeleteModal />
+								}
+								
+								
+								
 							</div>
 						</div>
 					

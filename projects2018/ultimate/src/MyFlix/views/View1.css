@@ -21,7 +21,7 @@
 
 /**** MODULE ****/
 .resultsContainer .bgc-fff {
-    background-color: #fff!important;
+    /*background-color: #fff!important;*/
 }
 .resultsContainer .box-shad {
     -webkit-box-shadow: 1px 1px 0 rgba(0,0,0,.2);

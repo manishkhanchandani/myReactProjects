@@ -55,6 +55,7 @@ class NavMulti extends Component {
 									<a href="" className="dropdown-toggle" data-toggle="dropdown">Views <b className="caret"></b></a>
 									<ul className="dropdown-menu multi-level">
 										
+										<li><Link to={`${url}/view/View3`}>Default View</Link></li>
 										<li><Link to={`${url}/view/View1`}>View 1</Link></li>
 										<li><Link to={`${url}/view/View2`}>View 2</Link></li>
 										

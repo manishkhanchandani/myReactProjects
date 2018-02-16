@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 import YouTube from 'react-youtube';
+import {defaultList} from './MyFlixAction.js';
 
 class Detail extends Component {
 	constructor(props) {
 		super(props);
 		
-		const list_id = this.props.match.params.list ? this.props.match.params.list : FirebaseConstant.defaultListId;
+		const list_id = this.props.match.params.list ? this.props.match.params.list : defaultList;
 		this.state = {
 			list_id: list_id,
 			data: null
