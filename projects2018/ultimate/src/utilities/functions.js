@@ -60,7 +60,7 @@ export const processRecords = (recordArray, sortingOrder=null, filterText=null, 
 	//filter Text
 	if (filterText && filterFields.length > 0) {
 		myArr = myArr.filter((record) => {
-			let results = false;
+			//let results = false;
 			for (let i = 0; i < filterFields.length; i++) {
 				let str = record[filterFields[i]];
 				if (!str) {

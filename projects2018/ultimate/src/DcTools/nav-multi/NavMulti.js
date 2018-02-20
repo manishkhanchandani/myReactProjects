@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom'; 
 import Auth from '../auth/Auth.js';
-import Themes from '../../Themes.js';
+//import Themes from '../../Themes.js';
 import logo from './nav-images/dctools_logo.png';
 import './NavMulti.css';
 

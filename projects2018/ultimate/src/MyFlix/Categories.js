@@ -3,7 +3,8 @@ import * as firebase from 'firebase';
 import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 import {Link} from 'react-router-dom';
 import DeleteModal from '../common/DeleteModal.js';
-import {defaultList} from './MyFlixAction.js';
+//import {defaultList} from './MyFlixAction.js';
+import {getUID} from '../utilities/functions.js';
 
 class Categories extends Component {
 
@@ -29,32 +30,48 @@ class Categories extends Component {
 	
 	
 	getCategories() {
-		let url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/categories';
-		let ref = firebaseDatabase.ref(url);
-		ref.once('value', (snapshot) => {
-			if (!snapshot.exists()) {
+		let urlUser = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/user_id';
+		let refUser = firebaseDatabase.ref(urlUser);
+		refUser.once('value', (snapshotUser) => {
+			if (!snapshotUser.exists()) {
 				this.setState({categories: null});
 				return;
 			}
-			let records = snapshot.val();
-			let myArray = [];
-			for (let k in records) {
-				let obj = records[k];
-				obj._id = k;
-				if (obj.subcategories) {
-					obj.subcat = [];
-					for (let j in obj.subcategories) {
-						let subObject = obj.subcategories[j];
-						subObject._id = j;
-						obj.subcat.push(subObject);
-					}
-					
-				}
-				myArray.push(obj);
+			let uid = getUID();
+			if (snapshotUser.val() !== uid) {
+				this.setState({categories: null});
+				return;
 			}
 
-			this.setState({categories: myArray});
+			let url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/categories';
+			let ref = firebaseDatabase.ref(url);
+			ref.once('value', (snapshot) => {
+				if (!snapshot.exists()) {
+					this.setState({categories: null});
+					return;
+				}
+				let records = snapshot.val();
+				let myArray = [];
+				for (let k in records) {
+					let obj = records[k];
+					obj._id = k;
+					if (obj.subcategories) {
+						obj.subcat = [];
+						for (let j in obj.subcategories) {
+							let subObject = obj.subcategories[j];
+							subObject._id = j;
+							obj.subcat.push(subObject);
+						}
+						
+					}
+					myArray.push(obj);
+				}
+	
+				this.setState({categories: myArray});
+			});
+
 		});
+
 	}
 	
 	
@@ -100,11 +117,17 @@ class Categories extends Component {
 	}
 	
 	deleteCategoryRecord(record) {
-		console.log('category to be deleted is ', record);
+		var url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/categories/' + record._id;
+		firebaseDatabase.ref(url).set(null);
+		this.getCategories();
+		this.closeCat();
 	}
 	
 	deleteSubCategoryRecord(record) {
-		console.log('subcategory to be deleted is ', record);
+		var url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/categories/' + record.cat_id + '/subcategories/' + record._id;
+		firebaseDatabase.ref(url).set(null);
+		this.getCategories();
+		this.closeSubCat();
 	}
 
 	render() {
@@ -170,7 +193,10 @@ class Categories extends Component {
 														<ul>
 															{
 																value.subcat.map((value2, key2) => {
-																	return <li key={key2}>{value2.subcategory}</li>
+																	let subcatdetails = value2;
+																	subcatdetails.cat_id = value._id;
+																	subcatdetails.category = value.category;
+																	return <li key={key2}>{value2.subcategory} <a href="" onClick={(e) => {e.preventDefault(); this.setState({deleteSubModal: true, deleteSubCategory: subcatdetails});}}>Delete</a></li>
 																})	
 															}
 														</ul>
@@ -189,11 +215,11 @@ class Categories extends Component {
 								</table>
 								{
 									this.state.deleteModal && 
-									<DeleteModal />
+									<DeleteModal message={`Category: ${this.state.deleteCategory.category}`} closeFn={this.closeCat.bind(this)} deleteRecordFn={this.deleteCategoryRecord.bind(this)} deleteModal={this.state.deleteModal} details={this.state.deleteCategory} />
 								}
 								{
 									this.state.deleteSubModal && 
-									<DeleteModal />
+									<DeleteModal message={`Subcategory: ${this.state.deleteSubCategory.subcategory}`} closeFn={this.closeSubCat.bind(this)} deleteRecordFn={this.deleteSubCategoryRecord.bind(this)} deleteModal={this.state.deleteSubModal} details={this.state.deleteSubCategory} />
 								}
 								
 								

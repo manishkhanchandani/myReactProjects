@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import './NavMulti.css';
-import './NavMulti.css';
-import {Link} from 'react-router-dom'; 
+//import {Link} from 'react-router-dom'; 
 import Auth from '../../modules/auth/Auth.js';
 import Themes from '../../Themes.js';
 

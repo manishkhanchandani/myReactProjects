@@ -233,8 +233,6 @@ class IssuesSpotting extends Component {
 	
 	
 	render() {
-		console.log('this props: ', this.props);
-		console.log('this state: ', this.state);
 		let subject = '';
 		let terms = '';
 		let data = null;
@@ -344,6 +342,13 @@ class IssuesSpotting extends Component {
 											}
 											<hr />
 											<Button bsStyle="primary" className="form-control" onClick={this.submitIssue.bind(this, terms)}>Submit Spotting</Button>
+											{
+												this.state.issueSpotting.sampleAnswers && 
+												<div>
+												<br /><br />
+												<a href="" onClick={(e) => {e.preventDefault(); this.setState({displayAnswers: true});}}>Show Past Answers</a>
+												</div>
+											}
 											
 											
 											
@@ -427,7 +432,7 @@ class IssuesSpotting extends Component {
 														<div className="panel-footer"><small>Total Points: <b>{value.totalPoints}</b>
 														
 														{
-															value.totalPoints >= 65 ?
+															value.totalPoints >= 60 ?
 															<span> / You Passed</span> :
 															<span> / You Failed</span>
 														}

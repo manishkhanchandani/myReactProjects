@@ -55,7 +55,6 @@ class Create extends Component {
 	submitToFirebase(e) {
 		e.preventDefault();
 		let userObj = getUserObj();
-		console.log(userObj);
 		var obj = {};
 		obj.list = this.state.list;
 		obj.created = firebase.database.ServerValue.TIMESTAMP;

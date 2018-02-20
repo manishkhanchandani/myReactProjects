@@ -147,6 +147,10 @@ export const FirebaseAuthSystem = (dispatch) => {
 			var url = FirebaseConstant.basePath + '/users/' + user.uid;
 			firebaseDatabase.ref(url).once('value').then((snapshot) => {
 				let result = snapshot.val();
+				if (!result) {
+					dispatch(loggedOut());
+					return;
+				}
 				var obj = {};
 				obj.email = result.email;
 				obj.displayName = result.displayName;

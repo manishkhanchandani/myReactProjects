@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {actionGoogleLogin, actionFacebookLogin, actionTwitterLogin, actionGithubLogin, actionSignOut} from './AuthAction.js';
 import './Auth.css';
-import {Link} from 'react-router-dom';
+//import {Link} from 'react-router-dom';
 
 class Auth extends Component {
 	render() {

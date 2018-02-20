@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
+//import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 import {defaultList, changeList, getListData} from './MyFlixAction.js';
 
 import View1 from './views/View1.js';

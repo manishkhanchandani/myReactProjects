@@ -21,7 +21,6 @@ class Themes extends Component {
 	fetchTheme(theme) {
 		localStorage.setItem('theme', theme);
 		let url = '/themes/' + theme + '/bootstrap.min.css';
-		console.log("url", url);
 		fetch(url, {
 			method: 'GET'	  
 		}).then((response) => {

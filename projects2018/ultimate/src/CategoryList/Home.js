@@ -1,11 +1,6 @@
 import React, {Component} from 'react';
-import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 
 class Home extends Component {
-	constructor(props) {
-		super(props);
-		
-	}
 	render() {
 		const singleEvent = "Single's Events";
 		return (

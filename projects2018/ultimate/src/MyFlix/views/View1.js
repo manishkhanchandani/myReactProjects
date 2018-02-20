@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './View1.css';
 import {processRecords} from '../../utilities/functions.js';
 import Paginator from '../../utilities/Paginator.js';
+import {Link} from 'react-router-dom'; 
 
 
 class View1Details extends Component {
@@ -26,7 +27,7 @@ class View1Details extends Component {
 						<div className="media-body fnt-smaller">
 
 							<h4 className="media-heading">
-							  <a href={url} target="_blank">{videoData.videoTitle}</a></h4>
+							  <Link to={url}>{videoData.videoTitle}</Link></h4>
 
 
 							
@@ -56,7 +57,6 @@ class View1 extends Component {
 	}
 	
 	render() {
-		console.log('props are ', this.props);
 		if (!this.props.data) {
 			return null;	
 		}

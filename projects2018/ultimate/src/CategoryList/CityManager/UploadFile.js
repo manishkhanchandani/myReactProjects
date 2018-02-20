@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import Autocomplete from 'react-google-autocomplete';
-import * as firebase from 'firebase';
-import {firebaseDatabase, FirebaseConstant} from '../../MyFirebase.js';
 import {Alert} from 'react-bootstrap';
 import {getUID} from '../../utilities/functions.js';
 import Dropzone from 'react-dropzone';
@@ -74,7 +72,7 @@ const styles = {
     backgroundColor: '#337ab7',
     borderColor: '#2e6da4',
     display: 'inline-block',
-    padding: '6px 12px',
+    //padding: '6px 12px',
     marginBottom: 0,
     fontWeight: 400,
     textAlign: 'center',

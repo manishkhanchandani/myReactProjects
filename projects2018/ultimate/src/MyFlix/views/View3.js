@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import OwlCarousel from 'react-owl-carousel';
 import './View3.css';
 import {defaultList} from '../MyFlixAction.js';
+import {Link} from 'react-router-dom'; 
 
 class Items extends Component {
 	constructor(props) {
@@ -44,7 +45,7 @@ class Items extends Component {
 			if (defaultList === this.props.list_id) {
 				url = '/detail/' + val._id;
 			}
-			items.push(<div className="item row__inner" key={i}><a className="tile" href={url} target="_blank"><div className="tile__media"><img className="tile__img" src={val.videoThumbnail} alt={val.videoTitle} /></div><div className="tile__details"><div className="tile__title">{val.videoTitle}</div></div></a></div>);
+			items.push(<div className="item row__inner" key={i}><Link className="tile" to={url}><div className="tile__media"><img className="tile__img" src={val.videoThumbnail} alt={val.videoTitle} /></div><div className="tile__details"><div className="tile__title">{val.videoTitle}</div></div></Link></div>);
 		}
 		
 		return (
@@ -71,8 +72,6 @@ class View3 extends Component {
 		if (!this.props.data) {
 			return null;	
 		}
-		
-		console.log('data is ', this.props.data);
 		
 		let catVideos = null;
 		if (this.props.data.categories) {

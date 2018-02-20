@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
+//import {Link} from 'react-router-dom';
 import {actionGoogleLogin, actionFacebookLogin, actionTwitterLogin, actionGithubLogin, actionSignOut} from './AuthAction.js';
 import Themes from '../../Themes.js';
 import './Auth.css';
-import { loggedIn } from '../../modules/auth/AuthAction';
+//import { loggedIn } from '../../modules/auth/AuthAction';
 
 
 class Auth extends Component {

@@ -31,11 +31,6 @@ class NavMulti extends Component {
 						</div>
 						<div className="collapse navbar-collapse">
 							<ul className="nav navbar-nav navbar-right">
-								<Themes />
-								<Auth />
-							</ul>
-							<ul className="nav navbar-nav">
-								<li className="active"><Link to={`${url}`}>Home</Link></li>
 								<li>
 									<a href="" className="dropdown-toggle" data-toggle="dropdown">Admin <b className="caret"></b></a>
 									<ul className="dropdown-menu multi-level">
@@ -50,14 +45,19 @@ class NavMulti extends Component {
 										
 									</ul>
 								</li>
+								<Themes />
+								<Auth />
+							</ul>
+							<ul className="nav navbar-nav">
+								<li className="active"><Link to={`${url}`}>Home</Link></li>
 								
 								<li>
 									<a href="" className="dropdown-toggle" data-toggle="dropdown">Views <b className="caret"></b></a>
 									<ul className="dropdown-menu multi-level">
 										
 										<li><Link to={`${url}/view/View3`}>Default View</Link></li>
-										<li><Link to={`${url}/view/View1`}>View 1</Link></li>
-										<li><Link to={`${url}/view/View2`}>View 2</Link></li>
+										<li><Link to={`${url}/view/View1`}>Search</Link></li>
+										<li><Link to={`${url}/view/View2`}>Browse</Link></li>
 										
 										
 									</ul>

@@ -8,6 +8,7 @@ import {Alert} from 'react-bootstrap';
 import {processRecords} from '../utilities/functions.js';
 import Paginator from '../utilities/Paginator.js';
 import DeleteModal from '../common/DeleteModal.js';
+import {getUID} from '../utilities/functions.js';
 
 class Videos extends Component {
 	constructor(props) {
@@ -41,7 +42,6 @@ class Videos extends Component {
 	
 	
 	deleteRecord(record) {
-		console.log('record is ', record);
 		var url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/videos/' + record._id;
 		var ref = firebaseDatabase.ref(url);
 		ref.once('value', (snapshot) => {
@@ -59,18 +59,32 @@ class Videos extends Component {
 	}
 	
 	componentDidMount() {
-		var url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/videos';
-		var ref = firebaseDatabase.ref(url);
-		ref.on('value', (snapshot) => {
-			let records = snapshot.val();
-			if (!records) return;
-			let myArray = [];
-			for (let key in records) {
-				let obj = records[key];
-				obj._id = key;
-				myArray.push(obj);
+		
+		let urlUser = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/user_id';
+		let refUser = firebaseDatabase.ref(urlUser);
+		refUser.once('value', (snapshotUser) => {
+			if (!snapshotUser.exists()) {
+				this.setState({categories: null});
+				return;
 			}
-			this.setState({videoList: myArray});
+			let uid = getUID();
+			if (snapshotUser.val() !== uid) {
+				this.setState({categories: null});
+				return;
+			}
+			var url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/videos';
+			var ref = firebaseDatabase.ref(url);
+			ref.on('value', (snapshot) => {
+				let records = snapshot.val();
+				if (!records) return;
+				let myArray = [];
+				for (let key in records) {
+					let obj = records[key];
+					obj._id = key;
+					myArray.push(obj);
+				}
+				this.setState({videoList: myArray});
+			});
 		});
 			
 	}
@@ -117,55 +131,69 @@ class Videos extends Component {
 			return;
 		}
 		
-		var obj = {};
-		obj.videoInput = this.state.videoInput;
-		obj.videoInputId = this.state.videoInputId;
-		obj.videoTitle = this.state.videoTitle;
-		obj.videoDescription = this.state.videoDescription;
-		obj.videoStarring = this.state.videoStarring;
-		obj.videoDirector = this.state.videoDirector;
-		obj.videoMovieType = this.state.videoMovieType;
-		obj.videoMaturityRatings = this.state.videoMaturityRatings;
-		obj.videoThumbnail = this.state.videoThumbnail;
-		let current = firebase.database.ServerValue.TIMESTAMP;
-		obj.created_dt = current;
-		var url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/videos';
-		var unique_id = firebaseDatabase.ref(url).push(obj).key;
-
-		var url2 = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/updated';
-		firebaseDatabase.ref(url2).set(firebase.database.ServerValue.TIMESTAMP);
-
-		if (!this.state.categories) return;
-		
-		let categoryPath = [];
-
-		let catUrl = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/categories';
-		
-		let catArr = [];
-		for (let k in this.state.categories) {
-			let rec = this.state.categories[k];
-			catArr.push(rec);
-			let tmp = k.split('|');
-			let cat = tmp[0];
-			let subcat = null;
-			if (tmp.length === 2) {
-				subcat = tmp[1];
-				categoryPath.push(catUrl + '/' + cat + '/subcategories/' + subcat + '/videos/' + unique_id);
-				firebaseDatabase.ref(catUrl).child(cat).child('subcategories').child(subcat).child('videos').child(unique_id).set(current);
-			} else {
-				categoryPath.push(catUrl + '/' + cat + '/videos/' + unique_id);
-				firebaseDatabase.ref(catUrl).child(cat).child('videos').child(unique_id).set(current);
+		let urlUser = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/user_id';
+		let refUser = firebaseDatabase.ref(urlUser);
+		refUser.once('value', (snapshotUser) => {
+			if (!snapshotUser.exists()) {
+				this.setState({error: 'Wrong User'});
+				return;
 			}
-		}
+			let uid = getUID();
+			if (snapshotUser.val() !== uid) {
+				this.setState({error: 'Wrong User'});
+				return;
+			}
 		
-		if (catArr.length > 0) {
-			let catArrString = catArr.join(', ');
-			firebaseDatabase.ref(url).child(unique_id).child('categories').set(catArrString);
-			firebaseDatabase.ref(url).child(unique_id).child('categoryPath').set(categoryPath);
-		}
-		
-		this.setState({error: 'Video Successfully added in the list.', videoInput: '', videoInputId: '', videoTitle: '', videoDescription: '', videoStarring: '', videoDirector: '', videoMovieType: '', videoMaturityRatings: '', videoThumbnail: '', videoTags: ''});
-		window.scrollTo(0, 0);
+			var obj = {};
+			obj.videoInput = this.state.videoInput;
+			obj.videoInputId = this.state.videoInputId;
+			obj.videoTitle = this.state.videoTitle;
+			obj.videoDescription = this.state.videoDescription;
+			obj.videoStarring = this.state.videoStarring;
+			obj.videoDirector = this.state.videoDirector;
+			obj.videoMovieType = this.state.videoMovieType;
+			obj.videoMaturityRatings = this.state.videoMaturityRatings;
+			obj.videoThumbnail = this.state.videoThumbnail;
+			let current = firebase.database.ServerValue.TIMESTAMP;
+			obj.created_dt = current;
+			var url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/videos';
+			var unique_id = firebaseDatabase.ref(url).push(obj).key;
+	
+			var url2 = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/updated';
+			firebaseDatabase.ref(url2).set(firebase.database.ServerValue.TIMESTAMP);
+	
+			if (!this.state.categories) return;
+			
+			let categoryPath = [];
+	
+			let catUrl = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/categories';
+			
+			let catArr = [];
+			for (let k in this.state.categories) {
+				let rec = this.state.categories[k];
+				catArr.push(rec);
+				let tmp = k.split('|');
+				let cat = tmp[0];
+				let subcat = null;
+				if (tmp.length === 2) {
+					subcat = tmp[1];
+					categoryPath.push(catUrl + '/' + cat + '/subcategories/' + subcat + '/videos/' + unique_id);
+					firebaseDatabase.ref(catUrl).child(cat).child('subcategories').child(subcat).child('videos').child(unique_id).set(current);
+				} else {
+					categoryPath.push(catUrl + '/' + cat + '/videos/' + unique_id);
+					firebaseDatabase.ref(catUrl).child(cat).child('videos').child(unique_id).set(current);
+				}
+			}
+			
+			if (catArr.length > 0) {
+				let catArrString = catArr.join(', ');
+				firebaseDatabase.ref(url).child(unique_id).child('categories').set(catArrString);
+				firebaseDatabase.ref(url).child(unique_id).child('categoryPath').set(categoryPath);
+			}
+			
+			this.setState({error: 'Video Successfully added in the list.', videoInput: '', videoInputId: '', videoTitle: '', videoDescription: '', videoStarring: '', videoDirector: '', videoMovieType: '', videoMaturityRatings: '', videoThumbnail: '', videoTags: ''});
+			window.scrollTo(0, 0);
+		});
 	}
 
 	changeVideoUrl(e) {
@@ -177,9 +205,7 @@ class Videos extends Component {
 		this.setState({videoInput: e.target.value, videoInputId: videoUrl});
 	}
 
-	render() {
-		console.log('state var in video.js is ', this.state);
-		
+	render() {		
 		let myArrayConverted = null;
 		let paginationProps = null;
 		if (this.state.videoList) {
@@ -187,10 +213,7 @@ class Videos extends Component {
 			myArrayConverted = obj.myArrayConverted;
 			paginationProps = obj.paginationProps;
 		}
-		
-		//console.log('myArrayConverted: ', myArrayConverted);
-		//console.log('paginationProps: ', paginationProps);
-		
+
 		return (
 			<div className="container">
 				<div className="row">
@@ -207,6 +230,12 @@ class Videos extends Component {
 							<div className="form-group">
 								<label>Youtube Video URL / ID</label>
 								<input type="text" className="form-control" placeholder="Enter Video ID or URL" value={this.state.videoInput} onChange={this.changeVideoUrl.bind(this)} />
+							</div>
+							<div className="form-group">
+								<label>Youtube Input Id</label>
+								<input type="text" className="form-control" placeholder="Enter Video Input Id" value={this.state.videoInputId} onChange={(e) => {
+									this.setState({videoInputId: e.target.value});	
+								}} />
 							</div>
 							<div className="form-group">
 								<label>Movie Thumbnail URL</label>
@@ -280,7 +309,6 @@ class Videos extends Component {
 							<ul className="list-group">
 								{
 									myArrayConverted.map((value, index) => {
-														  console.log(value);
 										let url = '/'+this.props.match.params.list+'/detail/' + value._id;
 										return	<li key={index} className="list-group-item">
 										<div className="row">

@@ -48,7 +48,7 @@ class NavMulti extends Component {
 								<Themes />
 								<Auth />
 								<li className="dropdown">
-								  <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Location<span className="caret"></span></a>
+								  <a href="" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Location<span className="caret"></span></a>
 								  <ul className="dropdown-menu">
 									{ipDetails}
 								  </ul>

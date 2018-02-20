@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import YouTube from 'react-youtube';
+import {Link} from 'react-router-dom'; 
 
 import './View2.css';
 import {processRecords} from '../../utilities/functions.js';
@@ -28,7 +29,7 @@ class View2Details extends Component {
 						<div className="media-body fnt-smaller">
 
 							<h4 className="media-heading">
-							  <a href={url} target="_blank">{videoData.videoTitle}</a></h4>
+							  <Link to={url}>{videoData.videoTitle}</Link></h4>
 
 
 							

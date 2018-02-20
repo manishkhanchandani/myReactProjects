@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Autocomplete from 'react-google-autocomplete';
-import * as firebase from 'firebase';
-import {firebaseDatabase, FirebaseConstant} from '../../MyFirebase.js';
+//import * as firebase from 'firebase';
+//import {firebaseDatabase, FirebaseConstant} from '../../MyFirebase.js';
 import {Alert} from 'react-bootstrap';
 import {getUID} from '../../utilities/functions.js';
 
@@ -36,7 +36,6 @@ class CityManagerNew extends Component {
 	}
 
 	render() {
-		console.log('state is ', this.state);
 		return (
 			<div className="container city-manager-new">
 				<h1>Become City Manager</h1>

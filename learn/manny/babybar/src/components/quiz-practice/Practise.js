@@ -177,7 +177,7 @@ class QuizPractice extends Component {
 		let paginationProps = null;
 		let rightSideBar = null;
 		if (this.state.finalQuestionList) {
-			let obj = processRecords(this.state.finalQuestionList, null, null, [], 1, this.state.pageNumber, this.onActivePageChange.bind(this));
+			let obj = processRecords(this.state.finalQuestionList, null, null, [], 1, this.state.pageNumber, this.onActivePageChange.bind(this), 5);
 			myArrayConverted = obj.myArrayConverted;
 			paginationProps = obj.paginationProps;
 			
