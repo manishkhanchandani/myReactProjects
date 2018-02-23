@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import Auth from './auth/Auth.js';
 import './NavMulti.css';
 import renderHTML from 'react-render-html';
+import {getUsersObj} from './auth/AuthAction.js';
 
 import Themes from '../Themes.js';
 /*
@@ -75,7 +76,7 @@ console.log('menuStr: ', menuStr);
 class NavMulti extends Component {
 	
 	render() {
-	
+		let userObj = getUsersObj();
 		return (
 				<div className="navMulti">
 				<div className="navbar navbar-inverse navbar-static-top" role="navigation">
@@ -125,6 +126,15 @@ class NavMulti extends Component {
 												<li><Link to="/essays/issues/mbe/prep">Preparation</Link></li>
 											</ul>
 										</li>
+										{
+											(userObj.access_level === 'admin' || userObj.access_level === 'admin2' || userObj.access_level === 'superadmin') &&
+											<li className="dropdown-submenu">
+												<a href="" className="dropdown-toggle" data-toggle="dropdown">Admin</a>
+												<ul className="dropdown-menu">
+													<li><Link to="/quizPractice">Quiz Practice</Link></li>
+												</ul>
+											</li>
+										}
 										
 									</ul>
 								</li>

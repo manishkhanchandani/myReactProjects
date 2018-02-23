@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import {utubeIDGrabber} from '../utilities/functions.js';
 import * as firebase from 'firebase';
 import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
@@ -9,6 +10,7 @@ import {processRecords} from '../utilities/functions.js';
 import Paginator from '../utilities/Paginator.js';
 import DeleteModal from '../common/DeleteModal.js';
 import {getUID} from '../utilities/functions.js';
+import {updateCatValue} from './MyFlixAction.js';
 
 class Videos extends Component {
 	constructor(props) {
@@ -25,6 +27,7 @@ class Videos extends Component {
 			videoMaturityRatings: '',
 			videoThumbnail: '',
 			videoTags: '',
+			videoYear: '',
 			category_id: '',
 			subcategory_id: '',
 			error: null,
@@ -32,7 +35,9 @@ class Videos extends Component {
 			videoList: null,
 			pageNumber: 1,
 			deleteModal: false,
-			deleteDetailRecord: null
+			deleteDetailRecord: null,
+			editRecord: null,
+			edit_id: null
 		};
 	}
 
@@ -90,6 +95,7 @@ class Videos extends Component {
 	}
 	
 	chooseCategory(val) {
+		console.log('categories are: ', val);
 		this.setState({categories: val});
 	}
 	
@@ -149,6 +155,8 @@ class Videos extends Component {
 			obj.videoInputId = this.state.videoInputId;
 			obj.videoTitle = this.state.videoTitle;
 			obj.videoDescription = this.state.videoDescription;
+			obj.videoTags = this.state.videoTags;
+			obj.videoYear = this.state.videoYear;
 			obj.videoStarring = this.state.videoStarring;
 			obj.videoDirector = this.state.videoDirector;
 			obj.videoMovieType = this.state.videoMovieType;
@@ -167,10 +175,11 @@ class Videos extends Component {
 			let categoryPath = [];
 	
 			let catUrl = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/categories';
-			
 			let catArr = [];
+			let categoryKeys = [];
 			for (let k in this.state.categories) {
 				let rec = this.state.categories[k];
+				categoryKeys.push(k);
 				catArr.push(rec);
 				let tmp = k.split('|');
 				let cat = tmp[0];
@@ -189,7 +198,9 @@ class Videos extends Component {
 				let catArrString = catArr.join(', ');
 				firebaseDatabase.ref(url).child(unique_id).child('categories').set(catArrString);
 				firebaseDatabase.ref(url).child(unique_id).child('categoryPath').set(categoryPath);
+				firebaseDatabase.ref(url).child(unique_id).child('categoryKeys').set(categoryKeys);
 			}
+			
 			
 			this.setState({error: 'Video Successfully added in the list.', videoInput: '', videoInputId: '', videoTitle: '', videoDescription: '', videoStarring: '', videoDirector: '', videoMovieType: '', videoMaturityRatings: '', videoThumbnail: '', videoTags: ''});
 			window.scrollTo(0, 0);
@@ -203,6 +214,14 @@ class Videos extends Component {
 		let videoUrl = utubeIDGrabber(e.target.value);
 		this.getVideoDetails(videoUrl);
 		this.setState({videoInput: e.target.value, videoInputId: videoUrl});
+	}
+	
+	editVideoFn(value, e) {
+		e.preventDefault();
+		console.log('edit value is ', value);
+		this.setState({editRecord: value, videoInput: value.videoInput, videoInputId: value.videoInputId, videoTitle: value.videoTitle, videoStarring: value.videoStarring, videoDirector: value.videoDirector, videoMovieType: value.videoMovieType, videoMaturityRatings: value.videoMaturityRatings, videoThumbnail: value.videoThumbnail, videoDescription: value.videoDescription, videoYear: value.videoYear, videoTags: value.videoTags, edit_id: value._id});
+		
+		this.props.callUpdateCatValue(value.categoryKeys);
 	}
 
 	render() {		
@@ -315,7 +334,7 @@ class Videos extends Component {
 											<div className="col-md-4"><img src={value.videoThumbnail} className="img-responsive img-thumbnail" alt="" /></div>
 											<div className="col-md-8">
 												<div><a href={url} target="_blank"><b>{value.videoTitle}</b></a></div>
-												<div className="pull-right"><a href="" onClick={(e) => {e.preventDefault(); this.setState({deleteModal: true, deleteDetailRecord: value})}}>Delete This Video</a></div>
+												<div className="pull-right"><a href="" onClick={this.editVideoFn.bind(this, value)}>Edit This Video</a> | <a href="" onClick={(e) => {e.preventDefault(); this.setState({deleteModal: true, deleteDetailRecord: value})}}>Delete This Video</a></div>
 											</div>
 										</div>
 										</li>		 
@@ -338,4 +357,18 @@ class Videos extends Component {
 	}
 }
 
-export default Videos;
+const mapStateToProps = (state) => {
+	return {
+		myFlixReducer: state.MyFlixReducer
+	}	
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		callUpdateCatValue: (value) => {
+			dispatch(updateCatValue(value));
+		}
+	};	
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Videos);

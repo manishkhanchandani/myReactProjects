@@ -1,6 +1,9 @@
 const MyFlixReducer = (state = {
 	list: null,
-	listData: null
+	listData: null,
+	categories: null,
+	showCategories: null,
+	catValues: null
 }, action) => {
 	switch (action.type) {
 		case 'CHANGE_LIST':
@@ -13,6 +16,19 @@ const MyFlixReducer = (state = {
 			state = {
 				...state,
 				listData: action.payload
+			}
+			break;
+		case 'MYFLIX_CATEGORIES':
+			state = {
+				...state,
+				categories: action.categories,
+				showCategories: action.showCategories
+			}
+			break;
+		case 'MYFLIX_CATEGORY_VALUE':
+			state = {
+				...state,
+				catValues: action.payload
 			}
 			break;
 		default:

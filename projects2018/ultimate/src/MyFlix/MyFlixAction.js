@@ -23,3 +23,21 @@ export const getListData = (list_id) => {
 	};	
 	
 };
+
+
+export const updateCategories = (categories, showCategories) => {
+	return {
+		type: 'MYFLIX_CATEGORIES',
+		categories: categories,
+		showCategories: showCategories
+	};	
+	
+};
+
+export const updateCatValue = (value) => {
+	return {
+		type: 'MYFLIX_CATEGORY_VALUE',
+		payload: value
+	};	
+	
+};

@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
+import {updateCategories, updateCatValue} from './MyFlixAction.js';
 import {withRouter} from 'react-router';
 import Select from 'react-select';
 import '../common/react-select/react-select.css';
+
 
 
 
@@ -15,9 +18,9 @@ class VideosCategory extends Component {
 			disabled: false,
 			crazy: false,
 			stayOpen: true,
-			value: [],
-			categories: null,
-			showCategories: null,
+			//value: [],
+			//categories: null,
+			//showCategories: null,
 			rtl: false,
 			realValues: null
 		};
@@ -56,12 +59,14 @@ class VideosCategory extends Component {
 				myArray.push(obj);
 			}
 
-			this.setState({categories: myArray, showCategories: showCategories});
+			this.props.callUpdateCategories(myArray, showCategories);
+			//this.setState({categories: myArray, showCategories: showCategories});
 		});
 	}
-	
+
 	handleSelectChange (value) {
-		this.setState({ value });
+		//this.setState({ value });
+		this.props.callUpdateCatValue(value);
 		
 		let obj = this.state.realValues;
 		if (!obj) obj = {};
@@ -70,7 +75,7 @@ class VideosCategory extends Component {
 		if (!tmp) return;
 		
 		for (let i = 0; i < tmp.length; i++) {
-			let myValue = this.state.showCategories.filter((rec) => {
+			let myValue = this.props.myFlixReducer.showCategories.filter((rec) => {
 				return (rec.value === tmp[i]);											
 			});
 			obj[tmp[i]] = myValue[0].label;
@@ -80,26 +85,28 @@ class VideosCategory extends Component {
 	}
 
 	toggleCheckbox (e) {
+		console.log('toggleCheckbox: ', e.target.name);
 		this.setState({
 			[e.target.name]: e.target.checked,
 		});
 	}
 
-	render() {		
+	render() {
 		//const { crazy, disabled, stayOpen, value } = this.state;
-		const { disabled, stayOpen, value } = this.state;
+		const { disabled, stayOpen } = this.state; 
+		const value = this.props.myFlixReducer.catValues;
 		return (
 			<div className="section">
 				<div className="form-group">
 					<label>Choose Category / SubCategory</label>
 				{
-					this.state.showCategories &&
+					this.props.myFlixReducer.showCategories &&
 					<Select
 						closeOnSelect={!stayOpen}
 						disabled={disabled}
 						multi
 						onChange={this.handleSelectChange.bind(this)}
-						options={this.state.showCategories}
+						options={this.props.myFlixReducer.showCategories}
 						placeholder="Select your category(ies)"
 						removeSelected={this.state.removeSelected}
 						rtl={this.state.rtl}
@@ -113,4 +120,22 @@ class VideosCategory extends Component {
 	}
 }
 
-export default withRouter(VideosCategory);
+
+const mapStateToProps = (state) => {
+	return {
+		myFlixReducer: state.MyFlixReducer
+	}	
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		callUpdateCategories: (categories, showCategories) => {
+			dispatch(updateCategories(categories, showCategories));
+		},
+		callUpdateCatValue: (value) => {
+			dispatch(updateCatValue(value));
+		}
+	};	
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(VideosCategory));

@@ -53,7 +53,7 @@ class IssuesSpotting extends Component {
 		for (let i = 0; i < 100; i++) {
 			checked[i] = false;
 		}
-		this.setState({checked: checked});
+		this.setState({checked: checked, issueSelected: {}});
 	}
 
 	componentDidMount() {
@@ -109,6 +109,9 @@ class IssuesSpotting extends Component {
 		let issueSelected = this.state.issueSelected;
 		let issueSpotting = this.state.issueSpotting;
 		let issues = JSON.parse(JSON.stringify(issueSpotting.issues));
+		console.log('issueDetails: ', issueDetails);
+		console.log('issueSpotting: ', issueSpotting);
+		console.log('issues: ', issues);
 		
 		if (Object.keys(issueSelected).length === 0) {
 			totalPoints = 0;	
