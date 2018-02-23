@@ -162,10 +162,24 @@ class Videos extends Component {
 			obj.videoMovieType = this.state.videoMovieType;
 			obj.videoMaturityRatings = this.state.videoMaturityRatings;
 			obj.videoThumbnail = this.state.videoThumbnail;
+			
 			let current = firebase.database.ServerValue.TIMESTAMP;
-			obj.created_dt = current;
 			var url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/videos';
-			var unique_id = firebaseDatabase.ref(url).push(obj).key;
+			let unique_id = '';
+			if (this.state.editRecord._id) {
+				//editing
+				unique_id = this.state.editRecord._id;
+				url = url + '/' + unique_id;
+				firebaseDatabase.ref(url).update(obj);
+				//this is only for today, temporary, remove it afterwards
+				this.setState({editRecord: null, error: 'Video Successfully added in the list.', videoInput: '', videoInputId: '', videoTitle: '', videoDescription: '', videoStarring: '', videoDirector: '', videoMovieType: '', videoMaturityRatings: '', videoThumbnail: '', videoTags: ''});
+				window.scrollTo(0, 0);
+				return;
+			} else {
+				//inserting
+				obj.created_dt = current;
+				unique_id = firebaseDatabase.ref(url).push(obj).key;
+			}
 	
 			var url2 = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/updated';
 			firebaseDatabase.ref(url2).set(firebase.database.ServerValue.TIMESTAMP);
@@ -218,7 +232,6 @@ class Videos extends Component {
 	
 	editVideoFn(value, e) {
 		e.preventDefault();
-		console.log('edit value is ', value);
 		this.setState({editRecord: value, videoInput: value.videoInput, videoInputId: value.videoInputId, videoTitle: value.videoTitle, videoStarring: value.videoStarring, videoDirector: value.videoDirector, videoMovieType: value.videoMovieType, videoMaturityRatings: value.videoMaturityRatings, videoThumbnail: value.videoThumbnail, videoDescription: value.videoDescription, videoYear: value.videoYear, videoTags: value.videoTags, edit_id: value._id});
 		
 		this.props.callUpdateCatValue(value.categoryKeys);
