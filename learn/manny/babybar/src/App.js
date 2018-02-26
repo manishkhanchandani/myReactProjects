@@ -59,6 +59,7 @@ class App extends Component {
 								<Route exact={true} path="/user-quiz/addQuiz" component={UserQuizAdd} />
 								<Route exact={true} path="/admin/changeuser" component={ChangeUser} />
 								<Route exact={true} path="/quizPractice" component={QuizPractice} />
+								<Route exact={true} path="/quizPractice/:subject/:id" component={QuizPractice} />
 							</div>
 							{/*<div className="col-md-3">
 								<Activities />

@@ -52,6 +52,20 @@ class QuizPractice extends Component {
 			
 			this.setState({categories: myArray});
 		});
+		
+		if (this.props.match.params.subject) {
+			var url2 = FirebaseConstant.basePath + '/quiz/questions/' + this.props.match.params.subject;	
+			var ref2 = firebaseDatabase.ref(url2);
+			ref2.once('value', (snapshot) => {
+				var result2 = snapshot.val();
+				if (!result2) return;
+				var arr = result2.filter((rec) => {
+					return (this.props.match.params.id === rec.id);						  
+				});
+				
+				this.setState({finalQuestionList: arr, loading: false});
+			});
+		}
 	}
 	
 	createQuiz()
@@ -103,7 +117,7 @@ class QuizPractice extends Component {
 		this.setState({userAnswered: null, questions: null, quizChoosenOption: {}, score: 0, loading: true, answered: 0, pageNumber: 1});
 		
 		
-		
+		console.log('cat is ', this.state.category.key);
 		//get all questions from category choosen
 		var url = FirebaseConstant.basePath + '/quiz/questions/' + this.state.category.key;
 		console.log('url is ', url);
@@ -116,7 +130,8 @@ class QuizPractice extends Component {
 			
 			let uid = getUID();
 			let subject = '';
-			subject = '/' + this.state.category.key;
+			let selectedCategory = (this.state.category) ? this.state.category.key : ((this.props.match.params.subject) ? this.props.match.params.subject : '');
+			subject = '/' + selectedCategory;
 			let uidPath = '/' + uid;
 			//get all questions answered by the user
 			var url2 = FirebaseConstant.basePath + '/quiz/simple_quiz' + uidPath + subject;
@@ -156,10 +171,9 @@ class QuizPractice extends Component {
 		let record = {};
 		record.myOption = e;
 		record.isCorrect = isCorrect;
-		let subject = '';
-		subject = '/' + this.state.category.key;
-		let issue = '';
-		issue = '/' + details.id;
+		let selectedCategory = (this.state.category) ? this.state.category.key : ((this.props.match.params.subject) ? this.props.match.params.subject : '');
+		let subject = '/' + selectedCategory;
+		let issue = '/' + details.id;
 		let uidPath = '/' + uid;
 		record.created_dt = firebase.database.ServerValue.TIMESTAMP;
 		let url = FirebaseConstant.basePath + '/quiz/simple_quiz' + uidPath + subject + issue;
@@ -191,7 +205,7 @@ class QuizPractice extends Component {
 			}
 		}
 		
-			
+		let selectedCategory = (this.state.category) ? this.state.category.key : ((this.props.match.params.subject) ? this.props.match.params.subject : '');
 			
 		return (
 			
@@ -257,9 +271,10 @@ class QuizPractice extends Component {
 											correct: parseInt(value.correct, 10)
 										};
 										console.log('val is ', value);
+										let url = '/quizPractice/'+selectedCategory+'/'+value.id;
 										let optionChoosen = parseInt(this.state.quizChoosenOption[this.state.pageNumber], 10);
 										return <div key={key} className="questions">
-											<div className="question">{renderHTML(value.question)}<hr /></div>
+											<div className="question"><a href={url} target="_blank">External Link</a><br /><b>Q. {value.id}.</b> {renderHTML(value.question)}<hr /></div>
 												<SimpleQuizAnsOptions id={value.id} opts={JSON.parse(value.answers)} optionChoosen={optionChoosen} handleChooseOption={this.handleChooseOption.bind(this)} details={value} />
 										</div>
 									})

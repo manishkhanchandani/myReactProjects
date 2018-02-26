@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import renderHTML from 'react-render-html';
 
 class SimpleQuizAnsOptions extends Component {
 	
@@ -53,7 +54,7 @@ class SimpleQuizAnsOptions extends Component {
 					}
 					if (viewOnly) {
 						let myClass = this.props.correct === key ? 'active ansOption' : 'ansOption';
-						return 	<div key={key} className={myClass}><input type="radio" name={name} id={optId} value={key} defaultChecked={optionChoosen === key} />  {value}  
+						return 	<div key={key} className={myClass}><input type="radio" name={name} id={optId} value={key} defaultChecked={optionChoosen === key} />  {key + 1}. {value}  
 							{
 								this.props.correct === key && 
 									<i className="fa fa-check" aria-hidden="true"></i>
@@ -61,7 +62,7 @@ class SimpleQuizAnsOptions extends Component {
 						</div>	
 					}
 					
-					return 	<div key={key} className={myCurrentClass}><input type="radio" className="ansOption" name={name} id={optId} value={key} onClick={(e) => {this.handleChooseOption(this.props.details, e)}}  checked={optionChoosen === key} disabled={readOnlyVal} /> {value}
+					return 	<div key={key} className={myCurrentClass}><input type="radio" className="ansOption" name={name} id={optId} value={key} onClick={(e) => {this.handleChooseOption(this.props.details, e)}}  checked={optionChoosen === key} disabled={readOnlyVal} /> {key + 1}. {value}
 							{
 								(optionChoosen >= 0 && this.props.details.correct === key) && 
 									<i className="fa fa-check" aria-hidden="true"></i>
@@ -76,7 +77,7 @@ class SimpleQuizAnsOptions extends Component {
 					<hr />
 					<h3>Explanation</h3>
 					<hr />
-					{this.props.details.explanation}
+					{renderHTML(this.props.details.explanation)}
 				</div>
 			}
 			</div>
