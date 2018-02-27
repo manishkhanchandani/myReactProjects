@@ -1,6 +1,15 @@
 import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 
-export const defaultList = '-L2OQwPD_BFG4iayeVax';
+
+let default_list_path = '';
+if (process.env.NODE_ENV === 'development') {
+	default_list_path = '-L2OQwPD_BFG4iayeVax';
+} else {
+	default_list_path = '-L6KrRaYobta86tBsfXL';
+}
+
+
+export const defaultList = default_list_path;
 
 export const changeList = (newList) => {
 	return {

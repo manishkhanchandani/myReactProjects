@@ -34,6 +34,7 @@ class Videos extends Component {
 			categories: null,
 			videoList: null,
 			pageNumber: 1,
+			filterTerm: null,
 			deleteModal: false,
 			deleteDetailRecord: null,
 			editRecord: null,
@@ -166,15 +167,17 @@ class Videos extends Component {
 			let current = firebase.database.ServerValue.TIMESTAMP;
 			var url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/videos';
 			let unique_id = '';
-			if (this.state.editRecord._id) {
+			if (this.state.editRecord && this.state.editRecord._id) {
 				//editing
 				unique_id = this.state.editRecord._id;
-				url = url + '/' + unique_id;
-				firebaseDatabase.ref(url).update(obj);
-				//this is only for today, temporary, remove it afterwards
-				this.setState({editRecord: null, error: 'Video Successfully added in the list.', videoInput: '', videoInputId: '', videoTitle: '', videoDescription: '', videoStarring: '', videoDirector: '', videoMovieType: '', videoMaturityRatings: '', videoThumbnail: '', videoTags: ''});
-				window.scrollTo(0, 0);
-				return;
+				let urlUpdated = url + '/' + unique_id;
+				firebaseDatabase.ref(urlUpdated).update(obj);
+				//deleting the categories
+				if (this.state.editRecord.categoryPath) {
+					for (let i = 0; i < this.state.editRecord.categoryPath.length; i++) {
+						firebaseDatabase.ref(this.state.editRecord.categoryPath[i]).set(null);
+					}
+				}
 			} else {
 				//inserting
 				obj.created_dt = current;
@@ -183,40 +186,49 @@ class Videos extends Component {
 	
 			var url2 = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/updated';
 			firebaseDatabase.ref(url2).set(firebase.database.ServerValue.TIMESTAMP);
-	
-			if (!this.state.categories) return;
-			
-			let categoryPath = [];
-	
-			let catUrl = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/categories';
-			let catArr = [];
-			let categoryKeys = [];
-			for (let k in this.state.categories) {
-				let rec = this.state.categories[k];
-				categoryKeys.push(k);
-				catArr.push(rec);
-				let tmp = k.split('|');
-				let cat = tmp[0];
-				let subcat = null;
-				if (tmp.length === 2) {
-					subcat = tmp[1];
-					categoryPath.push(catUrl + '/' + cat + '/subcategories/' + subcat + '/videos/' + unique_id);
-					firebaseDatabase.ref(catUrl).child(cat).child('subcategories').child(subcat).child('videos').child(unique_id).set(current);
-				} else {
-					categoryPath.push(catUrl + '/' + cat + '/videos/' + unique_id);
-					firebaseDatabase.ref(catUrl).child(cat).child('videos').child(unique_id).set(current);
+				
+			//adding the categories
+			if (this.state.categories) {
+				let categoryPath = [];
+		
+				let catUrl = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/categories';
+				let catArr = [];
+				let categoryKeys = [];
+				for (let k in this.state.categories) {
+					let rec = this.state.categories[k];
+					categoryKeys.push(k);
+					catArr.push(rec);
+					let tmp = k.split('|');
+					let cat = tmp[0];
+					let subcat = null;
+					if (tmp.length === 2) {
+						subcat = tmp[1];
+						categoryPath.push(catUrl + '/' + cat + '/subcategories/' + subcat + '/videos/' + unique_id);
+						firebaseDatabase.ref(catUrl).child(cat).child('subcategories').child(subcat).child('videos').child(unique_id).set(current);
+					} else {
+						categoryPath.push(catUrl + '/' + cat + '/videos/' + unique_id);
+						firebaseDatabase.ref(catUrl).child(cat).child('videos').child(unique_id).set(current);
+					}
+				}
+
+				if (catArr.length > 0) {
+					let catArrString = catArr.join(', ');
+					firebaseDatabase.ref(url).child(unique_id).child('categories').set(catArrString);
+					firebaseDatabase.ref(url).child(unique_id).child('categoryPath').set(categoryPath);
+					firebaseDatabase.ref(url).child(unique_id).child('categoryKeys').set(categoryKeys);
 				}
 			}
 			
-			if (catArr.length > 0) {
-				let catArrString = catArr.join(', ');
-				firebaseDatabase.ref(url).child(unique_id).child('categories').set(catArrString);
-				firebaseDatabase.ref(url).child(unique_id).child('categoryPath').set(categoryPath);
-				firebaseDatabase.ref(url).child(unique_id).child('categoryKeys').set(categoryKeys);
+			// error message based on edit or add video
+			let errorMessage = 'Video Successfully added in the list.';
+			if (this.state.editRecord) {
+				errorMessage = 'Video updated successfully.';
 			}
 			
+			//setting all the variables to null
+			this.setState({editRecord: null, error: errorMessage, videoInput: '', videoInputId: '', videoTitle: '', videoDescription: '', videoStarring: '', videoDirector: '', videoMovieType: '', videoMaturityRatings: '', videoThumbnail: '', videoTags: ''});
 			
-			this.setState({error: 'Video Successfully added in the list.', videoInput: '', videoInputId: '', videoTitle: '', videoDescription: '', videoStarring: '', videoDirector: '', videoMovieType: '', videoMaturityRatings: '', videoThumbnail: '', videoTags: ''});
+			//sending user to top of the page
 			window.scrollTo(0, 0);
 		});
 	}
@@ -233,7 +245,7 @@ class Videos extends Component {
 	editVideoFn(value, e) {
 		e.preventDefault();
 		this.setState({editRecord: value, videoInput: value.videoInput, videoInputId: value.videoInputId, videoTitle: value.videoTitle, videoStarring: value.videoStarring, videoDirector: value.videoDirector, videoMovieType: value.videoMovieType, videoMaturityRatings: value.videoMaturityRatings, videoThumbnail: value.videoThumbnail, videoDescription: value.videoDescription, videoYear: value.videoYear, videoTags: value.videoTags, edit_id: value._id});
-		
+
 		this.props.callUpdateCatValue(value.categoryKeys);
 	}
 
@@ -241,7 +253,7 @@ class Videos extends Component {
 		let myArrayConverted = null;
 		let paginationProps = null;
 		if (this.state.videoList) {
-			let obj = processRecords(this.state.videoList, '-created_dt', null, null, 5, this.state.pageNumber, this.onActivePageChange.bind(this));
+			let obj = processRecords(this.state.videoList, '-created_dt', this.state.filterTerm, ['videoTitle', 'categories', 'videoDescription'], 25, this.state.pageNumber, this.onActivePageChange.bind(this));
 			myArrayConverted = obj.myArrayConverted;
 			paginationProps = obj.paginationProps;
 		}
@@ -250,7 +262,12 @@ class Videos extends Component {
 			<div className="container">
 				<div className="row">
 					<div className="col-md-6">
-						<h3>Add Videos</h3>
+						{
+							this.state.editRecord ?
+							<h3>Edit Video "{this.state.videoTitle}"</h3>
+							:
+							<h3>Add Video</h3>
+						}
 						{
 							this.state.error &&
 							<Alert bsStyle="warning">
@@ -324,11 +341,23 @@ class Videos extends Component {
 								}} />
 							</div>
 							<br />
-							<button type="submit" className="btn btn-primary form-control">Add Video</button>
+							<button type="submit" className="btn btn-primary form-control">
+								{
+									this.state.editRecord ?
+									<span>
+										Update Video
+									</span>
+									:
+									<span>
+										Add Video
+									</span>
+								}
+							</button>
 						</form>
 					</div>
 					<div className="col-md-6">
 						<h3>View Videos</h3>
+						<input type="text" placeholder="Filter" className="form-control" onChange={(e) => {this.setState({filterTerm: e.target.value, pageNumber: 1});}} />
 						<br />
 						{
 							!myArrayConverted && 

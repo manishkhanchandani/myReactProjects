@@ -67,6 +67,13 @@ class Items extends Component {
 }
 
 class View3 extends Component {
+	constructor(props) {
+		super(props);
+		
+		this.state = {
+			filterTerm: ''
+		}
+	}
 
 	render() {
 		if (!this.props.data) {
@@ -80,12 +87,13 @@ class View3 extends Component {
 				let cat = this.props.data.categories[x];
 				cat._id = x;
 				
-				catVideos[x] = {};
+				catVideos[x] = [];
 				
 				if (cat.videos) {
 					for (let y in cat.videos) {
-						catVideos[x][y]	= this.props.data.videos[y];
-						catVideos[x][y]._id = y;
+						let a1 = this.props.data.videos[y];
+						a1._id = y;
+						catVideos[x].push(a1);
 					}
 				}
 				
@@ -93,8 +101,9 @@ class View3 extends Component {
 					for (let z in cat.subcategories) {
 						if (cat.subcategories[z].videos) {
 							for (let a in cat.subcategories[z].videos) {
-								catVideos[x][a]	= this.props.data.videos[a];
-								catVideos[x][a]._id = a;
+								let a2 = this.props.data.videos[a];
+								a2._id = a;
+								catVideos[x].push(a2);
 							}
 						}
 					}
@@ -102,8 +111,34 @@ class View3 extends Component {
 			}
 		}
 		
+		if (this.state.filterTerm && catVideos) {
+			catVideos = {
+				...catVideos	
+			};
+			
+			var filterFields = ['videoTitle', 'categories', 'videoDescription'];
+			var filterText = this.state.filterTerm;
+			for (var x in catVideos) {
+				let arr = catVideos[x].filter((record) => {
+					//let results = false;
+					for (let i = 0; i < filterFields.length; i++) {
+						let str = record[filterFields[i]];
+						if (!str) {
+							continue;	
+						}
+						let strResult = str.toLowerCase().indexOf(filterText.toLowerCase());
+						if (strResult >= 0) {
+							return true;	
+						}
+					}
+					return false;								
+				});
+				catVideos[x] = arr;
+			}
+		}
 		return (
 			<div>
+				<div className="filterContainer"><input type="text" placeholder="Filter" className="form-control filterItem" onChange={(e) => {this.setState({filterTerm: e.target.value});}} /></div>
 				{
 					this.props.data.categories && 
 					<div>

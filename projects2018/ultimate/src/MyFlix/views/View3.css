@@ -2,6 +2,16 @@
 	margin-left: 20px;
 }
 
+.filterContainer {
+	position: relative;
+}
+
+.filterItem {
+    position: absolute;
+    right: 15px;
+    width: 200px !important;
+}
+
 
 .mycontainer a:link,
 .mycontainer a:hover,
