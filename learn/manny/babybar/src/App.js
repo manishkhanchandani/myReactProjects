@@ -23,8 +23,7 @@ import ChangeUser from './components/admin/ChangeUser.js';
 import UserQuizAdd from './components/userQuiz/Add.js';
 import QuizPractice from './components/quiz-practice/Practise.js';
 
-
-import Arson from './components/practise/criminal/arson.js';
+import PractiseQuestion from './components/practise/Question.js';
 
 class App extends Component {
 	
@@ -63,7 +62,7 @@ class App extends Component {
 								<Route exact={true} path="/admin/changeuser" component={ChangeUser} />
 								<Route exact={true} path="/quizPractice" component={QuizPractice} />
 								<Route exact={true} path="/quizPractice/:subject/:id" component={QuizPractice} />
-								<Route exact={true} path="/practise/criminal/arson" component={Arson} />
+								<Route exact={true} path="/practice/:subject/:issue" component={PractiseQuestion} />
 							</div>
 							{/*<div className="col-md-3">
 								<Activities />

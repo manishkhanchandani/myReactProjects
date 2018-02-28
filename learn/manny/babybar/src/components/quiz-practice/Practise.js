@@ -185,7 +185,6 @@ class QuizPractice extends Component {
 		if (!(userObj.access_level === 'admin' || userObj.access_level === 'admin2' || userObj.access_level === 'superadmin')) {
 			return <Redirect to="/" push={true} />
 		}
-		console.log('s is ', this.state);
 		
 		let myArrayConverted = null;
 		let paginationProps = null;

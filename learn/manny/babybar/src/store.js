@@ -8,12 +8,13 @@ import QuizReducer from './components/quiz/QuizReducer.js';
 import IssuesReducer from './components/essays/IssuesReducer.js';
 import SimpleQuizReducer from './components/simple-quiz/SimpleQuizReducer.js';
 import ChatReducer from './components/chat/ChatReducer.js';
+import PractiseReducer from './components/practise/practiseReducer.js';
 
 var store = null;
 if (process.env.NODE_ENV === 'development') {
-	store = createStore(combineReducers({AuthReducer, QuizReducer, IssuesReducer, SimpleQuizReducer, ChatReducer}), {}, applyMiddleware(createLogger(), thunk, promise()));
+	store = createStore(combineReducers({AuthReducer, QuizReducer, IssuesReducer, SimpleQuizReducer, ChatReducer, PractiseReducer}), {}, applyMiddleware(createLogger(), thunk, promise()));
 } else {
-	store = createStore(combineReducers({AuthReducer, QuizReducer, IssuesReducer, SimpleQuizReducer, ChatReducer}), {}, applyMiddleware(thunk, promise()));	
+	store = createStore(combineReducers({AuthReducer, QuizReducer, IssuesReducer, SimpleQuizReducer, ChatReducer, PractiseReducer}), {}, applyMiddleware(thunk, promise()));	
 }
 
 export default store;

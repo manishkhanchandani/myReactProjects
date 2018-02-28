@@ -1,24 +1,23 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import renderHTML from 'react-render-html';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import {setPractiseQuestionResult} from '../practiseAction.js';
-
+import {getUID, getUsersObj} from '../../auth/AuthAction.js';
+import {Redirect} from 'react-router-dom';
 
 class Arson extends Component {
-	
 	constructor(props) {
 		super(props);
 		
 		this.state = {
 			template: 0,
-			solution: 0,
-			result: '',
 			story: '',
 			cause: '',
 			malice: '',
 			wrongful: '',
 			name: '',
+			solution: 0,
+			result: '',
 			def: "Under common law ARSON was the <b>malicious burning</b> of the <b>dwelling</b> of <b>another</b>.<br /><br />MODERNLY arson is extended by statute to the burning of <b>other structures</b>. Malice for arson means that the <b>burning</b> must be done with <b>wrongful intent</b>.",
 			templates: [
 				{
@@ -36,37 +35,14 @@ class Arson extends Component {
 					wrongful: ' as Anna and Bob conspired to have it burned down by asking Cindy to burn it down for a percentage of the insurance proceeds.',
 					name: 'Cindy',
 					solution: 0
-				}	
-			],//end templates						
+				}
+			],
 			solutions: [
 				(def, name, cause, malice, wrongful) => {
 					return `${def}<br /><br />Here ${name} caused a <b>burning</b> of a <b>structure</b> because ${cause}<br /><br />Here ${name} acted with <b>malice</b> because ${malice}<br /><br />This was <b>wrongful</b> because ${wrongful}<br /><br />Therefore, ${name} can be charged with arson.`;	
 				}	   
-			]//end solutions
+			]
 		};
-	}
-	
-	submitForm(e) {
-		e.preventDefault();
-		this.setState({cause: this.refs.cause.state.value.replace(/(<p[^>]+?>|<p>|<\/p>)/img, ""), malice: this.refs.malice.state.value.replace(/(<p[^>]+?>|<p>|<\/p>)/img, ""), wrongful: this.refs.wrongful.state.value.replace(/(<p[^>]+?>|<p>|<\/p>)/img, "")}, () => {
-			let result = this.state.solutions[this.state.solution](this.state.def, this.state.name, this.state.cause, this.state.malice, this.state.wrongful);
-			this.props.callPractiseQuestionResult(result);
-		});
-		window.scrollTo(0, 0);
-	}
-
-	
-	changeState(template) {
-		this.setState({template: template, story: this.state.templates[template].story,
-			cause: this.state.templates[template].cause,
-			malice: this.state.templates[template].malice,
-			wrongful: this.state.templates[template].wrongful,
-			name: this.state.templates[template].name}, () => {
-				
-			let result = this.state.solutions[this.state.solution](this.state.def, this.state.name, this.state.cause, this.state.malice, this.state.wrongful);
-			this.props.callPractiseQuestionResult(result);
-		});	
-		
 	}
 	
 	componentDidMount() {
@@ -77,81 +53,112 @@ class Arson extends Component {
 			name: this.state.templates[this.state.template].name}, () => {
 				
 			let result = this.state.solutions[this.state.solution](this.state.def, this.state.name, this.state.cause, this.state.malice, this.state.wrongful);
-			this.props.callPractiseQuestionResult(result);
+			this.setState({result: result});		
 		});	
+	}
+	
+	changeState(template) {
+		this.setState({template: template, story: this.state.templates[template].story,
+			cause: this.state.templates[template].cause,
+			malice: this.state.templates[template].malice,
+			wrongful: this.state.templates[template].wrongful,
+			name: this.state.templates[template].name}, () => {
+				
+			let result = this.state.solutions[this.state.solution](this.state.def, this.state.name, this.state.cause, this.state.malice, this.state.wrongful);
+			this.setState({result: result});		
+		});	
+		
+	}
+	
+	submitForm(e) {
+		e.preventDefault();
+		this.setState({cause: this.refs.cause.state.value.replace(/(<p[^>]+?>|<p>|<\/p>)/img, ""), malice: this.refs.malice.state.value.replace(/(<p[^>]+?>|<p>|<\/p>)/img, ""), wrongful: this.refs.wrongful.state.value.replace(/(<p[^>]+?>|<p>|<\/p>)/img, "")}, () => {
+			let result = this.state.solutions[this.state.solution](this.state.def, this.state.name, this.state.cause, this.state.malice, this.state.wrongful);
+			this.setState({result: result});
+		});
+		window.scrollTo(0, 0);
 	}
 
 	render() {
+		let userObj = getUsersObj();
+		if (!(userObj.access_level === 'admin' || userObj.access_level === 'admin2' || userObj.access_level === 'superadmin')) {
+			return <Redirect to="/" push={true} />
+		}
 		return (
 			<div>
 				<div className="row">
 					<div className="col-md-12"><h3>Criminal : Arson</h3></div>
 				</div>
-				<div className="form-group mySpacing">
-					<label>Choose Template</label>
-					{
-						this.state.templates && 
-						<select className="form-control" value={this.state.template} onChange={(e) => { this.changeState(e.target.value); }}>
+				<div className="row">
+					<div className="col-md-8">
+						<div className="form-group mySpacing">
+							<label>Choose Template</label>
 							{
-								this.state.templates.map((value, key) => {
-									return <option value={key} key={key}>Template {key + 1}</option>
-								})
+								this.state.templates && 
+								<select className="form-control" value={this.state.template} onChange={(e) => { this.changeState(e.target.value); }}>
+									{
+										this.state.templates.map((value, key) => {
+											return <option value={key} key={key}>Template {key + 1}</option>
+										})
+									}
+								</select>
 							}
-						</select>
-					}
+						</div>
+						<form onSubmit={this.submitForm.bind(this)}>
+							<div className="form-group">
+								<label>Story</label>
+								<textarea rows="10" value={this.state.story} className="form-control" placeholder="Enter Story" onChange={(e) => { this.setState({story: e.target.value});}} />
+							</div>
+							<div className="form-group">
+								<label>Name of Criminal</label>
+								<input type="text" value={this.state.name} className="form-control" placeholder="Enter Name of Criminal" onChange={(e) => { this.setState({name: e.target.value});}} />
+							</div>
+							<div className="form-group">
+								<label>Element 1: Cause of Arson</label>
+								<ReactQuill theme="snow" ref="cause" value={this.state.cause} placeholder="Enter Cause" className="rulebox" modules={{
+    toolbar: [
+      ['bold', 'italic', 'underline']
+    ],
+  }} />
+							</div>
+							<div className="form-group">
+								<label>Element 2: Malice About Arson</label>
+								<ReactQuill theme="snow" ref="malice" value={this.state.malice} placeholder="Enter Malice" className="rulebox" modules={{
+    toolbar: [
+      ['bold', 'italic', 'underline']
+    ],
+  }} />
+							</div>
+							<div className="form-group">
+								<label>Element 3: Wronful Arson</label>
+								<ReactQuill theme="snow" ref="wrongful" value={this.state.wrongful} placeholder="Enter Wrongful" className="rulebox" modules={{
+    toolbar: [
+      ['bold', 'italic', 'underline']
+    ],
+  }} />
+							</div><br />
+						  	<button type="submit" className="btn btn-primary form-control">Create Essay Result</button>
+						</form>
+					</div>
+					
+					
+					
+					<div className="col-md-4">
+						{this.state.result && 
+							<div>
+								<h3>Solution</h3>
+								{renderHTML(this.state.result)}
+							</div>
+						}
+					</div>
+					
+				
+					
+					
 				</div>
-				<form onSubmit={this.submitForm.bind(this)}>
-					<div className="form-group">
-						<label>Story</label>
-						<textarea rows="10" value={this.state.story} className="form-control" placeholder="Enter Story" onChange={(e) => { this.setState({story: e.target.value});}} />
-					</div>
-					<div className="form-group">
-						<label>Name of Criminal</label>
-						<input type="text" value={this.state.name} className="form-control" placeholder="Enter Name of Criminal" onChange={(e) => { this.setState({name: e.target.value});}} />
-					</div>
-					<div className="form-group">
-						<label>Element 1: Cause of Arson</label>
-						<ReactQuill theme="snow" ref="cause" value={this.state.cause} placeholder="Enter Cause" className="rulebox" modules={{
-	toolbar: [
-	['bold', 'italic', 'underline']
-	],
-	}} />
-					</div>
-					<div className="form-group">
-						<label>Element 2: Malice About Arson</label>
-						<ReactQuill theme="snow" ref="malice" value={this.state.malice} placeholder="Enter Malice" className="rulebox" modules={{
-	toolbar: [
-	['bold', 'italic', 'underline']
-	],
-	}} />
-					</div>
-					<div className="form-group">
-						<label>Element 3: Wronful Arson</label>
-						<ReactQuill theme="snow" ref="wrongful" value={this.state.wrongful} placeholder="Enter Wrongful" className="rulebox" modules={{
-	toolbar: [
-	['bold', 'italic', 'underline']
-	],
-	}} />
-					</div><br />
-					<button type="submit" className="btn btn-primary form-control">Create Essay Result</button>
-				</form>	
 			</div>
-		);	
+		);
 	}
 }
 
-const mapStateToProps = (state) => {
-	return {
-		practiseReducer: state.PractiseReducer
-	}	
-};
-
-const mapDispatchToProps = (dispatch) => {
-	return {
-		callPractiseQuestionResult: (result) => {
-			dispatch(setPractiseQuestionResult(result));
-		}
-	};	
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Arson);
+export default Arson;
