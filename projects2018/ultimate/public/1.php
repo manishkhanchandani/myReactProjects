@@ -1,0 +1,7 @@
+<?php
+$head = '';
+$contentForTemplate = '';
+$pageTitle = '';
+include('phpFiles/inc.php');
+?>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name="theme-color" content="#000000"><link rel="manifest" href="/manifest.json"><link rel="shortcut icon" href="/favicon.ico"><title><?php echo $pageTitle; ?></title><link href="/css/bootstrap.css" rel="stylesheet"><link href="/css/font-awesome.min.css" rel="stylesheet"><link href="/static/css/main.ccda7858.css" rel="stylesheet"><?php echo $head; ?></head><body><div id="fb-root"></div><script>!function(e,t,n){var o,s=e.getElementsByTagName("script")[0];e.getElementById(n)||((o=e.createElement("script")).id=n,o.src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12&appId=1462234123833672&autoLogAppEvents=1",s.parentNode.insertBefore(o,s))}(document,0,"facebook-jssdk")</script><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"><?php echo $contentForTemplate; ?></div><script src="/js/jquery.min.js"></script><script src="/js/bootstrap.min.js"></script><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWqKxrgU8N1SGtNoD6uD6wFoGeEz0xwbs&libraries=places"></script><script>$(document).on("keypress","form",function(e){if(13==(e.keyCode||e.which)){return-1===e.target.className.indexOf("addressBox")}})</script><script type="text/javascript" src="/static/js/main.e1755181.js"></script></body></html>
