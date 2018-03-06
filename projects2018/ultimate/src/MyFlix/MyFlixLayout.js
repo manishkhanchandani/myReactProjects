@@ -30,7 +30,6 @@ class MyFlixLayout extends Component {
 				<Route exact={true} path="/:list" component={Home} />
 				<Route exact={true} path="/:list/detail/:video_id" component={Detail} />
 				<Route exact={true} path="/:list/view/:viewTemplate" component={Home} />
-				<Route exact={true} path="/:list/view/:viewTemplate" component={Home} />
 				</Switch>
 			</div>
 			</Router>

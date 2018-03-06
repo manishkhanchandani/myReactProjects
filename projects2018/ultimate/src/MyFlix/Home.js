@@ -6,6 +6,7 @@ import {defaultList, changeList, getListData} from './MyFlixAction.js';
 import View1 from './views/View1.js';
 import View2 from './views/View2.js';
 import View3 from './views/View3.js';
+import View4 from './views/View4.js';
 
 class Home extends Component {
 	constructor(props) {
@@ -32,8 +33,11 @@ class Home extends Component {
 				view = (<View2 data={this.props.myFlixReducer.listData} list_id={this.state.list_id} />);
 				break;
 			case 'View3':
-			default:
 				view = (<View3 data={this.props.myFlixReducer.listData} list_id={this.state.list_id} />);
+				break;
+			case 'View4':
+			default:
+				view = (<View4 data={this.props.myFlixReducer.listData} list_id={this.state.list_id} />);
 				break;
 		}
 		
