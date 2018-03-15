@@ -2,6 +2,62 @@
 	"key": "pl_strict_liability",
 	"name": "Products Liability Strict Liability in Tort",
 	"rule": "",
+	"mbe": [
+		{
+			"key": "rule119",
+			"name": "Rule 119: Definition",
+			"description": " Strict liability can be imposed upon the seller for the sale of any product which is in a defective condition or unreasonably dangerous to the user. (Ref 119)",
+			"examples": [
+				{
+					"question": "119. A storekeeper who owns a large hardware store sells power saws for both personal and commercial use. He often takes old power saws as trade-ins on new ones. The old power saws are then completely disassembled and rebuilt with new bearings by the storekeeper's employees and sold by the storekeeper as \"reconditioned saws.\"<br /><br />A purchaser, the owner and operator of a cabinet-making shop, informed the storekeeper that he wanted to buy a reconditioned circular saw for use in his cabinet making business. However, the blade that was on the saw he picked out had very coarse teeth for cutting rough lumber. The purchaser told the storekeeper that he wanted a saw blade that would cut plywood. The storekeeper exchanged the coarse blade for a new one with finer teeth that would cut plywood smoothly. The new blade was manufactured by Saw-Blade Company, which uses all available techniques to inspect its products for defects. The reconditioned saw had been manufactured by Power Saw Company.<br /><br />The week after the saw was purchased, the employee, who works for the purchaser in the purchaser's cabinet-making shop, was injured while using the saw. The employee's arm was severely cut. As a result, the cabinetmaking shop was shut down for a week until a replacement for the employee could be found.<br /><br />If the employee was cutting a sheet of plywood, and while he was doing so, the saw blade flew to pieces and severely cut the employee's arm, and if the employee asserts a claim against the storekeeper, the theory on which the employee is most likely to prevail is",
+					"answerOptions": [
+						"strict liability in tort.",
+						"express warranty.",
+						"negligence, relying on res ipsa loquitur.",
+						"negligence, relying on the sale of an inherently dangerous product."
+					],
+					"correct": 0,
+					"explanation": "A is correct answer. Strict liability can be imposed upon the storekeeper for the sale of any product which is in a defective condition or unreasonably dangerous to the user. Liability for physical harm to the employee is available provided that: (1) the storekeeper is engaged in the business of selling reconditioned power saws, and (2) the power saw was not substantially changed by anyone else before the employee used it. Based on the facts, both conditions are met, making A the theory on which the employee is most likely to prevail.<br /><br />B is incorrect. The storekeeper made no express representation to the purchaser or the employee about the power saw.<br /><br />C is incorrect. Res ipsa loquitur generally requires that the instrumentality that caused the injury was in the exclusive control of the defendant. Here, the saw blade was manufactured by a different company and was being used by the employee, so the doctrine of res ipsa loquitur would be an ineffective theory in this situation.<br /><br />D is not the best answer. For the employee to prevail, he must prove that the storekeeper could have reasonably foreseen the danger, that the storekeeper could have minimized the danger, and that the employee could not reasonably have been expected to appreciate and protect himself from the danger. On these facts, it does not appear that the storekeeper could have foreseen the danger."
+				}
+			]
+		},
+		{
+		"key": "rule121",
+		"name": "Rule 121: Defective at time of sale",
+		"description": "A jury could conclude that the product was defective at the time of sale because the accident is the sort of accident that ordinarily occurs as a result of a defect and no other cause was identified, but the jury is not required to draw that conclusion. (Ref 121)",
+		"examples": [
+				{
+					"question": "A consumer bought a kitchen blender from the manufacturer. Soon after the purchase, the consumer was using the blender in an appropriate way when the blender jar shattered, throwing a piece of glass into the consumer's eye. <br /> <br /> The consumer brought an action against the manufacturer based solely on strict product liability. The consumer's expert testified that the blender was defectively designed. However, because the blender jar was destroyed in the accident, the expert could not determine whether the accident was caused by the design defect or a manufacturing defect. The manufacturer's expert testified that the blender was not defective. <br /> <br /> If, at the conclusion of the evidence, both parties move for directed verdicts, how should the trial judge rule?",
+					"answerOptions": [
+						"Direct a verdict for the manufacturer, because the consumer's expert was unable to specify the nature of the defect.",
+						"Direct a verdict for the manufacturer, because the consumer's action was brought solely on a strict liability theory.",
+						"Direct a verdict for the consumer, because the blender was new when the jar shattered, and thus was undeniably defective.",
+						"Deny both motions and send the case to the jury, because a jury reasonably could conclude that the harm was caused by a defect present in the product when it was sold."
+					],
+					"correct": 3,
+					"explanation": "Answer D is correct. A jury could conclude that the blender was defective at the time of sale because the accident is the sort of accident that ordinarily occurs as a result of a defect and no other cause was identified, but the jury is not required to draw that conclusion. Thus, Answer D is correct and Answer A is incorrect.<br /> <br /> Answer B is incorrect. A jury could conclude that the blender was defective at the time of sale, and such a conclusion would support a claim based on strict product liability. <br /> <br /> Answer C is incorrect. The jury may conclude that the blender was defective at the time of sale based on the circumstantial evidence presented, but it is not required to draw that conclusion."
+				}
+			]
+		}, 
+		{
+		"key": "rule152",
+		"name": "Rule 152: Assumption of Risk Criteria",
+		"description": "The assumption of the risk is only a defense to strict liability if the plaintiff: (1) discovers the defect and is aware of the danger, and (2) nevertheless unreasonably proceeds to make use of the product. If the employee knew the shaft was loose on the power saw and continued to use it, he would be barred from recovery for his injury. (Ref 152)",
+		"examples": [
+				{
+					"question": "A storekeeper who owns a large hardware store sells power saws for both personal and commercial use. He often takes old power saws as trade-ins on new ones. The old power saws are then completely disassembled and rebuilt with new bearings by the storekeeper's employees and sold by the storekeeper as \"reconditioned saws.\"<br /> <br /> A purchaser, the owner and operator of a cabinet-making shop, informed the storekeeper that he wanted to buy a reconditioned circular saw for use in his cabinet making business. However, the blade that was on the saw he picked out had very coarse teeth for cutting rough lumber. The purchaser told the storekeeper that he wanted a saw blade that would cut plywood. The storekeeper exchanged the coarse blade for a new one with finer teeth that would cut plywood smoothly. The new blade was manufactured by Saw-Blade Company, which uses all available techniques to inspect its products for defects. The reconditioned saw had been manufactured by Power Saw Company.<br /> <br /> The week after the saw was purchased, an employee, who works for the purchaser in the purchaser's cabinet-making shop, was injured while using the saw. The employee's arm was severely cut. As a result, the cabinetmaking shop was shut down for a week until a replacement for the employee could be found.<br /> <br /> The employee was injured while cutting plywood when the shaft holding the saw blade came loose because a bearing gave way, and the shaft and blade flew off the saw. The employee was not aware that the shaft was coming loose. If the employee asserts a claim based on strict liability in tort against the storekeeper, the employee probably will",
+					"answerOptions": [
+						"not recover because the purchaser did not tell the storekeeper that the employee would use the power saw.",
+						"not recover because employee failed to notice that the shaft was coming loose.",
+						"recover because the employee did not know that the shaft was coming loose.",
+						"not recover because the storekeeper used all possible care in reconditioning the power saw."
+					],
+					"correct": 2,
+					"explanation": "C is the correct answer. The assumption of the risk is only a defense to strict liability if the plaintiff: (1) discovers the defect and is aware of the danger, and (2) nevertheless unreasonably proceeds to make use of the product. If the employee knew the shaft was loose on the power saw and continued to use it, he would be barred from recovery for his injury.<br /> <br /> A is incorrect because any person who is foreseeably (and in fact) injured by the storekeeper's negligence can bring an action. Privity of contract is not required, and the storekeeper did not need to be told who would use the power saw. B is incorrect because contributory negligence is no defense in a strict liability action if the plaintiff simply failed to discover the dangerous defect in the product or failed to guard against it. D is incorrect because the storekeeper has an absolute duty to make safe; the use of all possible care is not a valid defense in a strict liability action."
+				}
+			]
+		}
+	],
 	"next": {
 		"key": "",
 		"name": "",

@@ -280,11 +280,11 @@ class IssuesSpotting extends Component {
 									{
 										data && 
 										data.map((value, key) => {
-											if (!value.reference) {
+											if (!value.reference || !value.essay) {
 												return null;	
 											}
 											const opt = JSON.stringify(value);
-											return <option key={key} value={opt}>{value.reference} / id: {value.id}</option>		  
+											return <option key={key} value={opt}>{value.reference} / id: {value.id} {(value.topic) ? ` - ${value.topic}` : ''}</option>		  
 										})
 									}
 								</select>
@@ -350,6 +350,12 @@ class IssuesSpotting extends Component {
 												<div>
 												<br /><br />
 												<a href="" onClick={(e) => {e.preventDefault(); this.setState({displayAnswers: true});}}>Show Past Answers</a>
+												</div>
+											}
+											{
+												this.state.issueSpotting.topic && 
+												<div>
+													<b>Topic: </b> {this.state.issueSpotting.topic}
 												</div>
 											}
 											

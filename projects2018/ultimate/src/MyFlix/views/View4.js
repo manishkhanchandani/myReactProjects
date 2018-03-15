@@ -1,33 +1,11 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import OwlCarousel from 'react-owl-carousel';
 import './View4.css';
-import {defaultList} from '../MyFlixAction.js';
-import {Link} from 'react-router-dom'; 
-import YouTube from 'react-youtube';
+//import {defaultList} from '../MyFlixAction.js';
+import {saveVideo} from '../MyFlixAction.js';
+import ShowUtube from './ShowUtube.js';
 
-class ShowUtube extends Component {
-	render() {
-		console.log('showutube: ', this.props);
-		
-		const opts = {
-		  playerVars: { // https://developers.google.com/youtube/player_parameters
-			autoplay: 0
-		  }
-		};
-
-		return (
-			<div className="showUtube">
-				<div className="embed-responsive embed-responsive-16by9">
-					<YouTube
-					videoId="tC_OcVCndi8"
-					opts={opts}
-					className="embed-responsive-item"
-					/>
-				</div>
-			</div>
-		);
-	}
-}
 
 
 class Items extends Component {
@@ -61,11 +39,13 @@ class Items extends Component {
 	
 	showVideo(videoDetails, catDetails, e) {
 		e.preventDefault();
-		console.log('videoDetails: ', videoDetails);
-		console.log('catDetails: ', catDetails);
+		//console.log('videoDetails: ', videoDetails);
+		//console.log('catDetails: ', catDetails);
+		this.props.callSaveVideo({videoDetails, catDetails});
 	}
 			
 	render() {
+		console.log('props in items are : ', this.props);
 		if (!this.props.items) {
 			return null;	
 		}
@@ -73,11 +53,10 @@ class Items extends Component {
 		let items = [];
 		for (let i in this.props.items) {
 			let val = this.props.items[i];
-			let url = '/' + this.props.list_id + '/detail/' + val._id;
+			/*let url = '/' + this.props.list_id + '/detail/' + val._id;
 			if (defaultList === this.props.list_id) {
 				url = '/detail/' + val._id;
-			}
-			console.log('vall is ', val);
+			}*/
 			items.push(<div className="item row__inner" key={i}><a href="" onClick={this.showVideo.bind(this, val, this.props.catDetails)}><div className="tile__media"><img className="tile__img" src={val.videoThumbnail} alt={val.videoTitle} /></div><div className="tile__details"><div className="tile__title">{val.videoTitle}</div></div></a></div>);
 		}
 		
@@ -195,4 +174,18 @@ class View4 extends Component {
 	}
 }
 
-export default View4;
+const mapStateToProps = (state) => {
+	return {
+		myFlixReducer: state.MyFlixReducer
+	}	
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		callSaveVideo: (details) => {
+			dispatch(saveVideo(details));
+		}
+	};	
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(View4);

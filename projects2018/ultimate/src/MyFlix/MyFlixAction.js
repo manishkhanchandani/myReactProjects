@@ -50,3 +50,10 @@ export const updateCatValue = (value) => {
 	};	
 	
 };
+
+export const saveVideo = (details) => {
+	return {
+		type: 'SAVE_VIDEO',
+		payload: details
+	};	
+};

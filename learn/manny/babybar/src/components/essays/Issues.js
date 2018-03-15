@@ -381,25 +381,24 @@ class EssayIssues extends Component {
 											<ul>
 												{
 													issue.mbe.map((value, key) => {
-														return <li key={key}><a href="" onClick={(e) => {e.preventDefault(); this.setState({selectedMBE: value});}}>{value.name}</a></li>							   
+														return <li key={key}><a href="" onClick={(e) => {e.preventDefault(); this.setState({selectedMBE: value});}}>{value.name}</a>
+														{
+															(this.state.selectedMBE && this.state.selectedMBE.key === value.key) &&
+															<div>
+																<a href="" onClick={(e) => {e.preventDefault(); this.setState({selectedMBE: null})}}>Close Idea</a>
+																<div className="divider">
+																	Name:  <b>{this.state.selectedMBE.name}</b>
+																</div>
+																<div className="divider">
+																	<b>Description: </b> {renderHTML(this.state.selectedMBE.description)}
+																</div>
+															</div>
+														}
+														
+														</li>							   
 													})	
 												}
-												{
-													this.state.selectedMBE &&
-													<li key="close"><a href="" onClick={(e) => {e.preventDefault(); this.setState({selectedMBE: null})}}>Close Idea</a></li>
-												}
 											</ul>
-											{
-												this.state.selectedMBE &&
-												<div>
-													<div className="divider">
-														Name:  <b>{this.state.selectedMBE.name}</b>
-													</div>
-													<div className="divider">
-														<b>Description: </b> {renderHTML(this.state.selectedMBE.description)}
-													</div>
-												</div>
-											}
 										</div>
 										
 										</div>

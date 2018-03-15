@@ -2,6 +2,26 @@
 	"key": "pl_negligence",
 	"name": "Products Liability Negligence",
 	"rule": "",
+	"mbe": [
+		{
+			"key": "rule1",
+			"name": "Rule 1: Not Foreseeable",
+			"description": "Take an example of products liability action on a negligence theory of liability. The prima facie case for negligence requires a duty of care on the part of the defendant, and this duty only extends to a foreseeable plaintiff. If a reasonable person would not have foreseen a risk of injury to the plaintiff under the same circumstances. Then he is not liable. (Ref 116)",
+			"examples": [
+				{
+					"question": "116. A woman worked as a secretary in an office in a building occupied partly by her employer and partly by a retail store. The two areas were separated by walls and were in no way connected, except that the air conditioning unit served both areas and there was a common return-air duct.<br /><br />The retail store began remodeling, and its employees did the work, which included affixing a plastic surfacing material to counters. To fasten the plastic to the counters, the employees purchased glue from a manufacturer that was packaged in a sealed container by the manufacturer and retailed by a paint company.<br /><br />In the course of the remodeling job, one of the retail store's employees turned on the air conditioning and caused fumes from the glue to travel from the retail store through the air conditioning unit and into the woman's office. The employees did not know that there was common duct work for the air conditioners. The woman was permanently blinded by the fumes from the glue.<br /><br />The label on the container of glue read, \"DANGER. Do not smoke near this product. Extremely flammable. Contains Butanone, Tuluol and Hexane. Use with adequate ventilation. Keep out of the reach of children.\"<br /><br />The three chemicals listed on the label are very toxic and harmful to human eyes. The manufacturer had received no reports of eye injuries during the ten years that the product had been manufactured and sold.<br /><br />If the woman asserts a claim against the retail store, the most likely result is that she will",
+					"answerOptions": [
+						"recover, because a user of a product is held to the same standard as the manufacturer.",
+						"recover, because the employees of the retail store caused the fumes to enter her area of the building.",
+						"not recover, because the retail store used the glue for its intended purposes.",
+						"not recover, because the employees of the retail store had no reason to know that the fumes could injure the woman."
+					],
+					"correct": 3,
+					"explanation": "D is correct because it applies a negligence standard. This is a products liability action on a negligence theory of liability. The prima facie case for negligence requires a duty of care on the part of the defendant, and this duty only extends to a foreseeable plaintiff. Here the question states that the store's employees did not know there was common duct work, and that the spaces were in no other way connected. Because the employees knew the fumes were toxic but did not know that the fumes could reach the plaintiff, a reasonable person would not have foreseen a risk of injury to the woman under the circumstances. Therefore, D remains the correct answer. <br /><br />A is incorrect because the retail store is a user who is not in the business of selling the glue. Unless the employees applying the glue had reason to know about the duct system, they could not have foreseen that their actions would lead to the woman's injury. With no duty of care owed, a claim for negligence must fail. B is incorrect because if there is no duty, a claim based on causation alone cannot prevail. C is the correct result, but even if the glue was used for its intended purposes, the woman's claim would still prevail if there was a foreseeable danger to her. Thus, C is incorrect."
+				}
+			]
+		}
+	],
 	"next": {
 		"key": "",
 		"name": "",

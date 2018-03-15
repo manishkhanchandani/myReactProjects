@@ -17,10 +17,10 @@
 		{
 			"key": "rule1",
 			"name": "Rule 1: Rescue Rules",
-			"description": "A rescuer is foreseeable plaintiff when rescue is conducted in a reasonable manner. If a person puts himself in danger and so he is liable for the injury to the rescuer. Rescuer needs to be injured in rescue attempt.",
+			"description": "The man will be liable to the rescuer because the rescuer is a foreseeable plaintiff as long as the rescue was reasonably conducted. Since the man negligently caused a fire and put himself in danger, he is liable for the injury to the rescuer who was injured in the attempted rescue. (Ref 142)",
 			"examples": [
 				{
-					"question": "A man was in the act of siphoning gasoline from a neighbor's car in the neighbor's garage and without his consent when the gasoline exploded and caused a fire. A rescuer, seeing the fire, grabbed a fire extinguisher from his car and put out the fire, saving the man's life and the neighbor's car and garage. In doing so, the rescuer was badly burned.<br /><br />If the rescuer asserts a claim against the man for personal injuries, the rescuer will",
+					"question": "142. A man was in the act of siphoning gasoline from a neighbor's car in the neighbor's garage and without his consent when the gasoline exploded and caused a fire. A rescuer, seeing the fire, grabbed a fire extinguisher from his car and put out the fire, saving the man's life and the neighbor's car and garage. In doing so, the rescuer was badly burned.<br /><br />If the rescuer asserts a claim against the man for personal injuries, the rescuer will.",
 					"answerOptions": [
 						"prevail, because he saved the man's life.",
 						"prevail, because the man was at fault in causing the fire.",

@@ -659,8 +659,17 @@
 			"id": 30,
 			"reference": "June 2012",
 			"topic": "",
-			"essay": "Chip, Inc. (\"Chip\") manufactures computers. It uses a certain part—Part X—that can be manufactured by several companies, including Company A and Company B. It currently needs 1,000 units of the part. Company A, which had previously supplied the part, informed Chip that it was unable to do so.<br /><br /> On July 1, Chip sent a letter to the other manufacturers, including Company B, stating:<br /><br /> We are sending this order to several manufacturers. We will buy from the first manufacturer to commit itself to provide 1,000 units of Part X at $20 each by July 31 on the terms specified in this order, provided the commitment is made to us by July 8. We are aware that, because of the nature of the part, we cannot expect you to warrant it against manufacturing defects.<br /><br /> On July 3, Company A told Chip that it might be able to supply 1,000 units of Part X after all. Since Company A was Chip's preferred manufacturer, Chip sent a letter on July 4 to the other manufacturers stating: \"We may be in a position to obtain 1,000 units of Part X elsewhere. Please disregard the letter we sent on July 1.\"<br /><br /> On July 7, Company B delivered a letter to Chip stating: \"We accept your offer and will supply you with 1,000 units of Part X by July 31 on the terms specified herein. We warrant the part against manufacturing defects.\"<br /><br /> 1. Does Company B have a contract with Chip to supply 1,000 units of Part X? Discuss.<br /><br /> 2. Assuming that Company B does have a contract with Chip to supply 1,000 units of Part X, does the contract contain a warranty against manufacturing defects? Discuss.",
+			"essay": "Chip, Inc. (\"Chip\") manufactures computers. It uses a certain part - Part X - that can be manufactured by several companies, including Company A and Company B. It currently needs 1,000 units of the part. Company A, which had previously supplied the part, informed Chip that it was unable to do so.<br /><br /> On July 1, Chip sent a letter to the other manufacturers, including Company B, stating:<br /><br /> We are sending this order to several manufacturers. We will buy from the first manufacturer to commit itself to provide 1,000 units of Part X at $20 each by July 31 on the terms specified in this order, provided the commitment is made to us by July 8. We are aware that, because of the nature of the part, we cannot expect you to warrant it against manufacturing defects.<br /><br /> On July 3, Company A told Chip that it might be able to supply 1,000 units of Part X after all. Since Company A was Chip's preferred manufacturer, Chip sent a letter on July 4 to the other manufacturers stating: \"We may be in a position to obtain 1,000 units of Part X elsewhere. Please disregard the letter we sent on July 1.\"<br /><br /> On July 7, Company B delivered a letter to Chip stating: \"We accept your offer and will supply you with 1,000 units of Part X by July 31 on the terms specified herein. We warrant the part against manufacturing defects.\"<br /><br /> 1. Does Company B have a contract with Chip to supply 1,000 units of Part X? Discuss.<br /><br /> 2. Assuming that Company B does have a contract with Chip to supply 1,000 units of Part X, does the contract contain a warranty against manufacturing defects? Discuss.",
 			"issues": {
+				"ucc": {},
+				"parties_merchant": {},
+				"merchants_firm_offer": {},
+				"valid_contract": {},
+				"offer": {},
+				"acceptance": {},
+				"consideration": {},
+				"effective_revocation": {},
+				"varying_terms": {}
 			}
 		},
 		{

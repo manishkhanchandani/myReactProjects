@@ -7,6 +7,80 @@
 			"title": "Torts Strict Liability"
 		}
 	],
+	"mbe": [
+		{
+			"key": "rule158",
+			"name": "Rule 158: Strict Liability and Products Liability",
+			"description": " The owner of an animal can be held responsible for the damage caused when that animal escapes its owner's property. Because the dog is a domestic animal, the damage caused by the defendant's dog will generally create liability for compensation only if the defendant knew of his dog's \"mischievous propensity.\" (Ref 158)",
+			"examples": [
+				{
+					"question": "A defendant's dog ran into the street in front of the defendant's home and began chasing cars. The plaintiff, who was driving a car on the street, swerved to avoid hitting the dog, struck a telephone pole, and was injured.<br /> <br /> Assume that the defendant knew his dog would often chase cars but refused to restrain it. If the plaintiff asserts a claim against the defendant, will the plaintiff prevail?",
+					"answerOptions": [
+						"Yes, because the defendant's dog was a cause in fact of the plaintiff's injury.",
+						"Yes, because the defendant knew his dog had a propensity to chase cars and did not restrain it.",
+						"No, because a dog is a domestic animal.",
+						"No, because there is no statute or ordinance making it unlawful for the owner to allow a dog to be unleashed on a public street."
+					],
+					"correct": 1,
+					"explanation": "B is the correct answer. The owner of an animal can be held responsible for the damage caused when that animal escapes its owner's property. Because the dog is a domestic animal, the damage caused by the defendant's dog will generally create liability for compensation only if the defendant knew of his dog's \"mischievous propensity.\" Thus A is incorrect. (Note: Some states, however, have imposed strict liability statutes for damage caused by wandering/trespassing dogs).<br /> <br /> C is incorrect. While owners of wild animals are held in strict liability for the animal's damages, owners of domestic animals can also be held strictly liable, if the animal's \"mischievous\" propensity is known. <br /> <br /> D is incorrect. The defendant's dog is a trespasser, with or without an applicable leash law, once it leaves its master's property."
+				}
+			]
+		},
+		{
+			"key": "rule169",
+			"name": "Rule 169: Abnormally Dangerous Product",
+			"description": "The chemicals were ultra-hazardous and in an unusual accumulation, the chemical company is strictly liable for all damages which are \"the natural consequences of its escape.\" As an abnormally dangerous use of the land (Ref 169)",
+			"examples": [
+				{
+					"question": "A chemical company manufactured a liquid chemical product known as XRX. Some XRX leaked from a storage tank on the chemical company's property, seeped into the groundwater, flowed to a farmer's adjacent property, and polluted the farmer's well. Several of the farmer's cows drank the polluted well water and died.<br /> <br /> If the farmer brings an action against the chemical company to recover the value of the cows that died, the farmer will",
+					"answerOptions": [
+						"prevail, because a manufacturer is strictly liable for harm caused by its products.",
+						"prevail, because the XRX escaped from the chemical company's premises.",
+						"not prevail, unless the farmer can establish that the storage tank was defective.",
+						"not prevail, unless the chemical company failed to exercise reasonable care in storing the XRX."
+					],
+					"correct": 1,
+					"explanation": "B is the correct answer. This is not a products liability question, but rather a strict liability question. The chemical company's storage of XRX was a use of the land which was not common to the area and which presented a serious risk of harm that could not be eliminated even if undertaken with due care. Because the chemicals were ultra-hazardous and in an unusual accumulation, the chemical company is strictly liable for all damages which are \"the natural consequences of its escape.\" As an abnormally dangerous use of the land, B is the best choice because it accurately reflects the determinative issue, which was the escape of the chemicals. The farmer does not need to show negligence or defect to recover against the chemical company. Thus A, C and D are incorrect."
+				}
+			]
+		},
+		{
+			"key": "rule174",
+			"name": "Rule 174: Negligence is Least Possible Answer in Strict Liability",
+			"description": "The call of the question wants you to find the answer that is NOT a substantial issue. Ultra-hazardous activities give rise to strict liability because the inherent danger or peculiar risk is unreasonably high when compared to its social utility, even in the absence of negligence and where all the proper precautions have been taken. Evidence of negligence, therefore, is not an issue in this situation. (Ref 174)",
+			"examples": [
+				{
+					"question": "As a result of an accident at the NPP nuclear power plant, a quantity of radioactive vapor escaped from the facility and two members of the public were exposed to excessive doses of radiation. According to qualified medical opinion, that exposure will double the chance that these two persons will ultimately develop cancer. However, any cancer that might be caused by this exposure will not be detectable for at least ten years. If the two exposed persons do develop cancer, it will not be possible to determine whether it was caused by this exposure or would have developed in any event.<br /> <br /> If the exposed persons assert a claim for damages against NPP shortly after the escape of the radiation, which of the following questions will NOT present a substantial issue?",
+					"answerOptions": [
+						"Will the court recognize that the plaintiffs have suffered a present legal injury?",
+						"Can the plaintiffs prove the amount of their damages?",
+						"Can the plaintiffs prove that any harm they may suffer was caused by this exposure?",
+						"Can the plaintiffs prevail without presenting evidence of specific negligence on the part of NPP?"
+					],
+					"correct": 3,
+					"explanation": "D is the correct answer. The call of the question wants you to find the answer that is NOT a substantial issue. The operation of a nuclear power that contains highly toxic chemicals/ radioactive vapor is considered an abnormally dangerous activity. Ultra-hazardous activities give rise to strict liability because the inherent danger or peculiar risk is unreasonably high when compared to its social utility, even in the absence of negligence and where all the proper precautions have been taken. Evidence of negligence, therefore, is not an issue in this situation, which makes D the best answer.<br /> <br /> A is a substantial issue. The plaintiff's only current harm is increased risk of future injury, which is not universally recognized as sufficiently concrete to grant standing. B is a substantial issue because the damages have not yet manifested and actual damage is only a possibility. C is a substantial issue because for strict liability to apply, the plaintiffs generally must show that the defendant's emissions caused the injury."
+				}
+			]
+		},
+		{
+			"key": "rule185",
+			"name": "Rule 185: Strict Liability on Dangerous Products",
+			"description": "Although the manufacture of explosives may be an abnormally dangerous activity, strict liability for injuries caused by such activities is limited to the kind of harm that makes the activity abnormally dangerous. This accident could have occurred when a roof tile fell from a building that housed a perfectly safe and ordinary activity. The owner may, however, be liable for negligence. (Ref 185)",
+			"examples": [
+				{
+					"question": "A manufacturing plant located near a busy highway uses and stores highly volatile explosives. The owner of the plant has imposed strict safety measures to prevent an explosion at the plant. During an unusually heavy windstorm, a large tile was blown off the roof of the plant and crashed into a passing car, damaging the hood and the windshield. The driver of the car brought a strict liability action against the owner of the plant to recover for the damage to the car. <br /> <br /> Is the driver likely to prevail?",
+					"answerOptions": [
+						"No, because the damage to the car did not result from the abnormally dangerous aspect of the plant's activity.",
+						"No, because the severity of the windstorm was unusual.",
+						"Yes, because the plant's activity was abnormally dangerous.",
+						"Yes, because the plant's location near a busy highway was abnormally dangerous."
+					],
+					"correct": 0,
+					"explanation": "Answer A is correct. Although the manufacture of explosives may be an abnormally dangerous activity, strict liability for injuries caused by such activities is limited to the kind of harm that makes the activity abnormally dangerous. This accident could have occurred when a roof tile fell from a building that housed a perfectly safe and ordinary activity. The owner may, however, be liable for negligence. Thus, Answer A is correct and Answer C is incorrect. <br /> <br /> Answer B is incorrect. This answer correctly concludes that the driver is not likely to prevail, but it misstates the reasoning for this conclusion. The fact that the windstorm was unusually severe may be relevant to a negligence claim, where the case would turn on whether the owner took reasonable precautions to prevent the accident, but it is not relevant to a claim of strict liability. The strict liability claim fails because the risk that materialized was not of the sort that makes the activity abnormally dangerous. <br /> <br /> Answer D is incorrect. Strict liability is based on the abnormally dangerous nature of the activity and is limited to the realization of the kind of harm that makes the activity abnormally dangerous. The inappropriateness of the activity to the place where it is carried on may be one factor in deciding whether the activity is abnormally dangerous, but it is not the only factor. In this case, strict liability would not be applicable even if the plant were located in a heavily traveled area, because the harm that occurred was not related to the dangerous nature of the plant's activity."
+				}
+			]
+		}
+	],
 	"next": {
 		"key": "negligence_rescuer_doctrine",
 		"name": "Rescuer Doctrine / Fireman's Rule",

@@ -86,7 +86,7 @@ class SimpleQuizResults extends Component {
 							return <div key={key} className="panel panel-primary">
 							  <div className="panel-heading"><b>Question {key + 1}.</b> {renderHTML(value.question)}</div>
 							  <div className="panel-body">
-								<SimpleQuizAnsOptions id={value.id} opts={value.answerOptions} optionChoosen={value.choosenOption} correct={value.correct} viewOnly={true} />
+								<SimpleQuizAnsOptions id={value.id} opts={value.answerOptions} optionChoosen={value.choosenOption} correct={value.correct} viewOnly={true} details={value}  />
 							  </div>
 							</div>					
 						})

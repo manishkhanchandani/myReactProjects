@@ -3,7 +3,8 @@ const MyFlixReducer = (state = {
 	listData: null,
 	categories: null,
 	showCategories: null,
-	catValues: null
+	catValues: null,
+	saveVideo: null
 }, action) => {
 	switch (action.type) {
 		case 'CHANGE_LIST':
@@ -29,6 +30,12 @@ const MyFlixReducer = (state = {
 			state = {
 				...state,
 				catValues: action.payload
+			}
+			break;
+		case 'SAVE_VIDEO':
+			state = {
+				...state,
+				saveVideo: action.payload
 			}
 			break;
 		default:
