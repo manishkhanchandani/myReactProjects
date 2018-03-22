@@ -28,17 +28,30 @@ class QuizPractice extends Component {
 			quizChoosenOption: {},
 			score: 0,
 			answered: 0,
-			loading: false
+			loading: false,
+			filterTerm: ''
 			
 		};
 	}
 	
 	
 	onActivePageChange(page) {
+		localStorage.setItem('pageNumber', page);
 		this.setState({pageNumber: page});
 	}
 	
 	componentDidMount() {
+		var obj = localStorage.getItem('finalQuestionList');
+		if (obj) {
+			let pn = localStorage.getItem('pageNumber');
+			if (!pn) pn = 1;
+			pn = parseInt(pn, 10);
+			let ans = localStorage.getItem('answered');
+			if (!ans) ans = 0; else ans = parseInt(ans, 10);
+			let sc = localStorage.getItem('score');
+			if (!sc) sc = 0; else sc = parseInt(sc, 10);
+			this.setState({finalQuestionList: JSON.parse(obj), loading: false, pageNumber: pn, answered: ans, score: sc});	
+		}
 		var url = FirebaseConstant.basePath + '/quiz/categories';
 
 		var ref = firebaseDatabase.ref(url);
@@ -101,7 +114,7 @@ class QuizPractice extends Component {
 			
 			console.log('objQuestion2 is ', objQuestion);
 		}
-		
+		localStorage.setItem('finalQuestionList', JSON.stringify(objQuestion));
 		this.setState({finalQuestionList: objQuestion, loading: false});
 	
 		
@@ -113,7 +126,7 @@ class QuizPractice extends Component {
 			alert('please choose the category');
 			return;
 		}
-		console.log(this.state);
+		//console.log(this.state);
 		this.setState({userAnswered: null, questions: null, quizChoosenOption: {}, score: 0, loading: true, answered: 0, pageNumber: 1});
 		
 		
@@ -163,6 +176,8 @@ class QuizPractice extends Component {
 		}
 		obj[this.state.pageNumber] = e;
 		this.setState({quizChoosenOption: obj, score: score, answered: answered});
+		localStorage.setItem('answered', answered);
+		localStorage.setItem('score', score);
 		
 		let uid = getUID();
 		if (!uid) {
@@ -190,7 +205,7 @@ class QuizPractice extends Component {
 		let paginationProps = null;
 		let rightSideBar = null;
 		if (this.state.finalQuestionList) {
-			let obj = processRecords(this.state.finalQuestionList, null, null, [], 1, this.state.pageNumber, this.onActivePageChange.bind(this), 5);
+			let obj = processRecords(this.state.finalQuestionList, null, this.state.filterText, ['question', 'answers', 'explanation', 'topic'], 1, this.state.pageNumber, this.onActivePageChange.bind(this), 5);
 			myArrayConverted = obj.myArrayConverted;
 			paginationProps = obj.paginationProps;
 			
@@ -205,6 +220,7 @@ class QuizPractice extends Component {
 		}
 		
 		let selectedCategory = (this.state.category) ? this.state.category.key : ((this.props.match.params.subject) ? this.props.match.params.subject : '');
+		
 			
 		return (
 			
@@ -262,18 +278,18 @@ class QuizPractice extends Component {
 								<h3 className="panel-title">Question {this.state.pageNumber} / {this.state.finalQuestionList.length}.</h3>
 							</div>
 							<div className="panel-body">
-								
+								<div className="filterContainer"><input type="text" placeholder="Filter" className="form-control filterItem" onChange={(e) => {this.setState({filterText: e.target.value, pageNumber: 1});}} /><br /></div>
 								{
 									myArrayConverted.map((value, key) => {
 										value = {
 											...value,
 											correct: parseInt(value.correct, 10)
 										};
-										console.log('val is ', value);
+										//console.log('val is ', value);
 										let url = '/quizPractice/'+selectedCategory+'/'+value.id;
 										let optionChoosen = parseInt(this.state.quizChoosenOption[this.state.pageNumber], 10);
 										return <div key={key} className="questions">
-											<div className="question"><a href={url} target="_blank">External Link</a><br /><b>Q. {value.id}.</b> {renderHTML(value.question)}<hr /></div>
+											<div className="question"><a href={url} target="_blank">External Link</a><br /><br /><b>Q. {value.id}.</b> {renderHTML(value.question)}<hr /></div>
 												<SimpleQuizAnsOptions id={value.id} opts={JSON.parse(value.answers)} optionChoosen={optionChoosen} handleChooseOption={this.handleChooseOption.bind(this)} details={value} />
 										</div>
 									})
@@ -298,7 +314,7 @@ class QuizPractice extends Component {
 							</div>
 							<div className="panel-body">
 								Your total score is <b>{this.state.score * 20} / {this.state.finalQuestionList.length * 20}</b><br />
-								You answered <b>{this.state.answered} ({this.state.score} correct answers) / {this.state.finalQuestionList.length}</b> questions
+								You answered <b>{this.state.answered} ({this.state.score} correct answers, {this.state.answered > 0 ? Math.floor((this.state.score / this.state.answered) * 100) : ''} %) / {this.state.finalQuestionList.length}</b> questions
 									
 									
 							</div>

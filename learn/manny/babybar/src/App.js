@@ -24,6 +24,7 @@ import UserQuizAdd from './components/userQuiz/Add.js';
 import QuizPractice from './components/quiz-practice/Practise.js';
 
 import PractiseQuestion from './components/practise/Question.js';
+import CompleteProcess from './components/complete/Process.js';
 
 class App extends Component {
 	
@@ -63,6 +64,7 @@ class App extends Component {
 								<Route exact={true} path="/quizPractice" component={QuizPractice} />
 								<Route exact={true} path="/quizPractice/:subject/:id" component={QuizPractice} />
 								<Route exact={true} path="/practice/:subject/:issue" component={PractiseQuestion} />
+								<Route exact={true} path="/complete" component={CompleteProcess} />
 							</div>
 							{/*<div className="col-md-3">
 								<Activities />

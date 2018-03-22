@@ -16,7 +16,7 @@ class Items extends Component {
 			options: {
 				dots: false,
 				nav: false,
-				loop: true,
+				loop: false,
 				margin: 10,
 				autoWidth: true,
 				responsive: {

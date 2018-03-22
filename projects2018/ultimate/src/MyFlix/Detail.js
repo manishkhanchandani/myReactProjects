@@ -15,6 +15,21 @@ class Detail extends Component {
 	}
 	
 	componentDidMount() {
+		let currentUrl = 'http://myflix.info/' + this.state.list_id + '/detail/' + this.props.match.params.video_id;
+		let apiUrl = 'http://api.mkgalaxy.com/handsome.php?url=' + encodeURIComponent(currentUrl);
+		fetch(apiUrl, {
+			method: 'GET'	  
+		})
+		.then((response) => {
+			return response.json();	   
+		})
+		.then((record) => {
+			console.log('record is ', record);	
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+		
 		let url = FirebaseConstant.basePath + '/list/' + this.state.list_id + '/videos/' + this.props.match.params.video_id;
 		let ref = firebaseDatabase.ref(url);
 		ref.once('value', (snapshot) => {

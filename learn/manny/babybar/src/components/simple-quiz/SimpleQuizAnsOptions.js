@@ -78,6 +78,8 @@ class SimpleQuizAnsOptions extends Component {
 					<h3>Explanation</h3>
 					<hr />
 					{renderHTML(this.props.details.explanation)}
+					<br /><br />
+					<b>Topic: </b> {this.props.details.topic}
 				</div>
 			}
 			</div>
