@@ -157,13 +157,28 @@ class CompleteProcess extends Component {
 							description: 'Under <b>COMMON LAW</b> the crime of <b>CONSPIRACY</b> was an <b>agreement between two or more people</b> to work toward an <b>illegal goal</b>. <b>MODERNLY</b> an <b>OVERT ACT</b> in furtherance of the conspiracy goal is often required in many Courts.<br /><br />Further, under the <b>PINKERTON RULE</b>, a member of a conspiracy is <b>VICARIOUSLY LIABLE</b> for the criminal acts of co-conspirators done <b>WITHIN THE SCOPE</b> of the conspiracy goal. This means crimes that were 1) <b>foreseeable</b> and 2) in <b>furtherance of the conspiracy goal</b>.<br /><br />Even if the illegal goal of the conspiracy is attained, the <b>CONSPIRACY DOES NOT MERGE</b> into the criminal result, so each member can be convicted of both conspiracy and the other crimes committed during and within the scope of the conspiracy.<br /><br />And under the <b>WHARTON RULE</b> a conspiracy requires the participation of more people than the minimum number necessary to commit the criminal act.<br /><br />If a defendant joins a conspiracy in progress most Courts hold they are not liable for previous crimes of the co-conspirators unless the joining defendant seeks to profit from those prior crimes.<br /><br />A conspiracy ends when the conspiracy goal is <b>ATTAINED</b> or <b>ABANDONED</b>, and vicarious liability will no longer attach based on conspiracy theory. But it may still attach based on accomplice theory.',
 							children: [
 								{
-									title: 'Agreement between Two or more People'
+									title: 'Actual Agreement is Needed'
+								},
+								{
+									title: 'Two or more People Required'
 								},
 								{
 									title: 'To work towards an illegal goal'
 								},
 								{
 									title: 'Overt Act is required modernly'
+								},
+								{
+									title: 'Wharton Rule'
+								},
+								{
+									title: 'Vicarious Liable under conspiracy theory'
+								},
+								{
+									title: 'Comparison of Conspiracy and Accomplice Theory'
+								},
+								{
+									title: 'Defense of Withdrawal'
 								}
 							]
 						},
@@ -187,7 +202,7 @@ class CompleteProcess extends Component {
 						{
 							title: 'Criminal Assault',
 							subtitle: '',
-							description: '',
+							description: 'Under CRIMINAL LAW an ASSAULT is the crime of acting with the intention of causing a battery or else to cause apprehension of a battery. The victim of the attempted battery does not have to be aware of the danger. ',
 							children: [
 								{
 									title: ''
@@ -197,7 +212,7 @@ class CompleteProcess extends Component {
 						{
 							title: 'Criminal Battery',
 							subtitle: '',
-							description: '',
+							description: 'Under CRIMINAL LAW a BATTERY is the crime of acting with the intention of causing a touching of a victim’s person and causing a harmful or offensive touching .',
 							children: [
 								{
 									title: ''
@@ -206,171 +221,623 @@ class CompleteProcess extends Component {
 						},
 						{
 							title: 'Rape',
-							subtitle: '',
-							description: '',
+							subtitle: 'Rape is sexual intercourse with female without consent.',
+							description: 'Under common law RAPE was an intentional act to have sexual intercourse with a female without consent causing actual penetration, no matter how slight.<br /><br />Perhaps the single most important fact pattern for you to watch out for on an exam question is the following:<br /><br />For example: Abe and Bob agree to kidnap Vickie for ransom. Abe knows Bob is a registered sex offender so he has Bob swear he will not try to have sex with Vickie. Bob swears he will not. After Vickie is kidnapped Abe goes out and Bob has sex with Vickie by promising he will let her go if she does. After having sex with Vickie, Bob laughs at her, calls her stupid and tells her she won\'t be freed until the ransom is paid. Vickie commits suicide in humiliation. Is Abe liable for first degree murder, and if so why?<br /><br />1) Abe participated in the kidnapping, so he is <b>directly liable</b> for that crime.<br />2) <b>Bob raped Vickie</b> because her consent was the product of duress.<br />3) <b>Abe is not liable for Vickie\'s rape as a conspirator</b> because it was contrary to the conspiracy agreement between Abe and Bob.<br />4) Instead, Abe is <b>vicariously liable</b> for the rape as an <b>accomplice</b> because the rape was a foreseeable crime, actually and proximately caused by the kidnapping.<br />5) The rape caused the suicide, so the <b>suicide was a homicide</b> actually and proximately caused by Bob\'s act of raping Vickie.<br />6) Rape is one of the <b>inherently dangerous felonies</b>, so any death caused by rape qualifies as a murder under the <b>Felony-Murder Rule</b>.<br />7) The events form a <b>foreseeable and unbroken chain of causality</b>, and Abe is <b>vicariously liable</b> for the rape and murder of Vickie as an <b>accomplice</b>.<br />8) Murder caused by a rape is almost always one of the "<b>enumerated felonies</b>" for <b>first- degree murder</b>, so Abe liable for first degree murder.',
 							children: [
 								{
-									title: ''
+									title: 'Sexual Intercourse with female'
+								},
+								{
+									title: 'Without Consent'
+								},
+								{
+									title: 'General Intent Crime',
+									subtitle: 'This means the prosecution must prove that defendant intentionally acted to have sexual intercourse and it was done without consent. The prosecution does not have to prove that defendant acted with the specific intent of having non-consensual sexual intercourse.'
+								},
+								{
+									title: 'Inherent Dangerous Felony',
+									subtitle: 'Therefore death caused by rape may be charged as murder with Felony Murder Rule and murder caused by rape is generally first degree murder.'
+								},
+								{
+									title: 'Fraud in Factum',
+									subtitle: 'Victim does not knowingly consent to sexual intercourse with the defendant.'
+								},
+								{
+									title: 'Fraud in Inducement',
+									subtitle: 'Consent is effective if it is misrepresentation of the benefit the victim will enjoy because she is knowingly consenting to sexual intercourse with the defendant.'
+								},
+								{
+									title: 'Mistake of Fact',
+									subtitle: 'Is no defense in general intent crime unless the mistake is reasonable given the circumstances.',
+									description: 'Involuntary Intoxiation can be considered as defense, Voluntary Intoxication can be considered defense if reasonable sobar person could have made the same mistake.'
+								},
+								{
+									title: 'Statutory Rape',
+									subtitle: 'Sexual intercourse with the person below the statutory age of consent.',
+									description: 'Any person who does this is generally strictly liable because consent is legally impossible.',
+									children: [
+										{
+											title: 'Mistake of Fact',
+											subtitle: 'Is no defense regardless of whether it is reasonable or not.'
+										}  
+									]
+								},
+								{
+									title: 'Attempted Rape',
+									subtitle: 'Attempting to have sexual intercourse with a person knowing that they do not consent.',
+									description: 'Attempting Rape is a crime of attempting to have sexual intercourse with a person knowing that they do not consent.',
+									children: [
+										{
+											title: 'Specific Intent Crime',
+											subtitle: 'The defendant must act in an effort to have sexual intercourse with a person with knowledge that person does not consent to have sexual intercourse.'
+										},
+										{
+											title: 'Factual Impossibility',
+											subtitle: 'Is not a defense to attempted rape unless it is totally impossible to rape in a manner attempted.'
+										},
+										{
+											title: 'Mistake of fact',
+											subtitle: 'Is not a defense to attempted rape unless it negates the implication the defendant acted with criminal intent.'
+										},
+										{
+											title: 'Legal Impossibility',
+											subtitle: 'Is a defense if the act attempted or intended by the defendant would not have been the rape, even if it is completed.'
+										}     
+									]
 								}
 							]
 						},
 						{
 							title: 'Arson',
 							subtitle: '',
-							description: '',
+							description: 'Under common law ARSON was the malicious burning of the dwelling of another. MODERNLY arson is extended by statute to the burning of other structures. Malice for arson means that the burning must be done with wrongful intent.',
 							children: [
 								{
-									title: ''
+									title: 'Malicious Burning',
+									subtitle: 'Burning must be done with wrongful intent. This generally means they deliberately acted to harm others or knowing others would be harmed.',
+									children: [
+										{
+											title: 'Negligence or Criminal Negligence - not a malice'	
+										}
+									]
+								},
+								{
+									title: 'Dwelling of another'
+								},
+								{
+									title: 'Modernly, Any structure'
+								},
+								{
+									title: 'General Intent Crime',
+									subtitle: 'This means the prosecution has to prove that defendant deliberately and maliciously started a fire that burned property protected by statute. The prosecution does not have to prove the defendant acted with the specific intent of burning the property that was actually burned.'
+								},
+								{
+									title: 'Inherent Dangerous Felony',
+									subtitle: 'Therefore death caused by arson may be charged as murder with Felony Murder Rule and murder caused by arson is generally first degree murder.'
+								},
+								{
+									title: 'Attempted Arson',
+									subtitle: 'Is a crime of attempting to burn protected property.',
+									description: 'Attempting Rape is a crime of attempting to have sexual intercourse with a person knowing that they do not consent.',
+									children: [
+										{
+											title: 'Specific Intent Crime',
+											subtitle: 'This means defendant must start the fire or attempt to start a fire for the specific purpose of burning the protected property.'
+										},
+										{
+											title: 'Mistake of fact',
+											subtitle: 'Is not a defense to attempted arson unless it negates the implication the defendant acted with criminal intent.'
+										},
+										{
+											title: 'Legal Impossibility',
+											subtitle: 'Is only a defense if the act attempted by the defendant would not have been arson if completed.'
+										}     
+									]
 								}
 							]
 						},
 						{
 							title: 'Larceny',
 							subtitle: '',
-							description: '',
+							description: 'Under common law <b>LARCENY</b> was the <b>trespassory</b> <b>taking and carrying away</b> of the <b>personal property</b> of another with <b>intent to permanently deprive</b>. Where the possession was gained by <b>misrepresentation</b> it was called <b>LARCENY BY TRICK</b>.<br /><br />Theft of property from a master or employer by a manager or high-level employee was generally embezzlement and not a larceny, unless the defendant got possession by misrepresentation, a larceny by trick. But theft of the same property by a servant or low-level employee was generally larceny, not embezzlement, unless the defendant took possession from a third party before deciding to steal it, and in that case it was embezzlement.<br /><br />Under the <b>RELATION BACK DOCTRINE </b>some common law courts held that a theft of “lost” property by a person who initially intended to return it to the lawful owner was a larceny because a later decision to steal RELATED BACK to make the original taking unlawful. But other courts held this was embezzlement on the theory the original taking formed a “constructive trust.”',
 							children: [
 								{
-									title: ''
+									title: 'Trespassory',
+									subtitle: '',
+									description: 'Trespassory taking means the defendant either 1) took possession without consent from the lawful possessor OR 2) took possession with the intention of stealing it. Therefore, the prosecution generally must either prove the defendant took possession of goods without consent from the owner or with the intention of stealing at the time goods were taken into possession.'
+								},
+								{
+									title: 'Taking and carrying away'
+								},
+								{
+									title: 'Of personal property'
+								},
+								{
+									title: 'With intent to permanently deprive'
+								},
+								{
+									title: 'Specific Intent Crime',
+									subtitle: '',
+									description: 'The prosecution must prove the defendant specifically intended to permanently deprive the lawful possessors of property in their possession. A lawful possessor is anyone with possession of the property before the defendant takes it. It does not necessarily have to be the “owner” of the property.'
+								},
+								{
+									title: 'Attempted Larceny',
+									subtitle: 'Attempted larceny is the crime of attempting to take and carry away the property of another with intent to permanently deprive.',
+									children: [
+										{
+											title: 'Specific Intent Crime',
+											subtitle: 'This means that the defendant must act with the specific intent of permanently depriving another of property.',
+										}		   
+									]
 								}
 							]
 						},
 						{
 							title: 'False Pretenses',
 							subtitle: '',
-							description: '',
+							description: 'Under common law FALSE PRETENSES was the a <b>MISREPRESENTATION of FACT</b> to <b>obtain TITLE</b> to the property of another with <b>intent to permanently deprive</b>.<br /><br />The actus reus for false pretenses is obtaining title to property by means of false representations, and the mens rea is the intent to defraud.',
 							children: [
 								{
-									title: ''
+									title: 'Obtaining Tite'
+								},
+								{
+									title: 'Misrepresentation of the fact (false representation)'
+								},
+								{
+									title: 'With intent to permanently deprive'
+								},
+								{
+									title: 'Specific Intent Crime',
+									subtitle: '',
+									description: 'False pretenses is a specific intent crime, meaning that the prosecution has to prove the defendant acted with a specific intent to obtain title to the victim\'s property by fraud. '
+								},
+								{
+									title: 'Attempted Larceny',
+									subtitle: '',
+									description: 'Attempted false pretenses is the crime of attempting to defraud a victim of property by using a false representation of fact. Modernly it might be charged as "attempted fraud."'
 								}
 							]
 						},
 						{
 							title: 'Embezzlement',
 							subtitle: '',
-							description: '',
+							description: 'Under common law EMBEZZLEMENT was the crime of <b>TRESPASSORY CONVERSION</b> of the <b>property of another </b>by one <b>entrusted with lawful possession</b> with <b>intent to permanently deprive</b> or causing substantial risk of loss.<br /><br /><b>Def 2:</b> Embezzlement is the crime of <b>trespassorily</b> converting <b>personal property</b> that has been <b>entrusted to the defendant</b> by another to <b>their personal use</b>.<br /><br />Further, the COMMON CARRIER DOCTRINE held that a common carrier such as a taxicab, bus or ship is entrusted with possession of passenger\'s property, including lost property, so a theft of passenger property by an employee of a common carrier was more often held to be EMBEZZLEMENT than larceny, even if the property was "lost".<br /><br />The actus reus for embezzlement is the trespassory conversion of property to personal use by the defendant bailee, and the mens rea is the intent to misuse the property of the bailor.<br /><br />Embezzlement applies and larceny does not apply if 1) there was an <b>entrustment</b> of property into the care of the defendant, 2) the defendant received the property <b>without intent to steal</b>, and 3) the defendant later <b>converted the property to personal use.</b>',
 							children: [
 								{
-									title: ''
+									title: 'Trespassory',
+									subtitle: '',
+									description: 'Trespassory taking means the defendant either 1) took possession without consent from the lawful possessor OR 2) took possession with the intention of stealing it. Therefore, the prosecution generally must either prove the defendant took possession of goods without consent from the owner or with the intention of stealing at the time goods were taken into possession.'
+								},
+								{
+									title: 'Conversion of Personal Property'
+								},
+								{
+									title: 'Entrusted'
+								},
+								{
+									title: 'With intent to permanently deprive'
+								},
+								{
+									title: 'Specific Intent Crime',
+									subtitle: '',
+									description: 'Embezzlement is a specific intent crime and the prosecution must prove the defendant specifically intended to misuse the bailor’s property.'
 								}
 							]
 						},
 						{
 							title: 'Robbery',
 							subtitle: '',
-							description: '',
+							description: 'Under CRIMINAL LAW a ROBBERY is a larceny from a person by use of force or fear to overcome the will of the victim to resist.',
 							children: [
 								{
-									title: ''
+									title: 'Larceny from a person'
+								},
+								{
+									title: 'By use of Force or fear to overcome the will of victim to resist'
+								},
+								{
+									title: 'Specific Intent Crime',
+									subtitle: '',
+									description: 'The prosecution must prove the defendant acted intentionally to use force and fear to overcome the will or ability of others to commit a larceny.'
+								},
+								{
+									title: 'Attempted Robbery',
+									subtitle: 'It is the crime of attempting to commit a larceny from the person of a victim by use of force or fear.',
+									children: [
+										{
+											title: 'Specific Intent Crime',
+											subtitle: 'This means that the defendant must act in a specific effort to rob the victim.'
+										},
+										{
+											title: 'Mistake of Fact - No Defense',
+											subtitle: '',
+											description: 'As with any other crime, mistake of fact is not a defense to attempted robbery unless it negates a finding of implied criminal intent based on the defendant’s actions. Mistake of fact is a claim the act done or attempted was done because of an innocent mistake, so the finder of fact should not find that the acts done by the defendant imply criminal intent.'
+										},
+										{
+											title: 'Legal Impossibility - Defense',
+											subtitle: '',
+											description: 'Legal impossibility is a defense if the act attempted or intended by the defendant would not have been robbery, even if it had been completed. Legal impossibility is a claim the act done or attempted would not constitute the crime charged even if it had been completed.'
+										}
+										
+									]
 								}
 							]
 						},
 						{
 							title: 'Burglary',
 							subtitle: '',
-							description: '',
+							description: '<b>Remember:</b> BEDONI, Breaking, Entering, Dwelling, Of Others, Night, Intent. <b>Under COMMON LAW</b> a <b>BURGLARY</b> was the <b>breaking</b> and <b>entering</b> of the <b>dwelling</b> of <b>another</b> in the <b>night</b> with <b>intent</b> to commit a felony. The entry of a structure within the CURTILAGE of the dwelling also constituted a burglary.<br /><br />A physical breaking was generally required, but a CONSTRUCTIVE BREAKING would be found if entry was the result of TRICK, VIOLENT THREATS, or CONSPIRACY.<br /><br />MODERNLY burglary has been extended by statute to all times of the day and all types of structures. Intent to commit a larceny is generally still sufficient to support a burglary charge, even if the larceny is no longer a felony. Further, the “breaking” element will generally be satisfied if there is a TRESPASSORY ENTRY, an entry without consent, express or implied.',
 							children: [
 								{
-									title: ''
+									title: 'Breaking'
+								},
+								{
+									title: 'Constructive Breaking Common Law',
+									children: [
+										{
+											title: 'Entry by threat'	
+										},
+										{
+											title: 'Entry by trick'	
+										},
+										{
+											title: 'Entry by aid of conspirator'	
+										}
+									]
+								},
+								{
+									title: 'Constructive Breaking Modern Law',
+									children: [
+										{
+											title: 'Any Tresspassory Entry',
+											subtitle: 'Entry without permission. Some part of defendant entered into the structure else it is only attempted burglary. Or impropert time. Or Improper Means.'
+										}
+									]
+								},
+								{
+									title: 'Entering'
+								},
+								{
+									title: 'Dwelling of Another'
+								},
+								{
+									title: 'Any Structure of Another, Modernly'
+								},
+								{
+									title: 'In the Night time'
+								},
+								{
+									title: 'All times, Modernly'
+								},
+								{
+									title: 'With Intent to Commit Felony or Larceny',
+									subtitle: '(murder, rape, manslaughter, robbery, sodomy, larceny, arson, mayhem, burlgary) - Mneominc: Mr Mrs Lamb'
+								},
+								{
+									title: 'Attempted Burglary',
+									subtitle: 'The defendant goes near the structure to commit the felony.'
 								}
 							]
 						},
 						{
 							title: 'Receiving Stolen Property',
 							subtitle: '',
-							description: '',
+							description: 'Under CRIMINAL LAW <b>RECEIVING STOLEN PROPERTY</b> is the crime of <b>taking possession</b> or control over <b>stolen personal property</b> while <b>knowing it has been stolen</b> with <b>intent to permanently deprive</b> the lawful owner.<br /><br />The aspects of the crime most tested on exams are 1) the application of the <b>Wharton Rule</b> for conspiracy, and 2) the application of <b>legal impossibility</b> as a defense when goods that are believed to be stolen are conveyed between defendants but the goods are not actually “stolen” because the police have let the goods be taken in order to track them from the “thief” to a “fence”.<br /><br /><b>For example:</b> Dan steals the Mona Lisa, tells Art, and asks him to look from someone who will buy it. Dan has committed the crime of <b>soliciting to receive stolen goods</b> because he has asked Art to commit that crime. Art asks Col if he would like to buy the painting. Art has <b>solicited</b> Col to receive stolen property IF Col knows the painting is stolen. Art has also helped Dan and has not “received” any stolen goods. So Art is an <b>accomplice</b> as an <b>accessory after the fact</b> and NOT a “receiver” of stolen goods. Col agrees. If Col knows the painting has been stolen he agreeing to receive stolen property. Col is receiving to help himself, NOT to help Dan and Art. So he is a <b>“receiver”</b>, NOT an accomplice. Under the <b>Wharton Rule</b> there must be more than two people involved in an agreement to receive stolen property for their agreement to comprise a <b>conspiracy</b>. Art <b>impliedly agreed</b> to help Dan when he sought out Col, and Col <b>agreed to receive</b> the stolen goods. So three people, Dan, Art and Col, are <b>all in agreement</b> commit the crime of receiving, and they can be charged with <b>conspiracy</b>. If Col receives the stolen goods all three can be charged with the crime of <b>receiving stolen property</b>. If they are convicted of that crime the solicitation of Art by Dan, and the solicitation of Col by Art will both “merge” into that crime and those two defendants cannot be convicted of the solicitations as separate crimes. If something prevents Col from receiving the painting while it is still “stolen” all three can still be charged with <b>attempted receipt of stolen property</b>, and the solicitations still merge into that crime.',
 							children: [
 								{
-									title: ''
+									title: 'Taking possession or control'
+								},
+								{
+									title: 'Over stolen personal property'
+								},
+								{
+									title: 'Knowing it has been stolen'
+								},
+								{
+									title: 'With intent to permanently deprive'
+								},
+								{
+									title: 'Attempted Reciept of Stolen Property'
+								},
+								{
+									title: 'Wharton Rule',
+									subtitle: 'The Wharton Rule prevents prosecution of only two people for the crime of “conspiracy to commit receiving of stolen property”.',
+									description: 'For three people to commit the crime of conspiracy to receive stolen property there must be at least three people, and all three of them must be parties to a single agreement.<br /><br /><b>For example:</b> Tom asks Dick to help him steal a truckload of whiskey from the docks for $1,000. Dick agrees. Tom tells Dick to take the whiskey to a warehouse and leave it. Tom asks Harry if he will buy the stolen whiskey for $5,000. Harry agrees. Dick steals the whiskey at the docks, drives the truck to the warehouse and leaves it. Tom and Dick were in a <b>conspiracy to commit larceny</b> of the whiskey because Dick agreed to help Tom commit that crime. But Dick was NOT in any agreement that the whiskey would be delivered to a “receiver”. He did not know who Bob was, and Bob did not know who Dick was. Dick did not get a share of Tom’s profit; he just got a set payment. There was no communication from Dick to Bob, directly or through Tom. So <b>conspiracy to receive stolen property</b> CANNOT be charged, and Dick did not commit receiving stolen property. Likewise, Bob did not help steal the whiskey, and he cannot be charged with larceny or conspiracy to commit larceny.'
+								},
+								{
+									title: 'Legal Impossibillity',
+									subtitle: '',
+									description: 'The application of <b>legal impossibility</b> as a defense when goods that are believed to be stolen are conveyed between defendants but the goods are not actually “stolen” because the police have let the goods be taken in order to track them from the “thief” to a “fence”.'
 								}
 							]
 						},
 						{
 							title: 'Attempted',
 							subtitle: '',
-							description: '',
+							description: 'Under CRIMINAL LAW an ATTEMPTED CRIME is a SUBSTANTIAL STEP taken toward committing an INTENDED CRIME.',
 							children: [
 								{
-									title: ''
+									title: 'Specific Intent',
+									subtitle: '',
+									description: 'This means the prosecution has to prove the defendant took a substantial step intending to commit the specific crime that he or she is being accusing of attempting.'
+								},
+								{
+									title: 'Substantial Step',
+									subtitle: 'The defendant takes the first substantial step toward commission of the intended crime',
+									description: '',
+									children: [
+										{
+											title: 'Preparation is Not Substantial Step',
+											subtitle: 'Typically steps taken in preparation would include obtaining weapons, preparing disguises, advance surveillance and planning.'
+										},
+										{
+											title: 'Steps Close to Completion are Substantial',
+											subtitle: 'The defendant\'s acts brought them dangerously close to completion of the crime.'
+										},
+										{
+											title: 'Mistake of Fact',
+											subtitle: 'Valid defense, but never a defense if there is criminal intent'
+										},
+										{
+											title: 'Factual Impossibility',
+											subtitle: 'Factual impossibility is only a valid defense to an attempted crime charge. Substantial steps will not result in crime.',
+											description: 'Factual impossibility is a passive defense that the acts of the defendant were not substantial steps because commission of the crime allegedly attempted would be factually impossible to commit by the means attempted in any event. Factual impossibility is only a valid defense to an attempted crime charge. Factual impossibility is never a valid defense if the acts done by the defendant could have succeeded but for some flaw in execution or fortuitous turn of events.'
+										},
+										{
+											title: 'Legal Impossibility',
+											subtitle: 'None of acts would result in crime.',
+											description: 'Legal impossibility is a passive defense that none of the acts of the defendant were substantial steps because commission of the crime allegedly attempted would be legally impossible to commit at the time of each act done.'
+										},
+										{
+											title: 'Mistake of Law',
+											subtitle: 'Knowledge of law is required, so this is never a defense.'
+										}
+									]
 								}
 							]
 						},
 						{
 							title: 'Murder',
 							subtitle: '',
-							description: '',
+							description: 'Under criminal law MURDER is an unlawful HOMICIDE, the killing of one human being by another, with MALICE aforethought. Malice for murder can be 1) express intent to kill or implied by 2) intent to cause great bodily injury, 3) intent to commit an inherently dangerous felony, the FELONY MURDER RULE or 4) intent to act with awareness of and conscious disregard for an unreasonably high risk to human life, the DEPRAVED HEART theory. <br /><br />Under common law there were no degrees of murder, but modernly FIRST DEGREE murder is 1) willful, deliberate and premeditated, 2) murder by enumerated means or 3) murder during enumerated dangerous felonies. All other murder is second degree. <br /><br />The felony-murder rule applies to deaths caused by acts done during the RES GESTAE of an inherently dangerous felony, the events beginning with the first substantial step toward commission of the crime and ending when the defendants leave the scene of the crime and reach a place of relative safety.',
 							children: [
 								{
-									title: ''
+									title: 'Unlawful Homicide',
+									subtitle: '',
+									description: 'In every murder action the prosecution must prove there was an unlawful homicide. Homicide is the killing of one human being by another. So don’t obsess over the “unlawful” aspect of homicide and instead focus on whether there was any homicide at all. Modernly some statutes may define “fetal murder” as the crime of murdering a fetus. ',
+									children: [
+										{
+											title: 'Death of a Human Being'	
+										},
+										{
+											title: 'A Killing of Another Human Being'	
+										},
+										{
+											title: 'Homicide by suicide',
+											description: 'Suicide is the killing of a person by their own action, and not a killing of a human being by another person, UNLESS the suicide is caused by another person. If a suicide iscaused by another person, it is a “homicide by suicide”.'
+										},
+										{
+											title: 'Homicide by instrumentality',
+											description: 'Clearly one person kills another when a knife or gun are used as the murder instrument. And the defendant can use another person to kill the victim by means of a hired killer or adupe. But any instrumentality can be the cause of murder if the defendant set events into motion that resulted in the death of the victim. In particular, a murder may be accomplished by forced suicide as explained immediately above or else by putting the victim at the peril of natural or even legal and administrative forces.'
+										},
+										{
+											title: 'Year and Day Rule',
+											description: 'Under common law proximate cause for a homicide was terminated a year and a day after the date of the defendant\'s act. Modernly this time period has been extended by statute because of medical advances. Still, proximate causality becomes more difficult to prove beyond a reasonable doubt as the time between cause and effect lengthens.'
+										},
+										{
+											title: 'Pre-existing coditions do not cause Death',
+											description: 'Pre-existing conditions are not intervening forces that terminate causality.'
+										},
+										{
+											title: 'Failure to Intervene does not Cause Death',
+											description: 'Failure of other parties to intervene is not an intervening force that terminates causality, even if the party that fails to act deliberately breaches a duty to act. It is a possibility that exists before the defendant acts, and the defendant acts subject to that possibility. For example: Dan throws Vick in a lake and he drowns because bystanders make no effort to rescue him. Dan is not relieved from liability because nobody else rescued Vick.'
+										},
+										{
+											title: 'Intended Results Doctrine',
+											description: 'Even when a series of unforeseeable events, including independent intervening events, break the chain of causation in an unexpected manner, the defendant may still be liable for a homicide if 1) the defendant acted with intent to cause a homicide and 2) the intended homicide results. This may be called the Intended Results Doctrine.'
+										}
+									]
+								},
+								{
+									title: 'Homicide with Malice Aforethought',
+									children: [
+										{
+											title: 'Express intent to kill'
+										},
+										{
+											title: 'Implied intent to cause great bodily injury'	
+										},
+										{
+											title: 'Felony Murder Rule, Intent to commit dangerous Felony (BARRKSS)',
+											description: 'Murder may be charged under the FELONY-MURDER RULE if a death is caused by the commission of an inherently dangerous felony, but only if the death is caused by acts done during the RES GESTAE of the underlying felony. The RES GESTAE of a crime is the sequence of events from the first substantial step to committing the crime and ending when the defendants leave the scene of the crime and reach a place of a relative safety.'
+										},
+										{
+											title: 'Depraved Heart Theory',
+											subtitle: 'Intent to act with awareness of and conscious disregard for an unreasonably high risk to human life, the DEPRAVED HEART theory. Here there is awareness and disregard of the risks where as in involuntary manslaughter, awareness and disregard is not requried.'
+										}			   
+									]
+								},
+								{
+									title: 'Causation',
+									children: [
+										{
+											title: 'Actual Cause',
+											subtitle: 'Actual Cause is used by "but for" test. But for the act of the defendant, the result would have not occured.'
+										},
+										{
+											title: 'Proximate Cause',
+											subtitle: 'Proximate cause is the direct and natural result of the act of defendant.'
+										}
+									]
+								},
+								{
+									title: 'Redline Rule',
+									subtitle: 'Killing of criminal by any innocent party',
+									description: 'Under the REDLINE RULE the killing of a criminal accomplice by any party other than another criminal accomplice during the commisison of an inherently dangerous felony cannot be used as basis for charging murder under the FELONY-MURDER RULE.'
+								},
+								{
+									title: 'First Degree Murder',
+									children: [
+										{
+											title: 'willful, deliberate and premeditated'	
+										},	
+										{
+											title: 'murder by enumerated means, like poison, torture'	
+										},	
+										{
+											title: 'murder during enumerated dangerous felonies.'	
+										}		   
+									]
+								},
+								{
+									title: 'Second Degree Murder'
 								}
 							]
 						},
 						{
 							title: 'Mitigating Factors',
 							subtitle: '',
-							description: '',
-							children: [
-								{
-									title: ''
-								}
-							]
+							description: 'Under CRIMINAL LAW, MITIGATING FACTORS are factual considerations that do not serve as complete defenses but may be weighed by the jury in determining whether murder should be found in the first or second degree, or whether a murder charge should be reduced to a finding of manslaughter.'
 						},
 						{
 							title: 'Voluntary Manslaughter',
-							subtitle: '',
-							description: '',
+							subtitle: 'Provocation or honest but unreasonable belief that deadly force is justified, causing homicide, without malice aforethought.',
+							description: 'Under criminal law VOLUNTARY MANSLAUGHTER  is an unlawful, intentional homicide without malice aforethought because of adequate provocation sufficient to raise a resonable person to a fit of rage which could and actually did cause the homicide.<br /><br />ADEQUATE PROVOCATION is provocation sufficient to raise a reasonable person to a murderous rage, which did raise the defendant to such a rage, and which was the actual cause of the homicide. <br /><br />But ADEQUATE PROVOCATION CANNOT BE FOUND if the defendant had enough time before the killing that a reasonable person would have COOLED DOWN and no longer would have been in a murderous rage.',
 							children: [
 								{
-									title: ''
+									title: 'Intentional Homicide'
+								},
+								{
+									title: 'Without Malice'
+								},
+								{
+									title: 'Adequate Provocation'
+								},
+								{
+									title: 'Belief that Deadly force is Justified',
+									children: [
+										{
+											title: 'Deadly force in self defense'	
+										},
+										{
+											title: 'Deadly force to defend other who is aggressor'	
+										},
+										{
+											title: 'Deadly force to defend property'	
+										},
+										{
+											title: 'Deadly force against fleeing criminal'	
+										},
+										{
+											title: 'Deadly force because of unreasonable mistake'	
+										}		   
+									]
 								}
 							]
 						},
 						{
 							title: 'Involuntary Manslaughter',
 							subtitle: '',
-							description: '',
+							description: 'Involuntary manslaughter is an unintentional homicide resulting from GROSS NEGLIGENCE, RECKLESSNESS or the commission of a MALUM IN SE crime insufficient to support the felony murder rule.<br /><br />GROSS (CRIMINAL) NEGLIGENCE is the deliberate breach of a pre-existing duty to protect others from extreme risks, and RECKLESSNESS is the deliberate creation of extreme risks to others.<br /><br />The actus reus for involuntary manslaughter is the unlawful homicide.',
 							children: [
 								{
-									title: ''
-								}
-							]
-						},
-						{
-							title: 'Redline Rule',
-							subtitle: '',
-							description: '',
-							children: [
+									title: 'GROSS NEGLIGENCE',
+									subtitle: 'GROSS (CRIMINAL) NEGLIGENCE is the deliberate breach of a pre-existing duty to protect others from extreme risks'
+								},
 								{
-									title: ''
+									title: 'RECKLESSNESS',
+									subtitle: 'RECKLESSNESS is the deliberate creation of extreme risks to others'
+								},
+								{
+									title: 'MALUM IN SE crime',
+									subtitle: 'Commission of a MALUM IN SE crime insufficient to support the felony murder rule'
 								}
 							]
 						},
 						{
 							title: 'Kidnapping',
 							subtitle: '',
-							description: '',
+							description: 'Under criminal law, a KIDNAPPING is the unlawful taking or confining of a person against their will.',
 							children: [
 								{
-									title: ''
+									title: 'Confining a person'
+								},
+								{
+									title: 'Against their will'
 								}
 							]
 						},
 						{
 							title: 'Misprison',
 							subtitle: '',
-							description: '',
+							description: 'Under the common law MISPRISION was the crime of knowingly failing to report felonies by others to the police. ',
 							children: [
 								{
-									title: ''
+									title: 'Failing to report'
+								},
+								{
+									title: 'Felonies by others to police'
 								}
 							]
 						},
 						{
 							title: 'Compounding',
 							subtitle: '',
-							description: '',
+							description: 'Under criminal law COMPOUNDING is the crime of taking money or something of value in exchange for a promise to not report crimes committed by others.',
 							children: [
 								{
-									title: ''
+									title: 'Taking money or something of value'
+								},
+								{
+									title: 'In Exchnage for promise to not report crimes committed by others'
+								}
+							]
+						},
+						{
+							title: 'Forgery',
+							subtitle: 'Making of a written document such that it proves legal rights or obligations',
+							description: 'Forgery is the <b>fraudulent making or alteration</b> of a written document in a manner that makes it appear to establish or <b>prove legal rights</b> or obligations. Forgery of an altered document must change its appearance to change its legal significance.<br /><br />Forgery is a <b>specific intent crime</b>, and the prosecution must prove the defendant changed the document with intent to defraud others or make some other wrongful use of the document.<br /><br />The <b>crime is complete as soon as the document is created or altered</b> with the <b>fraudulent intent</b>. At common law forgery was a <b>misdemeanor</b>, but it is generally a <b>felony</b> by statute.',
+							children: [
+								{
+									title: 'Fraudulent making or altering'
+								},
+								{
+									title: 'Of a written document'
+								},
+								{
+									title: 'Prove legal rights or obligations'
+								}
+							]
+						},
+						{
+							title: 'Uttering',
+							subtitle: 'Presenting forged instrument as being genuine knowingly it is false.',
+							description: 'Uttering is the crime of presenting or offering a counterfeit or forged instrument as being genuine while knowing it to be false. It was a common law misdemeanor but may be a felony modernly. It is often combined in statute with forgery.',
+							children: [
+								{
+									title: 'Presenting forged Instrument'
+								},
+								{
+									title: 'As being genuine'
+								},
+								{
+									title: 'Knowingly that it is false'
+								}
+							]
+						},
+						{
+							title: 'Fraud',
+							subtitle: 'Misrepresenting material facts',
+							description: '<b>Criminal fraud</b> is the act of intentionally and knowingly <b>misrepresenting</b> or concealing <b>material facts</b> to obtain services from or permanently deprive others of property.<br /><br />False pretenses, larceny by trick, forgery, uttering and counterfeiting are specific types of fraud recognized by the common law, but modernly other criminally fraudulent acts such as “<b>insurance fraud</b>” and “<b>false advertising</b>” are often recognized.<br /><br />To prove “<b>fraud</b>” of this type the prosecution generally must prove the defendants deliberately misrepresented or concealed or failed to reveal important facts that they had a duty to reveal. Mere expressions of opinion or “touting” the benefits others would receive from some commercial transaction are not “fraud”.<br /><br />For example: Swifty sells Bonnie a car by telling her it is “reliable”, has “good tires” and “low mileage”. All of those statements are mere “sales pitches” and do not constitute “criminal fraud”, even if Swifty knows the car is less reliable, has tires more worn, and has higher mileage than some other cars. BUT if Swifty says these things knowing the car’s odometer has been turned back or that the car has been salvaged from flood waters, the same statements become misrepresentations of material fact and he is guilty of fraud.',
+							children: [
+								{
+									title: 'Knowingly Mistrepresenting or concealing'
+								},
+								{
+									title: 'Material Facts'
+								},
+								{
+									title: 'To obtain services or deprive others of property'
 								}
 							]
 						},
@@ -380,7 +847,7 @@ class CompleteProcess extends Component {
 							description: '',
 							children: [
 								{
-									title: ''
+									title: 'An accomplice to a crime may be charged with all subsequent crimes committed by other accomplices if they were foreseeable as the direct and natural results of their own criminal acts.'
 								}
 							]
 						},
@@ -392,7 +859,7 @@ class CompleteProcess extends Component {
 								{
 									title: 'Defense of Infancy',
 									subtitle: '',
-									description: '',
+									description: 'Under the COMMON LAW there as a CONCLUSIVE PRESUMPTION that a child under the age of seven was unable to form CRIMINAL INTENT. There was a REBUTTABLE PRESUMPTION that a child between 7 and 14 could not form criminal intent, and a child over the age of 14 was believed to be able to form criminal intent. ',
 									children: [
 										{
 											title: ''
@@ -402,7 +869,7 @@ class CompleteProcess extends Component {
 								{
 									title: 'Defense of Mistake of Fact',
 									subtitle: '',
-									description: '',
+									description: 'Under CRIMINAL LAW a MISTAKE OF FACT is a complete defense if it negates implied criminal intent. For GENERAL INTENT crimes only a REASONABLE mistake can negate criminal intent. For SPECIFIC INTENT crimes ANY MISTAKE OF FACT may negate criminal intent whether reasonable or not. Battery, rape, arson, involuntary manslaughter and murders that are not willful and deliberate are general intent crimes. All other crimes are SPECIFIC INTENT crimes.<br /><br />A REASONABLE MISTAKE OF FACT is one that a reasonable person would have made in the same situation. VOLUNTARY INTOXICATION never makes an otherwise unreasonable mistake reasonable.<br /><br />A MISTAKE OF FACT is no defense to a charge of ATTEMPT if criminal intent is proven and the mistake merely prevented an otherwise criminal act.',
 									children: [
 										{
 											title: ''
@@ -412,7 +879,7 @@ class CompleteProcess extends Component {
 								{
 									title: 'Defense of Legal Impossibility',
 									subtitle: '',
-									description: '',
+									description: 'Under CRIMINAL LAW, LEGAL IMPOSSIBILITY means that an attempted act is not an attempted crime, even if there was criminal intent, when the attempted crime is a legal impossibility at the time of the first substantial step.',
 									children: [
 										{
 											title: ''
@@ -422,7 +889,7 @@ class CompleteProcess extends Component {
 								{
 									title: 'Defense of Mistake of Law',
 									subtitle: '',
-									description: '',
+									description: 'Under CRIMINAL LAW, A MISTAKE OF LAW about the legality of an act does not alter the legality of the act. If the defendant commits a criminal act believing it is legal, it is still an illegal act. Likewise, if the defendant commits a legal act believing it is illegal, it is still a legal act. ',
 									children: [
 										{
 											title: ''
@@ -432,7 +899,7 @@ class CompleteProcess extends Component {
 								{
 									title: 'Defense of Factual Impossibility',
 									subtitle: '',
-									description: '',
+									description: 'Under CRIMINAL LAW, FACTUAL IMPOSSIBILITY is a defense that the act actually done by the defendant was NOT A SUBSTANTIAL STEP toward commission of any crime, despite criminal intent, because the act taken could never produce a criminal result. ',
 									children: [
 										{
 											title: ''
@@ -442,7 +909,7 @@ class CompleteProcess extends Component {
 								{
 									title: 'Defense of Withdrawal',
 									subtitle: '',
-									description: '',
+									description: 'Under CRIMINAL LAW, WITHDRAWAL is a defense that defendants who were members of a CONSPIRACY are not liable for crimes committed by co-conspirators AFTER the defendants 1) give the other co-conspirators NOTICE that they are abandoning the conspiracy and 2) the defendants TRY TO STOP the co-conspirators from continuing pursuing the conspiracy goal.',
 									children: [
 										{
 											title: ''
@@ -452,7 +919,7 @@ class CompleteProcess extends Component {
 								{
 									title: 'Defense of Insanity',
 									subtitle: '',
-									description: '',
+									description: 'Under criminal law INSANITY is a defense that negates criminal intent. Under the M\'NAUGHTEN RULE  person is insane if a disease of the mind so impairs their reasoning that they are unable to appreciate the nature and quality of their acts or to know that they were wrong. Under the IRRESISTIBILE IMPULSE theory a person may raise the defense of insanity if they are unable to control their acts, even if they know the act is wrong',
 									children: [
 										{
 											title: ''
@@ -462,7 +929,7 @@ class CompleteProcess extends Component {
 								{
 									title: 'Defense of Consent',
 									subtitle: '',
-									description: '',
+									description: 'Under CRIMINAL LAW consent is a defense to some crimes.[rape, larceny, battery – consent to a touching] The consent must be informed, voluntary and given by one with legal capacity. Further, consent is not a defense to an act that causes great bodily harm.',
 									children: [
 										{
 											title: ''
@@ -472,7 +939,7 @@ class CompleteProcess extends Component {
 								{
 									title: 'Defense of Entrapment',
 									subtitle: '',
-									description: '',
+									description: 'Under CRIMINAL LAW entrapment is a defense if criminal intent was the product of improper police behavior. <br /><br />Under the majority view entrapment is no defense if the defendant was predisposed to commit the crime. Under another minority view entrapment is a defense if police conduct was outrageous and instigated the crime, even though the defendant was predisposed.',
 									children: [
 										{
 											title: ''
@@ -482,7 +949,7 @@ class CompleteProcess extends Component {
 								{
 									title: 'Defense of Duress',
 									subtitle: '',
-									description: '',
+									description: 'Under CRIMINAL LAW a defense may be raised to crimes, EXCEPT MURDER, that the criminal act was the result of DURESS.',
 									children: [
 										{
 											title: ''
@@ -492,7 +959,7 @@ class CompleteProcess extends Component {
 								{
 									title: 'Defense of Necessity',
 									subtitle: '',
-									description: '',
+									description: 'Under CRIMINAL LAW a defense of NECESSITY may be raised to certain crimes. This defense is really nothing more than self-defense, defense of others, or defense of property.',
 									children: [
 										{
 											title: ''
@@ -502,7 +969,7 @@ class CompleteProcess extends Component {
 								{
 									title: 'Prevention of Crime (Authority of Law)',
 									subtitle: '',
-									description: '',
+									description: 'Under CRIMINAL LAW a defendant is privileged to act with reasonable force to PREVENT SERIOUS CRIMES being committed in their presence.',
 									children: [
 										{
 											title: ''
@@ -512,7 +979,7 @@ class CompleteProcess extends Component {
 								{
 									title: 'Self Defense',
 									subtitle: '',
-									description: '',
+									description: 'Under criminal law a defendant is privileged to use reasonable force as necessary for SELF-DEFENSE.',
 									children: [
 										{
 											title: ''
@@ -522,7 +989,7 @@ class CompleteProcess extends Component {
 								{
 									title: 'Defense of Others',
 									subtitle: '',
-									description: '',
+									description: 'Under CRIMINAL LAW a defendant is privileged to act with reasonable force to protect others from an aggressor. Courts are split when a defendant mistakenly aids an aggressor. Some Courts say the defendant who mistakenly aids an aggressor STEPS-INTO-THE-SHOES of the aggressor and cannot claim any defense. Other Courts hold that a defendant can claim this defense if they acted on REASONABLE APPEARANCES.',
 									children: [
 										{
 											title: ''
@@ -532,7 +999,7 @@ class CompleteProcess extends Component {
 								{
 									title: 'Defense of Property',
 									subtitle: '',
-									description: '',
+									description: 'Under CRIMINAL LAW a defendant is privileged to use reasonable, non-deadly force to protect his own property or the property of others from harm.',
 									children: [
 										{
 											title: ''
@@ -1106,7 +1573,7 @@ class CompleteProcess extends Component {
 								},
 								{
 									title: 'Public Nuisance',
-									subtitle: 'Unreasonable interference with person\s use of public resources.',
+									subtitle: 'Unreasonable interference with person\'s use of public resources.',
 									description: 'Under tort law <b>PUBLIC NUISANCE</b> is an <b>unreasonable interference</b> with a person\'s use and <b>enjoyment of public resources</b>. To have standing the plaintiff must show particular <b>injury</b>, <b>greater than</b> that suffered <b>by the general public</b>.<br /><br /><b>Example 1:</b> <br /><br />Here the noise interferes with the enjoyment of public land because it prevents Ken from "hearing the birds sing" on the "public river parkway."<br /><br />The County may argue that Ken lacks standing because he does not suffer any injury that is different from any other member of the public. But Ken suffers particular injury because his home is "on the river" and he could hear the birds sing "from his backyard."<br /><br />Ken would have to prove the other elements of nuisance which are discussed above under private nuisance.<br /><br />Therefore, the County may be liable for public nuisance, depending on whether Ken can prove the County\'s action is unreasonable and produces significant damages.'
 								}, 
 								{
