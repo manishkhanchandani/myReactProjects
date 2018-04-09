@@ -8,7 +8,6 @@ import {defaultList} from '../MyFlixAction.js';
 
 class NavMulti extends Component {
 	render() {
-		
 		let url = '';
 		if (this.props.myFlixReducer.list) {
 			if (this.props.myFlixReducer.list !== defaultList) {
@@ -31,20 +30,23 @@ class NavMulti extends Component {
 						</div>
 						<div className="collapse navbar-collapse">
 							<ul className="nav navbar-nav navbar-right">
-								<li>
-									<a href="" className="dropdown-toggle" data-toggle="dropdown">Admin <b className="caret"></b></a>
-									<ul className="dropdown-menu multi-level">
-										
-										<li className="dropdown-submenu">
-											<a href="" className="dropdown-toggle" data-toggle="dropdown">List</a>
-											<ul className="dropdown-menu">
-												<li><Link to="/create">Manage List</Link></li>
+								{
+									this.props.authReducer.uid && 
+										<li>
+											<a href="" className="dropdown-toggle" data-toggle="dropdown">Admin <b className="caret"></b></a>
+											<ul className="dropdown-menu multi-level">
+												
+												<li className="dropdown-submenu">
+													<a href="" className="dropdown-toggle" data-toggle="dropdown">List</a>
+													<ul className="dropdown-menu">
+														<li><Link to="/create">Manage List</Link></li>
+													</ul>
+												</li>
+												
+												
 											</ul>
 										</li>
-										
-										
-									</ul>
-								</li>
+								}
 								<Themes />
 								<Auth />
 							</ul>
@@ -78,7 +80,8 @@ class NavMulti extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		myFlixReducer: state.MyFlixReducer
+		myFlixReducer: state.MyFlixReducer,
+		authReducer: state.AuthReducer
 	}	
 };
 

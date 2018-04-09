@@ -30,6 +30,11 @@ class Create extends Component {
 	}
 	
 	componentDidMount() {
+		var uid = localStorage.getItem('userId');
+		if (!uid) {
+			this.props.history.push("/");	
+			return;
+		}
 		this.getData();
 	}
 

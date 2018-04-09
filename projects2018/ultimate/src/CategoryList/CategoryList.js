@@ -5,6 +5,7 @@ import NavMulti from './nav-multi/NavMulti.js';
 
 import Home from './Home.js';
 import CityManagerNew from './CityManager/New.js';
+import CityManagerNew2 from './CityManager/UploadFile.js';
 import './style.css';
 
 import {ipDetails} from './CategoryListAction.js';
@@ -23,6 +24,7 @@ class CategoryList extends Component {
 				<Switch>
 				<Route exact={true} path="/" component={Home} />
 				<Route exact={true} path="/citymanager/new" component={CityManagerNew} />
+				<Route exact={true} path="/citymanager/new2" component={CityManagerNew2} />
 				</Switch>
 			</div>
 			</Router>

@@ -1,0 +1,103 @@
+html { 
+	background: url('/img/bg.png') no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:focus {
+    background-color: #00965F;
+    border-color: #00965F;
+}
+.btn-primary:active, .btn-primary:active:hover, .btn-primary:active:focus {
+    background-color: #00965F;
+    border-color: #00965F;
+}
+
+.navbar {
+	min-height: 100px;
+}
+
+.navbar .container {
+	padding-left: 95px;
+}
+.navbar-inverse .navbar-brand {
+	color: #fff;
+}
+.navbar-inverse .navbar-nav>li>a {
+	color: #fff;
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus {
+	background-color: transparent;
+	border-bottom: 7px solid #EBEBEB;
+}
+.navbar-inverse {
+    background-color: #00965F;
+    border-color: #00965F;
+}	
+.navbar-right {
+    margin-right: 25px;
+}
+.App {
+	position: relative;
+}
+
+.my-container {
+	position: absolute;
+    background-color: #EBEBEB;
+    top: 57px;
+    bottom: 0;
+    left: 150px;
+    right: 150px;
+    z-index: 1001;
+	padding: 20px;
+}
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile + label {
+    max-width: 80%;
+    font-size: 1.25rem;
+    /* 20px */
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    padding: 0.625rem 1.25rem;
+    /* 10px 20px */
+}
+
+.no-js .inputfile + label {
+    display: none;
+}
+
+.inputfile:focus + label,
+.inputfile.has-focus + label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+
+.inputfile + label * {
+    /* pointer-events: none; */
+    /* in case of FastClick lib use */
+}
+
+.inputfile + label svg {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    fill: currentColor;
+    margin-top: -0.25em;
+    /* 4px */
+    margin-right: 0.25em;
+    /* 4px */
+}

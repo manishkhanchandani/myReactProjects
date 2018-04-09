@@ -378,10 +378,13 @@ class CompleteProcess extends Component {
 							description: 'Under common law FALSE PRETENSES was the a <b>MISREPRESENTATION of FACT</b> to <b>obtain TITLE</b> to the property of another with <b>intent to permanently deprive</b>.<br /><br />The actus reus for false pretenses is obtaining title to property by means of false representations, and the mens rea is the intent to defraud.',
 							children: [
 								{
-									title: 'Obtaining Tite'
+									title: 'Transfer of Tite'
 								},
 								{
 									title: 'Misrepresentation of the fact (false representation)'
+								},
+								{
+									title: 'Actual Reliance'
 								},
 								{
 									title: 'With intent to permanently deprive'
@@ -862,7 +865,15 @@ class CompleteProcess extends Component {
 									description: 'Under the COMMON LAW there as a CONCLUSIVE PRESUMPTION that a child under the age of seven was unable to form CRIMINAL INTENT. There was a REBUTTABLE PRESUMPTION that a child between 7 and 14 could not form criminal intent, and a child over the age of 14 was believed to be able to form criminal intent. ',
 									children: [
 										{
-											title: ''
+											title: 'Under 7 years, no Criminal Intent',
+											subtitle: 'Conclusive Presumption'
+										},
+										{
+											title: 'Age between 7 - 14 years, no Criminal Intent',
+											subtitle: 'Rebuttable Presumption'
+										},
+										{
+											title: 'Age above 14 years, Criminal Intent'
 										}
 									]
 								},
@@ -872,7 +883,7 @@ class CompleteProcess extends Component {
 									description: 'Under CRIMINAL LAW a MISTAKE OF FACT is a complete defense if it negates implied criminal intent. For GENERAL INTENT crimes only a REASONABLE mistake can negate criminal intent. For SPECIFIC INTENT crimes ANY MISTAKE OF FACT may negate criminal intent whether reasonable or not. Battery, rape, arson, involuntary manslaughter and murders that are not willful and deliberate are general intent crimes. All other crimes are SPECIFIC INTENT crimes.<br /><br />A REASONABLE MISTAKE OF FACT is one that a reasonable person would have made in the same situation. VOLUNTARY INTOXICATION never makes an otherwise unreasonable mistake reasonable.<br /><br />A MISTAKE OF FACT is no defense to a charge of ATTEMPT if criminal intent is proven and the mistake merely prevented an otherwise criminal act.',
 									children: [
 										{
-											title: ''
+											title: 'If it Negates Criminal Intent'
 										}
 									]
 								},
@@ -882,7 +893,10 @@ class CompleteProcess extends Component {
 									description: 'Under CRIMINAL LAW, LEGAL IMPOSSIBILITY means that an attempted act is not an attempted crime, even if there was criminal intent, when the attempted crime is a legal impossibility at the time of the first substantial step.',
 									children: [
 										{
-											title: ''
+											title: 'Attempted act is not crime'
+										},
+										{
+											title: 'At time of First substantial step'
 										}
 									]
 								},
@@ -892,7 +906,8 @@ class CompleteProcess extends Component {
 									description: 'Under CRIMINAL LAW, A MISTAKE OF LAW about the legality of an act does not alter the legality of the act. If the defendant commits a criminal act believing it is legal, it is still an illegal act. Likewise, if the defendant commits a legal act believing it is illegal, it is still a legal act. ',
 									children: [
 										{
-											title: ''
+											title: 'Criminal act believing it is legal',
+											subtitle: 'not a defense'
 										}
 									]
 								},
@@ -902,7 +917,13 @@ class CompleteProcess extends Component {
 									description: 'Under CRIMINAL LAW, FACTUAL IMPOSSIBILITY is a defense that the act actually done by the defendant was NOT A SUBSTANTIAL STEP toward commission of any crime, despite criminal intent, because the act taken could never produce a criminal result. ',
 									children: [
 										{
-											title: ''
+											title: 'Act is not a substantial Step'
+										},
+										{
+											title: 'Act could never produce a criminal result'
+										},
+										{
+											title: 'Criminal Intent'
 										}
 									]
 								},
@@ -912,7 +933,13 @@ class CompleteProcess extends Component {
 									description: 'Under CRIMINAL LAW, WITHDRAWAL is a defense that defendants who were members of a CONSPIRACY are not liable for crimes committed by co-conspirators AFTER the defendants 1) give the other co-conspirators NOTICE that they are abandoning the conspiracy and 2) the defendants TRY TO STOP the co-conspirators from continuing pursuing the conspiracy goal.',
 									children: [
 										{
-											title: ''
+											title: 'Members of conspiracy'
+										},
+										{
+											title: 'Notice that they are abondaoning the conspiracy'
+										},
+										{
+											title: 'Trying to stop co-conspirators from crime'
 										}
 									]
 								},
@@ -922,7 +949,12 @@ class CompleteProcess extends Component {
 									description: 'Under criminal law INSANITY is a defense that negates criminal intent. Under the M\'NAUGHTEN RULE  person is insane if a disease of the mind so impairs their reasoning that they are unable to appreciate the nature and quality of their acts or to know that they were wrong. Under the IRRESISTIBILE IMPULSE theory a person may raise the defense of insanity if they are unable to control their acts, even if they know the act is wrong',
 									children: [
 										{
-											title: ''
+											title: 'M Naughten Rule',
+											subtitle: 'Disease of mind, impairs reasoning, they are unable to appreciate the nature and quality of their acts or to know they were wrong.'
+										},
+										{
+											title: 'Irresistible impulse theory',
+											subtitle: 'They are unable to control their acts, even if they know the act is wrong.'
 										}
 									]
 								},
@@ -932,7 +964,7 @@ class CompleteProcess extends Component {
 									description: 'Under CRIMINAL LAW consent is a defense to some crimes.[rape, larceny, battery – consent to a touching] The consent must be informed, voluntary and given by one with legal capacity. Further, consent is not a defense to an act that causes great bodily harm.',
 									children: [
 										{
-											title: ''
+											title: 'Voluntary consent'
 										}
 									]
 								},
@@ -942,7 +974,10 @@ class CompleteProcess extends Component {
 									description: 'Under CRIMINAL LAW entrapment is a defense if criminal intent was the product of improper police behavior. <br /><br />Under the majority view entrapment is no defense if the defendant was predisposed to commit the crime. Under another minority view entrapment is a defense if police conduct was outrageous and instigated the crime, even though the defendant was predisposed.',
 									children: [
 										{
-											title: ''
+											title: 'Criminal Intent'
+										},
+										{
+											title: 'Product of Improper Police Behavior'
 										}
 									]
 								},
@@ -952,7 +987,7 @@ class CompleteProcess extends Component {
 									description: 'Under CRIMINAL LAW a defense may be raised to crimes, EXCEPT MURDER, that the criminal act was the result of DURESS.',
 									children: [
 										{
-											title: ''
+											title: 'Crime due to duress, not a murder crime'
 										}
 									]
 								},
@@ -962,7 +997,7 @@ class CompleteProcess extends Component {
 									description: 'Under CRIMINAL LAW a defense of NECESSITY may be raised to certain crimes. This defense is really nothing more than self-defense, defense of others, or defense of property.',
 									children: [
 										{
-											title: ''
+											title: 'Defense of self-defense, or defense of others, or defense of property'
 										}
 									]
 								},

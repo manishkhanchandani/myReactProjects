@@ -45,7 +45,7 @@ class Items extends Component {
 	}
 			
 	render() {
-		console.log('props in items are : ', this.props);
+		//console.log('props in items are : ', this.props);
 		if (!this.props.items) {
 			return null;	
 		}
