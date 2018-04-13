@@ -3,13 +3,14 @@ import {connect} from 'react-redux';
 import * as myActions from './MyAction.js';
 
 class Monitor extends Component {
-	componentDidMount() {
+	componentDidMount() {	
 		this.props.callChangeTab('monitor');
 	}
+
 	render() {
 		return (
-			<div className="my-container">
-				Monitor
+			<div className="my-container fade-in">
+				<img className="img-responsive" src="/img/scr_monitor.png" alt="upload" />
 			</div>
 		);
 	}

@@ -9,7 +9,7 @@ import {firebaseDatabase, FirebaseConstant} from './MyFirebase.js';
 class Nav extends Component {
 	componentDidMount() {
 		const urls = {
-			upload: '/',
+			upload: '/upload',
 			request: '/request',
 			monitor: '/monitor'
 		};
@@ -27,12 +27,9 @@ class Nav extends Component {
 
 		let tabs = {
 			upload: (tab === 'upload') ? 'active' : '',
-			request: (tab === 'request' || tab === 'requests') ? 'active' : '',
+			request: (tab === 'request') ? 'active' : '',
 			monitor: (tab === 'monitor') ? 'active' : '',
 		};
-		
-		console.log('tabs: ', tabs);
-		console.log('props: ', this.props);
 		return (
 			<div>
 				<nav className="navbar navbar-inverse navbar-static-top">
@@ -44,17 +41,17 @@ class Nav extends Component {
 						<span className="icon-bar"></span>
 						<span className="icon-bar"></span>
 					  </button>
-					  <a className="navbar-brand" href="/">Image Processing</a>
+					  <Link className="navbar-brand" to="/"><img src="/img/RSI_logo_white3x.png" className="img-responsive img-logo" alt="Processing" /></Link>
 					</div>
 					<div id="navbar" className="collapse navbar-collapse">
-					  <ul className="nav navbar-nav">
-						<li className={tabs.upload}><Link to="/">Upload</Link></li>
+					  <ul className="nav navbar-nav nav-left">
+						<li className={tabs.upload}><Link to="/upload">Upload</Link></li>
 						<li className={tabs.request}><Link to="/request">Requests</Link></li>
 						<li className={tabs.monitor}><Link to="/monitor">Monitor</Link></li>
 					  </ul>
 					  
 					  <ul className="nav navbar-nav navbar-right">
-						<li><a href="">Powered by 8k Miles</a></li>
+						<li><Link to="/"><img src="/img/poweredBy8K.png" className="img-responsive img-logo" alt="8K Miles" /></Link></li>
 					  </ul>
 					</div>
 				  </div>

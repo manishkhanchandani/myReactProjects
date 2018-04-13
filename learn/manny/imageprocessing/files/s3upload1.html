@@ -1,0 +1,32 @@
+<input type="file" id="file-chooser" /> 
+<button id="upload-button">Upload to S3</button>
+<div id="results"></div>
+
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.18.min.js"></script>
+<script type="text/javascript">
+AWS.config.update({
+        accessKeyId : 'AKIAJHDTHNHJWE43OXWQ',
+        secretAccessKey : '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'
+    });
+        AWS.config.region = 'us-east-1';
+</script>
+<script type="text/javascript">
+  var bucket = new AWS.S3({params: {Bucket: 'aws-rek-images'}});
+  var fileChooser = document.getElementById('file-chooser');
+  var button = document.getElementById('upload-button');
+  var results = document.getElementById('results');
+  button.addEventListener('click', function() {
+    alert("method invoked");
+    var file = fileChooser.files[0];
+    if (file) {
+      results.innerHTML = '';
+
+      var params = {Key: file.name, ContentType: file.type, Body: file};
+      bucket.upload(params, function (err, data) {
+        results.innerHTML = err ? 'ERROR!' : 'UPLOADED.';
+      });
+    } else {
+      results.innerHTML = 'Nothing to upload.';
+    }
+  }, false);
+</script>

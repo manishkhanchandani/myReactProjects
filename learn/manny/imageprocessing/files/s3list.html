@@ -1,0 +1,29 @@
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.18.min.js"></script>
+<script type="text/javascript">
+AWS.config.update({
+        accessKeyId : 'AKIAJHDTHNHJWE43OXWQ',
+        secretAccessKey : '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'
+    });
+        AWS.config.region = 'us-east-1';
+</script>
+
+
+<div id="status"></div>
+<ul id="objects"></ul>
+
+<script type="text/javascript">
+  var bucket = new AWS.S3({params: {Bucket: 'aws-rek-images'}});
+  bucket.listObjects(function (err, data) {
+    if (err) {
+      document.getElementById('status').innerHTML =
+        'Could not load objects from S3';
+    } else {
+      document.getElementById('status').innerHTML =
+        'Loaded ' + data.Contents.length + ' items from S3';
+      for (var i = 0; i < data.Contents.length; i++) {
+        document.getElementById('objects').innerHTML +=
+          '<li>' + data.Contents[i].Key + '</li>';
+      }
+    }
+  });
+</script>

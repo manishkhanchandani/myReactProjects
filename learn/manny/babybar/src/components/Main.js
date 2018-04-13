@@ -5,7 +5,7 @@ class Main extends Component {
 	render() {
 		return (
 			<div className="container">
-				<h3>California Baby Bar Preparation, Quizes, MBE Practice, Essay Practice</h3>
+				<h3 className="my-text">California Baby Bar Preparation, Quizes, MBE Practice, Essay Practice</h3>
 				<p>More Fun and Practice - coming soon...</p>
 				
 				

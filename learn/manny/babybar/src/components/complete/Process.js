@@ -3,7 +3,7 @@ import SortableTree from 'react-sortable-tree';
 import 'react-sortable-tree/style.css';
 import ShowModal from '../MyModal/ShowModal.js';
 import renderHTML from 'react-render-html';
-
+import {Button} from 'react-bootstrap';
 import * as data from './Data.js';
 
 //https://github.com/fritz-c/react-sortable-tree
@@ -557,7 +557,7 @@ class CompleteProcess extends Component {
 						{
 							title: 'Attempted',
 							subtitle: '',
-							description: 'Under CRIMINAL LAW an ATTEMPTED CRIME is a SUBSTANTIAL STEP taken toward committing an INTENDED CRIME.',
+							description: 'Under CRIMINAL LAW an ATTEMPTED CRIME is a SUBSTANTIAL STEP taken toward committing an INTENDED CRIME.<br /><br />Nice Analysis of <b>Attempted Arson?</b><br /><br />Under criminal law, an attempted arson is a SUBSTANTIAL STEP taken with INTENT to commit arson. A substantial step is an ACT that brings the defendant DANGEROUSLY CLOSE to committing the intended crime.<br /><br />Under common law, ARSON was the MALICIOUS BURNING of the DWELLING of ANOTHER. Malice for burning means wrongful intent. But modernly arson has been broadly extended to the malicious burning of almost any STRUCTURE.<br /><br />Here A acted with INTENT to commit arson because he decided to "set fire" to the athletic equipment shed". That was not a dwelling, so he was not trying to commit common law arson. But it is a STRUCTURE because it is a "shed". And he was acting with MALICIOUS INTENT because he had no legal right to do this. So this would have been arson under the modern law.<br /><br />And A made a SUBSTANTIAL STEP toward committing his intended crime because he came DANGEROUSLY CLOSE because he had "matches" and made "severe tries" to set the shed on fire.<br /><br />Therefore A could be charged with attempted arson.',
 							children: [
 								{
 									title: 'Specific Intent',
@@ -1437,7 +1437,7 @@ class CompleteProcess extends Component {
 								{
 									title: 'Egg Shell Plaintiff',
 									subtitle: '',
-									description: 'Under the EGG-SHELL PLAINTIFF concept, defendants are liable for all damages they actually cause plaintiffs, even if the plaintiffs , through no fault of their own, have pre-existing conditions that make them especially vulnerable to injury. The doctrine of the law is that "defendants must take plaintiffs as they find them." ',
+									description: 'Under the EGG-SHELL PLAINTIFF concept, defendants are liable for all damages they actually cause plaintiffs, even if the plaintiffs , through no fault of their own, have pre-existing conditions that make them especially vulnerable to injury. The doctrine of the law is that "defendants must take plaintiffs as they find them." <br /><br />What if the injury suffered by the plaintiff is different and/or more severe than the defendant ever could have foreseen?<br /><br />The phrase "egg-shell plaintiff" means the plaintiff had peculiar characteristics that cause the damage resulting from a defendant\'s ACT to be far worse than could be expected.<br /><br />It is SETTLED LAW that the defendant is LIABLE no matter how unforeseeable the injury of the plaintiff is.<br /><br />It is said that the defendant, "takes his plaintiff as he finds him."',
 									children: [
 									]
 								},
@@ -1871,10 +1871,23 @@ class CompleteProcess extends Component {
 		  );*/
 		}
 
+	importScript(val, e) {
+		e.preventDefault();
+		console.log(val);
+	}
+	deleteScript(val, key, e) {
+		e.preventDefault();
+		console.log(key);
+		console.log(val);
+	}
+
 	render() {
 		console.log('state is ', this.state);
 		const externalNodeType = 'yourNodeType';
     	const { shouldCopyOnOutsideDrop } = this.state;
+		
+		let myLocalStoreVal = localStorage.getItem('localStoreVal');
+		if (myLocalStoreVal) myLocalStoreVal = JSON.parse(myLocalStoreVal);
 		return (
 			<div>
 			<ShowModal show={this.state.modal_show} onClose={this.onClose.bind(this)} Title={this.state.modal_title} Body={this.state.modal_body} Footer={this.state.modal_footer} />
@@ -1896,7 +1909,7 @@ class CompleteProcess extends Component {
 				  })}
 				/>
 			  </div>*/}
-				<h1>Essay, Issues, Fact Matching
+				<h1 className="my-text">Essay, Issues, Fact Matching
 				{
 					this.state.subject && 
 					<span>
@@ -1954,17 +1967,20 @@ class CompleteProcess extends Component {
 									</div>
 									<div
 										className="col-md-6"
-									  style={{
-										height: 400,
-										border: 'solid black 1px',
-									  }}
 									>
+										<div
+										  style={{
+											height: 400,
+											border: 'solid black 1px',
+										  }}
+										>
 									  <SortableTree
 										treeData={this.state.treeData1}
 										onChange={treeData1 => this.setState({ treeData1 })}
 										dndType={externalNodeType}
 										shouldCopyOnOutsideDrop={shouldCopyOnOutsideDrop}
 									  />
+										</div>
 										<div>
 									  		<br />
 									  		<br />
@@ -1983,15 +1999,26 @@ class CompleteProcess extends Component {
 											/>
 										  </label>
 										</div>
+										
+										<br />
+									  	<br />
+										<div>
+											<textarea rows="10" cols="55" value={JSON.stringify(this.state.treeData1)} onChange={(e) => {console.log(e.target.value);}}></textarea>
+										</div>
+									  	<br />
+									  	<br />
+										
 									</div>
 							
 									<div
 										className="col-md-6"
-									  style={{
-										height: 400,
-										border: 'solid black 1px',
-									  }}
 									>
+										<div
+										  style={{
+											height: 400,
+											border: 'solid black 1px',
+										  }}
+										>
 									  <SortableTree
 										treeData={this.state.treeData2}
 										onChange={treeData2 => this.setState({ treeData2 })}
@@ -2010,13 +2037,18 @@ class CompleteProcess extends Component {
 											],
 										  }) : null}
 									  />
-									  
+									  	</div>
+									  	<br />
+									  	<br />
+									  	<br />
+									  	<br />
 									  	<br />
 									  	<br />
 										<div>
 											<textarea rows="10" cols="55" value={JSON.stringify(this.state.treeData2)} onChange={(e) => {console.log(e.target.value);}}></textarea>
 										</div>
 									  	<br />
+										<Button className="" bsStyle="primary" onClick={() => {let obj = {}; obj.data1 = this.state.treeData1; obj.data2 = this.state.treeData2; obj.essaySoln = this.state.essaySoln; obj.subject = this.state.subject; obj.essay = this.state.essay; obj.essayTitle = this.state.essayTitle; obj.essayNum = this.state.essayNum; let localStoreVal = localStorage.getItem('localStoreVal'); if (localStoreVal) localStoreVal = JSON.parse(localStoreVal); else localStoreVal = []; localStoreVal.push(obj); localStorage.setItem('localStoreVal', JSON.stringify(localStoreVal)); alert('content exported'); }}>Export</Button>
 									  	<br />
 										
 										<div className="row">
@@ -2046,7 +2078,17 @@ class CompleteProcess extends Component {
 					</div>
 				}
 				
-				
+				{
+					myLocalStoreVal && 
+						<div>
+							<h3>Saved Essays</h3>
+							{
+								myLocalStoreVal.map((value, key) => {
+									return <div key={key}>{value.essayTitle} <a href="" onClick={this.importScript.bind(this, value)}>Import</a> - <a href="" onClick={this.deleteScript.bind(this, value, key)}>Delete</a></div>					 
+								})	
+							}
+						</div>
+				}
 			</div>
 		);
 	}

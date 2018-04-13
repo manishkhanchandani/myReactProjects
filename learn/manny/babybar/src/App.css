@@ -11,3 +11,9 @@
 .changeUser img {
 	max-width: 60px;
 }
+
+.my-text {
+	font-family: 'Tangerine', serif;
+  	font-size: 48px;
+  	text-shadow: 4px 4px 4px #aaa;
+}

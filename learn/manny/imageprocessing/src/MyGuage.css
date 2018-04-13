@@ -1,0 +1,23 @@
+.my-guage svg text:nth-child(0) {
+    border: 10px solid red;
+}
+
+.my-guage svg text:nth-child(1) {
+    border: 10px solid blue;
+}
+
+.my-guage svg text:nth-child(2) {
+    border: 10px solid yellow;
+}
+
+.my-guage svg text:nth-child(3) {
+    border: 10px solid black;
+}
+
+.my-guage svg text:nth-child(odd) {
+    border: 10px solid green;
+}
+
+.my-guage svg text:nth-of-type(2) {
+ border: 10px solid red;
+}
