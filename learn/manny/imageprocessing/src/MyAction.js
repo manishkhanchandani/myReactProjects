@@ -14,3 +14,17 @@ export const changeTab = (tab) => {
     payload: tab
   }
 };
+
+export const changeLearnStatus = (val) => {
+	return {
+		type: MyConstants.LEARN,
+		payload: val
+	};
+};
+
+export const changeSearchStatus = (val) => {
+	return {
+		type: MyConstants.SEARCH,
+		payload: val
+	};
+};

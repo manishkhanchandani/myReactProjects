@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import * as myActions from './MyAction.js';
-//import ReactS3 from 'react-s3'; //"react-s3": "^1.2.4",
+import {getList} from './AWS.js';
+
+import DoUpload from './DoUpload.js';
  
 const config = {
     bucketName: 'aws-rek-images',
@@ -12,94 +14,35 @@ const config = {
 }
 
 class Upload extends Component {
-	constructor(props) {
-		super(props);
-		
-		this.state = {
-			fileName: '',
-			files: []
-		};
-	}
 	componentDidMount() {
 		this.props.callChangeTab('upload');
+		this.props.callGetList();
 	}
-	
-	selectFile(e) {
-		let sfiles = this.state.files;
-		var files = document.getElementById('photoupload').files;
-		if( files && files.length >= 1 ) {
-			for (let i = 0; i < files.length; i++) {
-				console.log(files[i]);
-				sfiles.push(files[i]);
-			}
-		}
-		this.setState({files: sfiles});
-	}
-	
-	submitFrm() {
-		var files = this.state.files;
-		console.log(files);
-		if (!files.length) {
-			return alert('Please choose a file to upload first.');
-		}
-		
-		for (let i = 0; i < files.length; i++) {
-			var file = files[0];
-			console.log(file);
-			/*ReactS3.upload(file, config)
-			.then((data) => console.log(data))
-			.catch((err) => console.error(err));*/
-		}
-		
-	}
+
 	render() {
-		console.log(this.state);
 		return (
 			<div className="my-container fade-in">
-				<img className="img-responsive" src="/img/screenshot1.1.png" alt="upload" />
-				{/*
-				<div className="row">
-					<div className="col-md-4">
-						<span className="pull-right">Select a file to upload</span>
-					</div>
-					<div className="col-md-8">
-						<div className="upload-frm">
-							<div className="form-group">
-								<input type="file" className="form-control inputfile" id="photoupload" onChange={this.selectFile.bind(this)} data-multiple-caption="{count} files selected" multiple />
-								<label htmlFor="photoupload"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Choose a file&hellip;</span>
-							{
-								this.state.files.length > 0 && 
-								<span><br />
-									{
-										this.state.files.map((value, key) => {
-											return <span key={key}>{value.name}, </span>					  
-										})	
-									}
-								</span>
-							}</label> 
-							</div>
-							<button type="submit" className="btn btn-primary" onClick={this.submitFrm.bind(this)}>Upload</button>
-						</div>
-					</div>
-				</div>
+				
+				<DoUpload isMultiple={true} />
 				<br /><br />
 				
 				<div className="row">
 					<div className="col-md-4 request-list">
 						<div className="row request-row">
 							<div  className="request-header">Uploaded Image</div>
-							<div className="col-md-2 request-column"></div>
-							<div className="col-md-2 request-column"></div>
-							<div className="col-md-2 request-column"></div>
-							<div className="col-md-2 request-column"></div>
-							<div className="col-md-2 request-column"></div>
-							<div className="col-md-2 request-column"></div>
-							<div className="col-md-2 request-column"></div>
-							<div className="col-md-2 request-column"></div>
-							<div className="col-md-2 request-column"></div>
-							<div className="col-md-2 request-column"></div>
-							<div className="col-md-2 request-column"></div>
-							<div className="col-md-2 request-column"></div>
+							{
+								this.props.myReducer.list && 
+									this.props.myReducer.list.map((value, key) => {
+										return <div className="col-xs-4 col-md-4 col-sm-4 col-lg-4 request-column" key={key}>
+											{
+												this.props.myReducer.images[value.Key] && 
+													<a href="#" className="thumbnail">
+														<img src={this.props.myReducer.images[value.Key]} alt={value.Key} />
+													</a>
+											}
+											</div>
+									})
+							}
 						</div>
 					</div>
 					<div className="col-md-8">
@@ -107,7 +50,8 @@ class Upload extends Component {
 						<div className="request-big-column"></div>
 					</div>
 				</div>
-				*/}
+				
+				<img className="img-responsive" src="/img/screenshot1.1.png" alt="upload" />
 				
 				
 			</div>
@@ -125,6 +69,9 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		callChangeTab: (tab) => {
 			dispatch(myActions.changeTab(tab));
+		},
+		callGetList: () => {
+			dispatch(getList(dispatch));	
 		}
 	};	
 };

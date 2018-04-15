@@ -7,6 +7,8 @@ import Home from './Home.js';
 import Upload from './Upload.js';
 import Request from './Request.js';
 import Monitor from './Monitor.js';
+import Learn from './Learn.js';
+import Search from './Search.js';
 
 
 class App extends Component {
@@ -18,6 +20,8 @@ class App extends Component {
 		  <div>
 			<Nav />
 			<Route exact={true} path="/" component={Home} />
+			<Route exact={true} path="/learn" component={Learn} />
+			<Route exact={true} path="/search" component={Search} />
 			<Route exact={true} path="/upload" component={Upload} />
 			<Route exact={true} path="/request" component={Request} />
 			<Route exact={true} path="/monitor" component={Monitor} />

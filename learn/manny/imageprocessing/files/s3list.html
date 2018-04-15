@@ -14,6 +14,7 @@ AWS.config.update({
 <script type="text/javascript">
   var bucket = new AWS.S3({params: {Bucket: 'aws-rek-images'}});
   bucket.listObjects(function (err, data) {
+  console.log(data);
     if (err) {
       document.getElementById('status').innerHTML =
         'Could not load objects from S3';

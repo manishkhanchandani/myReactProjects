@@ -313,9 +313,16 @@ body {
 	width: 100px;
 	height: 100px;
 	border: 1px solid black;
-	background-color: #fff;
+	background-color: transparent;
 	margin-right: 5px;
 	margin-top: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.request-column .thumbnail {
+	margin-top: 20px;
 }
 .request-big-column {
 	width: 100%;
@@ -346,8 +353,46 @@ body {
     margin-top: 10px;
 }
 
+.learn {
+	
+}
+.learn .top-image {
+	position: relative
+}
+.learn .top-image img {
+    position: relative;
+    margin: 40px auto;
+}
+.learn .heading {
+	font-size: 24px;
+	font-weight: bold;
+	margin-top: 40px;
+}
 
+.learn .middle-row {
+	margin-top: 20px;
+}
 
+.learn .middle-column {
+	min-height: 300px;
+}
+.learn .middle-column img {
+	max-height: 300px;
+}
+
+.learn .bottom-row {
+	margin-top: 20px;
+}
+.learn .bottom-column {
+	/*overflow-x: auto;*/
+}
+.learn .bottom-column-item {
+	/*border: 1px solid black;*/
+	height: 100px;
+	width: 100px;
+	margin-right: 10px;
+	float:left;
+}
 
 
 

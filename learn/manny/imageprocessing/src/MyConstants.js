@@ -1,4 +1,6 @@
 export const MyConstants = {
 	TEST: 'TEST',
-	TAB: 'TAB'
+	TAB: 'TAB',
+	LEARN: 'LEARN',
+	SEARCH: 'SEARCH'
 };
