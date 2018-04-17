@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom'; 
 import {connect} from 'react-redux';
 import * as myActions from './MyAction.js';
 import {withRouter} from 'react-router';
@@ -49,7 +48,15 @@ class Nav extends Component {
 	clickTab(tab, e) {
 		e.preventDefault();
 		var url = FirebaseConstant.basePath;
-		var ref = firebaseDatabase.ref(url).child('tab').child('current').set(tab);
+		firebaseDatabase.ref(url).child('tab').child('current').set(tab);
+	}
+	
+	resetFb(e) {
+		e.preventDefault();
+		var url = FirebaseConstant.basePath;
+		firebaseDatabase.ref(url).child('tab').child('current').set('home');
+		firebaseDatabase.ref(url).child('learn').set('pending');
+		firebaseDatabase.ref(url).child('search').set('pending');
 	}
 
 	render() {
@@ -79,13 +86,13 @@ class Nav extends Component {
 					  <ul className="nav navbar-nav nav-left">
 						<li className={tabs.learn}><a href="" onClick={this.clickTab.bind(this, 'learn')}>Learn</a></li>
 						<li className={tabs.search}><a href="" onClick={this.clickTab.bind(this, 'search')}>Search</a></li>
-						<li className={tabs.upload}><a href="" onClick={this.clickTab.bind(this, 'upload')}>Upload</a></li>
-						<li className={tabs.request}><a href="" onClick={this.clickTab.bind(this, 'request')}>Requests</a></li>
+						{/*<li className={tabs.upload}><a href="" onClick={this.clickTab.bind(this, 'upload')}>Upload</a></li>
+						<li className={tabs.request}><a href="" onClick={this.clickTab.bind(this, 'request')}>Requests</a></li>*/}
 						<li className={tabs.monitor}><a href="" onClick={this.clickTab.bind(this, 'monitor')}>Monitor</a></li>
 					  </ul>
 					  
 					  <ul className="nav navbar-nav navbar-right">
-						<li><a href="" onClick={this.clickTab.bind(this, 'home')}><img src="/img/poweredBy8K.png" className="img-responsive img-logo" alt="8K Miles" /></a></li>
+						<li><a href="" onClick={this.resetFb.bind(this)}><img src="/img/poweredBy8K.png" className="img-responsive img-logo2" alt="8K Miles" /></a></li>
 					  </ul>
 					</div>
 				  </div>

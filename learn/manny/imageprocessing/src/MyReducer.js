@@ -6,10 +6,26 @@ const MyReducer = (state = {
   images: {},
   learn: 'pending',
   search: 'pending',
-  progress_bar: {}
+  progress_bar: {},
+  imageMatch: null,
+  uploadedFiles: null,
+  searchProgress: false
 }, action) => {
 
   switch(action.type) {
+	  case 'SEARCH_PROGRESS':
+		  state = {
+			...state,
+			searchProgress: action.payload
+		  };
+		  break;
+	  	
+	  case 'GET_AWS_IMAGE_MATCH_FULFILLED':
+      state = {
+        ...state,
+        imageMatch: action.payload
+      };	  	
+	  	break;
     case MyConstants.TEST:
       state = {
         ...state,
@@ -34,18 +50,31 @@ const MyReducer = (state = {
         search: action.payload
       };
       break;
+	case 'UPLOADED_FILES':
+		state = {
+			...state,
+			uploadedFiles: action.payload
+		};
+		break;
 	case 'GET_AWS_LIST_FULFILLED':
 		state = {
 			...state,
 			list: action.payload
 		};
 		break;
+	case 'GET_AWS_IMAGE':
 	case 'GET_AWS_IMAGE_FULFILLED':
 		let images = state.images;
 		images[action.payload.name] = action.payload.data;
 		state = {
 			...state,
 			images: images
+		};
+		break;
+	case 'GET_AWS_IMAGE_ALL':
+		state = {
+			...state,
+			images: action.payload
 		};
 		break;
 	case 'GET_AWS_PROGRESS_BAR':

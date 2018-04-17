@@ -4,14 +4,14 @@ import * as myActions from './MyAction.js';
 import {getList} from './AWS.js';
 
 import DoUpload from './DoUpload.js';
- 
+/*
 const config = {
     bucketName: 'aws-rek-images',
     albumName: '',
     region: 'us-east-2',
     accessKeyId: 'AKIAJKY2QQLW2GFYVTQA',
     secretAccessKey: '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',
-}
+}*/
 
 class Upload extends Component {
 	componentDidMount() {
@@ -36,7 +36,7 @@ class Upload extends Component {
 										return <div className="col-xs-4 col-md-4 col-sm-4 col-lg-4 request-column" key={key}>
 											{
 												this.props.myReducer.images[value.Key] && 
-													<a href="#" className="thumbnail">
+													<a href="" className="thumbnail">
 														<img src={this.props.myReducer.images[value.Key]} alt={value.Key} />
 													</a>
 											}

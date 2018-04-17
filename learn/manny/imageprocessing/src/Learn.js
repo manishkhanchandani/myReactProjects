@@ -1,59 +1,92 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {getList} from './AWS.js';
+import {getList, setImageAll, getUrlByFileNameSelf} from './AWS.js';
 import {firebaseDatabase, FirebaseConstant} from './MyFirebase.js';
 
 class Learn extends Component {
 	constructor(props) {
 		super(props);
-		
 		this.state = {
+			currentStatus: null,
 			list: [],
 			show: [],
 			tmpList: [],
-			current: {}
+			current: null,
+			counter: 0
 		};
 		
 		this.myVar = '';
 	}
 	
-	showList() {
-		
-		
+	componentWillMount() {
+		//var url = FirebaseConstant.basePath;
+		//var ref = firebaseDatabase.ref(url).child('learn').set('pending');
 	}
 	
-	componentWillMount() {
-		var url = FirebaseConstant.basePath;
-		var ref = firebaseDatabase.ref(url).child('learn').set('pending');
+	changeCurrent(val, e) {
+		e.preventDefault();
+		
+		this.setState({current: val});
 	}
+	
+	fixStatus(props) {
+		if (props.myReducer.learn === 'completed') {
+			let str = localStorage.getItem('list');
+			if (str) {
+				let obj = JSON.parse(str);
+				this.setState({list: obj, show: obj});
+				for (let i = 0; i < obj.length; i++) {
+					console.log(obj[i]);
+					this.props.callGetImage(obj[i].Key);	
+				}
+				this.setState({current: obj[obj.length - 1]});
+			}
+		}
+	}
+	
 	componentDidMount() {
-		//this.props.callGetList();	
+		if (this.props.myReducer.learn === 'completed') {
+			this.setState({currentStatus: this.props.myReducer.learn});	
+			this.fixStatus(this.props);
+		}
 	}
 	
 	componentWillReceiveProps(nextProps) {
+		if (nextProps.myReducer.learn !== this.state.currentStatus) {
+			this.setState({currentStatus: nextProps.myReducer.learn});	
+			this.fixStatus(nextProps);
+		}
 		if (nextProps.myReducer.list && nextProps.myReducer.list.length > 0 && nextProps.myReducer.list.length !== this.state.list.length) {
 			//console.log('next props: ', nextProps.myReducer.list);
 			if (nextProps.myReducer.learn === 'completed') {
 				this.setState({list: nextProps.myReducer.list, show: nextProps.myReducer.list});
 			}
 			if (nextProps.myReducer.learn === 'started') {
-				this.setState({list: nextProps.myReducer.list, show: [], tmpList: nextProps.myReducer.list}, () => {
+				this.setState({list: nextProps.myReducer.list, show: [], counter: 0}, () => {
 					this.myVar = setInterval(() => {
-						let list = JSON.parse(JSON.stringify(this.state.tmpList));
-						let current = list.shift();
-						//console.log('current is ', current);
-						//this.props.callGetUrlByFileNameSelf(current.Key);
-						//console.log('show list is ', this.state.show);	
-						//console.log('tmpList list is ', this.state.tmpList);
-						let xshow = this.state.show;
-						xshow.push(current);
-						this.setState({tmpList: list, current: current, show: xshow });
-						if (list.length === 0) {
+						//console.log('counter is ', this.state.counter);
+						if (!this.state.list[this.state.counter]) {
 							clearInterval(this.myVar);	
 							var url = FirebaseConstant.basePath;
-							var ref = firebaseDatabase.ref(url).child('learn').set('completed');
+							firebaseDatabase.ref(url).child('learn').set('completed');
+							localStorage.setItem('list', JSON.stringify(this.state.list));
+							return;	
 						}
-					}, 3000);																			  
+						if (!this.state.list[this.state.counter].Key) return;
+						if (!nextProps.myReducer.images[this.state.list[this.state.counter].Key]) {
+							return;	
+						}
+						//let list = JSON.parse(JSON.stringify(this.state.tmpList));
+						let current = this.state.list[this.state.counter]; //list.shift();
+						let xshow = this.state.show;
+						xshow.push(current);
+						this.setState({current: current, show: xshow, counter: this.state.counter + 1 });
+						/*if (list.length === 0) {
+							clearInterval(this.myVar);	
+							var url = FirebaseConstant.basePath;
+							firebaseDatabase.ref(url).child('learn').set('completed');
+						}*/
+					}, 1000);																			  
 				});
 			}// if started
 		}
@@ -63,80 +96,66 @@ class Learn extends Component {
 	}
 
 	render() {
-		
 		return (
 			<div className="my-container learn fade-in">
-				<div className="row top-row">
+				<div className="row heading text-center">
 					<div className="col-md-12">
 						Learning & Analysing Images
 					</div>
 				</div>
-				<div className="row second-row">
+				<div className="row second-row text-center">
 					<div className="col-md-12">
-						No Image Uploaded
-					</div>
-				</div>
-				<div className="row second-row">
-					<div className="col-md-2">
 						
-					</div>
-					<div className="col-md-2 heading">
-						Learning Images
-					</div>
-					<div className="col-md-4 top-image ">
-						{
-							this.props.myReducer.learn === 'started' && 
-							<span><img src="/img/loading7.gif" className="img-responsive " alt="loading1" /></span>	
-						}
-					</div>
-					<div className="col-md-2 heading">
-						<div className="pull-right">
-							Analysing Images
-						</div>
-					</div>
-					<div className="col-md-2">
-						
-					</div>
-				</div>
-				<div className="row middle-row">
-					<div className="col-md-2">
-						
-					</div>
-					<div className="col-md-8  middle-column">
-						{
-							this.props.myReducer.learn === 'started' &&
-							<div className="thumbnail">
-							{
-								(this.state.current.Key && this.props.myReducer.images[this.state.current.Key]) ?
-								<img src={this.props.myReducer.images[this.state.current.Key]} alt={this.state.current.Key} /> :
-								<img src="/img/loading5.gif" className="img-responsive" alt="loading1" />
-							}
-							</div>
-						}
 						{
 							this.props.myReducer.learn === 'pending' && 
-							<div className="thumbnail1">
-								<img src="/img/img_analyze_bg.png" className="img-responsive" alt="loading1" />
-							</div>
+							<span>No Image Uploaded</span>	
 						}
 					</div>
-					<div className="col-md-2">
-						
-					</div>
-				
 				</div>
+				<div className="row second-row text-center">
+					<div className="col-md-12">
+						{
+							this.props.myReducer.learn === 'started' && 
+							<span><img src="/img/ajax-loader.gif" className="img-responsive " alt="loading1" /></span>
+						}
+					</div>
+				</div>
+				{
+					(this.props.myReducer.learn === 'started' || this.props.myReducer.learn === 'pending' || this.state.current) &&
+						<div className="row middle-row">
+							<div className="col-md-12  middle-column ">
+								{
+									(this.props.myReducer.learn === 'started' || this.state.current) &&
+									<div className="">
+									{
+										(this.state.current && this.state.current.Key && this.props.myReducer.images[this.state.current.Key]) ?
+										<img src={this.props.myReducer.images[this.state.current.Key]} alt={this.state.current.Key}  className="img-responsive" /> :
+										<img src="/img/loading7.gif" className="img-responsive" alt="loading1" />
+									}
+									</div>
+								}
+								{
+									this.props.myReducer.learn === 'pending' && 
+									<div className="">
+										<img src="/img/img_analyze_bg.png" className="img-responsive" alt="loading1" />
+									</div>
+								}
+							</div>
+						
+						</div>
+				}
 				<div className="row bottom-row">
 					<div className="col-md-12 bottom-column">
 						{
 							this.state.show.length > 0 &&
 							this.state.show.map((value, key) => {
-								return <div className="bottom-column-item thumbnail" key={key}>
+								return <a className="bottom-column-item thumbnail" key={key} href="" onClick={this.changeCurrent.bind(this, value)}>
 									{
 										this.props.myReducer.images[value.Key] ?
-										<img src={this.props.myReducer.images[value.Key]} alt={value.Key} /> :
+										<img src={this.props.myReducer.images[value.Key]} alt={value.Key} className="img" /> :
 										<img src="/img/loading7.gif" className="img-responsive" alt="loading1" />
 									}
-								</div>					 
+								</a>					 
 							})
 						}
 					</div>
@@ -157,6 +176,12 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		callGetList: () => {
 			dispatch(getList(dispatch));	
+		},
+		callSetImageAll: (images) => {
+			dispatch(setImageAll(images));	
+		},
+		callGetImage: (fn) => {
+			dispatch(getUrlByFileNameSelf(fn));	
 		}
 	};	
 };

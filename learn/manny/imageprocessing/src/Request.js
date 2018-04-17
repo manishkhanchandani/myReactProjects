@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import * as myActions from './MyAction.js';
 
-
+/*
 class RequestItem extends Component {
 	render() {
 		return (
@@ -12,7 +12,7 @@ class RequestItem extends Component {
 			</div>
 		);
 	}
-}
+}*/
 
 class Request extends Component {
 	componentDidMount() {

@@ -49,6 +49,9 @@ body {
 .img-logo {
 	height: 44px;
 }
+.img-logo2 {
+	height: 32px;
+}
 .my-container {
 	position: absolute;
     background-color: #EBEBEB;
@@ -353,6 +356,30 @@ body {
     margin-top: 10px;
 }
 
+.search {
+	padding-left: 50px;
+}
+
+.search .btn-upload {
+	margin-left: 50px;
+}
+
+.search .bg-image, .learn .bg-image {
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+	border: 1px solid black;
+    padding: 5px;
+}
+
+.search .bg-image .txt, .learn .bg-image .txt {
+	position: absolute;
+    font-size: 24px;
+    font-weight: bold;
+    top: 90px;
+    left: 50px;
+}
+
 .learn {
 	
 }
@@ -363,10 +390,14 @@ body {
     position: relative;
     margin: 40px auto;
 }
-.learn .heading {
+.learn .heading, .search .heading {
 	font-size: 24px;
 	font-weight: bold;
 	margin-top: 40px;
+}
+
+.learn .second-row img {
+	margin: 0 auto;
 }
 
 .learn .middle-row {
@@ -378,6 +409,10 @@ body {
 }
 .learn .middle-column img {
 	max-height: 300px;
+	margin-right: auto;
+	margin-left: auto;
+	border: 1px solid black;
+    padding: 5px;
 }
 
 .learn .bottom-row {
@@ -386,12 +421,20 @@ body {
 .learn .bottom-column {
 	/*overflow-x: auto;*/
 }
-.learn .bottom-column-item {
-	/*border: 1px solid black;*/
+.learn .bottom-column-item, .search .bottom-column-item {
+	/*border: 1px solid black;
 	height: 100px;
 	width: 100px;
 	margin-right: 10px;
-	float:left;
+	float:left;*/
+    width: 100px;
+    float: left;
+	min-height: 70px;
+	
+}
+.learn .bottom-column-item .img1, .search .bottom-column-item .img1 {
+	width: 100px;
+    height: 150px;
 }
 
 
