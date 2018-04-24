@@ -7,7 +7,19 @@ class MyGuage extends Component {
 		let className = 'my-guage';
 		return (
 			<div className={className}>
-				<Gauge value={11} width={400} height={320} label="Memory Usage" min={0} max={16} color ="#00965F" backgroundColor="#00ffff" topLabelStyle={{fill: "red"}} valueLabelStyle={{fill: "blue"}} minMaxLabelStyle={{fill: "black", fontSize: "16px"}} />
+				<Gauge width={200} height={150} label={this.props.label} value={this.props.value}  min={this.props.min} max={this.props.max} color ="#F06677" backgroundColor="#D1D1D1" topLabelStyle={{fill: "#000", fontSize: "16px"}} valueLabelStyle={{fill: "#000", fontSize: "18px"}} minMaxLabelStyle={{fill: "black", fontSize: "12px"}} symbol={this.props.symbol} diff={15} />
+				{
+					this.props.txt1 &&
+					<div className="txt1">{this.props.txt1}</div>
+				}
+				{
+					this.props.txt2 &&
+					<div className="txt2">{this.props.txt2}</div>
+				}
+				{
+					this.props.txt3 &&
+					<div className="txt3">{this.props.txt3}</div>
+				}
 			</div>
 		);
 	}

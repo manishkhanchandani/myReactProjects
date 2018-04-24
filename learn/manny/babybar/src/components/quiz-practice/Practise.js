@@ -11,6 +11,31 @@ import SimpleQuizAnsOptions from '../simple-quiz/SimpleQuizAnsOptions.js';
 import '../simple-quiz/SimpleQuiz.css';
 import Loader from '../Loader/Loader.js';
 
+class Help extends Component {
+	render() {
+		return (
+			<div>
+				<br />
+				<div className="form-group">
+					<label>Subject</label>
+					<select className="form-control" >
+						<option value="">Select</option>
+						<option value="contracts">Contracts</option>
+						<option value="ucc">UCC</option>
+						<option value="criminal">Criminal</option>
+						<option value="torts">Torts</option>
+					</select>
+				</div>
+				<div className="form-group">
+					<label>Issue</label>
+					<input className="form-control" type="text"  />
+				</div>
+				<br />
+			</div>
+		)	
+	}
+}
+
 class QuizPractice extends Component {
 	constructor(props) {
 		super(props);
@@ -290,7 +315,11 @@ class QuizPractice extends Component {
 										let optionChoosen = parseInt(this.state.quizChoosenOption[this.state.pageNumber], 10);
 										return <div key={key} className="questions">
 											<div className="question"><a href={url} target="_blank">External Link</a><br /><br /><b>Q. {value.id}.</b> {renderHTML(value.question)}<hr /></div>
+											<Help />
 												<SimpleQuizAnsOptions id={value.id} opts={JSON.parse(value.answers)} optionChoosen={optionChoosen} handleChooseOption={this.handleChooseOption.bind(this)} details={value} />
+											
+											
+											
 										</div>
 									})
 								}

@@ -22,11 +22,13 @@
     "react-select": "^1.2.1",
     "react-transition-group": "^2.2.1",
     "react-youtube": "^7.5.0",
+    "react-youtube-playlist": "^2.2.7",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^5.0.0",
     "redux-thunk": "^2.2.0",
-    "youtube-api-search": "0.0.5"
+    "youtube-api-search": "0.0.5",
+    "youtube-player": "^5.5.0"
   },
   "scripts": {
     "start": "react-scripts start",

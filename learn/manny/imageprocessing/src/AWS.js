@@ -13,7 +13,7 @@ const mimes = {
 };
 
 const bucket = new AWS.S3({params: {Bucket: 'aws-rek-images'}});
-const bucket_lowres = new AWS.S3({params: {Bucket: 'aws-rek-images-lowres'}});
+//const bucket_lowres = new AWS.S3({params: {Bucket: 'aws-rek-images-lowres'}});
 
 
 
@@ -33,7 +33,7 @@ const getUrlByFileName = (fileName, mimeType) => {
 	return {
 		type: 'GET_AWS_IMAGE',
 		payload: new Promise((resolve, reject) => {
-			bucket_lowres.getObject({Key: fileName}, function (err, file) {
+			bucket.getObject({Key: fileName}, function (err, file) {
 				if (!file) {
 					reject(null);
 					return;
@@ -63,43 +63,7 @@ export const setImageAWS = (fileName, result) => {
 	};
 };
 
-export const getUrlByFileNameSelf = (fileName) => {
-	let mimeType = '';
-	let subs = fileName.substr(-3);
-	let subs2 = fileName.substr(-4);
-	if (subs === 'png') {
-		mimeType = mimes.png;
-	} else if (subs === 'gif') {
-		mimeType = mimes.gif;
-	} else if (subs === 'jpg' || subs2 === 'jpeg') {
-		mimeType = mimes.jpeg;
-	}
-	return {
-		type: 'GET_AWS_IMAGE',
-		payload: new Promise((resolve, reject) => {
-			bucket_lowres.getObject({Key: fileName}, function (err, file) {
-				if (!file) {
-					reject(null);
-					return;
-				}
-				if (!file.Body) {
-					reject(null);
-					return;
-				}
-			  let result =  mimeType + encode(file.Body);
-			  let data = {
-					name: fileName,
-					data: result
-				};
-			  resolve(data);
-		  });
-		})
-	};
-};
-
-
-
-export const getUrlByFileNameSelfHigh = (fileName) => {
+export const getUrlByFileNameSelf = (fileName, callback=null) => {
 	let mimeType = '';
 	let subs = fileName.substr(-3);
 	let subs2 = fileName.substr(-4);
@@ -114,16 +78,84 @@ export const getUrlByFileNameSelfHigh = (fileName) => {
 		type: 'GET_AWS_IMAGE',
 		payload: new Promise((resolve, reject) => {
 			bucket.getObject({Key: fileName}, function (err, file) {
+				let data = {
+					name: fileName,
+					data: '/img/noImage.gif'
+				};
+				if (callback) {
+					callback(file);	
+				}
 				if (!file) {
-					reject(null);
+					reject(data);
 					return;
 				}
 				if (!file.Body) {
-					reject(null);
+					reject(data);
 					return;
 				}
 			  let result =  mimeType + encode(file.Body);
-			  let data = {
+			  data = {
+					name: fileName,
+					data: result
+				};
+			  resolve(data);
+		  });
+		})
+	};
+};
+
+
+export const setImageName = (dispatch, fileName) => {
+	let file = fileName;
+	let subs = fileName.substr(-3);
+	let subs2 = fileName.substr(-4);
+	if (!(subs === 'png' || subs === 'gif' || subs === 'jpg' || subs2 === 'jpeg')) {
+		file = null;
+	}
+	
+	if (file) {
+		dispatch(getUrlByFileNameSelfHigh(file));
+		dispatch(imageDirectMatchNoImage(dispatch, file));
+	}
+
+	return {
+		type: 'SET_IMAGE_NAME',
+		payload: file
+	}
+}
+
+export const getUrlByFileNameSelfHigh = (fileName, callback=null) => {
+	let mimeType = '';
+	let subs = fileName.substr(-3);
+	let subs2 = fileName.substr(-4);
+	if (subs === 'png') {
+		mimeType = mimes.png;
+	} else if (subs === 'gif') {
+		mimeType = mimes.gif;
+	} else if (subs === 'jpg' || subs2 === 'jpeg') {
+		mimeType = mimes.jpeg;
+	}
+	return {
+		type: 'GET_AWS_IMAGE_HIGH',
+		payload: new Promise((resolve, reject) => {
+			bucket.getObject({Key: fileName}, function (err, file) {
+				let data = {
+					name: fileName,
+					data: '/img/noImage.gif'
+				};
+				if (callback) {
+					callback(file);	
+				}
+				if (!file) {
+					reject(data);
+					return;
+				}
+				if (!file.Body) {
+					reject(data);
+					return;
+				}
+			  let result =  mimeType + encode(file.Body);
+			  data = {
 					name: fileName,
 					data: result
 				};
@@ -143,7 +175,7 @@ export const getList = (dispatch) => {
 		type: 'GET_AWS_LIST',
 		payload: new Promise((resolve, reject) => {
 			
-			bucket_lowres.listObjects(function (err, data) {
+			bucket.listObjects(function (err, data) {
 				let result = data.Contents;
 				if (result.length > 0) {
 					for (let i = 0; i < result.length; i++) {
@@ -174,7 +206,7 @@ export const getOnlyList = (dispatch) => {
 		type: 'GET_AWS_LIST',
 		payload: new Promise((resolve, reject) => {
 			
-			bucket_lowres.listObjects(function (err, data) {
+			bucket.listObjects(function (err, data) {
 				if (err) {
 				  reject(err);
 				} else {
@@ -272,6 +304,51 @@ export const imageMatchNoImage = (dispatch, file) => {
 		})
 	}
 }
+
+
+export const imageDirectMatchNoImage = (dispatch, file) => {
+	let url = 'http://52.41.7.182:4000/match?name=' + file;
+	console.log('url is ', url);
+	return {
+		type: 'GET_AWS_IMAGE_MATCH',
+		payload: new Promise((resolve, reject) => {
+			fetch(url, {
+				method: 'GET'	  
+			})
+			.then((response) => {
+				return response.text();	   
+			})
+			.then((record) => {
+				if (!record) resolve(null);
+				let arr = record.split(',');
+				let arr2 = [];
+				for (let i = 0; i < arr.length; i++) {
+					if (!arr[i]) continue;
+					arr2.push(arr[i]);
+				}
+				resolve(arr2);   
+			})
+			.catch((err) => {
+				console.log(err);
+				reject(err);
+			});			  
+		})
+	}
+}
+
+export const imageHigResClear = () => {
+	return {
+		type: 'GET_AWS_IMAGE_HIGH_CLEAR',
+		payload: {}
+	};
+};
+
+export const imageMatchCustom = () => {
+	return {
+		type: 'GET_AWS_IMAGE_MATCH_CUSTOM',
+		payload: null
+	};	
+};
 
 export const uploadFile = (dispatch, file, key, callback=null) => {
 	return {

@@ -9,6 +9,7 @@ class Home extends Component {
 	render() {
 		return (
 			<div className="my-container-home">
+			
 			</div>
 		);
 	}

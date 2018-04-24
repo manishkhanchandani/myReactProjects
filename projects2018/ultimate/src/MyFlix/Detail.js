@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 import YouTube from 'react-youtube';
 import {defaultList} from './MyFlixAction.js';
+import renderHTML from 'react-render-html';
 
 class Detail extends Component {
 	constructor(props) {
@@ -65,6 +66,9 @@ class Detail extends Component {
 					className="embed-responsive-item"
 					/>
 				</div>
+				<br /><br />
+				{renderHTML(this.state.data.videoDescription)}
+				
 			</div>
 		);
 	}

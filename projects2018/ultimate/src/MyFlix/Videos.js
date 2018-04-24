@@ -26,6 +26,7 @@ class Videos extends Component {
 			videoMovieType: '',
 			videoMaturityRatings: '',
 			videoThumbnail: '',
+			isPlaylist: '',
 			videoTags: '',
 			videoYear: '',
 			category_id: '',
@@ -107,6 +108,8 @@ class Videos extends Component {
 				return;	
 			}
 			
+			console.log('videos: ', videos);
+			
 			let videoDetails = videos[0];
 			let obj = {};
 			
@@ -163,6 +166,7 @@ class Videos extends Component {
 			obj.videoMovieType = this.state.videoMovieType;
 			obj.videoMaturityRatings = this.state.videoMaturityRatings;
 			obj.videoThumbnail = this.state.videoThumbnail;
+			obj.isPlaylist = this.state.isPlaylist;
 			
 			let current = firebase.database.ServerValue.TIMESTAMP;
 			var url = FirebaseConstant.basePath + '/list/' + this.props.match.params.list + '/videos';
@@ -285,6 +289,12 @@ class Videos extends Component {
 								<input type="text" className="form-control" placeholder="Enter Video Input Id" value={this.state.videoInputId} onChange={(e) => {
 									this.setState({videoInputId: e.target.value});	
 								}} />
+							</div>
+							<div className="form-group">
+								<label>Is Playlist: <input type="checkbox" value={this.state.isPlaylist} onClick={(e) => {
+									console.log('c: ', e.target.checked); this.setState({isPlaylist: e.target.checked});	
+								}} /></label>
+								
 							</div>
 							<div className="form-group">
 								<label>Movie Thumbnail URL</label>

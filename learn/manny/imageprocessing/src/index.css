@@ -383,6 +383,12 @@ body {
 .learn {
 	
 }
+
+.learn .sub-header {
+    font-weight: bold;
+
+}
+
 .learn .top-image {
 	position: relative
 }
@@ -393,12 +399,37 @@ body {
 .learn .heading, .search .heading {
 	font-size: 24px;
 	font-weight: bold;
-	margin-top: 40px;
+	margin-top: 10px;
 }
 
 .learn .second-row img {
-	margin: 0 auto;
+	margin: 5px auto;
 }
+
+.learn .second-row {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	position: relative;
+}
+
+.learn .second-row .sub-details {
+	position: absolute;
+	left: 50%;
+	margin-left: -60px;
+}
+
+.search .second-row {
+	margin-top: 20px;
+	position: relative;
+	height: 60px;
+}
+
+.search .second-row .sub-details {
+	position: absolute;
+	left: 50%;
+	margin-left: -60px;
+}
+
 
 .learn .middle-row {
 	margin-top: 20px;
@@ -406,6 +437,7 @@ body {
 
 .learn .middle-column {
 	min-height: 300px;
+	margin-top: 30px;
 }
 .learn .middle-column img {
 	max-height: 300px;
@@ -426,22 +458,70 @@ body {
 	height: 100px;
 	width: 100px;
 	margin-right: 10px;
-	float:left;*/
+	float:left;
     width: 100px;
+	min-height: 70px;*/
+	position: relative;
     float: left;
-	min-height: 70px;
+	display: block;
+    padding: 4px;
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+	width: 160px;
+    height: 110px;
 	
 }
-.learn .bottom-column-item .img1, .search .bottom-column-item .img1 {
-	width: 100px;
-    height: 150px;
+
+.learn .bottom-column-item {
+	margin-right: 8px;
+	
+}
+
+.search .bottom-column-item {
+	margin-right: 18px;
+	
+}
+
+.learn .bottom-column-item .img, .search .bottom-column-item .img {
+	width: 150px;
+    height: 100px;
+}
+
+.learn .bottom-column-item .imgLoader, .search .bottom-column-item .imgLoader {
+	position: absolute;
+    top: 32px;
+    left: 64px;
+    margin-top: -16px;
+    margin-left: -16px;
 }
 
 
+.search .sub-heading {
+	font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
 
+.monitor .logs {
+	border: 1px inset #ccc;
+	background-color: white;
+	height: 380px;
+	width: 100%;
+	overflow: auto;
+	white-space: pre-line;
+	padding-left: 20px;
+}
 
-
-
+.monitor .guage {
+	/*padding-left: 100px;*/
+}
 
 
 

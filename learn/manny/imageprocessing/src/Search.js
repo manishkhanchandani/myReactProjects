@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import DoUploadSearch from './DoUploadSearch.js';
 import {firebaseDatabase, FirebaseConstant} from './MyFirebase.js';
 import {imageMatch, getUrlByFileNameSelfHigh} from './AWS.js';
 
@@ -10,28 +9,57 @@ class Search extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			searchStatus: 'pending'
+			searchStatus: 'pending',
+			loader: 0
+		}
+	}
+	
+	getPictureUrl(props) {
+		//console.log('loader: ', this.state.loader);
+		//console.log('len: ', this.props.myReducer.imageMatch.length);
+		if (!props.myReducer.imageMatch) {
+			return;
+		}
+		
+		if (props.myReducer.imageMatch.length === this.state.loader) {
+			//console.log('done');
+			var url = FirebaseConstant.basePath;
+			firebaseDatabase.ref(url).child('search').set('completed');
+			return;	
+		}
+		let data = props.myReducer.imageMatch[this.state.loader];
+		//console.log('data is ', data);
+		if (data) {
+			if (props.myReducer.images_highres[data]) {
+				this.setState({loader: this.state.loader + 1}, () => {
+					this.getPictureUrl(props);			  
+				});
+			} else {
+				props.callGetUrlByFileNameSelfHigh(data, () => {
+					this.setState({loader: this.state.loader + 1}, () => {
+						this.getPictureUrl(props);			  
+					});								   
+				});
+			}
 		}
 	}
 
 	componentWillReceiveProps(nextProps) {
-		if (nextProps.myReducer.search === 'started' && nextProps.myReducer.search !== this.state.searchStatus && nextProps.myReducer.uploadedFiles && nextProps.myReducer.uploadedFiles[0] && nextProps.myReducer.imageMatch) {
-			this.setState({searchStatus: nextProps.myReducer.search});
-			let emptyObj = {};
-			emptyObj[nextProps.myReducer.uploadedFiles[0].name] = true;
-			let arr = nextProps.myReducer.imageMatch;
-			for (let i = 0; i < arr.length; i++) {
-				if (!arr[i]) continue;
-				if (!emptyObj[arr[i]]) {
-					this.props.callGetUrlByFileNameSelfHigh(arr[i]);
-					emptyObj[arr[i]] = true;
-				}
-			}
+		if (nextProps.myReducer.search === 'started' && nextProps.myReducer.search !== this.state.searchStatus && nextProps.myReducer.imageMatch) {
+			this.setState({searchStatus: nextProps.myReducer.search, loader: 0}, () => {
+				this.getPictureUrl(nextProps);												  
+			});
+			
+		} else if (nextProps.myReducer.search !== this.state.searchStatus) {
+			this.setState({searchStatus: nextProps.myReducer.search, loader: 0});
 		}
 	}
+
 	componentWillMount() {
-		var url = FirebaseConstant.basePath;
-		firebaseDatabase.ref(url).child('search').set('pending');
+		//var url = FirebaseConstant.basePath;
+		//firebaseDatabase.ref(url).child('search').set('pending');
+	}
+	componentDidMount() {
 	}
 	
 	changeStatus(status) {
@@ -40,11 +68,10 @@ class Search extends Component {
 	}
 
 	render() {
+		const mapPending = [0,1,2,3,4,5,6,7];
 		let img = null;
-		if (this.props.myReducer.uploadedFiles && this.props.myReducer.uploadedFiles[0]) {
-			if (this.props.myReducer.images[this.props.myReducer.uploadedFiles[0].name]) {
-				img = this.props.myReducer.images[this.props.myReducer.uploadedFiles[0].name];
-			}
+		if (this.props.myReducer.image_name && this.props.myReducer.images && (this.props.myReducer.images_highres[this.props.myReducer.image_name] || this.props.myReducer.images[this.props.myReducer.image_name])) {
+			img = this.props.myReducer.images_highres[this.props.myReducer.image_name] || this.props.myReducer.images[this.props.myReducer.image_name];
 		}
 		
 		let show = null;
@@ -59,20 +86,20 @@ class Search extends Component {
 						Search Images
 					</div> 
 				</div>
-					
-				<div className="row">
-					<div className="col-md-12">
-						<DoUploadSearch isMultiple={false} />
-					</div> 
+				<div className="row second-row text-center">
+					{
+						(this.props.myReducer.image_name && this.props.myReducer.search === 'started') && 
+						<span className="sub-details"><img src="/img/greenloaderBar2.gif" alt="loading1" /></span>	
+					}
 				</div>
-				<div className="row">
+					
+				<div className="row main-content">
 					<div className="col-md-6">
 						<div className="thumbnail1 bg-image">
 							{
 								!img ? 
 								<div>
-									<img src="/img/img_analyze_bg.png" className="img-responsive" alt="loading1" />
-									<div className="txt">No Image Uploaded<br /> Try, "Alexa, upload and process image..."</div>
+									<img src="/img/shutterstock_712489231.jpg" className="img-responsive" alt="loading1" />
 								</div>
 								:
 								<div>
@@ -80,6 +107,8 @@ class Search extends Component {
 								</div>
 							}
 						</div>
+						
+						
 					</div>
 					<div className="col-md-6">
 						{/*<a href="" onClick={(e) => {e.preventDefault(); this.changeStatus('started');}}>Start</a>*/}
@@ -88,22 +117,33 @@ class Search extends Component {
 								{
 									show &&
 									show.map((value, key) => {
-										return <div className="bottom-column-item thumbnail" key={key}>
+										let altval = `${key} - ${value}`;
+										if (this.props.myReducer.images_highres[value] === '/img/noImage.gif') {
+											console.log('not found: ', key, ' val: ', value);
+											return null;	
+										}
+										return <div className="bottom-column-item" key={key}>
 											{
-												(this.props.myReducer.search === 'started' && this.props.myReducer.images[value]) &&
-												<img src={this.props.myReducer.images[value]} alt={value} />
+												(this.props.myReducer.search === 'started' && this.state.loader === key && !this.props.myReducer.images_highres[value]) && 
+												<img src="/img/circular_loader.gif" className="imgLoader" alt={altval} />
 											}
-											
 											{
-												(this.props.myReducer.search === 'started' && !this.props.myReducer.images[value]) &&
-												<img src="/img/loading7.gif" className="img-responsive" alt="loading1" />
+												(this.props.myReducer.search === 'started' && this.state.loader > key && this.props.myReducer.images_highres[value]) && 
+												<img src={this.props.myReducer.images_highres[value]} alt={altval} className="img" />
 											}
-											
 											{
-												(this.props.myReducer.search !== 'started') &&
-												<span></span>
+												(this.props.myReducer.search === 'completed' && this.props.myReducer.images_highres[value]) && 
+												<img src={this.props.myReducer.images_highres[value]} alt={altval} className="img" />
 											}
 										</div>					 
+									})
+								}
+								{
+									(!show) &&
+									mapPending.map((value, key) => {
+										return <a className="bottom-column-item" key={key} >
+											
+										</a>			 
 									})
 								}
 							</div>
@@ -127,8 +167,8 @@ const mapDispatchToProps = (dispatch) => {
 		callImageMatch: (file) => {
 			dispatch(imageMatch(dispatch, file));
 		},
-		callGetUrlByFileNameSelfHigh: (file) => {
-			dispatch(getUrlByFileNameSelfHigh(file));	
+		callGetUrlByFileNameSelfHigh: (file, callback=null) => {
+			dispatch(getUrlByFileNameSelfHigh(file, callback));	
 		}
 	};	
 };

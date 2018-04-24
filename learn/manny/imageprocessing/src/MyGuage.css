@@ -1,23 +1,24 @@
-.my-guage svg text:nth-child(0) {
-    border: 10px solid red;
+.my-guage {
+	position: relative;
 }
 
-.my-guage svg text:nth-child(1) {
-    border: 10px solid blue;
+.my-guage .txt1 {
+	position: absolute;
+	top: 105px;
+    left: 60px;
+    font-size: 12px;
 }
 
-.my-guage svg text:nth-child(2) {
-    border: 10px solid yellow;
-}
 
-.my-guage svg text:nth-child(3) {
-    border: 10px solid black;
+.my-guage .txt2 {
+	position: absolute;
+	top: 105px;
+    left: 55px;
+    font-size: 12px;
 }
-
-.my-guage svg text:nth-child(odd) {
-    border: 10px solid green;
-}
-
-.my-guage svg text:nth-of-type(2) {
- border: 10px solid red;
+.my-guage .txt3 {
+	position: absolute;
+	top: 105px;
+    left: 65px;
+    font-size: 12px;
 }

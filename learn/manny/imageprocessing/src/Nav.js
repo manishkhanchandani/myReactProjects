@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import * as myActions from './MyAction.js';
 import {withRouter} from 'react-router';
 import {firebaseDatabase, FirebaseConstant} from './MyFirebase.js';
-import {getList, getOnlyList} from './AWS.js';
+import {getList, getOnlyList, setImageName, imageMatchCustom, imageHigResClear} from './AWS.js';
 
 class Nav extends Component {
 	componentDidMount() {
@@ -12,14 +12,33 @@ class Nav extends Component {
 			search: '/search',
 			upload: '/upload',
 			request: '/request',
-			monitor: '/monitor'
+			monitor: '/monitor',
+			toast: '/toast'
 		};
 		var url = FirebaseConstant.basePath;
 		var ref = firebaseDatabase.ref(url);
 		ref.on('value', (snapshot) => {
-			var result = snapshot.val();
-			console.log('result is ', result);
+			var result = snapshot.val();		
+			
+			//image_name on fb
+			if (this.props.myReducer.image_name !== result.image_name) {
+				this.props.callSetImageName(result.image_name);	
+				this.props.callImageMatchCustom();
+				this.props.callImageHigResClear();
+				firebaseDatabase.ref(url).child('search').set('pending');
+			}
+
+			//image on fb
+			this.props.callSetImage(result.image);
+			if (result.image === 'started') {
+				myActions.notify('New Image Uploaded. Try "Alexa, switch to search tab" or "Alexa, show me the image"', 5);
+				firebaseDatabase.ref(url).child('image').set('completed');
+			}
+			
 			let learn = result.learn;
+			if (learn !== 'completed') {
+				localStorage.removeItem('list');	
+			}
 			if (this.props.myReducer.learn !== learn) {
 				console.log('learn is ', learn);
 				this.props.callChangeLearnStatus(learn);
@@ -31,6 +50,9 @@ class Nav extends Component {
 				
 			
 			let srch = result.search;
+			if (srch === 'started') {
+				this.props.callImageHigResClear();
+			}
 			if (this.props.myReducer.search !== srch) {
 				console.log('srch is ', srch);
 				this.props.callChangeSearchStatus(srch);
@@ -49,6 +71,9 @@ class Nav extends Component {
 		e.preventDefault();
 		var url = FirebaseConstant.basePath;
 		firebaseDatabase.ref(url).child('tab').child('current').set(tab);
+		//this.props.callChangeTab(tab);
+		//let tabUrl = '/' + tab;
+		//this.props.history.push(tabUrl);
 	}
 	
 	resetFb(e) {
@@ -57,6 +82,9 @@ class Nav extends Component {
 		firebaseDatabase.ref(url).child('tab').child('current').set('home');
 		firebaseDatabase.ref(url).child('learn').set('pending');
 		firebaseDatabase.ref(url).child('search').set('pending');
+		firebaseDatabase.ref(url).child('image').set('pending');
+		firebaseDatabase.ref(url).child('image_name').set('pending');
+		window.location.href = "/";
 	}
 
 	render() {
@@ -125,6 +153,18 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		callGetOnlyList: () => {
 			dispatch(getOnlyList(dispatch));	
+		},
+		callSetImageName: (name) => {
+			dispatch(setImageName(dispatch, name));	
+		},
+		callSetImage: (status) => {
+			dispatch(myActions.setImage(status));
+		},
+		callImageMatchCustom: () => {
+			dispatch(imageMatchCustom());	
+		},
+		callImageHigResClear: () => {
+			dispatch(imageHigResClear());	
 		}
 	};	
 };
