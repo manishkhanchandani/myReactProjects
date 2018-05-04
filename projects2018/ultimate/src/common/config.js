@@ -5,6 +5,7 @@ export const config = {
 		'onlinerx.info': '/onlinerx',
 		'dctools.info': '/dctools',
 		'categorylist.us': '/categorylist',
-		'localhost': '/myflix'
+		'localhost': '/homerx',
+		'homrx.mkgalaxy.com': '/homerxlive'
 	}
 };

@@ -33,6 +33,10 @@ const paginationProps = {
 
 
 class Paginator extends Component {
+	changePageNum(e) {
+		let num = parseInt(e.target.value, 10);
+		this.props.onSelect(num);	
+	}
 	render() {
 		return (
 			<div className="text-right">
@@ -40,6 +44,7 @@ class Paginator extends Component {
 				  bsSize="small"
 				  {...this.props}
 				/>
+				<div><span  style={{fontSize:"12px", fontWeight:"bold"}}>Page Number: </span><input type="text" value={this.props.activePage} onChange={this.changePageNum.bind(this)} size="5" /></div>
 			</div>
 		);
 	}

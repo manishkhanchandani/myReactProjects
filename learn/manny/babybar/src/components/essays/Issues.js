@@ -498,7 +498,7 @@ class EssayIssues extends Component {
 									</div>
 									
 									
-									<LearnRule />
+									<LearnRule subject={this.props.match.params.subject} issue={this.props.match.params.issue} />
 									
 								</div>
 								

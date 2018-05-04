@@ -6,8 +6,11 @@ import AuthReducer from './modules/auth/AuthReducer.js';
 import CategoryListReducer from './CategoryList/CategoryListReducer.js';
 import MyFlixReducer from './MyFlix/MyFlixReducer.js';
 
-
-
-const store = createStore(combineReducers({AuthReducer, CategoryListReducer, MyFlixReducer}), {}, applyMiddleware(createLogger(), thunk, promise()));
+var store = null;
+if (process.env.NODE_ENV === 'development') {
+	store = createStore(combineReducers({AuthReducer, CategoryListReducer, MyFlixReducer}), {}, applyMiddleware(createLogger(), thunk, promise()));
+} else {
+	store = createStore(combineReducers({AuthReducer, CategoryListReducer, MyFlixReducer}), {}, applyMiddleware(thunk, promise()));
+}
 
 export default store; 

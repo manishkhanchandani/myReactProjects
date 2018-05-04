@@ -30,6 +30,7 @@ export const actionSignOut = () => {
 		type: 'MAIN_SIGNOUT',
 		payload: new Promise((resolve, reject) => {
 			firebaseApp.auth().signOut().then(function() {
+				setTimeout(() => {window.location.href="/";}, 1000);
 				resolve({});						   
 			});
 		})
@@ -81,6 +82,7 @@ export const FirebaseLogin = (type, additionalParams=null) => {
 					}
 					
 					firebaseDatabase.ref(url).update(obj);
+					setTimeout(() => {window.location.href="/";}, 1000);
 					resolve(obj);
 				});
 			}).catch(function(error) {

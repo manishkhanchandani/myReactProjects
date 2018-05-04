@@ -126,6 +126,17 @@ class NavMulti extends Component {
 												<li><Link to="/essays/issues/mbe/prep">Preparation</Link></li>
 											</ul>
 										</li>
+										
+										{
+											(userObj.access_level === 'admin' || userObj.access_level === 'superadmin') &&
+											<li className="dropdown-submenu">
+												<a href="" className="dropdown-toggle" data-toggle="dropdown">SuperAdmin</a>
+												<ul className="dropdown-menu">
+													<li><Link to="/admin/import1">Import</Link></li>
+													<li><Link to="/admin/changeuser">Change User</Link></li>
+												</ul>
+											</li>
+										}
 										{
 											(userObj.access_level === 'admin' || userObj.access_level === 'admin2' || userObj.access_level === 'superadmin') &&
 											<li className="dropdown-submenu">

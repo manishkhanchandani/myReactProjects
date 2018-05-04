@@ -1,5 +1,8 @@
 {
 	"issues": {
+		"appropriation_of_likeness": {
+			"title": "Appropriation of Likeness"	
+		},
 		"assault": {
 			"title": "Assault"	
 		},
@@ -36,11 +39,20 @@
 		"defense_of_infancy_insanity": {
 			"title": "Defense of Insanity / Infancy"
 		},
+		"false_imprisonment": {
+			"title": "False Imprisonment"
+		},
+		"false_light": {
+			"title": "False Light"
+		},
 		"iied": {
 			"title": "Intentional Infliction of Emotional Distress"
 		},
 		"independent_contractor_liability": {
 			"title": "Independent Contractor"
+		},
+		"intrusion_into_solitude": {
+			"title": "Intrusion Into Solitude"
 		},
 		"negligence": {
 			"title": "Negligence"
@@ -113,6 +125,15 @@
 		},
 		"pl_strict_liability": {
 			"title": "Products Liability Strict Liability in Tort"
+		},
+		"private_nuisance": {
+			"title": "Private Nuisance"
+		},
+		"public_disclosure_private_facts": {
+			"title": "Public Disclosure of Private Facts"
+		},
+		"public_nuisance": {
+			"title": "Public Nuisance"
 		},
 		"respondent_superior": {
 			"title": "Respondent Superior"
@@ -527,8 +548,88 @@
 			"issues": {
 			}
 		},
+		
 		{
-			"id": 15,
+			"id": 60,
+			"reference": "June 2009",
+			"topic": "",
+			"essay": "Al, Bob, Carl, and Dolly were coworkers at Zco. Al, Bob, and Carl did not like Dolly and wanted her fired from Zco.<br /><br />On Monday, all employees of Zco were required to attend a mandatory meeting. Prior to the meeting, Al entered Dolly's office and told her not to leave her office until the meeting was over. He then said to her, \"If you leave this office before the meeting is over, some of my friends and I will come to your home and beat you up.\" Al then left for the meeting. Dolly, scared for her safety, remained in her office, missed the meeting, and was reprimanded by Carl, her supervisor.<br /><br /> On Tuesday, Bob placed a sleeping pill in Dolly's coffee when Dolly was not looking. Dolly drank the coffee and fell asleep at her desk twenty minutes later. She slept for four hours, and was again reprimanded by Carl for sleeping on the job.<br /><br /> On Wednesday, the Human Resources Manager for Zco asked Carl if he knew why Dolly had missed the meeting on Monday and fell asleep at her desk on Tuesday. Carl responded that Dolly had a serious drinking problem that interfered with her job performance. Carl was aware of the actual reasons why Dolly had missed the meeting on Monday and fell asleep on Tuesday, and he had no reason to believe that she had a drinking problem. On Thursday, Dolly was fired from Zco.<br /><br /> Under what intentional tort theories might an action for damages be brought by Dolly against Al, Bob, and Carl, and what defenses, if any, might Al, Bob, or Carl assert, and what are the likely results? Discuss.",
+			"issues": {
+				"vicarious_liability": {},
+				"false_imprisonment": {},
+				"battery": {},
+				"defamation": {}
+			}
+		},
+		{
+			"id": 61,
+			"reference": "June 2009",
+			"topic": "Intentional Torts",
+			"essay": "During the late summer, State College of Law held its annual student versus faculty softball game and picnic. The game was hotly contested and, as a result of poor sportsmanship on both sides, tempers flared.<br /><br />Following the game, the students' team was presented with the winner's trophy, which Abel, the captain of the student team, held aloft. Thinking it would be funny, Charlie, a member of the faculty team, threw a ball at the trophy, striking it and knocking it from Abel’s hands. Angrily, Abel picked up the trophy, approached Charlie and said, \"If you weren’t a professor here, I would take that trophy and stick it in your ear.\" Charlie, who was physically much bigger than Abel and a former professional boxer, did not feel threatened by Abel's reaction.<br /><br /> Edward, another professor and member of the faculty team, believing that Abel was about to attack Charlie, struck Abel with a baseball bat, resulting in a large bruise to Abel's arm.<br /><br /> 1. Under what theory or theories might Charlie bring an action for damages against Abel, what defenses, if any, might Abel assert, and what is the likely result? Discuss.<br /><br /> 2. Under what theory or theories might Abel bring an action for damages against Edward, what defenses, if any, might Edward assert, and what is the likely result? Discuss.",
+			"issues": {
+				"assault": {},
+				"battery": {},
+				"iied": {},
+				"self_defense": {},
+				"defense_of_consent": {},
+				"defense_of_others": {},
+				"tort_damages": {}
+			}
+		},
+		{
+			"id": 94,
+			"reference": "June 2015",
+			"topic": "",
+			"essay": "Tommy is fourteen years old. Tommy plays golf every day at his local golf course, using a golf cart. Although children are generally not allowed to rent carts at the course, Tommy has a special relationship with the owners of the course, who consider him to be of unusual maturity. He is generally allowed to use the golf carts as long as they are available.<br /><br />One day, while driving a cart from the first to the second hole of the golf course, Tommy failed to watch where he was going and ran into Dana just as she was swinging her golf club. Because of the accident, Dana's shot left the golf course, and the ball fell into an air intake at nearby Power Plant, causing it to cease operations. Power Plant had failed to attach the required screen on the air intake when it opened the plant.<br /><br />Perry lives ten miles from the golf course. He relies on a constant supply of oxygen in order to stay alive. When Power Plant shut down, Perry's equipment stopped supplying the needed oxygen, and he suffered brain damage.<br /><br />What possible tort causes of action does Perry have against Tommy? Discuss.",
+			"issues": {}
+		},
+		
+		{
+			"id": 95,
+			"reference": "June 2015",
+			"topic": "",
+			"essay": "Abe was the head coach of the fifth-grade girls' basketball team at Elementary School. Bob, the assistant coach, blamed Abe for the team's poor performance. Seeking to have Abe fired, Bob accused Abe after a game of stealing money from the team fund. Bob made the accusation while standing in a crowd of students and parents. Bob knew the accusation to be untrue.<br /><br />In retaliation, Abe threw a basketball at Bob, who ducked to avoid being hit. The basketball missed Bob but struck Carl, a parent, in the face. Abe then went up to Bob and told him, \"You'd better watch your back,\" which subsequently caused Bob to have nightmares.<br /><br />Abe was thereafter fired from his position as head coach, based on Bob's accusation that Abe had stolen money from the team, and he was unable to obtain a job in his chosen profession.<br /><br />1. Under what theories, if any, and against whom, might Abe sue for damages? Discuss. 2. Under what theories, if any, and against whom, might Bob sue for damages? Discuss. 3. Under what theories, if any, and against whom, might Carl sue for damages? Discuss.",
+			"issues": {}
+		},
+		
+		{
+			"id": 96,
+			"reference": "October 2015",
+			"topic": "",
+			"essay": "",
+			"issues": {}
+		},
+		{
+			"id": 97,
+			"reference": "June 2016",
+			"topic": "",
+			"essay": "Tenant rents space in a Cityville office building from Landlord. Six months ago, a fire broke out at night in the office building and Tenant, who was working late, was overcome by smoke in the building.<br /><br />A responding firefighter found Tenant unconscious and, while carrying Tenant out of the building, dropped him, breaking Tenant's leg. The building and all its contents were destroyed.<br /><br />Cityville fire marshal's investigative report stated: \"Fire apparently originated in basement. Apparent cause: faulty wiring. Accumulation of old newspapers in basement was a principal source of fuel, and probably resulted in rapid spread of fire to remainder of building.\"<br /><br />The old newspapers mentioned in the fire marshal's report had been left by a previous tenant three years ago. Some of the basement hallways were nearly impassable. Landlord was aware of this, but hadn't gotten around to cleaning them up.<br /><br />One of Cityville's fire safety ordinances provides: \"Any person who permits any article to remain in a stairway or hallway so as to impede entering or leaving the building, or any area within it, shall be punished by a fine of not more than five hundred dollars.\"<br /><br />1. On what theory or theories might Tenant reasonably sue Landlord? Discuss.<br /><br />2. What types of damages, if any, might Tenant recover from Landlord? Discuss.",
+			"issues": {}
+		},
+		
+		{
+			"id": 98,
+			"reference": "June 2016",
+			"topic": "",
+			"essay": "Cindy and Shelly Smith, 35-year-old identical twins, look exactly alike.<br /><br />Cindy was a straight-A student in high school, went to college, and then to law school. She is presently campaigning for election to the State Senate.<br /><br />Shelly got into the wrong crowd in high school, became addicted to cocaine, and moved to Europe without graduating from high school.<br /><br />Cindy and Shelly have not spoken for years, and very few people know that Cindy has a twin.<br /><br />Debbie, a high school classmate of Cindy and Shelly, dislikes Cindy and does not want Cindy to win her election. Debbie obtained an old photograph of Shelly snorting a line of cocaine and sent it to Newspaper the day before the election, with an anonymous note that read, \"Ms. Smith is a cokehead.\" The photograph was very clear and looked exactly like Cindy.<br /><br />Newspaper, unaware that Cindy had an identical twin sister, published the photograph of Shelly the same day, with a caption that read, \"Cokehead for State Senate?\" Newspaper reported that it had received the photograph of \"Cindy Smith\" anonymously earlier that day. Cindy was very distressed about Newspaper's publication and subsequently lost the election.<br /><br />Thereafter, Cindy filed defamation claims against both Debbie and Newspaper.<br /><br />1. What is the likely outcome of Cindy's defamation claim against Debbie? Discuss.<br /><br />2. What is the likely outcome of Cindy's defamation claim against Newspaper? Discuss.",
+			"issues": {}
+		},
+		{
+			"id": 99,
+			"reference": "October 2016",
+			"topic": "",
+			"essay": "Barry is a licensed barber. Recently, he has considered changing from the straight razor that he has always used to a new type of electric razor. The primary advantage of the new razor is that it totally eliminates the possibility of the customer being cut in the process of getting a shave.<br /><br />In general, barbers prefer the tradition of using the straight razor to the electric razor because it allows them to better show off their skills as a barber. Although not all agree, some believe that the straight razor gives a closer shave. The new razors have, however, been scientifically established to provide just as close a shave as the straight razor.<br /><br />Barry continues to shave men as he always has because he enjoys the use of the blade, and because the electric razor is expensive. He is also concerned about the reliability of these new devices under the heavy use they would receive in a barbershop.<br /><br />Moe comes into Barry's shop to get a shave. Halfway through the shave, Moe suddenly jumps up from the chair, cheering because he checked his smartphone and saw his favorite baseball team score a run. In the process, Barry's razor creates a fairly deep gash on Moe's throat. Moe punches Barry, giving him a black eye.<br /><br />1. Is Moe likely to prevail on a negligence claim against Barry? Discuss.<br /><br />2.Is Barry likely to prevail on an intentional tort claim against Moe? Discuss.",
+			"issues": {}
+		},
+		{
+			"id": 100,
+			"reference": "June 2017",
+			"topic": "",
+			"essay": "While working in the produce section of a supermarket, Albert accidentally dropped a watermelon, which broke open, making the floor wet and slippery. Betty, the produce manager, immediately approached Albert and loudly criticized him for being \"clumsy.\" Albert, who was humiliated, told Betty, \"I quit!\" and pushed her in order to get past her and leave the store. As a result, Betty slipped on the spilled watermelon, fell and hit her head on the floor, and suffered a debilitating brain injury.<br /><br />As Albert was leaving the store, he grabbed a shopping cart and pushed it violently at Carl, the store manager, who was standing nearby and who jumped out of the way.<br /><br />The cart missed Carl but struck Duane, an elderly shopper, on his back side. Duane, who had an unstable heart condition, suffered a heart attack as a result.<br /><br />In the parking lot, Albert walked around a car he believed was Betty's, and used his car key to leave a deep gouge in the finish on all four sides of the car. As it turned out, the car belonged to Edna, not Betty.<br /><br />Under what theories of intentional tort could Betty, Carl, Duane, and Edna bring claims against Albert, and what damages, if any, are likely to be awarded in a lawsuit brought by:<br /><br /> 1. Betty against Albert? Discuss<br /><br />2. Carl against Albert? Discuss<br /><br /> 3. Duane against Albert? Discuss<br /><br />4. Edna against Albert? Discuss",
+			"issues": {}
+		},
+		{
+			"id": 101,
 			"reference": "October 2017",
 			"topic": "Negligence, Products Liability, Strict Liability",
 			"essay": "Spacetrip is a new venture created to send paying clients on a trip of a lifetime to the moon aboard its spaceship, the Escapade. This spaceship is equipped with a vehicle escape system using parachutes to allow passengers to return safely to the ground should a malfunction occur during the spaceship's ascent. This system is widely used and listed in the Rocket Industry Standards Manual as being \"sufficient to provide adequate safeguards.\"<br /><br />Recently, a new system has become available that uses rockets to navigate the escape capsule back to the ground much more safely. However, this new system is also much more expensive than the parachute system and has not been tested in real-life situations. Spacetrip decided to stick with its tried-and-true parachute system.<br /><br />Paula, who wanted an adventure, decided to purchase this trip from Spacetrip. She signed a contract containing this statement: \"Although Spacetrip has taken all reasonable measures to provide a safe voyage, I understand that space exploration is dangerous.\"<br /><br />On the day of the liftoff, the weather was beautiful and all systems were working as designed. But shortly after takeoff, a totally unpredictable violent storm arose, blowing the Escapade off course. There was no way to correct for the deviation, so Spacetrip activated the escape system, which deployed as designed. Unfortunately, the storm caused the escape capsule to crash to the ground. Paula was critically injured, but survived. Investigations after the accident indicated that the new rocket escape system might have led to a better outcome.<br /><br />1. What tort cause(s) of action may Paula reasonably bring against Spacetrip? Discuss.<br /><br />2. What defense(s), if any, does Spacetrip have? Discuss.",
@@ -555,7 +656,7 @@
 			}
 		},
 		{
-			"id": 16,
+			"id": 102,
 			"reference": "October 2017",
 			"topic": "Intentional Torts",
 			"essay": "On a sunny winter day, Dan went for a hike in the mountains. While walking on a trail far from civilization, a sudden storm arose. Thick snow accompanied by horrific winds created blizzard conditions. Dan was an experienced outdoorsman and knew that, without shelter, he was likely to succumb to hypothermia and die.<br /><br />Fortunately, Dan remembered that his friend Jill owned a cabin in the vicinity. Jill had told him that he could use the cabin should the need arise. In the blizzard conditions, Dan struggled to find Jill's cabin, but soon saw a red-roofed log cabin that looked exactly like Jill's. As promised, the key was under the mat, and Dan entered to wait out the storm. In order to stay warm, Dan removed some built-in wooden bookshelves from the wall and used them to build a fire in the fireplace. He also threw in some books that were on the shelves to keep the fire going. He slept in front of the fire, and the storm was over the following morning.<br /><br />Before leaving the cabin, Dan wrote Jill a note thanking her for the use of the cabin and apologizing for the missing shelves. He forgot to mention the books. He left his phone number and told her to give him a call.<br /><br />As it turns out, the cabin where Dan stayed was owned by Polly and not Jill. When Polly went to the cabin to open it for the summer, she noticed that her bookshelves and books were missing and found a note on the table from some fellow named Dan.<br /><br />Polly was outraged that a stranger would use her cabin without her permission, destroy the bookshelves, and take her books. She decided to sue Dan.<br /><br />1. What tort cause(s) of action can Polly reasonably raise against Dan? Discuss.<br /><br />2. What defense(s), if any, can Dan reasonably assert? Discuss. <br /><br />3. What types of damages, if any, might Polly recover from Dan? Discuss.",

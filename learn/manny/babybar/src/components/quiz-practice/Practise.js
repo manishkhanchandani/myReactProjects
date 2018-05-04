@@ -10,6 +10,7 @@ import renderHTML from 'react-render-html';
 import SimpleQuizAnsOptions from '../simple-quiz/SimpleQuizAnsOptions.js';
 import '../simple-quiz/SimpleQuiz.css';
 import Loader from '../Loader/Loader.js';
+import Clock2 from '../clock1/Clock2.js';
 
 class Help extends Component {
 	render() {
@@ -43,8 +44,8 @@ class QuizPractice extends Component {
 		this.state = {
 			categories: null,
 			category: null,
-			number: 5,
-			orderby: 2,
+			number: 100,
+			orderby: 1,
 			repeat: 2,
 			questions: null,
 			userAnswered: null,
@@ -54,11 +55,11 @@ class QuizPractice extends Component {
 			score: 0,
 			answered: 0,
 			loading: false,
-			filterTerm: ''
+			filterTerm: '',
+			seconds_assigned: 0
 			
 		};
 	}
-	
 	
 	onActivePageChange(page) {
 		localStorage.setItem('pageNumber', page);
@@ -66,16 +67,18 @@ class QuizPractice extends Component {
 	}
 	
 	componentDidMount() {
-		var obj = localStorage.getItem('finalQuestionList');
-		if (obj) {
-			let pn = localStorage.getItem('pageNumber');
-			if (!pn) pn = 1;
-			pn = parseInt(pn, 10);
-			let ans = localStorage.getItem('answered');
-			if (!ans) ans = 0; else ans = parseInt(ans, 10);
-			let sc = localStorage.getItem('score');
-			if (!sc) sc = 0; else sc = parseInt(sc, 10);
-			this.setState({finalQuestionList: JSON.parse(obj), loading: false, pageNumber: pn, answered: ans, score: sc});	
+		if (!this.props.match.params.subject) {
+			var obj = localStorage.getItem('finalQuestionList');
+			if (obj) {
+				let pn = localStorage.getItem('pageNumber');
+				if (!pn) pn = 1;
+				pn = parseInt(pn, 10);
+				let ans = localStorage.getItem('answered');
+				if (!ans) ans = 0; else ans = parseInt(ans, 10);
+				let sc = localStorage.getItem('score');
+				if (!sc) sc = 0; else sc = parseInt(sc, 10);
+				this.setState({finalQuestionList: JSON.parse(obj), loading: false, pageNumber: pn, answered: ans, score: sc});	
+			}
 		}
 		var url = FirebaseConstant.basePath + '/quiz/categories';
 
@@ -115,21 +118,21 @@ class QuizPractice extends Component {
 		var orderby = parseInt(this.state.orderby, 10);
 		
 		if (orderby === 1) {
-			console.log('normal order');
+			//console.log('normal order');
 			objQuestion = questions.splice(0, this.state.number);
-			console.log('objQuestion is ', objQuestion);
+			//console.log('objQuestion is ', objQuestion);
 		} else if (orderby === 2) {
-			console.log('random order');
+			//console.log('random order');
 			
 			//find min and max question number for topic
 			var maxCnt = questions.length;
 			var num = 0;
 			var tmpObj = {};
 			var randomNumber = getRandomizer(0, (maxCnt - 1));
-			console.log('maxCnt: ', maxCnt);
+			//console.log('maxCnt: ', maxCnt);
 			while (num < this.state.number) {
 				var tmp = randomNumber();
-				console.log('num is ', num, ', tmp is ', tmp);
+				//console.log('num is ', num, ', tmp is ', tmp);
 				if (!tmpObj[tmp]) {
 					tmpObj[tmp] = 1;
 					objQuestion.push(questions[tmp]);
@@ -137,10 +140,10 @@ class QuizPractice extends Component {
 				}
 			}
 			
-			console.log('objQuestion2 is ', objQuestion);
+			//console.log('objQuestion2 is ', objQuestion);
 		}
 		localStorage.setItem('finalQuestionList', JSON.stringify(objQuestion));
-		this.setState({finalQuestionList: objQuestion, loading: false});
+		this.setState({finalQuestionList: objQuestion, loading: false, seconds_assigned: (this.state.number * 100)});
 	
 		
 	}
@@ -155,14 +158,14 @@ class QuizPractice extends Component {
 		this.setState({userAnswered: null, questions: null, quizChoosenOption: {}, score: 0, loading: true, answered: 0, pageNumber: 1});
 		
 		
-		console.log('cat is ', this.state.category.key);
+		//console.log('cat is ', this.state.category.key);
 		//get all questions from category choosen
 		var url = FirebaseConstant.basePath + '/quiz/questions/' + this.state.category.key;
-		console.log('url is ', url);
+		//console.log('url is ', url);
 		var ref = firebaseDatabase.ref(url);
 		ref.once('value', (snapshot) => {
 			var result = snapshot.val();
-			console.log('result is ', result);
+			//console.log('result is ', result);
 			
 			this.setState({questions: result});
 			
@@ -173,11 +176,11 @@ class QuizPractice extends Component {
 			let uidPath = '/' + uid;
 			//get all questions answered by the user
 			var url2 = FirebaseConstant.basePath + '/quiz/simple_quiz' + uidPath + subject;
-			console.log('url2 is ', url2);
+			//console.log('url2 is ', url2);
 			var ref2 = firebaseDatabase.ref(url2);
 			ref2.once('value', (snapshot) => {
 				var result2 = snapshot.val();
-				console.log('result2 is ', result2);
+				//console.log('result2 is ', result2);
 				
 				this.setState({userAnswered: result2}, () => {
 					this.createQuiz();										
@@ -235,7 +238,7 @@ class QuizPractice extends Component {
 			paginationProps = obj.paginationProps;
 			
 			if (this.state.userAnswered && myArrayConverted[0] && myArrayConverted[0].id && this.state.userAnswered[myArrayConverted[0].id]) {
-				console.log('found one: ', 	myArrayConverted[0].id, ', ', this.state.userAnswered[myArrayConverted[0].id]);
+				//console.log('found one: ', 	myArrayConverted[0].id, ', ', this.state.userAnswered[myArrayConverted[0].id]);
 				rightSideBar = [];
 				
 				for (let i in this.state.userAnswered[myArrayConverted[0].id]) {
@@ -245,7 +248,7 @@ class QuizPractice extends Component {
 		}
 		
 		let selectedCategory = (this.state.category) ? this.state.category.key : ((this.props.match.params.subject) ? this.props.match.params.subject : '');
-		
+		console.log('this.state: ', this.state);
 			
 		return (
 			
@@ -314,9 +317,16 @@ class QuizPractice extends Component {
 										let url = '/quizPractice/'+selectedCategory+'/'+value.id;
 										let optionChoosen = parseInt(this.state.quizChoosenOption[this.state.pageNumber], 10);
 										return <div key={key} className="questions">
-											<div className="question"><a href={url} target="_blank">External Link</a><br /><br /><b>Q. {value.id}.</b> {renderHTML(value.question)}<hr /></div>
-											<Help />
+											
+												<div className="question">
+												{
+												selectedCategory && 
+													<span><a href={url} target="_blank">External Link</a><br /><br />
+													</span>
+												}
+												<b>Q. {value.id}.</b> {renderHTML(value.question)}<hr /></div>
 												<SimpleQuizAnsOptions id={value.id} opts={JSON.parse(value.answers)} optionChoosen={optionChoosen} handleChooseOption={this.handleChooseOption.bind(this)} details={value} />
+											{/*<Help />*/}
 											
 											
 											

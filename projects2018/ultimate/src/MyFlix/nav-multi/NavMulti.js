@@ -2,16 +2,76 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './NavMulti.css';
 import {Link} from 'react-router-dom'; 
+import {firebaseDatabase, FirebaseConstant} from '../../MyFirebase.js';
+import {getUID} from '../../utilities/functions.js';
 import Auth from '../../modules/auth/Auth.js';
 import Themes from '../../Themes.js';
 import {defaultList} from '../MyFlixAction.js';
 
 class NavMulti extends Component {
+	constructor(props) {
+		super(props);	
+		
+		this.state = {
+			data: null,
+			currentUID: null
+		};
+	}
+	
+	componentDidMount() {
+		this.getData();
+	}
+
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.authReducer.uid && nextProps.authReducer.uid !== this.state.currentUID) {
+			this.getData();
+		}
+	}
+
+	getData() {
+		let uid = getUID();
+		if (!uid) return;
+		this.setState({currentUID: uid});
+		let url = FirebaseConstant.basePath + '/list';
+		let ref = firebaseDatabase.ref(url).orderByChild('user_id').equalTo(uid);
+		ref.on('value', (snapshot) => {
+			if (!snapshot.exists()) {
+				this.setState({data: null});
+				return;
+			}
+			let records = snapshot.val();
+			let myArray = [];
+			for (let k in records) {
+				records[k]._id = k;
+				myArray.push(records[k]);
+			}
+
+			this.setState({data: myArray});
+		});
+	}
+
 	render() {
 		let url = '';
 		if (this.props.myFlixReducer.list) {
 			if (this.props.myFlixReducer.list !== defaultList) {
 				url = '/' + this.props.myFlixReducer.list;
+			}
+		}
+		
+		let userList = [];
+		let userVideoList = [];
+		let userCatList = [];
+		if (this.state.data) {
+			for (let i = 0; i < this.state.data.length; i++) {
+				let viewListUrl2 = '/' + this.state.data[i]._id;
+				let linkUrl2 = '/manage/' + this.state.data[i]._id + '/categories';
+				let videoUrl2 = '/manage/' + this.state.data[i]._id + '/videos';
+				if (defaultList === this.state.data[i]._id) {
+					viewListUrl2 = '/';
+				}
+				userList.push(<li key={i}><a href={viewListUrl2}>{this.state.data[i].list}</a></li>);
+				userVideoList.push(<li key={i}><Link to={videoUrl2}>{this.state.data[i].list}</Link></li>);	
+				userCatList.push(<li key={i}><Link to={linkUrl2}>{this.state.data[i].list}</Link></li>);		
 			}
 		}
 		
@@ -35,11 +95,23 @@ class NavMulti extends Component {
 										<li>
 											<a href="" className="dropdown-toggle" data-toggle="dropdown">Admin <b className="caret"></b></a>
 											<ul className="dropdown-menu multi-level">
-												
+												<li><Link to="/create">Manage List</Link></li>
 												<li className="dropdown-submenu">
 													<a href="" className="dropdown-toggle" data-toggle="dropdown">List</a>
 													<ul className="dropdown-menu">
-														<li><Link to="/create">Manage List</Link></li>
+														{userList}
+													</ul>
+												</li>
+												<li className="dropdown-submenu">
+													<a href="" className="dropdown-toggle" data-toggle="dropdown">Categories</a>
+													<ul className="dropdown-menu">
+														{userCatList}
+													</ul>
+												</li>
+												<li className="dropdown-submenu">
+													<a href="" className="dropdown-toggle" data-toggle="dropdown">Videos</a>
+													<ul className="dropdown-menu">
+														{userVideoList}
 													</ul>
 												</li>
 												

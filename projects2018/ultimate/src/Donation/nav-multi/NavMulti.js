@@ -1,0 +1,117 @@
+import React, {Component} from 'react';
+import './NavMulti.css';
+import {connect} from 'react-redux';
+import {Link} from 'react-router-dom'; 
+import {firebaseDatabase, FirebaseConstant} from '../../MyFirebase.js';
+import {getUID} from '../../utilities/functions.js';
+import Auth from '../../modules/auth/Auth.js';
+import Themes from '../../Themes.js';
+
+
+class NavMulti extends Component {
+	render() {
+		return (
+			<div className="nav-multi">
+				<div className="navbar navbar-inverse navbar-static-top" role="navigation">
+					<div className="container">
+						<div className="navbar-header">
+							<button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<span className="sr-only">Toggle navigation</span>
+								<span className="icon-bar"></span>
+								<span className="icon-bar"></span>
+								<span className="icon-bar"></span>
+							</button>
+							<a className="navbar-brand" href="">Find My Hom Rx</a>
+						</div>
+						<div className="collapse navbar-collapse">
+							<ul className="nav navbar-nav navbar-right">
+								<Themes />
+								<Auth />
+							</ul>
+							<ul className="nav navbar-nav">
+								<li className="active"><a href="">Home</a></li>
+								<li>
+									<a href="" className="dropdown-toggle" data-toggle="dropdown">Patients<b className="caret"></b></a>
+									<ul className="dropdown-menu multi-level">
+										<li><a href="">Register New Patient</a></li>
+										<li><a href="">Patient List</a></li>
+										<li><a href="">Something else here</a></li>
+										<li className="divider"></li>
+										<li><a href="">Separated link</a></li>
+										<li className="divider"></li>
+										<li><a href="">One more separated link</a></li>
+										<li className="dropdown-submenu">
+											<a href="" className="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+											<ul className="dropdown-menu">
+												<li><a href="">Action</a></li>
+												<li className="dropdown-submenu">
+													<a href="" className="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+													<ul className="dropdown-menu">
+														<li className="dropdown-submenu">
+															<a href="" className="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+															<ul className="dropdown-menu">
+																<li><a href="">Action</a></li>
+																<li><a href="">Another action</a></li>
+																<li><a href="">Something else here</a></li>
+																<li className="divider"></li>
+																<li><a href="">Separated link</a></li>
+																<li className="divider"></li>
+																<li><a href="">One more separated link</a></li>
+															</ul>
+														</li>
+													</ul>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="" className="dropdown-toggle" data-toggle="dropdown">Doctors<b className="caret"></b></a>
+									<ul className="dropdown-menu">
+										<li><a href="">Register as Doctor</a></li>
+										<li><a href="">View All Doctors</a></li>
+										<li><a href="">Something else here</a></li>
+										<li className="divider"></li>
+										<li><a href="">Separated link</a></li>
+										<li className="divider"></li>
+										<li><a href="">One more separated link</a></li>
+										<li className="dropdown-submenu">
+											<a href="" className="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+											<ul className="dropdown-menu">
+												<li><a href="">Action</a></li>
+												<li><a href="">Another action</a></li>
+												<li><a href="">Something else here</a></li>
+												<li className="divider"></li>
+												<li><a href="">Separated link</a></li>
+												<li className="divider"></li>
+												<li className="dropdown-submenu">
+													<a href="" className="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+													<ul className="dropdown-menu">
+														<li className="dropdown-submenu">
+															<a href="" className="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+															<ul className="dropdown-menu">
+																<li><a href="">Action</a></li>
+																<li><a href="">Another action</a></li>
+																<li><a href="">Something else here</a></li>
+																<li className="divider"></li>
+																<li><a href="">Separated link</a></li>
+																<li className="divider"></li>
+																<li><a href="">One more separated link</a></li>
+															</ul>
+														</li>
+													</ul>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		);
+	}
+}
+
+export default NavMulti;

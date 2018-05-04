@@ -5,6 +5,7 @@ import MyFlixLayout from './MyFlix/MyFlixLayout.js';
 import OnlineRxLayout from './Layouts/OnlineRxLayout.js';
 import DcToolsLayout from './Layouts/DcToolsLayout.js';
 import CategoryList from './CategoryList/CategoryList.js';
+import HomrxLayout from './homrx/HomrxLayout.js';
 
 class App extends Component {
   componentDidMount() {
@@ -27,15 +28,19 @@ class App extends Component {
   render() {
 	  let layout = '';
 	  const site = config.site;
-	  if (site === 'myflix.info' || site === 'localhost') {
-		  layout = (<MyFlixLayout />);
+	  console.log('site is ', site);
+	  if (site === 'homrx.mkgalaxy.com' || site === 'localhost') {
+		  console.log('hereee');
+		  layout = (<HomrxLayout />);
 	  } else if (site === 'onlinerx.info') {
 		  layout = (<OnlineRxLayout />);
 	  } else if (site === 'categorylist.us') {
 		layout = (<CategoryList />);  
 	  } else if (site === 'dctools.info') {
-		  layout = (<DcToolsLayout />);
-		}
+		layout = (<DcToolsLayout />);
+	  } else if (site === 'myflix.info') {
+		  layout = (<MyFlixLayout />);
+	  }
 
     return (
       <div>

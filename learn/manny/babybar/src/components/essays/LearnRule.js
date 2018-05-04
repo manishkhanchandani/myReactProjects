@@ -13,25 +13,42 @@ class LearnRule extends Component {
 	constructor(props) {
 		super(props);
 		
-		this.state = { editorHtml: '', mountedEditor: false, data: null }
+		this.state = { 
+			editorHtml: '', 
+			mountedEditor: false, 
+			data: null,
+			currentSubject: null,
+			currentIssue: null
+		}
 		this.quillRef = null;
 		this.reactQuillRef = null;
 		this.handleChange = this.handleChange.bind(this)
 		this.handleClick = this.handleClick.bind(this)
 		this.attachQuillRefs = this.attachQuillRefs.bind(this);
+		
+	}
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.subject !== this.state.currentSubject || nextProps.issue !== this.state.currentIssue) {
+			this.refUrlRef.limitToLast(50).off();
+			this.setState({currentSubject: nextProps.subject, currentIssue: nextProps.issue}, () => {		
+				this.createFbUrl(nextProps.subject, nextProps.issue);
+				this.callfb();																		  
+			});
+		}
+	}
+	createFbUrl(subj, iss)
+	{
 		let uid = getUID();
 		let uidPath = '/' + uid;
-		let subject = '/' + this.props.match.params.subject;
-		let issue = '/' + this.props.match.params.issue;
+		let subject = '/' + subj;
+		let issue = '/' + iss;
 		this.refUrl = FirebaseConstant.basePath + '/practice/rules' + uidPath + subject + issue;
 		this.refUrlRef = firebaseDatabase.ref(this.refUrl);
 	}
 
-	componentDidMount () {
-    	this.attachQuillRefs();
-		
-		this.refUrlRef.limitToLast(10).off();
-		this.refUrlRef.limitToLast(10).on('value', (snapshot) => {
+	callfb() {
+		this.refUrlRef.limitToLast(50).off();
+		this.refUrlRef.limitToLast(50).on('value', (snapshot) => {
 			let records = snapshot.val();
 			if (!records) {
 				this.setState({data: null});	
@@ -48,7 +65,19 @@ class LearnRule extends Component {
 			//sorting
 			myArray.sort(dynamicSort('-created_dt'));
 			this.setState({data: myArray});	
+		});	
+	}
+	componentDidMount () {
+    	this.attachQuillRefs();
+		this.setState({currentSubject: this.props.subject, currentIssue: this.props.issue}, () => {		
+			this.createFbUrl(this.props.subject, this.props.issue);
+			this.callfb();																		  
 		});
+		
+  	}
+	
+	componentWillunmount() {
+		this.refUrlRef.limitToLast(50).off();
   	}
   
   componentDidUpdate () {
