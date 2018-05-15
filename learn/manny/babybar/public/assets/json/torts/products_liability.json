@@ -1,7 +1,7 @@
 {
 	"key": "products_liability",
 	"name": "Products Liability",
-	"rule": "A manufacturer's or seller’s tort liability for any damages or injuries suffered by a buyer, user or bystander as a result of a defective product.",
+	"rule": "A manufacturer's or seller's tort liability for any damages or injuries suffered by a buyer, user or bystander as a result of a defective product.",
 	"mbe": [
 		
 		{
@@ -19,6 +19,276 @@
 					],
 					"correct": 3,
 					"explanation": "D is the correct answer and can be reached by the process of elimination. The facts indicate that the stove arrived exactly as it was designed. This is a defective design case. For strict liability to apply in defective design, the plaintiff must prevail in a risk-utility balancing test where the child must show that the risk and severity of her injuries were predictable to her as a small child. In some jurisdictions, the court would then consider the feasibility of alternative designs. Other jurisdictions shift the burden to the defendant (once plaintiff proves causation) requiring the manufacturer to show that the utility of the design outweighs the inherent danger. A warning does not need to be verbal.<br /> <br /> The stove came with a written warning, so C can be eliminated. The risk-utility test is similar to the negligence standard but, since the question states the claim theory, answer A can be eliminated as an inappropriate standard. The presence of other stoves in the industry that do not tip with 25 pounds of weight would be part of the determination of the feasibility of other, safer designs, so \"B\" is not the best answer. D is the most complete response and states the rule rather than applicable facts. A, B and C are incorrect."
+				}
+			]
+		},
+		{
+			"key": "Rule 121QA",
+			"name": "Rule 121QA: Strict Products Liability",
+			"description": "",
+			"examples": [
+				{
+					"question": "Tony started to boil water for instant cocoa in a brand new, inexpensive electric tea kettle. This kettle had arrived at his home the day before via an online order from the manufacturer. The kettle had a handle on one side, a spout on the other, and a lid on top. Users remove the lid, fill the kettle with cold water, replace the lid, and plug the kettle into an outlet. Tony duly complied with these tasks. As Tony tipped the kettle to pour water into a mug, the handle broke off, splashing boiling water onto his arm.Tony, who suffered burns, prevailed in a strict products liability action against the manufacturer. Which of the conclusions about this action is most likely to be well founded?",
+					"answerOptions": [
+						"The kettle had a defective warning.",
+						"The kettle was designed defectively: putting the handle on top as opposed to on the side of the kettle would have decreased the risk of the handle breaking off.",
+						"The kettle was designed defectively: under normal use the handle of a brand new kettle does not break off.",
+						"The kettle was manufactured defectively."
+					],
+					"correct": 3,
+					"explanation": "(EASY) Answer (D) is correct. The facts describe what is most probably a manufacturing defect involving a flaw in the adhesive or mounting of the handle.<br /><br />Answer (A) is incorrect because the problem says nothing about the role of a warning in this injury. Tony appeared to have handled the kettle correctly.<br /><br />Answer (B) is incorrect because it doesn't make sense as an alternative design. The top of the kettle was already occupied by a lid. Putting a handle on top seems to increase the risk of burns as steam rises.<br /><br />Answer (C) is incorrect because although under normal use a brand new kettle handle does not break off, this result does not show that it was defectively designed. Answer (C) evokes res ipsa loquitur, but res ipsa loquitur is not used to prove design defect."
+				}
+			]
+		},
+		{
+			"key": "Rule 122QA",
+			"name": "Rule 122QA: Strict Products Liability",
+			"description": "",
+			"examples": [
+				{
+					"question": "Bronwyn was driving on a dark road, using her high beams. When a car driven by Cliff approached, Bronwyn tried to flip the handle to dim the headlights, but due to a manufacturing defect in the handle, it broke off in her hand, and the high beams stayed on. Cliff was temporarily blinded, and as a result, lost control of the car and went off the road. Diane, a passenger in Cliff's car, was badly injured in the accident. Bronwyn purchased her car from a new car dealer several years previously.Which of the following causes of action against the manufacturer would offer Diane the best chance of succeeding and would be easiest to prove?",
+					"answerOptions": [
+						"Negligence coupled with res ipsa loquitur.",
+						"Express warranty.",
+						"Strict products liability.",
+						"Absolute liability."
+					],
+					"correct": 2,
+					"explanation": "(EASY) Answer (C) is correct. These facts give rise to a simple products liability case based on manufacturing defect. Courts hold that such cases may be brought on a strict liability theory, which is extremely easy to prove if the defect is known. Because the facts indicate that the handle was defective, this essentially leaves only the question of whether the defect was a cause in fact of her harm, and that will be simple in this case. It does not matter that Diane did not purchase the car.<br /><br />Answer (A) is incorrect because a negligence case is necessarily more difficult to prove, even aided by the doctrine of res ipsa loquitur. Diane will have to demonstrate that this is the type of defect that usually results from negligence in the manufacturing process, something she does not need to show under the strict products liability theory.<br /><br />Answer (B) is incorrect because the facts do not indicate that there was an express warranty covering this kind of situation.<br /><br />Answer (D) is incorrect because in the products liability context, \"absolute liability\" is more of an academic phrase than a cause of action. Courts do not purport to impose it on a defendant."
+				}
+			]
+		},
+		{
+			"key": "Rule 123QA",
+			"name": "Rule 123QA: Contributory Negligent in Products Liability",
+			"description": "",
+			"examples": [
+				{
+					"question": "Because their wheels form a single line, in-line skates work much like ice skates. In-line skates provide a fast, exciting ride, but they are also more dangerous than old-fashioned roller skates. The parents of six-year-old Joni bought her a pair of in-line skates manufactured by RollersInc. As soon as she received her skates, Joni ran to the top of a hill, put on the skates, and took off. It wasn't as easy as she expected it to be. Joni's ankles collapsed inward as she gained speed, and she fell hard, sustaining serious injuries. She brings an action against RollersInc under the Restatement (Third) of Torts: Products Liability.Assuming RollersInc can prove any necessary facts, which of the following arguments would help RollersInc's defense?",
+					"answerOptions": [
+						"If reasonable parents would have known the dangers in-line skates pose to a six-year-old skater, Joni's recovery may be reduced.",
+						"Joni's conduct in skating down a hill on her first experience with in-line skates was unreasonable.",
+						"RollersInc intended the skates to be used only by children over ten.",
+						"In-line skates are more expensive than traditional rollerskates."
+					],
+					"correct": 1,
+					"explanation": "(EASY) Answer (B) is correct. Under the Restatement, the plaintiff's own fault may be used to reduce her recovery in a products liability action. A jury might view plaintiff's having tried to skate down a hill the first time she donned a pair of in-line skates as an act of comparative fault. This will reduce her recovery against RollersInc.<br /><br />Answer (A) is incorrect because any negligence on the part of Joni's parents in buying the in-line skates does not affect the liability of RollersInc to Joni. Put differently, the negligence of Joni's parents, if any, will not be imputed to Joni so as to reduce her recovery.<br /><br />Answer (C) is incorrect because a manufacturer is responsible not only for injuries to intended users, but also to others who might foreseeably use the product. This is an application of the \"foreseeable misuse\" doctrine.<br /><br />Answer (D) is incorrect because the cost of the skates is irrelevant to whether they were defective."
+				}
+			]
+		},
+		{
+			"key": "Rule 124QA",
+			"name": "Rule 124QA: Strict Products Liability",
+			"description": "",
+			"examples": [
+				{
+					"question": "At a birthday party hosted by Wilson, a guest named Megan gave Wilson a new Gametendo as a present. Gametendo, made by GamInc., is a hand-held gaming device that allows players to play race-car driving, sumo wrestling, and other electronic games. \"It's my favorite,\" Megan said to Wilson. Wilson was impressed by this endorsement because Megan was the best gamer he knew. While Wilson was playing with his new Gametendo the device administered an unexpected electric shock. Wilson suffered burns along with the inability to use his thumbs for a number of weeks. Investigation later revealed a manufacturing defect in 500 Gametendo devices, including Wilson's. When Wilson filed strict products liability actions against GamInc. and Megan, both defendants filed motions to dismiss for failure to state a claim.What should the court do?",
+					"answerOptions": [
+						"Grant both motions. Wilson has no strict products liability claim against either GamInc. or Megan.",
+						"Deny both motions. Wilson might not prevail at trial, but he is entitled to proceed against both GamInc. and Megan.",
+						"Grant GamInc.'s motion and deny Megan's.",
+						"Grant Megan's motion and deny GamInc.'s."
+					],
+					"correct": 3,
+					"explanation": "(EASY) Answer (D) is correct. For strict products liability to apply, the defendant must be in the business of selling the product. If Megan's endorsement of the Gametendo could support a claim by Wilson, that claim would be for negligence or fraud, not strict liability. The claim against GamInc. is valid because GamInc. is in the business of selling the injurious product and strict liability applies to manufacturing defects.<br /><br />Answer (A) is incorrect because the strict products liability claim against GamInc. is valid.<br /><br />Answer (B) is incorrect because the strict products liability claim against Megan is not valid.<br /><br />Answer (C) is incorrect because it reverses the correct result. The claim against GamInc. ought to go to trial and the claim against Megan ought not."
+				}
+			]
+		},
+		{
+			"key": "Rule 125QA",
+			"name": "Rule 125QA: Comparative Negligent in Products Liability",
+			"description": "",
+			"examples": [
+				{
+					"question": "Believing that rising auto prices made it very hard for low-income people to afford new cars, Corvair Motor Co. (CMC) decided to design and manufacture a cheaper alternative. Its Workerswagon was a very basic car that barely complied with federal safety standards, and carried a base price of just under $10,000. Shortly after the car's introduction, Millicent bought one and drove it for two years before giving it to her friend's son Danny as a college graduation present.Six months later, Danny negligently ran a red light and was struck from the side by a car traveling through the intersection from his left. Danny's car door was displaced inward in the crash and badly injured him. He contacted an attorney, who learned that the steel beams placed in the car's doors to protect occupants were thinner than those used by all other auto manufacturers and that the design made it easier for the car's door to be pushed into the occupant when the car was struck from the side. The attorney also learned that this design feature saved CMC $200 per car and that had CMC adopted any of the other designs then in use, Danny's injuries would have been substantially reduced.Danny brings an action against CMC, alleging defective design. Based on the facts provided and reasonable inferences that may be drawn from those facts, which of the following arguments offers CMC the best chance of defeating Danny's action or substantially reducing his recovery? Assume the jurisdiction accepts Restatement (Third) of Torts: Products Liability.",
+					"answerOptions": [
+						"Consumers do not expect inexpensive cars to offer as much crashworthiness as expensive cars.",
+						"CMC complied with all relevant federal safety standards.",
+						"Danny was comparatively negligent.",
+						"Danny assumed the risk."
+					],
+					"correct": 2,
+					"explanation": "(EASY) Answer (C) is correct. Under the Restatement, comparative negligence is a partial defense in a products liability action. Here, Danny ran a red light, which appears to be negligent. The jury should reduce Danny's recovery.<br /><br />Answer (A) is incorrect because current authority, including the Third Restatement, rejects the consumer expectations test of defect. Courts that follow the Restatement use a risk-utility balance.<br /><br />Answer (B) is incorrect because compliance with safety standards is relevant evidence of reasonable care, but hardly dispositive. A car that meets federal standards still may be found to have been designed defectively.<br /><br />Answer (D) is incorrect because Danny did not assume the risk. There is no suggestion in the facts that he knew the door's protective beams were not as strong as those used in other cars."
+				}
+			]
+		},
+		{
+			"key": "Rule 126QA",
+			"name": "Rule 126QA: Foreseeable Plaintiff",
+			"description": "",
+			"examples": [
+				{
+					"question": "Believing that rising auto prices made it very hard for low-income people to afford new cars, Corvair Motor Co. (CMC) decided to design and manufacture a cheaper alternative. Its Workerswagon was a very basic car that barely complied with federal safety standards, and carried a base price of just under $10,000. Shortly after the car's introduction, Millicent bought one and drove it for two years before giving it to her friend's son Danny as a college graduation present.Six months later, Danny negligently ran a red light and was struck from the side by a car traveling through the intersection from his left. Danny's car door was displaced inward in the crash and badly injured him. He contacted an attorney, who learned that the steel beams placed in the car's doors to protect occupants were thinner than those used by all other auto manufacturers and that the design made it easier for the car's door to be pushed into the occupant when the car was struck from the side. The attorney also learned that this design feature saved CMC $200 per car and that had CMC adopted any of the other designs then in use, Danny's injuries would have been substantially reduced.Danny brings an action against CMC, alleging defective design. Based on the facts provided and reasonable inferences that may be drawn from those facts, which of the following arguments offers CMC the best chance of defeating Danny's action or substantially reducing his recovery? Assume the jurisdiction accepts Restatement (Third) of Torts: Products Liability. <br /><br />Same facts as above. Does it matter for Danny's claim that Danny was not the purchaser of the car?",
+					"answerOptions": [
+						"Yes. The fact will make it less likely that Danny will prevail.",
+						"Yes. The fact will make it more likely that Danny will prevail.",
+						"No. The fact will have no effect on Danny's possible recovery.",
+						"Maybe. The original bill of sale could have included reservations of rights that would bind Danny."
+					],
+					"correct": 2,
+					"explanation": "(EASY) Answer (C) is correct. A person who is injured by a defective product is a proper plaintiff even if she was not the purchaser (or even the user) of the product. The fact is irrelevant.<br /><br />Answers (A), (B), and (D) are incorrect for the reason explained above. Answer (D) is extra wrong because what it says is categorically not correct."
+				}
+			]
+		},
+		{
+			"key": "Rule 127QA",
+			"name": "Rule 127QA: Major criticisms of the \"reasonable alternative design\"",
+			"description": "What are the major criticisms of the \"reasonable alternative design\" requirement as provided in Restatement (Third) of Torts: Products Liability? <br /><br />(EASY) Requiring that a plaintiff prove a reasonable alternative design increases her costs of litigating. She has to find expert evidence in order to reach a jury. Fewer valid claims might reach the courts when this standard is used. Critics also fault the requirement for importing negligence reasoning into strict products liability, thereby harming the general \"enterprising liability\" project of making manufacturers internalize the costs of product-caused injury. The requirement is also at odds with \"generic products liability,\" which condemns entire categories of products, like cigarettes, as unreasonably dangerous. Many observers favor generic products liability. However, comment e to section 2(B) of the Third Restatement recognizes the possibility of a \"manifestly unreasonable design\" which might be extended to some general products liability claims.",
+			"examples": [
+				{
+					"question": "",
+					"answerOptions": [
+						"",
+						"",
+						"",
+						""
+					],
+					"correct": -1,
+					"explanation": ""
+				}
+			]
+		},
+		{
+			"key": "Rule 128QA",
+			"name": "Rule 128QA: Implied Warranty UCC 2-315",
+			"description": "Explain the concept of implied warranty of fitness for a particular purpose, as codified in UCC $ 2-315?<br /><br />(MEDIUM) The implied warranty of fitness for a particular purpose arises between a buyer and seller when the buyer communicates to the seller a particular need, and the seller understands that the buyer is relying on the seller's expertise and advice. For purposes of products liability, an unflawed product can become the basis of liability when the seller gives advice to the buyer about a product, the buyer purchases the product and uses it as the seller advises, and the buyer suffers injury.",
+			"examples": [
+				{
+					"question": "",
+					"answerOptions": [
+						"",
+						"",
+						"",
+						""
+					],
+					"correct": -1,
+					"explanation": ""
+				}
+			]
+		},
+		{
+			"key": "Rule 129QA",
+			"name": "Rule 129QA: Design Defect",
+			"description": "",
+			"examples": [
+				{
+					"question": "Despite studies showing that drivers using cell phones are much more likely to be involved in accidents than drivers who are not using these distracting technologies, Pamela's luxury car, manufactured by Lexura, came equipped with its own built-in phone. Lexura promoted this feature as a valuable backup should the user's own phone fail. It is the only manufacturer that sells automobiles so equipped in the U.S.One morning, while driving on a busy highway in rush hour and using the Lexura built-in phone, Pamela failed to negotiate a curve and hit the guardrail. She suffered physical injury and her car was damaged. Pamela brought an action against Lexura, alleging that the car was defectively designed because it included a phone. Restatement (Third) of Torts: Products Liability governs.Would it be correct for the court to send Pamela's claim to a jury?",
+					"answerOptions": [
+						"No, because Pamela was not involuntarily exposed to the cell phone, but instead chose to use it.",
+						"No, because Pamela has not shown a reasonable alternative design.",
+						"Yes, if Pamela can show an express representation of safety by Lexura and reasonable reliance on that misrepresentation.",
+						"Yes, if Pamela can demonstrate that the benefits of the built-in phone were outweighed by its dangers."
+					],
+					"correct": 3,
+					"explanation": "(MEDIUM) Answer (D) is correct. Pamela's case is based on an alleged design defect. It is not a typical design defect case in which some basic feature of the car causes an accident, but the cell phone is part of the car nevertheless, and if it is unreasonably dangerous to equip a car with the appliance, the car can be viewed as defective. The Restatement favors a risk-utility test for determining design defect. Thus, if the risks created by having a cell phone in the car outweigh its benefits, a jury may deem the car defective.<br /><br />Answer (A) is incorrect because plaintiff in a products liability case need not have been exposed involuntarily to the defective product in order to recover. Indeed, in most products cases, it is the user of the product who sues.<br /><br />Answer (B) is incorrect because the problem states that Lexura's automobiles are the only ones equipped with built-in phones that are sold in the U.S. market. The alternative design that Pamela has in mind is available in everyday life. If her theory of defect were more elaborate — for example, that the automobile was defective because it did not contain a safer version of a built-in phone — then under the Third Restatement Pamela would need a reasonable alternative design. But as stated, her objection to the design is only that it contained a phone.<br /><br />Answer (C) is incorrect because plaintiff in a products liability case need not prove that the seller or manufacturer made any misrepresentations. Though a products liability case can be based on a misrepresentation, it is not a required element of proof in a design-defect action."
+				}
+			]
+		},
+		{
+			"key": "Rule 130QA",
+			"name": "Rule 130QA: Bystanders and Foreseeable Plaintiff",
+			"description": "",
+			"examples": [
+				{
+					"question": "Same facts as above, except assume that Pamela's car also struck a car driven by Aviram. Assume also that Lexura would be liable to Pamela for defective design. If Aviram also seeks recovery against Lexura, which of the following statements is most accurate?",
+					"answerOptions": [
+						"Because he was not a purchaser or user of the defective car, Aviram may not recover.",
+						"Because Aviram did not rely on Lexura to provide a safe car, Aviram may not recover.",
+						"Aviram may recover for his personal injuries and for damage to his car.",
+						"Aviram can recover for his personal injuries, but not for damage to his car, which is not recoverable in a tort-based products liability action."
+					],
+					"correct": 2,
+					"explanation": "(EASY) Answer (C) is correct. Courts permit injured bystanders and others who were not using the product to bring products liability suits.<br /><br />Answer (A) is incorrect for the reason just given.<br /><br />Answer (B) is incorrect because reliance is not an element of a products liability action.<br /><br />Answer (D) is incorrect because a products liability plaintiff may recover both for personal injuries and property damage."
+				}
+			]
+		},
+		{
+			"key": "Rule 131QA",
+			"name": "Rule 131QA: Failure to warn a risk which is not known",
+			"description": "Courts generally reject liability for failure to warn of a risk that was not known, and could not have been known, at the time of marketing. Nevertheless, some courts have held that post-sale duties can arise after the risks become known. To whom are these post-sale duties owed, and what should a manufacturer do to fulfill these duties? (MEDIUM) The post-sale duty to warn dates back to the case of Comstock v. General Motors Corp., 99 N.W. 2d 627 (Mich. 1959). There, the court held that an automobile manufacturer had to inform owners of this product after a latent design defect was discovered. Courts accepting this duty find that it is owed to users of the product. The manufacturer must act reasonably to find these users and communicate with them. The standard in evaluating this claim is negligence, not strict liability.",
+			"examples": [
+				{
+					"question": "",
+					"answerOptions": [
+						"",
+						"",
+						"",
+						""
+					],
+					"correct": -1,
+					"explanation": ""
+				}
+			]
+		},
+		{
+			"key": "Rule 132QA",
+			"name": "Rule 132QA: Assumption of Risk",
+			"description": "",
+			"examples": [
+				{
+					"question": "Homer loved chocolate-chip muffins. One evening, after he and his date Marge finished dinner at the Hungry Heifer, the two visited Maggie's Desserts to pick up a dozen muffins. Homer had paid for dinner; to reciprocate, Marge insisted on paying for this dessert. The couple headed back to Marge's apartment to enjoy the muffins. Halfway through his sixth muffin, Homer started choking. He grabbed his throat, stood up, thrashed around, turned as blue as Marge's hair, and fell to the floor, hitting his head on the table as he fell. Marge raised Homer to his feet and applied \"the Heimlich Maneuver,\" which dislodged a large rusty nail from Homer's throat. Homer's head was bleeding profusely, and Marge rushed him to the hospital.Homer brings an action against Maggie's for products liability. Which of the following, if true, would hinder Homer's chances of prevailing?",
+					"answerOptions": [
+						"Marge, rather than Homer, is considered the purchaser of this good even though she paid for the muffins to reciprocate for dinner.",
+						"Maggie's was not the manufacturer of the muffins in question. It had bought the batch in question from Bart's, a large commercial bakery.",
+						"The nail was placed in the muffin by a disgruntled former employee of Maggie's who sneaked into the kitchen of Maggie's.",
+						"Before he placed it in his mouth, Homer felt something sharp in the muffin with his fingers."
+					],
+					"correct": 3,
+					"explanation": "(MEDIUM) Answer (D) is correct. Assumption of risk (particularly assumption of risk interpreted similarly to comparative negligence) is a recognized defense to a products liability action. Putting a muffin in your mouth after noticing that there is something sharp embedded in it is probably both the voluntary confrontation of a known hazard and unreasonably dangerous. Homer's recovery is likely to be reduced as a result.<br /><br />Answer (A) is incorrect because a plaintiff in a products liability case need not have been the purchaser of the product.<br /><br />Answer (B) is incorrect because the seller of a product is a proper defendant in a product liability action.<br /><br />Answer (C) is incorrect because, even if the nail was placed in the muffin by a person other than Maggie's, Maggie's sold the defective muffin. Strict liability applies."
+				}
+			]
+		},
+		{
+			"key": "Rule 133QA",
+			"name": "Rule 133QA: General in Products Liability",
+			"description": "",
+			"examples": [
+				{
+					"question": "Same facts as above and assume that choice (B) for question 132 adds a true statement. If Homer also brings a products liability action against Bart's, the bakery that actually made the muffins, for products liability, which of the following facts, if proven, would hinder Homer's chances of prevailing?",
+					"answerOptions": [
+						"Marge, rather than Homer, is considered the purchaser of this good even though she paid for the muffins to reciprocate for dinner.",
+						"The nail would have been detected by a reasonable inspection conducted by Maggie's before selling the muffin.",
+						"The nail was placed in the muffin by a disgruntled former employee of Maggie's who sneaked into the kitchen of Maggie's.",
+						"Bart's did not sell the muffin to Marge but only to Maggie's, an intermediary."
+					],
+					"correct": 2,
+					"explanation": "(EASY) Answer (C) is correct. If the nail got into the muffin after Bart's sold it to the Maggie's, Bart's did not sell a defective muffin. Thus, Bart's will prevail in the products liability action.<br /><br />Answer (A) is incorrect because, as noted already, a person need not be the purchaser to be a proper plaintiff in a products liability action.<br /><br />Answer (B) is incorrect because Maggie's negligence is irrelevant to Homer's case against Bart's. Homer will win if the muffin left Bart's in a defective condition. Because it did not, Bart's is not liable.<br /><br />Answer (D) is incorrect because any entity in the chain of distribution is a proper defendant if the product left that entity's hands in a defective condition. Here, of course, it did not."
+				}
+			]
+		},
+		{
+			"key": "Rule 134QA",
+			"name": "Rule 134QA: Actual Cause in Products Liability",
+			"description": "",
+			"examples": [
+				{
+					"question": "Sally was an experienced in-line skater who wanted to be the fastest kid on the block. To achieve even greater speeds, but knowing that this would affect her skates' stability, she decided to replace the existing wheels with a different kind. The process was very difficult because RollersInc, the manufacturer of Sally's skates, had welded the wheel brackets into place. Still, Sally managed to change the wheels. She could indeed skate faster with the new wheels, but after she'd been skating for about an hour, she lost control while at top speed and suffered a bad fall. Sally has sued RollersInc citing the Restatement (Third) of Torts: Products Liability.Which of the following potential arguments by RollersInc is weakest?",
+					"answerOptions": [
+						"The product made by RollersInc was not a cause in fact of Sally's injury.",
+						"The product made by RollersInc was not the proximate cause of Sally's injury.",
+						"Sally assumed the risk of her injury.",
+						"The product was not defective because the plaintiff misused it in an unforeseeable manner."
+					],
+					"correct": 0,
+					"explanation": "(MEDIUM) Answer (A) is correct. As the source of the skates, RollersInc played a role in bringing about the harm Sally suffered. Cause in fact is an easy test to satisfy: conduct involved in any way in bringing about the harm is a cause in fact of that harm.<br /><br />Answer (B) is incorrect because RollersInc might be successful in arguing that Sally's modification of the skates so fundamentally changed their design, and was so unforeseeable (given the difficulty of accomplishing it), that RollersInc should not be viewed as a proximate cause of Sally's injury.<br /><br />Answer (C) is incorrect because Sally might well have assumed the risk. She modified the skates for the purpose of achieving great speed. Her experience in skating for about an hour before her accident also probably added to her appreciation of the dangers posed by the modified skates. Thus, RollersInc has a viable argument that Sally voluntarily confronted a known and appreciated hazard.<br /><br />Answer (D) is incorrect because Sally's modification might constitute an unforeseeable misuse of the skates. Though sellers are responsible for foreseeable misuse, they are not liable for unforeseeable uses. Because the wheel brackets were welded in place and were very difficult to modify, it is likely that a reasonable manufacturer in the position of RollersInc would not think it very likely that someone would make this modification. If this argument is accepted, RollersInc will defeat Sally's case."
+				}
+			]
+		},
+		{
+			"key": "Rule 135QA",
+			"name": "Rule 135QA: Manufacturing Defect case",
+			"description": "",
+			"examples": [
+				{
+					"question": "Skatz, a manufacturer of in-line skates, has the best quality control procedures in the business. While other companies inspect each skate once, Skatz puts each skate through three inspections. This care is costly for Skatz, and any additional costs would make the skates unprofitable. Despite these procedures, the left skate in a pair purchased by Greg from a sporting goods store left the Skatz plant with a weak wheel mount. After Greg had used the skates for a month, the weak wheel mount suddenly gave way, causing the left skate to collapse, and Greg to fall and injure himself.If Greg brings an action against Skatz for product liability citing the Restatement (Third) of Torts: (Products Liability), which of the following statements is most accurate?",
+					"answerOptions": [
+						"Because Greg was injured by a product manufactured by Skatz that deviated from its intended design and caused his injury, Greg can recover.",
+						"Because Skatz cannot operate profitably with any quality control procedures beyond those it already uses, Skatz cannot be held liable.",
+						"Because Skatz's quality control procedures exceeded even what would be considered reasonable care, Skatz cannot be held liable.",
+						"Because Greg could recover directly from the store from which he purchased the skates, he cannot hold Skatz liable."
+					],
+					"correct": 0,
+					"explanation": "(MEDIUM) Answer (A) is correct. This is manufacturing defect case. Under the Restatement and the law as it has developed in all jurisdictions, such cases may be brought on a strict liability theory. Section 2 of the Third Restatement provides that a product \"contains a manufacturing defect when the product departs from its intended design even though all possible care was exercised in the preparation and marketing of the product.\" Thus, all Greg will need to prove is that the skate left the hands of Skatz with a deviation from its design that caused him harm.<br /><br />Answer (B) is incorrect because Skatz will be held strictly liable even if it would not be economically feasible for it to institute additional quality control procedures that would have caught this defect. This is the essence of strict liability in the present context.<br /><br />Answer (C) is incorrect because it does not matter that Skatz uses quality control measures that exceed reasonable care. It is strictly liable for a manufacturing defect.<br /><br />Answer (D) is incorrect because the law permits an injured person to recover from any seller along the chain of production, including the original manufacturer. Of course, if a product has been altered before it reaches the plaintiff, entities earlier in the chain might not be liable for the alteration (though sometimes they are responsible), but that is not the case here in any event. When the skate left Skatz's hands, it was in a defective condition. Skatz is liable even though others, such as the store from which Greg bought the skates, might also be liable."
 				}
 			]
 		}

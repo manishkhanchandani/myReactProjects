@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import './Clock2.css';
+import {connect} from 'react-redux';
+import {changeStartTime} from '../essays/IssuesAction.js';
 //https://www.sitepoint.com/build-javascript-countdown-timer-no-dependencies/
 
 class Clock2 extends Component {
@@ -21,10 +23,31 @@ class Clock2 extends Component {
 	}
 	componentDidMount()
 	{
+		this.props.callChangeStartTime(parseInt(this.props.startTime, 10));
+		var deadline = new Date(Date.parse(new Date()) + this.props.startTime * 1000);
+		this.initializeClock(deadline);	
+		/*
 		this.setState({startTime: parseInt(this.props.startTime, 10)}, () => {
 			var deadline = new Date(Date.parse(new Date()) + this.state.startTime * 1000);
 			this.initializeClock(deadline);	
-		});
+		});*/
+	}
+	
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.startTime !== nextProps.issuesReducer.startTime) {
+			clearInterval(this.timeinterval);
+			nextProps.callChangeStartTime(parseInt(nextProps.startTime, 10));
+			var deadline = new Date(Date.parse(new Date()) + nextProps.startTime * 1000);
+			this.initializeClock(deadline);	
+		}
+		/*
+		if (nextProps.startTime !== this.state.startTime && this.state.startTime > 0) {
+			clearInterval(this.timeinterval);
+			this.setState({startTime: parseInt(nextProps.startTime, 10)}, () => {
+				var deadline = new Date(Date.parse(new Date()) + this.state.startTime * 1000);
+				this.initializeClock(deadline);	
+			});
+		}*/
 	}
 	
 	getTimeRemaining(endtime) {
@@ -53,6 +76,11 @@ class Clock2 extends Component {
 		var that = this;
 	  function updateClock() {
 		var t = that.getTimeRemaining(endtime);
+		
+		if (t.total <= 0) {
+		  clearInterval(this.timeinterval);
+		  return;
+		}
 		that.setState({
 			daysSpan: t.days,
 			hoursSpan: ('0' + t.hours).slice(-2),
@@ -60,13 +88,10 @@ class Clock2 extends Component {
 			secondsSpan: ('0' + t.seconds).slice(-2)
 		});
 	
-		if (t.total <= 0) {
-		  clearInterval(timeinterval);
-		}
 	  }
 	
 	  updateClock();
-	  var timeinterval = setInterval(updateClock, 1000);
+	  this.timeinterval = setInterval(updateClock, 1000);
 	}
 	
 	render() {
@@ -95,4 +120,18 @@ class Clock2 extends Component {
 	}
 }
 
-export default Clock2;
+const mapStateToProps = (state) => {
+	return {
+		issuesReducer: state.IssuesReducer
+	}	
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		callChangeStartTime: (val) => {
+			dispatch(changeStartTime(val));
+		}
+	};	
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Clock2);

@@ -95,6 +95,7 @@ export const FirebaseLogin = (type, additionalParams=null) => {
 					}
 					
 					firebaseDatabase.ref(url).update(obj);
+					window.location.reload();
 					resolve(obj);
 				});
 			}).catch(function(error) {

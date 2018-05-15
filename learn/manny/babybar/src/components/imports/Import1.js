@@ -222,6 +222,60 @@ class Import1 extends Component {
 			console.log('error is ', err);	
 		});
 	}
+	
+	
+	
+	
+	importQuiz(cat_id, e) {
+		e.preventDefault();
+		let url = 'http://localhost/project2017/qz/api/quiz_display.php?category_id='+cat_id+'&limit=1000&order=+id+ASC&allFields=1';	
+		fetch(url, {
+			method: 'GET'	  
+		}).then((response) => {
+			return response.json();
+		}).then((j) => {
+			console.log('j is ', j);
+			var url = '';
+			var countCategories = {};
+			
+			var myObject = {};
+			j.data.map((value, key) => {
+				let id = 'category_' + value.category_id;
+				if (!myObject[id]) {
+					myObject[id] = [];	
+				}
+				myObject[id].push(value);
+				return true;
+			});
+			console.log(myObject);
+			
+			for (let i in myObject) {
+				countCategories[i] = myObject[i].length;
+				var url2 = FirebaseConstant.basePath + '/quiz/questions/' + i;
+				console.log('url2 is ', url2);
+				firebaseDatabase.ref(url2).set(myObject[i]);	
+			}
+			
+			var categories = {};
+			j.categories.map((value, key) => {
+				let id = 'category_' + value.cat_id;
+				categories[id] = {
+					key: id,
+					name: value.displayCategory,
+					cnt: countCategories[id]
+				};  
+				return true;
+			});
+			console.log('categories: ', categories);
+			url = FirebaseConstant.basePath + '/quiz/categories';
+			console.log('url: ', url);
+			firebaseDatabase.ref(url).update(categories);
+		}).catch((err) => {
+			console.log('error is ', err);	
+		});
+	}
+	
+	
 	render() {
 		return (
 			<div className="container">
@@ -230,6 +284,7 @@ class Import1 extends Component {
 				<div><a href="" onClick={this.importContracts.bind(this)}>Contracts</a></div>
 				<div><a href="" onClick={this.importCriminal.bind(this)}>Criminal</a></div>
 				<div><a href="" onClick={this.importTorts.bind(this)}>Torts</a></div>
+				<div><a href="" onClick={this.importQuiz.bind(this, 27)}>Siegel Contract</a></div>
 				
 				
 				<div><a href="" onClick={this.importSubjects.bind(this)}>Import Subjects</a></div>		

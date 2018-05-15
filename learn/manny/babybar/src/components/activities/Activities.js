@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import * as firebase from 'firebase';
+//import * as firebase from 'firebase';
 import {firebaseDatabase, FirebaseConstant} from '../../MyFirebase.js';
 import {timeAgo, processRecords} from '../../utilities/functions.js';
 import Paginator from '../../utilities/Paginator.js';
@@ -7,7 +7,7 @@ import './Activities.css';
 import {Link} from 'react-router-dom';
 import {getUID} from '../auth/AuthAction.js';
 
-class Activities extends Component {
+class PageTracker extends Component {
 	
 	constructor(props) {
 		super(props);
@@ -23,7 +23,7 @@ class Activities extends Component {
 	}
 	
 	componentDidMount() {
-		let url = FirebaseConstant.basePath + '/activities';
+		let url = FirebaseConstant.basePath + '/activities/pageTracker/history';
 		let ref = firebaseDatabase.ref(url).limitToLast(500);
 		ref.off();
 		ref.on('value', (snapshot) => {
@@ -36,6 +36,8 @@ class Activities extends Component {
 			for (var key in result) {
 				var obj = result[key];
 				obj.dt = timeAgo(obj.created_dt);
+				let d = new Date(obj.created_dt);
+				obj.dt2 = d.toString();
 				myArray.push(obj);
 			}
 			
@@ -43,15 +45,22 @@ class Activities extends Component {
 		});
 	}
 
+	componentWillunmount() {
+		let url = FirebaseConstant.basePath + '/activities/pageTracker/history';
+		let ref = firebaseDatabase.ref(url).limitToLast(500);
+		ref.off();
+	}
+
 	render() {
 		if (!this.state.data) {
 			return null;	
 		}
-		const {myArrayConverted, paginationProps} = processRecords(this.state.data, '-created_dt', null, [], 10, this.state.pageNumber, this.onActivePageChange.bind(this), 1);
+		const {myArrayConverted, paginationProps} = processRecords(this.state.data, '-created_dt', null, [], 25, this.state.pageNumber, this.onActivePageChange.bind(this), 1);
 		const uid = getUID();
 		return (
+			
 			<div className="panel panel-primary activities">
-				<div className="panel-heading">Activities</div>
+				<div className="panel-heading">Page Tracker</div>
 				<div className="panel-body">
 				{
 					myArrayConverted.map((value, key) => {
@@ -70,8 +79,8 @@ class Activities extends Component {
 								}
 								
 								</h5>
-							<div><Link to={value.url}>{value.page}</Link></div>
-							<div>{value.dt}</div>
+							<div><a href={value.page} target="_blank">{value.page}</a></div>
+							<div>{value.dt} ({value.dt2})</div>
 						  </div>
 						  <hr />
 						</small>					  
@@ -84,5 +93,21 @@ class Activities extends Component {
 		);
 	}
 }
+
+class Activities extends Component {
+	render() {
+		return (
+			<div>
+				<h3>Activities</h3>
+				<div className="row">
+					<div className="col-md-4">
+						<PageTracker />
+					</div>
+				</div>
+			</div>
+		);
+	}
+}
+
 
 export default Activities;

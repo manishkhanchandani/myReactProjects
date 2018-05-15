@@ -7,7 +7,7 @@ import {firebaseDatabase, FirebaseConstant} from './MyFirebase.js';
 import './Effect.css';
 
 
-class Monitor extends Component {
+class Logs extends Component {
 	constructor(props) {
 		super(props);
 		
@@ -49,16 +49,17 @@ class Monitor extends Component {
 		});	
 		var url2 = FirebaseConstant.log2Path;
 		var ref2 = firebaseDatabase.ref(url2);
-		ref2.on('value', (snapshot) => {
+		ref2.on('child_added', (snapshot) => {
 			var result = snapshot.val();
-			if (!result) return;
-			let arr = [];
-			for (let i in result) {
-				arr.push(result[i]);
-			}
-			this.setState({logs: arr});			
+			let obj = {};
+			obj.current = result.current;
+			obj.text = result.text;
+			let arr2 = JSON.parse(JSON.stringify(this.state.logs));
+			arr2.unshift(obj);
+			this.setState({logs: arr2});
 		});	
 	}
+	
 
 	render() {
 		const arr = this.state.logs;
@@ -69,16 +70,12 @@ class Monitor extends Component {
 			}
 		}
 		return (
-			<div className="my-container2 fade-in monitor">
-				<div className="row guage">
-					<div className="col-md-12 text-center list-guage">
-						<MyGuage label="Memory Usage" value={this.props.myReducer.monitor_memory}  min={0} max={16} symbol=" GB" color="#ff9900" />
+			<div className="my-container2 fade-in logs2">
+				<div className="row">
+					<div className="col-md-12">
+					<div className="sub-logs">{arr2}
 					</div>
-					<div className="col-md-12 text-center list-guage">
-						<MyGuage label="Bandwidth Usage" value={this.props.myReducer.monitor_bandwidth}  min={0} max={100} symbol=" Mbps" color="#F06677" />
-					</div>
-					<div className="col-md-12 text-center list-guage">
-						<MyGuage label="Disk I/O Usage" value={this.props.myReducer.monitor_disk}  min={0} max={100} symbol=" Mbps" color="#009688" />
+						
 					</div>
 				</div>
 			</div>
@@ -111,4 +108,4 @@ const mapDispatchToProps = (dispatch) => {
 		}
 	};	
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Monitor);
+export default connect(mapStateToProps, mapDispatchToProps)(Logs);

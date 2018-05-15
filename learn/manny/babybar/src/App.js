@@ -22,9 +22,10 @@ import UserQuiz from './components/userQuiz/Quiz.js';
 import ChangeUser from './components/admin/ChangeUser.js';
 import UserQuizAdd from './components/userQuiz/Add.js';
 import QuizPractice from './components/quiz-practice/Practise.js';
+import Activities from './components/activities/Activities.js';
 
-import PractiseQuestion from './components/practise/Question.js';
-import CompleteProcess from './components/complete/Process.js';
+//import PractiseQuestion from './components/practise/Question.js';
+//import CompleteProcess from './components/complete/Process.js';
 
 class App extends Component {
 	
@@ -56,15 +57,18 @@ class App extends Component {
 								<Route exact={true} path="/essays/issues/:subject" component={EssayIssues} />
 								<Route exact={true} path="/essays/issues" component={EssayIssues} />
 								<Route exact={true} path="/essays/issue/spotting/:subject" component={IssuesSpotting} />
+								<Route exact={true} path="/essays/issue/spotting/:subject/:id" component={IssuesSpotting} />
 								<Route exact={true} path="/simulation/:subject" component={Simulation} />
 								<Route exact={true} path="/user-quiz" component={UserQuiz} />
 								<Route exact={true} path="/user-quiz/categories" component={UserQuizCategories} />
 								<Route exact={true} path="/user-quiz/addQuiz" component={UserQuizAdd} />
 								<Route exact={true} path="/admin/changeuser" component={ChangeUser} />
+								<Route exact={true} path="/admin/activities" component={Activities} />
 								<Route exact={true} path="/quizPractice" component={QuizPractice} />
+								<Route exact={true} path="/quizPractice/:uniqueId" component={QuizPractice} />
 								<Route exact={true} path="/quizPractice/:subject/:id" component={QuizPractice} />
-								<Route exact={true} path="/practice/:subject/:issue" component={PractiseQuestion} />
-								<Route exact={true} path="/complete" component={CompleteProcess} />
+								{/*<Route exact={true} path="/practice/:subject/:issue" component={PractiseQuestion} />
+								<Route exact={true} path="/complete" component={CompleteProcess} />*/}
 							</div>
 							{/*<div className="col-md-3">
 								<Activities />

@@ -35,14 +35,20 @@ const paginationProps = {
 class Paginator extends Component {
 	changePageNum(e) {
 		let num = parseInt(e.target.value, 10);
+		if (isNaN(num)) {
+			num = '';
+		}
 		this.props.onSelect(num);	
 	}
 	render() {
+		let ap = parseInt(this.props.activePage, 10);
+		const activePage = isNaN(ap) ? 1 : ap;
 		return (
 			<div className="text-right">
 				<Pagination
 				  bsSize="small"
 				  {...this.props}
+				  activePage={activePage}
 				/>
 				<div><span  style={{fontSize:"12px", fontWeight:"bold"}}>Page Number: </span><input type="text" value={this.props.activePage} onChange={this.changePageNum.bind(this)} size="5" /></div>
 			</div>

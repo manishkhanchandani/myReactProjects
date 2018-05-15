@@ -6,7 +6,7 @@ import renderHTML from 'react-render-html';
 import {connect} from 'react-redux';
 import * as issuesAction from './IssuesAction.js';
 import {getUID} from '../auth/AuthAction.js';
-import {timeAgo, processRecords} from '../../utilities/functions.js';
+import {timeAgo, processRecords, activityTracker} from '../../utilities/functions.js';
 import Paginator from '../../utilities/Paginator.js';
 import {Alert} from 'react-bootstrap';
 
@@ -57,9 +57,21 @@ class IssuesSpotting extends Component {
 	}
 
 	componentDidMount() {
-		this.props.callGetBabyBarExamJson(this.props.match.params.subject);
+		this.props.callGetBabyBarExamJson(this.props.match.params.subject, (obj) => {
+			if (obj.data.exams && this.props.match.params.id) {
+				let result = obj.data.exams.filter((rec) => {
+					return parseInt(rec.id, 10) === parseInt(this.props.match.params.id, 10);									
+				});
+				if (result && result[0]) {
+					let rec = result[0];
+					this.setState({displayAnswers: false, issueSpotting: rec, issueSpottingStarted: true});
+				}
+			}
+		});
 		this.showRecord(this.props);
 		this.resetChecked();
+		//activity Tracker
+		activityTracker('pageTracker', this.props.match.url);
 	}
 	
 	componentWillUnmount() {
@@ -109,9 +121,9 @@ class IssuesSpotting extends Component {
 		let issueSelected = this.state.issueSelected;
 		let issueSpotting = this.state.issueSpotting;
 		let issues = JSON.parse(JSON.stringify(issueSpotting.issues));
-		console.log('issueDetails: ', issueDetails);
-		console.log('issueSpotting: ', issueSpotting);
-		console.log('issues: ', issues);
+		//console.log('issueDetails: ', issueDetails);
+		//console.log('issueSpotting: ', issueSpotting);
+		//console.log('issues: ', issues);
 		
 		if (Object.keys(issueSelected).length === 0) {
 			totalPoints = 0;	
@@ -266,7 +278,6 @@ class IssuesSpotting extends Component {
 		}
 
 		let issueUrl = '/essays/issues/' + this.props.match.params.subject;
-		
 		return (
 			<div className="container">
 				<h3>Issue Spotting :: <span> {subject}</span></h3>
@@ -275,7 +286,17 @@ class IssuesSpotting extends Component {
 						<div className="panel panel-primary">
 							<div className="panel-heading"><b>Issue Spotting</b></div>
 							<div className="panel-body">
-								<select className="form-control" onChange={(e) => {if (!e.target.value) {return;} this.setState({displayAnswers: false, issueSpotting: JSON.parse(e.target.value)})}}>
+								<select className="form-control" onChange={(e) => {
+									if (!e.target.value) {
+										return;
+									} 
+									this.setState(
+										{displayAnswers: false, issueSpotting: JSON.parse(e.target.value), issueSpottingStarted: true}, () => {
+											this.resetChecked();
+											activityTracker('pageTracker', `/essays/issue/spotting/${this.props.match.params.subject}/${this.state.issueSpotting.id}`);	
+										}
+									);
+								}}>
 									<option value="">Select Year</option>
 									{
 										data && 
@@ -307,6 +328,7 @@ class IssuesSpotting extends Component {
 											<div className="panel-body">
 												<div><b>Read the following hypo and try to choose all the issues mentioned from list on right side. Total points is 100, you will get max 70 points if you answer all correct. And you will loose 5 points on each missing and 2 points on each wrong issue which is not on our list.</b></div>
 												<hr />
+												<div className="text-center"><b><a href={`/essays/issue/spotting/${this.props.match.params.subject}/${this.state.issueSpotting.id}`} target="_blank">{this.state.issueSpotting.reference} / {this.state.issueSpotting.id}</a></b> <br /><br /></div>
 												<div>{renderHTML(this.state.issueSpotting.essay)}</div>
 											</div>
 										</div>
@@ -500,9 +522,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		callGetBabyBarExamJson: (subject=null) => {
+		callGetBabyBarExamJson: (subject=null, callback=null) => {
 			if (!subject) return;
-			dispatch(issuesAction.getBabyBarExamJson(subject));
+			dispatch(issuesAction.getBabyBarExamJson(subject, callback));
 		}
 	};	
 };

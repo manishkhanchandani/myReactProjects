@@ -5,8 +5,6 @@ import {withRouter} from 'react-router';
 import {firebaseDatabase, FirebaseConstant} from './MyFirebase.js';
 import {getList, getOnlyList, setImageName, imageMatchCustom, imageHigResClear} from './AWS.js';
 
-import Logo from './Icons/Logo.js';
-
 class Nav extends Component {
 	componentDidMount() {
 		const urls = {
@@ -44,9 +42,6 @@ class Nav extends Component {
 			if (this.props.myReducer.learn !== learn) {
 				console.log('learn is ', learn);
 				this.props.callChangeLearnStatus(learn);
-				if (learn === 'completed') {	
-					this.props.callGetList();
-				}
 			}
 			
 			if (!this.props.myReducer.list && learn === 'started') {
@@ -104,7 +99,6 @@ class Nav extends Component {
 		};
 		return (
 			<div>
-				<img src="/img2/poweredbygreenbg.png" className="img-responsive img-logo2" alt="8K Miles" />
 				<nav className="navbar navbar-inverse navbar-static-top">
 				  <div className="container">
 					<div className="navbar-header">
@@ -114,14 +108,19 @@ class Nav extends Component {
 						<span className="icon-bar"></span>
 						<span className="icon-bar"></span>
 					  </button>
-					  <a className="navbar-brand" href="" onClick={this.resetFb.bind(this)}><Logo /> <span className="logo-header-txt">AIDA</span></a>
+					  <a className="navbar-brand" href="" onClick={this.clickTab.bind(this, 'home')}><img src="/img/RSI_logo_white3x.png" className="img-responsive img-logo" alt="Processing" /></a>
 					</div>
 					<div id="navbar" className="collapse navbar-collapse">
-					  <ul className="nav navbar-nav">
-						<li><a className="logo-header2-txt">Image Analytics</a></li>
+					  <ul className="nav navbar-nav nav-left">
+						<li className={tabs.learn}><a href="" onClick={this.clickTab.bind(this, 'learn')}>Learn</a></li>
+						<li className={tabs.search}><a href="" onClick={this.clickTab.bind(this, 'search')}>Search</a></li>
+						{/*<li className={tabs.upload}><a href="" onClick={this.clickTab.bind(this, 'upload')}>Upload</a></li>
+						<li className={tabs.request}><a href="" onClick={this.clickTab.bind(this, 'request')}>Requests</a></li>*/}
+						<li className={tabs.monitor}><a href="" onClick={this.clickTab.bind(this, 'monitor')}>Monitor</a></li>
 					  </ul>
+					  
 					  <ul className="nav navbar-nav navbar-right">
-						<li></li>
+						<li><a href="" onClick={this.resetFb.bind(this)}><img src="/img/poweredBy8K.png" className="img-responsive img-logo2" alt="8K Miles" /></a></li>
 					  </ul>
 					</div>
 				  </div>

@@ -5,7 +5,8 @@ const IssuesReducer = (state = {
 	issue: {},
 	issue_answers: null,
 	baby_bar_exam: {},
-	baby_bar_rules: {}
+	baby_bar_rules: {},
+	startTime: 0
 }, action) => {
 	let obj = null
 	switch (action.type) {
@@ -21,6 +22,12 @@ const IssuesReducer = (state = {
 			state = {
 				...state,
 				baby_bar_rules: action.payload
+			}
+			break;
+		case 'CHANGE_START_TIME':
+			state = {
+				...state,
+				startTime: action.payload
 			}
 			break;
 		case 'GET_SUBJECTS_JSON_FULFILLED':

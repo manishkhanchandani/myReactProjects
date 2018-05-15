@@ -13,7 +13,7 @@ import './Issues.css';
 import * as simpleQuizAction from '../simple-quiz/SimpleQuizAction.js';
 
 import Paginator from '../../utilities/Paginator.js';
-import {processRecords} from '../../utilities/functions.js'; //, essayPoints, mbePoints, activityTracker
+import {processRecords, activityTracker} from '../../utilities/functions.js'; //, essayPoints, mbePoints
 import SimpleQuiz from '../simple-quiz/SimpleQuiz.js';
 import SimpleQuizResults from '../simple-quiz/SimpleQuizResults.js';
 import IssuesBarExam from './IssuesBarExam.js';
@@ -58,9 +58,9 @@ class EssayIssues extends Component {
 			this.props.callGetBabyBarExamJson(this.props.match.params.subject);
 		}
 		this.props.f_babybarRules(uid, this.props.match.params.subject, this.props.match.params.issue);
-		
+
 		//tracking activity
-		//activityTracker('Browsing: ' + this.props.match.params.subject + ' / ' + this.props.match.params.issue, this.props.match.url);
+		activityTracker('pageTracker', this.props.match.url);
 	
 	}
 	
@@ -82,7 +82,7 @@ class EssayIssues extends Component {
 			
 			this.setState({isPageSubject: nextProps.match.params.subject, isPageIssue: nextProps.match.params.issue, show_past_answer: false, show_past_quiz: false});
 			//tracking activity
-			//activityTracker('Browsing: ' + nextProps.match.params.subject + ' / ' + nextProps.match.params.issue, nextProps.match.url);
+			activityTracker('pageTracker', this.props.match.url);
 
 		}
 	}
@@ -373,7 +373,7 @@ class EssayIssues extends Component {
 									
 									
 									{
-										issue.mbe &&
+										((userObj.access_level === 'admin' || userObj.access_level === 'admin2' || userObj.access_level === 'superadmin') && issue.mbe) &&
 										<div className={`panel panel-${sitePanelClass_1} mbe` }>
 										<div className="panel-heading">MBE Ideas</div>
 										<div className="panel-body">

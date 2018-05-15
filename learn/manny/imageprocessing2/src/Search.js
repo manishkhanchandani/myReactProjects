@@ -80,21 +80,14 @@ class Search extends Component {
 		}
 
 		return (
-			<div className="my-container container search fade-in">
-				<div className="row heading text-center">
-					<div className="col-md-12">
-						Search Images
-					</div> 
-				</div>
-				<div className="row second-row text-center">
-					{
-						(this.props.myReducer.image_name && this.props.myReducer.search === 'started') && 
-						<span className="sub-details"><img src="/img/greenloaderBar2.gif" alt="loading1" /></span>	
-					}
-				</div>
-					
+			<div className="my-container2 search fade-in">
 				<div className="row main-content">
-					<div className="col-md-6">
+					<div className="col-md-5">
+						<div className="row heading">
+							<div className="col-md-12">
+								Provide Image to get closest match
+							</div> 
+						</div>	
 						<div className="thumbnail1 bg-image">
 							{
 								!img ? 
@@ -102,15 +95,24 @@ class Search extends Component {
 									<img src="/img/shutterstock_712489231.jpg" className="img-responsive" alt="loading1" />
 								</div>
 								:
-								<div>
+								<div className="search-main-image">
 									<img src={img} className="img-responsive" alt="loading1" />
+									{
+										this.props.myReducer.search === 'started' && 
+										<img src="/img/circular_loader.gif" className="search-loader" alt="loader" />
+									}
 								</div>
 							}
 						</div>
 						
 						
 					</div>
-					<div className="col-md-6">
+					<div className="col-md-7">
+						<div className="row heading">
+							<div className="col-md-12">
+								Result
+							</div> 
+						</div>	
 						{/*<a href="" onClick={(e) => {e.preventDefault(); this.changeStatus('started');}}>Start</a>*/}
 						<div className="row bottom-row">
 							<div className="col-md-12 bottom-column">

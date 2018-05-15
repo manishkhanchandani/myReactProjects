@@ -1,3 +1,4 @@
+//import * as firebase from 'firebase';
 import {firebaseDatabase, FirebaseConstant} from '../../MyFirebase.js';
 import {dynamicSort, timeAgo} from '../../utilities/functions.js';
 import {issuesConstant} from './IssuesConstant.js';
@@ -53,6 +54,13 @@ export const getSubjectResultJson = (result) => {
 	}	
 }
 
+export const changeStartTime = (val) => {
+	return {
+		type: 'CHANGE_START_TIME',
+		payload: val
+	}
+}
+
 export const getSubjectsJson = (dispatch, subject=null) => {
 	return {
 		type: 'GET_SUBJECTS_JSON',
@@ -76,7 +84,7 @@ export const getSubjectsJson = (dispatch, subject=null) => {
 }
 
 
-export const getBabyBarExamJson = (subject=null) => {
+export const getBabyBarExamJson = (subject=null, callback=null) => {
 	return {
 		type: 'GET_BABYBAREXAM_JSON',
 		payload: new Promise((resolve, reject) => {
@@ -98,6 +106,7 @@ export const getBabyBarExamJson = (subject=null) => {
 					data: j
 				};
 				localStorage.setItem(StorageKey, JSON.stringify(obj));
+				if (callback) callback(obj);
 				resolve(obj);
 			}).catch((err) => {
 				console.log('err getBabyBarExamJson is ', err);
@@ -223,5 +232,5 @@ export const babybarRules = (u, s, i) => {
 			});	
 		})
 	}
-}
+};
 

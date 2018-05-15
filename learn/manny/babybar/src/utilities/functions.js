@@ -62,11 +62,15 @@ export const dynamicSort = (property) => {
 
 export const processRecords = (recordArray, sortingOrder=null, filterText=null, filterFields=[], maxRows=20, pageNumber=1, onSelectFunc=null, maxButtons=3) => {
 	var myArr = JSON.parse(JSON.stringify(recordArray));
+
 	//filter Text
 	if (filterText && filterFields.length > 0) {
 		myArr = myArr.filter((record) => {
 			for (let i = 0; i < filterFields.length; i++) {
 				let str = record[filterFields[i]];
+				if (!str) {
+					continue;
+				}
 				let strResult = str.toLowerCase().indexOf(filterText.toLowerCase());
 				if (strResult >= 0) {
 					return true;	
@@ -81,7 +85,7 @@ export const processRecords = (recordArray, sortingOrder=null, filterText=null, 
 		myArr.sort(dynamicSort(sortingOrder));	
 	}
 
-	//pagination
+	//paginations
 	const pageNum = pageNumber - 1;
 	const startRow = pageNum * maxRows;
 	const totalRows = myArr.length;
@@ -139,17 +143,21 @@ export const mbePoints = (score) => {
 }
 
 //tracking activity
-//activityTracker('Browsing: ' + this.props.match.params.subject + ' / ' + this.props.match.params.issue, this.props.match.url);
-export const activityTracker = (page, url) => {
+//activityTracker('pageTracker', this.props.match.url);
+export const activityTracker = (type='pageTracker', page) => {
 	let usersObj = getUsersObj();
+	if (!usersObj) return;
 	let obj = {};
 	obj.uid = usersObj.uid;
 	obj.displayName = usersObj.displayName;
 	obj.photoURL = usersObj.photoURL;
 	obj.page = page;
-	obj.url = url;
 	obj.created_dt = firebase.database.ServerValue.TIMESTAMP;
-	var urlfb = FirebaseConstant.basePath + '/activities';
-	firebaseDatabase.ref(urlfb).push(obj);
+	let url = '';
+	if (type === 'pageTracker') {
+		url = FirebaseConstant.basePath + '/activities/' + type ;
+		firebaseDatabase.ref(url).child('current').child(obj.uid).set(obj);
+		firebaseDatabase.ref(url).child('history').push(obj);
+	}
 }
 

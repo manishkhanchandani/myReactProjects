@@ -2,9 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getList, setImageAll, getUrlByFileNameSelf} from './AWS.js';
 import {firebaseDatabase, FirebaseConstant} from './MyFirebase.js';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import faCaretLeft from '@fortawesome/fontawesome-free-solid/faCaretLeft';
-import faCaretRight from '@fortawesome/fontawesome-free-solid/faCaretRight';
+import Carousel from './Carousel.js';
 
 class Learn extends Component {
 	constructor(props) {
@@ -27,12 +25,10 @@ class Learn extends Component {
 		//var ref = firebaseDatabase.ref(url).child('learn').set('pending');
 	}
 	
-	changeCurrent(list, counter, e) {
+	changeCurrent(val, e) {
 		e.preventDefault();
-		if (counter < 0) return;
-		if (counter >= list.length) return;
-		let val = list[counter];
-		this.setState({current: val, counter: counter});
+		
+		this.setState({current: val});
 	}
 		
 	fixStatus(props) {
@@ -53,20 +49,20 @@ class Learn extends Component {
 	
 	componentDidMount() {
 		if (this.props.myReducer.learn === 'completed') {
-			this.setState({currentStatus: this.props.myReducer.learn, counter: this.props.myReducer.list.length - 1});	
+			this.setState({currentStatus: this.props.myReducer.learn});	
 			this.fixStatus(this.props);
 		}
 	}
 	
 	componentWillReceiveProps(nextProps) {
-		if (nextProps.myReducer.learn !== this.state.currentStatus && nextProps.myReducer.list) {
-			this.setState({currentStatus: nextProps.myReducer.learn, counter: nextProps.myReducer.list.length - 1});	
+		if (nextProps.myReducer.learn !== this.state.currentStatus) {
+			this.setState({currentStatus: nextProps.myReducer.learn});	
 			this.fixStatus(nextProps);
 		}
 		if (nextProps.myReducer.list && nextProps.myReducer.list.length > 0 && nextProps.myReducer.list.length !== this.state.list.length) {
 			//console.log('next props: ', nextProps.myReducer.list);
 			if (nextProps.myReducer.learn === 'completed') {
-				this.setState({list: nextProps.myReducer.list, show: nextProps.myReducer.list, counter: nextProps.myReducer.list.length - 1});
+				this.setState({list: nextProps.myReducer.list, show: nextProps.myReducer.list});
 			}
 			if (nextProps.myReducer.learn === 'started') {
 				this.setState({list: nextProps.myReducer.list, show: [], counter: 0}, () => {
@@ -101,15 +97,25 @@ class Learn extends Component {
 	}
 
 	render() {
-		//console.log('sli: ', this.state);
+		const mapPending = [0,1,2,3,4,5,6,7,8,9,10,11,12];
 		return (
 			<div className="my-container2 learn fade-in">
 				<div className="row heading text-center">
 					<div className="col-md-12">
-						Learning Images
+						Learning & Analysing Images
 					</div>
 				</div>
-				
+				<div className="row second-row text-center">
+
+						{
+							this.props.myReducer.learn === 'pending' && 
+							<span className="sub-details">No Image Uploaded</span>	
+						}
+						{
+							this.props.myReducer.learn === 'started' && 
+							<span className="sub-details"><span className="sub-header">image upload in progress</span><img src="/img/greenloaderBar2.gif" className="img-responsive " alt="loading1" /></span>
+						}
+				</div>
 				{
 					(this.props.myReducer.learn === 'started' || this.props.myReducer.learn === 'pending' || this.state.current) &&
 						<div className="row middle-row">
@@ -134,35 +140,44 @@ class Learn extends Component {
 						
 						</div>
 				}
-				<div className="row second-row text-center">
+				<div className="row bottom-row">
+					<div className="col-md-12 bottom-column">
 						{
-							this.props.myReducer.learn === 'started' && 
-							<span className="sub-details"><img src="/img/greenloaderBar2.gif" className="img-responsive " alt="loading1" /></span>
-						}
-						
-						{
-							this.props.myReducer.learn === 'completed' && 
-								<div className="col-md-12">
-								
-									<div className="row">
-										<div className="col-md-2">
-											<a href="" className="prev" onClick={(e) => {
-												this.changeCurrent(this.state.list, this.state.counter - 1, e);
-											}}><FontAwesomeIcon icon={faCaretLeft}/></a>
-										</div>
-										<div className="col-md-8">
-											{this.state.counter + 1} of {this.state.list.length}
-										</div>
-										<div className="col-md-2">
-											<a href="" className="next" onClick={(e) => {
-											this.changeCurrent(this.state.list, this.state.counter + 1, e);
-											}}><FontAwesomeIcon icon={faCaretRight}/></a>
-										</div>
-									</div>
+							(this.state.list.length > 0 && this.props.myReducer.learn !== 'pending') &&
+							<div>
+							<Carousel items={this.state.list} name="items" loader={this.state.loader} show={this.state.show} images={this.props.myReducer.images} changeCurrent={this.changeCurrent.bind(this)} />
+							{/*
+							this.state.list.map((value, key) => {
+								return <a className="bottom-column-item" key={key} href="" onClick={this.changeCurrent.bind(this, value)}>
+									{
+										(this.state.loader >= key && this.state.show[key] && this.props.myReducer.images[value.Key]) &&
+										<img src={this.props.myReducer.images[value.Key]} alt={value.Key} className="img" />
+									}
+									{
+										(this.state.loader + 1 === key) &&
+										<img src="/img/circular_loader.gif" className="imgLoader" alt="loading1" />
+									}
+								</a>					 
+							})*/
+							}
 							</div>
 						}
-				</div>
+						{
+							((!this.props.myReducer.list && this.props.myReducer.learn === 'started') || this.props.myReducer.learn === 'pending') &&
+							<div>
+								<Carousel items={mapPending} name="items" loader={10000} show={this.state.show} images={this.props.myReducer.images} changeCurrent={this.changeCurrent.bind(this)} />
+							{/*
+							mapPending.map((value, key) => {
+								return <a className="bottom-column-item" key={key} >
+									
+								</a>			 
+							})*/
+							}
+							</div>
+						}
+					</div>
 				
+				</div>
 			</div>
 		);
 	}

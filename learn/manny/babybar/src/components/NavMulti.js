@@ -134,6 +134,7 @@ class NavMulti extends Component {
 												<ul className="dropdown-menu">
 													<li><Link to="/admin/import1">Import</Link></li>
 													<li><Link to="/admin/changeuser">Change User</Link></li>
+													<li><Link to="/admin/activities">Activities</Link></li>
 												</ul>
 											</li>
 										}

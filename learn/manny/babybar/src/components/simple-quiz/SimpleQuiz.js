@@ -104,13 +104,17 @@ class SimpleQuiz extends Component {
 		
 		let issue = this.props.issue;
 
-		var quiz = this.props.quizExtra || issue.quiz;
-		if (!quiz) {
+		var quizOrig = this.props.quizExtra || issue.quiz;
+		if (!quizOrig) {
 			return null;	
 		}
-		if (quiz.length === 0) {
+		if (quizOrig.length === 0) {
 			return null;	
 		}
+		
+		var quiz = quizOrig.filter((rec) => {
+			return !!rec['question'];
+		});
 		let optionChoosen = parseInt(this.state.quizChoosenOption, 10);
 
 		return (
@@ -132,7 +136,7 @@ class SimpleQuiz extends Component {
 								}
 								
 								{
-									(this.state.quizStatus === 'Pending' && quiz[this.state.quizPage]) &&
+									(this.state.quizStatus === 'Pending' && quiz[this.state.quizPage] && quiz[this.state.quizPage].question) &&
 									<div className="questions">
 										<div className="question"><b>Question {this.state.quizPage + 1} / {quiz.length}.</b> {renderHTML(quiz[this.state.quizPage].question)}<hr /></div>
 										<SimpleQuizAnsOptions id={quiz[this.state.quizPage].id} opts={quiz[this.state.quizPage].answerOptions} optionChoosen={optionChoosen} handleChooseOption={this.handleChooseOption} details={quiz[this.state.quizPage]} />

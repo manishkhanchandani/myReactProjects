@@ -5,7 +5,7 @@ import promise from 'redux-promise-middleware';
 import MyReducer from './MyReducer.js';
 var store = null;
 if (process.env.NODE_ENV === 'development') {
-	store = createStore(combineReducers({MyReducer}), {}, applyMiddleware(createLogger(), thunk, promise()));//
+	store = createStore(combineReducers({MyReducer}), {}, applyMiddleware(thunk, promise()));//createLogger(), 
 } else {
 	store = createStore(combineReducers({MyReducer}), {}, applyMiddleware(thunk, promise()));
 }
