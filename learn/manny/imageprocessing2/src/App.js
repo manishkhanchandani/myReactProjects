@@ -17,7 +17,7 @@ import Learn from './Learn.js';
 import Search from './Search.js';
 import Toast from './Toastify/Toast.js';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import faComment from '@fortawesome/fontawesome-free-solid/faComment';
+import faComment from '@fortawesome/fontawesome-free-regular/faComment';
 
 class App extends Component {
 
@@ -34,32 +34,41 @@ class App extends Component {
 	  <Router>
 		  <div>
 			<Nav />
-		  	<div className="container-app">
-				<div className=" mytable">
-					<div className="col-md-2 left-column mycell">
+		  	<div className="container-app2 container-app-custom">
+				<div className="row mytable">
+					<div className="col-md-3 left-column mycell">
 						{
 							status === 1 && 
-							<div className="alexa-command">
-								alexa started
+							<div className="alexa-command header-text">
+								<div>alexa started</div>
+								<div>more command</div>
 							</div>
 						}
 						{
 							status === 0 && 
 							<div className="alexa-command">
-								awaiting Alexa Command <span className="dotAnimate"><span>.</span><span>.</span><span>.</span></span> <span className="comments"><FontAwesomeIcon icon={faComment}/></span>
+								<div className="header-text">Awaiting Voice Command <span className="dotAnimate"><span>.</span><span>.</span><span>.</span></span> <span className="comments"><FontAwesomeIcon icon={faComment} /></span></div>
+								<div className="sub-text">more command</div>
 							</div>
 						}
 						{
 							status === 2 && 
-							<div className="alexa-command">
-								search started
+							<div className="alexa-command header-text">
+								<div>search started</div>
+								<div>more command</div>
 							</div>
 						}
 						<Logs />
 					</div>
-					<div className="col-md-8 center-column mycell"><Search /></div>
+					<div className="col-md-7 center-column mycell"><Search /></div>
 					<div className="col-md-2 right-column mycell">
+						<div className="learn-images">
+						<div className="row heading text-center">
+							<div className="col-md-12">
+							</div>
+						</div>
 						<Learn />
+						</div>
 						<Monitor />
 					</div>
 				</div>

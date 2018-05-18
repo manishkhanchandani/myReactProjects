@@ -35,7 +35,8 @@ class SimpleQuiz extends Component {
 	}
 
 	quizNext(data, type) {
-		if (!this.state.quizChoosenOption) {
+		let option = parseInt(this.state.quizChoosenOption, 10);
+		if (!(option >= 0)) {
 			alert('please fill the option');
 			return;
 		}

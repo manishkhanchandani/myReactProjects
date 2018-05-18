@@ -81,6 +81,9 @@ class Search extends Component {
 
 		return (
 			<div className="my-container2 search fade-in">
+				<div className="search-command">
+					<div className="header-text">Search Image</div>
+				</div>
 				<div className="row main-content">
 					<div className="col-md-5">
 						<div className="row heading">

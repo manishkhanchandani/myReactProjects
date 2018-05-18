@@ -1,6 +1,224 @@
 {
 	"key": "defamation",
 	"name": "Defamation",
+	"mbe": [		
+		{
+			"key": "rule136QA",
+			"name": "Rule 136QA: ",
+			"description": "",
+			"examples": [
+				{
+					"question": "136. In a defamation action based on website content, with Roberta as plaintiff and Brunhilde as defendant, which of the following points would NOT be central to Roberta's prima facie case against Brunhilde?",
+					"answerOptions": [
+						"Brunhilde posted a story on her website falsely saying that Roberta had been convicted of embezzlement five years ago.",
+						"Roberta experienced severe emotional distress that she attributes to the publication of Brunhilde's false story on the website.",
+						"Roberta has suffered harm to her reputation that she attributes to the publication of Brunhilde's false story on the website.",
+						"Brunhilde's website, containing the false story about Roberta on its home page, is fully operative, and its history indicates that many visitors have clicked on the site."
+					],
+					"correct": 1,
+					"explanation": "(EASY) Answer (B) is correct. Severe emotional distress is not an element of the prima facie case for defamation.<br /><br />Answer (A) is incorrect because a false statement about a person's embezzlement tends to lower the reputation of that person, and harm to reputation is a central element of the prima facie case for defamation.<br /><br />Answer (C) is incorrect for the same reason.<br /><br />Answer (D) is incorrect because \"publication,\" or the revelation of the defamatory communication to third parties, is an element of the prima facie case for defamation."
+				}
+			]
+		},		
+		{
+			"key": "rule137QA",
+			"name": "Rule 137QA: ",
+			"description": "",
+			"examples": [
+				{
+					"question": "137.   Editor Edsel printed a story in a daily newspaper, the Succotash Times, that described state senator Burt Bumpkin as corrupt. The story relied on an extensive, tape-recorded interview with a grandfather figure of organized crime, Magoo, who recalled his illegal contributions to Bumpkin's election campaign in the last year. Everything in the story that described Bumpkin's corruption was conveyed in quotations attributed to Magoo. Investigation has now revealed that Magoo suffers from senile dementia and in the interview had confused Bumpkin with another politician, long dead, whom he had bribed in decades past. His reminiscences about Bumpkin were false.Bumpkin brings an action against Edsel and the Succotash Times. Which of the following additional facts, if substantiated, would most strengthen Bumpkin's claim?",
+					"answerOptions": [
+						"During the interview, Magoo frequently referred to Bumpkin by the wrong name and apparently had trouble finishing his sentences.",
+						"While admitting that he is a public figure, Bumpkin has asserted his \"right to privacy\" when reporters were investigating rumors of his marital infidelity.",
+						"Edsel is a close friend of Bumpkin's archrival in the state senate, and actively desires the downfall of Bumpkin's career.",
+						"The Succotash Times employs fact-checkers and prints a \"Corrections\" notice in each day's edition."
+					],
+					"correct": 0,
+					"explanation": "(EASY) Answer (A) is correct. As a public official, Bumpkin must show that the Succotash Times acted either with a desire to lie or with reckless disregard for the truth of the statement it published. If its reporter should have been able to tell that Magoo was mentally incompetent, publishing Magoo's comments may satisfy the \"actual malice\" requirement of this tort.<br /><br />Answer (B) is incorrect because any \"right to privacy\" that Bumpkin asserts, or holds, does not affect his status as a defamation plaintiff.<br /><br />Answer (C) is incorrect, even though it may appear to show \"actual malice.\" The requirement of \"actual malice\" is not fulfilled by proving animus, however. Rather, the defendant must have either intended to tell a lie or been reckless about the truth.<br /><br />Answer (D) is incorrect because media defendants do not become more liable, or less liable, when they choose to employ fact-checkers or print Corrections notices."
+				}
+			]
+		},		
+		{
+			"key": "rule138QA",
+			"name": "Rule 138QA: ",
+			"description": "",
+			"examples": [
+				{
+					"question": "138.   Which statement most accurately describes the limited privilege to make a defamatory statement in a judicial proceeding?",
+					"answerOptions": [
+						"The statement must be reasonably related to issues disputed in the proceeding.",
+						"The statement must implicate a matter of common public concern.",
+						"The statement must be reasonably tailored to minimize foreseeable harm to the person referenced.",
+						"The statement must be made in a criminal proceeding; the privilege does not apply in civil cases."
+					],
+					"correct": 0,
+					"explanation": "(EASY) Answer (A) is correct. Defamation law reluctantly recognizes that litigation often has the effect of hurting a person's reputation, as a side consequence of the matter being litigated. It tries to mitigate this harm by requiring a reasonable relation to the issues raised in the proceeding.<br /><br />Answer (B) sounds good, perhaps, but says almost nothing. Defamation in a judicial proceeding often has nothing to do with \"a matter of common public concern,\" to the extent that phrase refers to government.<br /><br />Answer (C) is incorrect, even though it is not far from the correct Answer (A). It exaggerates the speaker's duty, and suggests a negligence standard that is not in fact used.<br /><br />Answer (D) is incorrect: The privilege applies to civil cases."
+				}
+			]
+		},		
+		{
+			"key": "rule139QA",
+			"name": "Rule 139QA: ",
+			"description": "",
+			"examples": [
+				{
+					"question": "139.   Professional baseball pitcher Rooster McHew has long been suspected of resorting to \"spitballs\" — baseballs that a pitcher illicitly moistens with saliva — in violation of major league baseball rules. Although by tradition the rule has not been strictly enforced, a new commissioner has cracked down on pitchers, and now those who throw spitballs can lose their jobs. McHew has always denied the spitball rumors. At a recent game, news reporters gathered around old-timer Perry Gay, who retired from baseball decades ago, and asked him what he thought of McHew's successes. Perry Gay is the most infamous spitball-thrower in baseball history. \"I think he gets by with a little help from his friend,\" Gay replied to the question.Can Gay's remark support a defamation action by Rooster McHew against Gay?",
+					"answerOptions": [
+						"No, because McHew has consented to Gay's expression of opinion.",
+						"No, because Gay's words are innocuous and cannot harm McHew's reputation.",
+						"Yes, because a reasonable person would infer that Gay was referring to spitballs.",
+						"Yes, because the privilege to offer an opinion on a matter of public comment is not present under these facts."
+					],
+					"correct": 2,
+					"explanation": "(EASY) Answer (C) is correct. This question addresses what courts used to call \"innuendo\" — the meaning of an ambiguous statement. Given what Gay is famous for and the subtext surrounding the reporters' question, a listener would infer that Gay was saying that McHew throws spitballs.<br /><br />Answer (A) is incorrect because we don't know whether McHew has consented to anything.<br /><br />Answer (B) is incorrect because the words are not innocuous and could harm McHew's reputation.<br /><br />Answer (D) is incorrect because (among other reasons) we don't know whether Gay was offering an opinion on a matter of public comment."
+				}
+			]
+		},		
+		{
+			"key": "rule140QA",
+			"name": "Rule 140QA: ",
+			"description": "",
+			"examples": [
+				{
+					"question": "140.   Channel 7 News, based in the town of Eureka, aired a segment called \"Rooted in Slavery\" that looked at institutions and individuals who had lived in Eureka as slaveholders and enslaved persons in the nineteenth century. \"Rooted in Slavery\" took a \"Where are they now?\" look at this history, interviewing several successors and descendants of these institutions and individuals. The program claimed that Paul Henry Shipley, who had been the mayor of Eureka from 1851 to 1855, had owned five slaves. This statement was false. Shipley had never owned a single slave and had indeed participated in the abolitionist movement. His descendants, owners of Shipley Shipping, have suffered lost business because their customers now associate the enterprise with slavery. They wish to bring an action against Channel 7 news.Under the common law of defamation such an action by the individual descendants would fail, because",
+					"answerOptions": [
+						"the real party in interest is Shipley Shipping, and a corporation cannot be defamed.",
+						"the dead cannot be defamed.",
+						"the statute of limitations has run on the claim.",
+						"the First Amendment to the United States Constitution offers a limited privilege to Channel 7 news that covers the facts of this case."
+					],
+					"correct": 1,
+					"explanation": "(EASY) Answer (B) is correct. Under the common law of defamation, the dead cannot be defamed.<br /><br />Answer (A) is incorrect because the defendant made no claims about Shipley Shipping.<br /><br />Answer (C) is incorrect because we have no information on the amount of time that has passed since publication.<br /><br />Answer (D) could be correct, but we do not have enough information to so conclude. It is possible that the behavior of Channel 7 news was sufficiently egregious to overcome the limited protections of the First Amendment."
+				}
+			]
+		},		
+		{
+			"key": "rule141QA",
+			"name": "Rule 141QA: ",
+			"description": "",
+			"examples": [
+				{
+					"question": "141.   Who encounters more onerous obstacles to building her prima facie case for defamation: a public figure or a public official?",
+					"answerOptions": [
+						"A public figure, because public figures typically have more power in the media than do public officials, and can protect themselves against defamation.",
+						"A public figure, because the consequences of public figures' being defamed are less severe.",
+						"A public official, because of the public interest in permitting criticism of government.",
+						"A public official, because public officials enjoy relative immunity from defamation liability as defendants."
+					],
+					"correct": 2,
+					"explanation": "(EASY) Answer (C) is correct. The First Amendment, like the rest of the Bill of Rights, presents limits to government power. The opportunity to criticize government officials is more fundamental to free speech than the opportunity to criticize the more eclectic, often apolitical, \"public figures.\" Accordingly, public officials have more onerous obstacles when they sue for defamation.<br /><br />Answer (A) is incorrect for the reasons just stated above.<br /><br />Answer (B) is incorrect for the same reasons; in addition to being unsuccessful to support the point, this claim is probably not true.<br /><br />Answer (D) is incorrect because even though public officials do enjoy relative immunity from defamation liability, the rationale for the relative immunity does not support making them suffer as plaintiffs."
+				}
+			]
+		},		
+		{
+			"key": "rule142QA",
+			"name": "Rule 142QA: ",
+			"description": "",
+			"examples": [
+				{
+					"question": "142.   According to the common law, is truth a complete defense to defamation?",
+					"answerOptions": [
+						"Yes.",
+						"No. Liability remains when the publication of truthful material is unjustified.",
+						"No. Liability remains when the defendant is motivated by actual malice.",
+						"No. Liability remains for exceptional invasions of privacy."
+					],
+					"correct": 0,
+					"explanation": "(EASY) Answer (A) is correct — a categorically accurate statement.<br /><br />Answer (B) is incorrect because justification (or lack thereof) is not part of defamation law.<br /><br />Answer (C) is incorrect because even actual malice is not sufficient to support a defamation claim, if the statement is true.<br /><br />Answer (D) is incorrect because invasions of privacy do not generate defamation liability."
+				}
+			]
+		},		
+		{
+			"key": "rule143QA",
+			"name": "Rule 143QA: Question",
+			"description": "143.   Assume that truth can be a defense to defamation claims. It is possible for a plaintiff to bring a successful defamation claim against a defendant for having said something literally true, provided that the statement is implicitly false and defamatory. Give an example.<br /><br />(MEDIUM) This situation arises where the defendant has a defamatory message and packages it with other words that make the statement formally or literally not false. For example, \"I say she committed adultery with Rick Samson.\" \"Ask yourself whether he looted twenty thousand from his company.\" \"If I'm not mistaken, these books don't add up and she hid the money in her own private checking account.\" \"In my opinion, he is an unregistered child molester with a 2010 conviction for felony sexual assault;\" and so forth. Speakers cannot escape liability by intoning a few \"magic words\" along with the defamatory message.",
+			"examples": [
+				{
+					"question": "",
+					"answerOptions": [
+						"",
+						"",
+						"",
+						""
+					],
+					"correct": -1,
+					"explanation": ""
+				}
+			]
+		},		
+		{
+			"key": "rule144QA",
+			"name": "Rule 144QA: Question",
+			"description": "144.   For purposes of bringing a defamation claim, a \"public figure\" is in a weaker position than an ordinary private citizen. The category has a few nuances. Describe the public figure in its strong form and its \"limited purpose\" form.<br /><br />(MEDIUM) Some citizens are so famous and powerful that they are all-purpose public figures, and the First Amendment protects a wide range of commentary about them. According to Gertz v. Robert Welch, Inc., 418 U.S. 323 (1974), such a person must enjoy either \"pervasive power and influence\" or \"fame and notoriety.\" A larger number of potential plaintiffs are limited-purpose public figures, who may be discussed freely with respect to the issue or controversy for which they gained fame. Typically, the defendant in such a defamation claim would have to show that the plaintiff sought this public role and participated voluntarily in a controversy.",
+			"examples": [
+				{
+					"question": "",
+					"answerOptions": [
+						"",
+						"",
+						"",
+						""
+					],
+					"correct": -1,
+					"explanation": ""
+				}
+			]
+		},		
+		{
+			"key": "rule145QA",
+			"name": "Rule 145QA: ",
+			"description": "",
+			"examples": [
+				{
+					"question": "145.   In a debate over whether to abolish the doctrine of slander per se, which of the following rationales militates most strongly in favor of keeping it?",
+					"answerOptions": [
+						"Certain common accusations have predictable effects, and it would burden plaintiffs unduly to have to gather evidence of reputational harm when they are defamed by these accusations.",
+						"Slander, unlike libel, compels a plaintiff to prove reputational harm.",
+						"Technological innovation has not fully blurred the distinction between oral and written communication.",
+						"It is relatively easy for a plaintiff to prove financial harm with respect to business activity, but unduly difficult to prove reputational harm with respect to his or her private life."
+					],
+					"correct": 0,
+					"explanation": "(MEDIUM) Answer (A) is correct. Slander per se is a rule that eases the plaintiff's burden of proof. It rests on the premise that, as was stated, certain common accusations have predictable effects. Making each plaintiff prove individual harm would be costly.<br /><br />Answer (B) is incorrect even though it is generally accurate: This sentence does not offer an argument in favor of slander per se.<br /><br />Answer (C) is incorrect for similar reasons. This sentence offers an argument in favor of treating libel and slander differently, while the slander per se rule treats slander more like libel."
+				}
+			]
+		},		
+		{
+			"key": "rule146QA",
+			"name": "Rule 146QA: ",
+			"description": "",
+			"examples": [
+				{
+					"question": "146.   Legislator Lawrie delivered an impassioned speech in the well of the state assembly attacking \"the Wall Street of Main Street,\" shortly before the legislature voted on a large appropriation to businesses in the state. In the speech, Lawrie faulted several business leaders of the state for their inadequate commitment to citizen well-being. The speech included an accusation by Lawrie that local millionaire Milton employed undocumented workers to clean and serve food at his chain of hotels. This accusation was false, and Milton believes he suffered financial loss as a consequence. Furthermore, Milton finds the accusation gratuitous because his hotel, like all hotels in the state, was not in line to receive any funding from the appropriation being debated, and Milton has no other business interests in the state.A defamation claim by Milton against Lawrie is likely to",
+					"answerOptions": [
+						"succeed, because Lawrie's remarks lacked a reasonable relation to the legislative endeavor at hand.",
+						"succeed, because Milton is a public figure.",
+						"fail, because Lawrie's remarks need not pertain to the legislative endeavor at hand in order to be covered by the legislator's privilege to commit prima facie defamation.",
+						"fail, because of Lawrie's First Amendment privilege to engage in debate on a matter of public interest."
+					],
+					"correct": 2,
+					"explanation": "(HARD) Answer (C) is correct. Lawrie enjoys a broad privilege to speak freely (and even defamatorily) in the well of the legislature.<br /><br />Answer (A) is incorrect because a legislator's remarks need not relate reasonably to a legislative endeavor in order for the speaker to escape liability.<br /><br />Answer (B) is incorrect because Milton may not be a public figure, and if he were, his defamation would be harder to prosecute, not easier.<br /><br />Answer (D) is the least incorrect of the three incorrect answers. Answer (C) is better than (D) because it identifies Lawrie's status as a legislator. Without reference to that status, Lawrie's safe harbor to engage in defamation becomes much more questionable. To the extent Answer (D) implies some general privilege to defame in the context of debate on a matter of public interest, it is incorrect."
+				}
+			]
+		},		
+		{
+			"key": "rule147QA",
+			"name": "Rule 147QA: Question",
+			"description": "147.   Restatement (Second) of Torts § 559 gives a definition of a defamatory statement that the courts cite frequently: it is a communication that tends to lower the plaintiff in the esteem of the community, or deter people from associating with her. Almost any statement about a person can be \"defamatory,\" however, in the sense that someone might find the statement disgraceful. For example, calling a high schooler \"an A student\" might hurt her reputation at some schools.How do courts deal with this problem in their definition of \"defamatory\"?<br /><br />(HARD) Not entirely satisfactorily. The class of potentially defamatory statements is nearly infinite. Courts modify the Restatement formulation slightly to hold that a statement is not defamatory unless it is likely to cause a substantial number of people to avoid the plaintiff or hold her in less esteem. Although this approach does not resolve the definitional question, it does spare courts from having to hear eccentric claims of defamation.",
+			"examples": [
+				{
+					"question": "",
+					"answerOptions": [
+						"",
+						"",
+						"",
+						""
+					],
+					"correct": -1,
+					"explanation": ""
+				}
+			]
+		}
+	],
 	"next": {
 		"key": "",
 		"name": "",

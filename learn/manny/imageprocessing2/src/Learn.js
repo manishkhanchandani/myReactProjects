@@ -106,7 +106,7 @@ class Learn extends Component {
 			<div className="my-container2 learn fade-in">
 				<div className="row heading text-center">
 					<div className="col-md-12">
-						Learning Images
+						<div  className="header-text" style={{paddingTop: "30px"}}>Learning Images</div>
 					</div>
 				</div>
 				

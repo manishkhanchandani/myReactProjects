@@ -71,10 +71,11 @@ class Logs extends Component {
 		}
 		return (
 			<div className="my-container2 fade-in logs2">
+				<div className="monitor-logs header-text">Monitor Logs</div>
 				<div className="row">
 					<div className="col-md-12">
-					<div className="sub-logs">{arr2}
-					</div>
+						<div className="sub-logs">{arr2}
+						</div>
 						
 					</div>
 				</div>
