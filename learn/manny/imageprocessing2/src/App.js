@@ -40,28 +40,29 @@ class App extends Component {
 						{
 							status === 1 && 
 							<div className="alexa-command header-text">
-								<div>alexa started</div>
-								<div>more command</div>
+								<div className="fade-in">"Alexa Learn Images"</div>
+								<div className="sub-text fade-in">processing images to learning</div>
 							</div>
 						}
 						{
 							status === 0 && 
 							<div className="alexa-command">
 								<div className="header-text">Awaiting Voice Command <span className="dotAnimate"><span>.</span><span>.</span><span>.</span></span> <span className="comments"><FontAwesomeIcon icon={faComment} /></span></div>
-								<div className="sub-text">more command</div>
+								<div className="sub-text"></div>
 							</div>
 						}
 						{
 							status === 2 && 
 							<div className="alexa-command header-text">
-								<div>search started</div>
-								<div>more command</div>
+								<div className="fade-in">"Alexa, identify who is in the image"</div>
+								<div className="sub-text fade-in">performing face match</div>
 							</div>
 						}
 						<Logs />
 					</div>
 					<div className="col-md-7 center-column mycell"><Search /></div>
 					<div className="col-md-2 right-column mycell">
+						<div className="border-right"></div>
 						<div className="learn-images">
 						<div className="row heading text-center">
 							<div className="col-md-12">

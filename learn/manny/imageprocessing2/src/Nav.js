@@ -8,7 +8,14 @@ import {getList, getOnlyList, setImageName, imageMatchCustom, imageHigResClear} 
 import Logo from './Icons/Logo.js';
 
 class Nav extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			initialized: false	
+		};
+	}
 	componentDidMount() {
+		
 		const urls = {
 			learn: '/learn',
 			search: '/search',
@@ -33,7 +40,7 @@ class Nav extends Component {
 			//image on fb
 			this.props.callSetImage(result.image);
 			if (result.image === 'started') {
-				myActions.notify('New Image Uploaded. Try "Alexa, switch to search tab" or "Alexa, show me the image"', 5);
+				myActions.notify('New Image Received', 5);
 				firebaseDatabase.ref(url).child('image').set('completed');
 			}
 			
@@ -47,6 +54,10 @@ class Nav extends Component {
 				if (learn === 'completed') {	
 					this.props.callGetList();
 				}
+			}
+			if (learn === 'pending' && !this.state.initialized) {
+				myActions.notify('Images Ready for Processing', 5, 1);
+				this.setState({initialized: true});
 			}
 			
 			if (!this.props.myReducer.list && learn === 'started') {

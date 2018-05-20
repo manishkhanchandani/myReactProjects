@@ -4,6 +4,7 @@ import './App.css';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import Home from './Home.js';
 import Main from './Main.js';
+//https://medium.com/@svinkle/how-to-deploy-a-react-app-to-a-subdirectory-f694d46427c1
 
 class App extends Component {
   render() {

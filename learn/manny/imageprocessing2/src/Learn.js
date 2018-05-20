@@ -103,7 +103,7 @@ class Learn extends Component {
 	render() {
 		//console.log('sli: ', this.state);
 		return (
-			<div className="my-container2 learn fade-in">
+			<div className="my-container2 learn">
 				<div className="row heading text-center">
 					<div className="col-md-12">
 						<div  className="header-text" style={{paddingTop: "30px"}}>Learning Images</div>
@@ -119,7 +119,7 @@ class Learn extends Component {
 									<div className="">
 									{
 										(this.state.current && this.state.current.Key && this.props.myReducer.images[this.state.current.Key]) ?
-										<img src={this.props.myReducer.images[this.state.current.Key]} alt={this.state.current.Key}  className="img-responsive" /> :
+										<img src={this.props.myReducer.images[this.state.current.Key]} alt={this.state.current.Key}  className="" /> :
 										<img src="/img/shutterstock_712068100.jpg" className="img-responsive" alt="loading1" />
 									}
 									</div>

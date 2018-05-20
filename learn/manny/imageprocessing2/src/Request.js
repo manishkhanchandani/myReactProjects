@@ -20,7 +20,7 @@ class Request extends Component {
 	}
 	render() {
 		return (
-			<div className="my-container fade-in">
+			<div className="my-container">
 				<img className="img-responsive" src="/img/screenshot2.1.png" alt="request" />
 				{/*
 				<div className="row">

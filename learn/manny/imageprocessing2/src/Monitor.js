@@ -69,7 +69,7 @@ class Monitor extends Component {
 			}
 		}
 		return (
-			<div className="my-container2 fade-in monitor">
+			<div className="my-container2 monitor">
 				<div className="row guage">
 					<div className="col-md-12 text-center list-guage">
 						<MyGuage label="Memory Usage" value={this.props.myReducer.monitor_memory}  min={0} max={16} symbol=" GB" color="#ff9900" />

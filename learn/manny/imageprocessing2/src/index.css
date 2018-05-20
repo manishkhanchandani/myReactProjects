@@ -68,7 +68,7 @@ body {
 	position:absolute;
 	top: 0px;
 	right: 0px;
-    z-index: 10000;
+    z-index: 1001;
 }
 .my-container {
 	position: absolute;
@@ -77,7 +77,7 @@ body {
     bottom: 0;
     left: 150px;
     right: 150px;
-    z-index: 1001;
+    z-index: 98;
 	padding: 20px;
 	height: 1200px;
 }
@@ -397,6 +397,7 @@ body {
 }
 
 .alexa-command {
+    height: 98px;
 	border-bottom: 1px solid #316A86;
 	padding-bottom: 15px;
 	padding-top: 30px;
@@ -416,13 +417,15 @@ body {
 	border: 1px solid black;
     padding: 5px;
 }
-
 .search .bg-image .txt, .learn .bg-image .txt {
 	position: absolute;
     font-size: 24px;
     font-weight: bold;
     top: 90px;
     left: 50px;
+}
+.search .bg-image {
+	margin-top: 20px;
 }
 
 .learn {
@@ -466,25 +469,37 @@ body {
 	padding: 15px;
 }
 
+.border-right {
+	position: absolute;
+	top: 303px;
+	left: 0px;
+	right: 0px;
+	border-bottom: 1px solid black;
+}
+
 .sub-logs div {
 	margin-bottom: 20px;
 }
 
-
 .right-column {
 	/*border-left: 1px solid #5B9BD5;*/
-	box-shadow: 0px -3px 5px 6px #ccc; 
+	box-shadow: -2px 0px 8px 0px #ccc;/*0px -3px 5px 6px #ccc;*/ 
 	background-color: #f2f2f2;
+	position: relative;
 }
 
 .left-column {
 	padding: 0px;
 	/*border-right: 1px solid #5B9BD5;*/
-	box-shadow: 0px 3px 5px 6px #ccc; 
+	box-shadow: 2px 0px 8px 0px #ccc; /*0px 3px 5px 6px #ccc; */
 }
 
 .search .search-main-image {
 	position: relative;
+}
+
+.search .search-main-image img {
+	margin: 0px auto;
 }
 
 .search .search-loader {
@@ -515,22 +530,23 @@ body {
 
 
 .learn .middle-row {
-	margin-top: 20px;
+	margin-top: 35px;
 }
 
 .learn .middle-column {
 	min-height: 100px;
+	text-align: center;
 }
 
 
 .monitor {
-	border-top: 1px solid black;
     padding-top: 20px;
 	margin-top: 20px;
 }
 
 .learn .middle-column img {
-	max-height: 300px;
+	max-height: 150px;
+	min-height: 150px;
 	margin-right: auto;
 	margin-left: auto;
 	border: 1px solid black;
@@ -540,10 +556,13 @@ body {
 .learn .bottom-row {
 	margin-top: 20px;
 }
+.search .bottom-row {
+	margin-top: 18px;
+}
 .learn .bottom-column {
 	/*overflow-x: auto;*/
 }
-.learn .bottom-column-item, .search .bottom-column-item {
+.learn .bottom-column-item {
 	/*border: 1px solid black;
 	height: 100px;
 	width: 100px;
@@ -568,14 +587,64 @@ body {
 	
 }
 
+
+.search .bottom-column-item-empty {
+	/*border: 1px solid black;
+	height: 100px;
+	width: 100px;
+	margin-right: 10px;
+	float:left;
+    width: 100px;
+	min-height: 70px;*/
+	position: relative;
+    float: left;
+	display: block;
+    padding: 4px;
+    margin-bottom: 5px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+	width: 150px;
+    height: 110px;
+	margin-right: 5px;
+	
+}
+
+
+.search .bottom-column-item {
+	/*border: 1px solid black;
+	height: 100px;
+	width: 100px;
+	margin-right: 10px;
+	float:left;
+    width: 100px;
+	min-height: 70px;*/
+	position: relative;
+    float: left;
+	display: block;
+    padding: 0px;
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border-radius: 4px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+    height: 110px;
+}
+
 .learn .bottom-column-item {
 	margin-right: 8px;
 	
 }
 
 .search .bottom-column-item {
-	margin-right: 18px;
-	width: 150px;
+	margin-right: 5px;
+	margin-bottom: 0px;
 }
 
 .learn .bottom-column-item .img {
@@ -584,7 +653,8 @@ body {
 }
 
 .search .bottom-column-item .img {
-	width: 140px;
+	/*width: 140px;*/
+	max-height: 100px;
 }
 
 .learn .bottom-column-item .imgLoader, .search .bottom-column-item .imgLoader {
@@ -689,11 +759,11 @@ body {
 }
  
 .sub-logs::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(49,106,134,1);
+    /*-webkit-box-shadow: inset 0 0 6px rgba(49,106,134,1);*/
 }
  
 .sub-logs::-webkit-scrollbar-thumb {
-  background-color: #ff9900; /*darkgrey;*/
+  background-color: #316A86; /*darkgrey;*/
   outline: 5px solid slategrey;
 }
 
@@ -769,7 +839,7 @@ body {
   /* make things invisible upon start */
  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
- /*
+
 @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 .fade-in {
     opacity:0;
@@ -779,7 +849,7 @@ body {
 
     animation-duration:1s;
     animation-delay: 0s
-}*/
+}
 
 .container-app-custom {
 	padding-left: 15px;
@@ -787,5 +857,10 @@ body {
 }
 
 nav .container {
-	margin-left: 25px;
+	margin-left: 0px;
+}
+
+.result-img {
+	margin-left: 10px;
+	display: inline;
 }

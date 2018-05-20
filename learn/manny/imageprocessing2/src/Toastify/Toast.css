@@ -32,5 +32,6 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   color: #fff;
+  z-index: 1002;
   /*background-color: rgba(0,0,0,.7);*/
 }

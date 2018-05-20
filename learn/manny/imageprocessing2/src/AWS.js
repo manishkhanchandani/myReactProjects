@@ -12,7 +12,8 @@ const mimes = {
 	gif: 'data:image/gif;base64,'
 };
 
-const bucket = new AWS.S3({params: {Bucket: 'aws-rek-images'}});
+const bucket = new AWS.S3({params: {Bucket: 'nvs-poc-alexa'}});
+//const bucket = new AWS.S3({params: {Bucket: 'aws-rek-images'}});
 //const bucket_lowres = new AWS.S3({params: {Bucket: 'aws-rek-images-lowres'}});
 
 
@@ -106,6 +107,7 @@ export const getUrlByFileNameSelf = (fileName, callback=null) => {
 
 
 export const setImageName = (dispatch, fileName) => {
+	if (!fileName) return null;
 	let file = fileName;
 	let subs = fileName.substr(-3);
 	let subs2 = fileName.substr(-4);

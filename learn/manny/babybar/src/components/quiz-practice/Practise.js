@@ -291,7 +291,8 @@ class QuizPractice extends Component {
 		localStorage.setItem('uniqueID', uniqueID);
 		this.setState({uniqueID: uniqueID, finalQuestionList: objQuestion, loading: false, seconds_assigned: (this.state.number * 100), answers: null});
 		this.checkResults(uniqueID);
-		window.location.href = "/quizPractice/" + uniqueID;
+		this.props.history.push("/quizPractice/" + uniqueID);
+		//window.location.href = "/quizPractice/" + uniqueID;
 		
 	}
 	

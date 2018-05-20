@@ -12,9 +12,9 @@ var configFb = {
 
 //FirebaseConstant.configFb.apiKey
 export const FirebaseConstant = {
-	basePath: '/demo',
-	logPath: '/logs',
-	log2Path: '/logs2',
+	basePath: '/project2/demo',
+	logPath: '/project2/logs',
+	log2Path: '/project2/logs2',
 	configFb: configFb
 };
 

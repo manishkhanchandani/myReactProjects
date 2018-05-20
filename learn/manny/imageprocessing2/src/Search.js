@@ -80,7 +80,7 @@ class Search extends Component {
 		}
 
 		return (
-			<div className="my-container2 search fade-in">
+			<div className="my-container2 search">
 				<div className="search-command">
 					<div className="header-text">Search Image</div>
 				</div>
@@ -100,10 +100,6 @@ class Search extends Component {
 								:
 								<div className="search-main-image">
 									<img src={img} className="img-responsive" alt="loading1" />
-									{
-										this.props.myReducer.search === 'started' && 
-										<img src="/img/circular_loader.gif" className="search-loader" alt="loader" />
-									}
 								</div>
 							}
 						</div>
@@ -113,14 +109,18 @@ class Search extends Component {
 					<div className="col-md-7">
 						<div className="row heading">
 							<div className="col-md-12">
-								Result
+								Result 
+								{
+									this.props.myReducer.search === 'started' && 
+									<img src="/img/greenloaderBar2.gif" className="img-responsive result-img" alt="loading1" />
+								}
 							</div> 
 						</div>	
 						{/*<a href="" onClick={(e) => {e.preventDefault(); this.changeStatus('started');}}>Start</a>*/}
 						<div className="row bottom-row">
 							<div className="col-md-12 bottom-column">
 								{
-									show &&
+									(show && this.props.myReducer.search !== 'pending') &&
 									show.map((value, key) => {
 										let altval = `${key} - ${value}`;
 										if (this.props.myReducer.images_highres[value] === '/img/noImage.gif') {
@@ -144,9 +144,9 @@ class Search extends Component {
 									})
 								}
 								{
-									(!show) &&
+									(!show || this.props.myReducer.search === 'pending') &&
 									mapPending.map((value, key) => {
-										return <a className="bottom-column-item" key={key} >
+										return <a className="bottom-column-item-empty" key={key} >
 											
 										</a>			 
 									})

@@ -30,9 +30,12 @@ export const changeSearchStatus = (val) => {
 	};
 };
 
-export const notify = (msg, secs) => {
+export const notify = (msg, secs, position=2) => {
+	if (!position) position = toast.POSITION.BOTTOM_RIGHT;
+	if (position === 1) position = toast.POSITION.TOP_RIGHT;
+	if (position === 2) position = toast.POSITION.TOP_CENTER;
 	toast(msg, {
-		position: toast.POSITION.BOTTOM_RIGHT,
+		position: position,
 		className: 'dark-toast',
 		progressClassName: 'transparent-progress',
 		bodyClassName: 'dark-toast-body',

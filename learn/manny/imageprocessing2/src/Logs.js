@@ -66,17 +66,25 @@ class Logs extends Component {
 		let arr2 = []
 		if (arr.length > 0) {
 			for (let i = 0; i < arr.length; i++) {
-				arr2.push(<div key={i}>{arr[i].text}</div>);	
+				var d = new Date(arr[i].current);
+				var d2 = d.toUTCString();
+				var d3 = d.toString();
+				arr2.push(<div key={i}>[{d2}] <br /><b>{arr[i].text}</b></div>);	
 			}
 		}
 		return (
-			<div className="my-container2 fade-in logs2">
+			<div className="my-container2 logs2">
 				<div className="monitor-logs header-text">Monitor Logs</div>
 				<div className="row">
 					<div className="col-md-12">
-						<div className="sub-logs">{arr2}
-						</div>
-						
+						{
+							arr.length > 0 ?
+							<div className="sub-logs">{arr2}
+							</div>
+							:
+							<div className="sub-logs">No Logs Found.
+							</div>
+						}
 					</div>
 				</div>
 			</div>

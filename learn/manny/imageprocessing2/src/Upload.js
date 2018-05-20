@@ -21,7 +21,7 @@ class Upload extends Component {
 
 	render() {
 		return (
-			<div className="my-container2 upload fade-in">
+			<div className="my-container2 upload">
 				
 				<DoUpload isMultiple={true} />
 				<br /><br />
