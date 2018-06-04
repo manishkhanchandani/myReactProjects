@@ -31,10 +31,12 @@ class Nav extends Component {
 			
 			//image_name on fb
 			if (this.props.myReducer.image_name !== result.image_name) {
+				console.log('changing search to pending');
 				this.props.callSetImageName(result.image_name);	
 				this.props.callImageMatchCustom();
 				this.props.callImageHigResClear();
-				firebaseDatabase.ref(url).child('search').set('pending');
+				//firebaseDatabase.ref(url).child('search').set('pending');
+				firebaseDatabase.ref(url).child('search2').set('pending');
 			}
 
 			//image on fb
@@ -65,7 +67,7 @@ class Nav extends Component {
 			}
 				
 			
-			let srch = result.search;
+			let srch = result.search2;
 			if (srch === 'started') {
 				this.props.callImageHigResClear();
 			}
@@ -94,10 +96,12 @@ class Nav extends Component {
 	
 	resetFb(e) {
 		e.preventDefault();
+		console.log('resetting');
 		var url = FirebaseConstant.basePath;
 		firebaseDatabase.ref(url).child('tab').child('current').set('home');
 		firebaseDatabase.ref(url).child('learn').set('pending');
-		firebaseDatabase.ref(url).child('search').set('pending');
+		//firebaseDatabase.ref(url).child('search').set('pending');
+		firebaseDatabase.ref(url).child('search2').set('pending');
 		firebaseDatabase.ref(url).child('image').set('pending');
 		firebaseDatabase.ref(url).child('image_name').set('pending');
 		window.location.href = "/";

@@ -68,6 +68,8 @@ export const getUrlByFileNameSelf = (fileName, callback=null) => {
 	let mimeType = '';
 	let subs = fileName.substr(-3);
 	let subs2 = fileName.substr(-4);
+	subs = subs.toLowerCase();
+	subs2 = subs2.toLowerCase();
 	if (subs === 'png') {
 		mimeType = mimes.png;
 	} else if (subs === 'gif') {
@@ -111,6 +113,8 @@ export const setImageName = (dispatch, fileName) => {
 	let file = fileName;
 	let subs = fileName.substr(-3);
 	let subs2 = fileName.substr(-4);
+	subs = subs.toLowerCase();
+	subs2 = subs2.toLowerCase();
 	if (!(subs === 'png' || subs === 'gif' || subs === 'jpg' || subs2 === 'jpeg')) {
 		file = null;
 	}
@@ -130,6 +134,8 @@ export const getUrlByFileNameSelfHigh = (fileName, callback=null) => {
 	let mimeType = '';
 	let subs = fileName.substr(-3);
 	let subs2 = fileName.substr(-4);
+	subs = subs.toLowerCase();
+	subs2 = subs2.toLowerCase();
 	if (subs === 'png') {
 		mimeType = mimes.png;
 	} else if (subs === 'gif') {
@@ -178,11 +184,14 @@ export const getList = (dispatch) => {
 		payload: new Promise((resolve, reject) => {
 			
 			bucket.listObjects(function (err, data) {
+				console.log('getList data is ', data);
 				let result = data.Contents;
 				if (result.length > 0) {
 					for (let i = 0; i < result.length; i++) {
 						let subs = result[i].Key.substr(-3);
 						let subs2 = result[i].Key.substr(-4);
+						subs = subs.toLowerCase();
+						subs2 = subs2.toLowerCase();
 						if (subs === 'png') {
 							dispatch(getUrlByFileName(result[i].Key, mimes.png));
 						} else if (subs === 'gif') {
@@ -235,7 +244,7 @@ export const uploadedFiles = (files) => {
 
 export const imageMatch = (dispatch, file) => {
 	//dispatch(getUrlByFileNameSelfHigh(file.name));
-	let url = 'http://52.41.7.182:4000/match?name=' + file.name;
+	let url = 'http://54.244.174.63:4000/match?name=' + file.name;
 	console.log('url is ', url);
 	return {
 		type: 'GET_AWS_IMAGE_MATCH',
@@ -278,7 +287,7 @@ export const searchProgress = (val) => {
 };
 
 export const imageMatchNoImage = (dispatch, file) => {
-	let url = 'http://52.41.7.182:4000/match?name=' + file.name;
+	let url = 'http://54.244.174.63:4000/match?name=' + file.name;
 	console.log('url is ', url);
 	return {
 		type: 'GET_AWS_IMAGE_MATCH',
@@ -309,7 +318,7 @@ export const imageMatchNoImage = (dispatch, file) => {
 
 
 export const imageDirectMatchNoImage = (dispatch, file) => {
-	let url = 'http://52.41.7.182:4000/match?name=' + file;
+	let url = 'http://54.244.174.63:4000/match?name=' + file;
 	console.log('url is ', url);
 	return {
 		type: 'GET_AWS_IMAGE_MATCH',

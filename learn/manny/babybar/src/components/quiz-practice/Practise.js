@@ -3,7 +3,7 @@ import * as firebase from 'firebase';
 import {firebaseDatabase, FirebaseConstant} from '../../MyFirebase.js';
 import {getUID, getUsersObj} from '../auth/AuthAction.js';
 //import {Redirect} from 'react-router-dom';
-import {getRandomizer, processRecords, timeAgo, activityTracker} from '../../utilities/functions.js';
+import {getRandomizer, processRecords, timeAgo, activityTracker} from '../../utilities/functions.js'; //calculatePercentage
 
 import Paginator from '../../utilities/Paginator.js';
 import renderHTML from 'react-render-html';
@@ -16,6 +16,9 @@ import {changeStartTime} from '../essays/IssuesAction.js';
 import {connect} from 'react-redux';
 
 const category = {
+	"19": "A Criminal",
+	"21": "A Torts",
+	"22": "A Contracts",
 	"27": "S Contracts",
 	"28": "S Criminal",
 	"29": "S Torts",
@@ -23,9 +26,15 @@ const category = {
 	"45": "Criminal",
 	"46": "Torts",
 	"47": "FYLS 1980 Exam",
-	"50": "QA Contracts",
-	"51": "QA Criminal",
-	"52": "QA Torts"
+	"33": "1 CONTRACTS - TERMS AND FORMATION",
+	"34": "2 CONTRACTS - INTERPRETATION AND ENFORCEABILITY",
+	"35": "3 CONTRACTS - THIRD PARTIES AND REMEDIES",
+	"36": "4 UCC",
+	"37": "5 - TORTS - INTENTIONAL TORTS AND DEFENSES",
+	"38": "6 - TORTS - NEGLIGENCE AND DEFENSES",
+	"39": "7 - TORTS - DEFAMATION / PRODUCT LIABILITY / MISCELLANEOUS",
+	"40": "8 - CRIMINAL LAW FUNDAMENTALS AND CRIMES AGAINST PROPERTY",
+	"42": "9 - CRIMES AGAINST THE PERSON / VICARIOUS LIABILITY / DEFENSES",
 };
 
 /*
@@ -78,8 +87,9 @@ class QuizPractice extends Component {
 			qUid: null,
 			current: null,
 			answers: null,
-			startNumber: 1
-			
+			startNumber: 1,
+			statistics: {},
+			displayStats: {}
 		};
 	}
 	
@@ -122,6 +132,114 @@ class QuizPractice extends Component {
 		});		
 	}
 	
+	
+	analyseResultUser(res, ql) {
+			let questionList = {};
+			let questionListTopic = {};
+			if (ql) {
+				for (let x in ql) {
+					let y = ql[x];
+					questionList[y.id] = y;
+					questionListTopic[y.topic] = 1;
+				}
+			}
+			//console.log('questionList: ', questionList);
+			//console.log('questionListTopic: ', questionListTopic);
+			
+			let stats = {};
+			if (res.myAnswers) {
+				let arrCat = {};
+				let arrCatTotal = {};
+				let arrTopic = {};
+				let arrTopicTotal = {};
+				for (let key in res.myAnswers) {
+					let c = 0;
+					if (res.myAnswers[key].isCorrect) {
+						c = 1;
+					}
+					if (!arrCat[questionList[key].category_id]) arrCat[questionList[key].category_id] = 0;
+					arrCat[questionList[key].category_id] += c;
+					if (!arrCatTotal[questionList[key].category_id]) arrCatTotal[questionList[key].category_id] = 0;
+					arrCatTotal[questionList[key].category_id] += 1;
+					
+					let tmp = questionList[key].topic;
+					let arr = tmp.split(',');
+					let topic = arr[0];
+					if (!arrTopic[topic]) arrTopic[topic] = 0;
+					arrTopic[topic] += c;
+					if (!arrTopicTotal[topic]) arrTopicTotal[topic] = 0;
+					arrTopicTotal[topic] += 1;
+					stats = {
+						arrCat,
+						arrCatTotal,
+						arrTopic,
+						arrTopicTotal
+					};
+				}
+			}
+			//console.log('stats: ', stats);
+			//this.setState({statistics: stats});
+			/*console.log('arrCat: ', arrCat);
+			console.log('arrCatTotal: ', arrCatTotal);
+			console.log('arrTopic: ', arrTopic);
+			console.log('arrTopicTotal: ', arrTopicTotal);*/
+			return stats;
+	}
+	
+	analyseResult(res) {
+			let questionList = {};
+			let questionListTopic = {};
+			if (res.questionList) {
+				for (let x in res.questionList) {
+					let y = res.questionList[x];
+					questionList[y.id] = y;
+					questionListTopic[y.topic] = 1;
+				}
+			}
+			//console.log('questionList: ', questionList);
+			//console.log('questionListTopic: ', questionListTopic);
+			
+			let stats = {};
+			if (res.answers) {
+				for (let uid in res.answers) {
+					if (res.answers[uid].myAnswers) {
+						
+						let arrCat = {};
+						let arrCatTotal = {};
+						let arrTopic = {};
+						let arrTopicTotal = {};
+						for (let key in res.answers[uid].myAnswers) {
+							let c = 0;
+							if (res.answers[uid].myAnswers[key].isCorrect) {
+								c = 1;
+							}
+							if (!arrCat[questionList[key].category_id]) arrCat[questionList[key].category_id] = 0;
+							arrCat[questionList[key].category_id] += c;
+							if (!arrCatTotal[questionList[key].category_id]) arrCatTotal[questionList[key].category_id] = 0;
+							arrCatTotal[questionList[key].category_id] += 1;
+							if (!arrTopic[questionList[key].topic]) arrTopic[questionList[key].topic] = 0;
+							arrTopic[questionList[key].topic] += c;
+							if (!arrTopicTotal[questionList[key].topic]) arrTopicTotal[questionList[key].topic] = 0;
+							arrTopicTotal[questionList[key].topic] += 1;
+							if (!stats[uid]) stats[uid] = {};
+							stats[uid] = {
+								arrCat,
+								arrCatTotal,
+								arrTopic,
+								arrTopicTotal
+							};
+						}
+					}
+				}
+			}
+			//console.log('stats: ', stats);
+			this.setState({statistics: stats});
+			/*console.log('arrCat: ', arrCat);
+			console.log('arrCatTotal: ', arrCatTotal);
+			console.log('arrTopic: ', arrTopic);
+			console.log('arrTopicTotal: ', arrTopicTotal);*/
+	}
+	
 	checkResults(uniqueID, results=null) {
 		if (this.state.uniqueID) {
 			let urlOld = FirebaseConstant.basePath + '/quiz/savedUserQuestions/' + this.state.uniqueID;
@@ -134,6 +252,7 @@ class QuizPractice extends Component {
 		ref.on('value', (snapshot) => {
 			let res = snapshot.val();
 			if (!res) return;
+			//this.analyseResult(res);
 			if (!res.answers) return;
 			this.setState({answers: res.answers});
 			let uid = getUID();
@@ -142,6 +261,7 @@ class QuizPractice extends Component {
 			let score = 0;
 			let obj = {};
 			//let pn = 0;
+
 			if (res.answers[uid].myAnswers) {
 				for (let key in res.answers[uid].myAnswers) {
 					answered = answered + 1;
@@ -153,6 +273,7 @@ class QuizPractice extends Component {
 				}
 				//this.onActivePageChange(pn);
 			}
+			
 			
 			let secs = null;
 			if (results) {
@@ -166,6 +287,26 @@ class QuizPractice extends Component {
 			}
 			this.setState({quizChoosenOption: obj, answered: answered, score: score});
 			
+		});	
+	}
+	
+	updateStatsOnPageLoad(uniqueID)
+	{
+		let url = FirebaseConstant.basePath + '/quiz/savedUserQuestions/' + uniqueID;
+
+		let ref = firebaseDatabase.ref(url);	
+		ref.once('value', (snapshot) => {
+			let res = snapshot.val();
+			if (!res) return;
+			let q = res.questionList;
+			for (let key in res.answers) {
+				let r = res.answers[key]
+				let stats = this.analyseResultUser(r, q);
+				var url3 = FirebaseConstant.basePath + '/quiz/savedUserQuestions/' + uniqueID + '/answers/' + key + '/stats';
+				if (stats && key) {
+					firebaseDatabase.ref(url3).set(stats);
+				}
+			}
 		});	
 	}
 
@@ -209,6 +350,7 @@ class QuizPractice extends Component {
 		if (this.props.match.params.uniqueId) {
 			localStorage.setItem('uniqueID', this.props.match.params.uniqueId);
 			this.fetchFromUniqueId(this.props.match.params.uniqueId);
+			this.updateStatsOnPageLoad(this.props.match.params.uniqueId);
 			/*var url3 = FirebaseConstant.basePath + '/quiz/savedUserQuestions/'+this.props.match.params.uniqueId;
 			var ref3 = firebaseDatabase.ref(url3);
 			ref3.once('value', (snapshot) => {
@@ -388,6 +530,19 @@ class QuizPractice extends Component {
 			var url2 = FirebaseConstant.basePath + '/quiz/savedUserQuestions/' + this.state.uniqueID + '/answers/' + uid + '/userInfo';
 			firebaseDatabase.ref(url2).set({name: u.displayName, email: u.email, score: score, answered: answered});
 		});
+		
+		let url = FirebaseConstant.basePath + '/quiz/savedUserQuestions/' + this.state.uniqueID;
+
+		let ref = firebaseDatabase.ref(url);	
+		ref.once('value', (snapshot) => {
+			let res = snapshot.val();
+			if (!res) return;
+			let r = res.answers[uid]
+			let q = res.questionList;
+			let stats = this.analyseResultUser(r, q);
+			var url3 = FirebaseConstant.basePath + '/quiz/savedUserQuestions/' + this.state.uniqueID + '/answers/' + uid + '/stats';
+			firebaseDatabase.ref(url3).set(stats);
+		});
 	}
 	chooseCatOption(key, val, checked) {
 		let opt = {...this.state.category};
@@ -397,10 +552,19 @@ class QuizPractice extends Component {
 		if (checked) {
 			opt[val.key] = val;
 		}
+		if (opt) {
+			let tot = 0;
+			for (let k in opt) {
+				let o = opt[k];
+				tot = tot + o.cnt;
+			}
+			this.setState({number: tot});
+		}
 		this.setState({category: opt});
 	}
 
 	render() {
+		//console.log('this state is ', this.state);
 		let userObj = getUsersObj();
 		/*if (!(userObj.access_level === 'admin' || userObj.access_level === 'admin2' || userObj.access_level === 'superadmin')) {
 			return <Redirect to="/" push={true} />
@@ -524,9 +688,58 @@ class QuizPractice extends Component {
 										if (!result.userInfo) return null;
 										let score = parseInt(result.userInfo.score, 10);
 										let answered = parseInt(result.userInfo.answered, 10);
+										//let stats = this.state.statistics[value];
+										let stats = result.stats;
+										if (!stats) return null;
 										return <div key={value}>
 											<h3>{result.userInfo.name}</h3>
 											<div>Total score is <b>{score * 20} / {this.state.finalQuestionList.length * 20}</b><br />Answered <b>{answered} ({score} correct answers, {answered > 0 ? Math.floor((score / answered) * 100) : ''} %) / {this.state.finalQuestionList.length}</b> questions</div>
+											{
+												this.state.displayStats[value] && 
+												<a href="" onClick={(e) => {e.preventDefault(); let displayStats = {...this.state.displayStats}; displayStats[value] = false; this.setState({displayStats: displayStats})}}>Hide Stats</a>	
+											}
+											{
+												!this.state.displayStats[value] && 
+												<a href="" onClick={(e) => {e.preventDefault(); let displayStats = {...this.state.displayStats}; displayStats[value] = true; this.setState({displayStats: displayStats})}}>Show Stats</a>	
+											}
+											{
+												this.state.displayStats[value] && 
+												<div>
+												
+												<hr />
+												<h5>Stats Based on Topics </h5>
+												{
+													stats.arrTopicTotal && 
+														Object.keys(stats.arrTopicTotal).map((topic, topicKey) => {
+															return <div key={topicKey}>
+																<b>{topic}</b>: <span className="resultV">{stats.arrTopic[topic]} / {stats.arrTopicTotal[topic]}</span>
+																{
+																	(stats.arrTopicTotal[topic] && stats.arrTopicTotal[topic] > 0) &&
+																	<span>
+																		&nbsp; - (<span className="resultP">{Math.floor((stats.arrTopic[topic] / stats.arrTopicTotal[topic]) * 100)} %</span>)
+																	</span>
+																}
+															</div>
+														})
+												}
+												<hr />
+												<h5>Stats Based on Category </h5>
+												{
+													stats.arrTopicTotal && 
+														Object.keys(stats.arrCatTotal).map((cat, catKey) => {
+															return <div key={catKey}>
+																<b>{category[cat]}</b>: <span className="resultV">{stats.arrCat[cat]} / {stats.arrCatTotal[cat]} </span>
+																{
+																	(stats.arrCatTotal[cat] && stats.arrCatTotal[cat] > 0) &&
+																	<span>
+																		&nbsp; - (<span className="resultP">{Math.floor((stats.arrCat[cat] / stats.arrCatTotal[cat]) * 100)} %</span>)
+																	</span>
+																}
+															</div>
+														})
+												}
+												</div>
+											}
 										</div>
 									})	
 								}
@@ -564,7 +777,7 @@ class QuizPractice extends Component {
 						<form onSubmit={this.startQuiz.bind(this)}>
 						{
 							this.state.categories && 
-							<ul className="list-group">
+							<ul className="list-group qz-categories">
 							{
 								this.state.categories.map((value, key) => {
 									return <li key={key} className="list-group-item"><input type="checkbox" name="category" value={JSON.stringify(value)} onClick={(e) => { this.chooseCatOption(key, value, e.target.checked); }} /> {value.name} / {value.cnt}</li>				

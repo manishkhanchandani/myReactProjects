@@ -229,6 +229,7 @@ class Import1 extends Component {
 	importQuiz(cat_id, e) {
 		e.preventDefault();
 		let url = 'http://localhost/project2017/qz/api/quiz_display.php?category_id='+cat_id+'&limit=1000&order=+id+ASC&allFields=1';	
+		console.log('url is ', url);
 		fetch(url, {
 			method: 'GET'	  
 		}).then((response) => {
@@ -285,9 +286,30 @@ class Import1 extends Component {
 				<div><a href="" onClick={this.importCriminal.bind(this)}>Criminal</a></div>
 				<div><a href="" onClick={this.importTorts.bind(this)}>Torts</a></div>
 				<div><a href="" onClick={this.importQuiz.bind(this, 27)}>Siegel Contract</a></div>
+				<div><a href="" onClick={this.importQuiz.bind(this, 28)}>Siegel Criminal</a></div>
+				<div><a href="" onClick={this.importQuiz.bind(this, 29)}>Siegel Torts</a></div>
+				<hr />
+				<div><a href="" onClick={this.importQuiz.bind(this, 22)}>A Contract</a></div>
+				<div><a href="" onClick={this.importQuiz.bind(this, 19)}>A Criminal</a></div>
+				<div><a href="" onClick={this.importQuiz.bind(this, 21)}>A Torts</a></div>
+				<hr />
+				
+				<div><a href="" onClick={this.importQuiz.bind(this, 33)}>TEST #1 CONTRACTS - TERMS AND FORMATION</a></div>
+				<div><a href="" onClick={this.importQuiz.bind(this, 34)}>TEST #2 CONTRACTS - INTERPRETATION AND ENFORCEABILITY</a></div>
+				<div><a href="" onClick={this.importQuiz.bind(this, 35)}>TEST #3 CONTRACTS - THIRD PARTIES AND REMEDIES</a></div>
+				<div><a href="" onClick={this.importQuiz.bind(this, 36)}>TEST #4 UCC</a></div>
+				<div><a href="" onClick={this.importQuiz.bind(this, 37)}>TEST #5 - TORTS - INTENTIONAL TORTS AND DEFENSES</a></div>
+				<div><a href="" onClick={this.importQuiz.bind(this, 38)}>TEST # 6 - TORTS - NEGLIGENCE AND DEFENSES</a></div>
+				<div><a href="" onClick={this.importQuiz.bind(this, 39)}>TEST # 7 - TORTS - DEFAMATION / PRODUCT LIABILITY / MISCELLANEOUS</a></div>
+				<div><a href="" onClick={this.importQuiz.bind(this, 40)}>TEST # 8 - CRIMINAL LAW FUNDAMENTALS AND CRIMES AGAINST PROPERTY</a></div>
+				<div><a href="" onClick={this.importQuiz.bind(this, 42)}>TEST # 9 - CRIMES AGAINST THE PERSON / VICARIOUS LIABILITY / DEFENSES</a></div>
 				
 				
-				<div><a href="" onClick={this.importSubjects.bind(this)}>Import Subjects</a></div>		
+				<hr />
+				
+				<div><a href="" onClick={this.importSubjects.bind(this)}>Import Subjects</a></div>	
+				<hr />
+					
 				<TortsImportAssault />		
 			</div>
 		);

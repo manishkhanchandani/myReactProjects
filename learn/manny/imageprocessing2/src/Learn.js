@@ -71,7 +71,7 @@ class Learn extends Component {
 			if (nextProps.myReducer.learn === 'started') {
 				this.setState({list: nextProps.myReducer.list, show: [], counter: 0}, () => {
 					this.myVar = setInterval(() => {
-						//console.log('counter is ', this.state.counter);
+						console.log('counter is ', this.state.counter);
 
 						if (!this.state.list[this.state.counter]) {
 							clearInterval(this.myVar);	

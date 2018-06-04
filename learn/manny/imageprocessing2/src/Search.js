@@ -24,7 +24,8 @@ class Search extends Component {
 		if (props.myReducer.imageMatch.length === this.state.loader) {
 			//console.log('done');
 			var url = FirebaseConstant.basePath;
-			firebaseDatabase.ref(url).child('search').set('completed');
+			//firebaseDatabase.ref(url).child('search').set('completed');
+			firebaseDatabase.ref(url).child('search2').set('completed');
 			return;	
 		}
 		let data = props.myReducer.imageMatch[this.state.loader];
@@ -63,8 +64,10 @@ class Search extends Component {
 	}
 	
 	changeStatus(status) {
+		console.log('status is ', status);
 		var url = FirebaseConstant.basePath;
-		firebaseDatabase.ref(url).child('search').set(status);
+		//firebaseDatabase.ref(url).child('search').set(status);
+		firebaseDatabase.ref(url).child('search2').set(status);
 	}
 
 	render() {

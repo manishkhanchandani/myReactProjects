@@ -63,13 +63,7 @@ class App extends Component {
 					<div className="col-md-7 center-column mycell"><Search /></div>
 					<div className="col-md-2 right-column mycell">
 						<div className="border-right"></div>
-						<div className="learn-images">
-						<div className="row heading text-center">
-							<div className="col-md-12">
-							</div>
-						</div>
 						<Learn />
-						</div>
 						<Monitor />
 					</div>
 				</div>

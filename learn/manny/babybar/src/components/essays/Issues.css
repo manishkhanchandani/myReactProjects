@@ -30,3 +30,15 @@ a.ruleBoxLink  {
 	text-decoration: none;
 	color: #fff;	
 }
+
+.qz-categories {
+	font-size: 11px;
+}
+
+.resultV {
+	color: #FF0000;
+}
+
+.resultP {
+	color: #0000FF;
+}

@@ -161,3 +161,7 @@ export const activityTracker = (type='pageTracker', page) => {
 	}
 }
 
+export const calculatePercentage = (current, total) => {
+	if (total === 0) return 0;
+	return Math.floor((current / total) * 100);
+};
