@@ -37,32 +37,73 @@ const category = {
 	"42": "9 - CRIMES AGAINST THE PERSON / VICARIOUS LIABILITY / DEFENSES",
 };
 
-/*
+
 class Help extends Component {
+	constructor(props) {
+		super(props);
+		
+		this.state = {
+			subject: {},
+			issue: {}
+		};
+	}
+	
+	resetTopic(props) {
+		if (props.id) {
+			if (!this.state.subject[props.id]) {
+				let subjects = {...this.state.subject};
+				subjects[props.id] = '';
+				this.setState({subject: subjects});
+			}
+			if (!this.state.issue[props.id]) {
+				let issues = {...this.state.issue};
+				issues[props.id] = '';
+				this.setState({issue: issues});
+			}
+		}	
+	}
+	componentWillMount() {
+		this.resetTopic(this.props);
+	}
+	componentWillReceiveProps(nextProps) {
+		this.resetTopic(nextProps);
+	}
+
+	updateSubject(id, e) {
+		let subjects = {...this.state.subject};
+		subjects[id] = e.target.value;
+		this.setState({subject: subjects});
+	}
+
+	updateIssue(id, e) {
+		let issues = {...this.state.issue};
+		issues[id] = e.target.value;
+		this.setState({issue: issues});
+	}
+
 	render() {
+		if (!this.props.id) return null;
+
 		return (
 			<div>
+				<hr />
+				<b>Help yourself by setting subject and issue related to Quiz</b>
+				<br />
 				<br />
 				<div className="form-group">
 					<label>Subject</label>
-					<select className="form-control" >
-						<option value="">Select</option>
-						<option value="contracts">Contracts</option>
-						<option value="ucc">UCC</option>
-						<option value="criminal">Criminal</option>
-						<option value="torts">Torts</option>
-					</select>
+					<input className="form-control" type="text" value={this.state.subject[this.props.id]} onChange={this.updateSubject.bind(this, this.props.id)} />
 				</div>
 				<div className="form-group">
 					<label>Issue</label>
-					<input className="form-control" type="text"  />
+					<input className="form-control" type="text" value={this.state.issue[this.props.id]} onChange={this.updateIssue.bind(this, this.props.id)}  />
 				</div>
 				<br />
 			</div>
 		)	
 	}
 }
-*/
+
 class QuizPractice extends Component {
 	constructor(props) {
 		super(props);
@@ -89,7 +130,10 @@ class QuizPractice extends Component {
 			answers: null,
 			startNumber: 1,
 			statistics: {},
-			displayStats: {}
+			displayStats: {},
+			quiz_name: '',
+			quiz_pvt_users: '',
+			quiz_visiblity: 1
 		};
 	}
 	
@@ -120,7 +164,10 @@ class QuizPractice extends Component {
 				localStorage.removeItem('uniqueID');
 				return;
 			}
-			if (!result3.status || result3.status === 0) {
+			let userObj = getUsersObj();
+			if (userObj.access_level === 'superadmin' || userObj.access_level === 'admin') {
+								
+			} else if (!result3.status || result3.status === 0) {
 				alert('No Quiz Found.');
 				localStorage.removeItem('uniqueID');
 				return;
@@ -331,6 +378,8 @@ class QuizPractice extends Component {
 			let uniqueId1 = localStorage.getItem('uniqueID');
 			if (uniqueId1) {
 				this.fetchFromUniqueId(uniqueId1);
+			} else {
+				this.setState({loading: false});
 			}
 		}
 		var url = FirebaseConstant.basePath + '/quiz/categories';
@@ -350,7 +399,7 @@ class QuizPractice extends Component {
 		if (this.props.match.params.uniqueId) {
 			localStorage.setItem('uniqueID', this.props.match.params.uniqueId);
 			this.fetchFromUniqueId(this.props.match.params.uniqueId);
-			this.updateStatsOnPageLoad(this.props.match.params.uniqueId);
+			//this.updateStatsOnPageLoad(this.props.match.params.uniqueId);
 			/*var url3 = FirebaseConstant.basePath + '/quiz/savedUserQuestions/'+this.props.match.params.uniqueId;
 			var ref3 = firebaseDatabase.ref(url3);
 			ref3.once('value', (snapshot) => {
@@ -574,7 +623,7 @@ class QuizPractice extends Component {
 		let paginationProps = null;
 		let rightSideBar = null;
 		if (this.state.finalQuestionList) {
-			let obj = processRecords(this.state.finalQuestionList, null, this.state.filterText, ['question', 'answers', 'explanation', 'topic'], 1, this.state.pageNumber, this.onActivePageChange.bind(this), 5);
+			let obj = processRecords(this.state.finalQuestionList, null, this.state.filterText, ['question', 'answers', 'explanation', 'topic', 'category_id', 'id'], 1, this.state.pageNumber, this.onActivePageChange.bind(this), 5);
 			myArrayConverted = obj.myArrayConverted;
 			paginationProps = obj.paginationProps;
 			
@@ -634,10 +683,11 @@ class QuizPractice extends Component {
 												<div className="question">
 												<div><a href={url} target="_blank">External Link</a><br /><br />
 													</div>
-												<div>Topic: <strong>{value.topic} / {subjectCat}</strong></div>
+												{/*<div>Topic: <strong>{value.topic} / {subjectCat}</strong></div>*/}
+												<Help id={value.id} />
 												<b>Q. {value.id}.</b> {renderHTML(value.question)}<hr /></div>
 												<SimpleQuizAnsOptions id={value.id} opts={JSON.parse(value.answers)} optionChoosen={optionChoosen} handleChooseOption={this.handleChooseOption.bind(this)} details={value} />
-											{/*<Help />*/}
+											
 											
 											
 											
@@ -803,6 +853,18 @@ class QuizPractice extends Component {
 								</div>
 							}
 						</div>
+						<div className="form-group">
+							<label>Public / Private</label><br /><br />
+							<input type="radio" name="visiblity" value="1" defaultChecked={true} onClick={(e) => { this.setState({quiz_visiblity: parseInt(e.target.value, 10)});}} /> Public <br /><br />
+							<input type="radio" name="visiblity" value="2" onClick={(e) => { this.setState({quiz_visiblity: parseInt(e.target.value, 10)});}} /> Private <br /><br />
+						</div>
+						{
+							this.state.quiz_visiblity === 1 && 
+						<div className="form-group">
+							<label>Public Name</label>
+							<input type="text" className="form-control" placeholder="Enter Name of Quiz" value={this.state.quiz_name} onChange={(e) => { this.setState({quiz_name: e.target.value});}} />
+						</div>
+						}
 						
 						{/*<div className="form-group">
 							<label>Repetition</label><br /><br />

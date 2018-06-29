@@ -1,0 +1,74 @@
+Package Install
+
+https://medium.com/dailyjs/building-a-react-component-with-webpack-publish-to-npm-deploy-to-github-guide-6927f60b3220
+
+npm install --save firebase react-bootstrap react-quill react-render-html react-router react-router-dom redux redux-logger redux-promise-middleware redux-thunk 
+
+index.js
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import registerServiceWorker from './registerServiceWorker';
+import {Provider} from 'react-redux';
+import store from './store.js';
+import {FirebaseAuthSystem} from './components/auth/AuthAction.js';
+import App from './App';
+
+FirebaseAuthSystem(store.dispatch);
+
+ReactDOM.render(<Provider store={store}>
+		<App />
+	</Provider>, document.getElementById('root'));
+registerServiceWorker();
+
+
+MyFirebase.js
+import * as firebase from 'firebase';
+
+let fb_path = '';
+if (process.env.NODE_ENV === 'development') {
+	fb_path = '/babybarv2';
+} else {
+	fb_path = '/babybarv2_live';
+}
+
+var config = {
+    apiKey: "AIzaSyBhpHK-ve2s0ynnr8og8Zx0S69ttEFpDKk",
+	authDomain: "project100-fe20e.firebaseapp.com",
+	databaseURL: "https://project100-fe20e.firebaseio.com",
+	projectId: "project100-fe20e",
+	storageBucket: "project100-fe20e.appspot.com",
+	messagingSenderId: "674827815611"
+  };
+
+export const FirebaseConstant = {
+	basePath: fb_path
+};
+
+export const firebaseApp = firebase.initializeApp(config);
+
+export const firebaseDatabase = firebase.database();
+
+
+store.js
+import {createStore, combineReducers, applyMiddleware} from 'redux';
+import {createLogger} from 'redux-logger';
+import thunk from 'redux-thunk';
+import promise from 'redux-promise-middleware';
+import AuthReducer from './components/auth/AuthReducer.js';
+import QuizReducer from './components/quiz/QuizReducer.js';
+import IssuesReducer from './components/essays/IssuesReducer.js';
+import SimpleQuizReducer from './components/simple-quiz/SimpleQuizReducer.js';
+import ChatReducer from './components/chat/ChatReducer.js';
+import PractiseReducer from './components/practise/practiseReducer.js';
+
+var store = null;
+if (process.env.NODE_ENV === 'development') {
+	store = createStore(combineReducers({AuthReducer, QuizReducer, IssuesReducer, SimpleQuizReducer, ChatReducer, PractiseReducer}), {}, applyMiddleware(createLogger(), thunk, promise()));
+} else {
+	store = createStore(combineReducers({AuthReducer, QuizReducer, IssuesReducer, SimpleQuizReducer, ChatReducer, PractiseReducer}), {}, applyMiddleware(thunk, promise()));	
+}
+
+export default store;
+
+

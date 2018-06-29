@@ -1,3 +1,5 @@
+import {getUID} from '../auth/AuthAction.js';
+
 const IssuesReducer = (state = {
 	subjects: null,
 	subject: null,
@@ -19,6 +21,17 @@ const IssuesReducer = (state = {
 			}
 			break;
 		case 'GET_BABYBARRULES_FULFILLED':
+			if (action.payload) {
+				for (let subject in action.payload) {
+					for (let issue in action.payload[subject]) {
+						//saving localstorage
+						let uid = getUID();
+						let key = 'rules_'+uid+'_'+subject+'_'+issue;
+						let value = JSON.stringify(action.payload[subject][issue]);
+						localStorage.setItem(key, value);
+					}
+				}
+			}
 			state = {
 				...state,
 				baby_bar_rules: action.payload

@@ -152,6 +152,13 @@ export const FirebaseAuthSystem = (dispatch) => {
 					dispatch(loggedOut());
 					return;
 				}
+
+				if (result.ban === 1) {
+					alert('Account is unauthorized, contact admin at admin@calbabybar.com');
+					dispatch(loggedOut());
+					return;
+				}
+
 				var obj = {};
 				obj.email = result.email;
 				obj.displayName = result.displayName;

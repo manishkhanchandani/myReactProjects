@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.node circle {
+  fill: #7ba7cc;
+  stroke: #b44682;
+  stroke-width: 1px;
+}
+
+.node text { 
+  font: 12px Avenir; 
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1px;
+}
+
+ul {
+  list-style-type: none;
+}

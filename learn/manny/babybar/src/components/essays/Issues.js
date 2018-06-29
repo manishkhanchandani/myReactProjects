@@ -182,6 +182,16 @@ class EssayIssues extends Component {
 		let sitePanelClass_4 = 'primary';
 				
 		let currentIssueRules = null;
+		if (this.props.match.params.subject && this.props.match.params.issue) {
+			//getting localstorage
+			let key = 'rules_'+uid+'_'+this.props.match.params.subject+'_'+this.props.match.params.issue;
+			let value = localStorage.getItem(key);	
+			if (value) {
+				currentIssueRules = JSON.parse(value);
+			}
+			
+		}
+
 		if (this.props.issuesReducer.baby_bar_rules && this.props.issuesReducer.baby_bar_rules[this.props.match.params.subject] && this.props.issuesReducer.baby_bar_rules[this.props.match.params.subject][this.props.match.params.issue]) {
 			currentIssueRules = this.props.issuesReducer.baby_bar_rules[this.props.match.params.subject][this.props.match.params.issue];
 		}
