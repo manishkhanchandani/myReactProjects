@@ -80,6 +80,12 @@ class SimpleQuizAnsOptions extends Component {
 					{renderHTML(this.props.details.explanation)}
 					<br /><br />
 					<b>Topic: </b> {this.props.details.topic}
+					{
+						this.props.category && 
+						<span>
+							&nbsp;/ {this.props.category[this.props.details.category_id]}	
+						</span>
+					}
 				</div>
 			}
 			</div>

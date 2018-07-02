@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from 'mkhancha-bbheader';
+import AuthHome from 'mkhancha-fbauth';
+import {FirebaseConstant, config} from './MyFirebase.js'; 
 
 class App extends Component {
   render() {
+	  let userObj = localStorage.getItem('mk-fb-user');
+	  console.log('userObj: ', userObj);
+	  if (!userObj) {
+		return (<AuthHome FirebaseConstant={FirebaseConstant} config={config}  /> );
+	  }
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+      <div>
+	  	<Header />
+        <p>
+          hello world
         </p>
       </div>
     );

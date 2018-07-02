@@ -668,7 +668,8 @@ class QuizPractice extends Component {
 										<strong>Unique URL:</strong> <a href={`/quizPractice/${this.state.uniqueID}`} target="_blank">{this.state.uniqueID}</a><br /><br />
 									</div>
 								}
-								<div className="filterContainer"><input type="text" placeholder="Filter" className="form-control filterItem" onChange={(e) => {this.setState({filterText: e.target.value, pageNumber: 1});}} /><br /></div>
+								<div className="filterContainer"><input type="text" placeholder="Filter" className="form-control filterItem" onChange={(e) => {this.setState({filterText: e.target.value, pageNumber: 1});}} /><br /></div><hr />
+								<Paginator {...paginationProps} /><hr />
 								{
 									myArrayConverted.map((value, key) => {
 										value = {
@@ -677,16 +678,16 @@ class QuizPractice extends Component {
 										};
 										let url = '/quizPractice/category_'+value.category_id+'/'+value.id;
 										let optionChoosen = parseInt(this.state.quizChoosenOption[value.id], 10);
-										let subjectCat = category[value.category_id];
+										//let subjectCat = category[value.category_id];
 										return <div key={key} className="questions">
 											
 												<div className="question">
 												<div><a href={url} target="_blank">External Link</a><br /><br />
 													</div>
 												{/*<div>Topic: <strong>{value.topic} / {subjectCat}</strong></div>*/}
-												<Help id={value.id} />
 												<b>Q. {value.id}.</b> {renderHTML(value.question)}<hr /></div>
-												<SimpleQuizAnsOptions id={value.id} opts={JSON.parse(value.answers)} optionChoosen={optionChoosen} handleChooseOption={this.handleChooseOption.bind(this)} details={value} />
+												<SimpleQuizAnsOptions id={value.id} opts={JSON.parse(value.answers)} optionChoosen={optionChoosen} handleChooseOption={this.handleChooseOption.bind(this)} details={value} category={category} />
+												<Help id={value.id} />
 											
 											
 											
@@ -825,6 +826,17 @@ class QuizPractice extends Component {
 						(userObj.access_level === 'admin' || userObj.access_level === 'admin2' || userObj.access_level === 'superadmin') &&
 						
 						<form onSubmit={this.startQuiz.bind(this)}>
+						{/*
+							this.state.categories && 
+							<select className="form-control" size="5" multiple="multiple" onChange={(e) => { console.log(e.target.value); }}>
+								<option value="">Select</option>
+								{
+									this.state.categories.map((value, key) => {
+										return <option key={key} value={JSON.stringify(value)}>{value.name} / {value.cnt}</option>
+									})
+								}
+							</select>
+						*/}
 						{
 							this.state.categories && 
 							<ul className="list-group qz-categories">
