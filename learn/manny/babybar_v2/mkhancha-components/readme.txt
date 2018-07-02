@@ -107,3 +107,29 @@ npm run transpile
 npm run build
 
 npm publish
+
+
+
+/*if (!this.props.config) return;
+		if (!this.props.FirebaseConstant) return;
+		const FirebaseConstant = this.props.FirebaseConstant;
+		const config = this.props.config;*/
+		let fb_path = '';
+if (process.env.NODE_ENV === 'development') {
+	fb_path = '/babybarv2';
+} else {
+	fb_path = '/babybarv2_live';
+}
+
+ const config = {
+    apiKey: "AIzaSyBhpHK-ve2s0ynnr8og8Zx0S69ttEFpDKk",
+	authDomain: "project100-fe20e.firebaseapp.com",
+	databaseURL: "https://project100-fe20e.firebaseio.com",
+	projectId: "project100-fe20e",
+	storageBucket: "project100-fe20e.appspot.com",
+	messagingSenderId: "674827815611"
+  };
+
+ const FirebaseConstant = {
+	basePath: fb_path
+};

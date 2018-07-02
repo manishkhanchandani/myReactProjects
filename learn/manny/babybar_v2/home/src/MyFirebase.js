@@ -22,6 +22,6 @@ export const FirebaseConstant = {
 	basePath: fb_path
 };
 
-export const firebaseAppv2 = firebase.initializeApp(config);
+export const firebaseApp = firebase.initializeApp(config);
 
-export const firebaseDatabasev2 = firebase.database();
+export const firebaseDatabase = firebase.database();

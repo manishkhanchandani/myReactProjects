@@ -25,7 +25,7 @@ class AuthHome extends Component {
 		if (!this.props.FirebaseConstant) return;
 		const FirebaseConstant = this.props.FirebaseConstant;
 		const config = this.props.config;
-		this.firebaseApp = firebase.initializeApp(config);	
+		this.firebaseApp = this.props.firebaseApp;
 		this.FirebaseConstant = FirebaseConstant;
 		this.firebaseDatabase = firebase.database();
 		this.setState({firebaseApp: this.firebaseApp, FirebaseConstant: this.FirebaseConstant, firebaseDatabase: this.firebaseDatabase});

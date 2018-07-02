@@ -1,7 +1,7 @@
 /*** src/index.js   ***/
 import React, {Component} from 'react';
 import Themes from 'mkhancha-themes';
-import {Navbar, Nav, NavItem} from 'react-bootstrap';
+import Auth from 'mkhancha-auth';
 import './style.css';
 
 class Topic extends Component {
@@ -33,65 +33,73 @@ class Header extends Component {
 	render() {
 		return (
 			<div className="navMulti">
-				<Navbar className="navbar navbar-inverse navbar-fixed-top">
-				  <Navbar.Header>
-					<Navbar.Brand>
-					  <a href="/">California Bar Exam</a>
-					</Navbar.Brand>
-				  </Navbar.Header>
-				  <Navbar.Collapse>
-					  <Nav>
-						<NavItem eventKey={1} href="/about">
-						  About
-						</NavItem>
-					  </Nav>
-					  <ul className="nav navbar-nav">
-					  	<li>
-							<a href="" className="dropdown-toggle" data-toggle="dropdown">Subjects<b className="caret"></b></a>
-							<ul className="dropdown-menu multi-level">
-								<li className="dropdown-submenu">
-									<a href="" className="dropdown-toggle" data-toggle="dropdown">Contracts & UCC</a>
-									<Topic subject="contracts" />
-								</li>
-								<li className="dropdown-submenu">
-									<a href="" className="dropdown-toggle" data-toggle="dropdown">Torts</a>
-									<Topic subject="torts" />
-								</li>
-								<li className="dropdown-submenu">
-									<a href="" className="dropdown-toggle" data-toggle="dropdown">Criminal</a>
-									<Topic subject="criminal" />
-								</li>
-								<li className="dropdown-submenu">
-									<a href="" className="dropdown-toggle" data-toggle="dropdown">Admin</a>
-									<ul className="dropdown-menu">
-										<li><a href="">Action</a></li>
+				<div className="navbar navbar-inverse navbar-static-top" role="navigation">
+					<div className="container">
+						<div className="navbar-header">
+							<button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<span className="sr-only">Toggle navigation</span>
+								<span className="icon-bar"></span>
+								<span className="icon-bar"></span>
+								<span className="icon-bar"></span>
+							</button>
+							<a className="navbar-brand" href="/">California Baby Bar</a>
+						</div>
+						<div className="collapse navbar-collapse">
+							<ul className="nav navbar-nav">
+								<li className="active"><a href="/">Home</a></li>
+							</ul>
+							  <ul className="nav navbar-nav">
+								<li>
+									<a href="" className="dropdown-toggle" data-toggle="dropdown">Subjects<b className="caret"></b></a>
+									<ul className="dropdown-menu multi-level">
 										<li className="dropdown-submenu">
-											<a href="" className="dropdown-toggle" data-toggle="dropdown">Definition</a>
+											<a href="" className="dropdown-toggle" data-toggle="dropdown">Contracts & UCC</a>
+											<Topic subject="contracts" />
+										</li>
+										<li className="dropdown-submenu">
+											<a href="" className="dropdown-toggle" data-toggle="dropdown">Torts</a>
+											<Topic subject="torts" />
+										</li>
+										<li className="dropdown-submenu">
+											<a href="" className="dropdown-toggle" data-toggle="dropdown">Criminal</a>
+											<Topic subject="criminal" />
+										</li>
+										<li className="dropdown-submenu">
+											<a href="" className="dropdown-toggle" data-toggle="dropdown">Admin</a>
 											<ul className="dropdown-menu">
+												<li><a href="">Action</a></li>
 												<li className="dropdown-submenu">
-													<a href="" className="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+													<a href="" className="dropdown-toggle" data-toggle="dropdown">Definition</a>
 													<ul className="dropdown-menu">
-														<li><a href="">Action</a></li>
-														<li><a href="">Another action</a></li>
-														<li><a href="">Something else here</a></li>
-														<li className="divider"></li>
-														<li><a href="">Separated link</a></li>
-														<li className="divider"></li>
-														<li><a href="">One more separated link</a></li>
+														<li className="dropdown-submenu">
+															<a href="" className="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+															<ul className="dropdown-menu">
+																<li><a href="">Action</a></li>
+																<li><a href="">Another action</a></li>
+																<li><a href="">Something else here</a></li>
+																<li className="divider"></li>
+																<li><a href="">Separated link</a></li>
+																<li className="divider"></li>
+																<li><a href="">One more separated link</a></li>
+															</ul>
+														</li>
 													</ul>
 												</li>
 											</ul>
 										</li>
 									</ul>
 								</li>
-							</ul>
-						</li>
-					  </ul>
-					  <ul className="nav navbar-nav navbar-right">
-						<Themes />
-					  </ul>
-				</Navbar.Collapse>
-				</Navbar>
+							  </ul>
+							  <ul className="nav navbar-nav navbar-right">
+								<Themes path={this.props.path} />
+								<Auth FirebaseConstant={this.props.FirebaseConstant} config={this.props.config} firebaseApp={this.props.firebaseApp} />
+							  </ul>
+				
+						</div>
+					
+					</div>
+				
+				</div>
 			</div>
 		);
 	}

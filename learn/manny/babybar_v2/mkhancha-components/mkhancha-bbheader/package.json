@@ -1,6 +1,6 @@
 {
   "name": "mkhancha-bbheader",
-  "version": "1.0.2",
+  "version": "1.0.8",
   "description": "bbheader",
   "main": "dist/index.js",
   "scripts": {
@@ -35,7 +35,8 @@
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
-    "mkhancha-themes": "^1.0.1",
+    "mkhancha-auth": "^1.0.2",
+    "mkhancha-themes": "^1.0.3",
     "react-bootstrap": "^0.32.1"
   }
 }

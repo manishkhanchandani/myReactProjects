@@ -1,6 +1,5 @@
 /*** src/index.js   ***/
 import React, {Component} from 'react';
-import {NavDropdown, MenuItem} from 'react-bootstrap';
 
 class Themes extends Component {
 	
@@ -25,6 +24,9 @@ class Themes extends Component {
 		localStorage.setItem('theme', theme);
 		this.setState({themeName: theme});
 		let url = '//r.mkgalaxy.com/themes/index.php?theme=' + theme;
+		if (this.props.path) {
+			url = '/themes/' + theme + '/bootstrap.min.css';
+		}
 		fetch(url, {
 			method: 'GET'	  
 		}).then((response) => { 
@@ -44,27 +46,34 @@ class Themes extends Component {
 
 	render() {
 		return (
-				<NavDropdown eventKey={3} title={`Theme ${this.state.themeName}`} id="basic-nav-dropdown">
-				  <MenuItem eventKey={3.1} onClick={this.getTheme.bind(this, 'Default')}>Default<style>
-						{this.state.theme}
-					</style></MenuItem>
-				  <MenuItem eventKey={3.2} onClick={this.getTheme.bind(this, 'Default2')}>Default2</MenuItem>
-				  <MenuItem eventKey={3.3} onClick={this.getTheme.bind(this, 'Cerulean')}>Cerulean</MenuItem>
-				  <MenuItem eventKey={3.4} onClick={this.getTheme.bind(this, 'Cosmo')}>Cosmo</MenuItem>
-				  <MenuItem eventKey={3.5} onClick={this.getTheme.bind(this, 'Cyborg')}>Cyborg</MenuItem>
-				  <MenuItem eventKey={3.6} onClick={this.getTheme.bind(this, 'Darkly')}>Darkly</MenuItem>
-				  <MenuItem eventKey={3.7} onClick={this.getTheme.bind(this, 'Flatly')}>Flatly</MenuItem>
-				  <MenuItem eventKey={3.8} onClick={this.getTheme.bind(this, 'Journal')}>Journal</MenuItem>
-				  <MenuItem eventKey={3.9} onClick={this.getTheme.bind(this, 'Lumen')}>Lumen</MenuItem>
-				  <MenuItem eventKey={3.10} onClick={this.getTheme.bind(this, 'Paper')}>Paper</MenuItem>
-				  <MenuItem eventKey={3.11} onClick={this.getTheme.bind(this, 'Readable')}>Readable</MenuItem>
-				  <MenuItem eventKey={3.12} onClick={this.getTheme.bind(this, 'Sandstone')}>Sandstone</MenuItem>
-				  <MenuItem eventKey={3.13} onClick={this.getTheme.bind(this, 'Slate')}>Slate</MenuItem>
-				  <MenuItem eventKey={3.14} onClick={this.getTheme.bind(this, 'Spacelab')}>Spacelab</MenuItem>
-				  <MenuItem eventKey={3.15} onClick={this.getTheme.bind(this, 'Superhero')}>Superhero</MenuItem>
-				  <MenuItem eventKey={3.16} onClick={this.getTheme.bind(this, 'United')}>United</MenuItem>
-				  <MenuItem eventKey={3.17} onClick={this.getTheme.bind(this, 'Yeti')}>Yeti</MenuItem>
-				</NavDropdown>
+				<li>
+					<a href="" className="dropdown-toggle" data-toggle="dropdown">Theme {this.state.themeName} <b className="caret"></b></a>
+					<ul className="dropdown-menu">
+						<li><a href="" onClick={this.getTheme.bind(this, 'Default')}>Default</a><style>
+							{this.state.theme}
+						</style></li>
+						<li><a href="" onClick={this.getTheme.bind(this, 'Default2')}>Default2</a></li>
+						<li><a href="" onClick={this.getTheme.bind(this, 'Cerulean')}>Cerulean</a></li>
+						<li><a href="" onClick={this.getTheme.bind(this, 'Cosmo')}>Cosmo</a></li>
+						<li><a href="" onClick={this.getTheme.bind(this, 'Cyborg')}>Cyborg</a></li>
+						<li><a href="" onClick={this.getTheme.bind(this, 'Cyborg2')}>Cyborg2</a></li>
+						<li><a href="" onClick={this.getTheme.bind(this, 'Darkly')}>Darkly</a></li>
+						<li><a href="" onClick={this.getTheme.bind(this, 'Flatly')}>Flatly</a></li>
+						<li><a href="" onClick={this.getTheme.bind(this, 'Journal')}>Journal</a></li>
+						<li><a href="" onClick={this.getTheme.bind(this, 'Lumen')}>Lumen</a></li>
+						<li><a href="" onClick={this.getTheme.bind(this, 'Paper')}>Paper</a></li>
+						<li><a href="" onClick={this.getTheme.bind(this, 'Readable')}>Readable</a></li>
+						<li><a href="" onClick={this.getTheme.bind(this, 'Sandstone')}>Sandstone</a></li>
+						<li><a href="" onClick={this.getTheme.bind(this, 'Simplex')}>Simplex</a></li>
+						<li><a href="" onClick={this.getTheme.bind(this, 'Slate')}>Slate</a></li>
+						<li><a href="" onClick={this.getTheme.bind(this, 'Spacelab')}>Spacelab</a></li>
+						<li><a href="" onClick={this.getTheme.bind(this, 'Superhero')}>Superhero</a></li>
+						<li><a href="" onClick={this.getTheme.bind(this, 'United')}>United</a></li>
+						<li><a href="" onClick={this.getTheme.bind(this, 'Yeti')}>Yeti</a></li>
+						
+					
+					</ul>
+				</li>
 		);
 	}
 }

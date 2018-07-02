@@ -1,6 +1,6 @@
 {
   "name": "mkhancha-fbauth",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "description": "fb login",
   "main": "dist/index.js",
   "scripts": {

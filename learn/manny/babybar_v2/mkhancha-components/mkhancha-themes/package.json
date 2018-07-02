@@ -1,6 +1,6 @@
 {
   "name": "mkhancha-themes",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "my react themes",
   "main": "dist/index.js",
   "scripts": {
