@@ -16,7 +16,8 @@ const AuthReducer = (state = {
 				photoURL: action.photoURL,
 				uid: action.uid,
 				profile_uid: action.profile_uid,
-				providerId: action.providerId
+				providerId: action.providerId,
+				access_level: action.access_level
 			}
 			break;
 		case 'LOGGEDOUT':
