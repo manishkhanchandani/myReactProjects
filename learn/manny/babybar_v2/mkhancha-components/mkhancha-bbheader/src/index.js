@@ -4,6 +4,72 @@ import Themes from 'mkhancha-themes';
 import Auth from 'mkhancha-auth';
 import './style.css';
 
+export const subjects = {
+	contracts: {
+		name: 'Contracts',
+		menu: true
+	},
+	criminal: {
+		name: 'Criminal',
+		menu: true	
+	},
+	torts: {
+		name: 'Torts',
+		menu: true	
+	},
+	business_organization: {
+		name: 'Business Organization (Agency & Partnership)',
+		menu: true	
+	},
+	criminal_procedure: {
+		name: 'Criminal Procedure',
+		menu: true	
+	},
+	real_property: {
+		name: 'Real Property',
+		menu: true	
+	},
+	remedies: {
+		name: 'Remedies',
+		menu: true	
+	},
+	civil_procedure: {
+		name: 'Civil Procedure',
+		menu: true	
+	},
+	constitutional_law: {
+		name: 'Constitutional Law',
+		menu: true	
+	},
+	corporations: {
+		name: 'Corporations',
+		menu: true	
+	},
+	evidence: {
+		name: 'Evidence',
+		menu: true	
+	},
+	administrative_law: {
+		name: 'Administrative Law',
+		menu: true	
+	},
+	community_property: {
+		name: 'Community Property',
+		menu: true	
+	},
+	professional_responsibility: {
+		name: 'Professional Responsibility',
+		menu: true	
+	},
+	trusts: {
+		name: 'Trusts',
+		menu: true	
+	},
+	wills: {
+		name: 'Wills',
+		menu: true	
+	}		
+};
 class Topic extends Component {
 	render() {
 		const {subject} = this.props;
@@ -29,8 +95,13 @@ class Topic extends Component {
 
 
 class Header extends Component {
-
+	
 	render() {
+		let uobj = localStorage.getItem('mk-fb-user');
+		let users = null;
+		if (uobj) {
+			users = JSON.parse(uobj);
+		}
 		return (
 			<div className="navMulti">
 				<div className="navbar navbar-inverse navbar-static-top" role="navigation">
@@ -52,41 +123,42 @@ class Header extends Component {
 								<li>
 									<a href="" className="dropdown-toggle" data-toggle="dropdown">Subjects<b className="caret"></b></a>
 									<ul className="dropdown-menu multi-level">
-										<li className="dropdown-submenu">
-											<a href="" className="dropdown-toggle" data-toggle="dropdown">Contracts & UCC</a>
-											<Topic subject="contracts" />
-										</li>
-										<li className="dropdown-submenu">
-											<a href="" className="dropdown-toggle" data-toggle="dropdown">Torts</a>
-											<Topic subject="torts" />
-										</li>
-										<li className="dropdown-submenu">
-											<a href="" className="dropdown-toggle" data-toggle="dropdown">Criminal</a>
-											<Topic subject="criminal" />
-										</li>
-										<li className="dropdown-submenu">
-											<a href="" className="dropdown-toggle" data-toggle="dropdown">Admin</a>
-											<ul className="dropdown-menu">
-												<li><a href="">Action</a></li>
+										{
+											subjects && 
+											Object.keys(subjects).map((value, key) => {
+												let subject = subjects[value];
+												return (<li key={value} className="dropdown-submenu">
+														<a href="" className="dropdown-toggle" data-toggle="dropdown">{subject.name}</a>
+														<Topic subject={value} />
+													</li>);					 
+											})
+										}
+										{
+											(users && (users.access_level === 'admin' || users.access_level === 'superadmin')) &&
 												<li className="dropdown-submenu">
-													<a href="" className="dropdown-toggle" data-toggle="dropdown">Definition</a>
+													<a href="" className="dropdown-toggle" data-toggle="dropdown">Admin</a>
 													<ul className="dropdown-menu">
+														<li><a href="">Action</a></li>
 														<li className="dropdown-submenu">
-															<a href="" className="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+															<a href="" className="dropdown-toggle" data-toggle="dropdown">Definition</a>
 															<ul className="dropdown-menu">
-																<li><a href="">Action</a></li>
-																<li><a href="">Another action</a></li>
-																<li><a href="">Something else here</a></li>
-																<li className="divider"></li>
-																<li><a href="">Separated link</a></li>
-																<li className="divider"></li>
-																<li><a href="">One more separated link</a></li>
+																<li className="dropdown-submenu">
+																	<a href="" className="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+																	<ul className="dropdown-menu">
+																		<li><a href="">Action</a></li>
+																		<li><a href="">Another action</a></li>
+																		<li><a href="">Something else here</a></li>
+																		<li className="divider"></li>
+																		<li><a href="">Separated link</a></li>
+																		<li className="divider"></li>
+																		<li><a href="">One more separated link</a></li>
+																	</ul>
+																</li>
 															</ul>
 														</li>
 													</ul>
 												</li>
-											</ul>
-										</li>
+										}
 									</ul>
 								</li>
 							  </ul>

@@ -1,7 +1,7 @@
-import * as firebase from 'firebase';
+import firebase from 'firebase/app';
 import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
 
-import {getUsersObj} from '../auth/AuthAction.js';
+import {getUsersObj, getUID} from '../auth/AuthAction.js';
 
 export const distance = (lat1, lon1, lat2, lon2, unit='') => {
       var radlat1 = Math.PI * lat1/180
@@ -168,12 +168,75 @@ export const calculatePercentage = (current, total) => {
 
 export const subjects = {
 	contracts: {
-		name: 'Contracts'	
+		name: 'Contracts',
+		menu: true
 	},
 	criminal: {
-		name: 'Criminal'	
+		name: 'Criminal',
+		menu: true	
 	},
 	torts: {
-		name: 'Torts'	
-	}	
+		name: 'Torts',
+		menu: true	
+	},
+	business_organization: {
+		name: 'Business Organization (Agency & Partnership)',
+		menu: true	
+	},
+	criminal_procedure: {
+		name: 'Criminal Procedure',
+		menu: true	
+	},
+	real_property: {
+		name: 'Real Property',
+		menu: true	
+	},
+	remedies: {
+		name: 'Remedies',
+		menu: true	
+	},
+	civil_procedure: {
+		name: 'Civil Procedure',
+		menu: true	
+	},
+	constitutional_law: {
+		name: 'Constitutional Law',
+		menu: true	
+	},
+	corporations: {
+		name: 'Corporations',
+		menu: true	
+	},
+	evidence: {
+		name: 'Evidence',
+		menu: true	
+	},
+	administrative_law: {
+		name: 'Administrative Law',
+		menu: true	
+	},
+	community_property: {
+		name: 'Community Property',
+		menu: true	
+	},
+	professional_responsibility: {
+		name: 'Professional Responsibility',
+		menu: true	
+	},
+	trusts: {
+		name: 'Trusts',
+		menu: true	
+	},
+	wills: {
+		name: 'Wills',
+		menu: true	
+	}		
+};
+
+export const updateLoggedInTime = () => {
+	let uid = getUID();
+	if (!uid) return;
+	let n = Date.now();
+	let url = FirebaseConstant.basePath + '/users/'+uid;
+	firebaseDatabase.ref(url).child('loggedIn').set(n);	
 };

@@ -6,7 +6,7 @@ let fb_path = '';
 if (process.env.NODE_ENV === 'development') {
 	fb_path = '/babybarv2';
 } else {
-	fb_path = '/babybarv2_live';
+	fb_path = '/babybarv2';
 }
 
 export const config = {

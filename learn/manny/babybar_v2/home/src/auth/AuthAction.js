@@ -36,7 +36,8 @@ export const loggedOut = () => {
 export const getUID = () => {
 	let userObj = localStorage.getItem('mk-fb-user');
 	if (!userObj) return null;
-	let uid = userObj.uid;
+	let obj = JSON.parse(userObj);
+	let uid = obj.uid;
 	return uid;
 };
 

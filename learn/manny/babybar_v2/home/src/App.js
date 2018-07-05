@@ -22,6 +22,7 @@ class App extends Component {
 						<div className="col-md-12">
 						<Switch>
 							<Route exact={true} path="/" component={Home} />
+							<Route exact={true} path="/essays/:subject/:id" component={Essays} />
 							<Route exact={true} path="/essays/:subject" component={Essays} />
 							<Route component={Notfound}/>
 						</Switch>
