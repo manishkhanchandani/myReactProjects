@@ -37,6 +37,7 @@ export const getUID = () => {
 	let userObj = localStorage.getItem('mk-fb-user');
 	if (!userObj) return null;
 	let obj = JSON.parse(userObj);
+	if (!obj) return null;
 	let uid = obj.uid;
 	return uid;
 };

@@ -169,67 +169,101 @@ export const calculatePercentage = (current, total) => {
 export const subjects = {
 	contracts: {
 		name: 'Contracts',
-		menu: true
+		menu: true,
+		issues: [
+			"Governing Law?",
+			"Merchant Parties?"
+		]
 	},
 	criminal: {
 		name: 'Criminal',
-		menu: true	
+		menu: true,
+		issues: [
+		]	
 	},
 	torts: {
 		name: 'Torts',
-		menu: true	
+		menu: true,
+		issues: [
+		]		
 	},
 	business_organization: {
 		name: 'Business Organization (Agency & Partnership)',
-		menu: true	
+		menu: true,
+		issues: [
+		]	
 	},
 	criminal_procedure: {
 		name: 'Criminal Procedure',
-		menu: true	
+		menu: true,
+		issues: [
+		]	
 	},
 	real_property: {
 		name: 'Real Property',
-		menu: true	
+		menu: true,
+		issues: [
+		]	
 	},
 	remedies: {
 		name: 'Remedies',
-		menu: true	
+		menu: true,
+		issues: [
+		]	
 	},
 	civil_procedure: {
 		name: 'Civil Procedure',
-		menu: true	
+		menu: true,
+		issues: [
+		]	
 	},
 	constitutional_law: {
 		name: 'Constitutional Law',
-		menu: true	
+		menu: true,
+		issues: [
+		]	
 	},
 	corporations: {
 		name: 'Corporations',
-		menu: true	
+		menu: true,
+		issues: [
+		]	
 	},
 	evidence: {
 		name: 'Evidence',
-		menu: true	
+		menu: true,
+		issues: [
+		]	
 	},
 	administrative_law: {
 		name: 'Administrative Law',
-		menu: true	
+		menu: true,
+		issues: [
+		]	
 	},
 	community_property: {
 		name: 'Community Property',
-		menu: true	
+		menu: true,
+		issues: [
+		]	
 	},
 	professional_responsibility: {
 		name: 'Professional Responsibility',
-		menu: true	
+		menu: true,
+		issues: [
+		]	
 	},
 	trusts: {
 		name: 'Trusts',
-		menu: true	
+		menu: true,
+		issues: [
+		]	
 	},
 	wills: {
 		name: 'Wills',
-		menu: true	
+		menu: true,
+		issues: [
+		]	
 	}		
 };
 

@@ -3,3 +3,13 @@
 .ql-editor {
 	height: 250px !important;
 }
+
+.page-essay .list-group {
+	font-size: 11px;
+}
+
+
+.page-essay .list-group h4 {
+	font-size: 12px;
+	font-weight: bold;
+}

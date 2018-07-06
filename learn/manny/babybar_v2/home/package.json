@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "firebase": "^5.2.0",
-    "mkhancha-bbheader": "^1.0.9",
+    "mkhancha-bbheader": "^1.1.1",
     "mkhancha-fbauth": "^1.0.6",
     "react": "^16.4.1",
     "react-bootstrap": "^0.32.1",

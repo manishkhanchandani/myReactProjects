@@ -1,28 +1,38 @@
-import config from '../config.js';
-import {firebaseApp, firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
+//import config from '../config.js';
+import {firebaseDatabase, FirebaseConstant} from '../MyFirebase.js';
+
 
 export const onListEssays = (dispatch, subject) => {
-	let url = FirebaseConstant.basePath + '/essays';
-	let ref = firebaseDatabase.ref(url).orderByChild('subject').equalTo(subject).limitToLast(500);
-	ref.on('value', (snapshot) => {
+	if (!subject) return null;
+	let url = FirebaseConstant.basePath + '/essays/' + subject;
+	let ref = firebaseDatabase.ref(url).orderByChild('status').equalTo(1).limitToLast(500);
+	ref.on('child_added', (snapshot) => {
 		var result = snapshot.val();
 		if (!result) {
-			dispatch(listEssaysResult(null));
+			return;
 		}
-		let myVar = [];
+		/*let myVar = [];
 		for (let key in result) {
 			if (result[key].status !== 1) {
 				continue;	
 			}
 			myVar.push(result[key]);
 		}
-		dispatch(listEssaysResult(myVar));
+		dispatch(listEssaysResult(myVar));*/
+		if (!result.id) result.id = snapshot.key;
+		dispatch(listEssaysObjResult(result));
 	});
 };
 
 export const listEssaysResult = (result) => {
 	return {
 		type: 'LIST_ESSAYS',
+		payload: result
+	};
+};
+export const listEssaysObjResult = (result) => {
+	return {
+		type: 'LIST_ESSAYS_OBJ',
 		payload: result
 	};
 };
@@ -78,15 +88,27 @@ export const selectedEssay = (essay) => {
 	};
 };
 
-export const postNewEssay = (details, callback=null) => {
+export const postNewEssay = (subject, details, callback=null) => {
 	return {
 		type: 'POST_NEW_ESSAY',
 		payload: new Promise((resolve, reject) => {
-			let url = FirebaseConstant.basePath + '/essays';
+			let url = FirebaseConstant.basePath + '/essays/'+subject;
 			let uniqueID = firebaseDatabase.ref(url).push(details).key;
 			firebaseDatabase.ref(url).child(uniqueID).child('id').set(uniqueID);
 			if (callback) {
 				callback(uniqueID);	
+			}
+			if (details.emails && details.type === 'private') {
+				let emails = details.emails.split(',');
+				for (let k in emails) {
+					let email = emails[k].trim();
+					let urlUser = FirebaseConstant.basePath + '/users';
+					let refUser = firebaseDatabase.ref(urlUser).orderByChild('email').equalTo(email).limitToLast(1);
+					refUser.once('child_added', (snapshot) => {
+						let r = snapshot.val();
+						firebaseDatabase.ref(url).child(uniqueID).child('uids').child(r.uid).set(email);
+					});
+				}
 			}
 			resolve(uniqueID);
 		})
@@ -96,7 +118,20 @@ export const postNewEssay = (details, callback=null) => {
 
 export const deleteEssay = (essay_id) => {};
 
-export const addUpdateIssue = (essay_id, details) => {};
+export const addUpdateIssue = (essay_id, subject, details, callback=null) => {
+	return {
+		type: 'POST_NEW_ISSUE',
+		payload: new Promise((resolve, reject) => {
+			let url = FirebaseConstant.basePath + '/essays/'+subject+'/'+essay_id+'/issues';
+			let uniqueID = firebaseDatabase.ref(url).push(details).key;
+			firebaseDatabase.ref(url).child(uniqueID).child('id').set(uniqueID);
+			if (callback) {
+				callback(uniqueID);	
+			}
+			resolve(uniqueID);
+		})
+	};
+};
 
 export const listIssues = (essay_id) => {};
 

@@ -124,6 +124,7 @@ class Auth extends Component {
 		let obj = localStorage.getItem('mk-fb-user');
 		if (!obj) return null;
 		let userObj = JSON.parse(obj);
+		if (!userObj) return null;
 		let uid = userObj.uid;
 		return uid;
 	}

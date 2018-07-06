@@ -108,7 +108,7 @@ class AuthHome extends Component {
 				<div className="container">
 					<div className="container text-center">
 						<form className="form-signin">
-							<h2 className="form-signin-heading">California Baby Bar Sign-in</h2>
+							<h2 className="form-signin-heading">California Bar Preparation Sign-in</h2>
 				
 							<small className="text-muted">Connect CalBabyBar.com with your favorite social network</small>
 							<br /><br />
