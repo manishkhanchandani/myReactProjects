@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Button} from 'react-bootstrap';
-import {onListEssays, listEssays, selectedEssay, initSelectedEssay, postNewEssay, deleteEssay, addUpdateIssue, listIssues, deleteIssue} from './Essays.Action.js';
+import {onListEssays, listEssays, selectedEssay, postNewEssay, deleteEssay, addUpdateIssue, listIssues, deleteIssue} from './Essays.Action.js';
 import {subjects, timeAgo} from '../utilities/functions.js';//, updateLoggedInTime
 import './Essays.css';
 import {getUsersObj, getUID} from '../auth/AuthAction.js';
@@ -133,7 +133,8 @@ class MyIssues extends Component {
 	render() {
 		//if (!this.props.show) return null;
 		if (!this.props.essaysReducer.selected_essay) return null;
-		const essay = this.props.essaysReducer.selected_essay;
+		const id = this.props.essaysReducer.selected_essay.id;
+		const essay = this.props.essaysReducer.list_essay_obj[id];
 		if (!essay) return null;
 		if (!essay.issues) return null;
 		let uid = this.props.uid;
@@ -329,20 +330,44 @@ class Essays extends Component {
 	
 	componentDidMount() {
 		this.props.callonListEssays(this.props.match.params.subject);
+		/*
+		this.props.calllistEssays(this.props.match.params.subject, {}, (data) => {
+			if (this.props.match.params.id) {
+				this.fetchParticular(this.props.match.params.id, data);
+			} else {
+				this.props.callselectedEssay(data[0]);	
+			}
+		});*/
+		//this.setState({subject: this.props.match.params.subject, id: this.props.match.params.id});
+		//update user login
+		//updateLoggedInTime();
 	}
 	
 	componentWillReceiveProps(nextProps) {
 		
 		if (!(this.state.subject === nextProps.match.params.subject && this.state.id === nextProps.match.params.id) && nextProps.essaysReducer.list_essay && nextProps.match.params.id && nextProps.match.params.subject) {
 			this.setState({subject: nextProps.match.params.subject, id: nextProps.match.params.id});
-			let pastId = nextProps.essaysReducer.selected_essay ? nextProps.essaysReducer.selected_essay.id : null;
-			this.props.callinitSelectedEssay(nextProps.match.params.subject, nextProps.match.params.id, pastId);
+			//this.fetchParticular(nextProps.match.params.id, nextProps.essaysReducer.list_essay, nextProps.essaysReducer.selected_essay);
 		}
 		if (!this.state.id && !nextProps.match.params.id && nextProps.essaysReducer.list_essay && nextProps.match.params.subject && nextProps.essaysReducer.list_essay[0]) {
 			let selRecord = nextProps.essaysReducer.list_essay[0];
 			this.setState({subject: nextProps.match.params.subject, id: selRecord.id});
-			this.props.callinitSelectedEssay(nextProps.match.params.subject, selRecord.id, null);			
+			//this.props.callselectedEssay(selRecord, nextProps.essaysReducer.selected_essay);
+			
 		}
+		/*if (!(this.state.subject === nextProps.match.params.subject && this.state.id === nextProps.match.params.id)) {
+			console.log('nextprops are: ', nextProps);
+			this.setState({subject: nextProps.match.params.subject, id: nextProps.match.params.id});
+			console.log(this.props.essaysReducer.list_essay);
+			let arr = this.props.essaysReducer.list_essay.filter((rec) => {
+				return nextProps.match.params.id === rec.id;
+			});
+			if (arr[0]) {
+				this.props.callselectedEssay(arr[0]);
+			}
+			//update user login
+			updateLoggedInTime();
+		}*/
 	}
 
 	render() {
@@ -428,7 +453,7 @@ const mapDispatchToProps = (dispatch) => {
 			dispatch(selectedEssay(essay));
 		},
 		callinitSelectedEssay: (subject, essay, past) => {
-			initSelectedEssay(dispatch, subject, essay, past);
+			dispatch(initSelectedEssay(dispatch, subject, essay, past));
 		},
 		callpostNewEssay: (subject, details, callback=null) => {
 			dispatch(postNewEssay(subject, details, callback));

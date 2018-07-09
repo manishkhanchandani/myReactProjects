@@ -185,6 +185,18 @@ export const subjects = {
 		name: 'Torts',
 		menu: true,
 		issues: [
+			'Intentional',
+			'Assault',
+			'Battery',
+			'Conversion',
+			'False Imprisonment',
+			'Intentional Infliction of Emotional Distress',
+			'Trespass to Land',
+			'Trespass to Chattels',
+			'Transferred Intent',
+			'Damages for Torts',
+			'Self Defense',
+			
 		]		
 	},
 	business_organization: {

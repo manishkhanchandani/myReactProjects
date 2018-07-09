@@ -22,6 +22,7 @@ export const onListEssays = (dispatch, subject) => {
 		if (!result.id) result.id = snapshot.key;
 		dispatch(listEssaysObjResult(result));
 	});
+	
 };
 
 export const listEssaysResult = (result) => {
@@ -82,6 +83,29 @@ export const listEssays = (subject, params={}, dispatch=null, callback=null) => 
 
 
 export const selectedEssay = (essay) => {
+	return {
+		type: 'SELETECTED_ESSAY',
+		payload: essay
+	};
+};
+
+
+export const initSelectedEssay = (dispatch, subject, essay, past) => {
+	console.log('past is ', past);
+	console.log('essay is ', essay);
+	if (past) {
+		let urlPast = FirebaseConstant.basePath + '/essays/' + subject + '/' + past;
+		let refPast = firebaseDatabase.ref(urlPast);
+		refPast.off();
+	}
+	let url = FirebaseConstant.basePath + '/essays/' + subject + '/' + essay;
+	let ref = firebaseDatabase.ref(url);
+	ref.on('value', (snapshot) => {
+		var result = snapshot.val();
+		if (!result.id) result.id = snapshot.key;
+		dispatch(selectedEssay(result));
+	});
+	
 	return {
 		type: 'SELETECTED_ESSAY',
 		payload: essay

@@ -65,6 +65,7 @@ const EssaysReducer = (state = {
 			}
 			break;
 		case 'SELETECTED_ESSAY':
+		case 'SELETECTED_ESSAY_FULFILLED':
 			state = {
 				...state,
 				selected_essay: action.payload
