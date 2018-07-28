@@ -1,0 +1,5 @@
+{
+  "name": "mkhancha-awesome-package",
+  "version": "1.0.1",
+  "bin": "index.js"
+}

@@ -38,7 +38,7 @@ class App extends Component {
 		layout = (<CategoryList />);  
 	  } else if (site === 'dctools.info') {
 		layout = (<DcToolsLayout />);
-	  } else if (site === 'myflix.info') {
+	  } else if (site === 'myflix.info' || site === 'myflix.mkgalaxy.com') {
 		  layout = (<MyFlixLayout />);
 	  }
 
