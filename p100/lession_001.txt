@@ -1,0 +1,77 @@
+100 websites
+
+10,000, websites, 1000
+
+Listing page
+	search bar
+	left more attributes for the search bar
+	location bar
+
+Detail Page
+	Reply (email, phone, messaging, chat application, email to friend)
+
+Pagination
+
+Chat application,
+
+New Post Page (login) , Edit post, Delete
+	one page
+	step by step multiple pages
+
+	location details
+
+	title 
+	description
+
+	extra fields which will be different for each website
+
+	Hold Status  - admin can approve the posting
+	
+
+
+
+Add to favorite
+Upload pictures
+Hide the post which i don't want
+
+Login/Logout, Register
+
+
+Database 
+Mysql, Firebase, ParseServer
+
+
+CSS
+SASS, CSS, LESS - 
+
+
+PHP, Node JS, 
+
+Firebase / ParseServer, 
+
+
+
+
+
+
+
+1. Install Nodejs, from nodejs.org
+2. Create-react-app (sudo npm i create-react-app -g)
+
+3. Create folders for 100 Websites like following:
+
+create-react-app website_001
+create-react-app website_002
+create-react-app website_003
+create-react-app website_004
+create-react-app website_005
+
+....
+
+create-react-app website_100
+
+
+4. React tutorials
+
+
+

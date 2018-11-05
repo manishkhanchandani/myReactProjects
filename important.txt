@@ -1,0 +1,198 @@
+AJAX IN REACT
+
+getRequest() {
+    console.log('i am in get request');
+    
+    const url = 'http://api.mkgalaxy.com/api.php?action=nearby&lat=37.3393857&lng=-121.8949555';
+    console.log('url is ', url);
+    
+    fetch(url, {
+      method: 'GET'
+    }).then((response) => {
+      return response.json();
+    }).then((j) => {
+      console.log('j is ', j);
+    }).catch((err) => {
+      console.log('error is ', err);
+    });
+  }
+  
+  postRequestUrlEncoded() {
+    console.log('i am in post request urlencoded');
+    
+    const url = 'http://api.mkgalaxy.com/api.php?action=samplePost';
+    console.log('url is ', url);
+    
+    fetch(url, {
+      method: 'POST',
+      body: 'name=manny&age=43&gender=male',
+      mode: 'cors',
+      redirect: 'follow',
+      headers: new Headers({
+        'Content-Type': 'application/x-www-form-urlencoded'
+      })
+    }).then((response) => {
+        return response.json();
+      }).then((j) => {
+        console.log('j2 is ', j);
+      }).catch((err) => {
+        console.log('error is ', err);
+      });
+  }
+  
+  postRequestJson() {
+    console.log('i am in post request json format');
+    
+    const url = 'http://api.mkgalaxy.com/api.php?action=samplePostJson';
+    console.log('url is ', url);
+    
+    const obj = {
+      name: 'manny',
+      age: 43,
+      gender: 'male'
+    }
+    
+    fetch(url, {
+      method: 'POST',
+      mode: 'cors',
+      redirect: 'follow',
+      body: JSON.stringify(obj)
+    }).then((response) => {
+        return response.json();
+      }).then((j) => {
+        console.log('j3 is ', j);
+      }).catch((err) => {
+        console.log('error is ', err);
+      });
+  }
+  
+COMPONENT IN REACT
+import React, {Component} from 'react';
+
+class App extends Component {
+	render() {
+		return (
+			<div>
+				
+			</div>
+		);
+	}
+}
+
+export default App;
+
+componentWillReceiveProps(nextProps) {
+
+}
+
+REDUX IN REACT
+
+import {connect} from 'react-redux';
+import {stratusGeneralChangeNameAction} from './actions/general-action.jsx';
+
+const mapStateToProps = (state) => {
+	return {
+		stratusGeneral: state.stratusGeneral
+	}	
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		callChangeName: (name) => {
+			dispatch(stratusGeneralChangeNameAction(name));
+		}
+	};	
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(StratusBreadCrumbName);
+
+
+Redux in index.js
+
+import {Provider} from 'react-redux';
+import store from './store.js';
+
+<Provider store = {store}>
+				<App />
+				</Provider> 
+				
+Store.js
+
+import {createStore, combineReducers, applyMiddleware} from 'redux';
+import {createLogger} from 'redux-logger';
+import thunk from 'redux-thunk';
+import promise from 'redux-promise-middleware';
+import Reducer1 from './Reducer1.js';
+import Reducer2 from './Reducer2.js';
+
+let store = createStore(combineReducers({Reducer1, Reducer2}), {}, applyMiddleware(createLogger(), thunk, promise()));
+export default store;
+
+
+
+Action
+export const getActionFunc = () => {
+	return {
+		type: 'SomeType',
+		payload: new Promise((resolve, reject) => {
+			 	const url = 'http://api.mkgalaxy.com/api.php?action=nearby&lat=37.3393857&lng=-121.8949555';
+				console.log('url is ', url);
+				
+				fetch(url, {
+				  method: 'GET'
+				}).then((response) => {
+				  return response.json();
+				}).then((j) => {
+				  console.log('j is ', j);
+				  resolve(j);
+				}).catch((err) => {
+				  console.log('error is ', err);
+				  reject(err);
+				});
+			  }
+		})
+	};	
+	
+};
+
+
+const Reducer1 = (state = {
+	data: null
+}, action) => {
+	switch (action.type) {
+		case 'SomeType':
+			state = {
+				...state,
+				data: action.payload
+			}
+			break;
+		default:
+			break;
+	}
+
+	return state;
+};
+
+export default Reducer1;
+
+ROUTING
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+<Router>
+
+	<div className="App">
+		<header className="App-header">
+		<img src={logo} className="App-logo" alt="logo" />
+		<h1 className="App-title">Welcome to React</h1>
+		</header>
+		<p className="App-intro">
+		To get started, edit <code>src/App.js</code> and save to reload. <Link to="/home">Home</Link> | <Link to="/about">About</Link> | <Link to="/">App</Link>
+		</p>
+		
+		
+		<Switch>
+			<Route exact path="/home" component={Home}/>
+			<Route path="/about" component={About}/>
+		</Switch>
+	
+	</div>
+</Router>
