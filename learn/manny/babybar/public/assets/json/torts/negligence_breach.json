@@ -1,6 +1,27 @@
 {
 	"key": "negligence_breach",
 	"name": "Breach",
+	
+	"mbe": [
+		{
+			"key": "rule676",
+			"name": "Rule 676: Reasonable Act",
+			"description": "Do not create risk that would foreseeably pose a great risk of harm to others.(Ref 676)",
+			"examples": [
+				{
+					"question": "Q. 676. 22. Questions 22-23 are based on the following fact situation:<br /><br />John was driving through a rural area on his way to a job interview. Suddenly, moose started to run across the road. John quickly applied his brakes, but struck the animal anyway. He had been driving within the speed limit. Ellwood, a local resident who saw the accident, walked over to look at the moose. He told John, who had stopped his vehicle and gotten out, that it was already dead. John said, \"Well, there's nothing we can do\", and drove away. Ellwood walked away. Ten minutes later, Phil drove along the road, also within the speed limit. Phil struck the slain moose, causing damage to his car and injury to himself.<br /><br />If Phil sues John, who will prevail?",
+					"answerOptions": [
+						"John, because he was driving within the speed limit when he hit the moose.",
+						"John, because he was under no legal duty to remove the moose from the road.",
+						"Phil, because John failed to act reasonably with respect to the risk his driving created.",
+						"Phil, because he was free from contributory negligence."
+					],
+					"correct": 2,
+					"explanation": "C Negligence is unreasonable conduct in the face of a foreseeable risk to others by the person who creates the risk. Even though John did not act negligently in hitting the moose initially, he did act unreasonably by leaving it in the middle of the road where it would foreseeably pose a great risk of harm to others. Because Phil was injured as a consequence of this risk, he can successfully sue John for damages. Choice D is wrong because freedom from contributory negligence does not entitle a person to recovery; the injured person must still establish that the defendant breached a duty of care. Choice A is wrong because, while John was not at fault in hitting the moose, he was nevertheless under a duty to remove it from the road. Finally, choice B is wrong because John did have a duty to remove the risk of harm to others which he had accidentally created by striking the moose."
+				}
+			]
+		}
+	],
 	"next": {
 		"key": "negligence_breach_res_ipsa_loquitur",
 		"name": "Breach Res Ipsa Loquitor",

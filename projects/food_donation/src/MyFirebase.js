@@ -3,7 +3,7 @@ import * as firebase from 'firebase';
 
 let fb_path = '';
 if (process.env.NODE_ENV === 'development') {
-	fb_path = '/food_donation';
+	fb_path = '/food_donation_live';
 } else {
 	fb_path = '/food_donation_live';
 }

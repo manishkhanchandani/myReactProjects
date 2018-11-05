@@ -24,6 +24,9 @@ import UserQuizAdd from './components/userQuiz/Add.js';
 import QuizPractice from './components/quiz-practice/Practise.js';
 import Activities from './components/activities/Activities.js';
 
+
+import MyQuizPractice from './components/myquiz/MyPractise.js';
+
 //import PractiseQuestion from './components/practise/Question.js';
 //import CompleteProcess from './components/complete/Process.js';
 
@@ -66,7 +69,16 @@ class App extends Component {
 								<Route exact={true} path="/admin/activities" component={Activities} />
 								<Route exact={true} path="/quizPractice" component={QuizPractice} />
 								<Route exact={true} path="/quizPractice/:uniqueId" component={QuizPractice} />
+								<Route exact={true} path="/quizPractice/:uniqueId/filter/:word" component={QuizPractice} />
 								<Route exact={true} path="/quizPractice/:subject/:id" component={QuizPractice} />
+								
+								
+								<Route exact={true} path="/qz" component={MyQuizPractice} />
+								<Route exact={true} path="/qz/:uniqueId" component={MyQuizPractice} />
+								<Route exact={true} path="/qz/:uniqueId/filter/:word" component={MyQuizPractice} />
+								<Route exact={true} path="/qz/:subject/:id" component={MyQuizPractice} />
+								
+								
 								{/*<Route exact={true} path="/practice/:subject/:issue" component={PractiseQuestion} />
 								<Route exact={true} path="/complete" component={CompleteProcess} />*/}
 							</div>

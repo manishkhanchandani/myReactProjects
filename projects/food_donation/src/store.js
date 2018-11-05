@@ -7,6 +7,11 @@ import MyReducer from './reducers/MyReducer.js';
 import FoodDonationReducer from './reducers/FoodDonationReducer.js';
 import ChatReducer from './modules/chat/ChatReducer.js';
 
-const store = createStore(combineReducers({MyReducer, FoodDonationReducer, ChatReducer}), {}, applyMiddleware(createLogger(), thunk, promise()));
+var store = null;
+if (process.env.NODE_ENV === 'development') {
+	store = createStore(combineReducers({MyReducer, FoodDonationReducer, ChatReducer}), {}, applyMiddleware(createLogger(), thunk, promise()));
+} else {
+	store = createStore(combineReducers({MyReducer, FoodDonationReducer, ChatReducer}), {}, applyMiddleware(thunk, promise()));
+}
 
 export default store;

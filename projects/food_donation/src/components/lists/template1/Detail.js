@@ -4,7 +4,7 @@ import DetailUser from './DetailUser.js';
 
 import {Link} from 'react-router-dom'; 
 
-import Comments from '../../../modules/comments/Comments.js';
+import Comments from '../../../modules/Comments/Comments.js';
 
 class Detail extends Component {
 	
@@ -47,7 +47,7 @@ class Detail extends Component {
 		var myDateStr = myDate.toString();
 		
 		var fromUid = localStorage.getItem('userId');
-		var myLink = null;
+		var myLink = '/chat';
 		if (fromUid && fromUid !== this.state.data.user_id) {
 			myLink = '/chat/' + this.state.data.user_id;
 		}

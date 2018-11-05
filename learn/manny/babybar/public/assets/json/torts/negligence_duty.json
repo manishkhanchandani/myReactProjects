@@ -1,6 +1,66 @@
 {
 	"key": "negligence_duty",
 	"name": "Negligence Duty",
+	"mbe": [		
+		{
+			"key": "rule1093",
+			"name": "Rule 1093: Duty of care owed",
+			"description": "First step in negligence is determining the duty of care owed (Ref 1093)",
+			"examples": [
+				{
+					"question": "1093. When a mother visited a bowling alley to participate in the weekly bowling league competition held there, she brought her 2 year-old son along and left him in a nursery provided by the bowling alley for the convenience of his customers. The children in the nursery were normally supervised by three attendants, but at this particular time, as the mother knew, there was only one attendant present to care for about twenty children of assorted ages.<br /><br />About thirty minutes later, while the attendant was looking the other way, the son suddenly started to cry. The attendant found him lying on his back, picked him up, and called his mother. It was later discovered that the son had suffered a skull fracture.<br /><br />If a claim is asserted against the bowling alley on the son's behalf, will the son prevail?",
+					"answerOptions": [
+						"Yes, because the bowling alley owed the child the highest degree of care.",
+						"Yes, because a 2-year old is incapable of contributory negligence.",
+						"No, because the bowling alley and its employees exercised reasonable care to assure the son's safety.",
+						"No, because the mother assumed the risk by leaving her son in the nursery."
+					],
+					"correct": 2,
+					"explanation": "C is correct. Here, there is no intentional tort and babysitting is not a source of strict liability. Instead, negligence is the basis for this claim so the first step is determining the duty of care owed. The mother was a business invitee and was owed a duty of ordinary care by the bowling alley. The son will also be classified as a business invitee because he accompanied his mother, even though he is not there to conduct business himself. This answer provides the appropriate standard of care and the correct result. <br /><br />A is incorrect. This answer choice incorrectly states the degree of care owed. B and D are incorrect. They both rely on defenses that do not correspond to the facts."
+				}
+			]
+		},
+		
+				
+		{
+			"key": "rule1137",
+			"name": "Rule 1137: Duty as a resonable care in what you do",
+			"description": "The prima facie case for negligence requires a duty, a breach of that duty, causation, and damages. Here, the commuter had a general duty of care: to act as an ordinary, prudent, and reasonable driver. (Ref 1137)",
+			"examples": [
+				{
+					"question": "1137. A company operated an installation for distributing sand and gravel. The installation was adjacent to a residential area. On the company's grounds there was a chute with polished metal sides for loading sand and gravel into trucks. The trucks being loaded stopped on the public street below the chute.<br /><br />After closing hours, a plywood screen was placed in the chute and the ladder used for inspection was removed to another section of the installation. For several months, however, a number of children, 8 to 10 years of age, had been playing on the company's property and the adjoining street after closing hours and had discovered the chute could be used as a slide. The company knew of this activity.<br /><br />One evening, as children were playing on the chute, a commuter driving by the chute hit an 8-year-old boy who slid down in front of the automobile. The commuter applied her brakes, but they suddenly failed, and she hit and injured the child. The commuter saw the child in time to have avoided hitting him if her brakes had worked properly. Two days earlier, the commuter had taken her car to a mechanic to have her brakes inspected, and the mechanic had told her that the brakes were in perfect condition. Claims were asserted on behalf of the child by his proper legal representative against the company, the commuter, and the mechanic.<br /><br />With respect to the child's claim against the commuter, the commuter's best defense is that",
+					"answerOptions": [
+						"her conduct was not the cause in fact of the harm.",
+						"she used reasonable care in the maintenance of her brakes.",
+						"she could not reasonably foresee the child's presence in the street.",
+						"she did not act willfully and wantonly."
+					],
+					"correct": 1,
+					"explanation": "B is correct. The prima facie case for negligence requires a duty, a breach of that duty, causation, and damages. Here, the commuter had a general duty of care: to act as an ordinary, prudent, and reasonable driver. There is no indication that the commuter was negligent in her driving. Instead, it was the state of the car's brakes that caused the injury. Therefore, if the commuter used reasonable care in the maintenance of her brakes, she will have satisfied her duty and not be liable for the child's injuries. A is incorrect because if the commuter had breached her duty, she would be the cause in fact of the harm. C is incorrect because the presence of a person in the road is foreseeable, and the woman owed a duty to the child. D is incorrect because willful and wanton conduct is not required to breach the commuter's duty of care; failure to act as a reasonable person will suffice."
+				}
+			]
+		},
+		
+				
+		{
+			"key": "rule3194",
+			"name": "Rule 3194: Duty of Parental Immunity",
+			"description": "Most states would consider that parents are immune from suit by their children with regard to parental conduct related to nutrition, recreation, and household chores (such as cooking). On the other hand, driving is an activity that is required to be done in a standard way, in contrast to most child-raising conduct, and can injure people outside the family if done poorly. (Ref 3194)",
+			"examples": [
+				{
+					"question": "3194. 96. Jan and Pat Brewster, a married couple, took their nine-year-old child Chris Brewster with them on a long camping trip in a remote wilderness. During the trip, they allowed Chris to eat only berries and some low-calorie edible plants they were able to harvest. They encouraged Chris to practice rock-climbing on a sheer rock face, and Chris fell and broke an arm. They asked Chris to boil water for cooking using a portable stove, and Chris touched a hot part of the stove and suffered a serious burn. Finally, on a long car ride home from the trip, Pat drove the family car into a tree. Chris was injured in the crash.<br /><br />On behalf of Chris, a suit has been filed against Jan and Pat, alleging that their conduct during the trip was negligent. Specifically, the suit claims that they harmed Chris by providing too little food, by having Chris climb too steep a rock face, by having Chris use a stove that was not safe for a nine-year-old, and by driving carelessly.<br /><br />If Jan and Pat seek summary judgment on the basis of parental immunity, the most likely result in the majority of jurisdictions is",
+					"answerOptions": [
+						"A. The summary judgment motion will be granted.",
+						"B. The summary judgment motion will be denied because driving a car is conduct that can be done with or without a family relationship, and camping trips are not an essential part of child raising.",
+						"C. The summary judgment motion will be granted with respect to the climbing, stove, and careless driving claims, but it will be denied with respect to the \"too little food\" claim because depriving a child of food is conduct that is too seriously dangerous to be protected by immunity.",
+						"D. The summary judgment motion will be granted with respect to the food, climbing, and cooking claims, but it will be denied with respect to the careless driving claim because parental immunity is usually limited to conduct that is closely related to the structure of family life, such as providing food, shelter, and nurturing to children."
+					],
+					"correct": 3,
+					"explanation": "D Parental immunity in most states applies to conduct by parents that is closely related to the basic aspects of raising a child, such as providing food, shelter, health care, recreation, education, and guidance. Choice D is correct because most states would consider that parents are immune from suit by their children with regard to parental conduct related to nutrition, recreation, and household chores (such as cooking). On the other hand, driving is an activity that is required to be done in a standard way, in contrast to most child-raising conduct, and can injure people outside the family if done poorly. For these reasons, courts do not usually apply parental immunity in the context of vehicular accidents. Choice A is wrong because parental immunity is not likely to shield the parents from the driving claim. Choice B is wrong because camping trips are closely enough related to the raising and nurturing of children to be covered by typical parental immunity doctrines. To be covered, an activity does not have to be essential to child-raising. Choice C is wrong because choosing a diet for a child is uniquely a parental responsibility, and parental immunity doctrines are meant to insulate that category of conduct from scrutiny by juries, in part to ensure that a wide variety of child-raising practices can be followed by people of different points of view and backgrounds without risk of tort intervention."
+				}
+			]
+		}
+	],
 	"next": {
 		"key": "negligence_per_se",
 		"name": "Negligence Per Se",

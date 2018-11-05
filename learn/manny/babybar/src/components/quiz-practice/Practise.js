@@ -44,7 +44,8 @@ class Help extends Component {
 		
 		this.state = {
 			subject: {},
-			issue: {}
+			issue: {},
+			comment: {}
 		};
 	}
 	
@@ -59,6 +60,11 @@ class Help extends Component {
 				let issues = {...this.state.issue};
 				issues[props.id] = '';
 				this.setState({issue: issues});
+			}
+			if (!this.state.comment[props.id]) {
+				let comments = {...this.state.comment};
+				comments[props.id] = '';
+				this.setState({comment: comments});
 			}
 		}	
 	}
@@ -81,6 +87,12 @@ class Help extends Component {
 		this.setState({issue: issues});
 	}
 
+	updateComment(id, e) {
+		let comments = {...this.state.comment};
+		comments[id] = e.target.value;
+		this.setState({comment: comments});
+	}
+
 	render() {
 		if (!this.props.id) return null;
 
@@ -98,6 +110,10 @@ class Help extends Component {
 					<label>Issue</label>
 					<input className="form-control" type="text" value={this.state.issue[this.props.id]} onChange={this.updateIssue.bind(this, this.props.id)}  />
 				</div>
+				<div className="form-group">
+					<label>Comments</label>
+					<textarea className="form-control" value={this.state.comment[this.props.id]} onChange={this.updateComment.bind(this, this.props.id)}  />
+				</div>
 				<br />
 			</div>
 		)	
@@ -107,7 +123,7 @@ class Help extends Component {
 class QuizPractice extends Component {
 	constructor(props) {
 		super(props);
-		
+
 		this.state = {
 			categories: null,
 			category: null,
@@ -123,6 +139,7 @@ class QuizPractice extends Component {
 			answered: 0,
 			loading: false,
 			filterTerm: '',
+			filterText: '',
 			seconds_assigned: 0,
 			uniqueID: null,
 			qUid: null,
@@ -136,6 +153,7 @@ class QuizPractice extends Component {
 			quiz_visiblity: 1
 		};
 	}
+	
 	
 	onActivePageChange(page) {
 		//localStorage.setItem('pageNumber', page);
@@ -165,15 +183,16 @@ class QuizPractice extends Component {
 				return;
 			}
 			let userObj = getUsersObj();
-			if (userObj.access_level === 'superadmin' || userObj.access_level === 'admin') {
+			if (userObj && userObj.access_level && (userObj.access_level === 'superadmin' || userObj.access_level === 'admin')) {
 								
 			} else if (!result3.status || result3.status === 0) {
 				alert('No Quiz Found.');
 				localStorage.removeItem('uniqueID');
 				return;
 			}
+			let ftWord = this.props.match.params.word || '';
 			let result4 = result3.questionList;
-			this.setState({finalQuestionList: result4, loading: false, uniqueID: uniqueId, seconds_assigned: (result4.length * 100)}, () => {
+			this.setState({finalQuestionList: result4, loading: false, uniqueID: uniqueId, filterText: ftWord, seconds_assigned: (result4.length * 100)}, () => {
 				this.checkResults(uniqueId, result4);																								   			});
 			
 		});		
@@ -615,9 +634,15 @@ class QuizPractice extends Component {
 	render() {
 		//console.log('this state is ', this.state);
 		let userObj = getUsersObj();
+		if (!userObj) return null;
 		/*if (!(userObj.access_level === 'admin' || userObj.access_level === 'admin2' || userObj.access_level === 'superadmin')) {
 			return <Redirect to="/" push={true} />
 		}*/
+		let completeAccess = false;
+		if (userObj && userObj.access_level && (userObj.access_level === 'superadmin' || userObj.access_level === 'admin')) {
+			completeAccess = true;
+		}
+		userObj.completeAccess = completeAccess;
 		
 		let myArrayConverted = null;
 		let paginationProps = null;
@@ -665,10 +690,17 @@ class QuizPractice extends Component {
 								{
 									this.state.uniqueID && 
 									<div>
-										<strong>Unique URL:</strong> <a href={`/quizPractice/${this.state.uniqueID}`} target="_blank">{this.state.uniqueID}</a><br /><br />
+										<strong>Unique URL:</strong> <a href={`/quizPractice/${this.state.uniqueID}`}>{this.state.uniqueID}</a>
+										{
+											this.state.filterText && 
+											<span>
+												&nbsp; | <a href={`/quizPractice/${this.state.uniqueID}/filter/${this.state.filterText}`}>{this.state.filterText}</a>
+											</span>
+										}
+										<br /><br />
 									</div>
 								}
-								<div className="filterContainer"><input type="text" placeholder="Filter" className="form-control filterItem" onChange={(e) => {this.setState({filterText: e.target.value, pageNumber: 1});}} /><br /></div><hr />
+								<div className="filterContainer"><input type="text" placeholder="Filter" className="form-control filterItem" onChange={(e) => {this.setState({filterText: e.target.value, pageNumber: 1});}} value={this.state.filterText} /><br /></div><hr />
 								<Paginator {...paginationProps} /><hr />
 								{
 									myArrayConverted.map((value, key) => {
@@ -687,7 +719,8 @@ class QuizPractice extends Component {
 												{/*<div>Topic: <strong>{value.topic} / {subjectCat}</strong></div>*/}
 												<b>Q. {value.id}.</b> {renderHTML(value.question)}<hr /></div>
 												<SimpleQuizAnsOptions id={value.id} opts={JSON.parse(value.answers)} optionChoosen={optionChoosen} handleChooseOption={this.handleChooseOption.bind(this)} details={value} category={category} />
-												<Help id={value.id} />
+												{<Help id={value.id} />}
+												
 											
 											
 											
@@ -737,6 +770,9 @@ class QuizPractice extends Component {
 									Object.keys(this.state.answers).map((value, key) => {
 										let result = this.state.answers[value];
 										if (!result.userInfo) return null;
+										if (!userObj.completeAccess) {
+											if (result.userInfo.email !== userObj.email) return null;
+										}
 										let score = parseInt(result.userInfo.score, 10);
 										let answered = parseInt(result.userInfo.answered, 10);
 										//let stats = this.state.statistics[value];

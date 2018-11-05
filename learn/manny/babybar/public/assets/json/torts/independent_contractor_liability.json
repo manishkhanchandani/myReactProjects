@@ -1,6 +1,54 @@
 {
 	"key": "independent_contractor_liability",
 	"name": "Vicarious Liability for Independent Contractor",
+	"mbe": [
+			
+			
+			
+		{
+			"key": "idea1",
+			"name": "Idea 1: Negligent acts of Independent Contractor",
+			"description": "Employer can be responsible in negligence only for negligent acts of its own employees, under the respondeat superior doctrine. If a worker would fit the \"independent contractor\" classification, and therefore Worker's work cannot be a basis for imposing liability on Employer, the entity that hired an independent contractor.",
+			"examples": [
+				{
+					"question": "97. CarCo corporation operated an automobile dealership in a big city. It had a large showroom and a large service facility with a waiting room for customers whose cars were being repaired. Twice each year, it was required by city regulations to test and service various fire extinguishers and fire alarm systems in its buildings. CarCo hired an enterprise called FireCo to do this work. FireCo specialized in this field and performed fire extinguisher and fire alarm testing and servicing for many companies in many buildings. One day a FireCo worker brought a ladder into CarCo's waiting room, intending to climb on it to check on a fire alarm. Unfortunately, he was careless while carrying the ladder. The ladder hit Victor Victim, a customer who was waiting in the waiting room. Victim was badly hurt. If Victim brings a negligence suit against CarCo seeking damages for his injury, the most likely result is",
+					"answerOptions": [
+						"A. CarCo will prevail because FireCo is an independent contractor.",
+						"B. CarCo will prevail because city regulations required CarCo to carry out the work that caused Victim's injury.",
+						"C. Victim will prevail if he can prove that the FireCo worker acted unreasonably.",
+						"D. Victim will prevail if he can prove that FireCo is an independent contractor."
+					],
+					"correct": 0,
+					"explanation": "A CarCo can be responsible in negligence only for negligent acts of its own employees, under the respondeat superior doctrine. FireCo (and FireCo's worker) would fit the \"independent contractor\" classification, and therefore FireCo's work cannot be a basis for imposing liability on CarCo, the entity that hired an independent contractor. FireCo is an independent contractor because it is a specialist, because it serves many different employers, and because its work is far outside what a reasonable person would define as the essential work of an automobile retailer and an automobile repairer. Choice B is wrong because an actor is required to act with reasonable care to avoid foreseeable harms to others almost all of the time, regardless of whether the actor's conduct is done to comply with a regulation or is done for some other reason. Choice C is wrong because even if FireCo's worker did act unreasonably, Victim will lose his suit against CarCo because CarCo does not have any responsibility for the harms inflicted by an independent contractor. Choice D is wrong because proving that FireCo is an independent contractor is exactly opposite to what Victim would need to prove in order to prevail. The status of FireCo as an independent contractor is a full defense for CarCo, not a basis for imposing liability on CarCo."
+				}
+			]
+		},
+		
+		
+		
+		{
+			"key": "idea2",
+			"name": "Idea 2: Employer liable if dangerous activity is carried out by Independent Contractor",
+			"description": "In general, an independent contractor is liable for his own torts. An exception occurs when the contractor is carrying out an inherently dangerous activity on the property of his employer, causing an injury or trespass. The use of blasting to excavate is considered an ultra-hazardous or abnormally dangerous activity and is subject to strict liability, which does not require a showing of negligence. ",
+			"examples": [
+				{
+					"question": "A builder purchased a large tract of land intending to construct residential housing on it. The builder hired a contractor to build a large in-ground swimming pool on the tract. The contract provided that the contractor would carry out blasting operations that were necessary to create an excavation large enough for the pool. The blasting caused cracks to form in the walls of the plaintiff's home in a nearby residential neighborhood.<br /><br />In the plaintiff's action for damages against the builder, the plaintiff should",
+					"answerOptions": [
+						"prevail, only if the builder retained the right to direct and control the contractor's construction of the pool.",
+						"prevail, because the blasting that the contractor was hired to perform damaged the plaintiff's home.",
+						"not prevail, if the contractor used reasonable care in conducting the blasting operations.",
+						"not prevail, if the builder used reasonable care to hire a competent contractor."
+					],
+					"correct": 1,
+					"explanation": "B is the correct answer. In general, an independent contractor is liable for his own torts. An exception occurs when the contractor is carrying out an inherently dangerous activity on the property of his employer, causing an injury or trespass. Thus A is incorrect. The use of blasting to excavate is considered an ultra-hazardous or abnormally dangerous activity and is subject to strict liability, which does not require a showing of negligence. Thus C and D are incorrect. The builder had a nondelegable duty of care to the plaintiff because the contractor's use of explosives in a residential neighborhood was inherently dangerous. B gives the correct standard and is the best choice. A, C, and D are incorrect."
+				}
+			]
+		}
+		
+		
+		
+		
+	],
 	"next": {
 		"key": "negligence_breach",
 		"name": "Breach",

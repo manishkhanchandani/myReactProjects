@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom'; 
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'; 
 
 import Nav from './components/Nav.js';
 import Home from './components/Home.js';
@@ -21,8 +21,8 @@ class App extends Component {
       <div className="App">
 	  	<Nav />
 	
+			<Switch>
 			
-        <Route exact={true} path="/" component={Home} />
         <Route exact={true} path="/create" component={Create} />
         <Route exact={true} path="/confirm" component={Confirm} />
         <Route exact={true} path="/confirm_update" component={ConfirmUpdate} />
@@ -31,14 +31,16 @@ class App extends Component {
         <Route exact={true} path="/myaccount" component={MyAccount} />
         <Route exact={true} path="/profile" component={Profile} />
 		
-        <Route exact={true} path="/chat" component={Chat} />
         <Route exact={true} path="/chat/:toUserId" component={Chat} />
+        <Route exact={true} path="/chat" component={Chat} />
         <Route exact={true} path="/map" component={MyMap2} />
         <Route exact={true} path="/detail/:id" component={Detail} />
 		
 		<Route exact={true} path="/search/:type/:keyword/:lat/:lng/:boundary/:addr/:country/:state/:county/:city" component={Home} />
-		<Route exact={true} path="/search/:type/:keyword" component={Home} />
 		<Route exact={true} path="/search/:type/:lat/:lng/:boundary/:addr/:country/:state/:county/:city" component={Home} />
+		<Route exact={true} path="/search/:type/:keyword" component={Home} />
+        <Route exact={true} path="/" component={Home} />
+			</Switch>
 		
       </div>
 	  </Router>

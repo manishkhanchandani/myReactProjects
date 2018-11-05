@@ -7,14 +7,14 @@
 			"title": "Torts Strict Liability"
 		}
 	],
-	"mbe": [
+	"mbe": [		
 		{
 			"key": "rule158",
 			"name": "Rule 158: Strict Liability and Products Liability",
 			"description": " The owner of an animal can be held responsible for the damage caused when that animal escapes its owner's property. Because the dog is a domestic animal, the damage caused by the defendant's dog will generally create liability for compensation only if the defendant knew of his dog's \"mischievous propensity.\" (Ref 158)",
 			"examples": [
 				{
-					"question": "A defendant's dog ran into the street in front of the defendant's home and began chasing cars. The plaintiff, who was driving a car on the street, swerved to avoid hitting the dog, struck a telephone pole, and was injured.<br /> <br /> Assume that the defendant knew his dog would often chase cars but refused to restrain it. If the plaintiff asserts a claim against the defendant, will the plaintiff prevail?",
+					"question": "158. A defendant's dog ran into the street in front of the defendant's home and began chasing cars. The plaintiff, who was driving a car on the street, swerved to avoid hitting the dog, struck a telephone pole, and was injured.<br /> <br /> Assume that the defendant knew his dog would often chase cars but refused to restrain it. If the plaintiff asserts a claim against the defendant, will the plaintiff prevail?",
 					"answerOptions": [
 						"Yes, because the defendant's dog was a cause in fact of the plaintiff's injury.",
 						"Yes, because the defendant knew his dog had a propensity to chase cars and did not restrain it.",
@@ -28,11 +28,11 @@
 		},
 		{
 			"key": "rule169",
-			"name": "Rule 169: Abnormally Dangerous Product",
+			"name": "Rule 169: Chemical company is strictly liable for escape of Ultra hazardous chemical",
 			"description": "The chemicals were ultra-hazardous and in an unusual accumulation, the chemical company is strictly liable for all damages which are \"the natural consequences of its escape.\" As an abnormally dangerous use of the land (Ref 169)",
 			"examples": [
 				{
-					"question": "A chemical company manufactured a liquid chemical product known as XRX. Some XRX leaked from a storage tank on the chemical company's property, seeped into the groundwater, flowed to a farmer's adjacent property, and polluted the farmer's well. Several of the farmer's cows drank the polluted well water and died.<br /> <br /> If the farmer brings an action against the chemical company to recover the value of the cows that died, the farmer will",
+					"question": "169. A chemical company manufactured a liquid chemical product known as XRX. Some XRX leaked from a storage tank on the chemical company's property, seeped into the groundwater, flowed to a farmer's adjacent property, and polluted the farmer's well. Several of the farmer's cows drank the polluted well water and died.<br /> <br /> If the farmer brings an action against the chemical company to recover the value of the cows that died, the farmer will",
 					"answerOptions": [
 						"prevail, because a manufacturer is strictly liable for harm caused by its products.",
 						"prevail, because the XRX escaped from the chemical company's premises.",
@@ -50,7 +50,7 @@
 			"description": "The call of the question wants you to find the answer that is NOT a substantial issue. Ultra-hazardous activities give rise to strict liability because the inherent danger or peculiar risk is unreasonably high when compared to its social utility, even in the absence of negligence and where all the proper precautions have been taken. Evidence of negligence, therefore, is not an issue in this situation. (Ref 174)",
 			"examples": [
 				{
-					"question": "As a result of an accident at the NPP nuclear power plant, a quantity of radioactive vapor escaped from the facility and two members of the public were exposed to excessive doses of radiation. According to qualified medical opinion, that exposure will double the chance that these two persons will ultimately develop cancer. However, any cancer that might be caused by this exposure will not be detectable for at least ten years. If the two exposed persons do develop cancer, it will not be possible to determine whether it was caused by this exposure or would have developed in any event.<br /> <br /> If the exposed persons assert a claim for damages against NPP shortly after the escape of the radiation, which of the following questions will NOT present a substantial issue?",
+					"question": "174. As a result of an accident at the NPP nuclear power plant, a quantity of radioactive vapor escaped from the facility and two members of the public were exposed to excessive doses of radiation. According to qualified medical opinion, that exposure will double the chance that these two persons will ultimately develop cancer. However, any cancer that might be caused by this exposure will not be detectable for at least ten years. If the two exposed persons do develop cancer, it will not be possible to determine whether it was caused by this exposure or would have developed in any event.<br /> <br /> If the exposed persons assert a claim for damages against NPP shortly after the escape of the radiation, which of the following questions will NOT present a substantial issue?",
 					"answerOptions": [
 						"Will the court recognize that the plaintiffs have suffered a present legal injury?",
 						"Can the plaintiffs prove the amount of their damages?",
@@ -68,7 +68,7 @@
 			"description": "Although the manufacture of explosives may be an abnormally dangerous activity, strict liability for injuries caused by such activities is limited to the kind of harm that makes the activity abnormally dangerous. This accident could have occurred when a roof tile fell from a building that housed a perfectly safe and ordinary activity. The owner may, however, be liable for negligence. (Ref 185)",
 			"examples": [
 				{
-					"question": "A manufacturing plant located near a busy highway uses and stores highly volatile explosives. The owner of the plant has imposed strict safety measures to prevent an explosion at the plant. During an unusually heavy windstorm, a large tile was blown off the roof of the plant and crashed into a passing car, damaging the hood and the windshield. The driver of the car brought a strict liability action against the owner of the plant to recover for the damage to the car. <br /> <br /> Is the driver likely to prevail?",
+					"question": "185. A manufacturing plant located near a busy highway uses and stores highly volatile explosives. The owner of the plant has imposed strict safety measures to prevent an explosion at the plant. During an unusually heavy windstorm, a large tile was blown off the roof of the plant and crashed into a passing car, damaging the hood and the windshield. The driver of the car brought a strict liability action against the owner of the plant to recover for the damage to the car. <br /> <br /> Is the driver likely to prevail?",
 					"answerOptions": [
 						"No, because the damage to the car did not result from the abnormally dangerous aspect of the plant's activity.",
 						"No, because the severity of the windstorm was unusual.",
@@ -77,6 +77,24 @@
 					],
 					"correct": 0,
 					"explanation": "Answer A is correct. Although the manufacture of explosives may be an abnormally dangerous activity, strict liability for injuries caused by such activities is limited to the kind of harm that makes the activity abnormally dangerous. This accident could have occurred when a roof tile fell from a building that housed a perfectly safe and ordinary activity. The owner may, however, be liable for negligence. Thus, Answer A is correct and Answer C is incorrect. <br /> <br /> Answer B is incorrect. This answer correctly concludes that the driver is not likely to prevail, but it misstates the reasoning for this conclusion. The fact that the windstorm was unusually severe may be relevant to a negligence claim, where the case would turn on whether the owner took reasonable precautions to prevent the accident, but it is not relevant to a claim of strict liability. The strict liability claim fails because the risk that materialized was not of the sort that makes the activity abnormally dangerous. <br /> <br /> Answer D is incorrect. Strict liability is based on the abnormally dangerous nature of the activity and is limited to the realization of the kind of harm that makes the activity abnormally dangerous. The inappropriateness of the activity to the place where it is carried on may be one factor in deciding whether the activity is abnormally dangerous, but it is not the only factor. In this case, strict liability would not be applicable even if the plant were located in a heavily traveled area, because the harm that occurred was not related to the dangerous nature of the plant's activity."
+				}
+			]
+		},
+		{
+			"key": "rule783",
+			"name": "Rule 783: Assumption of risk in case of strict liability. ",
+			"description": "If question talks about strict liability then answer is not based on negligence, if there is not statutory rule, then there is no liability (Ref 783)",
+			"examples": [
+				{
+					"question": "Q. 783. 24. Pablo was an internationally famous movie star. He flew all over the world to act in movies, appear at debuts, appear on talk shows and rub elbows with the rich and famous. He booked a flight on Agony Airlines to fly to an appearance in New York City. When he arrived at the airport he found out that he had been booked to a coach seat when his agent had expressly requested a first-class seat in the first three rows.<br /> <br />Pablo was reluctant to be seen in coach because it would hurt his image to be seen with common people. And he wanted to be in the first three rows of first-class because it gave him a buzz to see the looks he got from the coach passengers as they filed down the aisle past him to their decidedly inferior locations. He called his agent and had his agent negotiate with Agony to get him a first-class seat in the first three rows. His agent told him he was only able to get him a seat in row 5. Pablo reluctantly agreed because he really needed to get to New York to push his latest film, \"Escape from Arizona\".<br /> <br />After Pablo was seated the remaining passengers filed past him. One of them was Wesley Snipes, passenger 57.<br /> <br />There were no problems with the flight until it approached La Guardia. A mutant strain of killer geese had invaded Long Island Sound from Canada and there was a danger they might attack the plane's jet engines as they landed. For passenger safety the plane was diverted to JFK. As the plane landed an alarm went off indicating that one of the landing gear devices had malfunctioned and the plane might crash on landing. The plane circled until there was no choice but to land.<br /> <br />The captain told the passengers and crew about the problem and everyone was warned to assume the normal position for a crash landing. When the plane touched down the landing gear collapsed and several passengers in first-class were injured, but Snipes and the rest of the passengers in coach were not injured.<br /> <br />After the crash Agony Airlines admitted flying an airplane is an abnormally dangerous activity. Then it filed for bankruptcy.<br /> <br />If Pablo was injured, Agony admits airline travel is an abnormally dangerous activity, and there is no statutory provision governing his claim against Agony, Pablo will most likely:",
+					"answerOptions": [
+						"Be granted a judgment because the airline would be strictly liable.",
+						"Be granted a judgment because flying in an airplane is an abnormally dangerous activity.",
+						"Not be granted a judgment unless the airline was negligent.",
+						"Not recover because he voluntarily assumed the risks of air travel."
+					],
+					"correct": 3,
+					"explanation": "(D) The lesson to be learned here is that multiple-choice exams may present single questions based on exceedingly long fact patterns. These use up a lot of your time, yet you can only score \"one point\" if you get it right. So if you are running behind on time or even running out of time mark these long questions with a big \"X\" and simply select one of the possible answers at random. You have a 25% chance of getting the answer right anyway. And there is no penalty for wrong answers. Then if you have some extra time after you have completed the rest of the exam come back to these few questions and reconsider them. The same strategy can be used when you are stumped between two possible answers for a question. Simply mark the question (e.g. if you can't decide between (A) and (B) mark it \"A-B???\"), select one of the possible answers on the answer sheet, and move on! DO NOT WASTE TIME AGONIZING OVER A DECISION BETWEEN TWO POSSIBLE ANSWERS. Here (C) is wrong because the defendant admits it was engaged in an abnormally dangerous activity. That means strict liability applies, Pablo only has to prove causality and damages, and he does not have to prove \"negligence\". (A) and (B) are wrong because they assume the airline will be liable simply because strict liability applies. (D) is correct because the only affirmative defense in a strict liability situation is assumption of the risks and one of the (obvious) risks of air travel is that the plane might crash. Pablo voluntarily assumed that risk when he got on the plane. [See \"Simple Torts Outline\", defenses to strict liability causes of action, p. 23.]"
 				}
 			]
 		}

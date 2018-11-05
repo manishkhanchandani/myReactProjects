@@ -8,8 +8,7 @@ class Results extends Component {
 	render() {
 		if (!this.props.record) {
 			return null;	
-		}
-		
+		}	
 		var distance = '';
 		if (this.props.record.distance) {
 			distance = 	(<span> (<strong>{this.props.record.distance} mi.</strong>)</span>);
@@ -20,7 +19,7 @@ class Results extends Component {
 			myLink = '/chat/' + this.props.record.user_id;
 		}
 		
-		var image = 'http://howmadareyou.com/wp-content/themes/MAD/images/default_profile_image.png';
+		var image = '/img/default_profile_image.png';
 		if (this.props.record.imageUrl) {
 			image = this.props.record.imageUrl;	
 		}

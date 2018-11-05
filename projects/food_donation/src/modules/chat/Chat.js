@@ -10,6 +10,7 @@ import {dynamicSort} from '../../utilities/functions.js';
 
 import ChatUsers from './ChatUsers.js';
 import Messages from './Messages.js';
+import NoPageFound from '../../components/NoPageFound.js';
 
 class Chat extends Component {
 	
@@ -150,6 +151,11 @@ class Chat extends Component {
 	}
 	
 	render() {		
+		var userObjStr = localStorage.getItem('userObj');
+		var userObj = JSON.parse(userObjStr);
+		if (!userObj) {
+			return (<NoPageFound />);	
+		}
 		return (
 			<div className="container">
 				<div className="row">
